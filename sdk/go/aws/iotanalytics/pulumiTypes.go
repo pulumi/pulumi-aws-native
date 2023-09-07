@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i ChannelCustomerManagedS3Args) ToChannelCustomerManagedS3Output() Channel
 
 func (i ChannelCustomerManagedS3Args) ToChannelCustomerManagedS3OutputWithContext(ctx context.Context) ChannelCustomerManagedS3Output {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCustomerManagedS3Output)
+}
+
+func (i ChannelCustomerManagedS3Args) ToOutput(ctx context.Context) pulumix.Output[ChannelCustomerManagedS3] {
+	return pulumix.Output[ChannelCustomerManagedS3]{
+		OutputState: i.ToChannelCustomerManagedS3OutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ChannelCustomerManagedS3Args) ToChannelCustomerManagedS3PtrOutput() ChannelCustomerManagedS3PtrOutput {
@@ -89,6 +96,12 @@ func (i *channelCustomerManagedS3PtrType) ToChannelCustomerManagedS3PtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCustomerManagedS3PtrOutput)
 }
 
+func (i *channelCustomerManagedS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelCustomerManagedS3] {
+	return pulumix.Output[*ChannelCustomerManagedS3]{
+		OutputState: i.ToChannelCustomerManagedS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelCustomerManagedS3Output struct{ *pulumi.OutputState }
 
 func (ChannelCustomerManagedS3Output) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o ChannelCustomerManagedS3Output) ToChannelCustomerManagedS3PtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelCustomerManagedS3) *ChannelCustomerManagedS3 {
 		return &v
 	}).(ChannelCustomerManagedS3PtrOutput)
+}
+
+func (o ChannelCustomerManagedS3Output) ToOutput(ctx context.Context) pulumix.Output[ChannelCustomerManagedS3] {
+	return pulumix.Output[ChannelCustomerManagedS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelCustomerManagedS3Output) Bucket() pulumi.StringOutput {
@@ -137,6 +156,12 @@ func (o ChannelCustomerManagedS3PtrOutput) ToChannelCustomerManagedS3PtrOutput()
 
 func (o ChannelCustomerManagedS3PtrOutput) ToChannelCustomerManagedS3PtrOutputWithContext(ctx context.Context) ChannelCustomerManagedS3PtrOutput {
 	return o
+}
+
+func (o ChannelCustomerManagedS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelCustomerManagedS3] {
+	return pulumix.Output[*ChannelCustomerManagedS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelCustomerManagedS3PtrOutput) Elem() ChannelCustomerManagedS3Output {
@@ -209,6 +234,12 @@ func (i ChannelRetentionPeriodArgs) ToChannelRetentionPeriodOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRetentionPeriodOutput)
 }
 
+func (i ChannelRetentionPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelRetentionPeriod] {
+	return pulumix.Output[ChannelRetentionPeriod]{
+		OutputState: i.ToChannelRetentionPeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ChannelRetentionPeriodArgs) ToChannelRetentionPeriodPtrOutput() ChannelRetentionPeriodPtrOutput {
 	return i.ToChannelRetentionPeriodPtrOutputWithContext(context.Background())
 }
@@ -250,6 +281,12 @@ func (i *channelRetentionPeriodPtrType) ToChannelRetentionPeriodPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRetentionPeriodPtrOutput)
 }
 
+func (i *channelRetentionPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelRetentionPeriod] {
+	return pulumix.Output[*ChannelRetentionPeriod]{
+		OutputState: i.ToChannelRetentionPeriodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelRetentionPeriodOutput struct{ *pulumi.OutputState }
 
 func (ChannelRetentionPeriodOutput) ElementType() reflect.Type {
@@ -274,6 +311,12 @@ func (o ChannelRetentionPeriodOutput) ToChannelRetentionPeriodPtrOutputWithConte
 	}).(ChannelRetentionPeriodPtrOutput)
 }
 
+func (o ChannelRetentionPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelRetentionPeriod] {
+	return pulumix.Output[ChannelRetentionPeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelRetentionPeriodOutput) NumberOfDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelRetentionPeriod) *int { return v.NumberOfDays }).(pulumi.IntPtrOutput)
 }
@@ -294,6 +337,12 @@ func (o ChannelRetentionPeriodPtrOutput) ToChannelRetentionPeriodPtrOutput() Cha
 
 func (o ChannelRetentionPeriodPtrOutput) ToChannelRetentionPeriodPtrOutputWithContext(ctx context.Context) ChannelRetentionPeriodPtrOutput {
 	return o
+}
+
+func (o ChannelRetentionPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelRetentionPeriod] {
+	return pulumix.Output[*ChannelRetentionPeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelRetentionPeriodPtrOutput) Elem() ChannelRetentionPeriodOutput {
@@ -353,6 +402,12 @@ func (i ChannelServiceManagedS3Args) ToChannelServiceManagedS3OutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelServiceManagedS3Output)
 }
 
+func (i ChannelServiceManagedS3Args) ToOutput(ctx context.Context) pulumix.Output[ChannelServiceManagedS3] {
+	return pulumix.Output[ChannelServiceManagedS3]{
+		OutputState: i.ToChannelServiceManagedS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ChannelServiceManagedS3Args) ToChannelServiceManagedS3PtrOutput() ChannelServiceManagedS3PtrOutput {
 	return i.ToChannelServiceManagedS3PtrOutputWithContext(context.Background())
 }
@@ -394,6 +449,12 @@ func (i *channelServiceManagedS3PtrType) ToChannelServiceManagedS3PtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelServiceManagedS3PtrOutput)
 }
 
+func (i *channelServiceManagedS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelServiceManagedS3] {
+	return pulumix.Output[*ChannelServiceManagedS3]{
+		OutputState: i.ToChannelServiceManagedS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelServiceManagedS3Output struct{ *pulumi.OutputState }
 
 func (ChannelServiceManagedS3Output) ElementType() reflect.Type {
@@ -418,6 +479,12 @@ func (o ChannelServiceManagedS3Output) ToChannelServiceManagedS3PtrOutputWithCon
 	}).(ChannelServiceManagedS3PtrOutput)
 }
 
+func (o ChannelServiceManagedS3Output) ToOutput(ctx context.Context) pulumix.Output[ChannelServiceManagedS3] {
+	return pulumix.Output[ChannelServiceManagedS3]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ChannelServiceManagedS3PtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelServiceManagedS3PtrOutput) ElementType() reflect.Type {
@@ -430,6 +497,12 @@ func (o ChannelServiceManagedS3PtrOutput) ToChannelServiceManagedS3PtrOutput() C
 
 func (o ChannelServiceManagedS3PtrOutput) ToChannelServiceManagedS3PtrOutputWithContext(ctx context.Context) ChannelServiceManagedS3PtrOutput {
 	return o
+}
+
+func (o ChannelServiceManagedS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelServiceManagedS3] {
+	return pulumix.Output[*ChannelServiceManagedS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelServiceManagedS3PtrOutput) Elem() ChannelServiceManagedS3Output {
@@ -475,6 +548,12 @@ func (i ChannelStorageArgs) ToChannelStorageOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelStorageOutput)
 }
 
+func (i ChannelStorageArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelStorage] {
+	return pulumix.Output[ChannelStorage]{
+		OutputState: i.ToChannelStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ChannelStorageArgs) ToChannelStoragePtrOutput() ChannelStoragePtrOutput {
 	return i.ToChannelStoragePtrOutputWithContext(context.Background())
 }
@@ -516,6 +595,12 @@ func (i *channelStoragePtrType) ToChannelStoragePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelStoragePtrOutput)
 }
 
+func (i *channelStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelStorage] {
+	return pulumix.Output[*ChannelStorage]{
+		OutputState: i.ToChannelStoragePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelStorageOutput struct{ *pulumi.OutputState }
 
 func (ChannelStorageOutput) ElementType() reflect.Type {
@@ -540,6 +625,12 @@ func (o ChannelStorageOutput) ToChannelStoragePtrOutputWithContext(ctx context.C
 	}).(ChannelStoragePtrOutput)
 }
 
+func (o ChannelStorageOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelStorage] {
+	return pulumix.Output[ChannelStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelStorageOutput) CustomerManagedS3() ChannelCustomerManagedS3PtrOutput {
 	return o.ApplyT(func(v ChannelStorage) *ChannelCustomerManagedS3 { return v.CustomerManagedS3 }).(ChannelCustomerManagedS3PtrOutput)
 }
@@ -560,6 +651,12 @@ func (o ChannelStoragePtrOutput) ToChannelStoragePtrOutput() ChannelStoragePtrOu
 
 func (o ChannelStoragePtrOutput) ToChannelStoragePtrOutputWithContext(ctx context.Context) ChannelStoragePtrOutput {
 	return o
+}
+
+func (o ChannelStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelStorage] {
+	return pulumix.Output[*ChannelStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelStoragePtrOutput) Elem() ChannelStorageOutput {
@@ -623,6 +720,12 @@ func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) Chann
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
 }
 
+func (i ChannelTagArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTag] {
+	return pulumix.Output[ChannelTag]{
+		OutputState: i.ToChannelTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
 // You can construct a concrete instance of `ChannelTagArrayInput` via:
 //
@@ -648,6 +751,12 @@ func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
 }
 
+func (i ChannelTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelTag] {
+	return pulumix.Output[[]ChannelTag]{
+		OutputState: i.ToChannelTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelTagOutput struct{ *pulumi.OutputState }
 
 func (ChannelTagOutput) ElementType() reflect.Type {
@@ -660,6 +769,12 @@ func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
 
 func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
 	return o
+}
+
+func (o ChannelTagOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTag] {
+	return pulumix.Output[ChannelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelTagOutput) Key() pulumi.StringOutput {
@@ -682,6 +797,12 @@ func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
 
 func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
 	return o
+}
+
+func (o ChannelTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelTag] {
+	return pulumix.Output[[]ChannelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
@@ -725,6 +846,12 @@ func (i DatasetActionArgs) ToDatasetActionOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetActionOutput)
 }
 
+func (i DatasetActionArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetAction] {
+	return pulumix.Output[DatasetAction]{
+		OutputState: i.ToDatasetActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetActionArrayInput is an input type that accepts DatasetActionArray and DatasetActionArrayOutput values.
 // You can construct a concrete instance of `DatasetActionArrayInput` via:
 //
@@ -750,6 +877,12 @@ func (i DatasetActionArray) ToDatasetActionArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetActionArrayOutput)
 }
 
+func (i DatasetActionArray) ToOutput(ctx context.Context) pulumix.Output[[]DatasetAction] {
+	return pulumix.Output[[]DatasetAction]{
+		OutputState: i.ToDatasetActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetActionOutput struct{ *pulumi.OutputState }
 
 func (DatasetActionOutput) ElementType() reflect.Type {
@@ -762,6 +895,12 @@ func (o DatasetActionOutput) ToDatasetActionOutput() DatasetActionOutput {
 
 func (o DatasetActionOutput) ToDatasetActionOutputWithContext(ctx context.Context) DatasetActionOutput {
 	return o
+}
+
+func (o DatasetActionOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetAction] {
+	return pulumix.Output[DatasetAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetActionOutput) ActionName() pulumi.StringOutput {
@@ -788,6 +927,12 @@ func (o DatasetActionArrayOutput) ToDatasetActionArrayOutput() DatasetActionArra
 
 func (o DatasetActionArrayOutput) ToDatasetActionArrayOutputWithContext(ctx context.Context) DatasetActionArrayOutput {
 	return o
+}
+
+func (o DatasetActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatasetAction] {
+	return pulumix.Output[[]DatasetAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetActionArrayOutput) Index(i pulumi.IntInput) DatasetActionOutput {
@@ -833,6 +978,12 @@ func (i DatasetContainerActionArgs) ToDatasetContainerActionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetContainerActionOutput)
 }
 
+func (i DatasetContainerActionArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetContainerAction] {
+	return pulumix.Output[DatasetContainerAction]{
+		OutputState: i.ToDatasetContainerActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetContainerActionArgs) ToDatasetContainerActionPtrOutput() DatasetContainerActionPtrOutput {
 	return i.ToDatasetContainerActionPtrOutputWithContext(context.Background())
 }
@@ -874,6 +1025,12 @@ func (i *datasetContainerActionPtrType) ToDatasetContainerActionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetContainerActionPtrOutput)
 }
 
+func (i *datasetContainerActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetContainerAction] {
+	return pulumix.Output[*DatasetContainerAction]{
+		OutputState: i.ToDatasetContainerActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetContainerActionOutput struct{ *pulumi.OutputState }
 
 func (DatasetContainerActionOutput) ElementType() reflect.Type {
@@ -896,6 +1053,12 @@ func (o DatasetContainerActionOutput) ToDatasetContainerActionPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetContainerAction) *DatasetContainerAction {
 		return &v
 	}).(DatasetContainerActionPtrOutput)
+}
+
+func (o DatasetContainerActionOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetContainerAction] {
+	return pulumix.Output[DatasetContainerAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetContainerActionOutput) ExecutionRoleArn() pulumi.StringOutput {
@@ -926,6 +1089,12 @@ func (o DatasetContainerActionPtrOutput) ToDatasetContainerActionPtrOutput() Dat
 
 func (o DatasetContainerActionPtrOutput) ToDatasetContainerActionPtrOutputWithContext(ctx context.Context) DatasetContainerActionPtrOutput {
 	return o
+}
+
+func (o DatasetContainerActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetContainerAction] {
+	return pulumix.Output[*DatasetContainerAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetContainerActionPtrOutput) Elem() DatasetContainerActionOutput {
@@ -1007,6 +1176,12 @@ func (i DatasetContentDeliveryRuleArgs) ToDatasetContentDeliveryRuleOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetContentDeliveryRuleOutput)
 }
 
+func (i DatasetContentDeliveryRuleArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetContentDeliveryRule] {
+	return pulumix.Output[DatasetContentDeliveryRule]{
+		OutputState: i.ToDatasetContentDeliveryRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetContentDeliveryRuleArrayInput is an input type that accepts DatasetContentDeliveryRuleArray and DatasetContentDeliveryRuleArrayOutput values.
 // You can construct a concrete instance of `DatasetContentDeliveryRuleArrayInput` via:
 //
@@ -1032,6 +1207,12 @@ func (i DatasetContentDeliveryRuleArray) ToDatasetContentDeliveryRuleArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetContentDeliveryRuleArrayOutput)
 }
 
+func (i DatasetContentDeliveryRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]DatasetContentDeliveryRule] {
+	return pulumix.Output[[]DatasetContentDeliveryRule]{
+		OutputState: i.ToDatasetContentDeliveryRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetContentDeliveryRuleOutput struct{ *pulumi.OutputState }
 
 func (DatasetContentDeliveryRuleOutput) ElementType() reflect.Type {
@@ -1044,6 +1225,12 @@ func (o DatasetContentDeliveryRuleOutput) ToDatasetContentDeliveryRuleOutput() D
 
 func (o DatasetContentDeliveryRuleOutput) ToDatasetContentDeliveryRuleOutputWithContext(ctx context.Context) DatasetContentDeliveryRuleOutput {
 	return o
+}
+
+func (o DatasetContentDeliveryRuleOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetContentDeliveryRule] {
+	return pulumix.Output[DatasetContentDeliveryRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetContentDeliveryRuleOutput) Destination() DatasetContentDeliveryRuleDestinationOutput {
@@ -1066,6 +1253,12 @@ func (o DatasetContentDeliveryRuleArrayOutput) ToDatasetContentDeliveryRuleArray
 
 func (o DatasetContentDeliveryRuleArrayOutput) ToDatasetContentDeliveryRuleArrayOutputWithContext(ctx context.Context) DatasetContentDeliveryRuleArrayOutput {
 	return o
+}
+
+func (o DatasetContentDeliveryRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatasetContentDeliveryRule] {
+	return pulumix.Output[[]DatasetContentDeliveryRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetContentDeliveryRuleArrayOutput) Index(i pulumi.IntInput) DatasetContentDeliveryRuleOutput {
@@ -1107,6 +1300,12 @@ func (i DatasetContentDeliveryRuleDestinationArgs) ToDatasetContentDeliveryRuleD
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetContentDeliveryRuleDestinationOutput)
 }
 
+func (i DatasetContentDeliveryRuleDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetContentDeliveryRuleDestination] {
+	return pulumix.Output[DatasetContentDeliveryRuleDestination]{
+		OutputState: i.ToDatasetContentDeliveryRuleDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetContentDeliveryRuleDestinationOutput struct{ *pulumi.OutputState }
 
 func (DatasetContentDeliveryRuleDestinationOutput) ElementType() reflect.Type {
@@ -1119,6 +1318,12 @@ func (o DatasetContentDeliveryRuleDestinationOutput) ToDatasetContentDeliveryRul
 
 func (o DatasetContentDeliveryRuleDestinationOutput) ToDatasetContentDeliveryRuleDestinationOutputWithContext(ctx context.Context) DatasetContentDeliveryRuleDestinationOutput {
 	return o
+}
+
+func (o DatasetContentDeliveryRuleDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetContentDeliveryRuleDestination] {
+	return pulumix.Output[DatasetContentDeliveryRuleDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetContentDeliveryRuleDestinationOutput) IotEventsDestinationConfiguration() DatasetIotEventsDestinationConfigurationPtrOutput {
@@ -1164,6 +1369,12 @@ func (i DatasetContentVersionValueArgs) ToDatasetContentVersionValueOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetContentVersionValueOutput)
 }
 
+func (i DatasetContentVersionValueArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetContentVersionValue] {
+	return pulumix.Output[DatasetContentVersionValue]{
+		OutputState: i.ToDatasetContentVersionValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetContentVersionValueArgs) ToDatasetContentVersionValuePtrOutput() DatasetContentVersionValuePtrOutput {
 	return i.ToDatasetContentVersionValuePtrOutputWithContext(context.Background())
 }
@@ -1205,6 +1416,12 @@ func (i *datasetContentVersionValuePtrType) ToDatasetContentVersionValuePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetContentVersionValuePtrOutput)
 }
 
+func (i *datasetContentVersionValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetContentVersionValue] {
+	return pulumix.Output[*DatasetContentVersionValue]{
+		OutputState: i.ToDatasetContentVersionValuePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetContentVersionValueOutput struct{ *pulumi.OutputState }
 
 func (DatasetContentVersionValueOutput) ElementType() reflect.Type {
@@ -1229,6 +1446,12 @@ func (o DatasetContentVersionValueOutput) ToDatasetContentVersionValuePtrOutputW
 	}).(DatasetContentVersionValuePtrOutput)
 }
 
+func (o DatasetContentVersionValueOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetContentVersionValue] {
+	return pulumix.Output[DatasetContentVersionValue]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetContentVersionValueOutput) DatasetName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetContentVersionValue) string { return v.DatasetName }).(pulumi.StringOutput)
 }
@@ -1245,6 +1468,12 @@ func (o DatasetContentVersionValuePtrOutput) ToDatasetContentVersionValuePtrOutp
 
 func (o DatasetContentVersionValuePtrOutput) ToDatasetContentVersionValuePtrOutputWithContext(ctx context.Context) DatasetContentVersionValuePtrOutput {
 	return o
+}
+
+func (o DatasetContentVersionValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetContentVersionValue] {
+	return pulumix.Output[*DatasetContentVersionValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetContentVersionValuePtrOutput) Elem() DatasetContentVersionValueOutput {
@@ -1299,6 +1528,12 @@ func (i DatasetDeltaTimeArgs) ToDatasetDeltaTimeOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDeltaTimeOutput)
 }
 
+func (i DatasetDeltaTimeArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetDeltaTime] {
+	return pulumix.Output[DatasetDeltaTime]{
+		OutputState: i.ToDatasetDeltaTimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetDeltaTimeArgs) ToDatasetDeltaTimePtrOutput() DatasetDeltaTimePtrOutput {
 	return i.ToDatasetDeltaTimePtrOutputWithContext(context.Background())
 }
@@ -1340,6 +1575,12 @@ func (i *datasetDeltaTimePtrType) ToDatasetDeltaTimePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDeltaTimePtrOutput)
 }
 
+func (i *datasetDeltaTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetDeltaTime] {
+	return pulumix.Output[*DatasetDeltaTime]{
+		OutputState: i.ToDatasetDeltaTimePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetDeltaTimeOutput struct{ *pulumi.OutputState }
 
 func (DatasetDeltaTimeOutput) ElementType() reflect.Type {
@@ -1364,6 +1605,12 @@ func (o DatasetDeltaTimeOutput) ToDatasetDeltaTimePtrOutputWithContext(ctx conte
 	}).(DatasetDeltaTimePtrOutput)
 }
 
+func (o DatasetDeltaTimeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetDeltaTime] {
+	return pulumix.Output[DatasetDeltaTime]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetDeltaTimeOutput) OffsetSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v DatasetDeltaTime) int { return v.OffsetSeconds }).(pulumi.IntOutput)
 }
@@ -1384,6 +1631,12 @@ func (o DatasetDeltaTimePtrOutput) ToDatasetDeltaTimePtrOutput() DatasetDeltaTim
 
 func (o DatasetDeltaTimePtrOutput) ToDatasetDeltaTimePtrOutputWithContext(ctx context.Context) DatasetDeltaTimePtrOutput {
 	return o
+}
+
+func (o DatasetDeltaTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetDeltaTime] {
+	return pulumix.Output[*DatasetDeltaTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetDeltaTimePtrOutput) Elem() DatasetDeltaTimeOutput {
@@ -1445,6 +1698,12 @@ func (i DatasetDeltaTimeSessionWindowConfigurationArgs) ToDatasetDeltaTimeSessio
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDeltaTimeSessionWindowConfigurationOutput)
 }
 
+func (i DatasetDeltaTimeSessionWindowConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetDeltaTimeSessionWindowConfiguration] {
+	return pulumix.Output[DatasetDeltaTimeSessionWindowConfiguration]{
+		OutputState: i.ToDatasetDeltaTimeSessionWindowConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetDeltaTimeSessionWindowConfigurationArgs) ToDatasetDeltaTimeSessionWindowConfigurationPtrOutput() DatasetDeltaTimeSessionWindowConfigurationPtrOutput {
 	return i.ToDatasetDeltaTimeSessionWindowConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1486,6 +1745,12 @@ func (i *datasetDeltaTimeSessionWindowConfigurationPtrType) ToDatasetDeltaTimeSe
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDeltaTimeSessionWindowConfigurationPtrOutput)
 }
 
+func (i *datasetDeltaTimeSessionWindowConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetDeltaTimeSessionWindowConfiguration] {
+	return pulumix.Output[*DatasetDeltaTimeSessionWindowConfiguration]{
+		OutputState: i.ToDatasetDeltaTimeSessionWindowConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetDeltaTimeSessionWindowConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatasetDeltaTimeSessionWindowConfigurationOutput) ElementType() reflect.Type {
@@ -1510,6 +1775,12 @@ func (o DatasetDeltaTimeSessionWindowConfigurationOutput) ToDatasetDeltaTimeSess
 	}).(DatasetDeltaTimeSessionWindowConfigurationPtrOutput)
 }
 
+func (o DatasetDeltaTimeSessionWindowConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetDeltaTimeSessionWindowConfiguration] {
+	return pulumix.Output[DatasetDeltaTimeSessionWindowConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetDeltaTimeSessionWindowConfigurationOutput) TimeoutInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v DatasetDeltaTimeSessionWindowConfiguration) int { return v.TimeoutInMinutes }).(pulumi.IntOutput)
 }
@@ -1526,6 +1797,12 @@ func (o DatasetDeltaTimeSessionWindowConfigurationPtrOutput) ToDatasetDeltaTimeS
 
 func (o DatasetDeltaTimeSessionWindowConfigurationPtrOutput) ToDatasetDeltaTimeSessionWindowConfigurationPtrOutputWithContext(ctx context.Context) DatasetDeltaTimeSessionWindowConfigurationPtrOutput {
 	return o
+}
+
+func (o DatasetDeltaTimeSessionWindowConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetDeltaTimeSessionWindowConfiguration] {
+	return pulumix.Output[*DatasetDeltaTimeSessionWindowConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetDeltaTimeSessionWindowConfigurationPtrOutput) Elem() DatasetDeltaTimeSessionWindowConfigurationOutput {
@@ -1578,6 +1855,12 @@ func (i DatasetFilterArgs) ToDatasetFilterOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilterOutput)
 }
 
+func (i DatasetFilterArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetFilter] {
+	return pulumix.Output[DatasetFilter]{
+		OutputState: i.ToDatasetFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetFilterArrayInput is an input type that accepts DatasetFilterArray and DatasetFilterArrayOutput values.
 // You can construct a concrete instance of `DatasetFilterArrayInput` via:
 //
@@ -1603,6 +1886,12 @@ func (i DatasetFilterArray) ToDatasetFilterArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilterArrayOutput)
 }
 
+func (i DatasetFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]DatasetFilter] {
+	return pulumix.Output[[]DatasetFilter]{
+		OutputState: i.ToDatasetFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetFilterOutput struct{ *pulumi.OutputState }
 
 func (DatasetFilterOutput) ElementType() reflect.Type {
@@ -1615,6 +1904,12 @@ func (o DatasetFilterOutput) ToDatasetFilterOutput() DatasetFilterOutput {
 
 func (o DatasetFilterOutput) ToDatasetFilterOutputWithContext(ctx context.Context) DatasetFilterOutput {
 	return o
+}
+
+func (o DatasetFilterOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetFilter] {
+	return pulumix.Output[DatasetFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetFilterOutput) DeltaTime() DatasetDeltaTimePtrOutput {
@@ -1633,6 +1928,12 @@ func (o DatasetFilterArrayOutput) ToDatasetFilterArrayOutput() DatasetFilterArra
 
 func (o DatasetFilterArrayOutput) ToDatasetFilterArrayOutputWithContext(ctx context.Context) DatasetFilterArrayOutput {
 	return o
+}
+
+func (o DatasetFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatasetFilter] {
+	return pulumix.Output[[]DatasetFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetFilterArrayOutput) Index(i pulumi.IntInput) DatasetFilterOutput {
@@ -1672,6 +1973,12 @@ func (i DatasetGlueConfigurationArgs) ToDatasetGlueConfigurationOutput() Dataset
 
 func (i DatasetGlueConfigurationArgs) ToDatasetGlueConfigurationOutputWithContext(ctx context.Context) DatasetGlueConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetGlueConfigurationOutput)
+}
+
+func (i DatasetGlueConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetGlueConfiguration] {
+	return pulumix.Output[DatasetGlueConfiguration]{
+		OutputState: i.ToDatasetGlueConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DatasetGlueConfigurationArgs) ToDatasetGlueConfigurationPtrOutput() DatasetGlueConfigurationPtrOutput {
@@ -1715,6 +2022,12 @@ func (i *datasetGlueConfigurationPtrType) ToDatasetGlueConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetGlueConfigurationPtrOutput)
 }
 
+func (i *datasetGlueConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetGlueConfiguration] {
+	return pulumix.Output[*DatasetGlueConfiguration]{
+		OutputState: i.ToDatasetGlueConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetGlueConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatasetGlueConfigurationOutput) ElementType() reflect.Type {
@@ -1739,6 +2052,12 @@ func (o DatasetGlueConfigurationOutput) ToDatasetGlueConfigurationPtrOutputWithC
 	}).(DatasetGlueConfigurationPtrOutput)
 }
 
+func (o DatasetGlueConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetGlueConfiguration] {
+	return pulumix.Output[DatasetGlueConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetGlueConfigurationOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetGlueConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -1759,6 +2078,12 @@ func (o DatasetGlueConfigurationPtrOutput) ToDatasetGlueConfigurationPtrOutput()
 
 func (o DatasetGlueConfigurationPtrOutput) ToDatasetGlueConfigurationPtrOutputWithContext(ctx context.Context) DatasetGlueConfigurationPtrOutput {
 	return o
+}
+
+func (o DatasetGlueConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetGlueConfiguration] {
+	return pulumix.Output[*DatasetGlueConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetGlueConfigurationPtrOutput) Elem() DatasetGlueConfigurationOutput {
@@ -1822,6 +2147,12 @@ func (i DatasetIotEventsDestinationConfigurationArgs) ToDatasetIotEventsDestinat
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetIotEventsDestinationConfigurationOutput)
 }
 
+func (i DatasetIotEventsDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetIotEventsDestinationConfiguration] {
+	return pulumix.Output[DatasetIotEventsDestinationConfiguration]{
+		OutputState: i.ToDatasetIotEventsDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetIotEventsDestinationConfigurationArgs) ToDatasetIotEventsDestinationConfigurationPtrOutput() DatasetIotEventsDestinationConfigurationPtrOutput {
 	return i.ToDatasetIotEventsDestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1863,6 +2194,12 @@ func (i *datasetIotEventsDestinationConfigurationPtrType) ToDatasetIotEventsDest
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetIotEventsDestinationConfigurationPtrOutput)
 }
 
+func (i *datasetIotEventsDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetIotEventsDestinationConfiguration] {
+	return pulumix.Output[*DatasetIotEventsDestinationConfiguration]{
+		OutputState: i.ToDatasetIotEventsDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetIotEventsDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatasetIotEventsDestinationConfigurationOutput) ElementType() reflect.Type {
@@ -1887,6 +2224,12 @@ func (o DatasetIotEventsDestinationConfigurationOutput) ToDatasetIotEventsDestin
 	}).(DatasetIotEventsDestinationConfigurationPtrOutput)
 }
 
+func (o DatasetIotEventsDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetIotEventsDestinationConfiguration] {
+	return pulumix.Output[DatasetIotEventsDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetIotEventsDestinationConfigurationOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetIotEventsDestinationConfiguration) string { return v.InputName }).(pulumi.StringOutput)
 }
@@ -1907,6 +2250,12 @@ func (o DatasetIotEventsDestinationConfigurationPtrOutput) ToDatasetIotEventsDes
 
 func (o DatasetIotEventsDestinationConfigurationPtrOutput) ToDatasetIotEventsDestinationConfigurationPtrOutputWithContext(ctx context.Context) DatasetIotEventsDestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o DatasetIotEventsDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetIotEventsDestinationConfiguration] {
+	return pulumix.Output[*DatasetIotEventsDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetIotEventsDestinationConfigurationPtrOutput) Elem() DatasetIotEventsDestinationConfigurationOutput {
@@ -1970,6 +2319,12 @@ func (i DatasetLateDataRuleArgs) ToDatasetLateDataRuleOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetLateDataRuleOutput)
 }
 
+func (i DatasetLateDataRuleArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetLateDataRule] {
+	return pulumix.Output[DatasetLateDataRule]{
+		OutputState: i.ToDatasetLateDataRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetLateDataRuleArrayInput is an input type that accepts DatasetLateDataRuleArray and DatasetLateDataRuleArrayOutput values.
 // You can construct a concrete instance of `DatasetLateDataRuleArrayInput` via:
 //
@@ -1995,6 +2350,12 @@ func (i DatasetLateDataRuleArray) ToDatasetLateDataRuleArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetLateDataRuleArrayOutput)
 }
 
+func (i DatasetLateDataRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]DatasetLateDataRule] {
+	return pulumix.Output[[]DatasetLateDataRule]{
+		OutputState: i.ToDatasetLateDataRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetLateDataRuleOutput struct{ *pulumi.OutputState }
 
 func (DatasetLateDataRuleOutput) ElementType() reflect.Type {
@@ -2007,6 +2368,12 @@ func (o DatasetLateDataRuleOutput) ToDatasetLateDataRuleOutput() DatasetLateData
 
 func (o DatasetLateDataRuleOutput) ToDatasetLateDataRuleOutputWithContext(ctx context.Context) DatasetLateDataRuleOutput {
 	return o
+}
+
+func (o DatasetLateDataRuleOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetLateDataRule] {
+	return pulumix.Output[DatasetLateDataRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetLateDataRuleOutput) RuleConfiguration() DatasetLateDataRuleConfigurationOutput {
@@ -2029,6 +2396,12 @@ func (o DatasetLateDataRuleArrayOutput) ToDatasetLateDataRuleArrayOutput() Datas
 
 func (o DatasetLateDataRuleArrayOutput) ToDatasetLateDataRuleArrayOutputWithContext(ctx context.Context) DatasetLateDataRuleArrayOutput {
 	return o
+}
+
+func (o DatasetLateDataRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatasetLateDataRule] {
+	return pulumix.Output[[]DatasetLateDataRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetLateDataRuleArrayOutput) Index(i pulumi.IntInput) DatasetLateDataRuleOutput {
@@ -2068,6 +2441,12 @@ func (i DatasetLateDataRuleConfigurationArgs) ToDatasetLateDataRuleConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetLateDataRuleConfigurationOutput)
 }
 
+func (i DatasetLateDataRuleConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetLateDataRuleConfiguration] {
+	return pulumix.Output[DatasetLateDataRuleConfiguration]{
+		OutputState: i.ToDatasetLateDataRuleConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetLateDataRuleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatasetLateDataRuleConfigurationOutput) ElementType() reflect.Type {
@@ -2080,6 +2459,12 @@ func (o DatasetLateDataRuleConfigurationOutput) ToDatasetLateDataRuleConfigurati
 
 func (o DatasetLateDataRuleConfigurationOutput) ToDatasetLateDataRuleConfigurationOutputWithContext(ctx context.Context) DatasetLateDataRuleConfigurationOutput {
 	return o
+}
+
+func (o DatasetLateDataRuleConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetLateDataRuleConfiguration] {
+	return pulumix.Output[DatasetLateDataRuleConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetLateDataRuleConfigurationOutput) DeltaTimeSessionWindowConfiguration() DatasetDeltaTimeSessionWindowConfigurationPtrOutput {
@@ -2117,6 +2502,12 @@ func (i DatasetOutputFileUriValueArgs) ToDatasetOutputFileUriValueOutput() Datas
 
 func (i DatasetOutputFileUriValueArgs) ToDatasetOutputFileUriValueOutputWithContext(ctx context.Context) DatasetOutputFileUriValueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetOutputFileUriValueOutput)
+}
+
+func (i DatasetOutputFileUriValueArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetOutputFileUriValue] {
+	return pulumix.Output[DatasetOutputFileUriValue]{
+		OutputState: i.ToDatasetOutputFileUriValueOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DatasetOutputFileUriValueArgs) ToDatasetOutputFileUriValuePtrOutput() DatasetOutputFileUriValuePtrOutput {
@@ -2160,6 +2551,12 @@ func (i *datasetOutputFileUriValuePtrType) ToDatasetOutputFileUriValuePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetOutputFileUriValuePtrOutput)
 }
 
+func (i *datasetOutputFileUriValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetOutputFileUriValue] {
+	return pulumix.Output[*DatasetOutputFileUriValue]{
+		OutputState: i.ToDatasetOutputFileUriValuePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetOutputFileUriValueOutput struct{ *pulumi.OutputState }
 
 func (DatasetOutputFileUriValueOutput) ElementType() reflect.Type {
@@ -2184,6 +2581,12 @@ func (o DatasetOutputFileUriValueOutput) ToDatasetOutputFileUriValuePtrOutputWit
 	}).(DatasetOutputFileUriValuePtrOutput)
 }
 
+func (o DatasetOutputFileUriValueOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetOutputFileUriValue] {
+	return pulumix.Output[DatasetOutputFileUriValue]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetOutputFileUriValueOutput) FileName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetOutputFileUriValue) string { return v.FileName }).(pulumi.StringOutput)
 }
@@ -2200,6 +2603,12 @@ func (o DatasetOutputFileUriValuePtrOutput) ToDatasetOutputFileUriValuePtrOutput
 
 func (o DatasetOutputFileUriValuePtrOutput) ToDatasetOutputFileUriValuePtrOutputWithContext(ctx context.Context) DatasetOutputFileUriValuePtrOutput {
 	return o
+}
+
+func (o DatasetOutputFileUriValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetOutputFileUriValue] {
+	return pulumix.Output[*DatasetOutputFileUriValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetOutputFileUriValuePtrOutput) Elem() DatasetOutputFileUriValueOutput {
@@ -2254,6 +2663,12 @@ func (i DatasetQueryActionArgs) ToDatasetQueryActionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetQueryActionOutput)
 }
 
+func (i DatasetQueryActionArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetQueryAction] {
+	return pulumix.Output[DatasetQueryAction]{
+		OutputState: i.ToDatasetQueryActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetQueryActionArgs) ToDatasetQueryActionPtrOutput() DatasetQueryActionPtrOutput {
 	return i.ToDatasetQueryActionPtrOutputWithContext(context.Background())
 }
@@ -2295,6 +2710,12 @@ func (i *datasetQueryActionPtrType) ToDatasetQueryActionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetQueryActionPtrOutput)
 }
 
+func (i *datasetQueryActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetQueryAction] {
+	return pulumix.Output[*DatasetQueryAction]{
+		OutputState: i.ToDatasetQueryActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetQueryActionOutput struct{ *pulumi.OutputState }
 
 func (DatasetQueryActionOutput) ElementType() reflect.Type {
@@ -2319,6 +2740,12 @@ func (o DatasetQueryActionOutput) ToDatasetQueryActionPtrOutputWithContext(ctx c
 	}).(DatasetQueryActionPtrOutput)
 }
 
+func (o DatasetQueryActionOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetQueryAction] {
+	return pulumix.Output[DatasetQueryAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetQueryActionOutput) Filters() DatasetFilterArrayOutput {
 	return o.ApplyT(func(v DatasetQueryAction) []DatasetFilter { return v.Filters }).(DatasetFilterArrayOutput)
 }
@@ -2339,6 +2766,12 @@ func (o DatasetQueryActionPtrOutput) ToDatasetQueryActionPtrOutput() DatasetQuer
 
 func (o DatasetQueryActionPtrOutput) ToDatasetQueryActionPtrOutputWithContext(ctx context.Context) DatasetQueryActionPtrOutput {
 	return o
+}
+
+func (o DatasetQueryActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetQueryAction] {
+	return pulumix.Output[*DatasetQueryAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetQueryActionPtrOutput) Elem() DatasetQueryActionOutput {
@@ -2402,6 +2835,12 @@ func (i DatasetResourceConfigurationArgs) ToDatasetResourceConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetResourceConfigurationOutput)
 }
 
+func (i DatasetResourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetResourceConfiguration] {
+	return pulumix.Output[DatasetResourceConfiguration]{
+		OutputState: i.ToDatasetResourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetResourceConfigurationArgs) ToDatasetResourceConfigurationPtrOutput() DatasetResourceConfigurationPtrOutput {
 	return i.ToDatasetResourceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2443,6 +2882,12 @@ func (i *datasetResourceConfigurationPtrType) ToDatasetResourceConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetResourceConfigurationPtrOutput)
 }
 
+func (i *datasetResourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetResourceConfiguration] {
+	return pulumix.Output[*DatasetResourceConfiguration]{
+		OutputState: i.ToDatasetResourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetResourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatasetResourceConfigurationOutput) ElementType() reflect.Type {
@@ -2467,6 +2912,12 @@ func (o DatasetResourceConfigurationOutput) ToDatasetResourceConfigurationPtrOut
 	}).(DatasetResourceConfigurationPtrOutput)
 }
 
+func (o DatasetResourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetResourceConfiguration] {
+	return pulumix.Output[DatasetResourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetResourceConfigurationOutput) ComputeType() DatasetResourceConfigurationComputeTypeOutput {
 	return o.ApplyT(func(v DatasetResourceConfiguration) DatasetResourceConfigurationComputeType { return v.ComputeType }).(DatasetResourceConfigurationComputeTypeOutput)
 }
@@ -2487,6 +2938,12 @@ func (o DatasetResourceConfigurationPtrOutput) ToDatasetResourceConfigurationPtr
 
 func (o DatasetResourceConfigurationPtrOutput) ToDatasetResourceConfigurationPtrOutputWithContext(ctx context.Context) DatasetResourceConfigurationPtrOutput {
 	return o
+}
+
+func (o DatasetResourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetResourceConfiguration] {
+	return pulumix.Output[*DatasetResourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetResourceConfigurationPtrOutput) Elem() DatasetResourceConfigurationOutput {
@@ -2550,6 +3007,12 @@ func (i DatasetRetentionPeriodArgs) ToDatasetRetentionPeriodOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetRetentionPeriodOutput)
 }
 
+func (i DatasetRetentionPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetRetentionPeriod] {
+	return pulumix.Output[DatasetRetentionPeriod]{
+		OutputState: i.ToDatasetRetentionPeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetRetentionPeriodArgs) ToDatasetRetentionPeriodPtrOutput() DatasetRetentionPeriodPtrOutput {
 	return i.ToDatasetRetentionPeriodPtrOutputWithContext(context.Background())
 }
@@ -2591,6 +3054,12 @@ func (i *datasetRetentionPeriodPtrType) ToDatasetRetentionPeriodPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetRetentionPeriodPtrOutput)
 }
 
+func (i *datasetRetentionPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetRetentionPeriod] {
+	return pulumix.Output[*DatasetRetentionPeriod]{
+		OutputState: i.ToDatasetRetentionPeriodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetRetentionPeriodOutput struct{ *pulumi.OutputState }
 
 func (DatasetRetentionPeriodOutput) ElementType() reflect.Type {
@@ -2615,6 +3084,12 @@ func (o DatasetRetentionPeriodOutput) ToDatasetRetentionPeriodPtrOutputWithConte
 	}).(DatasetRetentionPeriodPtrOutput)
 }
 
+func (o DatasetRetentionPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetRetentionPeriod] {
+	return pulumix.Output[DatasetRetentionPeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetRetentionPeriodOutput) NumberOfDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatasetRetentionPeriod) *int { return v.NumberOfDays }).(pulumi.IntPtrOutput)
 }
@@ -2635,6 +3110,12 @@ func (o DatasetRetentionPeriodPtrOutput) ToDatasetRetentionPeriodPtrOutput() Dat
 
 func (o DatasetRetentionPeriodPtrOutput) ToDatasetRetentionPeriodPtrOutputWithContext(ctx context.Context) DatasetRetentionPeriodPtrOutput {
 	return o
+}
+
+func (o DatasetRetentionPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetRetentionPeriod] {
+	return pulumix.Output[*DatasetRetentionPeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetRetentionPeriodPtrOutput) Elem() DatasetRetentionPeriodOutput {
@@ -2702,6 +3183,12 @@ func (i DatasetS3DestinationConfigurationArgs) ToDatasetS3DestinationConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetS3DestinationConfigurationOutput)
 }
 
+func (i DatasetS3DestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetS3DestinationConfiguration] {
+	return pulumix.Output[DatasetS3DestinationConfiguration]{
+		OutputState: i.ToDatasetS3DestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetS3DestinationConfigurationArgs) ToDatasetS3DestinationConfigurationPtrOutput() DatasetS3DestinationConfigurationPtrOutput {
 	return i.ToDatasetS3DestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2743,6 +3230,12 @@ func (i *datasetS3DestinationConfigurationPtrType) ToDatasetS3DestinationConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetS3DestinationConfigurationPtrOutput)
 }
 
+func (i *datasetS3DestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetS3DestinationConfiguration] {
+	return pulumix.Output[*DatasetS3DestinationConfiguration]{
+		OutputState: i.ToDatasetS3DestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetS3DestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatasetS3DestinationConfigurationOutput) ElementType() reflect.Type {
@@ -2765,6 +3258,12 @@ func (o DatasetS3DestinationConfigurationOutput) ToDatasetS3DestinationConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetS3DestinationConfiguration) *DatasetS3DestinationConfiguration {
 		return &v
 	}).(DatasetS3DestinationConfigurationPtrOutput)
+}
+
+func (o DatasetS3DestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetS3DestinationConfiguration] {
+	return pulumix.Output[DatasetS3DestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetS3DestinationConfigurationOutput) Bucket() pulumi.StringOutput {
@@ -2795,6 +3294,12 @@ func (o DatasetS3DestinationConfigurationPtrOutput) ToDatasetS3DestinationConfig
 
 func (o DatasetS3DestinationConfigurationPtrOutput) ToDatasetS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) DatasetS3DestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o DatasetS3DestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetS3DestinationConfiguration] {
+	return pulumix.Output[*DatasetS3DestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetS3DestinationConfigurationPtrOutput) Elem() DatasetS3DestinationConfigurationOutput {
@@ -2874,6 +3379,12 @@ func (i DatasetScheduleArgs) ToDatasetScheduleOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetScheduleOutput)
 }
 
+func (i DatasetScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetSchedule] {
+	return pulumix.Output[DatasetSchedule]{
+		OutputState: i.ToDatasetScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetScheduleArgs) ToDatasetSchedulePtrOutput() DatasetSchedulePtrOutput {
 	return i.ToDatasetSchedulePtrOutputWithContext(context.Background())
 }
@@ -2915,6 +3426,12 @@ func (i *datasetSchedulePtrType) ToDatasetSchedulePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSchedulePtrOutput)
 }
 
+func (i *datasetSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetSchedule] {
+	return pulumix.Output[*DatasetSchedule]{
+		OutputState: i.ToDatasetSchedulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetScheduleOutput struct{ *pulumi.OutputState }
 
 func (DatasetScheduleOutput) ElementType() reflect.Type {
@@ -2939,6 +3456,12 @@ func (o DatasetScheduleOutput) ToDatasetSchedulePtrOutputWithContext(ctx context
 	}).(DatasetSchedulePtrOutput)
 }
 
+func (o DatasetScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetSchedule] {
+	return pulumix.Output[DatasetSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetScheduleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
@@ -2955,6 +3478,12 @@ func (o DatasetSchedulePtrOutput) ToDatasetSchedulePtrOutput() DatasetSchedulePt
 
 func (o DatasetSchedulePtrOutput) ToDatasetSchedulePtrOutputWithContext(ctx context.Context) DatasetSchedulePtrOutput {
 	return o
+}
+
+func (o DatasetSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetSchedule] {
+	return pulumix.Output[*DatasetSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetSchedulePtrOutput) Elem() DatasetScheduleOutput {
@@ -3009,6 +3538,12 @@ func (i DatasetTagArgs) ToDatasetTagOutputWithContext(ctx context.Context) Datas
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetTagOutput)
 }
 
+func (i DatasetTagArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetTag] {
+	return pulumix.Output[DatasetTag]{
+		OutputState: i.ToDatasetTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetTagArrayInput is an input type that accepts DatasetTagArray and DatasetTagArrayOutput values.
 // You can construct a concrete instance of `DatasetTagArrayInput` via:
 //
@@ -3034,6 +3569,12 @@ func (i DatasetTagArray) ToDatasetTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetTagArrayOutput)
 }
 
+func (i DatasetTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DatasetTag] {
+	return pulumix.Output[[]DatasetTag]{
+		OutputState: i.ToDatasetTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetTagOutput struct{ *pulumi.OutputState }
 
 func (DatasetTagOutput) ElementType() reflect.Type {
@@ -3046,6 +3587,12 @@ func (o DatasetTagOutput) ToDatasetTagOutput() DatasetTagOutput {
 
 func (o DatasetTagOutput) ToDatasetTagOutputWithContext(ctx context.Context) DatasetTagOutput {
 	return o
+}
+
+func (o DatasetTagOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetTag] {
+	return pulumix.Output[DatasetTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetTagOutput) Key() pulumi.StringOutput {
@@ -3068,6 +3615,12 @@ func (o DatasetTagArrayOutput) ToDatasetTagArrayOutput() DatasetTagArrayOutput {
 
 func (o DatasetTagArrayOutput) ToDatasetTagArrayOutputWithContext(ctx context.Context) DatasetTagArrayOutput {
 	return o
+}
+
+func (o DatasetTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatasetTag] {
+	return pulumix.Output[[]DatasetTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetTagArrayOutput) Index(i pulumi.IntInput) DatasetTagOutput {
@@ -3109,6 +3662,12 @@ func (i DatasetTriggerArgs) ToDatasetTriggerOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetTriggerOutput)
 }
 
+func (i DatasetTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetTrigger] {
+	return pulumix.Output[DatasetTrigger]{
+		OutputState: i.ToDatasetTriggerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetTriggerArrayInput is an input type that accepts DatasetTriggerArray and DatasetTriggerArrayOutput values.
 // You can construct a concrete instance of `DatasetTriggerArrayInput` via:
 //
@@ -3134,6 +3693,12 @@ func (i DatasetTriggerArray) ToDatasetTriggerArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetTriggerArrayOutput)
 }
 
+func (i DatasetTriggerArray) ToOutput(ctx context.Context) pulumix.Output[[]DatasetTrigger] {
+	return pulumix.Output[[]DatasetTrigger]{
+		OutputState: i.ToDatasetTriggerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetTriggerOutput struct{ *pulumi.OutputState }
 
 func (DatasetTriggerOutput) ElementType() reflect.Type {
@@ -3146,6 +3711,12 @@ func (o DatasetTriggerOutput) ToDatasetTriggerOutput() DatasetTriggerOutput {
 
 func (o DatasetTriggerOutput) ToDatasetTriggerOutputWithContext(ctx context.Context) DatasetTriggerOutput {
 	return o
+}
+
+func (o DatasetTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetTrigger] {
+	return pulumix.Output[DatasetTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetTriggerOutput) Schedule() DatasetSchedulePtrOutput {
@@ -3168,6 +3739,12 @@ func (o DatasetTriggerArrayOutput) ToDatasetTriggerArrayOutput() DatasetTriggerA
 
 func (o DatasetTriggerArrayOutput) ToDatasetTriggerArrayOutputWithContext(ctx context.Context) DatasetTriggerArrayOutput {
 	return o
+}
+
+func (o DatasetTriggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatasetTrigger] {
+	return pulumix.Output[[]DatasetTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetTriggerArrayOutput) Index(i pulumi.IntInput) DatasetTriggerOutput {
@@ -3205,6 +3782,12 @@ func (i DatasetTriggeringDatasetArgs) ToDatasetTriggeringDatasetOutput() Dataset
 
 func (i DatasetTriggeringDatasetArgs) ToDatasetTriggeringDatasetOutputWithContext(ctx context.Context) DatasetTriggeringDatasetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetTriggeringDatasetOutput)
+}
+
+func (i DatasetTriggeringDatasetArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetTriggeringDataset] {
+	return pulumix.Output[DatasetTriggeringDataset]{
+		OutputState: i.ToDatasetTriggeringDatasetOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DatasetTriggeringDatasetArgs) ToDatasetTriggeringDatasetPtrOutput() DatasetTriggeringDatasetPtrOutput {
@@ -3248,6 +3831,12 @@ func (i *datasetTriggeringDatasetPtrType) ToDatasetTriggeringDatasetPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetTriggeringDatasetPtrOutput)
 }
 
+func (i *datasetTriggeringDatasetPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetTriggeringDataset] {
+	return pulumix.Output[*DatasetTriggeringDataset]{
+		OutputState: i.ToDatasetTriggeringDatasetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetTriggeringDatasetOutput struct{ *pulumi.OutputState }
 
 func (DatasetTriggeringDatasetOutput) ElementType() reflect.Type {
@@ -3272,6 +3861,12 @@ func (o DatasetTriggeringDatasetOutput) ToDatasetTriggeringDatasetPtrOutputWithC
 	}).(DatasetTriggeringDatasetPtrOutput)
 }
 
+func (o DatasetTriggeringDatasetOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetTriggeringDataset] {
+	return pulumix.Output[DatasetTriggeringDataset]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetTriggeringDatasetOutput) DatasetName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetTriggeringDataset) string { return v.DatasetName }).(pulumi.StringOutput)
 }
@@ -3288,6 +3883,12 @@ func (o DatasetTriggeringDatasetPtrOutput) ToDatasetTriggeringDatasetPtrOutput()
 
 func (o DatasetTriggeringDatasetPtrOutput) ToDatasetTriggeringDatasetPtrOutputWithContext(ctx context.Context) DatasetTriggeringDatasetPtrOutput {
 	return o
+}
+
+func (o DatasetTriggeringDatasetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetTriggeringDataset] {
+	return pulumix.Output[*DatasetTriggeringDataset]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetTriggeringDatasetPtrOutput) Elem() DatasetTriggeringDatasetOutput {
@@ -3348,6 +3949,12 @@ func (i DatasetVariableArgs) ToDatasetVariableOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetVariableOutput)
 }
 
+func (i DatasetVariableArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetVariable] {
+	return pulumix.Output[DatasetVariable]{
+		OutputState: i.ToDatasetVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetVariableArrayInput is an input type that accepts DatasetVariableArray and DatasetVariableArrayOutput values.
 // You can construct a concrete instance of `DatasetVariableArrayInput` via:
 //
@@ -3373,6 +3980,12 @@ func (i DatasetVariableArray) ToDatasetVariableArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetVariableArrayOutput)
 }
 
+func (i DatasetVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]DatasetVariable] {
+	return pulumix.Output[[]DatasetVariable]{
+		OutputState: i.ToDatasetVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetVariableOutput struct{ *pulumi.OutputState }
 
 func (DatasetVariableOutput) ElementType() reflect.Type {
@@ -3385,6 +3998,12 @@ func (o DatasetVariableOutput) ToDatasetVariableOutput() DatasetVariableOutput {
 
 func (o DatasetVariableOutput) ToDatasetVariableOutputWithContext(ctx context.Context) DatasetVariableOutput {
 	return o
+}
+
+func (o DatasetVariableOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetVariable] {
+	return pulumix.Output[DatasetVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetVariableOutput) DatasetContentVersionValue() DatasetContentVersionValuePtrOutput {
@@ -3419,6 +4038,12 @@ func (o DatasetVariableArrayOutput) ToDatasetVariableArrayOutput() DatasetVariab
 
 func (o DatasetVariableArrayOutput) ToDatasetVariableArrayOutputWithContext(ctx context.Context) DatasetVariableArrayOutput {
 	return o
+}
+
+func (o DatasetVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatasetVariable] {
+	return pulumix.Output[[]DatasetVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetVariableArrayOutput) Index(i pulumi.IntInput) DatasetVariableOutput {
@@ -3458,6 +4083,12 @@ func (i DatasetVersioningConfigurationArgs) ToDatasetVersioningConfigurationOutp
 
 func (i DatasetVersioningConfigurationArgs) ToDatasetVersioningConfigurationOutputWithContext(ctx context.Context) DatasetVersioningConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetVersioningConfigurationOutput)
+}
+
+func (i DatasetVersioningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetVersioningConfiguration] {
+	return pulumix.Output[DatasetVersioningConfiguration]{
+		OutputState: i.ToDatasetVersioningConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DatasetVersioningConfigurationArgs) ToDatasetVersioningConfigurationPtrOutput() DatasetVersioningConfigurationPtrOutput {
@@ -3501,6 +4132,12 @@ func (i *datasetVersioningConfigurationPtrType) ToDatasetVersioningConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetVersioningConfigurationPtrOutput)
 }
 
+func (i *datasetVersioningConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetVersioningConfiguration] {
+	return pulumix.Output[*DatasetVersioningConfiguration]{
+		OutputState: i.ToDatasetVersioningConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetVersioningConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatasetVersioningConfigurationOutput) ElementType() reflect.Type {
@@ -3525,6 +4162,12 @@ func (o DatasetVersioningConfigurationOutput) ToDatasetVersioningConfigurationPt
 	}).(DatasetVersioningConfigurationPtrOutput)
 }
 
+func (o DatasetVersioningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetVersioningConfiguration] {
+	return pulumix.Output[DatasetVersioningConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetVersioningConfigurationOutput) MaxVersions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatasetVersioningConfiguration) *int { return v.MaxVersions }).(pulumi.IntPtrOutput)
 }
@@ -3545,6 +4188,12 @@ func (o DatasetVersioningConfigurationPtrOutput) ToDatasetVersioningConfiguratio
 
 func (o DatasetVersioningConfigurationPtrOutput) ToDatasetVersioningConfigurationPtrOutputWithContext(ctx context.Context) DatasetVersioningConfigurationPtrOutput {
 	return o
+}
+
+func (o DatasetVersioningConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetVersioningConfiguration] {
+	return pulumix.Output[*DatasetVersioningConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetVersioningConfigurationPtrOutput) Elem() DatasetVersioningConfigurationOutput {
@@ -3608,6 +4257,12 @@ func (i DatastoreColumnArgs) ToDatastoreColumnOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreColumnOutput)
 }
 
+func (i DatastoreColumnArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreColumn] {
+	return pulumix.Output[DatastoreColumn]{
+		OutputState: i.ToDatastoreColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatastoreColumnArrayInput is an input type that accepts DatastoreColumnArray and DatastoreColumnArrayOutput values.
 // You can construct a concrete instance of `DatastoreColumnArrayInput` via:
 //
@@ -3633,6 +4288,12 @@ func (i DatastoreColumnArray) ToDatastoreColumnArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreColumnArrayOutput)
 }
 
+func (i DatastoreColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]DatastoreColumn] {
+	return pulumix.Output[[]DatastoreColumn]{
+		OutputState: i.ToDatastoreColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreColumnOutput struct{ *pulumi.OutputState }
 
 func (DatastoreColumnOutput) ElementType() reflect.Type {
@@ -3645,6 +4306,12 @@ func (o DatastoreColumnOutput) ToDatastoreColumnOutput() DatastoreColumnOutput {
 
 func (o DatastoreColumnOutput) ToDatastoreColumnOutputWithContext(ctx context.Context) DatastoreColumnOutput {
 	return o
+}
+
+func (o DatastoreColumnOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreColumn] {
+	return pulumix.Output[DatastoreColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreColumnOutput) Name() pulumi.StringOutput {
@@ -3667,6 +4334,12 @@ func (o DatastoreColumnArrayOutput) ToDatastoreColumnArrayOutput() DatastoreColu
 
 func (o DatastoreColumnArrayOutput) ToDatastoreColumnArrayOutputWithContext(ctx context.Context) DatastoreColumnArrayOutput {
 	return o
+}
+
+func (o DatastoreColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatastoreColumn] {
+	return pulumix.Output[[]DatastoreColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreColumnArrayOutput) Index(i pulumi.IntInput) DatastoreColumnOutput {
@@ -3710,6 +4383,12 @@ func (i DatastoreCustomerManagedS3Args) ToDatastoreCustomerManagedS3OutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreCustomerManagedS3Output)
 }
 
+func (i DatastoreCustomerManagedS3Args) ToOutput(ctx context.Context) pulumix.Output[DatastoreCustomerManagedS3] {
+	return pulumix.Output[DatastoreCustomerManagedS3]{
+		OutputState: i.ToDatastoreCustomerManagedS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatastoreCustomerManagedS3Args) ToDatastoreCustomerManagedS3PtrOutput() DatastoreCustomerManagedS3PtrOutput {
 	return i.ToDatastoreCustomerManagedS3PtrOutputWithContext(context.Background())
 }
@@ -3751,6 +4430,12 @@ func (i *datastoreCustomerManagedS3PtrType) ToDatastoreCustomerManagedS3PtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreCustomerManagedS3PtrOutput)
 }
 
+func (i *datastoreCustomerManagedS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreCustomerManagedS3] {
+	return pulumix.Output[*DatastoreCustomerManagedS3]{
+		OutputState: i.ToDatastoreCustomerManagedS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreCustomerManagedS3Output struct{ *pulumi.OutputState }
 
 func (DatastoreCustomerManagedS3Output) ElementType() reflect.Type {
@@ -3773,6 +4458,12 @@ func (o DatastoreCustomerManagedS3Output) ToDatastoreCustomerManagedS3PtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatastoreCustomerManagedS3) *DatastoreCustomerManagedS3 {
 		return &v
 	}).(DatastoreCustomerManagedS3PtrOutput)
+}
+
+func (o DatastoreCustomerManagedS3Output) ToOutput(ctx context.Context) pulumix.Output[DatastoreCustomerManagedS3] {
+	return pulumix.Output[DatastoreCustomerManagedS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreCustomerManagedS3Output) Bucket() pulumi.StringOutput {
@@ -3799,6 +4490,12 @@ func (o DatastoreCustomerManagedS3PtrOutput) ToDatastoreCustomerManagedS3PtrOutp
 
 func (o DatastoreCustomerManagedS3PtrOutput) ToDatastoreCustomerManagedS3PtrOutputWithContext(ctx context.Context) DatastoreCustomerManagedS3PtrOutput {
 	return o
+}
+
+func (o DatastoreCustomerManagedS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreCustomerManagedS3] {
+	return pulumix.Output[*DatastoreCustomerManagedS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreCustomerManagedS3PtrOutput) Elem() DatastoreCustomerManagedS3Output {
@@ -3871,6 +4568,12 @@ func (i DatastoreCustomerManagedS3StorageArgs) ToDatastoreCustomerManagedS3Stora
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreCustomerManagedS3StorageOutput)
 }
 
+func (i DatastoreCustomerManagedS3StorageArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreCustomerManagedS3Storage] {
+	return pulumix.Output[DatastoreCustomerManagedS3Storage]{
+		OutputState: i.ToDatastoreCustomerManagedS3StorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatastoreCustomerManagedS3StorageArgs) ToDatastoreCustomerManagedS3StoragePtrOutput() DatastoreCustomerManagedS3StoragePtrOutput {
 	return i.ToDatastoreCustomerManagedS3StoragePtrOutputWithContext(context.Background())
 }
@@ -3912,6 +4615,12 @@ func (i *datastoreCustomerManagedS3StoragePtrType) ToDatastoreCustomerManagedS3S
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreCustomerManagedS3StoragePtrOutput)
 }
 
+func (i *datastoreCustomerManagedS3StoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreCustomerManagedS3Storage] {
+	return pulumix.Output[*DatastoreCustomerManagedS3Storage]{
+		OutputState: i.ToDatastoreCustomerManagedS3StoragePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreCustomerManagedS3StorageOutput struct{ *pulumi.OutputState }
 
 func (DatastoreCustomerManagedS3StorageOutput) ElementType() reflect.Type {
@@ -3936,6 +4645,12 @@ func (o DatastoreCustomerManagedS3StorageOutput) ToDatastoreCustomerManagedS3Sto
 	}).(DatastoreCustomerManagedS3StoragePtrOutput)
 }
 
+func (o DatastoreCustomerManagedS3StorageOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreCustomerManagedS3Storage] {
+	return pulumix.Output[DatastoreCustomerManagedS3Storage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatastoreCustomerManagedS3StorageOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DatastoreCustomerManagedS3Storage) string { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -3956,6 +4671,12 @@ func (o DatastoreCustomerManagedS3StoragePtrOutput) ToDatastoreCustomerManagedS3
 
 func (o DatastoreCustomerManagedS3StoragePtrOutput) ToDatastoreCustomerManagedS3StoragePtrOutputWithContext(ctx context.Context) DatastoreCustomerManagedS3StoragePtrOutput {
 	return o
+}
+
+func (o DatastoreCustomerManagedS3StoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreCustomerManagedS3Storage] {
+	return pulumix.Output[*DatastoreCustomerManagedS3Storage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreCustomerManagedS3StoragePtrOutput) Elem() DatastoreCustomerManagedS3StorageOutput {
@@ -4019,6 +4740,12 @@ func (i DatastoreFileFormatConfigurationArgs) ToDatastoreFileFormatConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreFileFormatConfigurationOutput)
 }
 
+func (i DatastoreFileFormatConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreFileFormatConfiguration] {
+	return pulumix.Output[DatastoreFileFormatConfiguration]{
+		OutputState: i.ToDatastoreFileFormatConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatastoreFileFormatConfigurationArgs) ToDatastoreFileFormatConfigurationPtrOutput() DatastoreFileFormatConfigurationPtrOutput {
 	return i.ToDatastoreFileFormatConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4060,6 +4787,12 @@ func (i *datastoreFileFormatConfigurationPtrType) ToDatastoreFileFormatConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreFileFormatConfigurationPtrOutput)
 }
 
+func (i *datastoreFileFormatConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreFileFormatConfiguration] {
+	return pulumix.Output[*DatastoreFileFormatConfiguration]{
+		OutputState: i.ToDatastoreFileFormatConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreFileFormatConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatastoreFileFormatConfigurationOutput) ElementType() reflect.Type {
@@ -4084,6 +4817,12 @@ func (o DatastoreFileFormatConfigurationOutput) ToDatastoreFileFormatConfigurati
 	}).(DatastoreFileFormatConfigurationPtrOutput)
 }
 
+func (o DatastoreFileFormatConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreFileFormatConfiguration] {
+	return pulumix.Output[DatastoreFileFormatConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatastoreFileFormatConfigurationOutput) JsonConfiguration() DatastoreJsonConfigurationPtrOutput {
 	return o.ApplyT(func(v DatastoreFileFormatConfiguration) *DatastoreJsonConfiguration { return v.JsonConfiguration }).(DatastoreJsonConfigurationPtrOutput)
 }
@@ -4104,6 +4843,12 @@ func (o DatastoreFileFormatConfigurationPtrOutput) ToDatastoreFileFormatConfigur
 
 func (o DatastoreFileFormatConfigurationPtrOutput) ToDatastoreFileFormatConfigurationPtrOutputWithContext(ctx context.Context) DatastoreFileFormatConfigurationPtrOutput {
 	return o
+}
+
+func (o DatastoreFileFormatConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreFileFormatConfiguration] {
+	return pulumix.Output[*DatastoreFileFormatConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreFileFormatConfigurationPtrOutput) Elem() DatastoreFileFormatConfigurationOutput {
@@ -4165,6 +4910,12 @@ func (i DatastoreIotSiteWiseMultiLayerStorageArgs) ToDatastoreIotSiteWiseMultiLa
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreIotSiteWiseMultiLayerStorageOutput)
 }
 
+func (i DatastoreIotSiteWiseMultiLayerStorageArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreIotSiteWiseMultiLayerStorage] {
+	return pulumix.Output[DatastoreIotSiteWiseMultiLayerStorage]{
+		OutputState: i.ToDatastoreIotSiteWiseMultiLayerStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatastoreIotSiteWiseMultiLayerStorageArgs) ToDatastoreIotSiteWiseMultiLayerStoragePtrOutput() DatastoreIotSiteWiseMultiLayerStoragePtrOutput {
 	return i.ToDatastoreIotSiteWiseMultiLayerStoragePtrOutputWithContext(context.Background())
 }
@@ -4206,6 +4957,12 @@ func (i *datastoreIotSiteWiseMultiLayerStoragePtrType) ToDatastoreIotSiteWiseMul
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
 }
 
+func (i *datastoreIotSiteWiseMultiLayerStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreIotSiteWiseMultiLayerStorage] {
+	return pulumix.Output[*DatastoreIotSiteWiseMultiLayerStorage]{
+		OutputState: i.ToDatastoreIotSiteWiseMultiLayerStoragePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreIotSiteWiseMultiLayerStorageOutput struct{ *pulumi.OutputState }
 
 func (DatastoreIotSiteWiseMultiLayerStorageOutput) ElementType() reflect.Type {
@@ -4230,6 +4987,12 @@ func (o DatastoreIotSiteWiseMultiLayerStorageOutput) ToDatastoreIotSiteWiseMulti
 	}).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
 }
 
+func (o DatastoreIotSiteWiseMultiLayerStorageOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreIotSiteWiseMultiLayerStorage] {
+	return pulumix.Output[DatastoreIotSiteWiseMultiLayerStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatastoreIotSiteWiseMultiLayerStorageOutput) CustomerManagedS3Storage() DatastoreCustomerManagedS3StoragePtrOutput {
 	return o.ApplyT(func(v DatastoreIotSiteWiseMultiLayerStorage) *DatastoreCustomerManagedS3Storage {
 		return v.CustomerManagedS3Storage
@@ -4248,6 +5011,12 @@ func (o DatastoreIotSiteWiseMultiLayerStoragePtrOutput) ToDatastoreIotSiteWiseMu
 
 func (o DatastoreIotSiteWiseMultiLayerStoragePtrOutput) ToDatastoreIotSiteWiseMultiLayerStoragePtrOutputWithContext(ctx context.Context) DatastoreIotSiteWiseMultiLayerStoragePtrOutput {
 	return o
+}
+
+func (o DatastoreIotSiteWiseMultiLayerStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreIotSiteWiseMultiLayerStorage] {
+	return pulumix.Output[*DatastoreIotSiteWiseMultiLayerStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreIotSiteWiseMultiLayerStoragePtrOutput) Elem() DatastoreIotSiteWiseMultiLayerStorageOutput {
@@ -4298,6 +5067,12 @@ func (i DatastoreJsonConfigurationArgs) ToDatastoreJsonConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreJsonConfigurationOutput)
 }
 
+func (i DatastoreJsonConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreJsonConfiguration] {
+	return pulumix.Output[DatastoreJsonConfiguration]{
+		OutputState: i.ToDatastoreJsonConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatastoreJsonConfigurationArgs) ToDatastoreJsonConfigurationPtrOutput() DatastoreJsonConfigurationPtrOutput {
 	return i.ToDatastoreJsonConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4339,6 +5114,12 @@ func (i *datastoreJsonConfigurationPtrType) ToDatastoreJsonConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreJsonConfigurationPtrOutput)
 }
 
+func (i *datastoreJsonConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreJsonConfiguration] {
+	return pulumix.Output[*DatastoreJsonConfiguration]{
+		OutputState: i.ToDatastoreJsonConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreJsonConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatastoreJsonConfigurationOutput) ElementType() reflect.Type {
@@ -4363,6 +5144,12 @@ func (o DatastoreJsonConfigurationOutput) ToDatastoreJsonConfigurationPtrOutputW
 	}).(DatastoreJsonConfigurationPtrOutput)
 }
 
+func (o DatastoreJsonConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreJsonConfiguration] {
+	return pulumix.Output[DatastoreJsonConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 type DatastoreJsonConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DatastoreJsonConfigurationPtrOutput) ElementType() reflect.Type {
@@ -4375,6 +5162,12 @@ func (o DatastoreJsonConfigurationPtrOutput) ToDatastoreJsonConfigurationPtrOutp
 
 func (o DatastoreJsonConfigurationPtrOutput) ToDatastoreJsonConfigurationPtrOutputWithContext(ctx context.Context) DatastoreJsonConfigurationPtrOutput {
 	return o
+}
+
+func (o DatastoreJsonConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreJsonConfiguration] {
+	return pulumix.Output[*DatastoreJsonConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreJsonConfigurationPtrOutput) Elem() DatastoreJsonConfigurationOutput {
@@ -4418,6 +5211,12 @@ func (i DatastoreParquetConfigurationArgs) ToDatastoreParquetConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreParquetConfigurationOutput)
 }
 
+func (i DatastoreParquetConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreParquetConfiguration] {
+	return pulumix.Output[DatastoreParquetConfiguration]{
+		OutputState: i.ToDatastoreParquetConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatastoreParquetConfigurationArgs) ToDatastoreParquetConfigurationPtrOutput() DatastoreParquetConfigurationPtrOutput {
 	return i.ToDatastoreParquetConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4459,6 +5258,12 @@ func (i *datastoreParquetConfigurationPtrType) ToDatastoreParquetConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreParquetConfigurationPtrOutput)
 }
 
+func (i *datastoreParquetConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreParquetConfiguration] {
+	return pulumix.Output[*DatastoreParquetConfiguration]{
+		OutputState: i.ToDatastoreParquetConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreParquetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatastoreParquetConfigurationOutput) ElementType() reflect.Type {
@@ -4483,6 +5288,12 @@ func (o DatastoreParquetConfigurationOutput) ToDatastoreParquetConfigurationPtrO
 	}).(DatastoreParquetConfigurationPtrOutput)
 }
 
+func (o DatastoreParquetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreParquetConfiguration] {
+	return pulumix.Output[DatastoreParquetConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatastoreParquetConfigurationOutput) SchemaDefinition() DatastoreSchemaDefinitionPtrOutput {
 	return o.ApplyT(func(v DatastoreParquetConfiguration) *DatastoreSchemaDefinition { return v.SchemaDefinition }).(DatastoreSchemaDefinitionPtrOutput)
 }
@@ -4499,6 +5310,12 @@ func (o DatastoreParquetConfigurationPtrOutput) ToDatastoreParquetConfigurationP
 
 func (o DatastoreParquetConfigurationPtrOutput) ToDatastoreParquetConfigurationPtrOutputWithContext(ctx context.Context) DatastoreParquetConfigurationPtrOutput {
 	return o
+}
+
+func (o DatastoreParquetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreParquetConfiguration] {
+	return pulumix.Output[*DatastoreParquetConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreParquetConfigurationPtrOutput) Elem() DatastoreParquetConfigurationOutput {
@@ -4553,6 +5370,12 @@ func (i DatastorePartitionArgs) ToDatastorePartitionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionOutput)
 }
 
+func (i DatastorePartitionArgs) ToOutput(ctx context.Context) pulumix.Output[DatastorePartition] {
+	return pulumix.Output[DatastorePartition]{
+		OutputState: i.ToDatastorePartitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatastorePartitionArrayInput is an input type that accepts DatastorePartitionArray and DatastorePartitionArrayOutput values.
 // You can construct a concrete instance of `DatastorePartitionArrayInput` via:
 //
@@ -4578,6 +5401,12 @@ func (i DatastorePartitionArray) ToDatastorePartitionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionArrayOutput)
 }
 
+func (i DatastorePartitionArray) ToOutput(ctx context.Context) pulumix.Output[[]DatastorePartition] {
+	return pulumix.Output[[]DatastorePartition]{
+		OutputState: i.ToDatastorePartitionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastorePartitionOutput struct{ *pulumi.OutputState }
 
 func (DatastorePartitionOutput) ElementType() reflect.Type {
@@ -4590,6 +5419,12 @@ func (o DatastorePartitionOutput) ToDatastorePartitionOutput() DatastorePartitio
 
 func (o DatastorePartitionOutput) ToDatastorePartitionOutputWithContext(ctx context.Context) DatastorePartitionOutput {
 	return o
+}
+
+func (o DatastorePartitionOutput) ToOutput(ctx context.Context) pulumix.Output[DatastorePartition] {
+	return pulumix.Output[DatastorePartition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastorePartitionOutput) Partition() PartitionPtrOutput {
@@ -4612,6 +5447,12 @@ func (o DatastorePartitionArrayOutput) ToDatastorePartitionArrayOutput() Datasto
 
 func (o DatastorePartitionArrayOutput) ToDatastorePartitionArrayOutputWithContext(ctx context.Context) DatastorePartitionArrayOutput {
 	return o
+}
+
+func (o DatastorePartitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatastorePartition] {
+	return pulumix.Output[[]DatastorePartition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastorePartitionArrayOutput) Index(i pulumi.IntInput) DatastorePartitionOutput {
@@ -4649,6 +5490,12 @@ func (i DatastorePartitionsArgs) ToDatastorePartitionsOutput() DatastorePartitio
 
 func (i DatastorePartitionsArgs) ToDatastorePartitionsOutputWithContext(ctx context.Context) DatastorePartitionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionsOutput)
+}
+
+func (i DatastorePartitionsArgs) ToOutput(ctx context.Context) pulumix.Output[DatastorePartitions] {
+	return pulumix.Output[DatastorePartitions]{
+		OutputState: i.ToDatastorePartitionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DatastorePartitionsArgs) ToDatastorePartitionsPtrOutput() DatastorePartitionsPtrOutput {
@@ -4692,6 +5539,12 @@ func (i *datastorePartitionsPtrType) ToDatastorePartitionsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionsPtrOutput)
 }
 
+func (i *datastorePartitionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastorePartitions] {
+	return pulumix.Output[*DatastorePartitions]{
+		OutputState: i.ToDatastorePartitionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastorePartitionsOutput struct{ *pulumi.OutputState }
 
 func (DatastorePartitionsOutput) ElementType() reflect.Type {
@@ -4716,6 +5569,12 @@ func (o DatastorePartitionsOutput) ToDatastorePartitionsPtrOutputWithContext(ctx
 	}).(DatastorePartitionsPtrOutput)
 }
 
+func (o DatastorePartitionsOutput) ToOutput(ctx context.Context) pulumix.Output[DatastorePartitions] {
+	return pulumix.Output[DatastorePartitions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatastorePartitionsOutput) Partitions() DatastorePartitionArrayOutput {
 	return o.ApplyT(func(v DatastorePartitions) []DatastorePartition { return v.Partitions }).(DatastorePartitionArrayOutput)
 }
@@ -4732,6 +5591,12 @@ func (o DatastorePartitionsPtrOutput) ToDatastorePartitionsPtrOutput() Datastore
 
 func (o DatastorePartitionsPtrOutput) ToDatastorePartitionsPtrOutputWithContext(ctx context.Context) DatastorePartitionsPtrOutput {
 	return o
+}
+
+func (o DatastorePartitionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastorePartitions] {
+	return pulumix.Output[*DatastorePartitions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastorePartitionsPtrOutput) Elem() DatastorePartitionsOutput {
@@ -4786,6 +5651,12 @@ func (i DatastoreRetentionPeriodArgs) ToDatastoreRetentionPeriodOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreRetentionPeriodOutput)
 }
 
+func (i DatastoreRetentionPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreRetentionPeriod] {
+	return pulumix.Output[DatastoreRetentionPeriod]{
+		OutputState: i.ToDatastoreRetentionPeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatastoreRetentionPeriodArgs) ToDatastoreRetentionPeriodPtrOutput() DatastoreRetentionPeriodPtrOutput {
 	return i.ToDatastoreRetentionPeriodPtrOutputWithContext(context.Background())
 }
@@ -4827,6 +5698,12 @@ func (i *datastoreRetentionPeriodPtrType) ToDatastoreRetentionPeriodPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreRetentionPeriodPtrOutput)
 }
 
+func (i *datastoreRetentionPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreRetentionPeriod] {
+	return pulumix.Output[*DatastoreRetentionPeriod]{
+		OutputState: i.ToDatastoreRetentionPeriodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreRetentionPeriodOutput struct{ *pulumi.OutputState }
 
 func (DatastoreRetentionPeriodOutput) ElementType() reflect.Type {
@@ -4851,6 +5728,12 @@ func (o DatastoreRetentionPeriodOutput) ToDatastoreRetentionPeriodPtrOutputWithC
 	}).(DatastoreRetentionPeriodPtrOutput)
 }
 
+func (o DatastoreRetentionPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreRetentionPeriod] {
+	return pulumix.Output[DatastoreRetentionPeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatastoreRetentionPeriodOutput) NumberOfDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatastoreRetentionPeriod) *int { return v.NumberOfDays }).(pulumi.IntPtrOutput)
 }
@@ -4871,6 +5754,12 @@ func (o DatastoreRetentionPeriodPtrOutput) ToDatastoreRetentionPeriodPtrOutput()
 
 func (o DatastoreRetentionPeriodPtrOutput) ToDatastoreRetentionPeriodPtrOutputWithContext(ctx context.Context) DatastoreRetentionPeriodPtrOutput {
 	return o
+}
+
+func (o DatastoreRetentionPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreRetentionPeriod] {
+	return pulumix.Output[*DatastoreRetentionPeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreRetentionPeriodPtrOutput) Elem() DatastoreRetentionPeriodOutput {
@@ -4932,6 +5821,12 @@ func (i DatastoreSchemaDefinitionArgs) ToDatastoreSchemaDefinitionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreSchemaDefinitionOutput)
 }
 
+func (i DatastoreSchemaDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreSchemaDefinition] {
+	return pulumix.Output[DatastoreSchemaDefinition]{
+		OutputState: i.ToDatastoreSchemaDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatastoreSchemaDefinitionArgs) ToDatastoreSchemaDefinitionPtrOutput() DatastoreSchemaDefinitionPtrOutput {
 	return i.ToDatastoreSchemaDefinitionPtrOutputWithContext(context.Background())
 }
@@ -4973,6 +5868,12 @@ func (i *datastoreSchemaDefinitionPtrType) ToDatastoreSchemaDefinitionPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreSchemaDefinitionPtrOutput)
 }
 
+func (i *datastoreSchemaDefinitionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreSchemaDefinition] {
+	return pulumix.Output[*DatastoreSchemaDefinition]{
+		OutputState: i.ToDatastoreSchemaDefinitionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreSchemaDefinitionOutput struct{ *pulumi.OutputState }
 
 func (DatastoreSchemaDefinitionOutput) ElementType() reflect.Type {
@@ -4997,6 +5898,12 @@ func (o DatastoreSchemaDefinitionOutput) ToDatastoreSchemaDefinitionPtrOutputWit
 	}).(DatastoreSchemaDefinitionPtrOutput)
 }
 
+func (o DatastoreSchemaDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreSchemaDefinition] {
+	return pulumix.Output[DatastoreSchemaDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatastoreSchemaDefinitionOutput) Columns() DatastoreColumnArrayOutput {
 	return o.ApplyT(func(v DatastoreSchemaDefinition) []DatastoreColumn { return v.Columns }).(DatastoreColumnArrayOutput)
 }
@@ -5013,6 +5920,12 @@ func (o DatastoreSchemaDefinitionPtrOutput) ToDatastoreSchemaDefinitionPtrOutput
 
 func (o DatastoreSchemaDefinitionPtrOutput) ToDatastoreSchemaDefinitionPtrOutputWithContext(ctx context.Context) DatastoreSchemaDefinitionPtrOutput {
 	return o
+}
+
+func (o DatastoreSchemaDefinitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreSchemaDefinition] {
+	return pulumix.Output[*DatastoreSchemaDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreSchemaDefinitionPtrOutput) Elem() DatastoreSchemaDefinitionOutput {
@@ -5063,6 +5976,12 @@ func (i DatastoreServiceManagedS3Args) ToDatastoreServiceManagedS3OutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreServiceManagedS3Output)
 }
 
+func (i DatastoreServiceManagedS3Args) ToOutput(ctx context.Context) pulumix.Output[DatastoreServiceManagedS3] {
+	return pulumix.Output[DatastoreServiceManagedS3]{
+		OutputState: i.ToDatastoreServiceManagedS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatastoreServiceManagedS3Args) ToDatastoreServiceManagedS3PtrOutput() DatastoreServiceManagedS3PtrOutput {
 	return i.ToDatastoreServiceManagedS3PtrOutputWithContext(context.Background())
 }
@@ -5104,6 +6023,12 @@ func (i *datastoreServiceManagedS3PtrType) ToDatastoreServiceManagedS3PtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreServiceManagedS3PtrOutput)
 }
 
+func (i *datastoreServiceManagedS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreServiceManagedS3] {
+	return pulumix.Output[*DatastoreServiceManagedS3]{
+		OutputState: i.ToDatastoreServiceManagedS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreServiceManagedS3Output struct{ *pulumi.OutputState }
 
 func (DatastoreServiceManagedS3Output) ElementType() reflect.Type {
@@ -5128,6 +6053,12 @@ func (o DatastoreServiceManagedS3Output) ToDatastoreServiceManagedS3PtrOutputWit
 	}).(DatastoreServiceManagedS3PtrOutput)
 }
 
+func (o DatastoreServiceManagedS3Output) ToOutput(ctx context.Context) pulumix.Output[DatastoreServiceManagedS3] {
+	return pulumix.Output[DatastoreServiceManagedS3]{
+		OutputState: o.OutputState,
+	}
+}
+
 type DatastoreServiceManagedS3PtrOutput struct{ *pulumi.OutputState }
 
 func (DatastoreServiceManagedS3PtrOutput) ElementType() reflect.Type {
@@ -5140,6 +6071,12 @@ func (o DatastoreServiceManagedS3PtrOutput) ToDatastoreServiceManagedS3PtrOutput
 
 func (o DatastoreServiceManagedS3PtrOutput) ToDatastoreServiceManagedS3PtrOutputWithContext(ctx context.Context) DatastoreServiceManagedS3PtrOutput {
 	return o
+}
+
+func (o DatastoreServiceManagedS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreServiceManagedS3] {
+	return pulumix.Output[*DatastoreServiceManagedS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreServiceManagedS3PtrOutput) Elem() DatastoreServiceManagedS3Output {
@@ -5187,6 +6124,12 @@ func (i DatastoreStorageArgs) ToDatastoreStorageOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreStorageOutput)
 }
 
+func (i DatastoreStorageArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreStorage] {
+	return pulumix.Output[DatastoreStorage]{
+		OutputState: i.ToDatastoreStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatastoreStorageArgs) ToDatastoreStoragePtrOutput() DatastoreStoragePtrOutput {
 	return i.ToDatastoreStoragePtrOutputWithContext(context.Background())
 }
@@ -5228,6 +6171,12 @@ func (i *datastoreStoragePtrType) ToDatastoreStoragePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreStoragePtrOutput)
 }
 
+func (i *datastoreStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreStorage] {
+	return pulumix.Output[*DatastoreStorage]{
+		OutputState: i.ToDatastoreStoragePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreStorageOutput struct{ *pulumi.OutputState }
 
 func (DatastoreStorageOutput) ElementType() reflect.Type {
@@ -5250,6 +6199,12 @@ func (o DatastoreStorageOutput) ToDatastoreStoragePtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatastoreStorage) *DatastoreStorage {
 		return &v
 	}).(DatastoreStoragePtrOutput)
+}
+
+func (o DatastoreStorageOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreStorage] {
+	return pulumix.Output[DatastoreStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreStorageOutput) CustomerManagedS3() DatastoreCustomerManagedS3PtrOutput {
@@ -5276,6 +6231,12 @@ func (o DatastoreStoragePtrOutput) ToDatastoreStoragePtrOutput() DatastoreStorag
 
 func (o DatastoreStoragePtrOutput) ToDatastoreStoragePtrOutputWithContext(ctx context.Context) DatastoreStoragePtrOutput {
 	return o
+}
+
+func (o DatastoreStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreStorage] {
+	return pulumix.Output[*DatastoreStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreStoragePtrOutput) Elem() DatastoreStorageOutput {
@@ -5348,6 +6309,12 @@ func (i DatastoreTagArgs) ToDatastoreTagOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreTagOutput)
 }
 
+func (i DatastoreTagArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreTag] {
+	return pulumix.Output[DatastoreTag]{
+		OutputState: i.ToDatastoreTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatastoreTagArrayInput is an input type that accepts DatastoreTagArray and DatastoreTagArrayOutput values.
 // You can construct a concrete instance of `DatastoreTagArrayInput` via:
 //
@@ -5373,6 +6340,12 @@ func (i DatastoreTagArray) ToDatastoreTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreTagArrayOutput)
 }
 
+func (i DatastoreTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DatastoreTag] {
+	return pulumix.Output[[]DatastoreTag]{
+		OutputState: i.ToDatastoreTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreTagOutput struct{ *pulumi.OutputState }
 
 func (DatastoreTagOutput) ElementType() reflect.Type {
@@ -5385,6 +6358,12 @@ func (o DatastoreTagOutput) ToDatastoreTagOutput() DatastoreTagOutput {
 
 func (o DatastoreTagOutput) ToDatastoreTagOutputWithContext(ctx context.Context) DatastoreTagOutput {
 	return o
+}
+
+func (o DatastoreTagOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreTag] {
+	return pulumix.Output[DatastoreTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreTagOutput) Key() pulumi.StringOutput {
@@ -5407,6 +6386,12 @@ func (o DatastoreTagArrayOutput) ToDatastoreTagArrayOutput() DatastoreTagArrayOu
 
 func (o DatastoreTagArrayOutput) ToDatastoreTagArrayOutputWithContext(ctx context.Context) DatastoreTagArrayOutput {
 	return o
+}
+
+func (o DatastoreTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatastoreTag] {
+	return pulumix.Output[[]DatastoreTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreTagArrayOutput) Index(i pulumi.IntInput) DatastoreTagOutput {
@@ -5446,6 +6431,12 @@ func (i DatastoreTimestampPartitionArgs) ToDatastoreTimestampPartitionOutput() D
 
 func (i DatastoreTimestampPartitionArgs) ToDatastoreTimestampPartitionOutputWithContext(ctx context.Context) DatastoreTimestampPartitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreTimestampPartitionOutput)
+}
+
+func (i DatastoreTimestampPartitionArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreTimestampPartition] {
+	return pulumix.Output[DatastoreTimestampPartition]{
+		OutputState: i.ToDatastoreTimestampPartitionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DatastoreTimestampPartitionArgs) ToDatastoreTimestampPartitionPtrOutput() DatastoreTimestampPartitionPtrOutput {
@@ -5489,6 +6480,12 @@ func (i *datastoreTimestampPartitionPtrType) ToDatastoreTimestampPartitionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreTimestampPartitionPtrOutput)
 }
 
+func (i *datastoreTimestampPartitionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreTimestampPartition] {
+	return pulumix.Output[*DatastoreTimestampPartition]{
+		OutputState: i.ToDatastoreTimestampPartitionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreTimestampPartitionOutput struct{ *pulumi.OutputState }
 
 func (DatastoreTimestampPartitionOutput) ElementType() reflect.Type {
@@ -5513,6 +6510,12 @@ func (o DatastoreTimestampPartitionOutput) ToDatastoreTimestampPartitionPtrOutpu
 	}).(DatastoreTimestampPartitionPtrOutput)
 }
 
+func (o DatastoreTimestampPartitionOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreTimestampPartition] {
+	return pulumix.Output[DatastoreTimestampPartition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatastoreTimestampPartitionOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatastoreTimestampPartition) string { return v.AttributeName }).(pulumi.StringOutput)
 }
@@ -5533,6 +6536,12 @@ func (o DatastoreTimestampPartitionPtrOutput) ToDatastoreTimestampPartitionPtrOu
 
 func (o DatastoreTimestampPartitionPtrOutput) ToDatastoreTimestampPartitionPtrOutputWithContext(ctx context.Context) DatastoreTimestampPartitionPtrOutput {
 	return o
+}
+
+func (o DatastoreTimestampPartitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreTimestampPartition] {
+	return pulumix.Output[*DatastoreTimestampPartition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreTimestampPartitionPtrOutput) Elem() DatastoreTimestampPartitionOutput {
@@ -5594,6 +6603,12 @@ func (i PartitionArgs) ToPartitionOutputWithContext(ctx context.Context) Partiti
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionOutput)
 }
 
+func (i PartitionArgs) ToOutput(ctx context.Context) pulumix.Output[Partition] {
+	return pulumix.Output[Partition]{
+		OutputState: i.ToPartitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PartitionArgs) ToPartitionPtrOutput() PartitionPtrOutput {
 	return i.ToPartitionPtrOutputWithContext(context.Background())
 }
@@ -5635,6 +6650,12 @@ func (i *partitionPtrType) ToPartitionPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionPtrOutput)
 }
 
+func (i *partitionPtrType) ToOutput(ctx context.Context) pulumix.Output[*Partition] {
+	return pulumix.Output[*Partition]{
+		OutputState: i.ToPartitionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PartitionOutput struct{ *pulumi.OutputState }
 
 func (PartitionOutput) ElementType() reflect.Type {
@@ -5659,6 +6680,12 @@ func (o PartitionOutput) ToPartitionPtrOutputWithContext(ctx context.Context) Pa
 	}).(PartitionPtrOutput)
 }
 
+func (o PartitionOutput) ToOutput(ctx context.Context) pulumix.Output[Partition] {
+	return pulumix.Output[Partition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PartitionOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v Partition) string { return v.AttributeName }).(pulumi.StringOutput)
 }
@@ -5675,6 +6702,12 @@ func (o PartitionPtrOutput) ToPartitionPtrOutput() PartitionPtrOutput {
 
 func (o PartitionPtrOutput) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
 	return o
+}
+
+func (o PartitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Partition] {
+	return pulumix.Output[*Partition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PartitionPtrOutput) Elem() PartitionOutput {
@@ -5745,6 +6778,12 @@ func (i PipelineActivityArgs) ToPipelineActivityOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineActivityOutput)
 }
 
+func (i PipelineActivityArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineActivity] {
+	return pulumix.Output[PipelineActivity]{
+		OutputState: i.ToPipelineActivityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineActivityArrayInput is an input type that accepts PipelineActivityArray and PipelineActivityArrayOutput values.
 // You can construct a concrete instance of `PipelineActivityArrayInput` via:
 //
@@ -5770,6 +6809,12 @@ func (i PipelineActivityArray) ToPipelineActivityArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineActivityArrayOutput)
 }
 
+func (i PipelineActivityArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineActivity] {
+	return pulumix.Output[[]PipelineActivity]{
+		OutputState: i.ToPipelineActivityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineActivityOutput struct{ *pulumi.OutputState }
 
 func (PipelineActivityOutput) ElementType() reflect.Type {
@@ -5782,6 +6827,12 @@ func (o PipelineActivityOutput) ToPipelineActivityOutput() PipelineActivityOutpu
 
 func (o PipelineActivityOutput) ToPipelineActivityOutputWithContext(ctx context.Context) PipelineActivityOutput {
 	return o
+}
+
+func (o PipelineActivityOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineActivity] {
+	return pulumix.Output[PipelineActivity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineActivityOutput) AddAttributes() PipelineAddAttributesPtrOutput {
@@ -5838,6 +6889,12 @@ func (o PipelineActivityArrayOutput) ToPipelineActivityArrayOutputWithContext(ct
 	return o
 }
 
+func (o PipelineActivityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineActivity] {
+	return pulumix.Output[[]PipelineActivity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipelineActivityArrayOutput) Index(i pulumi.IntInput) PipelineActivityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineActivity {
 		return vs[0].([]PipelineActivity)[vs[1].(int)]
@@ -5877,6 +6934,12 @@ func (i PipelineAddAttributesArgs) ToPipelineAddAttributesOutput() PipelineAddAt
 
 func (i PipelineAddAttributesArgs) ToPipelineAddAttributesOutputWithContext(ctx context.Context) PipelineAddAttributesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineAddAttributesOutput)
+}
+
+func (i PipelineAddAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineAddAttributes] {
+	return pulumix.Output[PipelineAddAttributes]{
+		OutputState: i.ToPipelineAddAttributesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PipelineAddAttributesArgs) ToPipelineAddAttributesPtrOutput() PipelineAddAttributesPtrOutput {
@@ -5920,6 +6983,12 @@ func (i *pipelineAddAttributesPtrType) ToPipelineAddAttributesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineAddAttributesPtrOutput)
 }
 
+func (i *pipelineAddAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineAddAttributes] {
+	return pulumix.Output[*PipelineAddAttributes]{
+		OutputState: i.ToPipelineAddAttributesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineAddAttributesOutput struct{ *pulumi.OutputState }
 
 func (PipelineAddAttributesOutput) ElementType() reflect.Type {
@@ -5942,6 +7011,12 @@ func (o PipelineAddAttributesOutput) ToPipelineAddAttributesPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineAddAttributes) *PipelineAddAttributes {
 		return &v
 	}).(PipelineAddAttributesPtrOutput)
+}
+
+func (o PipelineAddAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineAddAttributes] {
+	return pulumix.Output[PipelineAddAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineAddAttributesOutput) Attributes() pulumi.AnyOutput {
@@ -5968,6 +7043,12 @@ func (o PipelineAddAttributesPtrOutput) ToPipelineAddAttributesPtrOutput() Pipel
 
 func (o PipelineAddAttributesPtrOutput) ToPipelineAddAttributesPtrOutputWithContext(ctx context.Context) PipelineAddAttributesPtrOutput {
 	return o
+}
+
+func (o PipelineAddAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineAddAttributes] {
+	return pulumix.Output[*PipelineAddAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineAddAttributesPtrOutput) Elem() PipelineAddAttributesOutput {
@@ -6042,6 +7123,12 @@ func (i PipelineChannelArgs) ToPipelineChannelOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineChannelOutput)
 }
 
+func (i PipelineChannelArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineChannel] {
+	return pulumix.Output[PipelineChannel]{
+		OutputState: i.ToPipelineChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipelineChannelArgs) ToPipelineChannelPtrOutput() PipelineChannelPtrOutput {
 	return i.ToPipelineChannelPtrOutputWithContext(context.Background())
 }
@@ -6083,6 +7170,12 @@ func (i *pipelineChannelPtrType) ToPipelineChannelPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineChannelPtrOutput)
 }
 
+func (i *pipelineChannelPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineChannel] {
+	return pulumix.Output[*PipelineChannel]{
+		OutputState: i.ToPipelineChannelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineChannelOutput struct{ *pulumi.OutputState }
 
 func (PipelineChannelOutput) ElementType() reflect.Type {
@@ -6105,6 +7198,12 @@ func (o PipelineChannelOutput) ToPipelineChannelPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineChannel) *PipelineChannel {
 		return &v
 	}).(PipelineChannelPtrOutput)
+}
+
+func (o PipelineChannelOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineChannel] {
+	return pulumix.Output[PipelineChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineChannelOutput) ChannelName() pulumi.StringOutput {
@@ -6131,6 +7230,12 @@ func (o PipelineChannelPtrOutput) ToPipelineChannelPtrOutput() PipelineChannelPt
 
 func (o PipelineChannelPtrOutput) ToPipelineChannelPtrOutputWithContext(ctx context.Context) PipelineChannelPtrOutput {
 	return o
+}
+
+func (o PipelineChannelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineChannel] {
+	return pulumix.Output[*PipelineChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineChannelPtrOutput) Elem() PipelineChannelOutput {
@@ -6203,6 +7308,12 @@ func (i PipelineDatastoreArgs) ToPipelineDatastoreOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDatastoreOutput)
 }
 
+func (i PipelineDatastoreArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineDatastore] {
+	return pulumix.Output[PipelineDatastore]{
+		OutputState: i.ToPipelineDatastoreOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipelineDatastoreArgs) ToPipelineDatastorePtrOutput() PipelineDatastorePtrOutput {
 	return i.ToPipelineDatastorePtrOutputWithContext(context.Background())
 }
@@ -6244,6 +7355,12 @@ func (i *pipelineDatastorePtrType) ToPipelineDatastorePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDatastorePtrOutput)
 }
 
+func (i *pipelineDatastorePtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineDatastore] {
+	return pulumix.Output[*PipelineDatastore]{
+		OutputState: i.ToPipelineDatastorePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineDatastoreOutput struct{ *pulumi.OutputState }
 
 func (PipelineDatastoreOutput) ElementType() reflect.Type {
@@ -6268,6 +7385,12 @@ func (o PipelineDatastoreOutput) ToPipelineDatastorePtrOutputWithContext(ctx con
 	}).(PipelineDatastorePtrOutput)
 }
 
+func (o PipelineDatastoreOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineDatastore] {
+	return pulumix.Output[PipelineDatastore]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipelineDatastoreOutput) DatastoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDatastore) string { return v.DatastoreName }).(pulumi.StringOutput)
 }
@@ -6288,6 +7411,12 @@ func (o PipelineDatastorePtrOutput) ToPipelineDatastorePtrOutput() PipelineDatas
 
 func (o PipelineDatastorePtrOutput) ToPipelineDatastorePtrOutputWithContext(ctx context.Context) PipelineDatastorePtrOutput {
 	return o
+}
+
+func (o PipelineDatastorePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineDatastore] {
+	return pulumix.Output[*PipelineDatastore]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineDatastorePtrOutput) Elem() PipelineDatastoreOutput {
@@ -6357,6 +7486,12 @@ func (i PipelineDeviceRegistryEnrichArgs) ToPipelineDeviceRegistryEnrichOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDeviceRegistryEnrichOutput)
 }
 
+func (i PipelineDeviceRegistryEnrichArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineDeviceRegistryEnrich] {
+	return pulumix.Output[PipelineDeviceRegistryEnrich]{
+		OutputState: i.ToPipelineDeviceRegistryEnrichOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipelineDeviceRegistryEnrichArgs) ToPipelineDeviceRegistryEnrichPtrOutput() PipelineDeviceRegistryEnrichPtrOutput {
 	return i.ToPipelineDeviceRegistryEnrichPtrOutputWithContext(context.Background())
 }
@@ -6398,6 +7533,12 @@ func (i *pipelineDeviceRegistryEnrichPtrType) ToPipelineDeviceRegistryEnrichPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDeviceRegistryEnrichPtrOutput)
 }
 
+func (i *pipelineDeviceRegistryEnrichPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineDeviceRegistryEnrich] {
+	return pulumix.Output[*PipelineDeviceRegistryEnrich]{
+		OutputState: i.ToPipelineDeviceRegistryEnrichPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineDeviceRegistryEnrichOutput struct{ *pulumi.OutputState }
 
 func (PipelineDeviceRegistryEnrichOutput) ElementType() reflect.Type {
@@ -6420,6 +7561,12 @@ func (o PipelineDeviceRegistryEnrichOutput) ToPipelineDeviceRegistryEnrichPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineDeviceRegistryEnrich) *PipelineDeviceRegistryEnrich {
 		return &v
 	}).(PipelineDeviceRegistryEnrichPtrOutput)
+}
+
+func (o PipelineDeviceRegistryEnrichOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineDeviceRegistryEnrich] {
+	return pulumix.Output[PipelineDeviceRegistryEnrich]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineDeviceRegistryEnrichOutput) Attribute() pulumi.StringOutput {
@@ -6454,6 +7601,12 @@ func (o PipelineDeviceRegistryEnrichPtrOutput) ToPipelineDeviceRegistryEnrichPtr
 
 func (o PipelineDeviceRegistryEnrichPtrOutput) ToPipelineDeviceRegistryEnrichPtrOutputWithContext(ctx context.Context) PipelineDeviceRegistryEnrichPtrOutput {
 	return o
+}
+
+func (o PipelineDeviceRegistryEnrichPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineDeviceRegistryEnrich] {
+	return pulumix.Output[*PipelineDeviceRegistryEnrich]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineDeviceRegistryEnrichPtrOutput) Elem() PipelineDeviceRegistryEnrichOutput {
@@ -6550,6 +7703,12 @@ func (i PipelineDeviceShadowEnrichArgs) ToPipelineDeviceShadowEnrichOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDeviceShadowEnrichOutput)
 }
 
+func (i PipelineDeviceShadowEnrichArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineDeviceShadowEnrich] {
+	return pulumix.Output[PipelineDeviceShadowEnrich]{
+		OutputState: i.ToPipelineDeviceShadowEnrichOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipelineDeviceShadowEnrichArgs) ToPipelineDeviceShadowEnrichPtrOutput() PipelineDeviceShadowEnrichPtrOutput {
 	return i.ToPipelineDeviceShadowEnrichPtrOutputWithContext(context.Background())
 }
@@ -6591,6 +7750,12 @@ func (i *pipelineDeviceShadowEnrichPtrType) ToPipelineDeviceShadowEnrichPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDeviceShadowEnrichPtrOutput)
 }
 
+func (i *pipelineDeviceShadowEnrichPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineDeviceShadowEnrich] {
+	return pulumix.Output[*PipelineDeviceShadowEnrich]{
+		OutputState: i.ToPipelineDeviceShadowEnrichPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineDeviceShadowEnrichOutput struct{ *pulumi.OutputState }
 
 func (PipelineDeviceShadowEnrichOutput) ElementType() reflect.Type {
@@ -6613,6 +7778,12 @@ func (o PipelineDeviceShadowEnrichOutput) ToPipelineDeviceShadowEnrichPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineDeviceShadowEnrich) *PipelineDeviceShadowEnrich {
 		return &v
 	}).(PipelineDeviceShadowEnrichPtrOutput)
+}
+
+func (o PipelineDeviceShadowEnrichOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineDeviceShadowEnrich] {
+	return pulumix.Output[PipelineDeviceShadowEnrich]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineDeviceShadowEnrichOutput) Attribute() pulumi.StringOutput {
@@ -6647,6 +7818,12 @@ func (o PipelineDeviceShadowEnrichPtrOutput) ToPipelineDeviceShadowEnrichPtrOutp
 
 func (o PipelineDeviceShadowEnrichPtrOutput) ToPipelineDeviceShadowEnrichPtrOutputWithContext(ctx context.Context) PipelineDeviceShadowEnrichPtrOutput {
 	return o
+}
+
+func (o PipelineDeviceShadowEnrichPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineDeviceShadowEnrich] {
+	return pulumix.Output[*PipelineDeviceShadowEnrich]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineDeviceShadowEnrichPtrOutput) Elem() PipelineDeviceShadowEnrichOutput {
@@ -6739,6 +7916,12 @@ func (i PipelineFilterArgs) ToPipelineFilterOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineFilterOutput)
 }
 
+func (i PipelineFilterArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineFilter] {
+	return pulumix.Output[PipelineFilter]{
+		OutputState: i.ToPipelineFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipelineFilterArgs) ToPipelineFilterPtrOutput() PipelineFilterPtrOutput {
 	return i.ToPipelineFilterPtrOutputWithContext(context.Background())
 }
@@ -6780,6 +7963,12 @@ func (i *pipelineFilterPtrType) ToPipelineFilterPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineFilterPtrOutput)
 }
 
+func (i *pipelineFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineFilter] {
+	return pulumix.Output[*PipelineFilter]{
+		OutputState: i.ToPipelineFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineFilterOutput struct{ *pulumi.OutputState }
 
 func (PipelineFilterOutput) ElementType() reflect.Type {
@@ -6802,6 +7991,12 @@ func (o PipelineFilterOutput) ToPipelineFilterPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineFilter) *PipelineFilter {
 		return &v
 	}).(PipelineFilterPtrOutput)
+}
+
+func (o PipelineFilterOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineFilter] {
+	return pulumix.Output[PipelineFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineFilterOutput) Filter() pulumi.StringOutput {
@@ -6828,6 +8023,12 @@ func (o PipelineFilterPtrOutput) ToPipelineFilterPtrOutput() PipelineFilterPtrOu
 
 func (o PipelineFilterPtrOutput) ToPipelineFilterPtrOutputWithContext(ctx context.Context) PipelineFilterPtrOutput {
 	return o
+}
+
+func (o PipelineFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineFilter] {
+	return pulumix.Output[*PipelineFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineFilterPtrOutput) Elem() PipelineFilterOutput {
@@ -6904,6 +8105,12 @@ func (i PipelineLambdaArgs) ToPipelineLambdaOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineLambdaOutput)
 }
 
+func (i PipelineLambdaArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineLambda] {
+	return pulumix.Output[PipelineLambda]{
+		OutputState: i.ToPipelineLambdaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipelineLambdaArgs) ToPipelineLambdaPtrOutput() PipelineLambdaPtrOutput {
 	return i.ToPipelineLambdaPtrOutputWithContext(context.Background())
 }
@@ -6945,6 +8152,12 @@ func (i *pipelineLambdaPtrType) ToPipelineLambdaPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineLambdaPtrOutput)
 }
 
+func (i *pipelineLambdaPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineLambda] {
+	return pulumix.Output[*PipelineLambda]{
+		OutputState: i.ToPipelineLambdaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineLambdaOutput struct{ *pulumi.OutputState }
 
 func (PipelineLambdaOutput) ElementType() reflect.Type {
@@ -6967,6 +8180,12 @@ func (o PipelineLambdaOutput) ToPipelineLambdaPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineLambda) *PipelineLambda {
 		return &v
 	}).(PipelineLambdaPtrOutput)
+}
+
+func (o PipelineLambdaOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineLambda] {
+	return pulumix.Output[PipelineLambda]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineLambdaOutput) BatchSize() pulumi.IntOutput {
@@ -6997,6 +8216,12 @@ func (o PipelineLambdaPtrOutput) ToPipelineLambdaPtrOutput() PipelineLambdaPtrOu
 
 func (o PipelineLambdaPtrOutput) ToPipelineLambdaPtrOutputWithContext(ctx context.Context) PipelineLambdaPtrOutput {
 	return o
+}
+
+func (o PipelineLambdaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineLambda] {
+	return pulumix.Output[*PipelineLambda]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineLambdaPtrOutput) Elem() PipelineLambdaOutput {
@@ -7082,6 +8307,12 @@ func (i PipelineMathArgs) ToPipelineMathOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineMathOutput)
 }
 
+func (i PipelineMathArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineMath] {
+	return pulumix.Output[PipelineMath]{
+		OutputState: i.ToPipelineMathOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipelineMathArgs) ToPipelineMathPtrOutput() PipelineMathPtrOutput {
 	return i.ToPipelineMathPtrOutputWithContext(context.Background())
 }
@@ -7123,6 +8354,12 @@ func (i *pipelineMathPtrType) ToPipelineMathPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineMathPtrOutput)
 }
 
+func (i *pipelineMathPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineMath] {
+	return pulumix.Output[*PipelineMath]{
+		OutputState: i.ToPipelineMathPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineMathOutput struct{ *pulumi.OutputState }
 
 func (PipelineMathOutput) ElementType() reflect.Type {
@@ -7145,6 +8382,12 @@ func (o PipelineMathOutput) ToPipelineMathPtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineMath) *PipelineMath {
 		return &v
 	}).(PipelineMathPtrOutput)
+}
+
+func (o PipelineMathOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineMath] {
+	return pulumix.Output[PipelineMath]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineMathOutput) Attribute() pulumi.StringOutput {
@@ -7175,6 +8418,12 @@ func (o PipelineMathPtrOutput) ToPipelineMathPtrOutput() PipelineMathPtrOutput {
 
 func (o PipelineMathPtrOutput) ToPipelineMathPtrOutputWithContext(ctx context.Context) PipelineMathPtrOutput {
 	return o
+}
+
+func (o PipelineMathPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineMath] {
+	return pulumix.Output[*PipelineMath]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineMathPtrOutput) Elem() PipelineMathOutput {
@@ -7258,6 +8507,12 @@ func (i PipelineRemoveAttributesArgs) ToPipelineRemoveAttributesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineRemoveAttributesOutput)
 }
 
+func (i PipelineRemoveAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineRemoveAttributes] {
+	return pulumix.Output[PipelineRemoveAttributes]{
+		OutputState: i.ToPipelineRemoveAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipelineRemoveAttributesArgs) ToPipelineRemoveAttributesPtrOutput() PipelineRemoveAttributesPtrOutput {
 	return i.ToPipelineRemoveAttributesPtrOutputWithContext(context.Background())
 }
@@ -7299,6 +8554,12 @@ func (i *pipelineRemoveAttributesPtrType) ToPipelineRemoveAttributesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineRemoveAttributesPtrOutput)
 }
 
+func (i *pipelineRemoveAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineRemoveAttributes] {
+	return pulumix.Output[*PipelineRemoveAttributes]{
+		OutputState: i.ToPipelineRemoveAttributesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineRemoveAttributesOutput struct{ *pulumi.OutputState }
 
 func (PipelineRemoveAttributesOutput) ElementType() reflect.Type {
@@ -7321,6 +8582,12 @@ func (o PipelineRemoveAttributesOutput) ToPipelineRemoveAttributesPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineRemoveAttributes) *PipelineRemoveAttributes {
 		return &v
 	}).(PipelineRemoveAttributesPtrOutput)
+}
+
+func (o PipelineRemoveAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineRemoveAttributes] {
+	return pulumix.Output[PipelineRemoveAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineRemoveAttributesOutput) Attributes() pulumi.StringArrayOutput {
@@ -7347,6 +8614,12 @@ func (o PipelineRemoveAttributesPtrOutput) ToPipelineRemoveAttributesPtrOutput()
 
 func (o PipelineRemoveAttributesPtrOutput) ToPipelineRemoveAttributesPtrOutputWithContext(ctx context.Context) PipelineRemoveAttributesPtrOutput {
 	return o
+}
+
+func (o PipelineRemoveAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineRemoveAttributes] {
+	return pulumix.Output[*PipelineRemoveAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineRemoveAttributesPtrOutput) Elem() PipelineRemoveAttributesOutput {
@@ -7421,6 +8694,12 @@ func (i PipelineSelectAttributesArgs) ToPipelineSelectAttributesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineSelectAttributesOutput)
 }
 
+func (i PipelineSelectAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineSelectAttributes] {
+	return pulumix.Output[PipelineSelectAttributes]{
+		OutputState: i.ToPipelineSelectAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipelineSelectAttributesArgs) ToPipelineSelectAttributesPtrOutput() PipelineSelectAttributesPtrOutput {
 	return i.ToPipelineSelectAttributesPtrOutputWithContext(context.Background())
 }
@@ -7462,6 +8741,12 @@ func (i *pipelineSelectAttributesPtrType) ToPipelineSelectAttributesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineSelectAttributesPtrOutput)
 }
 
+func (i *pipelineSelectAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineSelectAttributes] {
+	return pulumix.Output[*PipelineSelectAttributes]{
+		OutputState: i.ToPipelineSelectAttributesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineSelectAttributesOutput struct{ *pulumi.OutputState }
 
 func (PipelineSelectAttributesOutput) ElementType() reflect.Type {
@@ -7484,6 +8769,12 @@ func (o PipelineSelectAttributesOutput) ToPipelineSelectAttributesPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineSelectAttributes) *PipelineSelectAttributes {
 		return &v
 	}).(PipelineSelectAttributesPtrOutput)
+}
+
+func (o PipelineSelectAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineSelectAttributes] {
+	return pulumix.Output[PipelineSelectAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineSelectAttributesOutput) Attributes() pulumi.StringArrayOutput {
@@ -7510,6 +8801,12 @@ func (o PipelineSelectAttributesPtrOutput) ToPipelineSelectAttributesPtrOutput()
 
 func (o PipelineSelectAttributesPtrOutput) ToPipelineSelectAttributesPtrOutputWithContext(ctx context.Context) PipelineSelectAttributesPtrOutput {
 	return o
+}
+
+func (o PipelineSelectAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineSelectAttributes] {
+	return pulumix.Output[*PipelineSelectAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineSelectAttributesPtrOutput) Elem() PipelineSelectAttributesOutput {
@@ -7582,6 +8879,12 @@ func (i PipelineTagArgs) ToPipelineTagOutputWithContext(ctx context.Context) Pip
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagOutput)
 }
 
+func (i PipelineTagArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineTag] {
+	return pulumix.Output[PipelineTag]{
+		OutputState: i.ToPipelineTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineTagArrayInput is an input type that accepts PipelineTagArray and PipelineTagArrayOutput values.
 // You can construct a concrete instance of `PipelineTagArrayInput` via:
 //
@@ -7607,6 +8910,12 @@ func (i PipelineTagArray) ToPipelineTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagArrayOutput)
 }
 
+func (i PipelineTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineTag] {
+	return pulumix.Output[[]PipelineTag]{
+		OutputState: i.ToPipelineTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineTagOutput struct{ *pulumi.OutputState }
 
 func (PipelineTagOutput) ElementType() reflect.Type {
@@ -7619,6 +8928,12 @@ func (o PipelineTagOutput) ToPipelineTagOutput() PipelineTagOutput {
 
 func (o PipelineTagOutput) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
 	return o
+}
+
+func (o PipelineTagOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineTag] {
+	return pulumix.Output[PipelineTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineTagOutput) Key() pulumi.StringOutput {
@@ -7641,6 +8956,12 @@ func (o PipelineTagArrayOutput) ToPipelineTagArrayOutput() PipelineTagArrayOutpu
 
 func (o PipelineTagArrayOutput) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
 	return o
+}
+
+func (o PipelineTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineTag] {
+	return pulumix.Output[[]PipelineTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {

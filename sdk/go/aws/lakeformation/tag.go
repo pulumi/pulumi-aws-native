@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource schema representing a Lake Formation Tag.
@@ -116,6 +117,12 @@ func (i *Tag) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagOutput)
 }
 
+func (i *Tag) ToOutput(ctx context.Context) pulumix.Output[*Tag] {
+	return pulumix.Output[*Tag]{
+		OutputState: i.ToTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TagOutput struct{ *pulumi.OutputState }
 
 func (TagOutput) ElementType() reflect.Type {
@@ -128,6 +135,12 @@ func (o TagOutput) ToTagOutput() TagOutput {
 
 func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
+}
+
+func (o TagOutput) ToOutput(ctx context.Context) pulumix.Output[*Tag] {
+	return pulumix.Output[*Tag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.

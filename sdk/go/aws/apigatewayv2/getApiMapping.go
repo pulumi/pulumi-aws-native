@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for AWS::ApiGatewayV2::ApiMapping
@@ -76,6 +77,12 @@ func (o LookupApiMappingResultOutput) ToLookupApiMappingResultOutput() LookupApi
 
 func (o LookupApiMappingResultOutput) ToLookupApiMappingResultOutputWithContext(ctx context.Context) LookupApiMappingResultOutput {
 	return o
+}
+
+func (o LookupApiMappingResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApiMappingResult] {
+	return pulumix.Output[LookupApiMappingResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The API identifier

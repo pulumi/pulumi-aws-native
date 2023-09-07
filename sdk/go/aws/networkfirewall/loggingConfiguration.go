@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
@@ -107,6 +108,12 @@ func (i *LoggingConfiguration) ToLoggingConfigurationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationOutput)
 }
 
+func (i *LoggingConfiguration) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfiguration] {
+	return pulumix.Output[*LoggingConfiguration]{
+		OutputState: i.ToLoggingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o LoggingConfigurationOutput) ToLoggingConfigurationOutput() LoggingConfig
 
 func (o LoggingConfigurationOutput) ToLoggingConfigurationOutputWithContext(ctx context.Context) LoggingConfigurationOutput {
 	return o
+}
+
+func (o LoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfiguration] {
+	return pulumix.Output[*LoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationOutput) FirewallArn() pulumi.StringOutput {

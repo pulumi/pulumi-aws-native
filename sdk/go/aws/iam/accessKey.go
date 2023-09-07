@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::AccessKey
@@ -107,6 +108,12 @@ func (i *AccessKey) ToAccessKeyOutputWithContext(ctx context.Context) AccessKeyO
 	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyOutput)
 }
 
+func (i *AccessKey) ToOutput(ctx context.Context) pulumix.Output[*AccessKey] {
+	return pulumix.Output[*AccessKey]{
+		OutputState: i.ToAccessKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessKeyOutput struct{ *pulumi.OutputState }
 
 func (AccessKeyOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o AccessKeyOutput) ToAccessKeyOutput() AccessKeyOutput {
 
 func (o AccessKeyOutput) ToAccessKeyOutputWithContext(ctx context.Context) AccessKeyOutput {
 	return o
+}
+
+func (o AccessKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessKey] {
+	return pulumix.Output[*AccessKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessKeyOutput) SecretAccessKey() pulumi.StringOutput {

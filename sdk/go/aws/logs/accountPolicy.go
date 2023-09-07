@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
@@ -145,6 +146,12 @@ func (i *AccountPolicy) ToAccountPolicyOutputWithContext(ctx context.Context) Ac
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPolicyOutput)
 }
 
+func (i *AccountPolicy) ToOutput(ctx context.Context) pulumix.Output[*AccountPolicy] {
+	return pulumix.Output[*AccountPolicy]{
+		OutputState: i.ToAccountPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccountPolicyOutput) ElementType() reflect.Type {
@@ -157,6 +164,12 @@ func (o AccountPolicyOutput) ToAccountPolicyOutput() AccountPolicyOutput {
 
 func (o AccountPolicyOutput) ToAccountPolicyOutputWithContext(ctx context.Context) AccountPolicyOutput {
 	return o
+}
+
+func (o AccountPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountPolicy] {
+	return pulumix.Output[*AccountPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // User account id

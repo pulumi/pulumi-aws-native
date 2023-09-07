@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
@@ -120,6 +121,12 @@ func (i *SchemaVersionMetadata) ToSchemaVersionMetadataOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionMetadataOutput)
 }
 
+func (i *SchemaVersionMetadata) ToOutput(ctx context.Context) pulumix.Output[*SchemaVersionMetadata] {
+	return pulumix.Output[*SchemaVersionMetadata]{
+		OutputState: i.ToSchemaVersionMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaVersionMetadataOutput struct{ *pulumi.OutputState }
 
 func (SchemaVersionMetadataOutput) ElementType() reflect.Type {
@@ -132,6 +139,12 @@ func (o SchemaVersionMetadataOutput) ToSchemaVersionMetadataOutput() SchemaVersi
 
 func (o SchemaVersionMetadataOutput) ToSchemaVersionMetadataOutputWithContext(ctx context.Context) SchemaVersionMetadataOutput {
 	return o
+}
+
+func (o SchemaVersionMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaVersionMetadata] {
+	return pulumix.Output[*SchemaVersionMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Metadata key

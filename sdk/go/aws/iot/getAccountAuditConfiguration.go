@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
@@ -68,6 +69,12 @@ func (o LookupAccountAuditConfigurationResultOutput) ToLookupAccountAuditConfigu
 
 func (o LookupAccountAuditConfigurationResultOutput) ToLookupAccountAuditConfigurationResultOutputWithContext(ctx context.Context) LookupAccountAuditConfigurationResultOutput {
 	return o
+}
+
+func (o LookupAccountAuditConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccountAuditConfigurationResult] {
+	return pulumix.Output[LookupAccountAuditConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAccountAuditConfigurationResultOutput) AuditCheckConfigurations() AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolUserToGroupAttachment
@@ -113,6 +114,12 @@ func (i *UserPoolUserToGroupAttachment) ToUserPoolUserToGroupAttachmentOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserToGroupAttachmentOutput)
 }
 
+func (i *UserPoolUserToGroupAttachment) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUserToGroupAttachment] {
+	return pulumix.Output[*UserPoolUserToGroupAttachment]{
+		OutputState: i.ToUserPoolUserToGroupAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserPoolUserToGroupAttachmentOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUserToGroupAttachmentOutput) ElementType() reflect.Type {
@@ -125,6 +132,12 @@ func (o UserPoolUserToGroupAttachmentOutput) ToUserPoolUserToGroupAttachmentOutp
 
 func (o UserPoolUserToGroupAttachmentOutput) ToUserPoolUserToGroupAttachmentOutputWithContext(ctx context.Context) UserPoolUserToGroupAttachmentOutput {
 	return o
+}
+
+func (o UserPoolUserToGroupAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUserToGroupAttachment] {
+	return pulumix.Output[*UserPoolUserToGroupAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPoolUserToGroupAttachmentOutput) GroupName() pulumi.StringOutput {

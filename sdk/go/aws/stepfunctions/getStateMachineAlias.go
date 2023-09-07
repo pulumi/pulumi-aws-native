@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for StateMachineAlias
@@ -69,6 +70,12 @@ func (o LookupStateMachineAliasResultOutput) ToLookupStateMachineAliasResultOutp
 
 func (o LookupStateMachineAliasResultOutput) ToLookupStateMachineAliasResultOutputWithContext(ctx context.Context) LookupStateMachineAliasResultOutput {
 	return o
+}
+
+func (o LookupStateMachineAliasResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStateMachineAliasResult] {
+	return pulumix.Output[LookupStateMachineAliasResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the alias.

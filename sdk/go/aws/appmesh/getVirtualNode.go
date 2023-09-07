@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppMesh::VirtualNode
@@ -68,6 +69,12 @@ func (o LookupVirtualNodeResultOutput) ToLookupVirtualNodeResultOutput() LookupV
 
 func (o LookupVirtualNodeResultOutput) ToLookupVirtualNodeResultOutputWithContext(ctx context.Context) LookupVirtualNodeResultOutput {
 	return o
+}
+
+func (o LookupVirtualNodeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualNodeResult] {
+	return pulumix.Output[LookupVirtualNodeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualNodeResultOutput) Arn() pulumi.StringPtrOutput {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode string
@@ -77,6 +78,12 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3Backup
 	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
 }
 
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3Backup
 
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput {
@@ -172,6 +185,12 @@ func (in *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3Back
 
 func (in *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtr) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (in *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode]{
+		OutputState: in.ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod string
@@ -244,6 +263,12 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotati
 	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
+func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod] {
+	return pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotati
 
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput) ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod] {
+	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput) Elem() DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOutput {
@@ -339,6 +370,12 @@ func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRota
 
 func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtr) ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput)
+}
+
+func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod] {
+	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod]{
+		OutputState: in.ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode string
@@ -408,6 +445,12 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMod
 	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput)
 }
 
+func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -441,6 +484,12 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMod
 
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput) ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeOutput {
@@ -503,6 +552,12 @@ func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupM
 
 func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtr) ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode]{
+		OutputState: in.ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat string
@@ -572,6 +627,12 @@ func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToDelivery
 	}).(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput)
 }
 
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat] {
+	return pulumix.Output[DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -605,6 +666,12 @@ func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) ToDeliv
 
 func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat] {
+	return pulumix.Output[*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) Elem() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput {
@@ -667,6 +734,12 @@ func (in *deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr) ToDeliveryS
 
 func (in *deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput)
+}
+
+func (in *deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat] {
+	return pulumix.Output[*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat]{
+		OutputState: in.ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod string
@@ -739,6 +812,12 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOu
 	}).(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
+func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod] {
+	return pulumix.Output[DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -772,6 +851,12 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPt
 
 func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput) ToDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutputWithContext(ctx context.Context) DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod] {
+	return pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput) Elem() DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOutput {
@@ -834,6 +919,12 @@ func (in *deliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod
 
 func (in *deliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtr) ToDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutputWithContext(ctx context.Context) DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput)
+}
+
+func (in *deliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod] {
+	return pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod]{
+		OutputState: in.ToDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode string
@@ -903,6 +994,12 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput) T
 	}).(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput)
 }
 
+func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -936,6 +1033,12 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput
 
 func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput) ToDeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput {
@@ -998,6 +1101,12 @@ func (in *deliveryStreamElasticsearchDestinationConfigurationS3BackupModePtr) To
 
 func (in *deliveryStreamElasticsearchDestinationConfigurationS3BackupModePtr) ToDeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (in *deliveryStreamElasticsearchDestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode]{
+		OutputState: in.ToDeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamEncryptionConfigurationInputKeyType string
@@ -1067,6 +1176,12 @@ func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToDeliveryStrea
 	}).(DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
 }
 
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamEncryptionConfigurationInputKeyType] {
+	return pulumix.Output[DeliveryStreamEncryptionConfigurationInputKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1100,6 +1215,12 @@ func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToDeliverySt
 
 func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfigurationInputKeyType] {
+	return pulumix.Output[*DeliveryStreamEncryptionConfigurationInputKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) Elem() DeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
@@ -1162,6 +1283,12 @@ func (in *deliveryStreamEncryptionConfigurationInputKeyTypePtr) ToDeliveryStream
 
 func (in *deliveryStreamEncryptionConfigurationInputKeyTypePtr) ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
+}
+
+func (in *deliveryStreamEncryptionConfigurationInputKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfigurationInputKeyType] {
+	return pulumix.Output[*DeliveryStreamEncryptionConfigurationInputKeyType]{
+		OutputState: in.ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamEncryptionConfigurationNoEncryptionConfig string
@@ -1230,6 +1357,12 @@ func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigOutput) ToDeliver
 	}).(DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput)
 }
 
+func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamEncryptionConfigurationNoEncryptionConfig] {
+	return pulumix.Output[DeliveryStreamEncryptionConfigurationNoEncryptionConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1263,6 +1396,12 @@ func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput) ToDeli
 
 func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput) ToDeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfigurationNoEncryptionConfig] {
+	return pulumix.Output[*DeliveryStreamEncryptionConfigurationNoEncryptionConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput) Elem() DeliveryStreamEncryptionConfigurationNoEncryptionConfigOutput {
@@ -1325,6 +1464,12 @@ func (in *deliveryStreamEncryptionConfigurationNoEncryptionConfigPtr) ToDelivery
 
 func (in *deliveryStreamEncryptionConfigurationNoEncryptionConfigPtr) ToDeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput)
+}
+
+func (in *deliveryStreamEncryptionConfigurationNoEncryptionConfigPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfigurationNoEncryptionConfig] {
+	return pulumix.Output[*DeliveryStreamEncryptionConfigurationNoEncryptionConfig]{
+		OutputState: in.ToDeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat string
@@ -1397,6 +1542,12 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatOutput)
 	}).(DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
+func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat] {
+	return pulumix.Output[DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1430,6 +1581,12 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutp
 
 func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput) ToDeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat] {
+	return pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput) Elem() DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatOutput {
@@ -1492,6 +1649,12 @@ func (in *deliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtr) 
 
 func (in *deliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtr) ToDeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput)
+}
+
+func (in *deliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat] {
+	return pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat]{
+		OutputState: in.ToDeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode string
@@ -1561,6 +1724,12 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeOutput) ToDe
 	}).(DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput)
 }
 
+func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode] {
+	return pulumix.Output[DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1594,6 +1763,12 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput) T
 
 func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput) ToDeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeOutput {
@@ -1656,6 +1831,12 @@ func (in *deliveryStreamExtendedS3DestinationConfigurationS3BackupModePtr) ToDel
 
 func (in *deliveryStreamExtendedS3DestinationConfigurationS3BackupModePtr) ToDeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (in *deliveryStreamExtendedS3DestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode]{
+		OutputState: in.ToDeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamHttpEndpointRequestConfigurationContentEncoding string
@@ -1725,6 +1906,12 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingOutput) ToD
 	}).(DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput)
 }
 
+func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHttpEndpointRequestConfigurationContentEncoding] {
+	return pulumix.Output[DeliveryStreamHttpEndpointRequestConfigurationContentEncoding]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1758,6 +1945,12 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput) 
 
 func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput) ToDeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHttpEndpointRequestConfigurationContentEncoding] {
+	return pulumix.Output[*DeliveryStreamHttpEndpointRequestConfigurationContentEncoding]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput) Elem() DeliveryStreamHttpEndpointRequestConfigurationContentEncodingOutput {
@@ -1820,6 +2013,12 @@ func (in *deliveryStreamHttpEndpointRequestConfigurationContentEncodingPtr) ToDe
 
 func (in *deliveryStreamHttpEndpointRequestConfigurationContentEncodingPtr) ToDeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput)
+}
+
+func (in *deliveryStreamHttpEndpointRequestConfigurationContentEncodingPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHttpEndpointRequestConfigurationContentEncoding] {
+	return pulumix.Output[*DeliveryStreamHttpEndpointRequestConfigurationContentEncoding]{
+		OutputState: in.ToDeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamProcessorType string
@@ -1891,6 +2090,12 @@ func (o DeliveryStreamProcessorTypeOutput) ToDeliveryStreamProcessorTypePtrOutpu
 	}).(DeliveryStreamProcessorTypePtrOutput)
 }
 
+func (o DeliveryStreamProcessorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamProcessorType] {
+	return pulumix.Output[DeliveryStreamProcessorType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamProcessorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1924,6 +2129,12 @@ func (o DeliveryStreamProcessorTypePtrOutput) ToDeliveryStreamProcessorTypePtrOu
 
 func (o DeliveryStreamProcessorTypePtrOutput) ToDeliveryStreamProcessorTypePtrOutputWithContext(ctx context.Context) DeliveryStreamProcessorTypePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamProcessorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamProcessorType] {
+	return pulumix.Output[*DeliveryStreamProcessorType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamProcessorTypePtrOutput) Elem() DeliveryStreamProcessorTypeOutput {
@@ -1986,6 +2197,12 @@ func (in *deliveryStreamProcessorTypePtr) ToDeliveryStreamProcessorTypePtrOutput
 
 func (in *deliveryStreamProcessorTypePtr) ToDeliveryStreamProcessorTypePtrOutputWithContext(ctx context.Context) DeliveryStreamProcessorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamProcessorTypePtrOutput)
+}
+
+func (in *deliveryStreamProcessorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamProcessorType] {
+	return pulumix.Output[*DeliveryStreamProcessorType]{
+		OutputState: in.ToDeliveryStreamProcessorTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamRedshiftDestinationConfigurationS3BackupMode string
@@ -2055,6 +2272,12 @@ func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModeOutput) ToDeli
 	}).(DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput)
 }
 
+func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamRedshiftDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[DeliveryStreamRedshiftDestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2088,6 +2311,12 @@ func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput) ToD
 
 func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput) ToDeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamRedshiftDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamRedshiftDestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamRedshiftDestinationConfigurationS3BackupModeOutput {
@@ -2150,6 +2379,12 @@ func (in *deliveryStreamRedshiftDestinationConfigurationS3BackupModePtr) ToDeliv
 
 func (in *deliveryStreamRedshiftDestinationConfigurationS3BackupModePtr) ToDeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (in *deliveryStreamRedshiftDestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamRedshiftDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamRedshiftDestinationConfigurationS3BackupMode]{
+		OutputState: in.ToDeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamS3DestinationConfigurationCompressionFormat string
@@ -2222,6 +2457,12 @@ func (o DeliveryStreamS3DestinationConfigurationCompressionFormatOutput) ToDeliv
 	}).(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
+func (o DeliveryStreamS3DestinationConfigurationCompressionFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamS3DestinationConfigurationCompressionFormat] {
+	return pulumix.Output[DeliveryStreamS3DestinationConfigurationCompressionFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamS3DestinationConfigurationCompressionFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2255,6 +2496,12 @@ func (o DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput) ToDe
 
 func (o DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput) ToDeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamS3DestinationConfigurationCompressionFormat] {
+	return pulumix.Output[*DeliveryStreamS3DestinationConfigurationCompressionFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput) Elem() DeliveryStreamS3DestinationConfigurationCompressionFormatOutput {
@@ -2317,6 +2564,12 @@ func (in *deliveryStreamS3DestinationConfigurationCompressionFormatPtr) ToDelive
 
 func (in *deliveryStreamS3DestinationConfigurationCompressionFormatPtr) ToDeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput)
+}
+
+func (in *deliveryStreamS3DestinationConfigurationCompressionFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamS3DestinationConfigurationCompressionFormat] {
+	return pulumix.Output[*DeliveryStreamS3DestinationConfigurationCompressionFormat]{
+		OutputState: in.ToDeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamSplunkDestinationConfigurationHecEndpointType string
@@ -2386,6 +2639,12 @@ func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToDel
 	}).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput)
 }
 
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSplunkDestinationConfigurationHecEndpointType] {
+	return pulumix.Output[DeliveryStreamSplunkDestinationConfigurationHecEndpointType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2419,6 +2678,12 @@ func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) To
 
 func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkDestinationConfigurationHecEndpointType] {
+	return pulumix.Output[*DeliveryStreamSplunkDestinationConfigurationHecEndpointType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) Elem() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput {
@@ -2481,6 +2746,12 @@ func (in *deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr) ToDeli
 
 func (in *deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput)
+}
+
+func (in *deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkDestinationConfigurationHecEndpointType] {
+	return pulumix.Output[*DeliveryStreamSplunkDestinationConfigurationHecEndpointType]{
+		OutputState: in.ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DeliveryStreamType string
@@ -2550,6 +2821,12 @@ func (o DeliveryStreamTypeOutput) ToDeliveryStreamTypePtrOutputWithContext(ctx c
 	}).(DeliveryStreamTypePtrOutput)
 }
 
+func (o DeliveryStreamTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamType] {
+	return pulumix.Output[DeliveryStreamType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2583,6 +2860,12 @@ func (o DeliveryStreamTypePtrOutput) ToDeliveryStreamTypePtrOutput() DeliveryStr
 
 func (o DeliveryStreamTypePtrOutput) ToDeliveryStreamTypePtrOutputWithContext(ctx context.Context) DeliveryStreamTypePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamType] {
+	return pulumix.Output[*DeliveryStreamType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamTypePtrOutput) Elem() DeliveryStreamTypeOutput {
@@ -2645,6 +2928,12 @@ func (in *deliveryStreamTypePtr) ToDeliveryStreamTypePtrOutput() DeliveryStreamT
 
 func (in *deliveryStreamTypePtr) ToDeliveryStreamTypePtrOutputWithContext(ctx context.Context) DeliveryStreamTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamTypePtrOutput)
+}
+
+func (in *deliveryStreamTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamType] {
+	return pulumix.Output[*DeliveryStreamType]{
+		OutputState: in.ToDeliveryStreamTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

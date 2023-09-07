@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::SubscriptionDefinitionVersion
@@ -106,6 +107,12 @@ func (i *SubscriptionDefinitionVersion) ToSubscriptionDefinitionVersionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionVersionOutput)
 }
 
+func (i *SubscriptionDefinitionVersion) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionDefinitionVersion] {
+	return pulumix.Output[*SubscriptionDefinitionVersion]{
+		OutputState: i.ToSubscriptionDefinitionVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionDefinitionVersionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionDefinitionVersionOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o SubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionVersionOutp
 
 func (o SubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionVersionOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionOutput {
 	return o
+}
+
+func (o SubscriptionDefinitionVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionDefinitionVersion] {
+	return pulumix.Output[*SubscriptionDefinitionVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionDefinitionVersionOutput) SubscriptionDefinitionId() pulumi.StringOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type
@@ -67,6 +68,12 @@ func (o LookupPolicyTemplateResultOutput) ToLookupPolicyTemplateResultOutput() L
 
 func (o LookupPolicyTemplateResultOutput) ToLookupPolicyTemplateResultOutputWithContext(ctx context.Context) LookupPolicyTemplateResultOutput {
 	return o
+}
+
+func (o LookupPolicyTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPolicyTemplateResult] {
+	return pulumix.Output[LookupPolicyTemplateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPolicyTemplateResultOutput) Description() pulumi.StringPtrOutput {

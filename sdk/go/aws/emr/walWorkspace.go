@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::EMR::WALWorkspace Type
@@ -102,6 +103,12 @@ func (i *WalWorkspace) ToWalWorkspaceOutputWithContext(ctx context.Context) WalW
 	return pulumi.ToOutputWithContext(ctx, i).(WalWorkspaceOutput)
 }
 
+func (i *WalWorkspace) ToOutput(ctx context.Context) pulumix.Output[*WalWorkspace] {
+	return pulumix.Output[*WalWorkspace]{
+		OutputState: i.ToWalWorkspaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WalWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WalWorkspaceOutput) ElementType() reflect.Type {
@@ -114,6 +121,12 @@ func (o WalWorkspaceOutput) ToWalWorkspaceOutput() WalWorkspaceOutput {
 
 func (o WalWorkspaceOutput) ToWalWorkspaceOutputWithContext(ctx context.Context) WalWorkspaceOutput {
 	return o
+}
+
+func (o WalWorkspaceOutput) ToOutput(ctx context.Context) pulumix.Output[*WalWorkspace] {
+	return pulumix.Output[*WalWorkspace]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An array of key-value pairs to apply to this resource.

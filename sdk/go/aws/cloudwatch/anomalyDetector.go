@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudWatch::AnomalyDetector
@@ -118,6 +119,12 @@ func (i *AnomalyDetector) ToAnomalyDetectorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorOutput)
 }
 
+func (i *AnomalyDetector) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetector] {
+	return pulumix.Output[*AnomalyDetector]{
+		OutputState: i.ToAnomalyDetectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o AnomalyDetectorOutput) ToAnomalyDetectorOutput() AnomalyDetectorOutput {
 
 func (o AnomalyDetectorOutput) ToAnomalyDetectorOutputWithContext(ctx context.Context) AnomalyDetectorOutput {
 	return o
+}
+
+func (o AnomalyDetectorOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetector] {
+	return pulumix.Output[*AnomalyDetector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorOutput) Configuration() AnomalyDetectorConfigurationPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGateway::UsagePlan
@@ -122,6 +123,12 @@ func (i *UsagePlan) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanO
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanOutput)
 }
 
+func (i *UsagePlan) ToOutput(ctx context.Context) pulumix.Output[*UsagePlan] {
+	return pulumix.Output[*UsagePlan]{
+		OutputState: i.ToUsagePlanOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UsagePlanOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanOutput) ElementType() reflect.Type {
@@ -134,6 +141,12 @@ func (o UsagePlanOutput) ToUsagePlanOutput() UsagePlanOutput {
 
 func (o UsagePlanOutput) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanOutput {
 	return o
+}
+
+func (o UsagePlanOutput) ToOutput(ctx context.Context) pulumix.Output[*UsagePlan] {
+	return pulumix.Output[*UsagePlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The API stages to associate with this usage plan.

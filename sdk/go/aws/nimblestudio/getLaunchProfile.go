@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a launch profile which delegates access to a collection of studio components to studio users
@@ -78,6 +79,12 @@ func (o LookupLaunchProfileResultOutput) ToLookupLaunchProfileResultOutput() Loo
 
 func (o LookupLaunchProfileResultOutput) ToLookupLaunchProfileResultOutputWithContext(ctx context.Context) LookupLaunchProfileResultOutput {
 	return o
+}
+
+func (o LookupLaunchProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLaunchProfileResult] {
+	return pulumix.Output[LookupLaunchProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // <p>The description.</p>

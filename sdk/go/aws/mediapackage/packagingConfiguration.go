@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaPackage::PackagingConfiguration
@@ -128,6 +129,12 @@ func (i *PackagingConfiguration) ToPackagingConfigurationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationOutput)
 }
 
+func (i *PackagingConfiguration) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfiguration] {
+	return pulumix.Output[*PackagingConfiguration]{
+		OutputState: i.ToPackagingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PackagingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationOutput) ElementType() reflect.Type {
@@ -140,6 +147,12 @@ func (o PackagingConfigurationOutput) ToPackagingConfigurationOutput() Packaging
 
 func (o PackagingConfigurationOutput) ToPackagingConfigurationOutputWithContext(ctx context.Context) PackagingConfigurationOutput {
 	return o
+}
+
+func (o PackagingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfiguration] {
+	return pulumix.Output[*PackagingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the PackagingConfiguration.

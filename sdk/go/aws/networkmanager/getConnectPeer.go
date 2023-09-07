@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::ConnectPeer Resource Type Definition.
@@ -78,6 +79,12 @@ func (o LookupConnectPeerResultOutput) ToLookupConnectPeerResultOutput() LookupC
 
 func (o LookupConnectPeerResultOutput) ToLookupConnectPeerResultOutputWithContext(ctx context.Context) LookupConnectPeerResultOutput {
 	return o
+}
+
+func (o LookupConnectPeerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConnectPeerResult] {
+	return pulumix.Output[LookupConnectPeerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration of the connect peer.

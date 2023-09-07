@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAF::XssMatchSet
@@ -102,6 +103,12 @@ func (i *XssMatchSet) ToXssMatchSetOutputWithContext(ctx context.Context) XssMat
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetOutput)
 }
 
+func (i *XssMatchSet) ToOutput(ctx context.Context) pulumix.Output[*XssMatchSet] {
+	return pulumix.Output[*XssMatchSet]{
+		OutputState: i.ToXssMatchSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type XssMatchSetOutput struct{ *pulumi.OutputState }
 
 func (XssMatchSetOutput) ElementType() reflect.Type {
@@ -114,6 +121,12 @@ func (o XssMatchSetOutput) ToXssMatchSetOutput() XssMatchSetOutput {
 
 func (o XssMatchSetOutput) ToXssMatchSetOutputWithContext(ctx context.Context) XssMatchSetOutput {
 	return o
+}
+
+func (o XssMatchSetOutput) ToOutput(ctx context.Context) pulumix.Output[*XssMatchSet] {
+	return pulumix.Output[*XssMatchSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o XssMatchSetOutput) Name() pulumi.StringOutput {

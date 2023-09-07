@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGateway::RequestValidator
@@ -121,6 +122,12 @@ func (i *RequestValidator) ToRequestValidatorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RequestValidatorOutput)
 }
 
+func (i *RequestValidator) ToOutput(ctx context.Context) pulumix.Output[*RequestValidator] {
+	return pulumix.Output[*RequestValidator]{
+		OutputState: i.ToRequestValidatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RequestValidatorOutput struct{ *pulumi.OutputState }
 
 func (RequestValidatorOutput) ElementType() reflect.Type {
@@ -133,6 +140,12 @@ func (o RequestValidatorOutput) ToRequestValidatorOutput() RequestValidatorOutpu
 
 func (o RequestValidatorOutput) ToRequestValidatorOutputWithContext(ctx context.Context) RequestValidatorOutput {
 	return o
+}
+
+func (o RequestValidatorOutput) ToOutput(ctx context.Context) pulumix.Output[*RequestValidator] {
+	return pulumix.Output[*RequestValidator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the request validator.

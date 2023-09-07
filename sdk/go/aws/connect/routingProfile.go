@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::RoutingProfile
@@ -143,6 +144,12 @@ func (i *RoutingProfile) ToRoutingProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileOutput)
 }
 
+func (i *RoutingProfile) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfile] {
+	return pulumix.Output[*RoutingProfile]{
+		OutputState: i.ToRoutingProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RoutingProfileOutput struct{ *pulumi.OutputState }
 
 func (RoutingProfileOutput) ElementType() reflect.Type {
@@ -155,6 +162,12 @@ func (o RoutingProfileOutput) ToRoutingProfileOutput() RoutingProfileOutput {
 
 func (o RoutingProfileOutput) ToRoutingProfileOutputWithContext(ctx context.Context) RoutingProfileOutput {
 	return o
+}
+
+func (o RoutingProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfile] {
+	return pulumix.Output[*RoutingProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of the default outbound queue for this routing profile.

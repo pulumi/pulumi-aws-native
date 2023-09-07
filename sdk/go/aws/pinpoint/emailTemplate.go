@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::EmailTemplate
@@ -121,6 +122,12 @@ func (i *EmailTemplate) ToEmailTemplateOutputWithContext(ctx context.Context) Em
 	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateOutput)
 }
 
+func (i *EmailTemplate) ToOutput(ctx context.Context) pulumix.Output[*EmailTemplate] {
+	return pulumix.Output[*EmailTemplate]{
+		OutputState: i.ToEmailTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EmailTemplateOutput struct{ *pulumi.OutputState }
 
 func (EmailTemplateOutput) ElementType() reflect.Type {
@@ -133,6 +140,12 @@ func (o EmailTemplateOutput) ToEmailTemplateOutput() EmailTemplateOutput {
 
 func (o EmailTemplateOutput) ToEmailTemplateOutputWithContext(ctx context.Context) EmailTemplateOutput {
 	return o
+}
+
+func (o EmailTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailTemplate] {
+	return pulumix.Output[*EmailTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EmailTemplateOutput) Arn() pulumi.StringOutput {

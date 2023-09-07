@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
@@ -77,6 +78,12 @@ func (o LookupAnomalySubscriptionResultOutput) ToLookupAnomalySubscriptionResult
 
 func (o LookupAnomalySubscriptionResultOutput) ToLookupAnomalySubscriptionResultOutputWithContext(ctx context.Context) LookupAnomalySubscriptionResultOutput {
 	return o
+}
+
+func (o LookupAnomalySubscriptionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAnomalySubscriptionResult] {
+	return pulumix.Output[LookupAnomalySubscriptionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The accountId

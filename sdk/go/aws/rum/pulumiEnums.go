@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AppMonitorCustomEventsStatus string
@@ -77,6 +78,12 @@ func (o AppMonitorCustomEventsStatusOutput) ToAppMonitorCustomEventsStatusPtrOut
 	}).(AppMonitorCustomEventsStatusPtrOutput)
 }
 
+func (o AppMonitorCustomEventsStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AppMonitorCustomEventsStatus] {
+	return pulumix.Output[AppMonitorCustomEventsStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppMonitorCustomEventsStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o AppMonitorCustomEventsStatusPtrOutput) ToAppMonitorCustomEventsStatusPtr
 
 func (o AppMonitorCustomEventsStatusPtrOutput) ToAppMonitorCustomEventsStatusPtrOutputWithContext(ctx context.Context) AppMonitorCustomEventsStatusPtrOutput {
 	return o
+}
+
+func (o AppMonitorCustomEventsStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorCustomEventsStatus] {
+	return pulumix.Output[*AppMonitorCustomEventsStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppMonitorCustomEventsStatusPtrOutput) Elem() AppMonitorCustomEventsStatusOutput {
@@ -172,6 +185,12 @@ func (in *appMonitorCustomEventsStatusPtr) ToAppMonitorCustomEventsStatusPtrOutp
 
 func (in *appMonitorCustomEventsStatusPtr) ToAppMonitorCustomEventsStatusPtrOutputWithContext(ctx context.Context) AppMonitorCustomEventsStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppMonitorCustomEventsStatusPtrOutput)
+}
+
+func (in *appMonitorCustomEventsStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorCustomEventsStatus] {
+	return pulumix.Output[*AppMonitorCustomEventsStatus]{
+		OutputState: in.ToAppMonitorCustomEventsStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
@@ -242,6 +261,12 @@ func (o AppMonitorMetricDestinationDestinationOutput) ToAppMonitorMetricDestinat
 	}).(AppMonitorMetricDestinationDestinationPtrOutput)
 }
 
+func (o AppMonitorMetricDestinationDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[AppMonitorMetricDestinationDestination] {
+	return pulumix.Output[AppMonitorMetricDestinationDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppMonitorMetricDestinationDestinationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -275,6 +300,12 @@ func (o AppMonitorMetricDestinationDestinationPtrOutput) ToAppMonitorMetricDesti
 
 func (o AppMonitorMetricDestinationDestinationPtrOutput) ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(ctx context.Context) AppMonitorMetricDestinationDestinationPtrOutput {
 	return o
+}
+
+func (o AppMonitorMetricDestinationDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorMetricDestinationDestination] {
+	return pulumix.Output[*AppMonitorMetricDestinationDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppMonitorMetricDestinationDestinationPtrOutput) Elem() AppMonitorMetricDestinationDestinationOutput {
@@ -337,6 +368,12 @@ func (in *appMonitorMetricDestinationDestinationPtr) ToAppMonitorMetricDestinati
 
 func (in *appMonitorMetricDestinationDestinationPtr) ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(ctx context.Context) AppMonitorMetricDestinationDestinationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppMonitorMetricDestinationDestinationPtrOutput)
+}
+
+func (in *appMonitorMetricDestinationDestinationPtr) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorMetricDestinationDestination] {
+	return pulumix.Output[*AppMonitorMetricDestinationDestination]{
+		OutputState: in.ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type AppMonitorTelemetry string
@@ -407,6 +444,12 @@ func (o AppMonitorTelemetryOutput) ToAppMonitorTelemetryPtrOutputWithContext(ctx
 	}).(AppMonitorTelemetryPtrOutput)
 }
 
+func (o AppMonitorTelemetryOutput) ToOutput(ctx context.Context) pulumix.Output[AppMonitorTelemetry] {
+	return pulumix.Output[AppMonitorTelemetry]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppMonitorTelemetryOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -440,6 +483,12 @@ func (o AppMonitorTelemetryPtrOutput) ToAppMonitorTelemetryPtrOutput() AppMonito
 
 func (o AppMonitorTelemetryPtrOutput) ToAppMonitorTelemetryPtrOutputWithContext(ctx context.Context) AppMonitorTelemetryPtrOutput {
 	return o
+}
+
+func (o AppMonitorTelemetryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorTelemetry] {
+	return pulumix.Output[*AppMonitorTelemetry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppMonitorTelemetryPtrOutput) Elem() AppMonitorTelemetryOutput {
@@ -504,6 +553,12 @@ func (in *appMonitorTelemetryPtr) ToAppMonitorTelemetryPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(AppMonitorTelemetryPtrOutput)
 }
 
+func (in *appMonitorTelemetryPtr) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorTelemetry] {
+	return pulumix.Output[*AppMonitorTelemetry]{
+		OutputState: in.ToAppMonitorTelemetryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AppMonitorTelemetryArrayInput is an input type that accepts AppMonitorTelemetryArray and AppMonitorTelemetryArrayOutput values.
 // You can construct a concrete instance of `AppMonitorTelemetryArrayInput` via:
 //
@@ -529,6 +584,12 @@ func (i AppMonitorTelemetryArray) ToAppMonitorTelemetryArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorTelemetryArrayOutput)
 }
 
+func (i AppMonitorTelemetryArray) ToOutput(ctx context.Context) pulumix.Output[[]AppMonitorTelemetry] {
+	return pulumix.Output[[]AppMonitorTelemetry]{
+		OutputState: i.ToAppMonitorTelemetryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppMonitorTelemetryArrayOutput struct{ *pulumi.OutputState }
 
 func (AppMonitorTelemetryArrayOutput) ElementType() reflect.Type {
@@ -541,6 +602,12 @@ func (o AppMonitorTelemetryArrayOutput) ToAppMonitorTelemetryArrayOutput() AppMo
 
 func (o AppMonitorTelemetryArrayOutput) ToAppMonitorTelemetryArrayOutputWithContext(ctx context.Context) AppMonitorTelemetryArrayOutput {
 	return o
+}
+
+func (o AppMonitorTelemetryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppMonitorTelemetry] {
+	return pulumix.Output[[]AppMonitorTelemetry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppMonitorTelemetryArrayOutput) Index(i pulumi.IntInput) AppMonitorTelemetryOutput {

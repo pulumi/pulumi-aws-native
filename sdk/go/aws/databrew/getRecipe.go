@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataBrew::Recipe.
@@ -67,6 +68,12 @@ func (o LookupRecipeResultOutput) ToLookupRecipeResultOutput() LookupRecipeResul
 
 func (o LookupRecipeResultOutput) ToLookupRecipeResultOutputWithContext(ctx context.Context) LookupRecipeResultOutput {
 	return o
+}
+
+func (o LookupRecipeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRecipeResult] {
+	return pulumix.Output[LookupRecipeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the recipe

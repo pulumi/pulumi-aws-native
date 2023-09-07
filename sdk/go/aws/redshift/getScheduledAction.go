@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
@@ -82,6 +83,12 @@ func (o LookupScheduledActionResultOutput) ToLookupScheduledActionResultOutput()
 
 func (o LookupScheduledActionResultOutput) ToLookupScheduledActionResultOutputWithContext(ctx context.Context) LookupScheduledActionResultOutput {
 	return o
+}
+
+func (o LookupScheduledActionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupScheduledActionResult] {
+	return pulumix.Output[LookupScheduledActionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // If true, the schedule is enabled. If false, the scheduled action does not trigger.

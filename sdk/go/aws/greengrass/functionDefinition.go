@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::FunctionDefinition
@@ -103,6 +104,12 @@ func (i *FunctionDefinition) ToFunctionDefinitionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionOutput)
 }
 
+func (i *FunctionDefinition) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinition] {
+	return pulumix.Output[*FunctionDefinition]{
+		OutputState: i.ToFunctionDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionOutput) ElementType() reflect.Type {
@@ -115,6 +122,12 @@ func (o FunctionDefinitionOutput) ToFunctionDefinitionOutput() FunctionDefinitio
 
 func (o FunctionDefinitionOutput) ToFunctionDefinitionOutputWithContext(ctx context.Context) FunctionDefinitionOutput {
 	return o
+}
+
+func (o FunctionDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinition] {
+	return pulumix.Output[*FunctionDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionDefinitionOutput) Arn() pulumi.StringOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Athena::DataCatalog
@@ -72,6 +73,12 @@ func (o LookupDataCatalogResultOutput) ToLookupDataCatalogResultOutput() LookupD
 
 func (o LookupDataCatalogResultOutput) ToLookupDataCatalogResultOutputWithContext(ctx context.Context) LookupDataCatalogResultOutput {
 	return o
+}
+
+func (o LookupDataCatalogResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataCatalogResult] {
+	return pulumix.Output[LookupDataCatalogResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description of the data catalog to be created.

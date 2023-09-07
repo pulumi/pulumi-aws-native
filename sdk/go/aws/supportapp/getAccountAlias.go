@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
@@ -68,6 +69,12 @@ func (o LookupAccountAliasResultOutput) ToLookupAccountAliasResultOutput() Looku
 
 func (o LookupAccountAliasResultOutput) ToLookupAccountAliasResultOutputWithContext(ctx context.Context) LookupAccountAliasResultOutput {
 	return o
+}
+
+func (o LookupAccountAliasResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccountAliasResult] {
+	return pulumix.Output[LookupAccountAliasResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An account alias associated with a customer's account.

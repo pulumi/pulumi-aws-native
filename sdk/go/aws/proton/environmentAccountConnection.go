@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
@@ -138,6 +139,12 @@ func (i *EnvironmentAccountConnection) ToEnvironmentAccountConnectionOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentAccountConnectionOutput)
 }
 
+func (i *EnvironmentAccountConnection) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentAccountConnection] {
+	return pulumix.Output[*EnvironmentAccountConnection]{
+		OutputState: i.ToEnvironmentAccountConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentAccountConnectionOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentAccountConnectionOutput) ElementType() reflect.Type {
@@ -150,6 +157,12 @@ func (o EnvironmentAccountConnectionOutput) ToEnvironmentAccountConnectionOutput
 
 func (o EnvironmentAccountConnectionOutput) ToEnvironmentAccountConnectionOutputWithContext(ctx context.Context) EnvironmentAccountConnectionOutput {
 	return o
+}
+
+func (o EnvironmentAccountConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentAccountConnection] {
+	return pulumix.Output[*EnvironmentAccountConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the environment account connection.

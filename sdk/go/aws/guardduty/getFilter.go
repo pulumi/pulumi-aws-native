@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GuardDuty::Filter
@@ -68,6 +69,12 @@ func (o LookupFilterResultOutput) ToLookupFilterResultOutput() LookupFilterResul
 
 func (o LookupFilterResultOutput) ToLookupFilterResultOutputWithContext(ctx context.Context) LookupFilterResultOutput {
 	return o
+}
+
+func (o LookupFilterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFilterResult] {
+	return pulumix.Output[LookupFilterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFilterResultOutput) Action() pulumi.StringPtrOutput {

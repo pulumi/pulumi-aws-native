@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Set a version as default version for a hook in CloudFormation Registry.
@@ -74,6 +75,12 @@ func (o LookupHookDefaultVersionResultOutput) ToLookupHookDefaultVersionResultOu
 
 func (o LookupHookDefaultVersionResultOutput) ToLookupHookDefaultVersionResultOutputWithContext(ctx context.Context) LookupHookDefaultVersionResultOutput {
 	return o
+}
+
+func (o LookupHookDefaultVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHookDefaultVersionResult] {
+	return pulumix.Output[LookupHookDefaultVersionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a HookDefaultVersion

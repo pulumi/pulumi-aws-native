@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.
@@ -189,6 +190,12 @@ func (i *Trail) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrailOutput)
 }
 
+func (i *Trail) ToOutput(ctx context.Context) pulumix.Output[*Trail] {
+	return pulumix.Output[*Trail]{
+		OutputState: i.ToTrailOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrailOutput struct{ *pulumi.OutputState }
 
 func (TrailOutput) ElementType() reflect.Type {
@@ -201,6 +208,12 @@ func (o TrailOutput) ToTrailOutput() TrailOutput {
 
 func (o TrailOutput) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
 	return o
+}
+
+func (o TrailOutput) ToOutput(ctx context.Context) pulumix.Output[*Trail] {
+	return pulumix.Output[*Trail]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The advanced event selectors that were used to select events for the data store.

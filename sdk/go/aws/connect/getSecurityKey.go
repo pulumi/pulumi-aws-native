@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::SecurityKey
@@ -65,6 +66,12 @@ func (o LookupSecurityKeyResultOutput) ToLookupSecurityKeyResultOutput() LookupS
 
 func (o LookupSecurityKeyResultOutput) ToLookupSecurityKeyResultOutputWithContext(ctx context.Context) LookupSecurityKeyResultOutput {
 	return o
+}
+
+func (o LookupSecurityKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecurityKeyResult] {
+	return pulumix.Output[LookupSecurityKeyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSecurityKeyResultOutput) AssociationId() pulumi.StringPtrOutput {

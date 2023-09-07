@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
@@ -76,6 +77,12 @@ func (o LookupTaskSetResultOutput) ToLookupTaskSetResultOutput() LookupTaskSetRe
 
 func (o LookupTaskSetResultOutput) ToLookupTaskSetResultOutputWithContext(ctx context.Context) LookupTaskSetResultOutput {
 	return o
+}
+
+func (o LookupTaskSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTaskSetResult] {
+	return pulumix.Output[LookupTaskSetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the task set.

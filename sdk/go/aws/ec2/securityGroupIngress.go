@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::SecurityGroupIngress
@@ -142,6 +143,12 @@ func (i *SecurityGroupIngress) ToSecurityGroupIngressOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressOutput)
 }
 
+func (i *SecurityGroupIngress) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupIngress] {
+	return pulumix.Output[*SecurityGroupIngress]{
+		OutputState: i.ToSecurityGroupIngressOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityGroupIngressOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupIngressOutput) ElementType() reflect.Type {
@@ -154,6 +161,12 @@ func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutput() SecurityGroup
 
 func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
 	return o
+}
+
+func (o SecurityGroupIngressOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupIngress] {
+	return pulumix.Output[*SecurityGroupIngress]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityGroupIngressOutput) CidrIp() pulumi.StringPtrOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::GCMChannel
@@ -108,6 +109,12 @@ func (i *GcmChannel) ToGcmChannelOutputWithContext(ctx context.Context) GcmChann
 	return pulumi.ToOutputWithContext(ctx, i).(GcmChannelOutput)
 }
 
+func (i *GcmChannel) ToOutput(ctx context.Context) pulumix.Output[*GcmChannel] {
+	return pulumix.Output[*GcmChannel]{
+		OutputState: i.ToGcmChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcmChannelOutput struct{ *pulumi.OutputState }
 
 func (GcmChannelOutput) ElementType() reflect.Type {
@@ -120,6 +127,12 @@ func (o GcmChannelOutput) ToGcmChannelOutput() GcmChannelOutput {
 
 func (o GcmChannelOutput) ToGcmChannelOutputWithContext(ctx context.Context) GcmChannelOutput {
 	return o
+}
+
+func (o GcmChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*GcmChannel] {
+	return pulumix.Output[*GcmChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcmChannelOutput) ApiKey() pulumi.StringOutput {

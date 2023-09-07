@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ApiDestinationHttpMethod string
@@ -82,6 +83,12 @@ func (o ApiDestinationHttpMethodOutput) ToApiDestinationHttpMethodPtrOutputWithC
 	}).(ApiDestinationHttpMethodPtrOutput)
 }
 
+func (o ApiDestinationHttpMethodOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDestinationHttpMethod] {
+	return pulumix.Output[ApiDestinationHttpMethod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiDestinationHttpMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -115,6 +122,12 @@ func (o ApiDestinationHttpMethodPtrOutput) ToApiDestinationHttpMethodPtrOutput()
 
 func (o ApiDestinationHttpMethodPtrOutput) ToApiDestinationHttpMethodPtrOutputWithContext(ctx context.Context) ApiDestinationHttpMethodPtrOutput {
 	return o
+}
+
+func (o ApiDestinationHttpMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDestinationHttpMethod] {
+	return pulumix.Output[*ApiDestinationHttpMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDestinationHttpMethodPtrOutput) Elem() ApiDestinationHttpMethodOutput {
@@ -177,6 +190,12 @@ func (in *apiDestinationHttpMethodPtr) ToApiDestinationHttpMethodPtrOutput() Api
 
 func (in *apiDestinationHttpMethodPtr) ToApiDestinationHttpMethodPtrOutputWithContext(ctx context.Context) ApiDestinationHttpMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApiDestinationHttpMethodPtrOutput)
+}
+
+func (in *apiDestinationHttpMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*ApiDestinationHttpMethod] {
+	return pulumix.Output[*ApiDestinationHttpMethod]{
+		OutputState: in.ToApiDestinationHttpMethodPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ConnectionAuthorizationType string
@@ -247,6 +266,12 @@ func (o ConnectionAuthorizationTypeOutput) ToConnectionAuthorizationTypePtrOutpu
 	}).(ConnectionAuthorizationTypePtrOutput)
 }
 
+func (o ConnectionAuthorizationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectionAuthorizationType] {
+	return pulumix.Output[ConnectionAuthorizationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectionAuthorizationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -280,6 +305,12 @@ func (o ConnectionAuthorizationTypePtrOutput) ToConnectionAuthorizationTypePtrOu
 
 func (o ConnectionAuthorizationTypePtrOutput) ToConnectionAuthorizationTypePtrOutputWithContext(ctx context.Context) ConnectionAuthorizationTypePtrOutput {
 	return o
+}
+
+func (o ConnectionAuthorizationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAuthorizationType] {
+	return pulumix.Output[*ConnectionAuthorizationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionAuthorizationTypePtrOutput) Elem() ConnectionAuthorizationTypeOutput {
@@ -342,6 +373,12 @@ func (in *connectionAuthorizationTypePtr) ToConnectionAuthorizationTypePtrOutput
 
 func (in *connectionAuthorizationTypePtr) ToConnectionAuthorizationTypePtrOutputWithContext(ctx context.Context) ConnectionAuthorizationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionAuthorizationTypePtrOutput)
+}
+
+func (in *connectionAuthorizationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAuthorizationType] {
+	return pulumix.Output[*ConnectionAuthorizationType]{
+		OutputState: in.ToConnectionAuthorizationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ConnectionOAuthParametersHttpMethod string
@@ -412,6 +449,12 @@ func (o ConnectionOAuthParametersHttpMethodOutput) ToConnectionOAuthParametersHt
 	}).(ConnectionOAuthParametersHttpMethodPtrOutput)
 }
 
+func (o ConnectionOAuthParametersHttpMethodOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectionOAuthParametersHttpMethod] {
+	return pulumix.Output[ConnectionOAuthParametersHttpMethod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectionOAuthParametersHttpMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -445,6 +488,12 @@ func (o ConnectionOAuthParametersHttpMethodPtrOutput) ToConnectionOAuthParameter
 
 func (o ConnectionOAuthParametersHttpMethodPtrOutput) ToConnectionOAuthParametersHttpMethodPtrOutputWithContext(ctx context.Context) ConnectionOAuthParametersHttpMethodPtrOutput {
 	return o
+}
+
+func (o ConnectionOAuthParametersHttpMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionOAuthParametersHttpMethod] {
+	return pulumix.Output[*ConnectionOAuthParametersHttpMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionOAuthParametersHttpMethodPtrOutput) Elem() ConnectionOAuthParametersHttpMethodOutput {
@@ -507,6 +556,12 @@ func (in *connectionOAuthParametersHttpMethodPtr) ToConnectionOAuthParametersHtt
 
 func (in *connectionOAuthParametersHttpMethodPtr) ToConnectionOAuthParametersHttpMethodPtrOutputWithContext(ctx context.Context) ConnectionOAuthParametersHttpMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionOAuthParametersHttpMethodPtrOutput)
+}
+
+func (in *connectionOAuthParametersHttpMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectionOAuthParametersHttpMethod] {
+	return pulumix.Output[*ConnectionOAuthParametersHttpMethod]{
+		OutputState: in.ToConnectionOAuthParametersHttpMethodPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EndpointReplicationState string
@@ -576,6 +631,12 @@ func (o EndpointReplicationStateOutput) ToEndpointReplicationStatePtrOutputWithC
 	}).(EndpointReplicationStatePtrOutput)
 }
 
+func (o EndpointReplicationStateOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointReplicationState] {
+	return pulumix.Output[EndpointReplicationState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointReplicationStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -609,6 +670,12 @@ func (o EndpointReplicationStatePtrOutput) ToEndpointReplicationStatePtrOutput()
 
 func (o EndpointReplicationStatePtrOutput) ToEndpointReplicationStatePtrOutputWithContext(ctx context.Context) EndpointReplicationStatePtrOutput {
 	return o
+}
+
+func (o EndpointReplicationStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointReplicationState] {
+	return pulumix.Output[*EndpointReplicationState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointReplicationStatePtrOutput) Elem() EndpointReplicationStateOutput {
@@ -673,6 +740,12 @@ func (in *endpointReplicationStatePtr) ToEndpointReplicationStatePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointReplicationStatePtrOutput)
 }
 
+func (in *endpointReplicationStatePtr) ToOutput(ctx context.Context) pulumix.Output[*EndpointReplicationState] {
+	return pulumix.Output[*EndpointReplicationState]{
+		OutputState: in.ToEndpointReplicationStatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointStateEnum string
 
 const (
@@ -708,6 +781,12 @@ func (o EndpointStateEnumOutput) ToEndpointStateEnumPtrOutputWithContext(ctx con
 	}).(EndpointStateEnumPtrOutput)
 }
 
+func (o EndpointStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointStateEnum] {
+	return pulumix.Output[EndpointStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -741,6 +820,12 @@ func (o EndpointStateEnumPtrOutput) ToEndpointStateEnumPtrOutput() EndpointState
 
 func (o EndpointStateEnumPtrOutput) ToEndpointStateEnumPtrOutputWithContext(ctx context.Context) EndpointStateEnumPtrOutput {
 	return o
+}
+
+func (o EndpointStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointStateEnum] {
+	return pulumix.Output[*EndpointStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointStateEnumPtrOutput) Elem() EndpointStateEnumOutput {

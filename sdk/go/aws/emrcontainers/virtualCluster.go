@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EMRContainers::VirtualCluster Type
@@ -114,6 +115,12 @@ func (i *VirtualCluster) ToVirtualClusterOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterOutput)
 }
 
+func (i *VirtualCluster) ToOutput(ctx context.Context) pulumix.Output[*VirtualCluster] {
+	return pulumix.Output[*VirtualCluster]{
+		OutputState: i.ToVirtualClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualClusterOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterOutput) ElementType() reflect.Type {
@@ -126,6 +133,12 @@ func (o VirtualClusterOutput) ToVirtualClusterOutput() VirtualClusterOutput {
 
 func (o VirtualClusterOutput) ToVirtualClusterOutputWithContext(ctx context.Context) VirtualClusterOutput {
 	return o
+}
+
+func (o VirtualClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualCluster] {
+	return pulumix.Output[*VirtualCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualClusterOutput) Arn() pulumi.StringOutput {

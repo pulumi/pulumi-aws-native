@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsOutput)
 }
 
+func (i ConnectAttachmentOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectAttachmentOptions] {
+	return pulumix.Output[ConnectAttachmentOptions]{
+		OutputState: i.ToConnectAttachmentOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Connect attachment options for protocol
 type ConnectAttachmentOptionsOutput struct{ *pulumi.OutputState }
 
@@ -61,6 +68,12 @@ func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsOutput() Conne
 
 func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsOutputWithContext(ctx context.Context) ConnectAttachmentOptionsOutput {
 	return o
+}
+
+func (o ConnectAttachmentOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectAttachmentOptions] {
+	return pulumix.Output[ConnectAttachmentOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Tunnel protocol for connect attachment
@@ -111,6 +124,12 @@ func (i ConnectAttachmentProposedSegmentChangeArgs) ToConnectAttachmentProposedS
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentProposedSegmentChangeOutput)
 }
 
+func (i ConnectAttachmentProposedSegmentChangeArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectAttachmentProposedSegmentChange] {
+	return pulumix.Output[ConnectAttachmentProposedSegmentChange]{
+		OutputState: i.ToConnectAttachmentProposedSegmentChangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectAttachmentProposedSegmentChangeArgs) ToConnectAttachmentProposedSegmentChangePtrOutput() ConnectAttachmentProposedSegmentChangePtrOutput {
 	return i.ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
 }
@@ -152,6 +171,12 @@ func (i *connectAttachmentProposedSegmentChangePtrType) ToConnectAttachmentPropo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentProposedSegmentChangePtrOutput)
 }
 
+func (i *connectAttachmentProposedSegmentChangePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectAttachmentProposedSegmentChange] {
+	return pulumix.Output[*ConnectAttachmentProposedSegmentChange]{
+		OutputState: i.ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The attachment to move from one segment to another.
 type ConnectAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
@@ -175,6 +200,12 @@ func (o ConnectAttachmentProposedSegmentChangeOutput) ToConnectAttachmentPropose
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectAttachmentProposedSegmentChange) *ConnectAttachmentProposedSegmentChange {
 		return &v
 	}).(ConnectAttachmentProposedSegmentChangePtrOutput)
+}
+
+func (o ConnectAttachmentProposedSegmentChangeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectAttachmentProposedSegmentChange] {
+	return pulumix.Output[ConnectAttachmentProposedSegmentChange]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The rule number in the policy document that applies to this change.
@@ -204,6 +235,12 @@ func (o ConnectAttachmentProposedSegmentChangePtrOutput) ToConnectAttachmentProp
 
 func (o ConnectAttachmentProposedSegmentChangePtrOutput) ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangePtrOutput {
 	return o
+}
+
+func (o ConnectAttachmentProposedSegmentChangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectAttachmentProposedSegmentChange] {
+	return pulumix.Output[*ConnectAttachmentProposedSegmentChange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectAttachmentProposedSegmentChangePtrOutput) Elem() ConnectAttachmentProposedSegmentChangeOutput {
@@ -285,6 +322,12 @@ func (i ConnectAttachmentTagArgs) ToConnectAttachmentTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentTagOutput)
 }
 
+func (i ConnectAttachmentTagArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectAttachmentTag] {
+	return pulumix.Output[ConnectAttachmentTag]{
+		OutputState: i.ToConnectAttachmentTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectAttachmentTagArrayInput is an input type that accepts ConnectAttachmentTagArray and ConnectAttachmentTagArrayOutput values.
 // You can construct a concrete instance of `ConnectAttachmentTagArrayInput` via:
 //
@@ -310,6 +353,12 @@ func (i ConnectAttachmentTagArray) ToConnectAttachmentTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentTagArrayOutput)
 }
 
+func (i ConnectAttachmentTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectAttachmentTag] {
+	return pulumix.Output[[]ConnectAttachmentTag]{
+		OutputState: i.ToConnectAttachmentTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ConnectAttachmentTagOutput struct{ *pulumi.OutputState }
 
@@ -323,6 +372,12 @@ func (o ConnectAttachmentTagOutput) ToConnectAttachmentTagOutput() ConnectAttach
 
 func (o ConnectAttachmentTagOutput) ToConnectAttachmentTagOutputWithContext(ctx context.Context) ConnectAttachmentTagOutput {
 	return o
+}
+
+func (o ConnectAttachmentTagOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectAttachmentTag] {
+	return pulumix.Output[ConnectAttachmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -347,6 +402,12 @@ func (o ConnectAttachmentTagArrayOutput) ToConnectAttachmentTagArrayOutput() Con
 
 func (o ConnectAttachmentTagArrayOutput) ToConnectAttachmentTagArrayOutputWithContext(ctx context.Context) ConnectAttachmentTagArrayOutput {
 	return o
+}
+
+func (o ConnectAttachmentTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectAttachmentTag] {
+	return pulumix.Output[[]ConnectAttachmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectAttachmentTagArrayOutput) Index(i pulumi.IntInput) ConnectAttachmentTagOutput {
@@ -382,6 +443,12 @@ func (o ConnectPeerBgpConfigurationOutput) ToConnectPeerBgpConfigurationOutputWi
 	return o
 }
 
+func (o ConnectPeerBgpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerBgpConfiguration] {
+	return pulumix.Output[ConnectPeerBgpConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The address of a core network.
 func (o ConnectPeerBgpConfigurationOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerBgpConfiguration) *string { return v.CoreNetworkAddress }).(pulumi.StringPtrOutput)
@@ -414,6 +481,12 @@ func (o ConnectPeerBgpConfigurationArrayOutput) ToConnectPeerBgpConfigurationArr
 
 func (o ConnectPeerBgpConfigurationArrayOutput) ToConnectPeerBgpConfigurationArrayOutputWithContext(ctx context.Context) ConnectPeerBgpConfigurationArrayOutput {
 	return o
+}
+
+func (o ConnectPeerBgpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectPeerBgpConfiguration] {
+	return pulumix.Output[[]ConnectPeerBgpConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectPeerBgpConfigurationArrayOutput) Index(i pulumi.IntInput) ConnectPeerBgpConfigurationOutput {
@@ -453,6 +526,12 @@ func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsOutput() ConnectPeerBg
 
 func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerBgpOptionsOutput)
+}
+
+func (i ConnectPeerBgpOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerBgpOptions] {
+	return pulumix.Output[ConnectPeerBgpOptions]{
+		OutputState: i.ToConnectPeerBgpOptionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput {
@@ -496,6 +575,12 @@ func (i *connectPeerBgpOptionsPtrType) ToConnectPeerBgpOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerBgpOptionsPtrOutput)
 }
 
+func (i *connectPeerBgpOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectPeerBgpOptions] {
+	return pulumix.Output[*ConnectPeerBgpOptions]{
+		OutputState: i.ToConnectPeerBgpOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Bgp options
 type ConnectPeerBgpOptionsOutput struct{ *pulumi.OutputState }
 
@@ -521,6 +606,12 @@ func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsPtrOutputWithContext
 	}).(ConnectPeerBgpOptionsPtrOutput)
 }
 
+func (o ConnectPeerBgpOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerBgpOptions] {
+	return pulumix.Output[ConnectPeerBgpOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectPeerBgpOptionsOutput) PeerAsn() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConnectPeerBgpOptions) *float64 { return v.PeerAsn }).(pulumi.Float64PtrOutput)
 }
@@ -537,6 +628,12 @@ func (o ConnectPeerBgpOptionsPtrOutput) ToConnectPeerBgpOptionsPtrOutput() Conne
 
 func (o ConnectPeerBgpOptionsPtrOutput) ToConnectPeerBgpOptionsPtrOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsPtrOutput {
 	return o
+}
+
+func (o ConnectPeerBgpOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectPeerBgpOptions] {
+	return pulumix.Output[*ConnectPeerBgpOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectPeerBgpOptionsPtrOutput) Elem() ConnectPeerBgpOptionsOutput {
@@ -583,6 +680,12 @@ func (o ConnectPeerConfigurationOutput) ToConnectPeerConfigurationOutputWithCont
 	return o
 }
 
+func (o ConnectPeerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerConfiguration] {
+	return pulumix.Output[ConnectPeerConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectPeerConfigurationOutput) BgpConfigurations() ConnectPeerBgpConfigurationArrayOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) []ConnectPeerBgpConfiguration { return v.BgpConfigurations }).(ConnectPeerBgpConfigurationArrayOutput)
 }
@@ -618,6 +721,12 @@ func (o ConnectPeerConfigurationPtrOutput) ToConnectPeerConfigurationPtrOutput()
 
 func (o ConnectPeerConfigurationPtrOutput) ToConnectPeerConfigurationPtrOutputWithContext(ctx context.Context) ConnectPeerConfigurationPtrOutput {
 	return o
+}
+
+func (o ConnectPeerConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectPeerConfiguration] {
+	return pulumix.Output[*ConnectPeerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectPeerConfigurationPtrOutput) Elem() ConnectPeerConfigurationOutput {
@@ -717,6 +826,12 @@ func (i ConnectPeerTagArgs) ToConnectPeerTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerTagOutput)
 }
 
+func (i ConnectPeerTagArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerTag] {
+	return pulumix.Output[ConnectPeerTag]{
+		OutputState: i.ToConnectPeerTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectPeerTagArrayInput is an input type that accepts ConnectPeerTagArray and ConnectPeerTagArrayOutput values.
 // You can construct a concrete instance of `ConnectPeerTagArrayInput` via:
 //
@@ -742,6 +857,12 @@ func (i ConnectPeerTagArray) ToConnectPeerTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerTagArrayOutput)
 }
 
+func (i ConnectPeerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectPeerTag] {
+	return pulumix.Output[[]ConnectPeerTag]{
+		OutputState: i.ToConnectPeerTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ConnectPeerTagOutput struct{ *pulumi.OutputState }
 
@@ -755,6 +876,12 @@ func (o ConnectPeerTagOutput) ToConnectPeerTagOutput() ConnectPeerTagOutput {
 
 func (o ConnectPeerTagOutput) ToConnectPeerTagOutputWithContext(ctx context.Context) ConnectPeerTagOutput {
 	return o
+}
+
+func (o ConnectPeerTagOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerTag] {
+	return pulumix.Output[ConnectPeerTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -779,6 +906,12 @@ func (o ConnectPeerTagArrayOutput) ToConnectPeerTagArrayOutput() ConnectPeerTagA
 
 func (o ConnectPeerTagArrayOutput) ToConnectPeerTagArrayOutputWithContext(ctx context.Context) ConnectPeerTagArrayOutput {
 	return o
+}
+
+func (o ConnectPeerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectPeerTag] {
+	return pulumix.Output[[]ConnectPeerTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectPeerTagArrayOutput) Index(i pulumi.IntInput) ConnectPeerTagOutput {
@@ -809,6 +942,12 @@ func (o CoreNetworkEdgeOutput) ToCoreNetworkEdgeOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o CoreNetworkEdgeOutput) ToOutput(ctx context.Context) pulumix.Output[CoreNetworkEdge] {
+	return pulumix.Output[CoreNetworkEdge]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ASN of a core network edge.
 func (o CoreNetworkEdgeOutput) Asn() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CoreNetworkEdge) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
@@ -835,6 +974,12 @@ func (o CoreNetworkEdgeArrayOutput) ToCoreNetworkEdgeArrayOutput() CoreNetworkEd
 
 func (o CoreNetworkEdgeArrayOutput) ToCoreNetworkEdgeArrayOutputWithContext(ctx context.Context) CoreNetworkEdgeArrayOutput {
 	return o
+}
+
+func (o CoreNetworkEdgeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CoreNetworkEdge] {
+	return pulumix.Output[[]CoreNetworkEdge]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CoreNetworkEdgeArrayOutput) Index(i pulumi.IntInput) CoreNetworkEdgeOutput {
@@ -864,6 +1009,12 @@ func (o CoreNetworkSegmentOutput) ToCoreNetworkSegmentOutputWithContext(ctx cont
 	return o
 }
 
+func (o CoreNetworkSegmentOutput) ToOutput(ctx context.Context) pulumix.Output[CoreNetworkSegment] {
+	return pulumix.Output[CoreNetworkSegment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CoreNetworkSegmentOutput) EdgeLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CoreNetworkSegment) []string { return v.EdgeLocations }).(pulumi.StringArrayOutput)
 }
@@ -889,6 +1040,12 @@ func (o CoreNetworkSegmentArrayOutput) ToCoreNetworkSegmentArrayOutput() CoreNet
 
 func (o CoreNetworkSegmentArrayOutput) ToCoreNetworkSegmentArrayOutputWithContext(ctx context.Context) CoreNetworkSegmentArrayOutput {
 	return o
+}
+
+func (o CoreNetworkSegmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CoreNetworkSegment] {
+	return pulumix.Output[[]CoreNetworkSegment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CoreNetworkSegmentArrayOutput) Index(i pulumi.IntInput) CoreNetworkSegmentOutput {
@@ -936,6 +1093,12 @@ func (i CoreNetworkTagArgs) ToCoreNetworkTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkTagOutput)
 }
 
+func (i CoreNetworkTagArgs) ToOutput(ctx context.Context) pulumix.Output[CoreNetworkTag] {
+	return pulumix.Output[CoreNetworkTag]{
+		OutputState: i.ToCoreNetworkTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CoreNetworkTagArrayInput is an input type that accepts CoreNetworkTagArray and CoreNetworkTagArrayOutput values.
 // You can construct a concrete instance of `CoreNetworkTagArrayInput` via:
 //
@@ -961,6 +1124,12 @@ func (i CoreNetworkTagArray) ToCoreNetworkTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkTagArrayOutput)
 }
 
+func (i CoreNetworkTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CoreNetworkTag] {
+	return pulumix.Output[[]CoreNetworkTag]{
+		OutputState: i.ToCoreNetworkTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type CoreNetworkTagOutput struct{ *pulumi.OutputState }
 
@@ -974,6 +1143,12 @@ func (o CoreNetworkTagOutput) ToCoreNetworkTagOutput() CoreNetworkTagOutput {
 
 func (o CoreNetworkTagOutput) ToCoreNetworkTagOutputWithContext(ctx context.Context) CoreNetworkTagOutput {
 	return o
+}
+
+func (o CoreNetworkTagOutput) ToOutput(ctx context.Context) pulumix.Output[CoreNetworkTag] {
+	return pulumix.Output[CoreNetworkTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -998,6 +1173,12 @@ func (o CoreNetworkTagArrayOutput) ToCoreNetworkTagArrayOutput() CoreNetworkTagA
 
 func (o CoreNetworkTagArrayOutput) ToCoreNetworkTagArrayOutputWithContext(ctx context.Context) CoreNetworkTagArrayOutput {
 	return o
+}
+
+func (o CoreNetworkTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CoreNetworkTag] {
+	return pulumix.Output[[]CoreNetworkTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CoreNetworkTagArrayOutput) Index(i pulumi.IntInput) CoreNetworkTagOutput {
@@ -1045,6 +1226,12 @@ func (i DeviceAwsLocationArgs) ToDeviceAwsLocationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAwsLocationOutput)
 }
 
+func (i DeviceAwsLocationArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceAwsLocation] {
+	return pulumix.Output[DeviceAwsLocation]{
+		OutputState: i.ToDeviceAwsLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeviceAwsLocationArgs) ToDeviceAwsLocationPtrOutput() DeviceAwsLocationPtrOutput {
 	return i.ToDeviceAwsLocationPtrOutputWithContext(context.Background())
 }
@@ -1086,6 +1273,12 @@ func (i *deviceAwsLocationPtrType) ToDeviceAwsLocationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAwsLocationPtrOutput)
 }
 
+func (i *deviceAwsLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeviceAwsLocation] {
+	return pulumix.Output[*DeviceAwsLocation]{
+		OutputState: i.ToDeviceAwsLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The Amazon Web Services location of the device, if applicable.
 type DeviceAwsLocationOutput struct{ *pulumi.OutputState }
 
@@ -1111,6 +1304,12 @@ func (o DeviceAwsLocationOutput) ToDeviceAwsLocationPtrOutputWithContext(ctx con
 	}).(DeviceAwsLocationPtrOutput)
 }
 
+func (o DeviceAwsLocationOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceAwsLocation] {
+	return pulumix.Output[DeviceAwsLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of the subnet that the device is located in.
 func (o DeviceAwsLocationOutput) SubnetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceAwsLocation) *string { return v.SubnetArn }).(pulumi.StringPtrOutput)
@@ -1133,6 +1332,12 @@ func (o DeviceAwsLocationPtrOutput) ToDeviceAwsLocationPtrOutput() DeviceAwsLoca
 
 func (o DeviceAwsLocationPtrOutput) ToDeviceAwsLocationPtrOutputWithContext(ctx context.Context) DeviceAwsLocationPtrOutput {
 	return o
+}
+
+func (o DeviceAwsLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceAwsLocation] {
+	return pulumix.Output[*DeviceAwsLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeviceAwsLocationPtrOutput) Elem() DeviceAwsLocationOutput {
@@ -1208,6 +1413,12 @@ func (i DeviceLocationArgs) ToDeviceLocationOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceLocationOutput)
 }
 
+func (i DeviceLocationArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceLocation] {
+	return pulumix.Output[DeviceLocation]{
+		OutputState: i.ToDeviceLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeviceLocationArgs) ToDeviceLocationPtrOutput() DeviceLocationPtrOutput {
 	return i.ToDeviceLocationPtrOutputWithContext(context.Background())
 }
@@ -1249,6 +1460,12 @@ func (i *deviceLocationPtrType) ToDeviceLocationPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceLocationPtrOutput)
 }
 
+func (i *deviceLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeviceLocation] {
+	return pulumix.Output[*DeviceLocation]{
+		OutputState: i.ToDeviceLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The site location.
 type DeviceLocationOutput struct{ *pulumi.OutputState }
 
@@ -1272,6 +1489,12 @@ func (o DeviceLocationOutput) ToDeviceLocationPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceLocation) *DeviceLocation {
 		return &v
 	}).(DeviceLocationPtrOutput)
+}
+
+func (o DeviceLocationOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceLocation] {
+	return pulumix.Output[DeviceLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The physical address.
@@ -1301,6 +1524,12 @@ func (o DeviceLocationPtrOutput) ToDeviceLocationPtrOutput() DeviceLocationPtrOu
 
 func (o DeviceLocationPtrOutput) ToDeviceLocationPtrOutputWithContext(ctx context.Context) DeviceLocationPtrOutput {
 	return o
+}
+
+func (o DeviceLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceLocation] {
+	return pulumix.Output[*DeviceLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeviceLocationPtrOutput) Elem() DeviceLocationOutput {
@@ -1382,6 +1611,12 @@ func (i DeviceTagArgs) ToDeviceTagOutputWithContext(ctx context.Context) DeviceT
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceTagOutput)
 }
 
+func (i DeviceTagArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceTag] {
+	return pulumix.Output[DeviceTag]{
+		OutputState: i.ToDeviceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeviceTagArrayInput is an input type that accepts DeviceTagArray and DeviceTagArrayOutput values.
 // You can construct a concrete instance of `DeviceTagArrayInput` via:
 //
@@ -1407,6 +1642,12 @@ func (i DeviceTagArray) ToDeviceTagArrayOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceTagArrayOutput)
 }
 
+func (i DeviceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DeviceTag] {
+	return pulumix.Output[[]DeviceTag]{
+		OutputState: i.ToDeviceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a device resource.
 type DeviceTagOutput struct{ *pulumi.OutputState }
 
@@ -1420,6 +1661,12 @@ func (o DeviceTagOutput) ToDeviceTagOutput() DeviceTagOutput {
 
 func (o DeviceTagOutput) ToDeviceTagOutputWithContext(ctx context.Context) DeviceTagOutput {
 	return o
+}
+
+func (o DeviceTagOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceTag] {
+	return pulumix.Output[DeviceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1444,6 +1691,12 @@ func (o DeviceTagArrayOutput) ToDeviceTagArrayOutput() DeviceTagArrayOutput {
 
 func (o DeviceTagArrayOutput) ToDeviceTagArrayOutputWithContext(ctx context.Context) DeviceTagArrayOutput {
 	return o
+}
+
+func (o DeviceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeviceTag] {
+	return pulumix.Output[[]DeviceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeviceTagArrayOutput) Index(i pulumi.IntInput) DeviceTagOutput {
@@ -1487,6 +1740,12 @@ func (i GlobalNetworkTagArgs) ToGlobalNetworkTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalNetworkTagOutput)
 }
 
+func (i GlobalNetworkTagArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalNetworkTag] {
+	return pulumix.Output[GlobalNetworkTag]{
+		OutputState: i.ToGlobalNetworkTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GlobalNetworkTagArrayInput is an input type that accepts GlobalNetworkTagArray and GlobalNetworkTagArrayOutput values.
 // You can construct a concrete instance of `GlobalNetworkTagArrayInput` via:
 //
@@ -1512,6 +1771,12 @@ func (i GlobalNetworkTagArray) ToGlobalNetworkTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalNetworkTagArrayOutput)
 }
 
+func (i GlobalNetworkTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalNetworkTag] {
+	return pulumix.Output[[]GlobalNetworkTag]{
+		OutputState: i.ToGlobalNetworkTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a global network resource.
 type GlobalNetworkTagOutput struct{ *pulumi.OutputState }
 
@@ -1525,6 +1790,12 @@ func (o GlobalNetworkTagOutput) ToGlobalNetworkTagOutput() GlobalNetworkTagOutpu
 
 func (o GlobalNetworkTagOutput) ToGlobalNetworkTagOutputWithContext(ctx context.Context) GlobalNetworkTagOutput {
 	return o
+}
+
+func (o GlobalNetworkTagOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalNetworkTag] {
+	return pulumix.Output[GlobalNetworkTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GlobalNetworkTagOutput) Key() pulumi.StringPtrOutput {
@@ -1547,6 +1818,12 @@ func (o GlobalNetworkTagArrayOutput) ToGlobalNetworkTagArrayOutput() GlobalNetwo
 
 func (o GlobalNetworkTagArrayOutput) ToGlobalNetworkTagArrayOutputWithContext(ctx context.Context) GlobalNetworkTagArrayOutput {
 	return o
+}
+
+func (o GlobalNetworkTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalNetworkTag] {
+	return pulumix.Output[[]GlobalNetworkTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GlobalNetworkTagArrayOutput) Index(i pulumi.IntInput) GlobalNetworkTagOutput {
@@ -1594,6 +1871,12 @@ func (i LinkBandwidthArgs) ToLinkBandwidthOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LinkBandwidthOutput)
 }
 
+func (i LinkBandwidthArgs) ToOutput(ctx context.Context) pulumix.Output[LinkBandwidth] {
+	return pulumix.Output[LinkBandwidth]{
+		OutputState: i.ToLinkBandwidthOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The bandwidth for the link.
 type LinkBandwidthOutput struct{ *pulumi.OutputState }
 
@@ -1607,6 +1890,12 @@ func (o LinkBandwidthOutput) ToLinkBandwidthOutput() LinkBandwidthOutput {
 
 func (o LinkBandwidthOutput) ToLinkBandwidthOutputWithContext(ctx context.Context) LinkBandwidthOutput {
 	return o
+}
+
+func (o LinkBandwidthOutput) ToOutput(ctx context.Context) pulumix.Output[LinkBandwidth] {
+	return pulumix.Output[LinkBandwidth]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Download speed in Mbps.
@@ -1631,6 +1920,12 @@ func (o LinkBandwidthPtrOutput) ToLinkBandwidthPtrOutput() LinkBandwidthPtrOutpu
 
 func (o LinkBandwidthPtrOutput) ToLinkBandwidthPtrOutputWithContext(ctx context.Context) LinkBandwidthPtrOutput {
 	return o
+}
+
+func (o LinkBandwidthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkBandwidth] {
+	return pulumix.Output[*LinkBandwidth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkBandwidthPtrOutput) Elem() LinkBandwidthOutput {
@@ -1698,6 +1993,12 @@ func (i LinkTagArgs) ToLinkTagOutputWithContext(ctx context.Context) LinkTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LinkTagOutput)
 }
 
+func (i LinkTagArgs) ToOutput(ctx context.Context) pulumix.Output[LinkTag] {
+	return pulumix.Output[LinkTag]{
+		OutputState: i.ToLinkTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkTagArrayInput is an input type that accepts LinkTagArray and LinkTagArrayOutput values.
 // You can construct a concrete instance of `LinkTagArrayInput` via:
 //
@@ -1723,6 +2024,12 @@ func (i LinkTagArray) ToLinkTagArrayOutputWithContext(ctx context.Context) LinkT
 	return pulumi.ToOutputWithContext(ctx, i).(LinkTagArrayOutput)
 }
 
+func (i LinkTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LinkTag] {
+	return pulumix.Output[[]LinkTag]{
+		OutputState: i.ToLinkTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a link resource.
 type LinkTagOutput struct{ *pulumi.OutputState }
 
@@ -1736,6 +2043,12 @@ func (o LinkTagOutput) ToLinkTagOutput() LinkTagOutput {
 
 func (o LinkTagOutput) ToLinkTagOutputWithContext(ctx context.Context) LinkTagOutput {
 	return o
+}
+
+func (o LinkTagOutput) ToOutput(ctx context.Context) pulumix.Output[LinkTag] {
+	return pulumix.Output[LinkTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkTagOutput) Key() pulumi.StringPtrOutput {
@@ -1758,6 +2071,12 @@ func (o LinkTagArrayOutput) ToLinkTagArrayOutput() LinkTagArrayOutput {
 
 func (o LinkTagArrayOutput) ToLinkTagArrayOutputWithContext(ctx context.Context) LinkTagArrayOutput {
 	return o
+}
+
+func (o LinkTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LinkTag] {
+	return pulumix.Output[[]LinkTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkTagArrayOutput) Index(i pulumi.IntInput) LinkTagOutput {
@@ -1809,6 +2128,12 @@ func (i SiteLocationArgs) ToSiteLocationOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SiteLocationOutput)
 }
 
+func (i SiteLocationArgs) ToOutput(ctx context.Context) pulumix.Output[SiteLocation] {
+	return pulumix.Output[SiteLocation]{
+		OutputState: i.ToSiteLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SiteLocationArgs) ToSiteLocationPtrOutput() SiteLocationPtrOutput {
 	return i.ToSiteLocationPtrOutputWithContext(context.Background())
 }
@@ -1850,6 +2175,12 @@ func (i *siteLocationPtrType) ToSiteLocationPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SiteLocationPtrOutput)
 }
 
+func (i *siteLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SiteLocation] {
+	return pulumix.Output[*SiteLocation]{
+		OutputState: i.ToSiteLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The location of the site
 type SiteLocationOutput struct{ *pulumi.OutputState }
 
@@ -1873,6 +2204,12 @@ func (o SiteLocationOutput) ToSiteLocationPtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteLocation) *SiteLocation {
 		return &v
 	}).(SiteLocationPtrOutput)
+}
+
+func (o SiteLocationOutput) ToOutput(ctx context.Context) pulumix.Output[SiteLocation] {
+	return pulumix.Output[SiteLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The physical address.
@@ -1902,6 +2239,12 @@ func (o SiteLocationPtrOutput) ToSiteLocationPtrOutput() SiteLocationPtrOutput {
 
 func (o SiteLocationPtrOutput) ToSiteLocationPtrOutputWithContext(ctx context.Context) SiteLocationPtrOutput {
 	return o
+}
+
+func (o SiteLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SiteLocation] {
+	return pulumix.Output[*SiteLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SiteLocationPtrOutput) Elem() SiteLocationOutput {
@@ -1983,6 +2326,12 @@ func (i SiteTagArgs) ToSiteTagOutputWithContext(ctx context.Context) SiteTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SiteTagOutput)
 }
 
+func (i SiteTagArgs) ToOutput(ctx context.Context) pulumix.Output[SiteTag] {
+	return pulumix.Output[SiteTag]{
+		OutputState: i.ToSiteTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SiteTagArrayInput is an input type that accepts SiteTagArray and SiteTagArrayOutput values.
 // You can construct a concrete instance of `SiteTagArrayInput` via:
 //
@@ -2008,6 +2357,12 @@ func (i SiteTagArray) ToSiteTagArrayOutputWithContext(ctx context.Context) SiteT
 	return pulumi.ToOutputWithContext(ctx, i).(SiteTagArrayOutput)
 }
 
+func (i SiteTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SiteTag] {
+	return pulumix.Output[[]SiteTag]{
+		OutputState: i.ToSiteTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a site resource.
 type SiteTagOutput struct{ *pulumi.OutputState }
 
@@ -2021,6 +2376,12 @@ func (o SiteTagOutput) ToSiteTagOutput() SiteTagOutput {
 
 func (o SiteTagOutput) ToSiteTagOutputWithContext(ctx context.Context) SiteTagOutput {
 	return o
+}
+
+func (o SiteTagOutput) ToOutput(ctx context.Context) pulumix.Output[SiteTag] {
+	return pulumix.Output[SiteTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2045,6 +2406,12 @@ func (o SiteTagArrayOutput) ToSiteTagArrayOutput() SiteTagArrayOutput {
 
 func (o SiteTagArrayOutput) ToSiteTagArrayOutputWithContext(ctx context.Context) SiteTagArrayOutput {
 	return o
+}
+
+func (o SiteTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SiteTag] {
+	return pulumix.Output[[]SiteTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SiteTagArrayOutput) Index(i pulumi.IntInput) SiteTagOutput {
@@ -2096,6 +2463,12 @@ func (i SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ToSiteToSiteVpnAttachm
 	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentProposedSegmentChangeOutput)
 }
 
+func (i SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ToOutput(ctx context.Context) pulumix.Output[SiteToSiteVpnAttachmentProposedSegmentChange] {
+	return pulumix.Output[SiteToSiteVpnAttachmentProposedSegmentChange]{
+		OutputState: i.ToSiteToSiteVpnAttachmentProposedSegmentChangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutput() SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
 	return i.ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
 }
@@ -2137,6 +2510,12 @@ func (i *siteToSiteVpnAttachmentProposedSegmentChangePtrType) ToSiteToSiteVpnAtt
 	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput)
 }
 
+func (i *siteToSiteVpnAttachmentProposedSegmentChangePtrType) ToOutput(ctx context.Context) pulumix.Output[*SiteToSiteVpnAttachmentProposedSegmentChange] {
+	return pulumix.Output[*SiteToSiteVpnAttachmentProposedSegmentChange]{
+		OutputState: i.ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The attachment to move from one segment to another.
 type SiteToSiteVpnAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
@@ -2160,6 +2539,12 @@ func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToSiteToSiteVpnAttac
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteToSiteVpnAttachmentProposedSegmentChange) *SiteToSiteVpnAttachmentProposedSegmentChange {
 		return &v
 	}).(SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput)
+}
+
+func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToOutput(ctx context.Context) pulumix.Output[SiteToSiteVpnAttachmentProposedSegmentChange] {
+	return pulumix.Output[SiteToSiteVpnAttachmentProposedSegmentChange]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The rule number in the policy document that applies to this change.
@@ -2189,6 +2574,12 @@ func (o SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput) ToSiteToSiteVpnAt
 
 func (o SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
 	return o
+}
+
+func (o SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SiteToSiteVpnAttachmentProposedSegmentChange] {
+	return pulumix.Output[*SiteToSiteVpnAttachmentProposedSegmentChange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput) Elem() SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
@@ -2270,6 +2661,12 @@ func (i SiteToSiteVpnAttachmentTagArgs) ToSiteToSiteVpnAttachmentTagOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentTagOutput)
 }
 
+func (i SiteToSiteVpnAttachmentTagArgs) ToOutput(ctx context.Context) pulumix.Output[SiteToSiteVpnAttachmentTag] {
+	return pulumix.Output[SiteToSiteVpnAttachmentTag]{
+		OutputState: i.ToSiteToSiteVpnAttachmentTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SiteToSiteVpnAttachmentTagArrayInput is an input type that accepts SiteToSiteVpnAttachmentTagArray and SiteToSiteVpnAttachmentTagArrayOutput values.
 // You can construct a concrete instance of `SiteToSiteVpnAttachmentTagArrayInput` via:
 //
@@ -2295,6 +2692,12 @@ func (i SiteToSiteVpnAttachmentTagArray) ToSiteToSiteVpnAttachmentTagArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentTagArrayOutput)
 }
 
+func (i SiteToSiteVpnAttachmentTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SiteToSiteVpnAttachmentTag] {
+	return pulumix.Output[[]SiteToSiteVpnAttachmentTag]{
+		OutputState: i.ToSiteToSiteVpnAttachmentTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type SiteToSiteVpnAttachmentTagOutput struct{ *pulumi.OutputState }
 
@@ -2308,6 +2711,12 @@ func (o SiteToSiteVpnAttachmentTagOutput) ToSiteToSiteVpnAttachmentTagOutput() S
 
 func (o SiteToSiteVpnAttachmentTagOutput) ToSiteToSiteVpnAttachmentTagOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentTagOutput {
 	return o
+}
+
+func (o SiteToSiteVpnAttachmentTagOutput) ToOutput(ctx context.Context) pulumix.Output[SiteToSiteVpnAttachmentTag] {
+	return pulumix.Output[SiteToSiteVpnAttachmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2332,6 +2741,12 @@ func (o SiteToSiteVpnAttachmentTagArrayOutput) ToSiteToSiteVpnAttachmentTagArray
 
 func (o SiteToSiteVpnAttachmentTagArrayOutput) ToSiteToSiteVpnAttachmentTagArrayOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentTagArrayOutput {
 	return o
+}
+
+func (o SiteToSiteVpnAttachmentTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SiteToSiteVpnAttachmentTag] {
+	return pulumix.Output[[]SiteToSiteVpnAttachmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SiteToSiteVpnAttachmentTagArrayOutput) Index(i pulumi.IntInput) SiteToSiteVpnAttachmentTagOutput {
@@ -2379,6 +2794,12 @@ func (i TransitGatewayPeeringTagArgs) ToTransitGatewayPeeringTagOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringTagOutput)
 }
 
+func (i TransitGatewayPeeringTagArgs) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayPeeringTag] {
+	return pulumix.Output[TransitGatewayPeeringTag]{
+		OutputState: i.ToTransitGatewayPeeringTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TransitGatewayPeeringTagArrayInput is an input type that accepts TransitGatewayPeeringTagArray and TransitGatewayPeeringTagArrayOutput values.
 // You can construct a concrete instance of `TransitGatewayPeeringTagArrayInput` via:
 //
@@ -2404,6 +2825,12 @@ func (i TransitGatewayPeeringTagArray) ToTransitGatewayPeeringTagArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringTagArrayOutput)
 }
 
+func (i TransitGatewayPeeringTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TransitGatewayPeeringTag] {
+	return pulumix.Output[[]TransitGatewayPeeringTag]{
+		OutputState: i.ToTransitGatewayPeeringTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type TransitGatewayPeeringTagOutput struct{ *pulumi.OutputState }
 
@@ -2417,6 +2844,12 @@ func (o TransitGatewayPeeringTagOutput) ToTransitGatewayPeeringTagOutput() Trans
 
 func (o TransitGatewayPeeringTagOutput) ToTransitGatewayPeeringTagOutputWithContext(ctx context.Context) TransitGatewayPeeringTagOutput {
 	return o
+}
+
+func (o TransitGatewayPeeringTagOutput) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayPeeringTag] {
+	return pulumix.Output[TransitGatewayPeeringTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2441,6 +2874,12 @@ func (o TransitGatewayPeeringTagArrayOutput) ToTransitGatewayPeeringTagArrayOutp
 
 func (o TransitGatewayPeeringTagArrayOutput) ToTransitGatewayPeeringTagArrayOutputWithContext(ctx context.Context) TransitGatewayPeeringTagArrayOutput {
 	return o
+}
+
+func (o TransitGatewayPeeringTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransitGatewayPeeringTag] {
+	return pulumix.Output[[]TransitGatewayPeeringTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayPeeringTagArrayOutput) Index(i pulumi.IntInput) TransitGatewayPeeringTagOutput {
@@ -2492,6 +2931,12 @@ func (i TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ToTransitGa
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput)
 }
 
+func (i TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayRouteTableAttachmentProposedSegmentChange] {
+	return pulumix.Output[TransitGatewayRouteTableAttachmentProposedSegmentChange]{
+		OutputState: i.ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
 	return i.ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
 }
@@ -2533,6 +2978,12 @@ func (i *transitGatewayRouteTableAttachmentProposedSegmentChangePtrType) ToTrans
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput)
 }
 
+func (i *transitGatewayRouteTableAttachmentProposedSegmentChangePtrType) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTableAttachmentProposedSegmentChange] {
+	return pulumix.Output[*TransitGatewayRouteTableAttachmentProposedSegmentChange]{
+		OutputState: i.ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The attachment to move from one segment to another.
 type TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
@@ -2556,6 +3007,12 @@ func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) ToTransit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayRouteTableAttachmentProposedSegmentChange) *TransitGatewayRouteTableAttachmentProposedSegmentChange {
 		return &v
 	}).(TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput)
+}
+
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayRouteTableAttachmentProposedSegmentChange] {
+	return pulumix.Output[TransitGatewayRouteTableAttachmentProposedSegmentChange]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The rule number in the policy document that applies to this change.
@@ -2589,6 +3046,12 @@ func (o TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput) ToTran
 
 func (o TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
 	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTableAttachmentProposedSegmentChange] {
+	return pulumix.Output[*TransitGatewayRouteTableAttachmentProposedSegmentChange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput) Elem() TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput {
@@ -2670,6 +3133,12 @@ func (i TransitGatewayRouteTableAttachmentTagArgs) ToTransitGatewayRouteTableAtt
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentTagOutput)
 }
 
+func (i TransitGatewayRouteTableAttachmentTagArgs) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayRouteTableAttachmentTag] {
+	return pulumix.Output[TransitGatewayRouteTableAttachmentTag]{
+		OutputState: i.ToTransitGatewayRouteTableAttachmentTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TransitGatewayRouteTableAttachmentTagArrayInput is an input type that accepts TransitGatewayRouteTableAttachmentTagArray and TransitGatewayRouteTableAttachmentTagArrayOutput values.
 // You can construct a concrete instance of `TransitGatewayRouteTableAttachmentTagArrayInput` via:
 //
@@ -2695,6 +3164,12 @@ func (i TransitGatewayRouteTableAttachmentTagArray) ToTransitGatewayRouteTableAt
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentTagArrayOutput)
 }
 
+func (i TransitGatewayRouteTableAttachmentTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TransitGatewayRouteTableAttachmentTag] {
+	return pulumix.Output[[]TransitGatewayRouteTableAttachmentTag]{
+		OutputState: i.ToTransitGatewayRouteTableAttachmentTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type TransitGatewayRouteTableAttachmentTagOutput struct{ *pulumi.OutputState }
 
@@ -2708,6 +3183,12 @@ func (o TransitGatewayRouteTableAttachmentTagOutput) ToTransitGatewayRouteTableA
 
 func (o TransitGatewayRouteTableAttachmentTagOutput) ToTransitGatewayRouteTableAttachmentTagOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentTagOutput {
 	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentTagOutput) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayRouteTableAttachmentTag] {
+	return pulumix.Output[TransitGatewayRouteTableAttachmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2732,6 +3213,12 @@ func (o TransitGatewayRouteTableAttachmentTagArrayOutput) ToTransitGatewayRouteT
 
 func (o TransitGatewayRouteTableAttachmentTagArrayOutput) ToTransitGatewayRouteTableAttachmentTagArrayOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentTagArrayOutput {
 	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransitGatewayRouteTableAttachmentTag] {
+	return pulumix.Output[[]TransitGatewayRouteTableAttachmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayRouteTableAttachmentTagArrayOutput) Index(i pulumi.IntInput) TransitGatewayRouteTableAttachmentTagOutput {
@@ -2783,6 +3270,12 @@ func (i VpcAttachmentProposedSegmentChangeArgs) ToVpcAttachmentProposedSegmentCh
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentProposedSegmentChangeOutput)
 }
 
+func (i VpcAttachmentProposedSegmentChangeArgs) ToOutput(ctx context.Context) pulumix.Output[VpcAttachmentProposedSegmentChange] {
+	return pulumix.Output[VpcAttachmentProposedSegmentChange]{
+		OutputState: i.ToVpcAttachmentProposedSegmentChangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VpcAttachmentProposedSegmentChangeArgs) ToVpcAttachmentProposedSegmentChangePtrOutput() VpcAttachmentProposedSegmentChangePtrOutput {
 	return i.ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
 }
@@ -2824,6 +3317,12 @@ func (i *vpcAttachmentProposedSegmentChangePtrType) ToVpcAttachmentProposedSegme
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentProposedSegmentChangePtrOutput)
 }
 
+func (i *vpcAttachmentProposedSegmentChangePtrType) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachmentProposedSegmentChange] {
+	return pulumix.Output[*VpcAttachmentProposedSegmentChange]{
+		OutputState: i.ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The attachment to move from one segment to another.
 type VpcAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
@@ -2847,6 +3346,12 @@ func (o VpcAttachmentProposedSegmentChangeOutput) ToVpcAttachmentProposedSegment
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcAttachmentProposedSegmentChange) *VpcAttachmentProposedSegmentChange {
 		return &v
 	}).(VpcAttachmentProposedSegmentChangePtrOutput)
+}
+
+func (o VpcAttachmentProposedSegmentChangeOutput) ToOutput(ctx context.Context) pulumix.Output[VpcAttachmentProposedSegmentChange] {
+	return pulumix.Output[VpcAttachmentProposedSegmentChange]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The rule number in the policy document that applies to this change.
@@ -2876,6 +3381,12 @@ func (o VpcAttachmentProposedSegmentChangePtrOutput) ToVpcAttachmentProposedSegm
 
 func (o VpcAttachmentProposedSegmentChangePtrOutput) ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangePtrOutput {
 	return o
+}
+
+func (o VpcAttachmentProposedSegmentChangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachmentProposedSegmentChange] {
+	return pulumix.Output[*VpcAttachmentProposedSegmentChange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcAttachmentProposedSegmentChangePtrOutput) Elem() VpcAttachmentProposedSegmentChangeOutput {
@@ -2957,6 +3468,12 @@ func (i VpcAttachmentTagArgs) ToVpcAttachmentTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentTagOutput)
 }
 
+func (i VpcAttachmentTagArgs) ToOutput(ctx context.Context) pulumix.Output[VpcAttachmentTag] {
+	return pulumix.Output[VpcAttachmentTag]{
+		OutputState: i.ToVpcAttachmentTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcAttachmentTagArrayInput is an input type that accepts VpcAttachmentTagArray and VpcAttachmentTagArrayOutput values.
 // You can construct a concrete instance of `VpcAttachmentTagArrayInput` via:
 //
@@ -2982,6 +3499,12 @@ func (i VpcAttachmentTagArray) ToVpcAttachmentTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentTagArrayOutput)
 }
 
+func (i VpcAttachmentTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VpcAttachmentTag] {
+	return pulumix.Output[[]VpcAttachmentTag]{
+		OutputState: i.ToVpcAttachmentTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type VpcAttachmentTagOutput struct{ *pulumi.OutputState }
 
@@ -2995,6 +3518,12 @@ func (o VpcAttachmentTagOutput) ToVpcAttachmentTagOutput() VpcAttachmentTagOutpu
 
 func (o VpcAttachmentTagOutput) ToVpcAttachmentTagOutputWithContext(ctx context.Context) VpcAttachmentTagOutput {
 	return o
+}
+
+func (o VpcAttachmentTagOutput) ToOutput(ctx context.Context) pulumix.Output[VpcAttachmentTag] {
+	return pulumix.Output[VpcAttachmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3019,6 +3548,12 @@ func (o VpcAttachmentTagArrayOutput) ToVpcAttachmentTagArrayOutput() VpcAttachme
 
 func (o VpcAttachmentTagArrayOutput) ToVpcAttachmentTagArrayOutputWithContext(ctx context.Context) VpcAttachmentTagArrayOutput {
 	return o
+}
+
+func (o VpcAttachmentTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VpcAttachmentTag] {
+	return pulumix.Output[[]VpcAttachmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcAttachmentTagArrayOutput) Index(i pulumi.IntInput) VpcAttachmentTagOutput {
@@ -3066,6 +3601,12 @@ func (i VpcAttachmentVpcOptionsArgs) ToVpcAttachmentVpcOptionsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentVpcOptionsOutput)
 }
 
+func (i VpcAttachmentVpcOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[VpcAttachmentVpcOptions] {
+	return pulumix.Output[VpcAttachmentVpcOptions]{
+		OutputState: i.ToVpcAttachmentVpcOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VpcAttachmentVpcOptionsArgs) ToVpcAttachmentVpcOptionsPtrOutput() VpcAttachmentVpcOptionsPtrOutput {
 	return i.ToVpcAttachmentVpcOptionsPtrOutputWithContext(context.Background())
 }
@@ -3107,6 +3648,12 @@ func (i *vpcAttachmentVpcOptionsPtrType) ToVpcAttachmentVpcOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentVpcOptionsPtrOutput)
 }
 
+func (i *vpcAttachmentVpcOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachmentVpcOptions] {
+	return pulumix.Output[*VpcAttachmentVpcOptions]{
+		OutputState: i.ToVpcAttachmentVpcOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Vpc options of the attachment.
 type VpcAttachmentVpcOptionsOutput struct{ *pulumi.OutputState }
 
@@ -3132,6 +3679,12 @@ func (o VpcAttachmentVpcOptionsOutput) ToVpcAttachmentVpcOptionsPtrOutputWithCon
 	}).(VpcAttachmentVpcOptionsPtrOutput)
 }
 
+func (o VpcAttachmentVpcOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[VpcAttachmentVpcOptions] {
+	return pulumix.Output[VpcAttachmentVpcOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
 func (o VpcAttachmentVpcOptionsOutput) ApplianceModeSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcAttachmentVpcOptions) *bool { return v.ApplianceModeSupport }).(pulumi.BoolPtrOutput)
@@ -3154,6 +3707,12 @@ func (o VpcAttachmentVpcOptionsPtrOutput) ToVpcAttachmentVpcOptionsPtrOutput() V
 
 func (o VpcAttachmentVpcOptionsPtrOutput) ToVpcAttachmentVpcOptionsPtrOutputWithContext(ctx context.Context) VpcAttachmentVpcOptionsPtrOutput {
 	return o
+}
+
+func (o VpcAttachmentVpcOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachmentVpcOptions] {
+	return pulumix.Output[*VpcAttachmentVpcOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcAttachmentVpcOptionsPtrOutput) Elem() VpcAttachmentVpcOptionsOutput {

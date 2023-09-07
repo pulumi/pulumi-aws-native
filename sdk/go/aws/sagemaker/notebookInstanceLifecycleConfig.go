@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::NotebookInstanceLifecycleConfig
@@ -101,6 +102,12 @@ func (i *NotebookInstanceLifecycleConfig) ToNotebookInstanceLifecycleConfigOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceLifecycleConfigOutput)
 }
 
+func (i *NotebookInstanceLifecycleConfig) ToOutput(ctx context.Context) pulumix.Output[*NotebookInstanceLifecycleConfig] {
+	return pulumix.Output[*NotebookInstanceLifecycleConfig]{
+		OutputState: i.ToNotebookInstanceLifecycleConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotebookInstanceLifecycleConfigOutput struct{ *pulumi.OutputState }
 
 func (NotebookInstanceLifecycleConfigOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o NotebookInstanceLifecycleConfigOutput) ToNotebookInstanceLifecycleConfig
 
 func (o NotebookInstanceLifecycleConfigOutput) ToNotebookInstanceLifecycleConfigOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigOutput {
 	return o
+}
+
+func (o NotebookInstanceLifecycleConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*NotebookInstanceLifecycleConfig] {
+	return pulumix.Output[*NotebookInstanceLifecycleConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotebookInstanceLifecycleConfigOutput) NotebookInstanceLifecycleConfigName() pulumi.StringPtrOutput {

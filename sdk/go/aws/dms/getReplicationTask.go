@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DMS::ReplicationTask
@@ -72,6 +73,12 @@ func (o LookupReplicationTaskResultOutput) ToLookupReplicationTaskResultOutput()
 
 func (o LookupReplicationTaskResultOutput) ToLookupReplicationTaskResultOutputWithContext(ctx context.Context) LookupReplicationTaskResultOutput {
 	return o
+}
+
+func (o LookupReplicationTaskResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationTaskResult] {
+	return pulumix.Output[LookupReplicationTaskResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupReplicationTaskResultOutput) CdcStartPosition() pulumi.StringPtrOutput {

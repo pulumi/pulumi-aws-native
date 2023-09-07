@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFormation::Macro
@@ -111,6 +112,12 @@ func (i *Macro) ToMacroOutputWithContext(ctx context.Context) MacroOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MacroOutput)
 }
 
+func (i *Macro) ToOutput(ctx context.Context) pulumix.Output[*Macro] {
+	return pulumix.Output[*Macro]{
+		OutputState: i.ToMacroOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MacroOutput struct{ *pulumi.OutputState }
 
 func (MacroOutput) ElementType() reflect.Type {
@@ -123,6 +130,12 @@ func (o MacroOutput) ToMacroOutput() MacroOutput {
 
 func (o MacroOutput) ToMacroOutputWithContext(ctx context.Context) MacroOutput {
 	return o
+}
+
+func (o MacroOutput) ToOutput(ctx context.Context) pulumix.Output[*Macro] {
+	return pulumix.Output[*Macro]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MacroOutput) Description() pulumi.StringPtrOutput {

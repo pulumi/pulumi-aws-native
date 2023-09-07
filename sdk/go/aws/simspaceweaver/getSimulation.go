@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
@@ -66,6 +67,12 @@ func (o LookupSimulationResultOutput) ToLookupSimulationResultOutput() LookupSim
 
 func (o LookupSimulationResultOutput) ToLookupSimulationResultOutputWithContext(ctx context.Context) LookupSimulationResultOutput {
 	return o
+}
+
+func (o LookupSimulationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSimulationResult] {
+	return pulumix.Output[LookupSimulationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Json object with all simulation details

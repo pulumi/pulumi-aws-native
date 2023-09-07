@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::ImageBuilder::DistributionConfiguration
@@ -120,6 +121,12 @@ func (i *DistributionConfiguration) ToDistributionConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationOutput)
 }
 
+func (i *DistributionConfiguration) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfiguration] {
+	return pulumix.Output[*DistributionConfiguration]{
+		OutputState: i.ToDistributionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationOutput) ElementType() reflect.Type {
@@ -132,6 +139,12 @@ func (o DistributionConfigurationOutput) ToDistributionConfigurationOutput() Dis
 
 func (o DistributionConfigurationOutput) ToDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationOutput {
 	return o
+}
+
+func (o DistributionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfiguration] {
+	return pulumix.Output[*DistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the distribution configuration.

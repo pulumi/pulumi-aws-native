@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::PlacementGroup
@@ -66,6 +67,12 @@ func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutput() L
 
 func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutputWithContext(ctx context.Context) LookupPlacementGroupResultOutput {
 	return o
+}
+
+func (o LookupPlacementGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPlacementGroupResult] {
+	return pulumix.Output[LookupPlacementGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Group Name of Placement Group.

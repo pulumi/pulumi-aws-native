@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::LoggerDefinition
@@ -67,6 +68,12 @@ func (o LookupLoggerDefinitionResultOutput) ToLookupLoggerDefinitionResultOutput
 
 func (o LookupLoggerDefinitionResultOutput) ToLookupLoggerDefinitionResultOutputWithContext(ctx context.Context) LookupLoggerDefinitionResultOutput {
 	return o
+}
+
+func (o LookupLoggerDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLoggerDefinitionResult] {
+	return pulumix.Output[LookupLoggerDefinitionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLoggerDefinitionResultOutput) Arn() pulumi.StringPtrOutput {

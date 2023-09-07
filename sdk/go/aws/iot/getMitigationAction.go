@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
@@ -70,6 +71,12 @@ func (o LookupMitigationActionResultOutput) ToLookupMitigationActionResultOutput
 
 func (o LookupMitigationActionResultOutput) ToLookupMitigationActionResultOutputWithContext(ctx context.Context) LookupMitigationActionResultOutput {
 	return o
+}
+
+func (o LookupMitigationActionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMitigationActionResult] {
+	return pulumix.Output[LookupMitigationActionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupMitigationActionResultOutput) ActionParams() MitigationActionActionParamsPtrOutput {

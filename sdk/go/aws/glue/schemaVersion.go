@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource represents an individual schema version of a schema defined in Glue Schema Registry.
@@ -109,6 +110,12 @@ func (i *SchemaVersion) ToSchemaVersionOutputWithContext(ctx context.Context) Sc
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionOutput)
 }
 
+func (i *SchemaVersion) ToOutput(ctx context.Context) pulumix.Output[*SchemaVersion] {
+	return pulumix.Output[*SchemaVersion]{
+		OutputState: i.ToSchemaVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaVersionOutput struct{ *pulumi.OutputState }
 
 func (SchemaVersionOutput) ElementType() reflect.Type {
@@ -121,6 +128,12 @@ func (o SchemaVersionOutput) ToSchemaVersionOutput() SchemaVersionOutput {
 
 func (o SchemaVersionOutput) ToSchemaVersionOutputWithContext(ctx context.Context) SchemaVersionOutput {
 	return o
+}
+
+func (o SchemaVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaVersion] {
+	return pulumix.Output[*SchemaVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaVersionOutput) Schema() SchemaVersionSchemaOutput {

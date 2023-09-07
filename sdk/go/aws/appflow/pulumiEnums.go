@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ConnectorProfileAuthenticationType string
@@ -79,6 +80,12 @@ func (o ConnectorProfileAuthenticationTypeOutput) ToConnectorProfileAuthenticati
 	}).(ConnectorProfileAuthenticationTypePtrOutput)
 }
 
+func (o ConnectorProfileAuthenticationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileAuthenticationType] {
+	return pulumix.Output[ConnectorProfileAuthenticationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectorProfileAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +119,12 @@ func (o ConnectorProfileAuthenticationTypePtrOutput) ToConnectorProfileAuthentic
 
 func (o ConnectorProfileAuthenticationTypePtrOutput) ToConnectorProfileAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectorProfileAuthenticationTypePtrOutput {
 	return o
+}
+
+func (o ConnectorProfileAuthenticationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileAuthenticationType] {
+	return pulumix.Output[*ConnectorProfileAuthenticationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorProfileAuthenticationTypePtrOutput) Elem() ConnectorProfileAuthenticationTypeOutput {
@@ -174,6 +187,12 @@ func (in *connectorProfileAuthenticationTypePtr) ToConnectorProfileAuthenticatio
 
 func (in *connectorProfileAuthenticationTypePtr) ToConnectorProfileAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectorProfileAuthenticationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorProfileAuthenticationTypePtrOutput)
+}
+
+func (in *connectorProfileAuthenticationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileAuthenticationType] {
+	return pulumix.Output[*ConnectorProfileAuthenticationType]{
+		OutputState: in.ToConnectorProfileAuthenticationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
@@ -244,6 +263,12 @@ func (o ConnectorProfileConnectionModeOutput) ToConnectorProfileConnectionModePt
 	}).(ConnectorProfileConnectionModePtrOutput)
 }
 
+func (o ConnectorProfileConnectionModeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectionMode] {
+	return pulumix.Output[ConnectorProfileConnectionMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectorProfileConnectionModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o ConnectorProfileConnectionModePtrOutput) ToConnectorProfileConnectionMod
 
 func (o ConnectorProfileConnectionModePtrOutput) ToConnectorProfileConnectionModePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectionModePtrOutput {
 	return o
+}
+
+func (o ConnectorProfileConnectionModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectionMode] {
+	return pulumix.Output[*ConnectorProfileConnectionMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorProfileConnectionModePtrOutput) Elem() ConnectorProfileConnectionModeOutput {
@@ -339,6 +370,12 @@ func (in *connectorProfileConnectionModePtr) ToConnectorProfileConnectionModePtr
 
 func (in *connectorProfileConnectionModePtr) ToConnectorProfileConnectionModePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectionModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorProfileConnectionModePtrOutput)
+}
+
+func (in *connectorProfileConnectionModePtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectionMode] {
+	return pulumix.Output[*ConnectorProfileConnectionMode]{
+		OutputState: in.ToConnectorProfileConnectionModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ConnectorProfileConnectorType string
@@ -424,6 +461,12 @@ func (o ConnectorProfileConnectorTypeOutput) ToConnectorProfileConnectorTypePtrO
 	}).(ConnectorProfileConnectorTypePtrOutput)
 }
 
+func (o ConnectorProfileConnectorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorType] {
+	return pulumix.Output[ConnectorProfileConnectorType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectorProfileConnectorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -457,6 +500,12 @@ func (o ConnectorProfileConnectorTypePtrOutput) ToConnectorProfileConnectorTypeP
 
 func (o ConnectorProfileConnectorTypePtrOutput) ToConnectorProfileConnectorTypePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorTypePtrOutput {
 	return o
+}
+
+func (o ConnectorProfileConnectorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorType] {
+	return pulumix.Output[*ConnectorProfileConnectorType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorProfileConnectorTypePtrOutput) Elem() ConnectorProfileConnectorTypeOutput {
@@ -519,6 +568,12 @@ func (in *connectorProfileConnectorTypePtr) ToConnectorProfileConnectorTypePtrOu
 
 func (in *connectorProfileConnectorTypePtr) ToConnectorProfileConnectorTypePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorProfileConnectorTypePtrOutput)
+}
+
+func (in *connectorProfileConnectorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorType] {
+	return pulumix.Output[*ConnectorProfileConnectorType]{
+		OutputState: in.ToConnectorProfileConnectorTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ConnectorProfileOAuth2GrantType string
@@ -589,6 +644,12 @@ func (o ConnectorProfileOAuth2GrantTypeOutput) ToConnectorProfileOAuth2GrantType
 	}).(ConnectorProfileOAuth2GrantTypePtrOutput)
 }
 
+func (o ConnectorProfileOAuth2GrantTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileOAuth2GrantType] {
+	return pulumix.Output[ConnectorProfileOAuth2GrantType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectorProfileOAuth2GrantTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -622,6 +683,12 @@ func (o ConnectorProfileOAuth2GrantTypePtrOutput) ToConnectorProfileOAuth2GrantT
 
 func (o ConnectorProfileOAuth2GrantTypePtrOutput) ToConnectorProfileOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectorProfileOAuth2GrantTypePtrOutput {
 	return o
+}
+
+func (o ConnectorProfileOAuth2GrantTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileOAuth2GrantType] {
+	return pulumix.Output[*ConnectorProfileOAuth2GrantType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorProfileOAuth2GrantTypePtrOutput) Elem() ConnectorProfileOAuth2GrantTypeOutput {
@@ -684,6 +751,12 @@ func (in *connectorProfileOAuth2GrantTypePtr) ToConnectorProfileOAuth2GrantTypeP
 
 func (in *connectorProfileOAuth2GrantTypePtr) ToConnectorProfileOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectorProfileOAuth2GrantTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorProfileOAuth2GrantTypePtrOutput)
+}
+
+func (in *connectorProfileOAuth2GrantTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileOAuth2GrantType] {
+	return pulumix.Output[*ConnectorProfileOAuth2GrantType]{
+		OutputState: in.ToConnectorProfileOAuth2GrantTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowAggregationType string
@@ -753,6 +826,12 @@ func (o FlowAggregationTypeOutput) ToFlowAggregationTypePtrOutputWithContext(ctx
 	}).(FlowAggregationTypePtrOutput)
 }
 
+func (o FlowAggregationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowAggregationType] {
+	return pulumix.Output[FlowAggregationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowAggregationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -786,6 +865,12 @@ func (o FlowAggregationTypePtrOutput) ToFlowAggregationTypePtrOutput() FlowAggre
 
 func (o FlowAggregationTypePtrOutput) ToFlowAggregationTypePtrOutputWithContext(ctx context.Context) FlowAggregationTypePtrOutput {
 	return o
+}
+
+func (o FlowAggregationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowAggregationType] {
+	return pulumix.Output[*FlowAggregationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowAggregationTypePtrOutput) Elem() FlowAggregationTypeOutput {
@@ -848,6 +933,12 @@ func (in *flowAggregationTypePtr) ToFlowAggregationTypePtrOutput() FlowAggregati
 
 func (in *flowAggregationTypePtr) ToFlowAggregationTypePtrOutputWithContext(ctx context.Context) FlowAggregationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowAggregationTypePtrOutput)
+}
+
+func (in *flowAggregationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowAggregationType] {
+	return pulumix.Output[*FlowAggregationType]{
+		OutputState: in.ToFlowAggregationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowAmplitudeConnectorOperator string
@@ -916,6 +1007,12 @@ func (o FlowAmplitudeConnectorOperatorOutput) ToFlowAmplitudeConnectorOperatorPt
 	}).(FlowAmplitudeConnectorOperatorPtrOutput)
 }
 
+func (o FlowAmplitudeConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowAmplitudeConnectorOperator] {
+	return pulumix.Output[FlowAmplitudeConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowAmplitudeConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -949,6 +1046,12 @@ func (o FlowAmplitudeConnectorOperatorPtrOutput) ToFlowAmplitudeConnectorOperato
 
 func (o FlowAmplitudeConnectorOperatorPtrOutput) ToFlowAmplitudeConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowAmplitudeConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowAmplitudeConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowAmplitudeConnectorOperator] {
+	return pulumix.Output[*FlowAmplitudeConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowAmplitudeConnectorOperatorPtrOutput) Elem() FlowAmplitudeConnectorOperatorOutput {
@@ -1011,6 +1114,12 @@ func (in *flowAmplitudeConnectorOperatorPtr) ToFlowAmplitudeConnectorOperatorPtr
 
 func (in *flowAmplitudeConnectorOperatorPtr) ToFlowAmplitudeConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowAmplitudeConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowAmplitudeConnectorOperatorPtrOutput)
+}
+
+func (in *flowAmplitudeConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowAmplitudeConnectorOperator] {
+	return pulumix.Output[*FlowAmplitudeConnectorOperator]{
+		OutputState: in.ToFlowAmplitudeConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowConnectorType string
@@ -1100,6 +1209,12 @@ func (o FlowConnectorTypeOutput) ToFlowConnectorTypePtrOutputWithContext(ctx con
 	}).(FlowConnectorTypePtrOutput)
 }
 
+func (o FlowConnectorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowConnectorType] {
+	return pulumix.Output[FlowConnectorType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowConnectorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1133,6 +1248,12 @@ func (o FlowConnectorTypePtrOutput) ToFlowConnectorTypePtrOutput() FlowConnector
 
 func (o FlowConnectorTypePtrOutput) ToFlowConnectorTypePtrOutputWithContext(ctx context.Context) FlowConnectorTypePtrOutput {
 	return o
+}
+
+func (o FlowConnectorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowConnectorType] {
+	return pulumix.Output[*FlowConnectorType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowConnectorTypePtrOutput) Elem() FlowConnectorTypeOutput {
@@ -1195,6 +1316,12 @@ func (in *flowConnectorTypePtr) ToFlowConnectorTypePtrOutput() FlowConnectorType
 
 func (in *flowConnectorTypePtr) ToFlowConnectorTypePtrOutputWithContext(ctx context.Context) FlowConnectorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowConnectorTypePtrOutput)
+}
+
+func (in *flowConnectorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowConnectorType] {
+	return pulumix.Output[*FlowConnectorType]{
+		OutputState: in.ToFlowConnectorTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType string
@@ -1265,6 +1392,12 @@ func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypeOutput) 
 	}).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutput)
 }
 
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType] {
+	return pulumix.Output[FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1298,6 +1431,12 @@ func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutpu
 
 func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutput) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutputWithContext(ctx context.Context) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutput {
 	return o
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType] {
+	return pulumix.Output[*FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutput) Elem() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypeOutput {
@@ -1360,6 +1499,12 @@ func (in *flowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtr) T
 
 func (in *flowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtr) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutputWithContext(ctx context.Context) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutput)
+}
+
+func (in *flowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType] {
+	return pulumix.Output[*FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType]{
+		OutputState: in.ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowDataTransferApi string
@@ -1430,6 +1575,12 @@ func (o FlowDataTransferApiOutput) ToFlowDataTransferApiPtrOutputWithContext(ctx
 	}).(FlowDataTransferApiPtrOutput)
 }
 
+func (o FlowDataTransferApiOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDataTransferApi] {
+	return pulumix.Output[FlowDataTransferApi]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowDataTransferApiOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1463,6 +1614,12 @@ func (o FlowDataTransferApiPtrOutput) ToFlowDataTransferApiPtrOutput() FlowDataT
 
 func (o FlowDataTransferApiPtrOutput) ToFlowDataTransferApiPtrOutputWithContext(ctx context.Context) FlowDataTransferApiPtrOutput {
 	return o
+}
+
+func (o FlowDataTransferApiPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDataTransferApi] {
+	return pulumix.Output[*FlowDataTransferApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowDataTransferApiPtrOutput) Elem() FlowDataTransferApiOutput {
@@ -1525,6 +1682,12 @@ func (in *flowDataTransferApiPtr) ToFlowDataTransferApiPtrOutput() FlowDataTrans
 
 func (in *flowDataTransferApiPtr) ToFlowDataTransferApiPtrOutputWithContext(ctx context.Context) FlowDataTransferApiPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowDataTransferApiPtrOutput)
+}
+
+func (in *flowDataTransferApiPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowDataTransferApi] {
+	return pulumix.Output[*FlowDataTransferApi]{
+		OutputState: in.ToFlowDataTransferApiPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowDatadogConnectorOperator string
@@ -1607,6 +1770,12 @@ func (o FlowDatadogConnectorOperatorOutput) ToFlowDatadogConnectorOperatorPtrOut
 	}).(FlowDatadogConnectorOperatorPtrOutput)
 }
 
+func (o FlowDatadogConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDatadogConnectorOperator] {
+	return pulumix.Output[FlowDatadogConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowDatadogConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1640,6 +1809,12 @@ func (o FlowDatadogConnectorOperatorPtrOutput) ToFlowDatadogConnectorOperatorPtr
 
 func (o FlowDatadogConnectorOperatorPtrOutput) ToFlowDatadogConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowDatadogConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowDatadogConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDatadogConnectorOperator] {
+	return pulumix.Output[*FlowDatadogConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowDatadogConnectorOperatorPtrOutput) Elem() FlowDatadogConnectorOperatorOutput {
@@ -1702,6 +1877,12 @@ func (in *flowDatadogConnectorOperatorPtr) ToFlowDatadogConnectorOperatorPtrOutp
 
 func (in *flowDatadogConnectorOperatorPtr) ToFlowDatadogConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowDatadogConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowDatadogConnectorOperatorPtrOutput)
+}
+
+func (in *flowDatadogConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowDatadogConnectorOperator] {
+	return pulumix.Output[*FlowDatadogConnectorOperator]{
+		OutputState: in.ToFlowDatadogConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowDynatraceConnectorOperator string
@@ -1784,6 +1965,12 @@ func (o FlowDynatraceConnectorOperatorOutput) ToFlowDynatraceConnectorOperatorPt
 	}).(FlowDynatraceConnectorOperatorPtrOutput)
 }
 
+func (o FlowDynatraceConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDynatraceConnectorOperator] {
+	return pulumix.Output[FlowDynatraceConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowDynatraceConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1817,6 +2004,12 @@ func (o FlowDynatraceConnectorOperatorPtrOutput) ToFlowDynatraceConnectorOperato
 
 func (o FlowDynatraceConnectorOperatorPtrOutput) ToFlowDynatraceConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowDynatraceConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowDynatraceConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDynatraceConnectorOperator] {
+	return pulumix.Output[*FlowDynatraceConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowDynatraceConnectorOperatorPtrOutput) Elem() FlowDynatraceConnectorOperatorOutput {
@@ -1879,6 +2072,12 @@ func (in *flowDynatraceConnectorOperatorPtr) ToFlowDynatraceConnectorOperatorPtr
 
 func (in *flowDynatraceConnectorOperatorPtr) ToFlowDynatraceConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowDynatraceConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowDynatraceConnectorOperatorPtrOutput)
+}
+
+func (in *flowDynatraceConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowDynatraceConnectorOperator] {
+	return pulumix.Output[*FlowDynatraceConnectorOperator]{
+		OutputState: in.ToFlowDynatraceConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowFileType string
@@ -1949,6 +2148,12 @@ func (o FlowFileTypeOutput) ToFlowFileTypePtrOutputWithContext(ctx context.Conte
 	}).(FlowFileTypePtrOutput)
 }
 
+func (o FlowFileTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowFileType] {
+	return pulumix.Output[FlowFileType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowFileTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1982,6 +2187,12 @@ func (o FlowFileTypePtrOutput) ToFlowFileTypePtrOutput() FlowFileTypePtrOutput {
 
 func (o FlowFileTypePtrOutput) ToFlowFileTypePtrOutputWithContext(ctx context.Context) FlowFileTypePtrOutput {
 	return o
+}
+
+func (o FlowFileTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowFileType] {
+	return pulumix.Output[*FlowFileType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowFileTypePtrOutput) Elem() FlowFileTypeOutput {
@@ -2044,6 +2255,12 @@ func (in *flowFileTypePtr) ToFlowFileTypePtrOutput() FlowFileTypePtrOutput {
 
 func (in *flowFileTypePtr) ToFlowFileTypePtrOutputWithContext(ctx context.Context) FlowFileTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowFileTypePtrOutput)
+}
+
+func (in *flowFileTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowFileType] {
+	return pulumix.Output[*FlowFileType]{
+		OutputState: in.ToFlowFileTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowGoogleAnalyticsConnectorOperator string
@@ -2113,6 +2330,12 @@ func (o FlowGoogleAnalyticsConnectorOperatorOutput) ToFlowGoogleAnalyticsConnect
 	}).(FlowGoogleAnalyticsConnectorOperatorPtrOutput)
 }
 
+func (o FlowGoogleAnalyticsConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowGoogleAnalyticsConnectorOperator] {
+	return pulumix.Output[FlowGoogleAnalyticsConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowGoogleAnalyticsConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2146,6 +2369,12 @@ func (o FlowGoogleAnalyticsConnectorOperatorPtrOutput) ToFlowGoogleAnalyticsConn
 
 func (o FlowGoogleAnalyticsConnectorOperatorPtrOutput) ToFlowGoogleAnalyticsConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowGoogleAnalyticsConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowGoogleAnalyticsConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowGoogleAnalyticsConnectorOperator] {
+	return pulumix.Output[*FlowGoogleAnalyticsConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowGoogleAnalyticsConnectorOperatorPtrOutput) Elem() FlowGoogleAnalyticsConnectorOperatorOutput {
@@ -2208,6 +2437,12 @@ func (in *flowGoogleAnalyticsConnectorOperatorPtr) ToFlowGoogleAnalyticsConnecto
 
 func (in *flowGoogleAnalyticsConnectorOperatorPtr) ToFlowGoogleAnalyticsConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowGoogleAnalyticsConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowGoogleAnalyticsConnectorOperatorPtrOutput)
+}
+
+func (in *flowGoogleAnalyticsConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowGoogleAnalyticsConnectorOperator] {
+	return pulumix.Output[*FlowGoogleAnalyticsConnectorOperator]{
+		OutputState: in.ToFlowGoogleAnalyticsConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowInforNexusConnectorOperator string
@@ -2290,6 +2525,12 @@ func (o FlowInforNexusConnectorOperatorOutput) ToFlowInforNexusConnectorOperator
 	}).(FlowInforNexusConnectorOperatorPtrOutput)
 }
 
+func (o FlowInforNexusConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowInforNexusConnectorOperator] {
+	return pulumix.Output[FlowInforNexusConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowInforNexusConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2323,6 +2564,12 @@ func (o FlowInforNexusConnectorOperatorPtrOutput) ToFlowInforNexusConnectorOpera
 
 func (o FlowInforNexusConnectorOperatorPtrOutput) ToFlowInforNexusConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowInforNexusConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowInforNexusConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowInforNexusConnectorOperator] {
+	return pulumix.Output[*FlowInforNexusConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowInforNexusConnectorOperatorPtrOutput) Elem() FlowInforNexusConnectorOperatorOutput {
@@ -2385,6 +2632,12 @@ func (in *flowInforNexusConnectorOperatorPtr) ToFlowInforNexusConnectorOperatorP
 
 func (in *flowInforNexusConnectorOperatorPtr) ToFlowInforNexusConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowInforNexusConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowInforNexusConnectorOperatorPtrOutput)
+}
+
+func (in *flowInforNexusConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowInforNexusConnectorOperator] {
+	return pulumix.Output[*FlowInforNexusConnectorOperator]{
+		OutputState: in.ToFlowInforNexusConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowMarketoConnectorOperator string
@@ -2468,6 +2721,12 @@ func (o FlowMarketoConnectorOperatorOutput) ToFlowMarketoConnectorOperatorPtrOut
 	}).(FlowMarketoConnectorOperatorPtrOutput)
 }
 
+func (o FlowMarketoConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowMarketoConnectorOperator] {
+	return pulumix.Output[FlowMarketoConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowMarketoConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2501,6 +2760,12 @@ func (o FlowMarketoConnectorOperatorPtrOutput) ToFlowMarketoConnectorOperatorPtr
 
 func (o FlowMarketoConnectorOperatorPtrOutput) ToFlowMarketoConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowMarketoConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowMarketoConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowMarketoConnectorOperator] {
+	return pulumix.Output[*FlowMarketoConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowMarketoConnectorOperatorPtrOutput) Elem() FlowMarketoConnectorOperatorOutput {
@@ -2563,6 +2828,12 @@ func (in *flowMarketoConnectorOperatorPtr) ToFlowMarketoConnectorOperatorPtrOutp
 
 func (in *flowMarketoConnectorOperatorPtr) ToFlowMarketoConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowMarketoConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowMarketoConnectorOperatorPtrOutput)
+}
+
+func (in *flowMarketoConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowMarketoConnectorOperator] {
+	return pulumix.Output[*FlowMarketoConnectorOperator]{
+		OutputState: in.ToFlowMarketoConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowOperator string
@@ -2651,6 +2922,12 @@ func (o FlowOperatorOutput) ToFlowOperatorPtrOutputWithContext(ctx context.Conte
 	}).(FlowOperatorPtrOutput)
 }
 
+func (o FlowOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowOperator] {
+	return pulumix.Output[FlowOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2684,6 +2961,12 @@ func (o FlowOperatorPtrOutput) ToFlowOperatorPtrOutput() FlowOperatorPtrOutput {
 
 func (o FlowOperatorPtrOutput) ToFlowOperatorPtrOutputWithContext(ctx context.Context) FlowOperatorPtrOutput {
 	return o
+}
+
+func (o FlowOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowOperator] {
+	return pulumix.Output[*FlowOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowOperatorPtrOutput) Elem() FlowOperatorOutput {
@@ -2746,6 +3029,12 @@ func (in *flowOperatorPtr) ToFlowOperatorPtrOutput() FlowOperatorPtrOutput {
 
 func (in *flowOperatorPtr) ToFlowOperatorPtrOutputWithContext(ctx context.Context) FlowOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowOperatorPtrOutput)
+}
+
+func (in *flowOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowOperator] {
+	return pulumix.Output[*FlowOperator]{
+		OutputState: in.ToFlowOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowOperatorPropertiesKeys string
@@ -2830,6 +3119,12 @@ func (o FlowOperatorPropertiesKeysOutput) ToFlowOperatorPropertiesKeysPtrOutputW
 	}).(FlowOperatorPropertiesKeysPtrOutput)
 }
 
+func (o FlowOperatorPropertiesKeysOutput) ToOutput(ctx context.Context) pulumix.Output[FlowOperatorPropertiesKeys] {
+	return pulumix.Output[FlowOperatorPropertiesKeys]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowOperatorPropertiesKeysOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2863,6 +3158,12 @@ func (o FlowOperatorPropertiesKeysPtrOutput) ToFlowOperatorPropertiesKeysPtrOutp
 
 func (o FlowOperatorPropertiesKeysPtrOutput) ToFlowOperatorPropertiesKeysPtrOutputWithContext(ctx context.Context) FlowOperatorPropertiesKeysPtrOutput {
 	return o
+}
+
+func (o FlowOperatorPropertiesKeysPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowOperatorPropertiesKeys] {
+	return pulumix.Output[*FlowOperatorPropertiesKeys]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowOperatorPropertiesKeysPtrOutput) Elem() FlowOperatorPropertiesKeysOutput {
@@ -2925,6 +3226,12 @@ func (in *flowOperatorPropertiesKeysPtr) ToFlowOperatorPropertiesKeysPtrOutput()
 
 func (in *flowOperatorPropertiesKeysPtr) ToFlowOperatorPropertiesKeysPtrOutputWithContext(ctx context.Context) FlowOperatorPropertiesKeysPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowOperatorPropertiesKeysPtrOutput)
+}
+
+func (in *flowOperatorPropertiesKeysPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowOperatorPropertiesKeys] {
+	return pulumix.Output[*FlowOperatorPropertiesKeys]{
+		OutputState: in.ToFlowOperatorPropertiesKeysPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowPardotConnectorOperator string
@@ -3006,6 +3313,12 @@ func (o FlowPardotConnectorOperatorOutput) ToFlowPardotConnectorOperatorPtrOutpu
 	}).(FlowPardotConnectorOperatorPtrOutput)
 }
 
+func (o FlowPardotConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowPardotConnectorOperator] {
+	return pulumix.Output[FlowPardotConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowPardotConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3039,6 +3352,12 @@ func (o FlowPardotConnectorOperatorPtrOutput) ToFlowPardotConnectorOperatorPtrOu
 
 func (o FlowPardotConnectorOperatorPtrOutput) ToFlowPardotConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowPardotConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowPardotConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowPardotConnectorOperator] {
+	return pulumix.Output[*FlowPardotConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowPardotConnectorOperatorPtrOutput) Elem() FlowPardotConnectorOperatorOutput {
@@ -3101,6 +3420,12 @@ func (in *flowPardotConnectorOperatorPtr) ToFlowPardotConnectorOperatorPtrOutput
 
 func (in *flowPardotConnectorOperatorPtr) ToFlowPardotConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowPardotConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowPardotConnectorOperatorPtrOutput)
+}
+
+func (in *flowPardotConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowPardotConnectorOperator] {
+	return pulumix.Output[*FlowPardotConnectorOperator]{
+		OutputState: in.ToFlowPardotConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowPathPrefix string
@@ -3170,6 +3495,12 @@ func (o FlowPathPrefixOutput) ToFlowPathPrefixPtrOutputWithContext(ctx context.C
 	}).(FlowPathPrefixPtrOutput)
 }
 
+func (o FlowPathPrefixOutput) ToOutput(ctx context.Context) pulumix.Output[FlowPathPrefix] {
+	return pulumix.Output[FlowPathPrefix]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowPathPrefixOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3203,6 +3534,12 @@ func (o FlowPathPrefixPtrOutput) ToFlowPathPrefixPtrOutput() FlowPathPrefixPtrOu
 
 func (o FlowPathPrefixPtrOutput) ToFlowPathPrefixPtrOutputWithContext(ctx context.Context) FlowPathPrefixPtrOutput {
 	return o
+}
+
+func (o FlowPathPrefixPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowPathPrefix] {
+	return pulumix.Output[*FlowPathPrefix]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowPathPrefixPtrOutput) Elem() FlowPathPrefixOutput {
@@ -3267,6 +3604,12 @@ func (in *flowPathPrefixPtr) ToFlowPathPrefixPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(FlowPathPrefixPtrOutput)
 }
 
+func (in *flowPathPrefixPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowPathPrefix] {
+	return pulumix.Output[*FlowPathPrefix]{
+		OutputState: in.ToFlowPathPrefixPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FlowPathPrefixArrayInput is an input type that accepts FlowPathPrefixArray and FlowPathPrefixArrayOutput values.
 // You can construct a concrete instance of `FlowPathPrefixArrayInput` via:
 //
@@ -3292,6 +3635,12 @@ func (i FlowPathPrefixArray) ToFlowPathPrefixArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FlowPathPrefixArrayOutput)
 }
 
+func (i FlowPathPrefixArray) ToOutput(ctx context.Context) pulumix.Output[[]FlowPathPrefix] {
+	return pulumix.Output[[]FlowPathPrefix]{
+		OutputState: i.ToFlowPathPrefixArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlowPathPrefixArrayOutput struct{ *pulumi.OutputState }
 
 func (FlowPathPrefixArrayOutput) ElementType() reflect.Type {
@@ -3304,6 +3653,12 @@ func (o FlowPathPrefixArrayOutput) ToFlowPathPrefixArrayOutput() FlowPathPrefixA
 
 func (o FlowPathPrefixArrayOutput) ToFlowPathPrefixArrayOutputWithContext(ctx context.Context) FlowPathPrefixArrayOutput {
 	return o
+}
+
+func (o FlowPathPrefixArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FlowPathPrefix] {
+	return pulumix.Output[[]FlowPathPrefix]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowPathPrefixArrayOutput) Index(i pulumi.IntInput) FlowPathPrefixOutput {
@@ -3382,6 +3737,12 @@ func (o FlowPrefixFormatOutput) ToFlowPrefixFormatPtrOutputWithContext(ctx conte
 	}).(FlowPrefixFormatPtrOutput)
 }
 
+func (o FlowPrefixFormatOutput) ToOutput(ctx context.Context) pulumix.Output[FlowPrefixFormat] {
+	return pulumix.Output[FlowPrefixFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowPrefixFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3415,6 +3776,12 @@ func (o FlowPrefixFormatPtrOutput) ToFlowPrefixFormatPtrOutput() FlowPrefixForma
 
 func (o FlowPrefixFormatPtrOutput) ToFlowPrefixFormatPtrOutputWithContext(ctx context.Context) FlowPrefixFormatPtrOutput {
 	return o
+}
+
+func (o FlowPrefixFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowPrefixFormat] {
+	return pulumix.Output[*FlowPrefixFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowPrefixFormatPtrOutput) Elem() FlowPrefixFormatOutput {
@@ -3477,6 +3844,12 @@ func (in *flowPrefixFormatPtr) ToFlowPrefixFormatPtrOutput() FlowPrefixFormatPtr
 
 func (in *flowPrefixFormatPtr) ToFlowPrefixFormatPtrOutputWithContext(ctx context.Context) FlowPrefixFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowPrefixFormatPtrOutput)
+}
+
+func (in *flowPrefixFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowPrefixFormat] {
+	return pulumix.Output[*FlowPrefixFormat]{
+		OutputState: in.ToFlowPrefixFormatPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowPrefixType string
@@ -3547,6 +3920,12 @@ func (o FlowPrefixTypeOutput) ToFlowPrefixTypePtrOutputWithContext(ctx context.C
 	}).(FlowPrefixTypePtrOutput)
 }
 
+func (o FlowPrefixTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowPrefixType] {
+	return pulumix.Output[FlowPrefixType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowPrefixTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3580,6 +3959,12 @@ func (o FlowPrefixTypePtrOutput) ToFlowPrefixTypePtrOutput() FlowPrefixTypePtrOu
 
 func (o FlowPrefixTypePtrOutput) ToFlowPrefixTypePtrOutputWithContext(ctx context.Context) FlowPrefixTypePtrOutput {
 	return o
+}
+
+func (o FlowPrefixTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowPrefixType] {
+	return pulumix.Output[*FlowPrefixType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowPrefixTypePtrOutput) Elem() FlowPrefixTypeOutput {
@@ -3642,6 +4027,12 @@ func (in *flowPrefixTypePtr) ToFlowPrefixTypePtrOutput() FlowPrefixTypePtrOutput
 
 func (in *flowPrefixTypePtr) ToFlowPrefixTypePtrOutputWithContext(ctx context.Context) FlowPrefixTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowPrefixTypePtrOutput)
+}
+
+func (in *flowPrefixTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowPrefixType] {
+	return pulumix.Output[*FlowPrefixType]{
+		OutputState: in.ToFlowPrefixTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowS3ConnectorOperator string
@@ -3729,6 +4120,12 @@ func (o FlowS3ConnectorOperatorOutput) ToFlowS3ConnectorOperatorPtrOutputWithCon
 	}).(FlowS3ConnectorOperatorPtrOutput)
 }
 
+func (o FlowS3ConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowS3ConnectorOperator] {
+	return pulumix.Output[FlowS3ConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowS3ConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3762,6 +4159,12 @@ func (o FlowS3ConnectorOperatorPtrOutput) ToFlowS3ConnectorOperatorPtrOutput() F
 
 func (o FlowS3ConnectorOperatorPtrOutput) ToFlowS3ConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowS3ConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowS3ConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowS3ConnectorOperator] {
+	return pulumix.Output[*FlowS3ConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowS3ConnectorOperatorPtrOutput) Elem() FlowS3ConnectorOperatorOutput {
@@ -3824,6 +4227,12 @@ func (in *flowS3ConnectorOperatorPtr) ToFlowS3ConnectorOperatorPtrOutput() FlowS
 
 func (in *flowS3ConnectorOperatorPtr) ToFlowS3ConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowS3ConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowS3ConnectorOperatorPtrOutput)
+}
+
+func (in *flowS3ConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowS3ConnectorOperator] {
+	return pulumix.Output[*FlowS3ConnectorOperator]{
+		OutputState: in.ToFlowS3ConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowS3InputFormatConfigS3InputFileType string
@@ -3893,6 +4302,12 @@ func (o FlowS3InputFormatConfigS3InputFileTypeOutput) ToFlowS3InputFormatConfigS
 	}).(FlowS3InputFormatConfigS3InputFileTypePtrOutput)
 }
 
+func (o FlowS3InputFormatConfigS3InputFileTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowS3InputFormatConfigS3InputFileType] {
+	return pulumix.Output[FlowS3InputFormatConfigS3InputFileType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowS3InputFormatConfigS3InputFileTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3926,6 +4341,12 @@ func (o FlowS3InputFormatConfigS3InputFileTypePtrOutput) ToFlowS3InputFormatConf
 
 func (o FlowS3InputFormatConfigS3InputFileTypePtrOutput) ToFlowS3InputFormatConfigS3InputFileTypePtrOutputWithContext(ctx context.Context) FlowS3InputFormatConfigS3InputFileTypePtrOutput {
 	return o
+}
+
+func (o FlowS3InputFormatConfigS3InputFileTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowS3InputFormatConfigS3InputFileType] {
+	return pulumix.Output[*FlowS3InputFormatConfigS3InputFileType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowS3InputFormatConfigS3InputFileTypePtrOutput) Elem() FlowS3InputFormatConfigS3InputFileTypeOutput {
@@ -3988,6 +4409,12 @@ func (in *flowS3InputFormatConfigS3InputFileTypePtr) ToFlowS3InputFormatConfigS3
 
 func (in *flowS3InputFormatConfigS3InputFileTypePtr) ToFlowS3InputFormatConfigS3InputFileTypePtrOutputWithContext(ctx context.Context) FlowS3InputFormatConfigS3InputFileTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowS3InputFormatConfigS3InputFileTypePtrOutput)
+}
+
+func (in *flowS3InputFormatConfigS3InputFileTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowS3InputFormatConfigS3InputFileType] {
+	return pulumix.Output[*FlowS3InputFormatConfigS3InputFileType]{
+		OutputState: in.ToFlowS3InputFormatConfigS3InputFileTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowSalesforceConnectorOperator string
@@ -4076,6 +4503,12 @@ func (o FlowSalesforceConnectorOperatorOutput) ToFlowSalesforceConnectorOperator
 	}).(FlowSalesforceConnectorOperatorPtrOutput)
 }
 
+func (o FlowSalesforceConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSalesforceConnectorOperator] {
+	return pulumix.Output[FlowSalesforceConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowSalesforceConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4109,6 +4542,12 @@ func (o FlowSalesforceConnectorOperatorPtrOutput) ToFlowSalesforceConnectorOpera
 
 func (o FlowSalesforceConnectorOperatorPtrOutput) ToFlowSalesforceConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSalesforceConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowSalesforceConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSalesforceConnectorOperator] {
+	return pulumix.Output[*FlowSalesforceConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowSalesforceConnectorOperatorPtrOutput) Elem() FlowSalesforceConnectorOperatorOutput {
@@ -4171,6 +4610,12 @@ func (in *flowSalesforceConnectorOperatorPtr) ToFlowSalesforceConnectorOperatorP
 
 func (in *flowSalesforceConnectorOperatorPtr) ToFlowSalesforceConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSalesforceConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSalesforceConnectorOperatorPtrOutput)
+}
+
+func (in *flowSalesforceConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowSalesforceConnectorOperator] {
+	return pulumix.Output[*FlowSalesforceConnectorOperator]{
+		OutputState: in.ToFlowSalesforceConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowSapoDataConnectorOperator string
@@ -4259,6 +4704,12 @@ func (o FlowSapoDataConnectorOperatorOutput) ToFlowSapoDataConnectorOperatorPtrO
 	}).(FlowSapoDataConnectorOperatorPtrOutput)
 }
 
+func (o FlowSapoDataConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSapoDataConnectorOperator] {
+	return pulumix.Output[FlowSapoDataConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowSapoDataConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4292,6 +4743,12 @@ func (o FlowSapoDataConnectorOperatorPtrOutput) ToFlowSapoDataConnectorOperatorP
 
 func (o FlowSapoDataConnectorOperatorPtrOutput) ToFlowSapoDataConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSapoDataConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowSapoDataConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSapoDataConnectorOperator] {
+	return pulumix.Output[*FlowSapoDataConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowSapoDataConnectorOperatorPtrOutput) Elem() FlowSapoDataConnectorOperatorOutput {
@@ -4354,6 +4811,12 @@ func (in *flowSapoDataConnectorOperatorPtr) ToFlowSapoDataConnectorOperatorPtrOu
 
 func (in *flowSapoDataConnectorOperatorPtr) ToFlowSapoDataConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSapoDataConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSapoDataConnectorOperatorPtrOutput)
+}
+
+func (in *flowSapoDataConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowSapoDataConnectorOperator] {
+	return pulumix.Output[*FlowSapoDataConnectorOperator]{
+		OutputState: in.ToFlowSapoDataConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowScheduledTriggerPropertiesDataPullMode string
@@ -4423,6 +4886,12 @@ func (o FlowScheduledTriggerPropertiesDataPullModeOutput) ToFlowScheduledTrigger
 	}).(FlowScheduledTriggerPropertiesDataPullModePtrOutput)
 }
 
+func (o FlowScheduledTriggerPropertiesDataPullModeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowScheduledTriggerPropertiesDataPullMode] {
+	return pulumix.Output[FlowScheduledTriggerPropertiesDataPullMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowScheduledTriggerPropertiesDataPullModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4456,6 +4925,12 @@ func (o FlowScheduledTriggerPropertiesDataPullModePtrOutput) ToFlowScheduledTrig
 
 func (o FlowScheduledTriggerPropertiesDataPullModePtrOutput) ToFlowScheduledTriggerPropertiesDataPullModePtrOutputWithContext(ctx context.Context) FlowScheduledTriggerPropertiesDataPullModePtrOutput {
 	return o
+}
+
+func (o FlowScheduledTriggerPropertiesDataPullModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowScheduledTriggerPropertiesDataPullMode] {
+	return pulumix.Output[*FlowScheduledTriggerPropertiesDataPullMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowScheduledTriggerPropertiesDataPullModePtrOutput) Elem() FlowScheduledTriggerPropertiesDataPullModeOutput {
@@ -4518,6 +4993,12 @@ func (in *flowScheduledTriggerPropertiesDataPullModePtr) ToFlowScheduledTriggerP
 
 func (in *flowScheduledTriggerPropertiesDataPullModePtr) ToFlowScheduledTriggerPropertiesDataPullModePtrOutputWithContext(ctx context.Context) FlowScheduledTriggerPropertiesDataPullModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowScheduledTriggerPropertiesDataPullModePtrOutput)
+}
+
+func (in *flowScheduledTriggerPropertiesDataPullModePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowScheduledTriggerPropertiesDataPullMode] {
+	return pulumix.Output[*FlowScheduledTriggerPropertiesDataPullMode]{
+		OutputState: in.ToFlowScheduledTriggerPropertiesDataPullModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowServiceNowConnectorOperator string
@@ -4606,6 +5087,12 @@ func (o FlowServiceNowConnectorOperatorOutput) ToFlowServiceNowConnectorOperator
 	}).(FlowServiceNowConnectorOperatorPtrOutput)
 }
 
+func (o FlowServiceNowConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowServiceNowConnectorOperator] {
+	return pulumix.Output[FlowServiceNowConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowServiceNowConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4639,6 +5126,12 @@ func (o FlowServiceNowConnectorOperatorPtrOutput) ToFlowServiceNowConnectorOpera
 
 func (o FlowServiceNowConnectorOperatorPtrOutput) ToFlowServiceNowConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowServiceNowConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowServiceNowConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowServiceNowConnectorOperator] {
+	return pulumix.Output[*FlowServiceNowConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowServiceNowConnectorOperatorPtrOutput) Elem() FlowServiceNowConnectorOperatorOutput {
@@ -4701,6 +5194,12 @@ func (in *flowServiceNowConnectorOperatorPtr) ToFlowServiceNowConnectorOperatorP
 
 func (in *flowServiceNowConnectorOperatorPtr) ToFlowServiceNowConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowServiceNowConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowServiceNowConnectorOperatorPtrOutput)
+}
+
+func (in *flowServiceNowConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowServiceNowConnectorOperator] {
+	return pulumix.Output[*FlowServiceNowConnectorOperator]{
+		OutputState: in.ToFlowServiceNowConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowSingularConnectorOperator string
@@ -4782,6 +5281,12 @@ func (o FlowSingularConnectorOperatorOutput) ToFlowSingularConnectorOperatorPtrO
 	}).(FlowSingularConnectorOperatorPtrOutput)
 }
 
+func (o FlowSingularConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSingularConnectorOperator] {
+	return pulumix.Output[FlowSingularConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowSingularConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4815,6 +5320,12 @@ func (o FlowSingularConnectorOperatorPtrOutput) ToFlowSingularConnectorOperatorP
 
 func (o FlowSingularConnectorOperatorPtrOutput) ToFlowSingularConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSingularConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowSingularConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSingularConnectorOperator] {
+	return pulumix.Output[*FlowSingularConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowSingularConnectorOperatorPtrOutput) Elem() FlowSingularConnectorOperatorOutput {
@@ -4877,6 +5388,12 @@ func (in *flowSingularConnectorOperatorPtr) ToFlowSingularConnectorOperatorPtrOu
 
 func (in *flowSingularConnectorOperatorPtr) ToFlowSingularConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSingularConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSingularConnectorOperatorPtrOutput)
+}
+
+func (in *flowSingularConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowSingularConnectorOperator] {
+	return pulumix.Output[*FlowSingularConnectorOperator]{
+		OutputState: in.ToFlowSingularConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowSlackConnectorOperator string
@@ -4959,6 +5476,12 @@ func (o FlowSlackConnectorOperatorOutput) ToFlowSlackConnectorOperatorPtrOutputW
 	}).(FlowSlackConnectorOperatorPtrOutput)
 }
 
+func (o FlowSlackConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSlackConnectorOperator] {
+	return pulumix.Output[FlowSlackConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowSlackConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4992,6 +5515,12 @@ func (o FlowSlackConnectorOperatorPtrOutput) ToFlowSlackConnectorOperatorPtrOutp
 
 func (o FlowSlackConnectorOperatorPtrOutput) ToFlowSlackConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSlackConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowSlackConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSlackConnectorOperator] {
+	return pulumix.Output[*FlowSlackConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowSlackConnectorOperatorPtrOutput) Elem() FlowSlackConnectorOperatorOutput {
@@ -5054,6 +5583,12 @@ func (in *flowSlackConnectorOperatorPtr) ToFlowSlackConnectorOperatorPtrOutput()
 
 func (in *flowSlackConnectorOperatorPtr) ToFlowSlackConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSlackConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSlackConnectorOperatorPtrOutput)
+}
+
+func (in *flowSlackConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowSlackConnectorOperator] {
+	return pulumix.Output[*FlowSlackConnectorOperator]{
+		OutputState: in.ToFlowSlackConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Flow activation status for Scheduled- and Event-triggered flows
@@ -5125,6 +5660,12 @@ func (o FlowStatusOutput) ToFlowStatusPtrOutputWithContext(ctx context.Context) 
 	}).(FlowStatusPtrOutput)
 }
 
+func (o FlowStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FlowStatus] {
+	return pulumix.Output[FlowStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5158,6 +5699,12 @@ func (o FlowStatusPtrOutput) ToFlowStatusPtrOutput() FlowStatusPtrOutput {
 
 func (o FlowStatusPtrOutput) ToFlowStatusPtrOutputWithContext(ctx context.Context) FlowStatusPtrOutput {
 	return o
+}
+
+func (o FlowStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowStatus] {
+	return pulumix.Output[*FlowStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowStatusPtrOutput) Elem() FlowStatusOutput {
@@ -5220,6 +5767,12 @@ func (in *flowStatusPtr) ToFlowStatusPtrOutput() FlowStatusPtrOutput {
 
 func (in *flowStatusPtr) ToFlowStatusPtrOutputWithContext(ctx context.Context) FlowStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowStatusPtrOutput)
+}
+
+func (in *flowStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowStatus] {
+	return pulumix.Output[*FlowStatus]{
+		OutputState: in.ToFlowStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowTaskType string
@@ -5297,6 +5850,12 @@ func (o FlowTaskTypeOutput) ToFlowTaskTypePtrOutputWithContext(ctx context.Conte
 	}).(FlowTaskTypePtrOutput)
 }
 
+func (o FlowTaskTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowTaskType] {
+	return pulumix.Output[FlowTaskType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowTaskTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5330,6 +5889,12 @@ func (o FlowTaskTypePtrOutput) ToFlowTaskTypePtrOutput() FlowTaskTypePtrOutput {
 
 func (o FlowTaskTypePtrOutput) ToFlowTaskTypePtrOutputWithContext(ctx context.Context) FlowTaskTypePtrOutput {
 	return o
+}
+
+func (o FlowTaskTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowTaskType] {
+	return pulumix.Output[*FlowTaskType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowTaskTypePtrOutput) Elem() FlowTaskTypeOutput {
@@ -5392,6 +5957,12 @@ func (in *flowTaskTypePtr) ToFlowTaskTypePtrOutput() FlowTaskTypePtrOutput {
 
 func (in *flowTaskTypePtr) ToFlowTaskTypePtrOutputWithContext(ctx context.Context) FlowTaskTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowTaskTypePtrOutput)
+}
+
+func (in *flowTaskTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowTaskType] {
+	return pulumix.Output[*FlowTaskType]{
+		OutputState: in.ToFlowTaskTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowTrendmicroConnectorOperator string
@@ -5473,6 +6044,12 @@ func (o FlowTrendmicroConnectorOperatorOutput) ToFlowTrendmicroConnectorOperator
 	}).(FlowTrendmicroConnectorOperatorPtrOutput)
 }
 
+func (o FlowTrendmicroConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowTrendmicroConnectorOperator] {
+	return pulumix.Output[FlowTrendmicroConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowTrendmicroConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5506,6 +6083,12 @@ func (o FlowTrendmicroConnectorOperatorPtrOutput) ToFlowTrendmicroConnectorOpera
 
 func (o FlowTrendmicroConnectorOperatorPtrOutput) ToFlowTrendmicroConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowTrendmicroConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowTrendmicroConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowTrendmicroConnectorOperator] {
+	return pulumix.Output[*FlowTrendmicroConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowTrendmicroConnectorOperatorPtrOutput) Elem() FlowTrendmicroConnectorOperatorOutput {
@@ -5568,6 +6151,12 @@ func (in *flowTrendmicroConnectorOperatorPtr) ToFlowTrendmicroConnectorOperatorP
 
 func (in *flowTrendmicroConnectorOperatorPtr) ToFlowTrendmicroConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowTrendmicroConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowTrendmicroConnectorOperatorPtrOutput)
+}
+
+func (in *flowTrendmicroConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowTrendmicroConnectorOperator] {
+	return pulumix.Output[*FlowTrendmicroConnectorOperator]{
+		OutputState: in.ToFlowTrendmicroConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowTriggerType string
@@ -5638,6 +6227,12 @@ func (o FlowTriggerTypeOutput) ToFlowTriggerTypePtrOutputWithContext(ctx context
 	}).(FlowTriggerTypePtrOutput)
 }
 
+func (o FlowTriggerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowTriggerType] {
+	return pulumix.Output[FlowTriggerType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowTriggerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5671,6 +6266,12 @@ func (o FlowTriggerTypePtrOutput) ToFlowTriggerTypePtrOutput() FlowTriggerTypePt
 
 func (o FlowTriggerTypePtrOutput) ToFlowTriggerTypePtrOutputWithContext(ctx context.Context) FlowTriggerTypePtrOutput {
 	return o
+}
+
+func (o FlowTriggerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowTriggerType] {
+	return pulumix.Output[*FlowTriggerType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowTriggerTypePtrOutput) Elem() FlowTriggerTypeOutput {
@@ -5733,6 +6334,12 @@ func (in *flowTriggerTypePtr) ToFlowTriggerTypePtrOutput() FlowTriggerTypePtrOut
 
 func (in *flowTriggerTypePtr) ToFlowTriggerTypePtrOutputWithContext(ctx context.Context) FlowTriggerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowTriggerTypePtrOutput)
+}
+
+func (in *flowTriggerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowTriggerType] {
+	return pulumix.Output[*FlowTriggerType]{
+		OutputState: in.ToFlowTriggerTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowVeevaConnectorOperator string
@@ -5820,6 +6427,12 @@ func (o FlowVeevaConnectorOperatorOutput) ToFlowVeevaConnectorOperatorPtrOutputW
 	}).(FlowVeevaConnectorOperatorPtrOutput)
 }
 
+func (o FlowVeevaConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowVeevaConnectorOperator] {
+	return pulumix.Output[FlowVeevaConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowVeevaConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5853,6 +6466,12 @@ func (o FlowVeevaConnectorOperatorPtrOutput) ToFlowVeevaConnectorOperatorPtrOutp
 
 func (o FlowVeevaConnectorOperatorPtrOutput) ToFlowVeevaConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowVeevaConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowVeevaConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowVeevaConnectorOperator] {
+	return pulumix.Output[*FlowVeevaConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowVeevaConnectorOperatorPtrOutput) Elem() FlowVeevaConnectorOperatorOutput {
@@ -5915,6 +6534,12 @@ func (in *flowVeevaConnectorOperatorPtr) ToFlowVeevaConnectorOperatorPtrOutput()
 
 func (in *flowVeevaConnectorOperatorPtr) ToFlowVeevaConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowVeevaConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowVeevaConnectorOperatorPtrOutput)
+}
+
+func (in *flowVeevaConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowVeevaConnectorOperator] {
+	return pulumix.Output[*FlowVeevaConnectorOperator]{
+		OutputState: in.ToFlowVeevaConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowWriteOperationType string
@@ -5986,6 +6611,12 @@ func (o FlowWriteOperationTypeOutput) ToFlowWriteOperationTypePtrOutputWithConte
 	}).(FlowWriteOperationTypePtrOutput)
 }
 
+func (o FlowWriteOperationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowWriteOperationType] {
+	return pulumix.Output[FlowWriteOperationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowWriteOperationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6019,6 +6650,12 @@ func (o FlowWriteOperationTypePtrOutput) ToFlowWriteOperationTypePtrOutput() Flo
 
 func (o FlowWriteOperationTypePtrOutput) ToFlowWriteOperationTypePtrOutputWithContext(ctx context.Context) FlowWriteOperationTypePtrOutput {
 	return o
+}
+
+func (o FlowWriteOperationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowWriteOperationType] {
+	return pulumix.Output[*FlowWriteOperationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowWriteOperationTypePtrOutput) Elem() FlowWriteOperationTypeOutput {
@@ -6081,6 +6718,12 @@ func (in *flowWriteOperationTypePtr) ToFlowWriteOperationTypePtrOutput() FlowWri
 
 func (in *flowWriteOperationTypePtr) ToFlowWriteOperationTypePtrOutputWithContext(ctx context.Context) FlowWriteOperationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowWriteOperationTypePtrOutput)
+}
+
+func (in *flowWriteOperationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowWriteOperationType] {
+	return pulumix.Output[*FlowWriteOperationType]{
+		OutputState: in.ToFlowWriteOperationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowZendeskConnectorOperator string
@@ -6162,6 +6805,12 @@ func (o FlowZendeskConnectorOperatorOutput) ToFlowZendeskConnectorOperatorPtrOut
 	}).(FlowZendeskConnectorOperatorPtrOutput)
 }
 
+func (o FlowZendeskConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowZendeskConnectorOperator] {
+	return pulumix.Output[FlowZendeskConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowZendeskConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6195,6 +6844,12 @@ func (o FlowZendeskConnectorOperatorPtrOutput) ToFlowZendeskConnectorOperatorPtr
 
 func (o FlowZendeskConnectorOperatorPtrOutput) ToFlowZendeskConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowZendeskConnectorOperatorPtrOutput {
 	return o
+}
+
+func (o FlowZendeskConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowZendeskConnectorOperator] {
+	return pulumix.Output[*FlowZendeskConnectorOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowZendeskConnectorOperatorPtrOutput) Elem() FlowZendeskConnectorOperatorOutput {
@@ -6257,6 +6912,12 @@ func (in *flowZendeskConnectorOperatorPtr) ToFlowZendeskConnectorOperatorPtrOutp
 
 func (in *flowZendeskConnectorOperatorPtr) ToFlowZendeskConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowZendeskConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowZendeskConnectorOperatorPtrOutput)
+}
+
+func (in *flowZendeskConnectorOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowZendeskConnectorOperator] {
+	return pulumix.Output[*FlowZendeskConnectorOperator]{
+		OutputState: in.ToFlowZendeskConnectorOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

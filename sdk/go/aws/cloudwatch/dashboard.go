@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudWatch::Dashboard
@@ -102,6 +103,12 @@ func (i *Dashboard) ToDashboardOutputWithContext(ctx context.Context) DashboardO
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardOutput)
 }
 
+func (i *Dashboard) ToOutput(ctx context.Context) pulumix.Output[*Dashboard] {
+	return pulumix.Output[*Dashboard]{
+		OutputState: i.ToDashboardOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DashboardOutput struct{ *pulumi.OutputState }
 
 func (DashboardOutput) ElementType() reflect.Type {
@@ -114,6 +121,12 @@ func (o DashboardOutput) ToDashboardOutput() DashboardOutput {
 
 func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
 	return o
+}
+
+func (o DashboardOutput) ToOutput(ctx context.Context) pulumix.Output[*Dashboard] {
+	return pulumix.Output[*Dashboard]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DashboardOutput) DashboardBody() pulumi.StringOutput {

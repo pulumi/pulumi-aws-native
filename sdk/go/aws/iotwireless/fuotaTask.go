@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create and manage FUOTA tasks.
@@ -160,6 +161,12 @@ func (i *FuotaTask) ToFuotaTaskOutputWithContext(ctx context.Context) FuotaTaskO
 	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskOutput)
 }
 
+func (i *FuotaTask) ToOutput(ctx context.Context) pulumix.Output[*FuotaTask] {
+	return pulumix.Output[*FuotaTask]{
+		OutputState: i.ToFuotaTaskOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FuotaTaskOutput struct{ *pulumi.OutputState }
 
 func (FuotaTaskOutput) ElementType() reflect.Type {
@@ -172,6 +179,12 @@ func (o FuotaTaskOutput) ToFuotaTaskOutput() FuotaTaskOutput {
 
 func (o FuotaTaskOutput) ToFuotaTaskOutputWithContext(ctx context.Context) FuotaTaskOutput {
 	return o
+}
+
+func (o FuotaTaskOutput) ToOutput(ctx context.Context) pulumix.Output[*FuotaTask] {
+	return pulumix.Output[*FuotaTask]{
+		OutputState: o.OutputState,
+	}
 }
 
 // FUOTA task arn. Returned after successful create.

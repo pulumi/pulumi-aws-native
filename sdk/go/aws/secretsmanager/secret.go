@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SecretsManager::Secret
@@ -132,6 +133,12 @@ func (i *Secret) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretOutput)
 }
 
+func (i *Secret) ToOutput(ctx context.Context) pulumix.Output[*Secret] {
+	return pulumix.Output[*Secret]{
+		OutputState: i.ToSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecretOutput struct{ *pulumi.OutputState }
 
 func (SecretOutput) ElementType() reflect.Type {
@@ -144,6 +151,12 @@ func (o SecretOutput) ToSecretOutput() SecretOutput {
 
 func (o SecretOutput) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
 	return o
+}
+
+func (o SecretOutput) ToOutput(ctx context.Context) pulumix.Output[*Secret] {
+	return pulumix.Output[*Secret]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Specifies a user-provided description of the secret.

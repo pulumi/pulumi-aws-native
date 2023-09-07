@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MemoryDB::ACL
@@ -72,6 +73,12 @@ func (o LookupAclResultOutput) ToLookupAclResultOutput() LookupAclResultOutput {
 
 func (o LookupAclResultOutput) ToLookupAclResultOutputWithContext(ctx context.Context) LookupAclResultOutput {
 	return o
+}
+
+func (o LookupAclResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAclResult] {
+	return pulumix.Output[LookupAclResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the acl.

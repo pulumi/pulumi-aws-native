@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGateway::Method
@@ -92,6 +93,12 @@ func (o LookupMethodResultOutput) ToLookupMethodResultOutput() LookupMethodResul
 
 func (o LookupMethodResultOutput) ToLookupMethodResultOutputWithContext(ctx context.Context) LookupMethodResultOutput {
 	return o
+}
+
+func (o LookupMethodResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMethodResult] {
+	return pulumix.Output[LookupMethodResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether the method requires clients to submit a valid API key.

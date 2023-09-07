@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
@@ -162,6 +163,12 @@ func (i *TaskSet) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetOutput)
 }
 
+func (i *TaskSet) ToOutput(ctx context.Context) pulumix.Output[*TaskSet] {
+	return pulumix.Output[*TaskSet]{
+		OutputState: i.ToTaskSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TaskSetOutput struct{ *pulumi.OutputState }
 
 func (TaskSetOutput) ElementType() reflect.Type {
@@ -174,6 +181,12 @@ func (o TaskSetOutput) ToTaskSetOutput() TaskSetOutput {
 
 func (o TaskSetOutput) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput {
 	return o
+}
+
+func (o TaskSetOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskSet] {
+	return pulumix.Output[*TaskSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.

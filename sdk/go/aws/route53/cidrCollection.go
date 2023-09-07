@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53::CidrCollection.
@@ -104,6 +105,12 @@ func (i *CidrCollection) ToCidrCollectionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CidrCollectionOutput)
 }
 
+func (i *CidrCollection) ToOutput(ctx context.Context) pulumix.Output[*CidrCollection] {
+	return pulumix.Output[*CidrCollection]{
+		OutputState: i.ToCidrCollectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CidrCollectionOutput struct{ *pulumi.OutputState }
 
 func (CidrCollectionOutput) ElementType() reflect.Type {
@@ -116,6 +123,12 @@ func (o CidrCollectionOutput) ToCidrCollectionOutput() CidrCollectionOutput {
 
 func (o CidrCollectionOutput) ToCidrCollectionOutputWithContext(ctx context.Context) CidrCollectionOutput {
 	return o
+}
+
+func (o CidrCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*CidrCollection] {
+	return pulumix.Output[*CidrCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon resource name (ARN) to uniquely identify the AWS resource.

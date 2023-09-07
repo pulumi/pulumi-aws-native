@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolUser
@@ -127,6 +128,12 @@ func (i *UserPoolUser) ToUserPoolUserOutputWithContext(ctx context.Context) User
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserOutput)
 }
 
+func (i *UserPoolUser) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUser] {
+	return pulumix.Output[*UserPoolUser]{
+		OutputState: i.ToUserPoolUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserPoolUserOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUserOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o UserPoolUserOutput) ToUserPoolUserOutput() UserPoolUserOutput {
 
 func (o UserPoolUserOutput) ToUserPoolUserOutputWithContext(ctx context.Context) UserPoolUserOutput {
 	return o
+}
+
+func (o UserPoolUserOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUser] {
+	return pulumix.Output[*UserPoolUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPoolUserOutput) ClientMetadata() pulumi.AnyOutput {

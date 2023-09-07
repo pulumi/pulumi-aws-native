@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
@@ -159,6 +160,12 @@ func (i *ModelBiasJobDefinition) ToModelBiasJobDefinitionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionOutput)
 }
 
+func (i *ModelBiasJobDefinition) ToOutput(ctx context.Context) pulumix.Output[*ModelBiasJobDefinition] {
+	return pulumix.Output[*ModelBiasJobDefinition]{
+		OutputState: i.ToModelBiasJobDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ModelBiasJobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionOutput) ElementType() reflect.Type {
@@ -171,6 +178,12 @@ func (o ModelBiasJobDefinitionOutput) ToModelBiasJobDefinitionOutput() ModelBias
 
 func (o ModelBiasJobDefinitionOutput) ToModelBiasJobDefinitionOutputWithContext(ctx context.Context) ModelBiasJobDefinitionOutput {
 	return o
+}
+
+func (o ModelBiasJobDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelBiasJobDefinition] {
+	return pulumix.Output[*ModelBiasJobDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The time at which the job definition was created.

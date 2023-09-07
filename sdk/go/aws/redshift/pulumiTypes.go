@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i ClusterEndpointArgs) ToClusterEndpointOutput() ClusterEndpointOutput {
 
 func (i ClusterEndpointArgs) ToClusterEndpointOutputWithContext(ctx context.Context) ClusterEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointOutput)
+}
+
+func (i ClusterEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterEndpoint] {
+	return pulumix.Output[ClusterEndpoint]{
+		OutputState: i.ToClusterEndpointOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ClusterEndpointArgs) ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput {
@@ -87,6 +94,12 @@ func (i *clusterEndpointPtrType) ToClusterEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointPtrOutput)
 }
 
+func (i *clusterEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterEndpoint] {
+	return pulumix.Output[*ClusterEndpoint]{
+		OutputState: i.ToClusterEndpointPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterEndpointOutput struct{ *pulumi.OutputState }
 
 func (ClusterEndpointOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o ClusterEndpointOutput) ToClusterEndpointPtrOutputWithContext(ctx context
 	}).(ClusterEndpointPtrOutput)
 }
 
+func (o ClusterEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEndpoint] {
+	return pulumix.Output[ClusterEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
@@ -131,6 +150,12 @@ func (o ClusterEndpointPtrOutput) ToClusterEndpointPtrOutput() ClusterEndpointPt
 
 func (o ClusterEndpointPtrOutput) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
 	return o
+}
+
+func (o ClusterEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEndpoint] {
+	return pulumix.Output[*ClusterEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterEndpointPtrOutput) Elem() ClusterEndpointOutput {
@@ -194,6 +219,12 @@ func (i ClusterLoggingPropertiesArgs) ToClusterLoggingPropertiesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingPropertiesOutput)
 }
 
+func (i ClusterLoggingPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingProperties] {
+	return pulumix.Output[ClusterLoggingProperties]{
+		OutputState: i.ToClusterLoggingPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLoggingPropertiesArgs) ToClusterLoggingPropertiesPtrOutput() ClusterLoggingPropertiesPtrOutput {
 	return i.ToClusterLoggingPropertiesPtrOutputWithContext(context.Background())
 }
@@ -235,6 +266,12 @@ func (i *clusterLoggingPropertiesPtrType) ToClusterLoggingPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingPropertiesPtrOutput)
 }
 
+func (i *clusterLoggingPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingProperties] {
+	return pulumix.Output[*ClusterLoggingProperties]{
+		OutputState: i.ToClusterLoggingPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLoggingPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ClusterLoggingPropertiesOutput) ElementType() reflect.Type {
@@ -259,6 +296,12 @@ func (o ClusterLoggingPropertiesOutput) ToClusterLoggingPropertiesPtrOutputWithC
 	}).(ClusterLoggingPropertiesPtrOutput)
 }
 
+func (o ClusterLoggingPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingProperties] {
+	return pulumix.Output[ClusterLoggingProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterLoggingPropertiesOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLoggingProperties) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -279,6 +322,12 @@ func (o ClusterLoggingPropertiesPtrOutput) ToClusterLoggingPropertiesPtrOutput()
 
 func (o ClusterLoggingPropertiesPtrOutput) ToClusterLoggingPropertiesPtrOutputWithContext(ctx context.Context) ClusterLoggingPropertiesPtrOutput {
 	return o
+}
+
+func (o ClusterLoggingPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingProperties] {
+	return pulumix.Output[*ClusterLoggingProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLoggingPropertiesPtrOutput) Elem() ClusterLoggingPropertiesOutput {
@@ -346,6 +395,12 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterOutput)
 }
 
+func (i ClusterParameterGroupParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterParameterGroupParameter] {
+	return pulumix.Output[ClusterParameterGroupParameter]{
+		OutputState: i.ToClusterParameterGroupParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
 //
@@ -371,6 +426,12 @@ func (i ClusterParameterGroupParameterArray) ToClusterParameterGroupParameterArr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterArrayOutput)
 }
 
+func (i ClusterParameterGroupParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterParameterGroupParameter] {
+	return pulumix.Output[[]ClusterParameterGroupParameter]{
+		OutputState: i.ToClusterParameterGroupParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ClusterParameterGroupParameterOutput) ElementType() reflect.Type {
@@ -383,6 +444,12 @@ func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOu
 
 func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOutputWithContext(ctx context.Context) ClusterParameterGroupParameterOutput {
 	return o
+}
+
+func (o ClusterParameterGroupParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterParameterGroupParameter] {
+	return pulumix.Output[ClusterParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the parameter.
@@ -407,6 +474,12 @@ func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParame
 
 func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParameterArrayOutputWithContext(ctx context.Context) ClusterParameterGroupParameterArrayOutput {
 	return o
+}
+
+func (o ClusterParameterGroupParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterParameterGroupParameter] {
+	return pulumix.Output[[]ClusterParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupParameterOutput {
@@ -454,6 +527,12 @@ func (i ClusterParameterGroupTagArgs) ToClusterParameterGroupTagOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupTagOutput)
 }
 
+func (i ClusterParameterGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterParameterGroupTag] {
+	return pulumix.Output[ClusterParameterGroupTag]{
+		OutputState: i.ToClusterParameterGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterParameterGroupTagArrayInput is an input type that accepts ClusterParameterGroupTagArray and ClusterParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupTagArrayInput` via:
 //
@@ -479,6 +558,12 @@ func (i ClusterParameterGroupTagArray) ToClusterParameterGroupTagArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupTagArrayOutput)
 }
 
+func (i ClusterParameterGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterParameterGroupTag] {
+	return pulumix.Output[[]ClusterParameterGroupTag]{
+		OutputState: i.ToClusterParameterGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ClusterParameterGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -492,6 +577,12 @@ func (o ClusterParameterGroupTagOutput) ToClusterParameterGroupTagOutput() Clust
 
 func (o ClusterParameterGroupTagOutput) ToClusterParameterGroupTagOutputWithContext(ctx context.Context) ClusterParameterGroupTagOutput {
 	return o
+}
+
+func (o ClusterParameterGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterParameterGroupTag] {
+	return pulumix.Output[ClusterParameterGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -516,6 +607,12 @@ func (o ClusterParameterGroupTagArrayOutput) ToClusterParameterGroupTagArrayOutp
 
 func (o ClusterParameterGroupTagArrayOutput) ToClusterParameterGroupTagArrayOutputWithContext(ctx context.Context) ClusterParameterGroupTagArrayOutput {
 	return o
+}
+
+func (o ClusterParameterGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterParameterGroupTag] {
+	return pulumix.Output[[]ClusterParameterGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterParameterGroupTagArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupTagOutput {
@@ -557,6 +654,12 @@ func (i ClusterSecurityGroupTagArgs) ToClusterSecurityGroupTagOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSecurityGroupTagOutput)
 }
 
+func (i ClusterSecurityGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterSecurityGroupTag] {
+	return pulumix.Output[ClusterSecurityGroupTag]{
+		OutputState: i.ToClusterSecurityGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterSecurityGroupTagArrayInput is an input type that accepts ClusterSecurityGroupTagArray and ClusterSecurityGroupTagArrayOutput values.
 // You can construct a concrete instance of `ClusterSecurityGroupTagArrayInput` via:
 //
@@ -582,6 +685,12 @@ func (i ClusterSecurityGroupTagArray) ToClusterSecurityGroupTagArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSecurityGroupTagArrayOutput)
 }
 
+func (i ClusterSecurityGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterSecurityGroupTag] {
+	return pulumix.Output[[]ClusterSecurityGroupTag]{
+		OutputState: i.ToClusterSecurityGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterSecurityGroupTagOutput struct{ *pulumi.OutputState }
 
 func (ClusterSecurityGroupTagOutput) ElementType() reflect.Type {
@@ -594,6 +703,12 @@ func (o ClusterSecurityGroupTagOutput) ToClusterSecurityGroupTagOutput() Cluster
 
 func (o ClusterSecurityGroupTagOutput) ToClusterSecurityGroupTagOutputWithContext(ctx context.Context) ClusterSecurityGroupTagOutput {
 	return o
+}
+
+func (o ClusterSecurityGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterSecurityGroupTag] {
+	return pulumix.Output[ClusterSecurityGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterSecurityGroupTagOutput) Key() pulumi.StringOutput {
@@ -616,6 +731,12 @@ func (o ClusterSecurityGroupTagArrayOutput) ToClusterSecurityGroupTagArrayOutput
 
 func (o ClusterSecurityGroupTagArrayOutput) ToClusterSecurityGroupTagArrayOutputWithContext(ctx context.Context) ClusterSecurityGroupTagArrayOutput {
 	return o
+}
+
+func (o ClusterSecurityGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterSecurityGroupTag] {
+	return pulumix.Output[[]ClusterSecurityGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterSecurityGroupTagArrayOutput) Index(i pulumi.IntInput) ClusterSecurityGroupTagOutput {
@@ -663,6 +784,12 @@ func (i ClusterSubnetGroupTagArgs) ToClusterSubnetGroupTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSubnetGroupTagOutput)
 }
 
+func (i ClusterSubnetGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterSubnetGroupTag] {
+	return pulumix.Output[ClusterSubnetGroupTag]{
+		OutputState: i.ToClusterSubnetGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterSubnetGroupTagArrayInput is an input type that accepts ClusterSubnetGroupTagArray and ClusterSubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `ClusterSubnetGroupTagArrayInput` via:
 //
@@ -688,6 +815,12 @@ func (i ClusterSubnetGroupTagArray) ToClusterSubnetGroupTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSubnetGroupTagArrayOutput)
 }
 
+func (i ClusterSubnetGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterSubnetGroupTag] {
+	return pulumix.Output[[]ClusterSubnetGroupTag]{
+		OutputState: i.ToClusterSubnetGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ClusterSubnetGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -701,6 +834,12 @@ func (o ClusterSubnetGroupTagOutput) ToClusterSubnetGroupTagOutput() ClusterSubn
 
 func (o ClusterSubnetGroupTagOutput) ToClusterSubnetGroupTagOutputWithContext(ctx context.Context) ClusterSubnetGroupTagOutput {
 	return o
+}
+
+func (o ClusterSubnetGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterSubnetGroupTag] {
+	return pulumix.Output[ClusterSubnetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -725,6 +864,12 @@ func (o ClusterSubnetGroupTagArrayOutput) ToClusterSubnetGroupTagArrayOutput() C
 
 func (o ClusterSubnetGroupTagArrayOutput) ToClusterSubnetGroupTagArrayOutputWithContext(ctx context.Context) ClusterSubnetGroupTagArrayOutput {
 	return o
+}
+
+func (o ClusterSubnetGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterSubnetGroupTag] {
+	return pulumix.Output[[]ClusterSubnetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterSubnetGroupTagArrayOutput) Index(i pulumi.IntInput) ClusterSubnetGroupTagOutput {
@@ -772,6 +917,12 @@ func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) Clust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagOutput)
 }
 
+func (i ClusterTagArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterTag] {
+	return pulumix.Output[ClusterTag]{
+		OutputState: i.ToClusterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
 // You can construct a concrete instance of `ClusterTagArrayInput` via:
 //
@@ -797,6 +948,12 @@ func (i ClusterTagArray) ToClusterTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagArrayOutput)
 }
 
+func (i ClusterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterTag] {
+	return pulumix.Output[[]ClusterTag]{
+		OutputState: i.ToClusterTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ClusterTagOutput struct{ *pulumi.OutputState }
 
@@ -810,6 +967,12 @@ func (o ClusterTagOutput) ToClusterTagOutput() ClusterTagOutput {
 
 func (o ClusterTagOutput) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
 	return o
+}
+
+func (o ClusterTagOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterTag] {
+	return pulumix.Output[ClusterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -834,6 +997,12 @@ func (o ClusterTagArrayOutput) ToClusterTagArrayOutput() ClusterTagArrayOutput {
 
 func (o ClusterTagArrayOutput) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
 	return o
+}
+
+func (o ClusterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterTag] {
+	return pulumix.Output[[]ClusterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
@@ -867,6 +1036,12 @@ func (o EndpointAccessNetworkInterfaceOutput) ToEndpointAccessNetworkInterfaceOu
 
 func (o EndpointAccessNetworkInterfaceOutput) ToEndpointAccessNetworkInterfaceOutputWithContext(ctx context.Context) EndpointAccessNetworkInterfaceOutput {
 	return o
+}
+
+func (o EndpointAccessNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointAccessNetworkInterface] {
+	return pulumix.Output[EndpointAccessNetworkInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Availability Zone.
@@ -903,6 +1078,12 @@ func (o EndpointAccessNetworkInterfaceArrayOutput) ToEndpointAccessNetworkInterf
 	return o
 }
 
+func (o EndpointAccessNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointAccessNetworkInterface] {
+	return pulumix.Output[[]EndpointAccessNetworkInterface]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointAccessNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointAccessNetworkInterfaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointAccessNetworkInterface {
 		return vs[0].([]EndpointAccessNetworkInterface)[vs[1].(int)]
@@ -932,6 +1113,12 @@ func (o EndpointAccessVpcSecurityGroupOutput) ToEndpointAccessVpcSecurityGroupOu
 	return o
 }
 
+func (o EndpointAccessVpcSecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointAccessVpcSecurityGroup] {
+	return pulumix.Output[EndpointAccessVpcSecurityGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The status of the VPC security group.
 func (o EndpointAccessVpcSecurityGroupOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcSecurityGroup) *string { return v.Status }).(pulumi.StringPtrOutput)
@@ -954,6 +1141,12 @@ func (o EndpointAccessVpcSecurityGroupArrayOutput) ToEndpointAccessVpcSecurityGr
 
 func (o EndpointAccessVpcSecurityGroupArrayOutput) ToEndpointAccessVpcSecurityGroupArrayOutputWithContext(ctx context.Context) EndpointAccessVpcSecurityGroupArrayOutput {
 	return o
+}
+
+func (o EndpointAccessVpcSecurityGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointAccessVpcSecurityGroup] {
+	return pulumix.Output[[]EndpointAccessVpcSecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointAccessVpcSecurityGroupArrayOutput) Index(i pulumi.IntInput) EndpointAccessVpcSecurityGroupOutput {
@@ -1001,6 +1194,12 @@ func (i EventSubscriptionTagArgs) ToEventSubscriptionTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagOutput)
 }
 
+func (i EventSubscriptionTagArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionTag] {
+	return pulumix.Output[EventSubscriptionTag]{
+		OutputState: i.ToEventSubscriptionTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionTagArrayInput is an input type that accepts EventSubscriptionTagArray and EventSubscriptionTagArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionTagArrayInput` via:
 //
@@ -1026,6 +1225,12 @@ func (i EventSubscriptionTagArray) ToEventSubscriptionTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagArrayOutput)
 }
 
+func (i EventSubscriptionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionTag] {
+	return pulumix.Output[[]EventSubscriptionTag]{
+		OutputState: i.ToEventSubscriptionTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type EventSubscriptionTagOutput struct{ *pulumi.OutputState }
 
@@ -1039,6 +1244,12 @@ func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutput() EventSubscrip
 
 func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutputWithContext(ctx context.Context) EventSubscriptionTagOutput {
 	return o
+}
+
+func (o EventSubscriptionTagOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionTag] {
+	return pulumix.Output[EventSubscriptionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1063,6 +1274,12 @@ func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutput() Eve
 
 func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutputWithContext(ctx context.Context) EventSubscriptionTagArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionTag] {
+	return pulumix.Output[[]EventSubscriptionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionTagArrayOutput) Index(i pulumi.IntInput) EventSubscriptionTagOutput {
@@ -1098,6 +1315,12 @@ func (i ScheduledActionTypeArgs) ToScheduledActionTypeOutput() ScheduledActionTy
 
 func (i ScheduledActionTypeArgs) ToScheduledActionTypeOutputWithContext(ctx context.Context) ScheduledActionTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTypeOutput)
+}
+
+func (i ScheduledActionTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledActionType] {
+	return pulumix.Output[ScheduledActionType]{
+		OutputState: i.ToScheduledActionTypeOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ScheduledActionTypeArgs) ToScheduledActionTypePtrOutput() ScheduledActionTypePtrOutput {
@@ -1141,6 +1364,12 @@ func (i *scheduledActionTypePtrType) ToScheduledActionTypePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTypePtrOutput)
 }
 
+func (i *scheduledActionTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduledActionType] {
+	return pulumix.Output[*ScheduledActionType]{
+		OutputState: i.ToScheduledActionTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduledActionTypeOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionTypeOutput) ElementType() reflect.Type {
@@ -1165,6 +1394,12 @@ func (o ScheduledActionTypeOutput) ToScheduledActionTypePtrOutputWithContext(ctx
 	}).(ScheduledActionTypePtrOutput)
 }
 
+func (o ScheduledActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledActionType] {
+	return pulumix.Output[ScheduledActionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ScheduledActionTypePtrOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionTypePtrOutput) ElementType() reflect.Type {
@@ -1177,6 +1412,12 @@ func (o ScheduledActionTypePtrOutput) ToScheduledActionTypePtrOutput() Scheduled
 
 func (o ScheduledActionTypePtrOutput) ToScheduledActionTypePtrOutputWithContext(ctx context.Context) ScheduledActionTypePtrOutput {
 	return o
+}
+
+func (o ScheduledActionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledActionType] {
+	return pulumix.Output[*ScheduledActionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduledActionTypePtrOutput) Elem() ScheduledActionTypeOutput {
@@ -1214,6 +1455,12 @@ func (o VpcEndpointPropertiesOutput) ToVpcEndpointPropertiesOutputWithContext(ct
 	return o
 }
 
+func (o VpcEndpointPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[VpcEndpointProperties] {
+	return pulumix.Output[VpcEndpointProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // One or more network interfaces of the endpoint. Also known as an interface endpoint.
 func (o VpcEndpointPropertiesOutput) NetworkInterfaces() EndpointAccessNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v VpcEndpointProperties) []EndpointAccessNetworkInterface { return v.NetworkInterfaces }).(EndpointAccessNetworkInterfaceArrayOutput)
@@ -1241,6 +1488,12 @@ func (o VpcEndpointPropertiesPtrOutput) ToVpcEndpointPropertiesPtrOutput() VpcEn
 
 func (o VpcEndpointPropertiesPtrOutput) ToVpcEndpointPropertiesPtrOutputWithContext(ctx context.Context) VpcEndpointPropertiesPtrOutput {
 	return o
+}
+
+func (o VpcEndpointPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointProperties] {
+	return pulumix.Output[*VpcEndpointProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcEndpointPropertiesPtrOutput) Elem() VpcEndpointPropertiesOutput {

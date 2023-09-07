@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i ApplicationTagsArgs) ToApplicationTagsOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagsOutput)
 }
 
+func (i ApplicationTagsArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationTags] {
+	return pulumix.Output[ApplicationTags]{
+		OutputState: i.ToApplicationTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationTagsArrayInput is an input type that accepts ApplicationTagsArray and ApplicationTagsArrayOutput values.
 // You can construct a concrete instance of `ApplicationTagsArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i ApplicationTagsArray) ToApplicationTagsArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagsArrayOutput)
 }
 
+func (i ApplicationTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTags] {
+	return pulumix.Output[[]ApplicationTags]{
+		OutputState: i.ToApplicationTagsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationTagsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTagsOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o ApplicationTagsOutput) ToApplicationTagsOutput() ApplicationTagsOutput {
 
 func (o ApplicationTagsOutput) ToApplicationTagsOutputWithContext(ctx context.Context) ApplicationTagsOutput {
 	return o
+}
+
+func (o ApplicationTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationTags] {
+	return pulumix.Output[ApplicationTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationTagsOutput) Key() pulumi.StringPtrOutput {
@@ -105,6 +124,12 @@ func (o ApplicationTagsArrayOutput) ToApplicationTagsArrayOutput() ApplicationTa
 
 func (o ApplicationTagsArrayOutput) ToApplicationTagsArrayOutputWithContext(ctx context.Context) ApplicationTagsArrayOutput {
 	return o
+}
+
+func (o ApplicationTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTags] {
+	return pulumix.Output[[]ApplicationTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationTagsArrayOutput) Index(i pulumi.IntInput) ApplicationTagsOutput {
@@ -146,6 +171,12 @@ func (i ConfigurationProfileTagsArgs) ToConfigurationProfileTagsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileTagsOutput)
 }
 
+func (i ConfigurationProfileTagsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationProfileTags] {
+	return pulumix.Output[ConfigurationProfileTags]{
+		OutputState: i.ToConfigurationProfileTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationProfileTagsArrayInput is an input type that accepts ConfigurationProfileTagsArray and ConfigurationProfileTagsArrayOutput values.
 // You can construct a concrete instance of `ConfigurationProfileTagsArrayInput` via:
 //
@@ -171,6 +202,12 @@ func (i ConfigurationProfileTagsArray) ToConfigurationProfileTagsArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileTagsArrayOutput)
 }
 
+func (i ConfigurationProfileTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationProfileTags] {
+	return pulumix.Output[[]ConfigurationProfileTags]{
+		OutputState: i.ToConfigurationProfileTagsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationProfileTagsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileTagsOutput) ElementType() reflect.Type {
@@ -183,6 +220,12 @@ func (o ConfigurationProfileTagsOutput) ToConfigurationProfileTagsOutput() Confi
 
 func (o ConfigurationProfileTagsOutput) ToConfigurationProfileTagsOutputWithContext(ctx context.Context) ConfigurationProfileTagsOutput {
 	return o
+}
+
+func (o ConfigurationProfileTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationProfileTags] {
+	return pulumix.Output[ConfigurationProfileTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationProfileTagsOutput) Key() pulumi.StringPtrOutput {
@@ -205,6 +248,12 @@ func (o ConfigurationProfileTagsArrayOutput) ToConfigurationProfileTagsArrayOutp
 
 func (o ConfigurationProfileTagsArrayOutput) ToConfigurationProfileTagsArrayOutputWithContext(ctx context.Context) ConfigurationProfileTagsArrayOutput {
 	return o
+}
+
+func (o ConfigurationProfileTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationProfileTags] {
+	return pulumix.Output[[]ConfigurationProfileTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationProfileTagsArrayOutput) Index(i pulumi.IntInput) ConfigurationProfileTagsOutput {
@@ -246,6 +295,12 @@ func (i ConfigurationProfileValidatorsArgs) ToConfigurationProfileValidatorsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileValidatorsOutput)
 }
 
+func (i ConfigurationProfileValidatorsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationProfileValidators] {
+	return pulumix.Output[ConfigurationProfileValidators]{
+		OutputState: i.ToConfigurationProfileValidatorsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationProfileValidatorsArrayInput is an input type that accepts ConfigurationProfileValidatorsArray and ConfigurationProfileValidatorsArrayOutput values.
 // You can construct a concrete instance of `ConfigurationProfileValidatorsArrayInput` via:
 //
@@ -271,6 +326,12 @@ func (i ConfigurationProfileValidatorsArray) ToConfigurationProfileValidatorsArr
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileValidatorsArrayOutput)
 }
 
+func (i ConfigurationProfileValidatorsArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationProfileValidators] {
+	return pulumix.Output[[]ConfigurationProfileValidators]{
+		OutputState: i.ToConfigurationProfileValidatorsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationProfileValidatorsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileValidatorsOutput) ElementType() reflect.Type {
@@ -283,6 +344,12 @@ func (o ConfigurationProfileValidatorsOutput) ToConfigurationProfileValidatorsOu
 
 func (o ConfigurationProfileValidatorsOutput) ToConfigurationProfileValidatorsOutputWithContext(ctx context.Context) ConfigurationProfileValidatorsOutput {
 	return o
+}
+
+func (o ConfigurationProfileValidatorsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationProfileValidators] {
+	return pulumix.Output[ConfigurationProfileValidators]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationProfileValidatorsOutput) Content() pulumi.StringPtrOutput {
@@ -305,6 +372,12 @@ func (o ConfigurationProfileValidatorsArrayOutput) ToConfigurationProfileValidat
 
 func (o ConfigurationProfileValidatorsArrayOutput) ToConfigurationProfileValidatorsArrayOutputWithContext(ctx context.Context) ConfigurationProfileValidatorsArrayOutput {
 	return o
+}
+
+func (o ConfigurationProfileValidatorsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationProfileValidators] {
+	return pulumix.Output[[]ConfigurationProfileValidators]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationProfileValidatorsArrayOutput) Index(i pulumi.IntInput) ConfigurationProfileValidatorsOutput {
@@ -346,6 +419,12 @@ func (i DeploymentStrategyTagsArgs) ToDeploymentStrategyTagsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStrategyTagsOutput)
 }
 
+func (i DeploymentStrategyTagsArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentStrategyTags] {
+	return pulumix.Output[DeploymentStrategyTags]{
+		OutputState: i.ToDeploymentStrategyTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentStrategyTagsArrayInput is an input type that accepts DeploymentStrategyTagsArray and DeploymentStrategyTagsArrayOutput values.
 // You can construct a concrete instance of `DeploymentStrategyTagsArrayInput` via:
 //
@@ -371,6 +450,12 @@ func (i DeploymentStrategyTagsArray) ToDeploymentStrategyTagsArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStrategyTagsArrayOutput)
 }
 
+func (i DeploymentStrategyTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentStrategyTags] {
+	return pulumix.Output[[]DeploymentStrategyTags]{
+		OutputState: i.ToDeploymentStrategyTagsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentStrategyTagsOutput struct{ *pulumi.OutputState }
 
 func (DeploymentStrategyTagsOutput) ElementType() reflect.Type {
@@ -383,6 +468,12 @@ func (o DeploymentStrategyTagsOutput) ToDeploymentStrategyTagsOutput() Deploymen
 
 func (o DeploymentStrategyTagsOutput) ToDeploymentStrategyTagsOutputWithContext(ctx context.Context) DeploymentStrategyTagsOutput {
 	return o
+}
+
+func (o DeploymentStrategyTagsOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentStrategyTags] {
+	return pulumix.Output[DeploymentStrategyTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentStrategyTagsOutput) Key() pulumi.StringPtrOutput {
@@ -405,6 +496,12 @@ func (o DeploymentStrategyTagsArrayOutput) ToDeploymentStrategyTagsArrayOutput()
 
 func (o DeploymentStrategyTagsArrayOutput) ToDeploymentStrategyTagsArrayOutputWithContext(ctx context.Context) DeploymentStrategyTagsArrayOutput {
 	return o
+}
+
+func (o DeploymentStrategyTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentStrategyTags] {
+	return pulumix.Output[[]DeploymentStrategyTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentStrategyTagsArrayOutput) Index(i pulumi.IntInput) DeploymentStrategyTagsOutput {
@@ -446,6 +543,12 @@ func (i DeploymentTagsArgs) ToDeploymentTagsOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentTagsOutput)
 }
 
+func (i DeploymentTagsArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentTags] {
+	return pulumix.Output[DeploymentTags]{
+		OutputState: i.ToDeploymentTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentTagsArrayInput is an input type that accepts DeploymentTagsArray and DeploymentTagsArrayOutput values.
 // You can construct a concrete instance of `DeploymentTagsArrayInput` via:
 //
@@ -471,6 +574,12 @@ func (i DeploymentTagsArray) ToDeploymentTagsArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentTagsArrayOutput)
 }
 
+func (i DeploymentTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentTags] {
+	return pulumix.Output[[]DeploymentTags]{
+		OutputState: i.ToDeploymentTagsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentTagsOutput struct{ *pulumi.OutputState }
 
 func (DeploymentTagsOutput) ElementType() reflect.Type {
@@ -483,6 +592,12 @@ func (o DeploymentTagsOutput) ToDeploymentTagsOutput() DeploymentTagsOutput {
 
 func (o DeploymentTagsOutput) ToDeploymentTagsOutputWithContext(ctx context.Context) DeploymentTagsOutput {
 	return o
+}
+
+func (o DeploymentTagsOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentTags] {
+	return pulumix.Output[DeploymentTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentTagsOutput) Key() pulumi.StringPtrOutput {
@@ -505,6 +620,12 @@ func (o DeploymentTagsArrayOutput) ToDeploymentTagsArrayOutput() DeploymentTagsA
 
 func (o DeploymentTagsArrayOutput) ToDeploymentTagsArrayOutputWithContext(ctx context.Context) DeploymentTagsArrayOutput {
 	return o
+}
+
+func (o DeploymentTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentTags] {
+	return pulumix.Output[[]DeploymentTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentTagsArrayOutput) Index(i pulumi.IntInput) DeploymentTagsOutput {
@@ -546,6 +667,12 @@ func (i EnvironmentMonitorsArgs) ToEnvironmentMonitorsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMonitorsOutput)
 }
 
+func (i EnvironmentMonitorsArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentMonitors] {
+	return pulumix.Output[EnvironmentMonitors]{
+		OutputState: i.ToEnvironmentMonitorsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentMonitorsArrayInput is an input type that accepts EnvironmentMonitorsArray and EnvironmentMonitorsArrayOutput values.
 // You can construct a concrete instance of `EnvironmentMonitorsArrayInput` via:
 //
@@ -571,6 +698,12 @@ func (i EnvironmentMonitorsArray) ToEnvironmentMonitorsArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMonitorsArrayOutput)
 }
 
+func (i EnvironmentMonitorsArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentMonitors] {
+	return pulumix.Output[[]EnvironmentMonitors]{
+		OutputState: i.ToEnvironmentMonitorsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentMonitorsOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentMonitorsOutput) ElementType() reflect.Type {
@@ -583,6 +716,12 @@ func (o EnvironmentMonitorsOutput) ToEnvironmentMonitorsOutput() EnvironmentMoni
 
 func (o EnvironmentMonitorsOutput) ToEnvironmentMonitorsOutputWithContext(ctx context.Context) EnvironmentMonitorsOutput {
 	return o
+}
+
+func (o EnvironmentMonitorsOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentMonitors] {
+	return pulumix.Output[EnvironmentMonitors]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentMonitorsOutput) AlarmArn() pulumi.StringPtrOutput {
@@ -605,6 +744,12 @@ func (o EnvironmentMonitorsArrayOutput) ToEnvironmentMonitorsArrayOutput() Envir
 
 func (o EnvironmentMonitorsArrayOutput) ToEnvironmentMonitorsArrayOutputWithContext(ctx context.Context) EnvironmentMonitorsArrayOutput {
 	return o
+}
+
+func (o EnvironmentMonitorsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentMonitors] {
+	return pulumix.Output[[]EnvironmentMonitors]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentMonitorsArrayOutput) Index(i pulumi.IntInput) EnvironmentMonitorsOutput {
@@ -646,6 +791,12 @@ func (i EnvironmentTagsArgs) ToEnvironmentTagsOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagsOutput)
 }
 
+func (i EnvironmentTagsArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTags] {
+	return pulumix.Output[EnvironmentTags]{
+		OutputState: i.ToEnvironmentTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentTagsArrayInput is an input type that accepts EnvironmentTagsArray and EnvironmentTagsArrayOutput values.
 // You can construct a concrete instance of `EnvironmentTagsArrayInput` via:
 //
@@ -671,6 +822,12 @@ func (i EnvironmentTagsArray) ToEnvironmentTagsArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagsArrayOutput)
 }
 
+func (i EnvironmentTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTags] {
+	return pulumix.Output[[]EnvironmentTags]{
+		OutputState: i.ToEnvironmentTagsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentTagsOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentTagsOutput) ElementType() reflect.Type {
@@ -683,6 +840,12 @@ func (o EnvironmentTagsOutput) ToEnvironmentTagsOutput() EnvironmentTagsOutput {
 
 func (o EnvironmentTagsOutput) ToEnvironmentTagsOutputWithContext(ctx context.Context) EnvironmentTagsOutput {
 	return o
+}
+
+func (o EnvironmentTagsOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTags] {
+	return pulumix.Output[EnvironmentTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentTagsOutput) Key() pulumi.StringPtrOutput {
@@ -705,6 +868,12 @@ func (o EnvironmentTagsArrayOutput) ToEnvironmentTagsArrayOutput() EnvironmentTa
 
 func (o EnvironmentTagsArrayOutput) ToEnvironmentTagsArrayOutputWithContext(ctx context.Context) EnvironmentTagsArrayOutput {
 	return o
+}
+
+func (o EnvironmentTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTags] {
+	return pulumix.Output[[]EnvironmentTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentTagsArrayOutput) Index(i pulumi.IntInput) EnvironmentTagsOutput {
@@ -752,6 +921,12 @@ func (i ExtensionAssociationTagArgs) ToExtensionAssociationTagOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionAssociationTagOutput)
 }
 
+func (i ExtensionAssociationTagArgs) ToOutput(ctx context.Context) pulumix.Output[ExtensionAssociationTag] {
+	return pulumix.Output[ExtensionAssociationTag]{
+		OutputState: i.ToExtensionAssociationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExtensionAssociationTagArrayInput is an input type that accepts ExtensionAssociationTagArray and ExtensionAssociationTagArrayOutput values.
 // You can construct a concrete instance of `ExtensionAssociationTagArrayInput` via:
 //
@@ -777,6 +952,12 @@ func (i ExtensionAssociationTagArray) ToExtensionAssociationTagArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionAssociationTagArrayOutput)
 }
 
+func (i ExtensionAssociationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ExtensionAssociationTag] {
+	return pulumix.Output[[]ExtensionAssociationTag]{
+		OutputState: i.ToExtensionAssociationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ExtensionAssociationTagOutput struct{ *pulumi.OutputState }
 
@@ -790,6 +971,12 @@ func (o ExtensionAssociationTagOutput) ToExtensionAssociationTagOutput() Extensi
 
 func (o ExtensionAssociationTagOutput) ToExtensionAssociationTagOutputWithContext(ctx context.Context) ExtensionAssociationTagOutput {
 	return o
+}
+
+func (o ExtensionAssociationTagOutput) ToOutput(ctx context.Context) pulumix.Output[ExtensionAssociationTag] {
+	return pulumix.Output[ExtensionAssociationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -814,6 +1001,12 @@ func (o ExtensionAssociationTagArrayOutput) ToExtensionAssociationTagArrayOutput
 
 func (o ExtensionAssociationTagArrayOutput) ToExtensionAssociationTagArrayOutputWithContext(ctx context.Context) ExtensionAssociationTagArrayOutput {
 	return o
+}
+
+func (o ExtensionAssociationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExtensionAssociationTag] {
+	return pulumix.Output[[]ExtensionAssociationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExtensionAssociationTagArrayOutput) Index(i pulumi.IntInput) ExtensionAssociationTagOutput {
@@ -861,6 +1054,12 @@ func (i ExtensionTagArgs) ToExtensionTagOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionTagOutput)
 }
 
+func (i ExtensionTagArgs) ToOutput(ctx context.Context) pulumix.Output[ExtensionTag] {
+	return pulumix.Output[ExtensionTag]{
+		OutputState: i.ToExtensionTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExtensionTagArrayInput is an input type that accepts ExtensionTagArray and ExtensionTagArrayOutput values.
 // You can construct a concrete instance of `ExtensionTagArrayInput` via:
 //
@@ -886,6 +1085,12 @@ func (i ExtensionTagArray) ToExtensionTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionTagArrayOutput)
 }
 
+func (i ExtensionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ExtensionTag] {
+	return pulumix.Output[[]ExtensionTag]{
+		OutputState: i.ToExtensionTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ExtensionTagOutput struct{ *pulumi.OutputState }
 
@@ -899,6 +1104,12 @@ func (o ExtensionTagOutput) ToExtensionTagOutput() ExtensionTagOutput {
 
 func (o ExtensionTagOutput) ToExtensionTagOutputWithContext(ctx context.Context) ExtensionTagOutput {
 	return o
+}
+
+func (o ExtensionTagOutput) ToOutput(ctx context.Context) pulumix.Output[ExtensionTag] {
+	return pulumix.Output[ExtensionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -923,6 +1134,12 @@ func (o ExtensionTagArrayOutput) ToExtensionTagArrayOutput() ExtensionTagArrayOu
 
 func (o ExtensionTagArrayOutput) ToExtensionTagArrayOutputWithContext(ctx context.Context) ExtensionTagArrayOutput {
 	return o
+}
+
+func (o ExtensionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExtensionTag] {
+	return pulumix.Output[[]ExtensionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExtensionTagArrayOutput) Index(i pulumi.IntInput) ExtensionTagOutput {

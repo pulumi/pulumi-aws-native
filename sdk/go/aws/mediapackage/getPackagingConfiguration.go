@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaPackage::PackagingConfiguration
@@ -78,6 +79,12 @@ func (o LookupPackagingConfigurationResultOutput) ToLookupPackagingConfiguration
 
 func (o LookupPackagingConfigurationResultOutput) ToLookupPackagingConfigurationResultOutputWithContext(ctx context.Context) LookupPackagingConfigurationResultOutput {
 	return o
+}
+
+func (o LookupPackagingConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPackagingConfigurationResult] {
+	return pulumix.Output[LookupPackagingConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the PackagingConfiguration.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of the AWS::QuickSight::Template Resource Type.
@@ -68,6 +69,12 @@ func (o LookupTemplateResultOutput) ToLookupTemplateResultOutput() LookupTemplat
 
 func (o LookupTemplateResultOutput) ToLookupTemplateResultOutputWithContext(ctx context.Context) LookupTemplateResultOutput {
 	return o
+}
+
+func (o LookupTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTemplateResult] {
+	return pulumix.Output[LookupTemplateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTemplateResultOutput) Arn() pulumi.StringPtrOutput {

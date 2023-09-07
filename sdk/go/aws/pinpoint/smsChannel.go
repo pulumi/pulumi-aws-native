@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::SMSChannel
@@ -108,6 +109,12 @@ func (i *SmsChannel) ToSmsChannelOutputWithContext(ctx context.Context) SmsChann
 	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelOutput)
 }
 
+func (i *SmsChannel) ToOutput(ctx context.Context) pulumix.Output[*SmsChannel] {
+	return pulumix.Output[*SmsChannel]{
+		OutputState: i.ToSmsChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SmsChannelOutput struct{ *pulumi.OutputState }
 
 func (SmsChannelOutput) ElementType() reflect.Type {
@@ -120,6 +127,12 @@ func (o SmsChannelOutput) ToSmsChannelOutput() SmsChannelOutput {
 
 func (o SmsChannelOutput) ToSmsChannelOutputWithContext(ctx context.Context) SmsChannelOutput {
 	return o
+}
+
+func (o SmsChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*SmsChannel] {
+	return pulumix.Output[*SmsChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SmsChannelOutput) ApplicationId() pulumi.StringOutput {

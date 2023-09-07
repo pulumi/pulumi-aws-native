@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElastiCache::CacheCluster
@@ -195,6 +196,12 @@ func (i *CacheCluster) ToCacheClusterOutputWithContext(ctx context.Context) Cach
 	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterOutput)
 }
 
+func (i *CacheCluster) ToOutput(ctx context.Context) pulumix.Output[*CacheCluster] {
+	return pulumix.Output[*CacheCluster]{
+		OutputState: i.ToCacheClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CacheClusterOutput struct{ *pulumi.OutputState }
 
 func (CacheClusterOutput) ElementType() reflect.Type {
@@ -207,6 +214,12 @@ func (o CacheClusterOutput) ToCacheClusterOutput() CacheClusterOutput {
 
 func (o CacheClusterOutput) ToCacheClusterOutputWithContext(ctx context.Context) CacheClusterOutput {
 	return o
+}
+
+func (o CacheClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*CacheCluster] {
+	return pulumix.Output[*CacheCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CacheClusterOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {

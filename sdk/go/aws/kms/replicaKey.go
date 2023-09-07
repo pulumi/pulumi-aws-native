@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
@@ -135,6 +136,12 @@ func (i *ReplicaKey) ToReplicaKeyOutputWithContext(ctx context.Context) ReplicaK
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaKeyOutput)
 }
 
+func (i *ReplicaKey) ToOutput(ctx context.Context) pulumix.Output[*ReplicaKey] {
+	return pulumix.Output[*ReplicaKey]{
+		OutputState: i.ToReplicaKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicaKeyOutput struct{ *pulumi.OutputState }
 
 func (ReplicaKeyOutput) ElementType() reflect.Type {
@@ -147,6 +154,12 @@ func (o ReplicaKeyOutput) ToReplicaKeyOutput() ReplicaKeyOutput {
 
 func (o ReplicaKeyOutput) ToReplicaKeyOutputWithContext(ctx context.Context) ReplicaKeyOutput {
 	return o
+}
+
+func (o ReplicaKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicaKey] {
+	return pulumix.Output[*ReplicaKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicaKeyOutput) Arn() pulumi.StringOutput {

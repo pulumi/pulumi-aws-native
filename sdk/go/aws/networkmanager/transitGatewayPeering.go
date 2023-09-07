@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::TransitGatewayPeering Resoruce Type.
@@ -134,6 +135,12 @@ func (i *TransitGatewayPeering) ToTransitGatewayPeeringOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringOutput)
 }
 
+func (i *TransitGatewayPeering) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayPeering] {
+	return pulumix.Output[*TransitGatewayPeering]{
+		OutputState: i.ToTransitGatewayPeeringOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayPeeringOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayPeeringOutput) ElementType() reflect.Type {
@@ -146,6 +153,12 @@ func (o TransitGatewayPeeringOutput) ToTransitGatewayPeeringOutput() TransitGate
 
 func (o TransitGatewayPeeringOutput) ToTransitGatewayPeeringOutputWithContext(ctx context.Context) TransitGatewayPeeringOutput {
 	return o
+}
+
+func (o TransitGatewayPeeringOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayPeering] {
+	return pulumix.Output[*TransitGatewayPeering]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN (Amazon Resource Name) of the core network that you want to peer a transit gateway to.

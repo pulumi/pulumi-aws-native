@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
@@ -154,6 +155,12 @@ func (i *StudioComponent) ToStudioComponentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentOutput)
 }
 
+func (i *StudioComponent) ToOutput(ctx context.Context) pulumix.Output[*StudioComponent] {
+	return pulumix.Output[*StudioComponent]{
+		OutputState: i.ToStudioComponentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StudioComponentOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentOutput) ElementType() reflect.Type {
@@ -166,6 +173,12 @@ func (o StudioComponentOutput) ToStudioComponentOutput() StudioComponentOutput {
 
 func (o StudioComponentOutput) ToStudioComponentOutputWithContext(ctx context.Context) StudioComponentOutput {
 	return o
+}
+
+func (o StudioComponentOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioComponent] {
+	return pulumix.Output[*StudioComponent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StudioComponentOutput) Configuration() pulumi.AnyOutput {

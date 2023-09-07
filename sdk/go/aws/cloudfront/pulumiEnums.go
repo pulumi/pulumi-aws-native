@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ContinuousDeploymentPolicyTrafficConfigType string
@@ -77,6 +78,12 @@ func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToContinuousDeploymen
 	}).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
 }
 
+func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContinuousDeploymentPolicyTrafficConfigType] {
+	return pulumix.Output[ContinuousDeploymentPolicyTrafficConfigType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToContinuousDeploy
 
 func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
 	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicyTrafficConfigType] {
+	return pulumix.Output[*ContinuousDeploymentPolicyTrafficConfigType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) Elem() ContinuousDeploymentPolicyTrafficConfigTypeOutput {
@@ -172,6 +185,12 @@ func (in *continuousDeploymentPolicyTrafficConfigTypePtr) ToContinuousDeployment
 
 func (in *continuousDeploymentPolicyTrafficConfigTypePtr) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
+}
+
+func (in *continuousDeploymentPolicyTrafficConfigTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicyTrafficConfigType] {
+	return pulumix.Output[*ContinuousDeploymentPolicyTrafficConfigType]{
+		OutputState: in.ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus string
@@ -241,6 +260,12 @@ func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSu
 	}).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput)
 }
 
+func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus] {
+	return pulumix.Output[MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -274,6 +299,12 @@ func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSu
 
 func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput {
 	return o
+}
+
+func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus] {
+	return pulumix.Output[*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput) Elem() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput {
@@ -336,6 +367,12 @@ func (in *monitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetrics
 
 func (in *monitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtr) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput)
+}
+
+func (in *monitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus] {
+	return pulumix.Output[*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus]{
+		OutputState: in.ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

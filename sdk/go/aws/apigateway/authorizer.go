@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
@@ -158,6 +159,12 @@ func (i *Authorizer) ToAuthorizerOutputWithContext(ctx context.Context) Authoriz
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerOutput)
 }
 
+func (i *Authorizer) ToOutput(ctx context.Context) pulumix.Output[*Authorizer] {
+	return pulumix.Output[*Authorizer]{
+		OutputState: i.ToAuthorizerOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthorizerOutput struct{ *pulumi.OutputState }
 
 func (AuthorizerOutput) ElementType() reflect.Type {
@@ -170,6 +177,12 @@ func (o AuthorizerOutput) ToAuthorizerOutput() AuthorizerOutput {
 
 func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) AuthorizerOutput {
 	return o
+}
+
+func (o AuthorizerOutput) ToOutput(ctx context.Context) pulumix.Output[*Authorizer] {
+	return pulumix.Output[*Authorizer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Optional customer-defined field, used in OpenAPI imports and exports without functional impact.

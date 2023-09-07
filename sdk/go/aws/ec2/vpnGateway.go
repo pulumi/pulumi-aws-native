@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for EC2 VPN Gateway
@@ -115,6 +116,12 @@ func (i *VpnGateway) ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatew
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayOutput)
 }
 
+func (i *VpnGateway) ToOutput(ctx context.Context) pulumix.Output[*VpnGateway] {
+	return pulumix.Output[*VpnGateway]{
+		OutputState: i.ToVpnGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpnGatewayOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayOutput) ElementType() reflect.Type {
@@ -127,6 +134,12 @@ func (o VpnGatewayOutput) ToVpnGatewayOutput() VpnGatewayOutput {
 
 func (o VpnGatewayOutput) ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatewayOutput {
 	return o
+}
+
+func (o VpnGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnGateway] {
+	return pulumix.Output[*VpnGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The private Autonomous System Number (ASN) for the Amazon side of a BGP session.

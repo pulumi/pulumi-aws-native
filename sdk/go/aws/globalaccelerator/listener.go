@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GlobalAccelerator::Listener
@@ -123,6 +124,12 @@ func (i *Listener) ToListenerOutputWithContext(ctx context.Context) ListenerOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerOutput)
 }
 
+func (i *Listener) ToOutput(ctx context.Context) pulumix.Output[*Listener] {
+	return pulumix.Output[*Listener]{
+		OutputState: i.ToListenerOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ListenerOutput struct{ *pulumi.OutputState }
 
 func (ListenerOutput) ElementType() reflect.Type {
@@ -135,6 +142,12 @@ func (o ListenerOutput) ToListenerOutput() ListenerOutput {
 
 func (o ListenerOutput) ToListenerOutputWithContext(ctx context.Context) ListenerOutput {
 	return o
+}
+
+func (o ListenerOutput) ToOutput(ctx context.Context) pulumix.Output[*Listener] {
+	return pulumix.Output[*Listener]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the accelerator.

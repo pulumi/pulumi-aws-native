@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies the configuration data for a registered hook in CloudFormation Registry.
@@ -122,6 +123,12 @@ func (i *HookTypeConfig) ToHookTypeConfigOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(HookTypeConfigOutput)
 }
 
+func (i *HookTypeConfig) ToOutput(ctx context.Context) pulumix.Output[*HookTypeConfig] {
+	return pulumix.Output[*HookTypeConfig]{
+		OutputState: i.ToHookTypeConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HookTypeConfigOutput struct{ *pulumi.OutputState }
 
 func (HookTypeConfigOutput) ElementType() reflect.Type {
@@ -134,6 +141,12 @@ func (o HookTypeConfigOutput) ToHookTypeConfigOutput() HookTypeConfigOutput {
 
 func (o HookTypeConfigOutput) ToHookTypeConfigOutputWithContext(ctx context.Context) HookTypeConfigOutput {
 	return o
+}
+
+func (o HookTypeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*HookTypeConfig] {
+	return pulumix.Output[*HookTypeConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The configuration data for the extension, in this account and region.

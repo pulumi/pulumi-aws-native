@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i CollectionTagArgs) ToCollectionTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CollectionTagOutput)
 }
 
+func (i CollectionTagArgs) ToOutput(ctx context.Context) pulumix.Output[CollectionTag] {
+	return pulumix.Output[CollectionTag]{
+		OutputState: i.ToCollectionTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CollectionTagArrayInput is an input type that accepts CollectionTagArray and CollectionTagArrayOutput values.
 // You can construct a concrete instance of `CollectionTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i CollectionTagArray) ToCollectionTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CollectionTagArrayOutput)
 }
 
+func (i CollectionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CollectionTag] {
+	return pulumix.Output[[]CollectionTag]{
+		OutputState: i.ToCollectionTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type CollectionTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o CollectionTagOutput) ToCollectionTagOutput() CollectionTagOutput {
 
 func (o CollectionTagOutput) ToCollectionTagOutputWithContext(ctx context.Context) CollectionTagOutput {
 	return o
+}
+
+func (o CollectionTagOutput) ToOutput(ctx context.Context) pulumix.Output[CollectionTag] {
+	return pulumix.Output[CollectionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -114,6 +133,12 @@ func (o CollectionTagArrayOutput) ToCollectionTagArrayOutput() CollectionTagArra
 
 func (o CollectionTagArrayOutput) ToCollectionTagArrayOutputWithContext(ctx context.Context) CollectionTagArrayOutput {
 	return o
+}
+
+func (o CollectionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CollectionTag] {
+	return pulumix.Output[[]CollectionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CollectionTagArrayOutput) Index(i pulumi.IntInput) CollectionTagOutput {
@@ -161,6 +186,12 @@ func (i StreamProcessorBoundingBoxArgs) ToStreamProcessorBoundingBoxOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorBoundingBoxOutput)
 }
 
+func (i StreamProcessorBoundingBoxArgs) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorBoundingBox] {
+	return pulumix.Output[StreamProcessorBoundingBox]{
+		OutputState: i.ToStreamProcessorBoundingBoxOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StreamProcessorBoundingBoxArrayInput is an input type that accepts StreamProcessorBoundingBoxArray and StreamProcessorBoundingBoxArrayOutput values.
 // You can construct a concrete instance of `StreamProcessorBoundingBoxArrayInput` via:
 //
@@ -186,6 +217,12 @@ func (i StreamProcessorBoundingBoxArray) ToStreamProcessorBoundingBoxArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorBoundingBoxArrayOutput)
 }
 
+func (i StreamProcessorBoundingBoxArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamProcessorBoundingBox] {
+	return pulumix.Output[[]StreamProcessorBoundingBox]{
+		OutputState: i.ToStreamProcessorBoundingBoxArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A bounding box denoting a region of interest in the frame to be analyzed.
 type StreamProcessorBoundingBoxOutput struct{ *pulumi.OutputState }
 
@@ -199,6 +236,12 @@ func (o StreamProcessorBoundingBoxOutput) ToStreamProcessorBoundingBoxOutput() S
 
 func (o StreamProcessorBoundingBoxOutput) ToStreamProcessorBoundingBoxOutputWithContext(ctx context.Context) StreamProcessorBoundingBoxOutput {
 	return o
+}
+
+func (o StreamProcessorBoundingBoxOutput) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorBoundingBox] {
+	return pulumix.Output[StreamProcessorBoundingBox]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamProcessorBoundingBoxOutput) Height() pulumi.Float64Output {
@@ -229,6 +272,12 @@ func (o StreamProcessorBoundingBoxArrayOutput) ToStreamProcessorBoundingBoxArray
 
 func (o StreamProcessorBoundingBoxArrayOutput) ToStreamProcessorBoundingBoxArrayOutputWithContext(ctx context.Context) StreamProcessorBoundingBoxArrayOutput {
 	return o
+}
+
+func (o StreamProcessorBoundingBoxArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamProcessorBoundingBox] {
+	return pulumix.Output[[]StreamProcessorBoundingBox]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamProcessorBoundingBoxArrayOutput) Index(i pulumi.IntInput) StreamProcessorBoundingBoxOutput {
@@ -274,6 +323,12 @@ func (i StreamProcessorConnectedHomeSettingsArgs) ToStreamProcessorConnectedHome
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorConnectedHomeSettingsOutput)
 }
 
+func (i StreamProcessorConnectedHomeSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorConnectedHomeSettings] {
+	return pulumix.Output[StreamProcessorConnectedHomeSettings]{
+		OutputState: i.ToStreamProcessorConnectedHomeSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StreamProcessorConnectedHomeSettingsArgs) ToStreamProcessorConnectedHomeSettingsPtrOutput() StreamProcessorConnectedHomeSettingsPtrOutput {
 	return i.ToStreamProcessorConnectedHomeSettingsPtrOutputWithContext(context.Background())
 }
@@ -315,6 +370,12 @@ func (i *streamProcessorConnectedHomeSettingsPtrType) ToStreamProcessorConnected
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorConnectedHomeSettingsPtrOutput)
 }
 
+func (i *streamProcessorConnectedHomeSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorConnectedHomeSettings] {
+	return pulumix.Output[*StreamProcessorConnectedHomeSettings]{
+		OutputState: i.ToStreamProcessorConnectedHomeSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both
 type StreamProcessorConnectedHomeSettingsOutput struct{ *pulumi.OutputState }
 
@@ -340,6 +401,12 @@ func (o StreamProcessorConnectedHomeSettingsOutput) ToStreamProcessorConnectedHo
 	}).(StreamProcessorConnectedHomeSettingsPtrOutput)
 }
 
+func (o StreamProcessorConnectedHomeSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorConnectedHomeSettings] {
+	return pulumix.Output[StreamProcessorConnectedHomeSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StreamProcessorConnectedHomeSettingsOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StreamProcessorConnectedHomeSettings) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
@@ -361,6 +428,12 @@ func (o StreamProcessorConnectedHomeSettingsPtrOutput) ToStreamProcessorConnecte
 
 func (o StreamProcessorConnectedHomeSettingsPtrOutput) ToStreamProcessorConnectedHomeSettingsPtrOutputWithContext(ctx context.Context) StreamProcessorConnectedHomeSettingsPtrOutput {
 	return o
+}
+
+func (o StreamProcessorConnectedHomeSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorConnectedHomeSettings] {
+	return pulumix.Output[*StreamProcessorConnectedHomeSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamProcessorConnectedHomeSettingsPtrOutput) Elem() StreamProcessorConnectedHomeSettingsOutput {
@@ -427,6 +500,12 @@ func (i StreamProcessorDataSharingPreferenceArgs) ToStreamProcessorDataSharingPr
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorDataSharingPreferenceOutput)
 }
 
+func (i StreamProcessorDataSharingPreferenceArgs) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorDataSharingPreference] {
+	return pulumix.Output[StreamProcessorDataSharingPreference]{
+		OutputState: i.ToStreamProcessorDataSharingPreferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StreamProcessorDataSharingPreferenceArgs) ToStreamProcessorDataSharingPreferencePtrOutput() StreamProcessorDataSharingPreferencePtrOutput {
 	return i.ToStreamProcessorDataSharingPreferencePtrOutputWithContext(context.Background())
 }
@@ -468,6 +547,12 @@ func (i *streamProcessorDataSharingPreferencePtrType) ToStreamProcessorDataShari
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorDataSharingPreferencePtrOutput)
 }
 
+func (i *streamProcessorDataSharingPreferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorDataSharingPreference] {
+	return pulumix.Output[*StreamProcessorDataSharingPreference]{
+		OutputState: i.ToStreamProcessorDataSharingPreferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Indicates whether Rekognition is allowed to store the video stream data for model-training.
 type StreamProcessorDataSharingPreferenceOutput struct{ *pulumi.OutputState }
 
@@ -493,6 +578,12 @@ func (o StreamProcessorDataSharingPreferenceOutput) ToStreamProcessorDataSharing
 	}).(StreamProcessorDataSharingPreferencePtrOutput)
 }
 
+func (o StreamProcessorDataSharingPreferenceOutput) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorDataSharingPreference] {
+	return pulumix.Output[StreamProcessorDataSharingPreference]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Flag to enable data-sharing
 func (o StreamProcessorDataSharingPreferenceOutput) OptIn() pulumi.BoolOutput {
 	return o.ApplyT(func(v StreamProcessorDataSharingPreference) bool { return v.OptIn }).(pulumi.BoolOutput)
@@ -510,6 +601,12 @@ func (o StreamProcessorDataSharingPreferencePtrOutput) ToStreamProcessorDataShar
 
 func (o StreamProcessorDataSharingPreferencePtrOutput) ToStreamProcessorDataSharingPreferencePtrOutputWithContext(ctx context.Context) StreamProcessorDataSharingPreferencePtrOutput {
 	return o
+}
+
+func (o StreamProcessorDataSharingPreferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorDataSharingPreference] {
+	return pulumix.Output[*StreamProcessorDataSharingPreference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamProcessorDataSharingPreferencePtrOutput) Elem() StreamProcessorDataSharingPreferenceOutput {
@@ -571,6 +668,12 @@ func (i StreamProcessorFaceSearchSettingsArgs) ToStreamProcessorFaceSearchSettin
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorFaceSearchSettingsOutput)
 }
 
+func (i StreamProcessorFaceSearchSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorFaceSearchSettings] {
+	return pulumix.Output[StreamProcessorFaceSearchSettings]{
+		OutputState: i.ToStreamProcessorFaceSearchSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StreamProcessorFaceSearchSettingsArgs) ToStreamProcessorFaceSearchSettingsPtrOutput() StreamProcessorFaceSearchSettingsPtrOutput {
 	return i.ToStreamProcessorFaceSearchSettingsPtrOutputWithContext(context.Background())
 }
@@ -612,6 +715,12 @@ func (i *streamProcessorFaceSearchSettingsPtrType) ToStreamProcessorFaceSearchSe
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorFaceSearchSettingsPtrOutput)
 }
 
+func (i *streamProcessorFaceSearchSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorFaceSearchSettings] {
+	return pulumix.Output[*StreamProcessorFaceSearchSettings]{
+		OutputState: i.ToStreamProcessorFaceSearchSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Face search settings to use on a streaming video. Note that either FaceSearchSettings or ConnectedHomeSettings should be set. Not both
 type StreamProcessorFaceSearchSettingsOutput struct{ *pulumi.OutputState }
 
@@ -637,6 +746,12 @@ func (o StreamProcessorFaceSearchSettingsOutput) ToStreamProcessorFaceSearchSett
 	}).(StreamProcessorFaceSearchSettingsPtrOutput)
 }
 
+func (o StreamProcessorFaceSearchSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorFaceSearchSettings] {
+	return pulumix.Output[StreamProcessorFaceSearchSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of a collection that contains faces that you want to search for.
 func (o StreamProcessorFaceSearchSettingsOutput) CollectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamProcessorFaceSearchSettings) string { return v.CollectionId }).(pulumi.StringOutput)
@@ -659,6 +774,12 @@ func (o StreamProcessorFaceSearchSettingsPtrOutput) ToStreamProcessorFaceSearchS
 
 func (o StreamProcessorFaceSearchSettingsPtrOutput) ToStreamProcessorFaceSearchSettingsPtrOutputWithContext(ctx context.Context) StreamProcessorFaceSearchSettingsPtrOutput {
 	return o
+}
+
+func (o StreamProcessorFaceSearchSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorFaceSearchSettings] {
+	return pulumix.Output[*StreamProcessorFaceSearchSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamProcessorFaceSearchSettingsPtrOutput) Elem() StreamProcessorFaceSearchSettingsOutput {
@@ -726,6 +847,12 @@ func (i StreamProcessorKinesisDataStreamArgs) ToStreamProcessorKinesisDataStream
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorKinesisDataStreamOutput)
 }
 
+func (i StreamProcessorKinesisDataStreamArgs) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorKinesisDataStream] {
+	return pulumix.Output[StreamProcessorKinesisDataStream]{
+		OutputState: i.ToStreamProcessorKinesisDataStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StreamProcessorKinesisDataStreamArgs) ToStreamProcessorKinesisDataStreamPtrOutput() StreamProcessorKinesisDataStreamPtrOutput {
 	return i.ToStreamProcessorKinesisDataStreamPtrOutputWithContext(context.Background())
 }
@@ -767,6 +894,12 @@ func (i *streamProcessorKinesisDataStreamPtrType) ToStreamProcessorKinesisDataSt
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorKinesisDataStreamPtrOutput)
 }
 
+func (i *streamProcessorKinesisDataStreamPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorKinesisDataStream] {
+	return pulumix.Output[*StreamProcessorKinesisDataStream]{
+		OutputState: i.ToStreamProcessorKinesisDataStreamPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The Amazon Kinesis Data Stream stream to which the Amazon Rekognition stream processor streams the analysis results, as part of face search feature.
 type StreamProcessorKinesisDataStreamOutput struct{ *pulumi.OutputState }
 
@@ -792,6 +925,12 @@ func (o StreamProcessorKinesisDataStreamOutput) ToStreamProcessorKinesisDataStre
 	}).(StreamProcessorKinesisDataStreamPtrOutput)
 }
 
+func (o StreamProcessorKinesisDataStreamOutput) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorKinesisDataStream] {
+	return pulumix.Output[StreamProcessorKinesisDataStream]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the Kinesis Data Stream stream.
 func (o StreamProcessorKinesisDataStreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamProcessorKinesisDataStream) string { return v.Arn }).(pulumi.StringOutput)
@@ -809,6 +948,12 @@ func (o StreamProcessorKinesisDataStreamPtrOutput) ToStreamProcessorKinesisDataS
 
 func (o StreamProcessorKinesisDataStreamPtrOutput) ToStreamProcessorKinesisDataStreamPtrOutputWithContext(ctx context.Context) StreamProcessorKinesisDataStreamPtrOutput {
 	return o
+}
+
+func (o StreamProcessorKinesisDataStreamPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorKinesisDataStream] {
+	return pulumix.Output[*StreamProcessorKinesisDataStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamProcessorKinesisDataStreamPtrOutput) Elem() StreamProcessorKinesisDataStreamOutput {
@@ -866,6 +1011,12 @@ func (i StreamProcessorKinesisVideoStreamArgs) ToStreamProcessorKinesisVideoStre
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorKinesisVideoStreamOutput)
 }
 
+func (i StreamProcessorKinesisVideoStreamArgs) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorKinesisVideoStream] {
+	return pulumix.Output[StreamProcessorKinesisVideoStream]{
+		OutputState: i.ToStreamProcessorKinesisVideoStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The Kinesis Video Stream that streams the source video.
 type StreamProcessorKinesisVideoStreamOutput struct{ *pulumi.OutputState }
 
@@ -879,6 +1030,12 @@ func (o StreamProcessorKinesisVideoStreamOutput) ToStreamProcessorKinesisVideoSt
 
 func (o StreamProcessorKinesisVideoStreamOutput) ToStreamProcessorKinesisVideoStreamOutputWithContext(ctx context.Context) StreamProcessorKinesisVideoStreamOutput {
 	return o
+}
+
+func (o StreamProcessorKinesisVideoStreamOutput) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorKinesisVideoStream] {
+	return pulumix.Output[StreamProcessorKinesisVideoStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Kinesis Video Stream that streams the source video.
@@ -919,6 +1076,12 @@ func (i StreamProcessorNotificationChannelArgs) ToStreamProcessorNotificationCha
 
 func (i StreamProcessorNotificationChannelArgs) ToStreamProcessorNotificationChannelOutputWithContext(ctx context.Context) StreamProcessorNotificationChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorNotificationChannelOutput)
+}
+
+func (i StreamProcessorNotificationChannelArgs) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorNotificationChannel] {
+	return pulumix.Output[StreamProcessorNotificationChannel]{
+		OutputState: i.ToStreamProcessorNotificationChannelOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i StreamProcessorNotificationChannelArgs) ToStreamProcessorNotificationChannelPtrOutput() StreamProcessorNotificationChannelPtrOutput {
@@ -962,6 +1125,12 @@ func (i *streamProcessorNotificationChannelPtrType) ToStreamProcessorNotificatio
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorNotificationChannelPtrOutput)
 }
 
+func (i *streamProcessorNotificationChannelPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorNotificationChannel] {
+	return pulumix.Output[*StreamProcessorNotificationChannel]{
+		OutputState: i.ToStreamProcessorNotificationChannelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The ARN of the SNS notification channel where events of interests are published, as part of connected home feature.
 type StreamProcessorNotificationChannelOutput struct{ *pulumi.OutputState }
 
@@ -987,6 +1156,12 @@ func (o StreamProcessorNotificationChannelOutput) ToStreamProcessorNotificationC
 	}).(StreamProcessorNotificationChannelPtrOutput)
 }
 
+func (o StreamProcessorNotificationChannelOutput) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorNotificationChannel] {
+	return pulumix.Output[StreamProcessorNotificationChannel]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the SNS topic.
 func (o StreamProcessorNotificationChannelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamProcessorNotificationChannel) string { return v.Arn }).(pulumi.StringOutput)
@@ -1004,6 +1179,12 @@ func (o StreamProcessorNotificationChannelPtrOutput) ToStreamProcessorNotificati
 
 func (o StreamProcessorNotificationChannelPtrOutput) ToStreamProcessorNotificationChannelPtrOutputWithContext(ctx context.Context) StreamProcessorNotificationChannelPtrOutput {
 	return o
+}
+
+func (o StreamProcessorNotificationChannelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorNotificationChannel] {
+	return pulumix.Output[*StreamProcessorNotificationChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamProcessorNotificationChannelPtrOutput) Elem() StreamProcessorNotificationChannelOutput {
@@ -1065,6 +1246,12 @@ func (i StreamProcessorPointArgs) ToStreamProcessorPointOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorPointOutput)
 }
 
+func (i StreamProcessorPointArgs) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorPoint] {
+	return pulumix.Output[StreamProcessorPoint]{
+		OutputState: i.ToStreamProcessorPointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StreamProcessorPointArrayInput is an input type that accepts StreamProcessorPointArray and StreamProcessorPointArrayOutput values.
 // You can construct a concrete instance of `StreamProcessorPointArrayInput` via:
 //
@@ -1090,6 +1277,12 @@ func (i StreamProcessorPointArray) ToStreamProcessorPointArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorPointArrayOutput)
 }
 
+func (i StreamProcessorPointArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamProcessorPoint] {
+	return pulumix.Output[[]StreamProcessorPoint]{
+		OutputState: i.ToStreamProcessorPointArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An (X, Y) cartesian coordinate denoting a point on the frame
 type StreamProcessorPointOutput struct{ *pulumi.OutputState }
 
@@ -1103,6 +1296,12 @@ func (o StreamProcessorPointOutput) ToStreamProcessorPointOutput() StreamProcess
 
 func (o StreamProcessorPointOutput) ToStreamProcessorPointOutputWithContext(ctx context.Context) StreamProcessorPointOutput {
 	return o
+}
+
+func (o StreamProcessorPointOutput) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorPoint] {
+	return pulumix.Output[StreamProcessorPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The X coordinate of the point.
@@ -1127,6 +1326,12 @@ func (o StreamProcessorPointArrayOutput) ToStreamProcessorPointArrayOutput() Str
 
 func (o StreamProcessorPointArrayOutput) ToStreamProcessorPointArrayOutputWithContext(ctx context.Context) StreamProcessorPointArrayOutput {
 	return o
+}
+
+func (o StreamProcessorPointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamProcessorPoint] {
+	return pulumix.Output[[]StreamProcessorPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamProcessorPointArrayOutput) Index(i pulumi.IntInput) StreamProcessorPointOutput {
@@ -1174,6 +1379,12 @@ func (i StreamProcessorS3DestinationArgs) ToStreamProcessorS3DestinationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorS3DestinationOutput)
 }
 
+func (i StreamProcessorS3DestinationArgs) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorS3Destination] {
+	return pulumix.Output[StreamProcessorS3Destination]{
+		OutputState: i.ToStreamProcessorS3DestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StreamProcessorS3DestinationArgs) ToStreamProcessorS3DestinationPtrOutput() StreamProcessorS3DestinationPtrOutput {
 	return i.ToStreamProcessorS3DestinationPtrOutputWithContext(context.Background())
 }
@@ -1215,6 +1426,12 @@ func (i *streamProcessorS3DestinationPtrType) ToStreamProcessorS3DestinationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorS3DestinationPtrOutput)
 }
 
+func (i *streamProcessorS3DestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorS3Destination] {
+	return pulumix.Output[*StreamProcessorS3Destination]{
+		OutputState: i.ToStreamProcessorS3DestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The S3 location in customer's account where inference output & artifacts are stored, as part of connected home feature.
 type StreamProcessorS3DestinationOutput struct{ *pulumi.OutputState }
 
@@ -1240,6 +1457,12 @@ func (o StreamProcessorS3DestinationOutput) ToStreamProcessorS3DestinationPtrOut
 	}).(StreamProcessorS3DestinationPtrOutput)
 }
 
+func (o StreamProcessorS3DestinationOutput) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorS3Destination] {
+	return pulumix.Output[StreamProcessorS3Destination]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the S3 bucket.
 func (o StreamProcessorS3DestinationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamProcessorS3Destination) string { return v.BucketName }).(pulumi.StringOutput)
@@ -1262,6 +1485,12 @@ func (o StreamProcessorS3DestinationPtrOutput) ToStreamProcessorS3DestinationPtr
 
 func (o StreamProcessorS3DestinationPtrOutput) ToStreamProcessorS3DestinationPtrOutputWithContext(ctx context.Context) StreamProcessorS3DestinationPtrOutput {
 	return o
+}
+
+func (o StreamProcessorS3DestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessorS3Destination] {
+	return pulumix.Output[*StreamProcessorS3Destination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamProcessorS3DestinationPtrOutput) Elem() StreamProcessorS3DestinationOutput {
@@ -1333,6 +1562,12 @@ func (i StreamProcessorTagArgs) ToStreamProcessorTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorTagOutput)
 }
 
+func (i StreamProcessorTagArgs) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorTag] {
+	return pulumix.Output[StreamProcessorTag]{
+		OutputState: i.ToStreamProcessorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StreamProcessorTagArrayInput is an input type that accepts StreamProcessorTagArray and StreamProcessorTagArrayOutput values.
 // You can construct a concrete instance of `StreamProcessorTagArrayInput` via:
 //
@@ -1358,6 +1593,12 @@ func (i StreamProcessorTagArray) ToStreamProcessorTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorTagArrayOutput)
 }
 
+func (i StreamProcessorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamProcessorTag] {
+	return pulumix.Output[[]StreamProcessorTag]{
+		OutputState: i.ToStreamProcessorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type StreamProcessorTagOutput struct{ *pulumi.OutputState }
 
@@ -1371,6 +1612,12 @@ func (o StreamProcessorTagOutput) ToStreamProcessorTagOutput() StreamProcessorTa
 
 func (o StreamProcessorTagOutput) ToStreamProcessorTagOutputWithContext(ctx context.Context) StreamProcessorTagOutput {
 	return o
+}
+
+func (o StreamProcessorTagOutput) ToOutput(ctx context.Context) pulumix.Output[StreamProcessorTag] {
+	return pulumix.Output[StreamProcessorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1397,6 +1644,12 @@ func (o StreamProcessorTagArrayOutput) ToStreamProcessorTagArrayOutputWithContex
 	return o
 }
 
+func (o StreamProcessorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamProcessorTag] {
+	return pulumix.Output[[]StreamProcessorTag]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StreamProcessorTagArrayOutput) Index(i pulumi.IntInput) StreamProcessorTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamProcessorTag {
 		return vs[0].([]StreamProcessorTag)[vs[1].(int)]
@@ -1415,6 +1668,12 @@ func (i StreamProcessorPointArrayArray) ToStreamProcessorPointArrayArrayOutput()
 
 func (i StreamProcessorPointArrayArray) ToStreamProcessorPointArrayArrayOutputWithContext(ctx context.Context) StreamProcessorPointArrayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorPointArrayArrayOutput)
+}
+
+func (i StreamProcessorPointArrayArray) ToOutput(ctx context.Context) pulumix.Output[[][]StreamProcessorPoint] {
+	return pulumix.Output[[][]StreamProcessorPoint]{
+		OutputState: i.ToStreamProcessorPointArrayArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StreamProcessorPointArrayArrayInput is an input type that accepts StreamProcessorPointArrayArray and StreamProcessorPointArrayArrayOutput values.
@@ -1440,6 +1699,12 @@ func (o StreamProcessorPointArrayArrayOutput) ToStreamProcessorPointArrayArrayOu
 
 func (o StreamProcessorPointArrayArrayOutput) ToStreamProcessorPointArrayArrayOutputWithContext(ctx context.Context) StreamProcessorPointArrayArrayOutput {
 	return o
+}
+
+func (o StreamProcessorPointArrayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[][]StreamProcessorPoint] {
+	return pulumix.Output[[][]StreamProcessorPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamProcessorPointArrayArrayOutput) Index(i pulumi.IntInput) StreamProcessorPointArrayOutput {

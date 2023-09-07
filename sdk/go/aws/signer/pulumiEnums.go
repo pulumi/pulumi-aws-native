@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type SigningProfilePlatformId string
@@ -77,6 +78,12 @@ func (o SigningProfilePlatformIdOutput) ToSigningProfilePlatformIdPtrOutputWithC
 	}).(SigningProfilePlatformIdPtrOutput)
 }
 
+func (o SigningProfilePlatformIdOutput) ToOutput(ctx context.Context) pulumix.Output[SigningProfilePlatformId] {
+	return pulumix.Output[SigningProfilePlatformId]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SigningProfilePlatformIdOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o SigningProfilePlatformIdPtrOutput) ToSigningProfilePlatformIdPtrOutput()
 
 func (o SigningProfilePlatformIdPtrOutput) ToSigningProfilePlatformIdPtrOutputWithContext(ctx context.Context) SigningProfilePlatformIdPtrOutput {
 	return o
+}
+
+func (o SigningProfilePlatformIdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningProfilePlatformId] {
+	return pulumix.Output[*SigningProfilePlatformId]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningProfilePlatformIdPtrOutput) Elem() SigningProfilePlatformIdOutput {
@@ -172,6 +185,12 @@ func (in *signingProfilePlatformIdPtr) ToSigningProfilePlatformIdPtrOutput() Sig
 
 func (in *signingProfilePlatformIdPtr) ToSigningProfilePlatformIdPtrOutputWithContext(ctx context.Context) SigningProfilePlatformIdPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SigningProfilePlatformIdPtrOutput)
+}
+
+func (in *signingProfilePlatformIdPtr) ToOutput(ctx context.Context) pulumix.Output[*SigningProfilePlatformId] {
+	return pulumix.Output[*SigningProfilePlatformId]{
+		OutputState: in.ToSigningProfilePlatformIdPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SigningProfileSignatureValidityPeriodType string
@@ -242,6 +261,12 @@ func (o SigningProfileSignatureValidityPeriodTypeOutput) ToSigningProfileSignatu
 	}).(SigningProfileSignatureValidityPeriodTypePtrOutput)
 }
 
+func (o SigningProfileSignatureValidityPeriodTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SigningProfileSignatureValidityPeriodType] {
+	return pulumix.Output[SigningProfileSignatureValidityPeriodType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SigningProfileSignatureValidityPeriodTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -275,6 +300,12 @@ func (o SigningProfileSignatureValidityPeriodTypePtrOutput) ToSigningProfileSign
 
 func (o SigningProfileSignatureValidityPeriodTypePtrOutput) ToSigningProfileSignatureValidityPeriodTypePtrOutputWithContext(ctx context.Context) SigningProfileSignatureValidityPeriodTypePtrOutput {
 	return o
+}
+
+func (o SigningProfileSignatureValidityPeriodTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningProfileSignatureValidityPeriodType] {
+	return pulumix.Output[*SigningProfileSignatureValidityPeriodType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningProfileSignatureValidityPeriodTypePtrOutput) Elem() SigningProfileSignatureValidityPeriodTypeOutput {
@@ -337,6 +368,12 @@ func (in *signingProfileSignatureValidityPeriodTypePtr) ToSigningProfileSignatur
 
 func (in *signingProfileSignatureValidityPeriodTypePtr) ToSigningProfileSignatureValidityPeriodTypePtrOutputWithContext(ctx context.Context) SigningProfileSignatureValidityPeriodTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SigningProfileSignatureValidityPeriodTypePtrOutput)
+}
+
+func (in *signingProfileSignatureValidityPeriodTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SigningProfileSignatureValidityPeriodType] {
+	return pulumix.Output[*SigningProfileSignatureValidityPeriodType]{
+		OutputState: in.ToSigningProfileSignatureValidityPeriodTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ClusterEncryptionInTransitClientBroker string
@@ -78,6 +79,12 @@ func (o ClusterEncryptionInTransitClientBrokerOutput) ToClusterEncryptionInTrans
 	}).(ClusterEncryptionInTransitClientBrokerPtrOutput)
 }
 
+func (o ClusterEncryptionInTransitClientBrokerOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEncryptionInTransitClientBroker] {
+	return pulumix.Output[ClusterEncryptionInTransitClientBroker]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterEncryptionInTransitClientBrokerOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o ClusterEncryptionInTransitClientBrokerPtrOutput) ToClusterEncryptionInTr
 
 func (o ClusterEncryptionInTransitClientBrokerPtrOutput) ToClusterEncryptionInTransitClientBrokerPtrOutputWithContext(ctx context.Context) ClusterEncryptionInTransitClientBrokerPtrOutput {
 	return o
+}
+
+func (o ClusterEncryptionInTransitClientBrokerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEncryptionInTransitClientBroker] {
+	return pulumix.Output[*ClusterEncryptionInTransitClientBroker]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterEncryptionInTransitClientBrokerPtrOutput) Elem() ClusterEncryptionInTransitClientBrokerOutput {
@@ -173,6 +186,12 @@ func (in *clusterEncryptionInTransitClientBrokerPtr) ToClusterEncryptionInTransi
 
 func (in *clusterEncryptionInTransitClientBrokerPtr) ToClusterEncryptionInTransitClientBrokerPtrOutputWithContext(ctx context.Context) ClusterEncryptionInTransitClientBrokerPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterEncryptionInTransitClientBrokerPtrOutput)
+}
+
+func (in *clusterEncryptionInTransitClientBrokerPtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterEncryptionInTransitClientBroker] {
+	return pulumix.Output[*ClusterEncryptionInTransitClientBroker]{
+		OutputState: in.ToClusterEncryptionInTransitClientBrokerPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ClusterEnhancedMonitoring string
@@ -244,6 +263,12 @@ func (o ClusterEnhancedMonitoringOutput) ToClusterEnhancedMonitoringPtrOutputWit
 	}).(ClusterEnhancedMonitoringPtrOutput)
 }
 
+func (o ClusterEnhancedMonitoringOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEnhancedMonitoring] {
+	return pulumix.Output[ClusterEnhancedMonitoring]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterEnhancedMonitoringOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o ClusterEnhancedMonitoringPtrOutput) ToClusterEnhancedMonitoringPtrOutput
 
 func (o ClusterEnhancedMonitoringPtrOutput) ToClusterEnhancedMonitoringPtrOutputWithContext(ctx context.Context) ClusterEnhancedMonitoringPtrOutput {
 	return o
+}
+
+func (o ClusterEnhancedMonitoringPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEnhancedMonitoring] {
+	return pulumix.Output[*ClusterEnhancedMonitoring]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterEnhancedMonitoringPtrOutput) Elem() ClusterEnhancedMonitoringOutput {
@@ -339,6 +370,12 @@ func (in *clusterEnhancedMonitoringPtr) ToClusterEnhancedMonitoringPtrOutput() C
 
 func (in *clusterEnhancedMonitoringPtr) ToClusterEnhancedMonitoringPtrOutputWithContext(ctx context.Context) ClusterEnhancedMonitoringPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterEnhancedMonitoringPtrOutput)
+}
+
+func (in *clusterEnhancedMonitoringPtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterEnhancedMonitoring] {
+	return pulumix.Output[*ClusterEnhancedMonitoring]{
+		OutputState: in.ToClusterEnhancedMonitoringPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ClusterStorageMode string
@@ -408,6 +445,12 @@ func (o ClusterStorageModeOutput) ToClusterStorageModePtrOutputWithContext(ctx c
 	}).(ClusterStorageModePtrOutput)
 }
 
+func (o ClusterStorageModeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterStorageMode] {
+	return pulumix.Output[ClusterStorageMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterStorageModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -441,6 +484,12 @@ func (o ClusterStorageModePtrOutput) ToClusterStorageModePtrOutput() ClusterStor
 
 func (o ClusterStorageModePtrOutput) ToClusterStorageModePtrOutputWithContext(ctx context.Context) ClusterStorageModePtrOutput {
 	return o
+}
+
+func (o ClusterStorageModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterStorageMode] {
+	return pulumix.Output[*ClusterStorageMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterStorageModePtrOutput) Elem() ClusterStorageModeOutput {
@@ -503,6 +552,12 @@ func (in *clusterStorageModePtr) ToClusterStorageModePtrOutput() ClusterStorageM
 
 func (in *clusterStorageModePtr) ToClusterStorageModePtrOutputWithContext(ctx context.Context) ClusterStorageModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterStorageModePtrOutput)
+}
+
+func (in *clusterStorageModePtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterStorageMode] {
+	return pulumix.Output[*ClusterStorageMode]{
+		OutputState: in.ToClusterStorageModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of private link authentication
@@ -574,6 +629,12 @@ func (o VpcConnectionAuthenticationOutput) ToVpcConnectionAuthenticationPtrOutpu
 	}).(VpcConnectionAuthenticationPtrOutput)
 }
 
+func (o VpcConnectionAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionAuthentication] {
+	return pulumix.Output[VpcConnectionAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcConnectionAuthenticationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -607,6 +668,12 @@ func (o VpcConnectionAuthenticationPtrOutput) ToVpcConnectionAuthenticationPtrOu
 
 func (o VpcConnectionAuthenticationPtrOutput) ToVpcConnectionAuthenticationPtrOutputWithContext(ctx context.Context) VpcConnectionAuthenticationPtrOutput {
 	return o
+}
+
+func (o VpcConnectionAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionAuthentication] {
+	return pulumix.Output[*VpcConnectionAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcConnectionAuthenticationPtrOutput) Elem() VpcConnectionAuthenticationOutput {
@@ -669,6 +736,12 @@ func (in *vpcConnectionAuthenticationPtr) ToVpcConnectionAuthenticationPtrOutput
 
 func (in *vpcConnectionAuthenticationPtr) ToVpcConnectionAuthenticationPtrOutputWithContext(ctx context.Context) VpcConnectionAuthenticationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VpcConnectionAuthenticationPtrOutput)
+}
+
+func (in *vpcConnectionAuthenticationPtr) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionAuthentication] {
+	return pulumix.Output[*VpcConnectionAuthentication]{
+		OutputState: in.ToVpcConnectionAuthenticationPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

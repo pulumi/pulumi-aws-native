@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Route53Resolver::ResolverRule
@@ -137,6 +138,12 @@ func (i *ResolverRule) ToResolverRuleOutputWithContext(ctx context.Context) Reso
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleOutput)
 }
 
+func (i *ResolverRule) ToOutput(ctx context.Context) pulumix.Output[*ResolverRule] {
+	return pulumix.Output[*ResolverRule]{
+		OutputState: i.ToResolverRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverRuleOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleOutput) ElementType() reflect.Type {
@@ -149,6 +156,12 @@ func (o ResolverRuleOutput) ToResolverRuleOutput() ResolverRuleOutput {
 
 func (o ResolverRuleOutput) ToResolverRuleOutputWithContext(ctx context.Context) ResolverRuleOutput {
 	return o
+}
+
+func (o ResolverRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverRule] {
+	return pulumix.Output[*ResolverRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the resolver rule.

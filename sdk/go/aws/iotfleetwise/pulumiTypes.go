@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -78,6 +79,12 @@ func (i CampaignSignalInformationArgs) ToCampaignSignalInformationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignSignalInformationOutput)
 }
 
+func (i CampaignSignalInformationArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignSignalInformation] {
+	return pulumix.Output[CampaignSignalInformation]{
+		OutputState: i.ToCampaignSignalInformationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CampaignSignalInformationArrayInput is an input type that accepts CampaignSignalInformationArray and CampaignSignalInformationArrayOutput values.
 // You can construct a concrete instance of `CampaignSignalInformationArrayInput` via:
 //
@@ -103,6 +110,12 @@ func (i CampaignSignalInformationArray) ToCampaignSignalInformationArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignSignalInformationArrayOutput)
 }
 
+func (i CampaignSignalInformationArray) ToOutput(ctx context.Context) pulumix.Output[[]CampaignSignalInformation] {
+	return pulumix.Output[[]CampaignSignalInformation]{
+		OutputState: i.ToCampaignSignalInformationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CampaignSignalInformationOutput struct{ *pulumi.OutputState }
 
 func (CampaignSignalInformationOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o CampaignSignalInformationOutput) ToCampaignSignalInformationOutput() Cam
 
 func (o CampaignSignalInformationOutput) ToCampaignSignalInformationOutputWithContext(ctx context.Context) CampaignSignalInformationOutput {
 	return o
+}
+
+func (o CampaignSignalInformationOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignSignalInformation] {
+	return pulumix.Output[CampaignSignalInformation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CampaignSignalInformationOutput) MaxSampleCount() pulumi.Float64PtrOutput {
@@ -141,6 +160,12 @@ func (o CampaignSignalInformationArrayOutput) ToCampaignSignalInformationArrayOu
 
 func (o CampaignSignalInformationArrayOutput) ToCampaignSignalInformationArrayOutputWithContext(ctx context.Context) CampaignSignalInformationArrayOutput {
 	return o
+}
+
+func (o CampaignSignalInformationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CampaignSignalInformation] {
+	return pulumix.Output[[]CampaignSignalInformation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CampaignSignalInformationArrayOutput) Index(i pulumi.IntInput) CampaignSignalInformationOutput {
@@ -182,6 +207,12 @@ func (i CampaignTagArgs) ToCampaignTagOutputWithContext(ctx context.Context) Cam
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignTagOutput)
 }
 
+func (i CampaignTagArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignTag] {
+	return pulumix.Output[CampaignTag]{
+		OutputState: i.ToCampaignTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CampaignTagArrayInput is an input type that accepts CampaignTagArray and CampaignTagArrayOutput values.
 // You can construct a concrete instance of `CampaignTagArrayInput` via:
 //
@@ -207,6 +238,12 @@ func (i CampaignTagArray) ToCampaignTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignTagArrayOutput)
 }
 
+func (i CampaignTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CampaignTag] {
+	return pulumix.Output[[]CampaignTag]{
+		OutputState: i.ToCampaignTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CampaignTagOutput struct{ *pulumi.OutputState }
 
 func (CampaignTagOutput) ElementType() reflect.Type {
@@ -219,6 +256,12 @@ func (o CampaignTagOutput) ToCampaignTagOutput() CampaignTagOutput {
 
 func (o CampaignTagOutput) ToCampaignTagOutputWithContext(ctx context.Context) CampaignTagOutput {
 	return o
+}
+
+func (o CampaignTagOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignTag] {
+	return pulumix.Output[CampaignTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CampaignTagOutput) Key() pulumi.StringOutput {
@@ -241,6 +284,12 @@ func (o CampaignTagArrayOutput) ToCampaignTagArrayOutput() CampaignTagArrayOutpu
 
 func (o CampaignTagArrayOutput) ToCampaignTagArrayOutputWithContext(ctx context.Context) CampaignTagArrayOutput {
 	return o
+}
+
+func (o CampaignTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CampaignTag] {
+	return pulumix.Output[[]CampaignTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CampaignTagArrayOutput) Index(i pulumi.IntInput) CampaignTagOutput {
@@ -356,6 +405,12 @@ func (i DecoderManifestTagArgs) ToDecoderManifestTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DecoderManifestTagOutput)
 }
 
+func (i DecoderManifestTagArgs) ToOutput(ctx context.Context) pulumix.Output[DecoderManifestTag] {
+	return pulumix.Output[DecoderManifestTag]{
+		OutputState: i.ToDecoderManifestTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DecoderManifestTagArrayInput is an input type that accepts DecoderManifestTagArray and DecoderManifestTagArrayOutput values.
 // You can construct a concrete instance of `DecoderManifestTagArrayInput` via:
 //
@@ -381,6 +436,12 @@ func (i DecoderManifestTagArray) ToDecoderManifestTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DecoderManifestTagArrayOutput)
 }
 
+func (i DecoderManifestTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DecoderManifestTag] {
+	return pulumix.Output[[]DecoderManifestTag]{
+		OutputState: i.ToDecoderManifestTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DecoderManifestTagOutput struct{ *pulumi.OutputState }
 
 func (DecoderManifestTagOutput) ElementType() reflect.Type {
@@ -393,6 +454,12 @@ func (o DecoderManifestTagOutput) ToDecoderManifestTagOutput() DecoderManifestTa
 
 func (o DecoderManifestTagOutput) ToDecoderManifestTagOutputWithContext(ctx context.Context) DecoderManifestTagOutput {
 	return o
+}
+
+func (o DecoderManifestTagOutput) ToOutput(ctx context.Context) pulumix.Output[DecoderManifestTag] {
+	return pulumix.Output[DecoderManifestTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DecoderManifestTagOutput) Key() pulumi.StringOutput {
@@ -415,6 +482,12 @@ func (o DecoderManifestTagArrayOutput) ToDecoderManifestTagArrayOutput() Decoder
 
 func (o DecoderManifestTagArrayOutput) ToDecoderManifestTagArrayOutputWithContext(ctx context.Context) DecoderManifestTagArrayOutput {
 	return o
+}
+
+func (o DecoderManifestTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DecoderManifestTag] {
+	return pulumix.Output[[]DecoderManifestTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DecoderManifestTagArrayOutput) Index(i pulumi.IntInput) DecoderManifestTagOutput {
@@ -456,6 +529,12 @@ func (i FleetTagArgs) ToFleetTagOutputWithContext(ctx context.Context) FleetTagO
 	return pulumi.ToOutputWithContext(ctx, i).(FleetTagOutput)
 }
 
+func (i FleetTagArgs) ToOutput(ctx context.Context) pulumix.Output[FleetTag] {
+	return pulumix.Output[FleetTag]{
+		OutputState: i.ToFleetTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FleetTagArrayInput is an input type that accepts FleetTagArray and FleetTagArrayOutput values.
 // You can construct a concrete instance of `FleetTagArrayInput` via:
 //
@@ -481,6 +560,12 @@ func (i FleetTagArray) ToFleetTagArrayOutputWithContext(ctx context.Context) Fle
 	return pulumi.ToOutputWithContext(ctx, i).(FleetTagArrayOutput)
 }
 
+func (i FleetTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FleetTag] {
+	return pulumix.Output[[]FleetTag]{
+		OutputState: i.ToFleetTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FleetTagOutput struct{ *pulumi.OutputState }
 
 func (FleetTagOutput) ElementType() reflect.Type {
@@ -493,6 +578,12 @@ func (o FleetTagOutput) ToFleetTagOutput() FleetTagOutput {
 
 func (o FleetTagOutput) ToFleetTagOutputWithContext(ctx context.Context) FleetTagOutput {
 	return o
+}
+
+func (o FleetTagOutput) ToOutput(ctx context.Context) pulumix.Output[FleetTag] {
+	return pulumix.Output[FleetTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetTagOutput) Key() pulumi.StringOutput {
@@ -515,6 +606,12 @@ func (o FleetTagArrayOutput) ToFleetTagArrayOutput() FleetTagArrayOutput {
 
 func (o FleetTagArrayOutput) ToFleetTagArrayOutputWithContext(ctx context.Context) FleetTagArrayOutput {
 	return o
+}
+
+func (o FleetTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FleetTag] {
+	return pulumix.Output[[]FleetTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetTagArrayOutput) Index(i pulumi.IntInput) FleetTagOutput {
@@ -556,6 +653,12 @@ func (i ModelManifestTagArgs) ToModelManifestTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ModelManifestTagOutput)
 }
 
+func (i ModelManifestTagArgs) ToOutput(ctx context.Context) pulumix.Output[ModelManifestTag] {
+	return pulumix.Output[ModelManifestTag]{
+		OutputState: i.ToModelManifestTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ModelManifestTagArrayInput is an input type that accepts ModelManifestTagArray and ModelManifestTagArrayOutput values.
 // You can construct a concrete instance of `ModelManifestTagArrayInput` via:
 //
@@ -581,6 +684,12 @@ func (i ModelManifestTagArray) ToModelManifestTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ModelManifestTagArrayOutput)
 }
 
+func (i ModelManifestTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ModelManifestTag] {
+	return pulumix.Output[[]ModelManifestTag]{
+		OutputState: i.ToModelManifestTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ModelManifestTagOutput struct{ *pulumi.OutputState }
 
 func (ModelManifestTagOutput) ElementType() reflect.Type {
@@ -593,6 +702,12 @@ func (o ModelManifestTagOutput) ToModelManifestTagOutput() ModelManifestTagOutpu
 
 func (o ModelManifestTagOutput) ToModelManifestTagOutputWithContext(ctx context.Context) ModelManifestTagOutput {
 	return o
+}
+
+func (o ModelManifestTagOutput) ToOutput(ctx context.Context) pulumix.Output[ModelManifestTag] {
+	return pulumix.Output[ModelManifestTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ModelManifestTagOutput) Key() pulumi.StringOutput {
@@ -615,6 +730,12 @@ func (o ModelManifestTagArrayOutput) ToModelManifestTagArrayOutput() ModelManife
 
 func (o ModelManifestTagArrayOutput) ToModelManifestTagArrayOutputWithContext(ctx context.Context) ModelManifestTagArrayOutput {
 	return o
+}
+
+func (o ModelManifestTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ModelManifestTag] {
+	return pulumix.Output[[]ModelManifestTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ModelManifestTagArrayOutput) Index(i pulumi.IntInput) ModelManifestTagOutput {
@@ -706,6 +827,12 @@ func (i SignalCatalogNodeCountsArgs) ToSignalCatalogNodeCountsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SignalCatalogNodeCountsOutput)
 }
 
+func (i SignalCatalogNodeCountsArgs) ToOutput(ctx context.Context) pulumix.Output[SignalCatalogNodeCounts] {
+	return pulumix.Output[SignalCatalogNodeCounts]{
+		OutputState: i.ToSignalCatalogNodeCountsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SignalCatalogNodeCountsArgs) ToSignalCatalogNodeCountsPtrOutput() SignalCatalogNodeCountsPtrOutput {
 	return i.ToSignalCatalogNodeCountsPtrOutputWithContext(context.Background())
 }
@@ -747,6 +874,12 @@ func (i *signalCatalogNodeCountsPtrType) ToSignalCatalogNodeCountsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SignalCatalogNodeCountsPtrOutput)
 }
 
+func (i *signalCatalogNodeCountsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SignalCatalogNodeCounts] {
+	return pulumix.Output[*SignalCatalogNodeCounts]{
+		OutputState: i.ToSignalCatalogNodeCountsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SignalCatalogNodeCountsOutput struct{ *pulumi.OutputState }
 
 func (SignalCatalogNodeCountsOutput) ElementType() reflect.Type {
@@ -769,6 +902,12 @@ func (o SignalCatalogNodeCountsOutput) ToSignalCatalogNodeCountsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignalCatalogNodeCounts) *SignalCatalogNodeCounts {
 		return &v
 	}).(SignalCatalogNodeCountsPtrOutput)
+}
+
+func (o SignalCatalogNodeCountsOutput) ToOutput(ctx context.Context) pulumix.Output[SignalCatalogNodeCounts] {
+	return pulumix.Output[SignalCatalogNodeCounts]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SignalCatalogNodeCountsOutput) TotalActuators() pulumi.Float64PtrOutput {
@@ -803,6 +942,12 @@ func (o SignalCatalogNodeCountsPtrOutput) ToSignalCatalogNodeCountsPtrOutput() S
 
 func (o SignalCatalogNodeCountsPtrOutput) ToSignalCatalogNodeCountsPtrOutputWithContext(ctx context.Context) SignalCatalogNodeCountsPtrOutput {
 	return o
+}
+
+func (o SignalCatalogNodeCountsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SignalCatalogNodeCounts] {
+	return pulumix.Output[*SignalCatalogNodeCounts]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SignalCatalogNodeCountsPtrOutput) Elem() SignalCatalogNodeCountsOutput {
@@ -903,6 +1048,12 @@ func (i SignalCatalogTagArgs) ToSignalCatalogTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SignalCatalogTagOutput)
 }
 
+func (i SignalCatalogTagArgs) ToOutput(ctx context.Context) pulumix.Output[SignalCatalogTag] {
+	return pulumix.Output[SignalCatalogTag]{
+		OutputState: i.ToSignalCatalogTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SignalCatalogTagArrayInput is an input type that accepts SignalCatalogTagArray and SignalCatalogTagArrayOutput values.
 // You can construct a concrete instance of `SignalCatalogTagArrayInput` via:
 //
@@ -928,6 +1079,12 @@ func (i SignalCatalogTagArray) ToSignalCatalogTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SignalCatalogTagArrayOutput)
 }
 
+func (i SignalCatalogTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SignalCatalogTag] {
+	return pulumix.Output[[]SignalCatalogTag]{
+		OutputState: i.ToSignalCatalogTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SignalCatalogTagOutput struct{ *pulumi.OutputState }
 
 func (SignalCatalogTagOutput) ElementType() reflect.Type {
@@ -940,6 +1097,12 @@ func (o SignalCatalogTagOutput) ToSignalCatalogTagOutput() SignalCatalogTagOutpu
 
 func (o SignalCatalogTagOutput) ToSignalCatalogTagOutputWithContext(ctx context.Context) SignalCatalogTagOutput {
 	return o
+}
+
+func (o SignalCatalogTagOutput) ToOutput(ctx context.Context) pulumix.Output[SignalCatalogTag] {
+	return pulumix.Output[SignalCatalogTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SignalCatalogTagOutput) Key() pulumi.StringOutput {
@@ -962,6 +1125,12 @@ func (o SignalCatalogTagArrayOutput) ToSignalCatalogTagArrayOutput() SignalCatal
 
 func (o SignalCatalogTagArrayOutput) ToSignalCatalogTagArrayOutputWithContext(ctx context.Context) SignalCatalogTagArrayOutput {
 	return o
+}
+
+func (o SignalCatalogTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SignalCatalogTag] {
+	return pulumix.Output[[]SignalCatalogTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SignalCatalogTagArrayOutput) Index(i pulumi.IntInput) SignalCatalogTagOutput {
@@ -1003,6 +1172,12 @@ func (i VehicleTagArgs) ToVehicleTagOutputWithContext(ctx context.Context) Vehic
 	return pulumi.ToOutputWithContext(ctx, i).(VehicleTagOutput)
 }
 
+func (i VehicleTagArgs) ToOutput(ctx context.Context) pulumix.Output[VehicleTag] {
+	return pulumix.Output[VehicleTag]{
+		OutputState: i.ToVehicleTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VehicleTagArrayInput is an input type that accepts VehicleTagArray and VehicleTagArrayOutput values.
 // You can construct a concrete instance of `VehicleTagArrayInput` via:
 //
@@ -1028,6 +1203,12 @@ func (i VehicleTagArray) ToVehicleTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(VehicleTagArrayOutput)
 }
 
+func (i VehicleTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VehicleTag] {
+	return pulumix.Output[[]VehicleTag]{
+		OutputState: i.ToVehicleTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VehicleTagOutput struct{ *pulumi.OutputState }
 
 func (VehicleTagOutput) ElementType() reflect.Type {
@@ -1040,6 +1221,12 @@ func (o VehicleTagOutput) ToVehicleTagOutput() VehicleTagOutput {
 
 func (o VehicleTagOutput) ToVehicleTagOutputWithContext(ctx context.Context) VehicleTagOutput {
 	return o
+}
+
+func (o VehicleTagOutput) ToOutput(ctx context.Context) pulumix.Output[VehicleTag] {
+	return pulumix.Output[VehicleTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VehicleTagOutput) Key() pulumi.StringOutput {
@@ -1062,6 +1249,12 @@ func (o VehicleTagArrayOutput) ToVehicleTagArrayOutput() VehicleTagArrayOutput {
 
 func (o VehicleTagArrayOutput) ToVehicleTagArrayOutputWithContext(ctx context.Context) VehicleTagArrayOutput {
 	return o
+}
+
+func (o VehicleTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VehicleTag] {
+	return pulumix.Output[[]VehicleTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VehicleTagArrayOutput) Index(i pulumi.IntInput) VehicleTagOutput {
@@ -1097,6 +1290,12 @@ func (i VehicleattributesMapArgs) ToVehicleattributesMapOutput() Vehicleattribut
 
 func (i VehicleattributesMapArgs) ToVehicleattributesMapOutputWithContext(ctx context.Context) VehicleattributesMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VehicleattributesMapOutput)
+}
+
+func (i VehicleattributesMapArgs) ToOutput(ctx context.Context) pulumix.Output[VehicleattributesMap] {
+	return pulumix.Output[VehicleattributesMap]{
+		OutputState: i.ToVehicleattributesMapOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i VehicleattributesMapArgs) ToVehicleattributesMapPtrOutput() VehicleattributesMapPtrOutput {
@@ -1140,6 +1339,12 @@ func (i *vehicleattributesMapPtrType) ToVehicleattributesMapPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VehicleattributesMapPtrOutput)
 }
 
+func (i *vehicleattributesMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*VehicleattributesMap] {
+	return pulumix.Output[*VehicleattributesMap]{
+		OutputState: i.ToVehicleattributesMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VehicleattributesMapOutput struct{ *pulumi.OutputState }
 
 func (VehicleattributesMapOutput) ElementType() reflect.Type {
@@ -1164,6 +1369,12 @@ func (o VehicleattributesMapOutput) ToVehicleattributesMapPtrOutputWithContext(c
 	}).(VehicleattributesMapPtrOutput)
 }
 
+func (o VehicleattributesMapOutput) ToOutput(ctx context.Context) pulumix.Output[VehicleattributesMap] {
+	return pulumix.Output[VehicleattributesMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type VehicleattributesMapPtrOutput struct{ *pulumi.OutputState }
 
 func (VehicleattributesMapPtrOutput) ElementType() reflect.Type {
@@ -1176,6 +1387,12 @@ func (o VehicleattributesMapPtrOutput) ToVehicleattributesMapPtrOutput() Vehicle
 
 func (o VehicleattributesMapPtrOutput) ToVehicleattributesMapPtrOutputWithContext(ctx context.Context) VehicleattributesMapPtrOutput {
 	return o
+}
+
+func (o VehicleattributesMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VehicleattributesMap] {
+	return pulumix.Output[*VehicleattributesMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VehicleattributesMapPtrOutput) Elem() VehicleattributesMapOutput {

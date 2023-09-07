@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::StackUserAssociation
@@ -117,6 +118,12 @@ func (i *StackUserAssociation) ToStackUserAssociationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(StackUserAssociationOutput)
 }
 
+func (i *StackUserAssociation) ToOutput(ctx context.Context) pulumix.Output[*StackUserAssociation] {
+	return pulumix.Output[*StackUserAssociation]{
+		OutputState: i.ToStackUserAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackUserAssociationOutput struct{ *pulumi.OutputState }
 
 func (StackUserAssociationOutput) ElementType() reflect.Type {
@@ -129,6 +136,12 @@ func (o StackUserAssociationOutput) ToStackUserAssociationOutput() StackUserAsso
 
 func (o StackUserAssociationOutput) ToStackUserAssociationOutputWithContext(ctx context.Context) StackUserAssociationOutput {
 	return o
+}
+
+func (o StackUserAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*StackUserAssociation] {
+	return pulumix.Output[*StackUserAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackUserAssociationOutput) AuthenticationType() pulumi.StringOutput {

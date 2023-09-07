@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
@@ -68,6 +69,12 @@ func (o LookupNetworkInterfaceAttachmentResultOutput) ToLookupNetworkInterfaceAt
 
 func (o LookupNetworkInterfaceAttachmentResultOutput) ToLookupNetworkInterfaceAttachmentResultOutputWithContext(ctx context.Context) LookupNetworkInterfaceAttachmentResultOutput {
 	return o
+}
+
+func (o LookupNetworkInterfaceAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkInterfaceAttachmentResult] {
+	return pulumix.Output[LookupNetworkInterfaceAttachmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the network interface attachment.

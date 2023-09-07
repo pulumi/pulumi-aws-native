@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::NotebookInstanceLifecycleConfig
@@ -65,6 +66,12 @@ func (o LookupNotebookInstanceLifecycleConfigResultOutput) ToLookupNotebookInsta
 
 func (o LookupNotebookInstanceLifecycleConfigResultOutput) ToLookupNotebookInstanceLifecycleConfigResultOutputWithContext(ctx context.Context) LookupNotebookInstanceLifecycleConfigResultOutput {
 	return o
+}
+
+func (o LookupNotebookInstanceLifecycleConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNotebookInstanceLifecycleConfigResult] {
+	return pulumix.Output[LookupNotebookInstanceLifecycleConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupNotebookInstanceLifecycleConfigResultOutput) Id() pulumi.StringPtrOutput {

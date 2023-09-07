@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::SecurityKey
@@ -105,6 +106,12 @@ func (i *SecurityKey) ToSecurityKeyOutputWithContext(ctx context.Context) Securi
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityKeyOutput)
 }
 
+func (i *SecurityKey) ToOutput(ctx context.Context) pulumix.Output[*SecurityKey] {
+	return pulumix.Output[*SecurityKey]{
+		OutputState: i.ToSecurityKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityKeyOutput struct{ *pulumi.OutputState }
 
 func (SecurityKeyOutput) ElementType() reflect.Type {
@@ -117,6 +124,12 @@ func (o SecurityKeyOutput) ToSecurityKeyOutput() SecurityKeyOutput {
 
 func (o SecurityKeyOutput) ToSecurityKeyOutputWithContext(ctx context.Context) SecurityKeyOutput {
 	return o
+}
+
+func (o SecurityKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityKey] {
+	return pulumix.Output[*SecurityKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityKeyOutput) AssociationId() pulumi.StringOutput {

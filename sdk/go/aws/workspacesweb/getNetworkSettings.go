@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::NetworkSettings Resource Type
@@ -68,6 +69,12 @@ func (o LookupNetworkSettingsResultOutput) ToLookupNetworkSettingsResultOutput()
 
 func (o LookupNetworkSettingsResultOutput) ToLookupNetworkSettingsResultOutputWithContext(ctx context.Context) LookupNetworkSettingsResultOutput {
 	return o
+}
+
+func (o LookupNetworkSettingsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkSettingsResult] {
+	return pulumix.Output[LookupNetworkSettingsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupNetworkSettingsResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {

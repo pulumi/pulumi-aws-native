@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i ApplicationCatalogConfigurationArgs) ToApplicationCatalogConfigurationOu
 
 func (i ApplicationCatalogConfigurationArgs) ToApplicationCatalogConfigurationOutputWithContext(ctx context.Context) ApplicationCatalogConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCatalogConfigurationOutput)
+}
+
+func (i ApplicationCatalogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCatalogConfiguration] {
+	return pulumix.Output[ApplicationCatalogConfiguration]{
+		OutputState: i.ToApplicationCatalogConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ApplicationCatalogConfigurationArgs) ToApplicationCatalogConfigurationPtrOutput() ApplicationCatalogConfigurationPtrOutput {
@@ -89,6 +96,12 @@ func (i *applicationCatalogConfigurationPtrType) ToApplicationCatalogConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCatalogConfigurationPtrOutput)
 }
 
+func (i *applicationCatalogConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCatalogConfiguration] {
+	return pulumix.Output[*ApplicationCatalogConfiguration]{
+		OutputState: i.ToApplicationCatalogConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
 type ApplicationCatalogConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -114,6 +127,12 @@ func (o ApplicationCatalogConfigurationOutput) ToApplicationCatalogConfiguration
 	}).(ApplicationCatalogConfigurationPtrOutput)
 }
 
+func (o ApplicationCatalogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCatalogConfiguration] {
+	return pulumix.Output[ApplicationCatalogConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
 func (o ApplicationCatalogConfigurationOutput) GlueDataCatalogConfiguration() ApplicationGlueDataCatalogConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationCatalogConfiguration) *ApplicationGlueDataCatalogConfiguration {
@@ -133,6 +152,12 @@ func (o ApplicationCatalogConfigurationPtrOutput) ToApplicationCatalogConfigurat
 
 func (o ApplicationCatalogConfigurationPtrOutput) ToApplicationCatalogConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCatalogConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationCatalogConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCatalogConfiguration] {
+	return pulumix.Output[*ApplicationCatalogConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCatalogConfigurationPtrOutput) Elem() ApplicationCatalogConfigurationOutput {
@@ -202,6 +227,12 @@ func (i ApplicationCheckpointConfigurationArgs) ToApplicationCheckpointConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCheckpointConfigurationOutput)
 }
 
+func (i ApplicationCheckpointConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCheckpointConfiguration] {
+	return pulumix.Output[ApplicationCheckpointConfiguration]{
+		OutputState: i.ToApplicationCheckpointConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationCheckpointConfigurationArgs) ToApplicationCheckpointConfigurationPtrOutput() ApplicationCheckpointConfigurationPtrOutput {
 	return i.ToApplicationCheckpointConfigurationPtrOutputWithContext(context.Background())
 }
@@ -243,6 +274,12 @@ func (i *applicationCheckpointConfigurationPtrType) ToApplicationCheckpointConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCheckpointConfigurationPtrOutput)
 }
 
+func (i *applicationCheckpointConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCheckpointConfiguration] {
+	return pulumix.Output[*ApplicationCheckpointConfiguration]{
+		OutputState: i.ToApplicationCheckpointConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
 type ApplicationCheckpointConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -266,6 +303,12 @@ func (o ApplicationCheckpointConfigurationOutput) ToApplicationCheckpointConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationCheckpointConfiguration) *ApplicationCheckpointConfiguration {
 		return &v
 	}).(ApplicationCheckpointConfigurationPtrOutput)
+}
+
+func (o ApplicationCheckpointConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCheckpointConfiguration] {
+	return pulumix.Output[ApplicationCheckpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes the interval in milliseconds between checkpoint operations.
@@ -302,6 +345,12 @@ func (o ApplicationCheckpointConfigurationPtrOutput) ToApplicationCheckpointConf
 
 func (o ApplicationCheckpointConfigurationPtrOutput) ToApplicationCheckpointConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCheckpointConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationCheckpointConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCheckpointConfiguration] {
+	return pulumix.Output[*ApplicationCheckpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCheckpointConfigurationPtrOutput) Elem() ApplicationCheckpointConfigurationOutput {
@@ -385,6 +434,12 @@ func (i ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs) ToApplica
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput)
 }
 
+func (i ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption] {
+	return pulumix.Output[ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption]{
+		OutputState: i.ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) ElementType() reflect.Type {
@@ -397,6 +452,12 @@ func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) ToAppli
 
 func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput {
 	return o
+}
+
+func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption] {
+	return pulumix.Output[ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) LogStreamArn() pulumi.StringOutput {
@@ -415,6 +476,12 @@ func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) ToAp
 
 func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput {
 	return o
+}
+
+func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption] {
+	return pulumix.Output[*ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) Elem() ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput {
@@ -475,6 +542,12 @@ func (i ApplicationCodeConfigurationArgs) ToApplicationCodeConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCodeConfigurationOutput)
 }
 
+func (i ApplicationCodeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCodeConfiguration] {
+	return pulumix.Output[ApplicationCodeConfiguration]{
+		OutputState: i.ToApplicationCodeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationCodeConfigurationArgs) ToApplicationCodeConfigurationPtrOutput() ApplicationCodeConfigurationPtrOutput {
 	return i.ToApplicationCodeConfigurationPtrOutputWithContext(context.Background())
 }
@@ -516,6 +589,12 @@ func (i *applicationCodeConfigurationPtrType) ToApplicationCodeConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCodeConfigurationPtrOutput)
 }
 
+func (i *applicationCodeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCodeConfiguration] {
+	return pulumix.Output[*ApplicationCodeConfiguration]{
+		OutputState: i.ToApplicationCodeConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes code configuration for an application.
 type ApplicationCodeConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -539,6 +618,12 @@ func (o ApplicationCodeConfigurationOutput) ToApplicationCodeConfigurationPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationCodeConfiguration) *ApplicationCodeConfiguration {
 		return &v
 	}).(ApplicationCodeConfigurationPtrOutput)
+}
+
+func (o ApplicationCodeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCodeConfiguration] {
+	return pulumix.Output[ApplicationCodeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The location and type of the application code.
@@ -565,6 +650,12 @@ func (o ApplicationCodeConfigurationPtrOutput) ToApplicationCodeConfigurationPtr
 
 func (o ApplicationCodeConfigurationPtrOutput) ToApplicationCodeConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCodeConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationCodeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCodeConfiguration] {
+	return pulumix.Output[*ApplicationCodeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCodeConfigurationPtrOutput) Elem() ApplicationCodeConfigurationOutput {
@@ -640,6 +731,12 @@ func (i ApplicationCodeContentArgs) ToApplicationCodeContentOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCodeContentOutput)
 }
 
+func (i ApplicationCodeContentArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCodeContent] {
+	return pulumix.Output[ApplicationCodeContent]{
+		OutputState: i.ToApplicationCodeContentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationCodeContentArgs) ToApplicationCodeContentPtrOutput() ApplicationCodeContentPtrOutput {
 	return i.ToApplicationCodeContentPtrOutputWithContext(context.Background())
 }
@@ -681,6 +778,12 @@ func (i *applicationCodeContentPtrType) ToApplicationCodeContentPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCodeContentPtrOutput)
 }
 
+func (i *applicationCodeContentPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCodeContent] {
+	return pulumix.Output[*ApplicationCodeContent]{
+		OutputState: i.ToApplicationCodeContentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
 type ApplicationCodeContentOutput struct{ *pulumi.OutputState }
 
@@ -704,6 +807,12 @@ func (o ApplicationCodeContentOutput) ToApplicationCodeContentPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationCodeContent) *ApplicationCodeContent {
 		return &v
 	}).(ApplicationCodeContentPtrOutput)
+}
+
+func (o ApplicationCodeContentOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCodeContent] {
+	return pulumix.Output[ApplicationCodeContent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Information about the Amazon S3 bucket that contains the application code.
@@ -733,6 +842,12 @@ func (o ApplicationCodeContentPtrOutput) ToApplicationCodeContentPtrOutput() App
 
 func (o ApplicationCodeContentPtrOutput) ToApplicationCodeContentPtrOutputWithContext(ctx context.Context) ApplicationCodeContentPtrOutput {
 	return o
+}
+
+func (o ApplicationCodeContentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCodeContent] {
+	return pulumix.Output[*ApplicationCodeContent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCodeContentPtrOutput) Elem() ApplicationCodeContentOutput {
@@ -834,6 +949,12 @@ func (i ApplicationConfigurationArgs) ToApplicationConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigurationOutput)
 }
 
+func (i ApplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationConfiguration] {
+	return pulumix.Output[ApplicationConfiguration]{
+		OutputState: i.ToApplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationConfigurationArgs) ToApplicationConfigurationPtrOutput() ApplicationConfigurationPtrOutput {
 	return i.ToApplicationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -875,6 +996,12 @@ func (i *applicationConfigurationPtrType) ToApplicationConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigurationPtrOutput)
 }
 
+func (i *applicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationConfiguration] {
+	return pulumix.Output[*ApplicationConfiguration]{
+		OutputState: i.ToApplicationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies the creation parameters for a Kinesis Data Analytics application.
 type ApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -898,6 +1025,12 @@ func (o ApplicationConfigurationOutput) ToApplicationConfigurationPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationConfiguration) *ApplicationConfiguration {
 		return &v
 	}).(ApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationConfiguration] {
+	return pulumix.Output[ApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The code location and type parameters for a Flink-based Kinesis Data Analytics application.
@@ -955,6 +1088,12 @@ func (o ApplicationConfigurationPtrOutput) ToApplicationConfigurationPtrOutput()
 
 func (o ApplicationConfigurationPtrOutput) ToApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationConfiguration] {
+	return pulumix.Output[*ApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationConfigurationPtrOutput) Elem() ApplicationConfigurationOutput {
@@ -1080,6 +1219,12 @@ func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersOu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCsvMappingParametersOutput)
 }
 
+func (i ApplicationCsvMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCsvMappingParameters] {
+	return pulumix.Output[ApplicationCsvMappingParameters]{
+		OutputState: i.ToApplicationCsvMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput {
 	return i.ToApplicationCsvMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -1121,6 +1266,12 @@ func (i *applicationCsvMappingParametersPtrType) ToApplicationCsvMappingParamete
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCsvMappingParametersPtrOutput)
 }
 
+func (i *applicationCsvMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCsvMappingParameters] {
+	return pulumix.Output[*ApplicationCsvMappingParameters]{
+		OutputState: i.ToApplicationCsvMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
 // `"name1", "address1"`
 // `"name2", "address2"`
@@ -1148,6 +1299,12 @@ func (o ApplicationCsvMappingParametersOutput) ToApplicationCsvMappingParameters
 	}).(ApplicationCsvMappingParametersPtrOutput)
 }
 
+func (o ApplicationCsvMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCsvMappingParameters] {
+	return pulumix.Output[ApplicationCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
 func (o ApplicationCsvMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationCsvMappingParameters) string { return v.RecordColumnDelimiter }).(pulumi.StringOutput)
@@ -1170,6 +1327,12 @@ func (o ApplicationCsvMappingParametersPtrOutput) ToApplicationCsvMappingParamet
 
 func (o ApplicationCsvMappingParametersPtrOutput) ToApplicationCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationCsvMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCsvMappingParameters] {
+	return pulumix.Output[*ApplicationCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCsvMappingParametersPtrOutput) Elem() ApplicationCsvMappingParametersOutput {
@@ -1245,6 +1408,12 @@ func (i ApplicationCustomArtifactConfigurationArgs) ToApplicationCustomArtifactC
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCustomArtifactConfigurationOutput)
 }
 
+func (i ApplicationCustomArtifactConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCustomArtifactConfiguration] {
+	return pulumix.Output[ApplicationCustomArtifactConfiguration]{
+		OutputState: i.ToApplicationCustomArtifactConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationCustomArtifactConfigurationArrayInput is an input type that accepts ApplicationCustomArtifactConfigurationArray and ApplicationCustomArtifactConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationCustomArtifactConfigurationArrayInput` via:
 //
@@ -1270,6 +1439,12 @@ func (i ApplicationCustomArtifactConfigurationArray) ToApplicationCustomArtifact
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCustomArtifactConfigurationArrayOutput)
 }
 
+func (i ApplicationCustomArtifactConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationCustomArtifactConfiguration] {
+	return pulumix.Output[[]ApplicationCustomArtifactConfiguration]{
+		OutputState: i.ToApplicationCustomArtifactConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration of connectors and user-defined functions.
 type ApplicationCustomArtifactConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1283,6 +1458,12 @@ func (o ApplicationCustomArtifactConfigurationOutput) ToApplicationCustomArtifac
 
 func (o ApplicationCustomArtifactConfigurationOutput) ToApplicationCustomArtifactConfigurationOutputWithContext(ctx context.Context) ApplicationCustomArtifactConfigurationOutput {
 	return o
+}
+
+func (o ApplicationCustomArtifactConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCustomArtifactConfiguration] {
+	return pulumix.Output[ApplicationCustomArtifactConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
@@ -1316,6 +1497,12 @@ func (o ApplicationCustomArtifactConfigurationArrayOutput) ToApplicationCustomAr
 
 func (o ApplicationCustomArtifactConfigurationArrayOutput) ToApplicationCustomArtifactConfigurationArrayOutputWithContext(ctx context.Context) ApplicationCustomArtifactConfigurationArrayOutput {
 	return o
+}
+
+func (o ApplicationCustomArtifactConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationCustomArtifactConfiguration] {
+	return pulumix.Output[[]ApplicationCustomArtifactConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCustomArtifactConfigurationArrayOutput) Index(i pulumi.IntInput) ApplicationCustomArtifactConfigurationOutput {
@@ -1359,6 +1546,12 @@ func (i ApplicationDeployAsApplicationConfigurationArgs) ToApplicationDeployAsAp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeployAsApplicationConfigurationOutput)
 }
 
+func (i ApplicationDeployAsApplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationDeployAsApplicationConfiguration] {
+	return pulumix.Output[ApplicationDeployAsApplicationConfiguration]{
+		OutputState: i.ToApplicationDeployAsApplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationDeployAsApplicationConfigurationArgs) ToApplicationDeployAsApplicationConfigurationPtrOutput() ApplicationDeployAsApplicationConfigurationPtrOutput {
 	return i.ToApplicationDeployAsApplicationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1400,6 +1593,12 @@ func (i *applicationDeployAsApplicationConfigurationPtrType) ToApplicationDeploy
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeployAsApplicationConfigurationPtrOutput)
 }
 
+func (i *applicationDeployAsApplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationDeployAsApplicationConfiguration] {
+	return pulumix.Output[*ApplicationDeployAsApplicationConfiguration]{
+		OutputState: i.ToApplicationDeployAsApplicationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
 type ApplicationDeployAsApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1425,6 +1624,12 @@ func (o ApplicationDeployAsApplicationConfigurationOutput) ToApplicationDeployAs
 	}).(ApplicationDeployAsApplicationConfigurationPtrOutput)
 }
 
+func (o ApplicationDeployAsApplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationDeployAsApplicationConfiguration] {
+	return pulumix.Output[ApplicationDeployAsApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
 func (o ApplicationDeployAsApplicationConfigurationOutput) S3ContentLocation() ApplicationS3ContentBaseLocationOutput {
 	return o.ApplyT(func(v ApplicationDeployAsApplicationConfiguration) ApplicationS3ContentBaseLocation {
@@ -1444,6 +1649,12 @@ func (o ApplicationDeployAsApplicationConfigurationPtrOutput) ToApplicationDeplo
 
 func (o ApplicationDeployAsApplicationConfigurationPtrOutput) ToApplicationDeployAsApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationDeployAsApplicationConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationDeployAsApplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationDeployAsApplicationConfiguration] {
+	return pulumix.Output[*ApplicationDeployAsApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationDeployAsApplicationConfigurationPtrOutput) Elem() ApplicationDeployAsApplicationConfigurationOutput {
@@ -1501,6 +1712,12 @@ func (i ApplicationEnvironmentPropertiesArgs) ToApplicationEnvironmentProperties
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEnvironmentPropertiesOutput)
 }
 
+func (i ApplicationEnvironmentPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationEnvironmentProperties] {
+	return pulumix.Output[ApplicationEnvironmentProperties]{
+		OutputState: i.ToApplicationEnvironmentPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationEnvironmentPropertiesArgs) ToApplicationEnvironmentPropertiesPtrOutput() ApplicationEnvironmentPropertiesPtrOutput {
 	return i.ToApplicationEnvironmentPropertiesPtrOutputWithContext(context.Background())
 }
@@ -1542,6 +1759,12 @@ func (i *applicationEnvironmentPropertiesPtrType) ToApplicationEnvironmentProper
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEnvironmentPropertiesPtrOutput)
 }
 
+func (i *applicationEnvironmentPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationEnvironmentProperties] {
+	return pulumix.Output[*ApplicationEnvironmentProperties]{
+		OutputState: i.ToApplicationEnvironmentPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes execution properties for a Flink-based Kinesis Data Analytics application.
 type ApplicationEnvironmentPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -1567,6 +1790,12 @@ func (o ApplicationEnvironmentPropertiesOutput) ToApplicationEnvironmentProperti
 	}).(ApplicationEnvironmentPropertiesPtrOutput)
 }
 
+func (o ApplicationEnvironmentPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationEnvironmentProperties] {
+	return pulumix.Output[ApplicationEnvironmentProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Describes the execution property groups.
 func (o ApplicationEnvironmentPropertiesOutput) PropertyGroups() ApplicationPropertyGroupArrayOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentProperties) []ApplicationPropertyGroup { return v.PropertyGroups }).(ApplicationPropertyGroupArrayOutput)
@@ -1584,6 +1813,12 @@ func (o ApplicationEnvironmentPropertiesPtrOutput) ToApplicationEnvironmentPrope
 
 func (o ApplicationEnvironmentPropertiesPtrOutput) ToApplicationEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) ApplicationEnvironmentPropertiesPtrOutput {
 	return o
+}
+
+func (o ApplicationEnvironmentPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationEnvironmentProperties] {
+	return pulumix.Output[*ApplicationEnvironmentProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationEnvironmentPropertiesPtrOutput) Elem() ApplicationEnvironmentPropertiesOutput {
@@ -1649,6 +1884,12 @@ func (i ApplicationFlinkApplicationConfigurationArgs) ToApplicationFlinkApplicat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationFlinkApplicationConfigurationOutput)
 }
 
+func (i ApplicationFlinkApplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationFlinkApplicationConfiguration] {
+	return pulumix.Output[ApplicationFlinkApplicationConfiguration]{
+		OutputState: i.ToApplicationFlinkApplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationFlinkApplicationConfigurationArgs) ToApplicationFlinkApplicationConfigurationPtrOutput() ApplicationFlinkApplicationConfigurationPtrOutput {
 	return i.ToApplicationFlinkApplicationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1690,6 +1931,12 @@ func (i *applicationFlinkApplicationConfigurationPtrType) ToApplicationFlinkAppl
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationFlinkApplicationConfigurationPtrOutput)
 }
 
+func (i *applicationFlinkApplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationFlinkApplicationConfiguration] {
+	return pulumix.Output[*ApplicationFlinkApplicationConfiguration]{
+		OutputState: i.ToApplicationFlinkApplicationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
 type ApplicationFlinkApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1713,6 +1960,12 @@ func (o ApplicationFlinkApplicationConfigurationOutput) ToApplicationFlinkApplic
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationFlinkApplicationConfiguration) *ApplicationFlinkApplicationConfiguration {
 		return &v
 	}).(ApplicationFlinkApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationFlinkApplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationFlinkApplicationConfiguration] {
+	return pulumix.Output[ApplicationFlinkApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
@@ -1748,6 +2001,12 @@ func (o ApplicationFlinkApplicationConfigurationPtrOutput) ToApplicationFlinkApp
 
 func (o ApplicationFlinkApplicationConfigurationPtrOutput) ToApplicationFlinkApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationFlinkApplicationConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationFlinkApplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationFlinkApplicationConfiguration] {
+	return pulumix.Output[*ApplicationFlinkApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationFlinkApplicationConfigurationPtrOutput) Elem() ApplicationFlinkApplicationConfigurationOutput {
@@ -1825,6 +2084,12 @@ func (i ApplicationFlinkRunConfigurationArgs) ToApplicationFlinkRunConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationFlinkRunConfigurationOutput)
 }
 
+func (i ApplicationFlinkRunConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationFlinkRunConfiguration] {
+	return pulumix.Output[ApplicationFlinkRunConfiguration]{
+		OutputState: i.ToApplicationFlinkRunConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationFlinkRunConfigurationArgs) ToApplicationFlinkRunConfigurationPtrOutput() ApplicationFlinkRunConfigurationPtrOutput {
 	return i.ToApplicationFlinkRunConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1866,6 +2131,12 @@ func (i *applicationFlinkRunConfigurationPtrType) ToApplicationFlinkRunConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationFlinkRunConfigurationPtrOutput)
 }
 
+func (i *applicationFlinkRunConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationFlinkRunConfiguration] {
+	return pulumix.Output[*ApplicationFlinkRunConfiguration]{
+		OutputState: i.ToApplicationFlinkRunConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
 type ApplicationFlinkRunConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1891,6 +2162,12 @@ func (o ApplicationFlinkRunConfigurationOutput) ToApplicationFlinkRunConfigurati
 	}).(ApplicationFlinkRunConfigurationPtrOutput)
 }
 
+func (o ApplicationFlinkRunConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationFlinkRunConfiguration] {
+	return pulumix.Output[ApplicationFlinkRunConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true.
 func (o ApplicationFlinkRunConfigurationOutput) AllowNonRestoredState() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationFlinkRunConfiguration) *bool { return v.AllowNonRestoredState }).(pulumi.BoolPtrOutput)
@@ -1908,6 +2185,12 @@ func (o ApplicationFlinkRunConfigurationPtrOutput) ToApplicationFlinkRunConfigur
 
 func (o ApplicationFlinkRunConfigurationPtrOutput) ToApplicationFlinkRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationFlinkRunConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationFlinkRunConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationFlinkRunConfiguration] {
+	return pulumix.Output[*ApplicationFlinkRunConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationFlinkRunConfigurationPtrOutput) Elem() ApplicationFlinkRunConfigurationOutput {
@@ -1965,6 +2248,12 @@ func (i ApplicationGlueDataCatalogConfigurationArgs) ToApplicationGlueDataCatalo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGlueDataCatalogConfigurationOutput)
 }
 
+func (i ApplicationGlueDataCatalogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationGlueDataCatalogConfiguration] {
+	return pulumix.Output[ApplicationGlueDataCatalogConfiguration]{
+		OutputState: i.ToApplicationGlueDataCatalogConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationGlueDataCatalogConfigurationArgs) ToApplicationGlueDataCatalogConfigurationPtrOutput() ApplicationGlueDataCatalogConfigurationPtrOutput {
 	return i.ToApplicationGlueDataCatalogConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2006,6 +2295,12 @@ func (i *applicationGlueDataCatalogConfigurationPtrType) ToApplicationGlueDataCa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGlueDataCatalogConfigurationPtrOutput)
 }
 
+func (i *applicationGlueDataCatalogConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationGlueDataCatalogConfiguration] {
+	return pulumix.Output[*ApplicationGlueDataCatalogConfiguration]{
+		OutputState: i.ToApplicationGlueDataCatalogConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
 type ApplicationGlueDataCatalogConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2031,6 +2326,12 @@ func (o ApplicationGlueDataCatalogConfigurationOutput) ToApplicationGlueDataCata
 	}).(ApplicationGlueDataCatalogConfigurationPtrOutput)
 }
 
+func (o ApplicationGlueDataCatalogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationGlueDataCatalogConfiguration] {
+	return pulumix.Output[ApplicationGlueDataCatalogConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of the database.
 func (o ApplicationGlueDataCatalogConfigurationOutput) DatabaseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGlueDataCatalogConfiguration) *string { return v.DatabaseArn }).(pulumi.StringPtrOutput)
@@ -2048,6 +2349,12 @@ func (o ApplicationGlueDataCatalogConfigurationPtrOutput) ToApplicationGlueDataC
 
 func (o ApplicationGlueDataCatalogConfigurationPtrOutput) ToApplicationGlueDataCatalogConfigurationPtrOutputWithContext(ctx context.Context) ApplicationGlueDataCatalogConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationGlueDataCatalogConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationGlueDataCatalogConfiguration] {
+	return pulumix.Output[*ApplicationGlueDataCatalogConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationGlueDataCatalogConfigurationPtrOutput) Elem() ApplicationGlueDataCatalogConfigurationOutput {
@@ -2125,6 +2432,12 @@ func (i ApplicationInputTypeArgs) ToApplicationInputTypeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputTypeOutput)
 }
 
+func (i ApplicationInputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputType] {
+	return pulumix.Output[ApplicationInputType]{
+		OutputState: i.ToApplicationInputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationInputTypeArrayInput is an input type that accepts ApplicationInputTypeArray and ApplicationInputTypeArrayOutput values.
 // You can construct a concrete instance of `ApplicationInputTypeArrayInput` via:
 //
@@ -2150,6 +2463,12 @@ func (i ApplicationInputTypeArray) ToApplicationInputTypeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputTypeArrayOutput)
 }
 
+func (i ApplicationInputTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationInputType] {
+	return pulumix.Output[[]ApplicationInputType]{
+		OutputState: i.ToApplicationInputTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
 type ApplicationInputTypeOutput struct{ *pulumi.OutputState }
 
@@ -2163,6 +2482,12 @@ func (o ApplicationInputTypeOutput) ToApplicationInputTypeOutput() ApplicationIn
 
 func (o ApplicationInputTypeOutput) ToApplicationInputTypeOutputWithContext(ctx context.Context) ApplicationInputTypeOutput {
 	return o
+}
+
+func (o ApplicationInputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputType] {
+	return pulumix.Output[ApplicationInputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes the number of in-application streams to create.
@@ -2211,6 +2536,12 @@ func (o ApplicationInputTypeArrayOutput) ToApplicationInputTypeArrayOutputWithCo
 	return o
 }
 
+func (o ApplicationInputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationInputType] {
+	return pulumix.Output[[]ApplicationInputType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationInputTypeArrayOutput) Index(i pulumi.IntInput) ApplicationInputTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationInputType {
 		return vs[0].([]ApplicationInputType)[vs[1].(int)]
@@ -2250,6 +2581,12 @@ func (i ApplicationInputLambdaProcessorArgs) ToApplicationInputLambdaProcessorOu
 
 func (i ApplicationInputLambdaProcessorArgs) ToApplicationInputLambdaProcessorOutputWithContext(ctx context.Context) ApplicationInputLambdaProcessorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputLambdaProcessorOutput)
+}
+
+func (i ApplicationInputLambdaProcessorArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputLambdaProcessor] {
+	return pulumix.Output[ApplicationInputLambdaProcessor]{
+		OutputState: i.ToApplicationInputLambdaProcessorOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ApplicationInputLambdaProcessorArgs) ToApplicationInputLambdaProcessorPtrOutput() ApplicationInputLambdaProcessorPtrOutput {
@@ -2293,6 +2630,12 @@ func (i *applicationInputLambdaProcessorPtrType) ToApplicationInputLambdaProcess
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputLambdaProcessorPtrOutput)
 }
 
+func (i *applicationInputLambdaProcessorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputLambdaProcessor] {
+	return pulumix.Output[*ApplicationInputLambdaProcessor]{
+		OutputState: i.ToApplicationInputLambdaProcessorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
 type ApplicationInputLambdaProcessorOutput struct{ *pulumi.OutputState }
 
@@ -2318,6 +2661,12 @@ func (o ApplicationInputLambdaProcessorOutput) ToApplicationInputLambdaProcessor
 	}).(ApplicationInputLambdaProcessorPtrOutput)
 }
 
+func (o ApplicationInputLambdaProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputLambdaProcessor] {
+	return pulumix.Output[ApplicationInputLambdaProcessor]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Amazon Lambda function that operates on records in the stream.
 func (o ApplicationInputLambdaProcessorOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationInputLambdaProcessor) string { return v.ResourceArn }).(pulumi.StringOutput)
@@ -2335,6 +2684,12 @@ func (o ApplicationInputLambdaProcessorPtrOutput) ToApplicationInputLambdaProces
 
 func (o ApplicationInputLambdaProcessorPtrOutput) ToApplicationInputLambdaProcessorPtrOutputWithContext(ctx context.Context) ApplicationInputLambdaProcessorPtrOutput {
 	return o
+}
+
+func (o ApplicationInputLambdaProcessorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputLambdaProcessor] {
+	return pulumix.Output[*ApplicationInputLambdaProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInputLambdaProcessorPtrOutput) Elem() ApplicationInputLambdaProcessorOutput {
@@ -2392,6 +2747,12 @@ func (i ApplicationInputParallelismArgs) ToApplicationInputParallelismOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputParallelismOutput)
 }
 
+func (i ApplicationInputParallelismArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputParallelism] {
+	return pulumix.Output[ApplicationInputParallelism]{
+		OutputState: i.ToApplicationInputParallelismOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationInputParallelismArgs) ToApplicationInputParallelismPtrOutput() ApplicationInputParallelismPtrOutput {
 	return i.ToApplicationInputParallelismPtrOutputWithContext(context.Background())
 }
@@ -2433,6 +2794,12 @@ func (i *applicationInputParallelismPtrType) ToApplicationInputParallelismPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputParallelismPtrOutput)
 }
 
+func (i *applicationInputParallelismPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputParallelism] {
+	return pulumix.Output[*ApplicationInputParallelism]{
+		OutputState: i.ToApplicationInputParallelismPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
 type ApplicationInputParallelismOutput struct{ *pulumi.OutputState }
 
@@ -2458,6 +2825,12 @@ func (o ApplicationInputParallelismOutput) ToApplicationInputParallelismPtrOutpu
 	}).(ApplicationInputParallelismPtrOutput)
 }
 
+func (o ApplicationInputParallelismOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputParallelism] {
+	return pulumix.Output[ApplicationInputParallelism]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The number of in-application streams to create.
 func (o ApplicationInputParallelismOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationInputParallelism) *int { return v.Count }).(pulumi.IntPtrOutput)
@@ -2475,6 +2848,12 @@ func (o ApplicationInputParallelismPtrOutput) ToApplicationInputParallelismPtrOu
 
 func (o ApplicationInputParallelismPtrOutput) ToApplicationInputParallelismPtrOutputWithContext(ctx context.Context) ApplicationInputParallelismPtrOutput {
 	return o
+}
+
+func (o ApplicationInputParallelismPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputParallelism] {
+	return pulumix.Output[*ApplicationInputParallelism]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInputParallelismPtrOutput) Elem() ApplicationInputParallelismOutput {
@@ -2532,6 +2911,12 @@ func (i ApplicationInputProcessingConfigurationArgs) ToApplicationInputProcessin
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputProcessingConfigurationOutput)
 }
 
+func (i ApplicationInputProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputProcessingConfiguration] {
+	return pulumix.Output[ApplicationInputProcessingConfiguration]{
+		OutputState: i.ToApplicationInputProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationInputProcessingConfigurationArgs) ToApplicationInputProcessingConfigurationPtrOutput() ApplicationInputProcessingConfigurationPtrOutput {
 	return i.ToApplicationInputProcessingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2573,6 +2958,12 @@ func (i *applicationInputProcessingConfigurationPtrType) ToApplicationInputProce
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputProcessingConfigurationPtrOutput)
 }
 
+func (i *applicationInputProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputProcessingConfiguration] {
+	return pulumix.Output[*ApplicationInputProcessingConfiguration]{
+		OutputState: i.ToApplicationInputProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
 type ApplicationInputProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2598,6 +2989,12 @@ func (o ApplicationInputProcessingConfigurationOutput) ToApplicationInputProcess
 	}).(ApplicationInputProcessingConfigurationPtrOutput)
 }
 
+func (o ApplicationInputProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputProcessingConfiguration] {
+	return pulumix.Output[ApplicationInputProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
 func (o ApplicationInputProcessingConfigurationOutput) InputLambdaProcessor() ApplicationInputLambdaProcessorPtrOutput {
 	return o.ApplyT(func(v ApplicationInputProcessingConfiguration) *ApplicationInputLambdaProcessor {
@@ -2617,6 +3014,12 @@ func (o ApplicationInputProcessingConfigurationPtrOutput) ToApplicationInputProc
 
 func (o ApplicationInputProcessingConfigurationPtrOutput) ToApplicationInputProcessingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationInputProcessingConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationInputProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputProcessingConfiguration] {
+	return pulumix.Output[*ApplicationInputProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInputProcessingConfigurationPtrOutput) Elem() ApplicationInputProcessingConfigurationOutput {
@@ -2682,6 +3085,12 @@ func (i ApplicationInputSchemaArgs) ToApplicationInputSchemaOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputSchemaOutput)
 }
 
+func (i ApplicationInputSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputSchema] {
+	return pulumix.Output[ApplicationInputSchema]{
+		OutputState: i.ToApplicationInputSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
 type ApplicationInputSchemaOutput struct{ *pulumi.OutputState }
 
@@ -2695,6 +3104,12 @@ func (o ApplicationInputSchemaOutput) ToApplicationInputSchemaOutput() Applicati
 
 func (o ApplicationInputSchemaOutput) ToApplicationInputSchemaOutputWithContext(ctx context.Context) ApplicationInputSchemaOutput {
 	return o
+}
+
+func (o ApplicationInputSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputSchema] {
+	return pulumix.Output[ApplicationInputSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of `RecordColumn` objects.
@@ -2747,6 +3162,12 @@ func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParameters
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJsonMappingParametersOutput)
 }
 
+func (i ApplicationJsonMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationJsonMappingParameters] {
+	return pulumix.Output[ApplicationJsonMappingParameters]{
+		OutputState: i.ToApplicationJsonMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput {
 	return i.ToApplicationJsonMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -2788,6 +3209,12 @@ func (i *applicationJsonMappingParametersPtrType) ToApplicationJsonMappingParame
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJsonMappingParametersPtrOutput)
 }
 
+func (i *applicationJsonMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationJsonMappingParameters] {
+	return pulumix.Output[*ApplicationJsonMappingParameters]{
+		OutputState: i.ToApplicationJsonMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
 type ApplicationJsonMappingParametersOutput struct{ *pulumi.OutputState }
 
@@ -2813,6 +3240,12 @@ func (o ApplicationJsonMappingParametersOutput) ToApplicationJsonMappingParamete
 	}).(ApplicationJsonMappingParametersPtrOutput)
 }
 
+func (o ApplicationJsonMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationJsonMappingParameters] {
+	return pulumix.Output[ApplicationJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The path to the top-level parent that contains the records.
 func (o ApplicationJsonMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationJsonMappingParameters) string { return v.RecordRowPath }).(pulumi.StringOutput)
@@ -2830,6 +3263,12 @@ func (o ApplicationJsonMappingParametersPtrOutput) ToApplicationJsonMappingParam
 
 func (o ApplicationJsonMappingParametersPtrOutput) ToApplicationJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationJsonMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationJsonMappingParameters] {
+	return pulumix.Output[*ApplicationJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationJsonMappingParametersPtrOutput) Elem() ApplicationJsonMappingParametersOutput {
@@ -2887,6 +3326,12 @@ func (i ApplicationKinesisFirehoseInputArgs) ToApplicationKinesisFirehoseInputOu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisFirehoseInputOutput)
 }
 
+func (i ApplicationKinesisFirehoseInputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationKinesisFirehoseInput] {
+	return pulumix.Output[ApplicationKinesisFirehoseInput]{
+		OutputState: i.ToApplicationKinesisFirehoseInputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationKinesisFirehoseInputArgs) ToApplicationKinesisFirehoseInputPtrOutput() ApplicationKinesisFirehoseInputPtrOutput {
 	return i.ToApplicationKinesisFirehoseInputPtrOutputWithContext(context.Background())
 }
@@ -2928,6 +3373,12 @@ func (i *applicationKinesisFirehoseInputPtrType) ToApplicationKinesisFirehoseInp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisFirehoseInputPtrOutput)
 }
 
+func (i *applicationKinesisFirehoseInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationKinesisFirehoseInput] {
+	return pulumix.Output[*ApplicationKinesisFirehoseInput]{
+		OutputState: i.ToApplicationKinesisFirehoseInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
 type ApplicationKinesisFirehoseInputOutput struct{ *pulumi.OutputState }
 
@@ -2953,6 +3404,12 @@ func (o ApplicationKinesisFirehoseInputOutput) ToApplicationKinesisFirehoseInput
 	}).(ApplicationKinesisFirehoseInputPtrOutput)
 }
 
+func (o ApplicationKinesisFirehoseInputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationKinesisFirehoseInput] {
+	return pulumix.Output[ApplicationKinesisFirehoseInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of the delivery stream.
 func (o ApplicationKinesisFirehoseInputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationKinesisFirehoseInput) string { return v.ResourceArn }).(pulumi.StringOutput)
@@ -2970,6 +3427,12 @@ func (o ApplicationKinesisFirehoseInputPtrOutput) ToApplicationKinesisFirehoseIn
 
 func (o ApplicationKinesisFirehoseInputPtrOutput) ToApplicationKinesisFirehoseInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisFirehoseInputPtrOutput {
 	return o
+}
+
+func (o ApplicationKinesisFirehoseInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationKinesisFirehoseInput] {
+	return pulumix.Output[*ApplicationKinesisFirehoseInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationKinesisFirehoseInputPtrOutput) Elem() ApplicationKinesisFirehoseInputOutput {
@@ -3027,6 +3490,12 @@ func (i ApplicationKinesisStreamsInputArgs) ToApplicationKinesisStreamsInputOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisStreamsInputOutput)
 }
 
+func (i ApplicationKinesisStreamsInputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationKinesisStreamsInput] {
+	return pulumix.Output[ApplicationKinesisStreamsInput]{
+		OutputState: i.ToApplicationKinesisStreamsInputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationKinesisStreamsInputArgs) ToApplicationKinesisStreamsInputPtrOutput() ApplicationKinesisStreamsInputPtrOutput {
 	return i.ToApplicationKinesisStreamsInputPtrOutputWithContext(context.Background())
 }
@@ -3068,6 +3537,12 @@ func (i *applicationKinesisStreamsInputPtrType) ToApplicationKinesisStreamsInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisStreamsInputPtrOutput)
 }
 
+func (i *applicationKinesisStreamsInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationKinesisStreamsInput] {
+	return pulumix.Output[*ApplicationKinesisStreamsInput]{
+		OutputState: i.ToApplicationKinesisStreamsInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
 type ApplicationKinesisStreamsInputOutput struct{ *pulumi.OutputState }
 
@@ -3093,6 +3568,12 @@ func (o ApplicationKinesisStreamsInputOutput) ToApplicationKinesisStreamsInputPt
 	}).(ApplicationKinesisStreamsInputPtrOutput)
 }
 
+func (o ApplicationKinesisStreamsInputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationKinesisStreamsInput] {
+	return pulumix.Output[ApplicationKinesisStreamsInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the input Kinesis data stream to read.
 func (o ApplicationKinesisStreamsInputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationKinesisStreamsInput) string { return v.ResourceArn }).(pulumi.StringOutput)
@@ -3110,6 +3591,12 @@ func (o ApplicationKinesisStreamsInputPtrOutput) ToApplicationKinesisStreamsInpu
 
 func (o ApplicationKinesisStreamsInputPtrOutput) ToApplicationKinesisStreamsInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisStreamsInputPtrOutput {
 	return o
+}
+
+func (o ApplicationKinesisStreamsInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationKinesisStreamsInput] {
+	return pulumix.Output[*ApplicationKinesisStreamsInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationKinesisStreamsInputPtrOutput) Elem() ApplicationKinesisStreamsInputOutput {
@@ -3167,6 +3654,12 @@ func (i ApplicationMaintenanceConfigurationArgs) ToApplicationMaintenanceConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMaintenanceConfigurationOutput)
 }
 
+func (i ApplicationMaintenanceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationMaintenanceConfiguration] {
+	return pulumix.Output[ApplicationMaintenanceConfiguration]{
+		OutputState: i.ToApplicationMaintenanceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationMaintenanceConfigurationArgs) ToApplicationMaintenanceConfigurationPtrOutput() ApplicationMaintenanceConfigurationPtrOutput {
 	return i.ToApplicationMaintenanceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3208,6 +3701,12 @@ func (i *applicationMaintenanceConfigurationPtrType) ToApplicationMaintenanceCon
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMaintenanceConfigurationPtrOutput)
 }
 
+func (i *applicationMaintenanceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMaintenanceConfiguration] {
+	return pulumix.Output[*ApplicationMaintenanceConfiguration]{
+		OutputState: i.ToApplicationMaintenanceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes the maintenance configuration for the application.
 type ApplicationMaintenanceConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3233,6 +3732,12 @@ func (o ApplicationMaintenanceConfigurationOutput) ToApplicationMaintenanceConfi
 	}).(ApplicationMaintenanceConfigurationPtrOutput)
 }
 
+func (o ApplicationMaintenanceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMaintenanceConfiguration] {
+	return pulumix.Output[ApplicationMaintenanceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The start time for the maintenance window.
 func (o ApplicationMaintenanceConfigurationOutput) ApplicationMaintenanceWindowStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationMaintenanceConfiguration) string { return v.ApplicationMaintenanceWindowStartTime }).(pulumi.StringOutput)
@@ -3250,6 +3755,12 @@ func (o ApplicationMaintenanceConfigurationPtrOutput) ToApplicationMaintenanceCo
 
 func (o ApplicationMaintenanceConfigurationPtrOutput) ToApplicationMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMaintenanceConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationMaintenanceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMaintenanceConfiguration] {
+	return pulumix.Output[*ApplicationMaintenanceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMaintenanceConfigurationPtrOutput) Elem() ApplicationMaintenanceConfigurationOutput {
@@ -3311,6 +3822,12 @@ func (i ApplicationMappingParametersArgs) ToApplicationMappingParametersOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMappingParametersOutput)
 }
 
+func (i ApplicationMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationMappingParameters] {
+	return pulumix.Output[ApplicationMappingParameters]{
+		OutputState: i.ToApplicationMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationMappingParametersArgs) ToApplicationMappingParametersPtrOutput() ApplicationMappingParametersPtrOutput {
 	return i.ToApplicationMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -3352,6 +3869,12 @@ func (i *applicationMappingParametersPtrType) ToApplicationMappingParametersPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMappingParametersPtrOutput)
 }
 
+func (i *applicationMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMappingParameters] {
+	return pulumix.Output[*ApplicationMappingParameters]{
+		OutputState: i.ToApplicationMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 type ApplicationMappingParametersOutput struct{ *pulumi.OutputState }
 
@@ -3377,6 +3900,12 @@ func (o ApplicationMappingParametersOutput) ToApplicationMappingParametersPtrOut
 	}).(ApplicationMappingParametersPtrOutput)
 }
 
+func (o ApplicationMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMappingParameters] {
+	return pulumix.Output[ApplicationMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Provides additional mapping information when the record format uses delimiters (for example, CSV).
 func (o ApplicationMappingParametersOutput) CsvMappingParameters() ApplicationCsvMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationCsvMappingParameters { return v.CsvMappingParameters }).(ApplicationCsvMappingParametersPtrOutput)
@@ -3399,6 +3928,12 @@ func (o ApplicationMappingParametersPtrOutput) ToApplicationMappingParametersPtr
 
 func (o ApplicationMappingParametersPtrOutput) ToApplicationMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMappingParameters] {
+	return pulumix.Output[*ApplicationMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMappingParametersPtrOutput) Elem() ApplicationMappingParametersOutput {
@@ -3474,6 +4009,12 @@ func (i ApplicationMavenReferenceArgs) ToApplicationMavenReferenceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMavenReferenceOutput)
 }
 
+func (i ApplicationMavenReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationMavenReference] {
+	return pulumix.Output[ApplicationMavenReference]{
+		OutputState: i.ToApplicationMavenReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationMavenReferenceArgs) ToApplicationMavenReferencePtrOutput() ApplicationMavenReferencePtrOutput {
 	return i.ToApplicationMavenReferencePtrOutputWithContext(context.Background())
 }
@@ -3515,6 +4056,12 @@ func (i *applicationMavenReferencePtrType) ToApplicationMavenReferencePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMavenReferencePtrOutput)
 }
 
+func (i *applicationMavenReferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMavenReference] {
+	return pulumix.Output[*ApplicationMavenReference]{
+		OutputState: i.ToApplicationMavenReferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
 type ApplicationMavenReferenceOutput struct{ *pulumi.OutputState }
 
@@ -3538,6 +4085,12 @@ func (o ApplicationMavenReferenceOutput) ToApplicationMavenReferencePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMavenReference) *ApplicationMavenReference {
 		return &v
 	}).(ApplicationMavenReferencePtrOutput)
+}
+
+func (o ApplicationMavenReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMavenReference] {
+	return pulumix.Output[ApplicationMavenReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The artifact ID of the Maven reference.
@@ -3567,6 +4120,12 @@ func (o ApplicationMavenReferencePtrOutput) ToApplicationMavenReferencePtrOutput
 
 func (o ApplicationMavenReferencePtrOutput) ToApplicationMavenReferencePtrOutputWithContext(ctx context.Context) ApplicationMavenReferencePtrOutput {
 	return o
+}
+
+func (o ApplicationMavenReferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMavenReference] {
+	return pulumix.Output[*ApplicationMavenReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMavenReferencePtrOutput) Elem() ApplicationMavenReferenceOutput {
@@ -3652,6 +4211,12 @@ func (i ApplicationMonitoringConfigurationArgs) ToApplicationMonitoringConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationOutput)
 }
 
+func (i ApplicationMonitoringConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfiguration] {
+	return pulumix.Output[ApplicationMonitoringConfiguration]{
+		OutputState: i.ToApplicationMonitoringConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPtrOutput {
 	return i.ToApplicationMonitoringConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3693,6 +4258,12 @@ func (i *applicationMonitoringConfigurationPtrType) ToApplicationMonitoringConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationPtrOutput)
 }
 
+func (i *applicationMonitoringConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfiguration] {
+	return pulumix.Output[*ApplicationMonitoringConfiguration]{
+		OutputState: i.ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application. For more information about CloudWatch logging, see Monitoring.
 type ApplicationMonitoringConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3716,6 +4287,12 @@ func (o ApplicationMonitoringConfigurationOutput) ToApplicationMonitoringConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfiguration {
 		return &v
 	}).(ApplicationMonitoringConfigurationPtrOutput)
+}
+
+func (o ApplicationMonitoringConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfiguration] {
+	return pulumix.Output[ApplicationMonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
@@ -3751,6 +4328,12 @@ func (o ApplicationMonitoringConfigurationPtrOutput) ToApplicationMonitoringConf
 
 func (o ApplicationMonitoringConfigurationPtrOutput) ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationMonitoringConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfiguration] {
+	return pulumix.Output[*ApplicationMonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMonitoringConfigurationPtrOutput) Elem() ApplicationMonitoringConfigurationOutput {
@@ -3824,6 +4407,12 @@ func (i ApplicationOutputResourceDestinationSchemaArgs) ToApplicationOutputResou
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceDestinationSchemaOutput)
 }
 
+func (i ApplicationOutputResourceDestinationSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceDestinationSchema] {
+	return pulumix.Output[ApplicationOutputResourceDestinationSchema]{
+		OutputState: i.ToApplicationOutputResourceDestinationSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutputResourceDestinationSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceDestinationSchemaOutput) ElementType() reflect.Type {
@@ -3836,6 +4425,12 @@ func (o ApplicationOutputResourceDestinationSchemaOutput) ToApplicationOutputRes
 
 func (o ApplicationOutputResourceDestinationSchemaOutput) ToApplicationOutputResourceDestinationSchemaOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceDestinationSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceDestinationSchema] {
+	return pulumix.Output[ApplicationOutputResourceDestinationSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceDestinationSchemaOutput) RecordFormatType() pulumi.StringPtrOutput {
@@ -3854,6 +4449,12 @@ func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToApplicationOutput
 
 func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceDestinationSchema] {
+	return pulumix.Output[*ApplicationOutputResourceDestinationSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceDestinationSchemaPtrOutput) Elem() ApplicationOutputResourceDestinationSchemaOutput {
@@ -3906,6 +4507,12 @@ func (i ApplicationOutputResourceKinesisFirehoseOutputArgs) ToApplicationOutputR
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisFirehoseOutputOutput)
 }
 
+func (i ApplicationOutputResourceKinesisFirehoseOutputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceKinesisFirehoseOutput] {
+	return pulumix.Output[ApplicationOutputResourceKinesisFirehoseOutput]{
+		OutputState: i.ToApplicationOutputResourceKinesisFirehoseOutputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationOutputResourceKinesisFirehoseOutputArgs) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutput() ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
 	return i.ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(context.Background())
 }
@@ -3947,6 +4554,12 @@ func (i *applicationOutputResourceKinesisFirehoseOutputPtrType) ToApplicationOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
 }
 
+func (i *applicationOutputResourceKinesisFirehoseOutputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceKinesisFirehoseOutput] {
+	return pulumix.Output[*ApplicationOutputResourceKinesisFirehoseOutput]{
+		OutputState: i.ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutputResourceKinesisFirehoseOutputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceKinesisFirehoseOutputOutput) ElementType() reflect.Type {
@@ -3971,6 +4584,12 @@ func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ToApplicationOutpu
 	}).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
 }
 
+func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceKinesisFirehoseOutput] {
+	return pulumix.Output[ApplicationOutputResourceKinesisFirehoseOutput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationOutputResourceKinesisFirehoseOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -3987,6 +4606,12 @@ func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ToApplicationOu
 
 func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceKinesisFirehoseOutput] {
+	return pulumix.Output[*ApplicationOutputResourceKinesisFirehoseOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) Elem() ApplicationOutputResourceKinesisFirehoseOutputOutput {
@@ -4039,6 +4664,12 @@ func (i ApplicationOutputResourceKinesisStreamsOutputArgs) ToApplicationOutputRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisStreamsOutputOutput)
 }
 
+func (i ApplicationOutputResourceKinesisStreamsOutputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceKinesisStreamsOutput] {
+	return pulumix.Output[ApplicationOutputResourceKinesisStreamsOutput]{
+		OutputState: i.ToApplicationOutputResourceKinesisStreamsOutputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationOutputResourceKinesisStreamsOutputArgs) ToApplicationOutputResourceKinesisStreamsOutputPtrOutput() ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
 	return i.ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(context.Background())
 }
@@ -4080,6 +4711,12 @@ func (i *applicationOutputResourceKinesisStreamsOutputPtrType) ToApplicationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
 }
 
+func (i *applicationOutputResourceKinesisStreamsOutputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceKinesisStreamsOutput] {
+	return pulumix.Output[*ApplicationOutputResourceKinesisStreamsOutput]{
+		OutputState: i.ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutputResourceKinesisStreamsOutputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceKinesisStreamsOutputOutput) ElementType() reflect.Type {
@@ -4104,6 +4741,12 @@ func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ToApplicationOutput
 	}).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
 }
 
+func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceKinesisStreamsOutput] {
+	return pulumix.Output[ApplicationOutputResourceKinesisStreamsOutput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationOutputResourceKinesisStreamsOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -4120,6 +4763,12 @@ func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ToApplicationOut
 
 func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceKinesisStreamsOutput] {
+	return pulumix.Output[*ApplicationOutputResourceKinesisStreamsOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) Elem() ApplicationOutputResourceKinesisStreamsOutputOutput {
@@ -4172,6 +4821,12 @@ func (i ApplicationOutputResourceLambdaOutputArgs) ToApplicationOutputResourceLa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceLambdaOutputOutput)
 }
 
+func (i ApplicationOutputResourceLambdaOutputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceLambdaOutput] {
+	return pulumix.Output[ApplicationOutputResourceLambdaOutput]{
+		OutputState: i.ToApplicationOutputResourceLambdaOutputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationOutputResourceLambdaOutputArgs) ToApplicationOutputResourceLambdaOutputPtrOutput() ApplicationOutputResourceLambdaOutputPtrOutput {
 	return i.ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(context.Background())
 }
@@ -4213,6 +4868,12 @@ func (i *applicationOutputResourceLambdaOutputPtrType) ToApplicationOutputResour
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceLambdaOutputPtrOutput)
 }
 
+func (i *applicationOutputResourceLambdaOutputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceLambdaOutput] {
+	return pulumix.Output[*ApplicationOutputResourceLambdaOutput]{
+		OutputState: i.ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutputResourceLambdaOutputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceLambdaOutputOutput) ElementType() reflect.Type {
@@ -4237,6 +4898,12 @@ func (o ApplicationOutputResourceLambdaOutputOutput) ToApplicationOutputResource
 	}).(ApplicationOutputResourceLambdaOutputPtrOutput)
 }
 
+func (o ApplicationOutputResourceLambdaOutputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceLambdaOutput] {
+	return pulumix.Output[ApplicationOutputResourceLambdaOutput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationOutputResourceLambdaOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationOutputResourceLambdaOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -4253,6 +4920,12 @@ func (o ApplicationOutputResourceLambdaOutputPtrOutput) ToApplicationOutputResou
 
 func (o ApplicationOutputResourceLambdaOutputPtrOutput) ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceLambdaOutputPtrOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceLambdaOutputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceLambdaOutput] {
+	return pulumix.Output[*ApplicationOutputResourceLambdaOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceLambdaOutputPtrOutput) Elem() ApplicationOutputResourceLambdaOutputOutput {
@@ -4313,6 +4986,12 @@ func (i ApplicationOutputResourceOutputTypeArgs) ToApplicationOutputResourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutputTypeOutput)
 }
 
+func (i ApplicationOutputResourceOutputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceOutputType] {
+	return pulumix.Output[ApplicationOutputResourceOutputType]{
+		OutputState: i.ToApplicationOutputResourceOutputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutputResourceOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceOutputTypeOutput) ElementType() reflect.Type {
@@ -4325,6 +5004,12 @@ func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOu
 
 func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOutputTypeOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypeOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceOutputType] {
+	return pulumix.Output[ApplicationOutputResourceOutputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceOutputTypeOutput) DestinationSchema() ApplicationOutputResourceDestinationSchemaOutput {
@@ -4367,6 +5052,12 @@ func (o ApplicationOutputResourceOutputTypePtrOutput) ToApplicationOutputResourc
 
 func (o ApplicationOutputResourceOutputTypePtrOutput) ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypePtrOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceOutputTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceOutputType] {
+	return pulumix.Output[*ApplicationOutputResourceOutputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceOutputTypePtrOutput) Elem() ApplicationOutputResourceOutputTypeOutput {
@@ -4471,6 +5162,12 @@ func (i ApplicationParallelismConfigurationArgs) ToApplicationParallelismConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationParallelismConfigurationOutput)
 }
 
+func (i ApplicationParallelismConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationParallelismConfiguration] {
+	return pulumix.Output[ApplicationParallelismConfiguration]{
+		OutputState: i.ToApplicationParallelismConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationParallelismConfigurationArgs) ToApplicationParallelismConfigurationPtrOutput() ApplicationParallelismConfigurationPtrOutput {
 	return i.ToApplicationParallelismConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4512,6 +5209,12 @@ func (i *applicationParallelismConfigurationPtrType) ToApplicationParallelismCon
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationParallelismConfigurationPtrOutput)
 }
 
+func (i *applicationParallelismConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationParallelismConfiguration] {
+	return pulumix.Output[*ApplicationParallelismConfiguration]{
+		OutputState: i.ToApplicationParallelismConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously. For more information about parallelism, see Parallel Execution in the Apache Flink Documentation
 type ApplicationParallelismConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -4535,6 +5238,12 @@ func (o ApplicationParallelismConfigurationOutput) ToApplicationParallelismConfi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationParallelismConfiguration) *ApplicationParallelismConfiguration {
 		return &v
 	}).(ApplicationParallelismConfigurationPtrOutput)
+}
+
+func (o ApplicationParallelismConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationParallelismConfiguration] {
+	return pulumix.Output[ApplicationParallelismConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
@@ -4571,6 +5280,12 @@ func (o ApplicationParallelismConfigurationPtrOutput) ToApplicationParallelismCo
 
 func (o ApplicationParallelismConfigurationPtrOutput) ToApplicationParallelismConfigurationPtrOutputWithContext(ctx context.Context) ApplicationParallelismConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationParallelismConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationParallelismConfiguration] {
+	return pulumix.Output[*ApplicationParallelismConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationParallelismConfigurationPtrOutput) Elem() ApplicationParallelismConfigurationOutput {
@@ -4662,6 +5377,12 @@ func (i ApplicationPropertyGroupArgs) ToApplicationPropertyGroupOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPropertyGroupOutput)
 }
 
+func (i ApplicationPropertyGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationPropertyGroup] {
+	return pulumix.Output[ApplicationPropertyGroup]{
+		OutputState: i.ToApplicationPropertyGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationPropertyGroupArrayInput is an input type that accepts ApplicationPropertyGroupArray and ApplicationPropertyGroupArrayOutput values.
 // You can construct a concrete instance of `ApplicationPropertyGroupArrayInput` via:
 //
@@ -4687,6 +5408,12 @@ func (i ApplicationPropertyGroupArray) ToApplicationPropertyGroupArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPropertyGroupArrayOutput)
 }
 
+func (i ApplicationPropertyGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationPropertyGroup] {
+	return pulumix.Output[[]ApplicationPropertyGroup]{
+		OutputState: i.ToApplicationPropertyGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Property key-value pairs passed into an application.
 type ApplicationPropertyGroupOutput struct{ *pulumi.OutputState }
 
@@ -4700,6 +5427,12 @@ func (o ApplicationPropertyGroupOutput) ToApplicationPropertyGroupOutput() Appli
 
 func (o ApplicationPropertyGroupOutput) ToApplicationPropertyGroupOutputWithContext(ctx context.Context) ApplicationPropertyGroupOutput {
 	return o
+}
+
+func (o ApplicationPropertyGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationPropertyGroup] {
+	return pulumix.Output[ApplicationPropertyGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes the key of an application execution property key-value pair.
@@ -4724,6 +5457,12 @@ func (o ApplicationPropertyGroupArrayOutput) ToApplicationPropertyGroupArrayOutp
 
 func (o ApplicationPropertyGroupArrayOutput) ToApplicationPropertyGroupArrayOutputWithContext(ctx context.Context) ApplicationPropertyGroupArrayOutput {
 	return o
+}
+
+func (o ApplicationPropertyGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationPropertyGroup] {
+	return pulumix.Output[[]ApplicationPropertyGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationPropertyGroupArrayOutput) Index(i pulumi.IntInput) ApplicationPropertyGroupOutput {
@@ -4777,6 +5516,12 @@ func (i ApplicationRecordColumnArgs) ToApplicationRecordColumnOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRecordColumnOutput)
 }
 
+func (i ApplicationRecordColumnArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationRecordColumn] {
+	return pulumix.Output[ApplicationRecordColumn]{
+		OutputState: i.ToApplicationRecordColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationRecordColumnArrayInput is an input type that accepts ApplicationRecordColumnArray and ApplicationRecordColumnArrayOutput values.
 // You can construct a concrete instance of `ApplicationRecordColumnArrayInput` via:
 //
@@ -4802,6 +5547,12 @@ func (i ApplicationRecordColumnArray) ToApplicationRecordColumnArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRecordColumnArrayOutput)
 }
 
+func (i ApplicationRecordColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationRecordColumn] {
+	return pulumix.Output[[]ApplicationRecordColumn]{
+		OutputState: i.ToApplicationRecordColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
 // Also used to describe the format of the reference data source.
 type ApplicationRecordColumnOutput struct{ *pulumi.OutputState }
@@ -4816,6 +5567,12 @@ func (o ApplicationRecordColumnOutput) ToApplicationRecordColumnOutput() Applica
 
 func (o ApplicationRecordColumnOutput) ToApplicationRecordColumnOutputWithContext(ctx context.Context) ApplicationRecordColumnOutput {
 	return o
+}
+
+func (o ApplicationRecordColumnOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRecordColumn] {
+	return pulumix.Output[ApplicationRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A reference to the data element in the streaming input or the reference data source.
@@ -4845,6 +5602,12 @@ func (o ApplicationRecordColumnArrayOutput) ToApplicationRecordColumnArrayOutput
 
 func (o ApplicationRecordColumnArrayOutput) ToApplicationRecordColumnArrayOutputWithContext(ctx context.Context) ApplicationRecordColumnArrayOutput {
 	return o
+}
+
+func (o ApplicationRecordColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationRecordColumn] {
+	return pulumix.Output[[]ApplicationRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationRecordColumnArrayOutput) Index(i pulumi.IntInput) ApplicationRecordColumnOutput {
@@ -4892,6 +5655,12 @@ func (i ApplicationRecordFormatArgs) ToApplicationRecordFormatOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRecordFormatOutput)
 }
 
+func (i ApplicationRecordFormatArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationRecordFormat] {
+	return pulumix.Output[ApplicationRecordFormat]{
+		OutputState: i.ToApplicationRecordFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 // For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
 type ApplicationRecordFormatOutput struct{ *pulumi.OutputState }
 
@@ -4905,6 +5674,12 @@ func (o ApplicationRecordFormatOutput) ToApplicationRecordFormatOutput() Applica
 
 func (o ApplicationRecordFormatOutput) ToApplicationRecordFormatOutputWithContext(ctx context.Context) ApplicationRecordFormatOutput {
 	return o
+}
+
+func (o ApplicationRecordFormatOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRecordFormat] {
+	return pulumix.Output[ApplicationRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
@@ -4950,6 +5725,12 @@ func (i ApplicationReferenceDataSourceCsvMappingParametersArgs) ToApplicationRef
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceCsvMappingParametersOutput)
 }
 
+func (i ApplicationReferenceDataSourceCsvMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceCsvMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceCsvMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceCsvMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationReferenceDataSourceCsvMappingParametersArgs) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutput() ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
 	return i.ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -4991,6 +5772,12 @@ func (i *applicationReferenceDataSourceCsvMappingParametersPtrType) ToApplicatio
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceCsvMappingParametersPtrOutput)
 }
 
+func (i *applicationReferenceDataSourceCsvMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceCsvMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceCsvMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceCsvMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceCsvMappingParametersOutput) ElementType() reflect.Type {
@@ -5015,6 +5802,12 @@ func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) ToApplicationR
 	}).(ApplicationReferenceDataSourceCsvMappingParametersPtrOutput)
 }
 
+func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceCsvMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceCsvMappingParameters) string { return v.RecordColumnDelimiter }).(pulumi.StringOutput)
 }
@@ -5035,6 +5828,12 @@ func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) ToApplicati
 
 func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceCsvMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) Elem() ApplicationReferenceDataSourceCsvMappingParametersOutput {
@@ -5096,6 +5895,12 @@ func (i ApplicationReferenceDataSourceJsonMappingParametersArgs) ToApplicationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceJsonMappingParametersOutput)
 }
 
+func (i ApplicationReferenceDataSourceJsonMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceJsonMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceJsonMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceJsonMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationReferenceDataSourceJsonMappingParametersArgs) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutput() ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
 	return i.ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -5137,6 +5942,12 @@ func (i *applicationReferenceDataSourceJsonMappingParametersPtrType) ToApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceJsonMappingParametersPtrOutput)
 }
 
+func (i *applicationReferenceDataSourceJsonMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceJsonMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceJsonMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceJsonMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceJsonMappingParametersOutput) ElementType() reflect.Type {
@@ -5161,6 +5972,12 @@ func (o ApplicationReferenceDataSourceJsonMappingParametersOutput) ToApplication
 	}).(ApplicationReferenceDataSourceJsonMappingParametersPtrOutput)
 }
 
+func (o ApplicationReferenceDataSourceJsonMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceJsonMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationReferenceDataSourceJsonMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceJsonMappingParameters) string { return v.RecordRowPath }).(pulumi.StringOutput)
 }
@@ -5177,6 +5994,12 @@ func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) ToApplicat
 
 func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceJsonMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) Elem() ApplicationReferenceDataSourceJsonMappingParametersOutput {
@@ -5231,6 +6054,12 @@ func (i ApplicationReferenceDataSourceMappingParametersArgs) ToApplicationRefere
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceMappingParametersOutput)
 }
 
+func (i ApplicationReferenceDataSourceMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationReferenceDataSourceMappingParametersArgs) ToApplicationReferenceDataSourceMappingParametersPtrOutput() ApplicationReferenceDataSourceMappingParametersPtrOutput {
 	return i.ToApplicationReferenceDataSourceMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -5272,6 +6101,12 @@ func (i *applicationReferenceDataSourceMappingParametersPtrType) ToApplicationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceMappingParametersPtrOutput)
 }
 
+func (i *applicationReferenceDataSourceMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceMappingParametersOutput) ElementType() reflect.Type {
@@ -5294,6 +6129,12 @@ func (o ApplicationReferenceDataSourceMappingParametersOutput) ToApplicationRefe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceMappingParameters {
 		return &v
 	}).(ApplicationReferenceDataSourceMappingParametersPtrOutput)
+}
+
+func (o ApplicationReferenceDataSourceMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceMappingParametersOutput) CsvMappingParameters() ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
@@ -5320,6 +6161,12 @@ func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) ToApplicationR
 
 func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) ToApplicationReferenceDataSourceMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) Elem() ApplicationReferenceDataSourceMappingParametersOutput {
@@ -5385,6 +6232,12 @@ func (i ApplicationReferenceDataSourceRecordColumnArgs) ToApplicationReferenceDa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceRecordColumnOutput)
 }
 
+func (i ApplicationReferenceDataSourceRecordColumnArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceRecordColumn] {
+	return pulumix.Output[ApplicationReferenceDataSourceRecordColumn]{
+		OutputState: i.ToApplicationReferenceDataSourceRecordColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationReferenceDataSourceRecordColumnArrayInput is an input type that accepts ApplicationReferenceDataSourceRecordColumnArray and ApplicationReferenceDataSourceRecordColumnArrayOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceRecordColumnArrayInput` via:
 //
@@ -5410,6 +6263,12 @@ func (i ApplicationReferenceDataSourceRecordColumnArray) ToApplicationReferenceD
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceRecordColumnArrayOutput)
 }
 
+func (i ApplicationReferenceDataSourceRecordColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationReferenceDataSourceRecordColumn] {
+	return pulumix.Output[[]ApplicationReferenceDataSourceRecordColumn]{
+		OutputState: i.ToApplicationReferenceDataSourceRecordColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceRecordColumnOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceRecordColumnOutput) ElementType() reflect.Type {
@@ -5422,6 +6281,12 @@ func (o ApplicationReferenceDataSourceRecordColumnOutput) ToApplicationReference
 
 func (o ApplicationReferenceDataSourceRecordColumnOutput) ToApplicationReferenceDataSourceRecordColumnOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordColumnOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceRecordColumnOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceRecordColumn] {
+	return pulumix.Output[ApplicationReferenceDataSourceRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceRecordColumnOutput) Mapping() pulumi.StringPtrOutput {
@@ -5448,6 +6313,12 @@ func (o ApplicationReferenceDataSourceRecordColumnArrayOutput) ToApplicationRefe
 
 func (o ApplicationReferenceDataSourceRecordColumnArrayOutput) ToApplicationReferenceDataSourceRecordColumnArrayOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordColumnArrayOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceRecordColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationReferenceDataSourceRecordColumn] {
+	return pulumix.Output[[]ApplicationReferenceDataSourceRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceRecordColumnArrayOutput) Index(i pulumi.IntInput) ApplicationReferenceDataSourceRecordColumnOutput {
@@ -5489,6 +6360,12 @@ func (i ApplicationReferenceDataSourceRecordFormatArgs) ToApplicationReferenceDa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceRecordFormatOutput)
 }
 
+func (i ApplicationReferenceDataSourceRecordFormatArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceRecordFormat] {
+	return pulumix.Output[ApplicationReferenceDataSourceRecordFormat]{
+		OutputState: i.ToApplicationReferenceDataSourceRecordFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceRecordFormatOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceRecordFormatOutput) ElementType() reflect.Type {
@@ -5501,6 +6378,12 @@ func (o ApplicationReferenceDataSourceRecordFormatOutput) ToApplicationReference
 
 func (o ApplicationReferenceDataSourceRecordFormatOutput) ToApplicationReferenceDataSourceRecordFormatOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordFormatOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceRecordFormatOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceRecordFormat] {
+	return pulumix.Output[ApplicationReferenceDataSourceRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceRecordFormatOutput) MappingParameters() ApplicationReferenceDataSourceMappingParametersPtrOutput {
@@ -5525,6 +6408,12 @@ func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) ToApplicationRefere
 
 func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordFormatPtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceRecordFormat] {
+	return pulumix.Output[*ApplicationReferenceDataSourceRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) Elem() ApplicationReferenceDataSourceRecordFormatOutput {
@@ -5590,6 +6479,12 @@ func (i ApplicationReferenceDataSourceReferenceDataSourceArgs) ToApplicationRefe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceReferenceDataSourceOutput)
 }
 
+func (i ApplicationReferenceDataSourceReferenceDataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceReferenceDataSource] {
+	return pulumix.Output[ApplicationReferenceDataSourceReferenceDataSource]{
+		OutputState: i.ToApplicationReferenceDataSourceReferenceDataSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceReferenceDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceReferenceDataSourceOutput) ElementType() reflect.Type {
@@ -5602,6 +6497,12 @@ func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ToApplicationRe
 
 func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ToApplicationReferenceDataSourceReferenceDataSourceOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceDataSourceOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceReferenceDataSource] {
+	return pulumix.Output[ApplicationReferenceDataSourceReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ReferenceSchema() ApplicationReferenceDataSourceReferenceSchemaOutput {
@@ -5632,6 +6533,12 @@ func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ToApplicatio
 
 func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceReferenceDataSource] {
+	return pulumix.Output[*ApplicationReferenceDataSourceReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) Elem() ApplicationReferenceDataSourceReferenceDataSourceOutput {
@@ -5706,6 +6613,12 @@ func (i ApplicationReferenceDataSourceReferenceSchemaArgs) ToApplicationReferenc
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceReferenceSchemaOutput)
 }
 
+func (i ApplicationReferenceDataSourceReferenceSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceReferenceSchema] {
+	return pulumix.Output[ApplicationReferenceDataSourceReferenceSchema]{
+		OutputState: i.ToApplicationReferenceDataSourceReferenceSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceReferenceSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceReferenceSchemaOutput) ElementType() reflect.Type {
@@ -5718,6 +6631,12 @@ func (o ApplicationReferenceDataSourceReferenceSchemaOutput) ToApplicationRefere
 
 func (o ApplicationReferenceDataSourceReferenceSchemaOutput) ToApplicationReferenceDataSourceReferenceSchemaOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceSchemaOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceReferenceSchema] {
+	return pulumix.Output[ApplicationReferenceDataSourceReferenceSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceReferenceSchemaOutput) RecordColumns() ApplicationReferenceDataSourceRecordColumnArrayOutput {
@@ -5748,6 +6667,12 @@ func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ToApplicationRef
 
 func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceReferenceSchema] {
+	return pulumix.Output[*ApplicationReferenceDataSourceReferenceSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) Elem() ApplicationReferenceDataSourceReferenceSchemaOutput {
@@ -5820,6 +6745,12 @@ func (i ApplicationReferenceDataSourceS3ReferenceDataSourceArgs) ToApplicationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceS3ReferenceDataSourceOutput)
 }
 
+func (i ApplicationReferenceDataSourceS3ReferenceDataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[ApplicationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: i.ToApplicationReferenceDataSourceS3ReferenceDataSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationReferenceDataSourceS3ReferenceDataSourceArgs) ToApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput() ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput {
 	return i.ToApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutputWithContext(context.Background())
 }
@@ -5861,6 +6792,12 @@ func (i *applicationReferenceDataSourceS3ReferenceDataSourcePtrType) ToApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
 }
 
+func (i *applicationReferenceDataSourceS3ReferenceDataSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[*ApplicationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: i.ToApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceS3ReferenceDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) ElementType() reflect.Type {
@@ -5885,6 +6822,12 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) ToApplication
 	}).(ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
 }
 
+func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[ApplicationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceS3ReferenceDataSource) string { return v.BucketArn }).(pulumi.StringOutput)
 }
@@ -5905,6 +6848,12 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) ToApplicat
 
 func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) ToApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[*ApplicationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) Elem() ApplicationReferenceDataSourceS3ReferenceDataSourceOutput {
@@ -5974,6 +6923,12 @@ func (i ApplicationRestoreConfigurationArgs) ToApplicationRestoreConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRestoreConfigurationOutput)
 }
 
+func (i ApplicationRestoreConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationRestoreConfiguration] {
+	return pulumix.Output[ApplicationRestoreConfiguration]{
+		OutputState: i.ToApplicationRestoreConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationRestoreConfigurationArgs) ToApplicationRestoreConfigurationPtrOutput() ApplicationRestoreConfigurationPtrOutput {
 	return i.ToApplicationRestoreConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6015,6 +6970,12 @@ func (i *applicationRestoreConfigurationPtrType) ToApplicationRestoreConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRestoreConfigurationPtrOutput)
 }
 
+func (i *applicationRestoreConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRestoreConfiguration] {
+	return pulumix.Output[*ApplicationRestoreConfiguration]{
+		OutputState: i.ToApplicationRestoreConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes the restore behavior of a restarting application.
 type ApplicationRestoreConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -6038,6 +6999,12 @@ func (o ApplicationRestoreConfigurationOutput) ToApplicationRestoreConfiguration
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationRestoreConfiguration) *ApplicationRestoreConfiguration {
 		return &v
 	}).(ApplicationRestoreConfigurationPtrOutput)
+}
+
+func (o ApplicationRestoreConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRestoreConfiguration] {
+	return pulumix.Output[ApplicationRestoreConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies how the application should be restored.
@@ -6064,6 +7031,12 @@ func (o ApplicationRestoreConfigurationPtrOutput) ToApplicationRestoreConfigurat
 
 func (o ApplicationRestoreConfigurationPtrOutput) ToApplicationRestoreConfigurationPtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationRestoreConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRestoreConfiguration] {
+	return pulumix.Output[*ApplicationRestoreConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationRestoreConfigurationPtrOutput) Elem() ApplicationRestoreConfigurationOutput {
@@ -6135,6 +7108,12 @@ func (i ApplicationRunConfigurationArgs) ToApplicationRunConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRunConfigurationOutput)
 }
 
+func (i ApplicationRunConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationRunConfiguration] {
+	return pulumix.Output[ApplicationRunConfiguration]{
+		OutputState: i.ToApplicationRunConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationRunConfigurationArgs) ToApplicationRunConfigurationPtrOutput() ApplicationRunConfigurationPtrOutput {
 	return i.ToApplicationRunConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6176,6 +7155,12 @@ func (i *applicationRunConfigurationPtrType) ToApplicationRunConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRunConfigurationPtrOutput)
 }
 
+func (i *applicationRunConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRunConfiguration] {
+	return pulumix.Output[*ApplicationRunConfiguration]{
+		OutputState: i.ToApplicationRunConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Identifies the run configuration (start parameters) of a Kinesis Data Analytics application. This section is evaluated only on stack updates for applications in running RUNNING state and has no effect during manual application start.
 type ApplicationRunConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -6199,6 +7184,12 @@ func (o ApplicationRunConfigurationOutput) ToApplicationRunConfigurationPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationRunConfiguration) *ApplicationRunConfiguration {
 		return &v
 	}).(ApplicationRunConfigurationPtrOutput)
+}
+
+func (o ApplicationRunConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRunConfiguration] {
+	return pulumix.Output[ApplicationRunConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes the restore behavior of a restarting application.
@@ -6225,6 +7216,12 @@ func (o ApplicationRunConfigurationPtrOutput) ToApplicationRunConfigurationPtrOu
 
 func (o ApplicationRunConfigurationPtrOutput) ToApplicationRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationRunConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationRunConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRunConfiguration] {
+	return pulumix.Output[*ApplicationRunConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationRunConfigurationPtrOutput) Elem() ApplicationRunConfigurationOutput {
@@ -6296,6 +7293,12 @@ func (i ApplicationS3ContentBaseLocationArgs) ToApplicationS3ContentBaseLocation
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3ContentBaseLocationOutput)
 }
 
+func (i ApplicationS3ContentBaseLocationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationS3ContentBaseLocation] {
+	return pulumix.Output[ApplicationS3ContentBaseLocation]{
+		OutputState: i.ToApplicationS3ContentBaseLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationS3ContentBaseLocationArgs) ToApplicationS3ContentBaseLocationPtrOutput() ApplicationS3ContentBaseLocationPtrOutput {
 	return i.ToApplicationS3ContentBaseLocationPtrOutputWithContext(context.Background())
 }
@@ -6337,6 +7340,12 @@ func (i *applicationS3ContentBaseLocationPtrType) ToApplicationS3ContentBaseLoca
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3ContentBaseLocationPtrOutput)
 }
 
+func (i *applicationS3ContentBaseLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationS3ContentBaseLocation] {
+	return pulumix.Output[*ApplicationS3ContentBaseLocation]{
+		OutputState: i.ToApplicationS3ContentBaseLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The base location of the Amazon Data Analytics application.
 type ApplicationS3ContentBaseLocationOutput struct{ *pulumi.OutputState }
 
@@ -6362,6 +7371,12 @@ func (o ApplicationS3ContentBaseLocationOutput) ToApplicationS3ContentBaseLocati
 	}).(ApplicationS3ContentBaseLocationPtrOutput)
 }
 
+func (o ApplicationS3ContentBaseLocationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationS3ContentBaseLocation] {
+	return pulumix.Output[ApplicationS3ContentBaseLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The base path for the S3 bucket.
 func (o ApplicationS3ContentBaseLocationOutput) BasePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationS3ContentBaseLocation) *string { return v.BasePath }).(pulumi.StringPtrOutput)
@@ -6384,6 +7399,12 @@ func (o ApplicationS3ContentBaseLocationPtrOutput) ToApplicationS3ContentBaseLoc
 
 func (o ApplicationS3ContentBaseLocationPtrOutput) ToApplicationS3ContentBaseLocationPtrOutputWithContext(ctx context.Context) ApplicationS3ContentBaseLocationPtrOutput {
 	return o
+}
+
+func (o ApplicationS3ContentBaseLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationS3ContentBaseLocation] {
+	return pulumix.Output[*ApplicationS3ContentBaseLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationS3ContentBaseLocationPtrOutput) Elem() ApplicationS3ContentBaseLocationOutput {
@@ -6459,6 +7480,12 @@ func (i ApplicationS3ContentLocationArgs) ToApplicationS3ContentLocationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3ContentLocationOutput)
 }
 
+func (i ApplicationS3ContentLocationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationS3ContentLocation] {
+	return pulumix.Output[ApplicationS3ContentLocation]{
+		OutputState: i.ToApplicationS3ContentLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationS3ContentLocationArgs) ToApplicationS3ContentLocationPtrOutput() ApplicationS3ContentLocationPtrOutput {
 	return i.ToApplicationS3ContentLocationPtrOutputWithContext(context.Background())
 }
@@ -6500,6 +7527,12 @@ func (i *applicationS3ContentLocationPtrType) ToApplicationS3ContentLocationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3ContentLocationPtrOutput)
 }
 
+func (i *applicationS3ContentLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationS3ContentLocation] {
+	return pulumix.Output[*ApplicationS3ContentLocation]{
+		OutputState: i.ToApplicationS3ContentLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The location of an application or a custom artifact.
 type ApplicationS3ContentLocationOutput struct{ *pulumi.OutputState }
 
@@ -6523,6 +7556,12 @@ func (o ApplicationS3ContentLocationOutput) ToApplicationS3ContentLocationPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationS3ContentLocation) *ApplicationS3ContentLocation {
 		return &v
 	}).(ApplicationS3ContentLocationPtrOutput)
+}
+
+func (o ApplicationS3ContentLocationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationS3ContentLocation] {
+	return pulumix.Output[ApplicationS3ContentLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
@@ -6552,6 +7591,12 @@ func (o ApplicationS3ContentLocationPtrOutput) ToApplicationS3ContentLocationPtr
 
 func (o ApplicationS3ContentLocationPtrOutput) ToApplicationS3ContentLocationPtrOutputWithContext(ctx context.Context) ApplicationS3ContentLocationPtrOutput {
 	return o
+}
+
+func (o ApplicationS3ContentLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationS3ContentLocation] {
+	return pulumix.Output[*ApplicationS3ContentLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationS3ContentLocationPtrOutput) Elem() ApplicationS3ContentLocationOutput {
@@ -6629,6 +7674,12 @@ func (i ApplicationSnapshotConfigurationArgs) ToApplicationSnapshotConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotConfigurationOutput)
 }
 
+func (i ApplicationSnapshotConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationSnapshotConfiguration] {
+	return pulumix.Output[ApplicationSnapshotConfiguration]{
+		OutputState: i.ToApplicationSnapshotConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationSnapshotConfigurationArgs) ToApplicationSnapshotConfigurationPtrOutput() ApplicationSnapshotConfigurationPtrOutput {
 	return i.ToApplicationSnapshotConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6670,6 +7721,12 @@ func (i *applicationSnapshotConfigurationPtrType) ToApplicationSnapshotConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotConfigurationPtrOutput)
 }
 
+func (i *applicationSnapshotConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSnapshotConfiguration] {
+	return pulumix.Output[*ApplicationSnapshotConfiguration]{
+		OutputState: i.ToApplicationSnapshotConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 type ApplicationSnapshotConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -6695,6 +7752,12 @@ func (o ApplicationSnapshotConfigurationOutput) ToApplicationSnapshotConfigurati
 	}).(ApplicationSnapshotConfigurationPtrOutput)
 }
 
+func (o ApplicationSnapshotConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationSnapshotConfiguration] {
+	return pulumix.Output[ApplicationSnapshotConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationSnapshotConfigurationOutput) SnapshotsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationSnapshotConfiguration) bool { return v.SnapshotsEnabled }).(pulumi.BoolOutput)
@@ -6712,6 +7775,12 @@ func (o ApplicationSnapshotConfigurationPtrOutput) ToApplicationSnapshotConfigur
 
 func (o ApplicationSnapshotConfigurationPtrOutput) ToApplicationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationSnapshotConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSnapshotConfiguration] {
+	return pulumix.Output[*ApplicationSnapshotConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationSnapshotConfigurationPtrOutput) Elem() ApplicationSnapshotConfigurationOutput {
@@ -6769,6 +7838,12 @@ func (i ApplicationSqlApplicationConfigurationArgs) ToApplicationSqlApplicationC
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSqlApplicationConfigurationOutput)
 }
 
+func (i ApplicationSqlApplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationSqlApplicationConfiguration] {
+	return pulumix.Output[ApplicationSqlApplicationConfiguration]{
+		OutputState: i.ToApplicationSqlApplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationSqlApplicationConfigurationArgs) ToApplicationSqlApplicationConfigurationPtrOutput() ApplicationSqlApplicationConfigurationPtrOutput {
 	return i.ToApplicationSqlApplicationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6810,6 +7885,12 @@ func (i *applicationSqlApplicationConfigurationPtrType) ToApplicationSqlApplicat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSqlApplicationConfigurationPtrOutput)
 }
 
+func (i *applicationSqlApplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSqlApplicationConfiguration] {
+	return pulumix.Output[*ApplicationSqlApplicationConfiguration]{
+		OutputState: i.ToApplicationSqlApplicationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
 type ApplicationSqlApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -6835,6 +7916,12 @@ func (o ApplicationSqlApplicationConfigurationOutput) ToApplicationSqlApplicatio
 	}).(ApplicationSqlApplicationConfigurationPtrOutput)
 }
 
+func (o ApplicationSqlApplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationSqlApplicationConfiguration] {
+	return pulumix.Output[ApplicationSqlApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The array of Input objects describing the input streams used by the application.
 func (o ApplicationSqlApplicationConfigurationOutput) Inputs() ApplicationInputTypeArrayOutput {
 	return o.ApplyT(func(v ApplicationSqlApplicationConfiguration) []ApplicationInputType { return v.Inputs }).(ApplicationInputTypeArrayOutput)
@@ -6852,6 +7939,12 @@ func (o ApplicationSqlApplicationConfigurationPtrOutput) ToApplicationSqlApplica
 
 func (o ApplicationSqlApplicationConfigurationPtrOutput) ToApplicationSqlApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSqlApplicationConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationSqlApplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSqlApplicationConfiguration] {
+	return pulumix.Output[*ApplicationSqlApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationSqlApplicationConfigurationPtrOutput) Elem() ApplicationSqlApplicationConfigurationOutput {
@@ -6913,6 +8006,12 @@ func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagOutput)
 }
 
+func (i ApplicationTagArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationTag] {
+	return pulumix.Output[ApplicationTag]{
+		OutputState: i.ToApplicationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
 // You can construct a concrete instance of `ApplicationTagArrayInput` via:
 //
@@ -6938,6 +8037,12 @@ func (i ApplicationTagArray) ToApplicationTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagArrayOutput)
 }
 
+func (i ApplicationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTag] {
+	return pulumix.Output[[]ApplicationTag]{
+		OutputState: i.ToApplicationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair that identifies an application.
 type ApplicationTagOutput struct{ *pulumi.OutputState }
 
@@ -6951,6 +8056,12 @@ func (o ApplicationTagOutput) ToApplicationTagOutput() ApplicationTagOutput {
 
 func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
 	return o
+}
+
+func (o ApplicationTagOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationTag] {
+	return pulumix.Output[ApplicationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -6975,6 +8086,12 @@ func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutput() ApplicationTagA
 
 func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
 	return o
+}
+
+func (o ApplicationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTag] {
+	return pulumix.Output[[]ApplicationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput {
@@ -7022,6 +8139,12 @@ func (i ApplicationVpcConfigurationArgs) ToApplicationVpcConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVpcConfigurationOutput)
 }
 
+func (i ApplicationVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationVpcConfiguration] {
+	return pulumix.Output[ApplicationVpcConfiguration]{
+		OutputState: i.ToApplicationVpcConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationVpcConfigurationArrayInput is an input type that accepts ApplicationVpcConfigurationArray and ApplicationVpcConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationVpcConfigurationArrayInput` via:
 //
@@ -7047,6 +8170,12 @@ func (i ApplicationVpcConfigurationArray) ToApplicationVpcConfigurationArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVpcConfigurationArrayOutput)
 }
 
+func (i ApplicationVpcConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationVpcConfiguration] {
+	return pulumix.Output[[]ApplicationVpcConfiguration]{
+		OutputState: i.ToApplicationVpcConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes the parameters of a VPC used by the application.
 type ApplicationVpcConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -7060,6 +8189,12 @@ func (o ApplicationVpcConfigurationOutput) ToApplicationVpcConfigurationOutput()
 
 func (o ApplicationVpcConfigurationOutput) ToApplicationVpcConfigurationOutputWithContext(ctx context.Context) ApplicationVpcConfigurationOutput {
 	return o
+}
+
+func (o ApplicationVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationVpcConfiguration] {
+	return pulumix.Output[ApplicationVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The array of SecurityGroup IDs used by the VPC configuration.
@@ -7084,6 +8219,12 @@ func (o ApplicationVpcConfigurationArrayOutput) ToApplicationVpcConfigurationArr
 
 func (o ApplicationVpcConfigurationArrayOutput) ToApplicationVpcConfigurationArrayOutputWithContext(ctx context.Context) ApplicationVpcConfigurationArrayOutput {
 	return o
+}
+
+func (o ApplicationVpcConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationVpcConfiguration] {
+	return pulumix.Output[[]ApplicationVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationVpcConfigurationArrayOutput) Index(i pulumi.IntInput) ApplicationVpcConfigurationOutput {
@@ -7139,6 +8280,12 @@ func (i ApplicationZeppelinApplicationConfigurationArgs) ToApplicationZeppelinAp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationZeppelinApplicationConfigurationOutput)
 }
 
+func (i ApplicationZeppelinApplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationZeppelinApplicationConfiguration] {
+	return pulumix.Output[ApplicationZeppelinApplicationConfiguration]{
+		OutputState: i.ToApplicationZeppelinApplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationZeppelinApplicationConfigurationArgs) ToApplicationZeppelinApplicationConfigurationPtrOutput() ApplicationZeppelinApplicationConfigurationPtrOutput {
 	return i.ToApplicationZeppelinApplicationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -7180,6 +8327,12 @@ func (i *applicationZeppelinApplicationConfigurationPtrType) ToApplicationZeppel
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationZeppelinApplicationConfigurationPtrOutput)
 }
 
+func (i *applicationZeppelinApplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationZeppelinApplicationConfiguration] {
+	return pulumix.Output[*ApplicationZeppelinApplicationConfiguration]{
+		OutputState: i.ToApplicationZeppelinApplicationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration of a Kinesis Data Analytics Studio notebook.
 type ApplicationZeppelinApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -7203,6 +8356,12 @@ func (o ApplicationZeppelinApplicationConfigurationOutput) ToApplicationZeppelin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationZeppelinApplicationConfiguration) *ApplicationZeppelinApplicationConfiguration {
 		return &v
 	}).(ApplicationZeppelinApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationZeppelinApplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationZeppelinApplicationConfiguration] {
+	return pulumix.Output[ApplicationZeppelinApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
@@ -7245,6 +8404,12 @@ func (o ApplicationZeppelinApplicationConfigurationPtrOutput) ToApplicationZeppe
 
 func (o ApplicationZeppelinApplicationConfigurationPtrOutput) ToApplicationZeppelinApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationZeppelinApplicationConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationZeppelinApplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationZeppelinApplicationConfiguration] {
+	return pulumix.Output[*ApplicationZeppelinApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationZeppelinApplicationConfigurationPtrOutput) Elem() ApplicationZeppelinApplicationConfigurationOutput {
@@ -7332,6 +8497,12 @@ func (i ApplicationZeppelinMonitoringConfigurationArgs) ToApplicationZeppelinMon
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationZeppelinMonitoringConfigurationOutput)
 }
 
+func (i ApplicationZeppelinMonitoringConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationZeppelinMonitoringConfiguration] {
+	return pulumix.Output[ApplicationZeppelinMonitoringConfiguration]{
+		OutputState: i.ToApplicationZeppelinMonitoringConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationZeppelinMonitoringConfigurationArgs) ToApplicationZeppelinMonitoringConfigurationPtrOutput() ApplicationZeppelinMonitoringConfigurationPtrOutput {
 	return i.ToApplicationZeppelinMonitoringConfigurationPtrOutputWithContext(context.Background())
 }
@@ -7373,6 +8544,12 @@ func (i *applicationZeppelinMonitoringConfigurationPtrType) ToApplicationZeppeli
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationZeppelinMonitoringConfigurationPtrOutput)
 }
 
+func (i *applicationZeppelinMonitoringConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationZeppelinMonitoringConfiguration] {
+	return pulumix.Output[*ApplicationZeppelinMonitoringConfiguration]{
+		OutputState: i.ToApplicationZeppelinMonitoringConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring.
 type ApplicationZeppelinMonitoringConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -7398,6 +8575,12 @@ func (o ApplicationZeppelinMonitoringConfigurationOutput) ToApplicationZeppelinM
 	}).(ApplicationZeppelinMonitoringConfigurationPtrOutput)
 }
 
+func (o ApplicationZeppelinMonitoringConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationZeppelinMonitoringConfiguration] {
+	return pulumix.Output[ApplicationZeppelinMonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
 func (o ApplicationZeppelinMonitoringConfigurationOutput) LogLevel() ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput {
 	return o.ApplyT(func(v ApplicationZeppelinMonitoringConfiguration) *ApplicationZeppelinMonitoringConfigurationLogLevel {
@@ -7417,6 +8600,12 @@ func (o ApplicationZeppelinMonitoringConfigurationPtrOutput) ToApplicationZeppel
 
 func (o ApplicationZeppelinMonitoringConfigurationPtrOutput) ToApplicationZeppelinMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationZeppelinMonitoringConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationZeppelinMonitoringConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationZeppelinMonitoringConfiguration] {
+	return pulumix.Output[*ApplicationZeppelinMonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationZeppelinMonitoringConfigurationPtrOutput) Elem() ApplicationZeppelinMonitoringConfigurationOutput {

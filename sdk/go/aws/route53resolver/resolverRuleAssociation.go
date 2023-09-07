@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
@@ -119,6 +120,12 @@ func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleAssociationOutput)
 }
 
+func (i *ResolverRuleAssociation) ToOutput(ctx context.Context) pulumix.Output[*ResolverRuleAssociation] {
+	return pulumix.Output[*ResolverRuleAssociation]{
+		OutputState: i.ToResolverRuleAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverRuleAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleAssociationOutput) ElementType() reflect.Type {
@@ -131,6 +138,12 @@ func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutput() Resolve
 
 func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput {
 	return o
+}
+
+func (o ResolverRuleAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverRuleAssociation] {
+	return pulumix.Output[*ResolverRuleAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of an association between a Resolver rule and a VPC.

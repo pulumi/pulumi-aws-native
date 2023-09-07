@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::ImageVersion
@@ -73,6 +74,12 @@ func (o LookupImageVersionResultOutput) ToLookupImageVersionResultOutput() Looku
 
 func (o LookupImageVersionResultOutput) ToLookupImageVersionResultOutputWithContext(ctx context.Context) LookupImageVersionResultOutput {
 	return o
+}
+
+func (o LookupImageVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupImageVersionResult] {
+	return pulumix.Output[LookupImageVersionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupImageVersionResultOutput) ContainerImage() pulumi.StringPtrOutput {

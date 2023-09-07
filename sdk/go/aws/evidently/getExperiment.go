@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Evidently::Experiment.
@@ -75,6 +76,12 @@ func (o LookupExperimentResultOutput) ToLookupExperimentResultOutput() LookupExp
 
 func (o LookupExperimentResultOutput) ToLookupExperimentResultOutputWithContext(ctx context.Context) LookupExperimentResultOutput {
 	return o
+}
+
+func (o LookupExperimentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupExperimentResult] {
+	return pulumix.Output[LookupExperimentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupExperimentResultOutput) Arn() pulumi.StringPtrOutput {

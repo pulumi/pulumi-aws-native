@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Athena::NamedQuery
@@ -66,6 +67,12 @@ func (o LookupNamedQueryResultOutput) ToLookupNamedQueryResultOutput() LookupNam
 
 func (o LookupNamedQueryResultOutput) ToLookupNamedQueryResultOutputWithContext(ctx context.Context) LookupNamedQueryResultOutput {
 	return o
+}
+
+func (o LookupNamedQueryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNamedQueryResult] {
+	return pulumix.Output[LookupNamedQueryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique ID of the query.

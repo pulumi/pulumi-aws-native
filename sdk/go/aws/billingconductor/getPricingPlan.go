@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Pricing Plan enables you to customize your billing details consistent with the usage that accrues in each of your billing groups.
@@ -76,6 +77,12 @@ func (o LookupPricingPlanResultOutput) ToLookupPricingPlanResultOutput() LookupP
 
 func (o LookupPricingPlanResultOutput) ToLookupPricingPlanResultOutputWithContext(ctx context.Context) LookupPricingPlanResultOutput {
 	return o
+}
+
+func (o LookupPricingPlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPricingPlanResult] {
+	return pulumix.Output[LookupPricingPlanResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Pricing Plan ARN

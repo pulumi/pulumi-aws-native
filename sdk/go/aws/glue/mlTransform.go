@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::MLTransform
@@ -141,6 +142,12 @@ func (i *MlTransform) ToMlTransformOutputWithContext(ctx context.Context) MlTran
 	return pulumi.ToOutputWithContext(ctx, i).(MlTransformOutput)
 }
 
+func (i *MlTransform) ToOutput(ctx context.Context) pulumix.Output[*MlTransform] {
+	return pulumix.Output[*MlTransform]{
+		OutputState: i.ToMlTransformOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MlTransformOutput struct{ *pulumi.OutputState }
 
 func (MlTransformOutput) ElementType() reflect.Type {
@@ -153,6 +160,12 @@ func (o MlTransformOutput) ToMlTransformOutput() MlTransformOutput {
 
 func (o MlTransformOutput) ToMlTransformOutputWithContext(ctx context.Context) MlTransformOutput {
 	return o
+}
+
+func (o MlTransformOutput) ToOutput(ctx context.Context) pulumix.Output[*MlTransform] {
+	return pulumix.Output[*MlTransform]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MlTransformOutput) Description() pulumi.StringPtrOutput {

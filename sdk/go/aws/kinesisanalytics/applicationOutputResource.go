@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::KinesisAnalytics::ApplicationOutput
@@ -105,6 +106,12 @@ func (i *ApplicationOutputResource) ToApplicationOutputResourceOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutput)
 }
 
+func (i *ApplicationOutputResource) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResource] {
+	return pulumix.Output[*ApplicationOutputResource]{
+		OutputState: i.ToApplicationOutputResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutputResourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceOutput) ElementType() reflect.Type {
@@ -117,6 +124,12 @@ func (o ApplicationOutputResourceOutput) ToApplicationOutputResourceOutput() App
 
 func (o ApplicationOutputResourceOutput) ToApplicationOutputResourceOutputWithContext(ctx context.Context) ApplicationOutputResourceOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResource] {
+	return pulumix.Output[*ApplicationOutputResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceOutput) ApplicationName() pulumi.StringOutput {

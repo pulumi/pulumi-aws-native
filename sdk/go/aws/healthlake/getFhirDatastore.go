@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // HealthLake FHIR Datastore
@@ -68,6 +69,12 @@ func (o LookupFhirDatastoreResultOutput) ToLookupFhirDatastoreResultOutput() Loo
 
 func (o LookupFhirDatastoreResultOutput) ToLookupFhirDatastoreResultOutputWithContext(ctx context.Context) LookupFhirDatastoreResultOutput {
 	return o
+}
+
+func (o LookupFhirDatastoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFhirDatastoreResult] {
+	return pulumix.Output[LookupFhirDatastoreResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFhirDatastoreResultOutput) CreatedAt() FhirDatastoreCreatedAtPtrOutput {

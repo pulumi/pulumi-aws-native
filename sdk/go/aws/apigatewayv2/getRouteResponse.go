@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::RouteResponse
@@ -71,6 +72,12 @@ func (o LookupRouteResponseResultOutput) ToLookupRouteResponseResultOutput() Loo
 
 func (o LookupRouteResponseResultOutput) ToLookupRouteResponseResultOutputWithContext(ctx context.Context) LookupRouteResponseResultOutput {
 	return o
+}
+
+func (o LookupRouteResponseResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRouteResponseResult] {
+	return pulumix.Output[LookupRouteResponseResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRouteResponseResultOutput) ModelSelectionExpression() pulumi.StringPtrOutput {

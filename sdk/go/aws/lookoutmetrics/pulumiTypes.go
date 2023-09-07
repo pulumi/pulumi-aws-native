@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i AlertActionArgs) ToAlertActionOutputWithContext(ctx context.Context) Ale
 	return pulumi.ToOutputWithContext(ctx, i).(AlertActionOutput)
 }
 
+func (i AlertActionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertAction] {
+	return pulumix.Output[AlertAction]{
+		OutputState: i.ToAlertActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertActionOutput struct{ *pulumi.OutputState }
 
 func (AlertActionOutput) ElementType() reflect.Type {
@@ -58,6 +65,12 @@ func (o AlertActionOutput) ToAlertActionOutput() AlertActionOutput {
 
 func (o AlertActionOutput) ToAlertActionOutputWithContext(ctx context.Context) AlertActionOutput {
 	return o
+}
+
+func (o AlertActionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertAction] {
+	return pulumix.Output[AlertAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertActionOutput) LambdaConfiguration() AlertLambdaConfigurationPtrOutput {
@@ -107,6 +120,12 @@ func (i AlertLambdaConfigurationArgs) ToAlertLambdaConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AlertLambdaConfigurationOutput)
 }
 
+func (i AlertLambdaConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AlertLambdaConfiguration] {
+	return pulumix.Output[AlertLambdaConfiguration]{
+		OutputState: i.ToAlertLambdaConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlertLambdaConfigurationArgs) ToAlertLambdaConfigurationPtrOutput() AlertLambdaConfigurationPtrOutput {
 	return i.ToAlertLambdaConfigurationPtrOutputWithContext(context.Background())
 }
@@ -148,6 +167,12 @@ func (i *alertLambdaConfigurationPtrType) ToAlertLambdaConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AlertLambdaConfigurationPtrOutput)
 }
 
+func (i *alertLambdaConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertLambdaConfiguration] {
+	return pulumix.Output[*AlertLambdaConfiguration]{
+		OutputState: i.ToAlertLambdaConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration options for a Lambda alert action.
 type AlertLambdaConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -173,6 +198,12 @@ func (o AlertLambdaConfigurationOutput) ToAlertLambdaConfigurationPtrOutputWithC
 	}).(AlertLambdaConfigurationPtrOutput)
 }
 
+func (o AlertLambdaConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AlertLambdaConfiguration] {
+	return pulumix.Output[AlertLambdaConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of a Lambda to send alert notifications to.
 func (o AlertLambdaConfigurationOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertLambdaConfiguration) string { return v.LambdaArn }).(pulumi.StringOutput)
@@ -195,6 +226,12 @@ func (o AlertLambdaConfigurationPtrOutput) ToAlertLambdaConfigurationPtrOutput()
 
 func (o AlertLambdaConfigurationPtrOutput) ToAlertLambdaConfigurationPtrOutputWithContext(ctx context.Context) AlertLambdaConfigurationPtrOutput {
 	return o
+}
+
+func (o AlertLambdaConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertLambdaConfiguration] {
+	return pulumix.Output[*AlertLambdaConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertLambdaConfigurationPtrOutput) Elem() AlertLambdaConfigurationOutput {
@@ -266,6 +303,12 @@ func (i AlertSnsConfigurationArgs) ToAlertSnsConfigurationOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AlertSnsConfigurationOutput)
 }
 
+func (i AlertSnsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AlertSnsConfiguration] {
+	return pulumix.Output[AlertSnsConfiguration]{
+		OutputState: i.ToAlertSnsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlertSnsConfigurationArgs) ToAlertSnsConfigurationPtrOutput() AlertSnsConfigurationPtrOutput {
 	return i.ToAlertSnsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -307,6 +350,12 @@ func (i *alertSnsConfigurationPtrType) ToAlertSnsConfigurationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AlertSnsConfigurationPtrOutput)
 }
 
+func (i *alertSnsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertSnsConfiguration] {
+	return pulumix.Output[*AlertSnsConfiguration]{
+		OutputState: i.ToAlertSnsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration options for an SNS alert action.
 type AlertSnsConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -332,6 +381,12 @@ func (o AlertSnsConfigurationOutput) ToAlertSnsConfigurationPtrOutputWithContext
 	}).(AlertSnsConfigurationPtrOutput)
 }
 
+func (o AlertSnsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AlertSnsConfiguration] {
+	return pulumix.Output[AlertSnsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
 func (o AlertSnsConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertSnsConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
@@ -354,6 +409,12 @@ func (o AlertSnsConfigurationPtrOutput) ToAlertSnsConfigurationPtrOutput() Alert
 
 func (o AlertSnsConfigurationPtrOutput) ToAlertSnsConfigurationPtrOutputWithContext(ctx context.Context) AlertSnsConfigurationPtrOutput {
 	return o
+}
+
+func (o AlertSnsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertSnsConfiguration] {
+	return pulumix.Output[*AlertSnsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertSnsConfigurationPtrOutput) Elem() AlertSnsConfigurationOutput {
@@ -419,6 +480,12 @@ func (i AnomalyDetectorAppFlowConfigArgs) ToAnomalyDetectorAppFlowConfigOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorAppFlowConfigOutput)
 }
 
+func (i AnomalyDetectorAppFlowConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorAppFlowConfig] {
+	return pulumix.Output[AnomalyDetectorAppFlowConfig]{
+		OutputState: i.ToAnomalyDetectorAppFlowConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnomalyDetectorAppFlowConfigArgs) ToAnomalyDetectorAppFlowConfigPtrOutput() AnomalyDetectorAppFlowConfigPtrOutput {
 	return i.ToAnomalyDetectorAppFlowConfigPtrOutputWithContext(context.Background())
 }
@@ -460,6 +527,12 @@ func (i *anomalyDetectorAppFlowConfigPtrType) ToAnomalyDetectorAppFlowConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorAppFlowConfigPtrOutput)
 }
 
+func (i *anomalyDetectorAppFlowConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorAppFlowConfig] {
+	return pulumix.Output[*AnomalyDetectorAppFlowConfig]{
+		OutputState: i.ToAnomalyDetectorAppFlowConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorAppFlowConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorAppFlowConfigOutput) ElementType() reflect.Type {
@@ -484,6 +557,12 @@ func (o AnomalyDetectorAppFlowConfigOutput) ToAnomalyDetectorAppFlowConfigPtrOut
 	}).(AnomalyDetectorAppFlowConfigPtrOutput)
 }
 
+func (o AnomalyDetectorAppFlowConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorAppFlowConfig] {
+	return pulumix.Output[AnomalyDetectorAppFlowConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorAppFlowConfigOutput) FlowName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorAppFlowConfig) string { return v.FlowName }).(pulumi.StringOutput)
 }
@@ -504,6 +583,12 @@ func (o AnomalyDetectorAppFlowConfigPtrOutput) ToAnomalyDetectorAppFlowConfigPtr
 
 func (o AnomalyDetectorAppFlowConfigPtrOutput) ToAnomalyDetectorAppFlowConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorAppFlowConfigPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorAppFlowConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorAppFlowConfig] {
+	return pulumix.Output[*AnomalyDetectorAppFlowConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorAppFlowConfigPtrOutput) Elem() AnomalyDetectorAppFlowConfigOutput {
@@ -565,6 +650,12 @@ func (i AnomalyDetectorCloudwatchConfigArgs) ToAnomalyDetectorCloudwatchConfigOu
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorCloudwatchConfigOutput)
 }
 
+func (i AnomalyDetectorCloudwatchConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorCloudwatchConfig] {
+	return pulumix.Output[AnomalyDetectorCloudwatchConfig]{
+		OutputState: i.ToAnomalyDetectorCloudwatchConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnomalyDetectorCloudwatchConfigArgs) ToAnomalyDetectorCloudwatchConfigPtrOutput() AnomalyDetectorCloudwatchConfigPtrOutput {
 	return i.ToAnomalyDetectorCloudwatchConfigPtrOutputWithContext(context.Background())
 }
@@ -606,6 +697,12 @@ func (i *anomalyDetectorCloudwatchConfigPtrType) ToAnomalyDetectorCloudwatchConf
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorCloudwatchConfigPtrOutput)
 }
 
+func (i *anomalyDetectorCloudwatchConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorCloudwatchConfig] {
+	return pulumix.Output[*AnomalyDetectorCloudwatchConfig]{
+		OutputState: i.ToAnomalyDetectorCloudwatchConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorCloudwatchConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorCloudwatchConfigOutput) ElementType() reflect.Type {
@@ -630,6 +727,12 @@ func (o AnomalyDetectorCloudwatchConfigOutput) ToAnomalyDetectorCloudwatchConfig
 	}).(AnomalyDetectorCloudwatchConfigPtrOutput)
 }
 
+func (o AnomalyDetectorCloudwatchConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorCloudwatchConfig] {
+	return pulumix.Output[AnomalyDetectorCloudwatchConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorCloudwatchConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorCloudwatchConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -646,6 +749,12 @@ func (o AnomalyDetectorCloudwatchConfigPtrOutput) ToAnomalyDetectorCloudwatchCon
 
 func (o AnomalyDetectorCloudwatchConfigPtrOutput) ToAnomalyDetectorCloudwatchConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorCloudwatchConfigPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorCloudwatchConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorCloudwatchConfig] {
+	return pulumix.Output[*AnomalyDetectorCloudwatchConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorCloudwatchConfigPtrOutput) Elem() AnomalyDetectorCloudwatchConfigOutput {
@@ -700,6 +809,12 @@ func (i AnomalyDetectorConfigArgs) ToAnomalyDetectorConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigOutput)
 }
 
+func (i AnomalyDetectorConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorConfig] {
+	return pulumix.Output[AnomalyDetectorConfig]{
+		OutputState: i.ToAnomalyDetectorConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorConfigOutput) ElementType() reflect.Type {
@@ -712,6 +827,12 @@ func (o AnomalyDetectorConfigOutput) ToAnomalyDetectorConfigOutput() AnomalyDete
 
 func (o AnomalyDetectorConfigOutput) ToAnomalyDetectorConfigOutputWithContext(ctx context.Context) AnomalyDetectorConfigOutput {
 	return o
+}
+
+func (o AnomalyDetectorConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorConfig] {
+	return pulumix.Output[AnomalyDetectorConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Frequency of anomaly detection
@@ -731,6 +852,12 @@ func (o AnomalyDetectorConfigPtrOutput) ToAnomalyDetectorConfigPtrOutput() Anoma
 
 func (o AnomalyDetectorConfigPtrOutput) ToAnomalyDetectorConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorConfig] {
+	return pulumix.Output[*AnomalyDetectorConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorConfigPtrOutput) Elem() AnomalyDetectorConfigOutput {
@@ -794,6 +921,12 @@ func (i AnomalyDetectorCsvFormatDescriptorArgs) ToAnomalyDetectorCsvFormatDescri
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorCsvFormatDescriptorOutput)
 }
 
+func (i AnomalyDetectorCsvFormatDescriptorArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorCsvFormatDescriptor] {
+	return pulumix.Output[AnomalyDetectorCsvFormatDescriptor]{
+		OutputState: i.ToAnomalyDetectorCsvFormatDescriptorOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnomalyDetectorCsvFormatDescriptorArgs) ToAnomalyDetectorCsvFormatDescriptorPtrOutput() AnomalyDetectorCsvFormatDescriptorPtrOutput {
 	return i.ToAnomalyDetectorCsvFormatDescriptorPtrOutputWithContext(context.Background())
 }
@@ -835,6 +968,12 @@ func (i *anomalyDetectorCsvFormatDescriptorPtrType) ToAnomalyDetectorCsvFormatDe
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorCsvFormatDescriptorPtrOutput)
 }
 
+func (i *anomalyDetectorCsvFormatDescriptorPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorCsvFormatDescriptor] {
+	return pulumix.Output[*AnomalyDetectorCsvFormatDescriptor]{
+		OutputState: i.ToAnomalyDetectorCsvFormatDescriptorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorCsvFormatDescriptorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorCsvFormatDescriptorOutput) ElementType() reflect.Type {
@@ -857,6 +996,12 @@ func (o AnomalyDetectorCsvFormatDescriptorOutput) ToAnomalyDetectorCsvFormatDesc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorCsvFormatDescriptor) *AnomalyDetectorCsvFormatDescriptor {
 		return &v
 	}).(AnomalyDetectorCsvFormatDescriptorPtrOutput)
+}
+
+func (o AnomalyDetectorCsvFormatDescriptorOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorCsvFormatDescriptor] {
+	return pulumix.Output[AnomalyDetectorCsvFormatDescriptor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorCsvFormatDescriptorOutput) Charset() pulumi.StringPtrOutput {
@@ -897,6 +1042,12 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) ToAnomalyDetectorCsvFormatD
 
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) ToAnomalyDetectorCsvFormatDescriptorPtrOutputWithContext(ctx context.Context) AnomalyDetectorCsvFormatDescriptorPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorCsvFormatDescriptor] {
+	return pulumix.Output[*AnomalyDetectorCsvFormatDescriptor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Elem() AnomalyDetectorCsvFormatDescriptorOutput {
@@ -996,6 +1147,12 @@ func (i AnomalyDetectorFileFormatDescriptorArgs) ToAnomalyDetectorFileFormatDesc
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorFileFormatDescriptorOutput)
 }
 
+func (i AnomalyDetectorFileFormatDescriptorArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorFileFormatDescriptor] {
+	return pulumix.Output[AnomalyDetectorFileFormatDescriptor]{
+		OutputState: i.ToAnomalyDetectorFileFormatDescriptorOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnomalyDetectorFileFormatDescriptorArgs) ToAnomalyDetectorFileFormatDescriptorPtrOutput() AnomalyDetectorFileFormatDescriptorPtrOutput {
 	return i.ToAnomalyDetectorFileFormatDescriptorPtrOutputWithContext(context.Background())
 }
@@ -1037,6 +1194,12 @@ func (i *anomalyDetectorFileFormatDescriptorPtrType) ToAnomalyDetectorFileFormat
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorFileFormatDescriptorPtrOutput)
 }
 
+func (i *anomalyDetectorFileFormatDescriptorPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorFileFormatDescriptor] {
+	return pulumix.Output[*AnomalyDetectorFileFormatDescriptor]{
+		OutputState: i.ToAnomalyDetectorFileFormatDescriptorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorFileFormatDescriptorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorFileFormatDescriptorOutput) ElementType() reflect.Type {
@@ -1059,6 +1222,12 @@ func (o AnomalyDetectorFileFormatDescriptorOutput) ToAnomalyDetectorFileFormatDe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorFileFormatDescriptor) *AnomalyDetectorFileFormatDescriptor {
 		return &v
 	}).(AnomalyDetectorFileFormatDescriptorPtrOutput)
+}
+
+func (o AnomalyDetectorFileFormatDescriptorOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorFileFormatDescriptor] {
+	return pulumix.Output[AnomalyDetectorFileFormatDescriptor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorFileFormatDescriptorOutput) CsvFormatDescriptor() AnomalyDetectorCsvFormatDescriptorPtrOutput {
@@ -1085,6 +1254,12 @@ func (o AnomalyDetectorFileFormatDescriptorPtrOutput) ToAnomalyDetectorFileForma
 
 func (o AnomalyDetectorFileFormatDescriptorPtrOutput) ToAnomalyDetectorFileFormatDescriptorPtrOutputWithContext(ctx context.Context) AnomalyDetectorFileFormatDescriptorPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorFileFormatDescriptorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorFileFormatDescriptor] {
+	return pulumix.Output[*AnomalyDetectorFileFormatDescriptor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorFileFormatDescriptorPtrOutput) Elem() AnomalyDetectorFileFormatDescriptorOutput {
@@ -1148,6 +1323,12 @@ func (i AnomalyDetectorJsonFormatDescriptorArgs) ToAnomalyDetectorJsonFormatDesc
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorJsonFormatDescriptorOutput)
 }
 
+func (i AnomalyDetectorJsonFormatDescriptorArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorJsonFormatDescriptor] {
+	return pulumix.Output[AnomalyDetectorJsonFormatDescriptor]{
+		OutputState: i.ToAnomalyDetectorJsonFormatDescriptorOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnomalyDetectorJsonFormatDescriptorArgs) ToAnomalyDetectorJsonFormatDescriptorPtrOutput() AnomalyDetectorJsonFormatDescriptorPtrOutput {
 	return i.ToAnomalyDetectorJsonFormatDescriptorPtrOutputWithContext(context.Background())
 }
@@ -1189,6 +1370,12 @@ func (i *anomalyDetectorJsonFormatDescriptorPtrType) ToAnomalyDetectorJsonFormat
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorJsonFormatDescriptorPtrOutput)
 }
 
+func (i *anomalyDetectorJsonFormatDescriptorPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorJsonFormatDescriptor] {
+	return pulumix.Output[*AnomalyDetectorJsonFormatDescriptor]{
+		OutputState: i.ToAnomalyDetectorJsonFormatDescriptorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorJsonFormatDescriptorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorJsonFormatDescriptorOutput) ElementType() reflect.Type {
@@ -1213,6 +1400,12 @@ func (o AnomalyDetectorJsonFormatDescriptorOutput) ToAnomalyDetectorJsonFormatDe
 	}).(AnomalyDetectorJsonFormatDescriptorPtrOutput)
 }
 
+func (o AnomalyDetectorJsonFormatDescriptorOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorJsonFormatDescriptor] {
+	return pulumix.Output[AnomalyDetectorJsonFormatDescriptor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorJsonFormatDescriptorOutput) Charset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorJsonFormatDescriptor) *string { return v.Charset }).(pulumi.StringPtrOutput)
 }
@@ -1235,6 +1428,12 @@ func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) ToAnomalyDetectorJsonForma
 
 func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) ToAnomalyDetectorJsonFormatDescriptorPtrOutputWithContext(ctx context.Context) AnomalyDetectorJsonFormatDescriptorPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorJsonFormatDescriptor] {
+	return pulumix.Output[*AnomalyDetectorJsonFormatDescriptor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) Elem() AnomalyDetectorJsonFormatDescriptorOutput {
@@ -1302,6 +1501,12 @@ func (i AnomalyDetectorMetricArgs) ToAnomalyDetectorMetricOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricOutput)
 }
 
+func (i AnomalyDetectorMetricArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetric] {
+	return pulumix.Output[AnomalyDetectorMetric]{
+		OutputState: i.ToAnomalyDetectorMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnomalyDetectorMetricArrayInput is an input type that accepts AnomalyDetectorMetricArray and AnomalyDetectorMetricArrayOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricArrayInput` via:
 //
@@ -1327,6 +1532,12 @@ func (i AnomalyDetectorMetricArray) ToAnomalyDetectorMetricArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricArrayOutput)
 }
 
+func (i AnomalyDetectorMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyDetectorMetric] {
+	return pulumix.Output[[]AnomalyDetectorMetric]{
+		OutputState: i.ToAnomalyDetectorMetricArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorMetricOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorMetricOutput) ElementType() reflect.Type {
@@ -1339,6 +1550,12 @@ func (o AnomalyDetectorMetricOutput) ToAnomalyDetectorMetricOutput() AnomalyDete
 
 func (o AnomalyDetectorMetricOutput) ToAnomalyDetectorMetricOutputWithContext(ctx context.Context) AnomalyDetectorMetricOutput {
 	return o
+}
+
+func (o AnomalyDetectorMetricOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetric] {
+	return pulumix.Output[AnomalyDetectorMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Operator used to aggregate metric values
@@ -1366,6 +1583,12 @@ func (o AnomalyDetectorMetricArrayOutput) ToAnomalyDetectorMetricArrayOutput() A
 
 func (o AnomalyDetectorMetricArrayOutput) ToAnomalyDetectorMetricArrayOutputWithContext(ctx context.Context) AnomalyDetectorMetricArrayOutput {
 	return o
+}
+
+func (o AnomalyDetectorMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyDetectorMetric] {
+	return pulumix.Output[[]AnomalyDetectorMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorMetricArrayOutput) Index(i pulumi.IntInput) AnomalyDetectorMetricOutput {
@@ -1433,6 +1656,12 @@ func (i AnomalyDetectorMetricSetArgs) ToAnomalyDetectorMetricSetOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricSetOutput)
 }
 
+func (i AnomalyDetectorMetricSetArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricSet] {
+	return pulumix.Output[AnomalyDetectorMetricSet]{
+		OutputState: i.ToAnomalyDetectorMetricSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnomalyDetectorMetricSetArrayInput is an input type that accepts AnomalyDetectorMetricSetArray and AnomalyDetectorMetricSetArrayOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricSetArrayInput` via:
 //
@@ -1458,6 +1687,12 @@ func (i AnomalyDetectorMetricSetArray) ToAnomalyDetectorMetricSetArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricSetArrayOutput)
 }
 
+func (i AnomalyDetectorMetricSetArray) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyDetectorMetricSet] {
+	return pulumix.Output[[]AnomalyDetectorMetricSet]{
+		OutputState: i.ToAnomalyDetectorMetricSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorMetricSetOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorMetricSetOutput) ElementType() reflect.Type {
@@ -1470,6 +1705,12 @@ func (o AnomalyDetectorMetricSetOutput) ToAnomalyDetectorMetricSetOutput() Anoma
 
 func (o AnomalyDetectorMetricSetOutput) ToAnomalyDetectorMetricSetOutputWithContext(ctx context.Context) AnomalyDetectorMetricSetOutput {
 	return o
+}
+
+func (o AnomalyDetectorMetricSetOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricSet] {
+	return pulumix.Output[AnomalyDetectorMetricSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Dimensions for this MetricSet.
@@ -1530,6 +1771,12 @@ func (o AnomalyDetectorMetricSetArrayOutput) ToAnomalyDetectorMetricSetArrayOutp
 	return o
 }
 
+func (o AnomalyDetectorMetricSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyDetectorMetricSet] {
+	return pulumix.Output[[]AnomalyDetectorMetricSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorMetricSetArrayOutput) Index(i pulumi.IntInput) AnomalyDetectorMetricSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnomalyDetectorMetricSet {
 		return vs[0].([]AnomalyDetectorMetricSet)[vs[1].(int)]
@@ -1575,6 +1822,12 @@ func (i AnomalyDetectorMetricSourceArgs) ToAnomalyDetectorMetricSourceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricSourceOutput)
 }
 
+func (i AnomalyDetectorMetricSourceArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricSource] {
+	return pulumix.Output[AnomalyDetectorMetricSource]{
+		OutputState: i.ToAnomalyDetectorMetricSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorMetricSourceOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorMetricSourceOutput) ElementType() reflect.Type {
@@ -1587,6 +1840,12 @@ func (o AnomalyDetectorMetricSourceOutput) ToAnomalyDetectorMetricSourceOutput()
 
 func (o AnomalyDetectorMetricSourceOutput) ToAnomalyDetectorMetricSourceOutputWithContext(ctx context.Context) AnomalyDetectorMetricSourceOutput {
 	return o
+}
+
+func (o AnomalyDetectorMetricSourceOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricSource] {
+	return pulumix.Output[AnomalyDetectorMetricSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorMetricSourceOutput) AppFlowConfig() AnomalyDetectorAppFlowConfigPtrOutput {
@@ -1656,6 +1915,12 @@ func (i AnomalyDetectorRdsSourceConfigArgs) ToAnomalyDetectorRdsSourceConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRdsSourceConfigOutput)
 }
 
+func (i AnomalyDetectorRdsSourceConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorRdsSourceConfig] {
+	return pulumix.Output[AnomalyDetectorRdsSourceConfig]{
+		OutputState: i.ToAnomalyDetectorRdsSourceConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnomalyDetectorRdsSourceConfigArgs) ToAnomalyDetectorRdsSourceConfigPtrOutput() AnomalyDetectorRdsSourceConfigPtrOutput {
 	return i.ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(context.Background())
 }
@@ -1697,6 +1962,12 @@ func (i *anomalyDetectorRdsSourceConfigPtrType) ToAnomalyDetectorRdsSourceConfig
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRdsSourceConfigPtrOutput)
 }
 
+func (i *anomalyDetectorRdsSourceConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorRdsSourceConfig] {
+	return pulumix.Output[*AnomalyDetectorRdsSourceConfig]{
+		OutputState: i.ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorRdsSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorRdsSourceConfigOutput) ElementType() reflect.Type {
@@ -1719,6 +1990,12 @@ func (o AnomalyDetectorRdsSourceConfigOutput) ToAnomalyDetectorRdsSourceConfigPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorRdsSourceConfig) *AnomalyDetectorRdsSourceConfig {
 		return &v
 	}).(AnomalyDetectorRdsSourceConfigPtrOutput)
+}
+
+func (o AnomalyDetectorRdsSourceConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorRdsSourceConfig] {
+	return pulumix.Output[AnomalyDetectorRdsSourceConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorRdsSourceConfigOutput) DatabaseHost() pulumi.StringOutput {
@@ -1765,6 +2042,12 @@ func (o AnomalyDetectorRdsSourceConfigPtrOutput) ToAnomalyDetectorRdsSourceConfi
 
 func (o AnomalyDetectorRdsSourceConfigPtrOutput) ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorRdsSourceConfigPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorRdsSourceConfig] {
+	return pulumix.Output[*AnomalyDetectorRdsSourceConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorRdsSourceConfigPtrOutput) Elem() AnomalyDetectorRdsSourceConfigOutput {
@@ -1894,6 +2177,12 @@ func (i AnomalyDetectorRedshiftSourceConfigArgs) ToAnomalyDetectorRedshiftSource
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRedshiftSourceConfigOutput)
 }
 
+func (i AnomalyDetectorRedshiftSourceConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorRedshiftSourceConfig] {
+	return pulumix.Output[AnomalyDetectorRedshiftSourceConfig]{
+		OutputState: i.ToAnomalyDetectorRedshiftSourceConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnomalyDetectorRedshiftSourceConfigArgs) ToAnomalyDetectorRedshiftSourceConfigPtrOutput() AnomalyDetectorRedshiftSourceConfigPtrOutput {
 	return i.ToAnomalyDetectorRedshiftSourceConfigPtrOutputWithContext(context.Background())
 }
@@ -1935,6 +2224,12 @@ func (i *anomalyDetectorRedshiftSourceConfigPtrType) ToAnomalyDetectorRedshiftSo
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRedshiftSourceConfigPtrOutput)
 }
 
+func (i *anomalyDetectorRedshiftSourceConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorRedshiftSourceConfig] {
+	return pulumix.Output[*AnomalyDetectorRedshiftSourceConfig]{
+		OutputState: i.ToAnomalyDetectorRedshiftSourceConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorRedshiftSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorRedshiftSourceConfigOutput) ElementType() reflect.Type {
@@ -1957,6 +2252,12 @@ func (o AnomalyDetectorRedshiftSourceConfigOutput) ToAnomalyDetectorRedshiftSour
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorRedshiftSourceConfig) *AnomalyDetectorRedshiftSourceConfig {
 		return &v
 	}).(AnomalyDetectorRedshiftSourceConfigPtrOutput)
+}
+
+func (o AnomalyDetectorRedshiftSourceConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorRedshiftSourceConfig] {
+	return pulumix.Output[AnomalyDetectorRedshiftSourceConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorRedshiftSourceConfigOutput) ClusterIdentifier() pulumi.StringOutput {
@@ -2003,6 +2304,12 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) ToAnomalyDetectorRedshiftS
 
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) ToAnomalyDetectorRedshiftSourceConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorRedshiftSourceConfigPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorRedshiftSourceConfig] {
+	return pulumix.Output[*AnomalyDetectorRedshiftSourceConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) Elem() AnomalyDetectorRedshiftSourceConfigOutput {
@@ -2124,6 +2431,12 @@ func (i AnomalyDetectorS3SourceConfigArgs) ToAnomalyDetectorS3SourceConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorS3SourceConfigOutput)
 }
 
+func (i AnomalyDetectorS3SourceConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorS3SourceConfig] {
+	return pulumix.Output[AnomalyDetectorS3SourceConfig]{
+		OutputState: i.ToAnomalyDetectorS3SourceConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnomalyDetectorS3SourceConfigArgs) ToAnomalyDetectorS3SourceConfigPtrOutput() AnomalyDetectorS3SourceConfigPtrOutput {
 	return i.ToAnomalyDetectorS3SourceConfigPtrOutputWithContext(context.Background())
 }
@@ -2165,6 +2478,12 @@ func (i *anomalyDetectorS3SourceConfigPtrType) ToAnomalyDetectorS3SourceConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorS3SourceConfigPtrOutput)
 }
 
+func (i *anomalyDetectorS3SourceConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorS3SourceConfig] {
+	return pulumix.Output[*AnomalyDetectorS3SourceConfig]{
+		OutputState: i.ToAnomalyDetectorS3SourceConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorS3SourceConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorS3SourceConfigOutput) ElementType() reflect.Type {
@@ -2187,6 +2506,12 @@ func (o AnomalyDetectorS3SourceConfigOutput) ToAnomalyDetectorS3SourceConfigPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorS3SourceConfig) *AnomalyDetectorS3SourceConfig {
 		return &v
 	}).(AnomalyDetectorS3SourceConfigPtrOutput)
+}
+
+func (o AnomalyDetectorS3SourceConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorS3SourceConfig] {
+	return pulumix.Output[AnomalyDetectorS3SourceConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorS3SourceConfigOutput) FileFormatDescriptor() AnomalyDetectorFileFormatDescriptorOutput {
@@ -2219,6 +2544,12 @@ func (o AnomalyDetectorS3SourceConfigPtrOutput) ToAnomalyDetectorS3SourceConfigP
 
 func (o AnomalyDetectorS3SourceConfigPtrOutput) ToAnomalyDetectorS3SourceConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorS3SourceConfigPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorS3SourceConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorS3SourceConfig] {
+	return pulumix.Output[*AnomalyDetectorS3SourceConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorS3SourceConfigPtrOutput) Elem() AnomalyDetectorS3SourceConfigOutput {
@@ -2302,6 +2633,12 @@ func (i AnomalyDetectorTimestampColumnArgs) ToAnomalyDetectorTimestampColumnOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorTimestampColumnOutput)
 }
 
+func (i AnomalyDetectorTimestampColumnArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorTimestampColumn] {
+	return pulumix.Output[AnomalyDetectorTimestampColumn]{
+		OutputState: i.ToAnomalyDetectorTimestampColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnomalyDetectorTimestampColumnArgs) ToAnomalyDetectorTimestampColumnPtrOutput() AnomalyDetectorTimestampColumnPtrOutput {
 	return i.ToAnomalyDetectorTimestampColumnPtrOutputWithContext(context.Background())
 }
@@ -2343,6 +2680,12 @@ func (i *anomalyDetectorTimestampColumnPtrType) ToAnomalyDetectorTimestampColumn
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorTimestampColumnPtrOutput)
 }
 
+func (i *anomalyDetectorTimestampColumnPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorTimestampColumn] {
+	return pulumix.Output[*AnomalyDetectorTimestampColumn]{
+		OutputState: i.ToAnomalyDetectorTimestampColumnPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorTimestampColumnOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorTimestampColumnOutput) ElementType() reflect.Type {
@@ -2367,6 +2710,12 @@ func (o AnomalyDetectorTimestampColumnOutput) ToAnomalyDetectorTimestampColumnPt
 	}).(AnomalyDetectorTimestampColumnPtrOutput)
 }
 
+func (o AnomalyDetectorTimestampColumnOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorTimestampColumn] {
+	return pulumix.Output[AnomalyDetectorTimestampColumn]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A timestamp format for the timestamps in the dataset
 func (o AnomalyDetectorTimestampColumnOutput) ColumnFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorTimestampColumn) *string { return v.ColumnFormat }).(pulumi.StringPtrOutput)
@@ -2388,6 +2737,12 @@ func (o AnomalyDetectorTimestampColumnPtrOutput) ToAnomalyDetectorTimestampColum
 
 func (o AnomalyDetectorTimestampColumnPtrOutput) ToAnomalyDetectorTimestampColumnPtrOutputWithContext(ctx context.Context) AnomalyDetectorTimestampColumnPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorTimestampColumnPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorTimestampColumn] {
+	return pulumix.Output[*AnomalyDetectorTimestampColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorTimestampColumnPtrOutput) Elem() AnomalyDetectorTimestampColumnOutput {
@@ -2452,6 +2807,12 @@ func (i AnomalyDetectorVpcConfigurationArgs) ToAnomalyDetectorVpcConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorVpcConfigurationOutput)
 }
 
+func (i AnomalyDetectorVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorVpcConfiguration] {
+	return pulumix.Output[AnomalyDetectorVpcConfiguration]{
+		OutputState: i.ToAnomalyDetectorVpcConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnomalyDetectorVpcConfigurationArgs) ToAnomalyDetectorVpcConfigurationPtrOutput() AnomalyDetectorVpcConfigurationPtrOutput {
 	return i.ToAnomalyDetectorVpcConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2493,6 +2854,12 @@ func (i *anomalyDetectorVpcConfigurationPtrType) ToAnomalyDetectorVpcConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorVpcConfigurationPtrOutput)
 }
 
+func (i *anomalyDetectorVpcConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorVpcConfiguration] {
+	return pulumix.Output[*AnomalyDetectorVpcConfiguration]{
+		OutputState: i.ToAnomalyDetectorVpcConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyDetectorVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorVpcConfigurationOutput) ElementType() reflect.Type {
@@ -2517,6 +2884,12 @@ func (o AnomalyDetectorVpcConfigurationOutput) ToAnomalyDetectorVpcConfiguration
 	}).(AnomalyDetectorVpcConfigurationPtrOutput)
 }
 
+func (o AnomalyDetectorVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorVpcConfiguration] {
+	return pulumix.Output[AnomalyDetectorVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorVpcConfigurationOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorVpcConfiguration) []string { return v.SecurityGroupIdList }).(pulumi.StringArrayOutput)
 }
@@ -2537,6 +2910,12 @@ func (o AnomalyDetectorVpcConfigurationPtrOutput) ToAnomalyDetectorVpcConfigurat
 
 func (o AnomalyDetectorVpcConfigurationPtrOutput) ToAnomalyDetectorVpcConfigurationPtrOutputWithContext(ctx context.Context) AnomalyDetectorVpcConfigurationPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorVpcConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorVpcConfiguration] {
+	return pulumix.Output[*AnomalyDetectorVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorVpcConfigurationPtrOutput) Elem() AnomalyDetectorVpcConfigurationOutput {

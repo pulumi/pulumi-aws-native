@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApplicationAutoScaling::ScalableTarget
@@ -82,6 +83,12 @@ func (o LookupScalableTargetResultOutput) ToLookupScalableTargetResultOutput() L
 
 func (o LookupScalableTargetResultOutput) ToLookupScalableTargetResultOutputWithContext(ctx context.Context) LookupScalableTargetResultOutput {
 	return o
+}
+
+func (o LookupScalableTargetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupScalableTargetResult] {
+	return pulumix.Output[LookupScalableTargetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // This value can be returned by using the Ref function. Ref returns the Cloudformation generated ID of the resource in format - ResourceId|ScalableDimension|ServiceNamespace

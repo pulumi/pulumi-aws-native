@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -42,6 +43,12 @@ func (i ExecutionPlanCapacityUnitsConfigurationArgs) ToExecutionPlanCapacityUnit
 
 func (i ExecutionPlanCapacityUnitsConfigurationArgs) ToExecutionPlanCapacityUnitsConfigurationOutputWithContext(ctx context.Context) ExecutionPlanCapacityUnitsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExecutionPlanCapacityUnitsConfigurationOutput)
+}
+
+func (i ExecutionPlanCapacityUnitsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ExecutionPlanCapacityUnitsConfiguration] {
+	return pulumix.Output[ExecutionPlanCapacityUnitsConfiguration]{
+		OutputState: i.ToExecutionPlanCapacityUnitsConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ExecutionPlanCapacityUnitsConfigurationArgs) ToExecutionPlanCapacityUnitsConfigurationPtrOutput() ExecutionPlanCapacityUnitsConfigurationPtrOutput {
@@ -85,6 +92,12 @@ func (i *executionPlanCapacityUnitsConfigurationPtrType) ToExecutionPlanCapacity
 	return pulumi.ToOutputWithContext(ctx, i).(ExecutionPlanCapacityUnitsConfigurationPtrOutput)
 }
 
+func (i *executionPlanCapacityUnitsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ExecutionPlanCapacityUnitsConfiguration] {
+	return pulumix.Output[*ExecutionPlanCapacityUnitsConfiguration]{
+		OutputState: i.ToExecutionPlanCapacityUnitsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExecutionPlanCapacityUnitsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ExecutionPlanCapacityUnitsConfigurationOutput) ElementType() reflect.Type {
@@ -109,6 +122,12 @@ func (o ExecutionPlanCapacityUnitsConfigurationOutput) ToExecutionPlanCapacityUn
 	}).(ExecutionPlanCapacityUnitsConfigurationPtrOutput)
 }
 
+func (o ExecutionPlanCapacityUnitsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ExecutionPlanCapacityUnitsConfiguration] {
+	return pulumix.Output[ExecutionPlanCapacityUnitsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExecutionPlanCapacityUnitsConfigurationOutput) RescoreCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v ExecutionPlanCapacityUnitsConfiguration) int { return v.RescoreCapacityUnits }).(pulumi.IntOutput)
 }
@@ -125,6 +144,12 @@ func (o ExecutionPlanCapacityUnitsConfigurationPtrOutput) ToExecutionPlanCapacit
 
 func (o ExecutionPlanCapacityUnitsConfigurationPtrOutput) ToExecutionPlanCapacityUnitsConfigurationPtrOutputWithContext(ctx context.Context) ExecutionPlanCapacityUnitsConfigurationPtrOutput {
 	return o
+}
+
+func (o ExecutionPlanCapacityUnitsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExecutionPlanCapacityUnitsConfiguration] {
+	return pulumix.Output[*ExecutionPlanCapacityUnitsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExecutionPlanCapacityUnitsConfigurationPtrOutput) Elem() ExecutionPlanCapacityUnitsConfigurationOutput {
@@ -185,6 +210,12 @@ func (i ExecutionPlanTagArgs) ToExecutionPlanTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ExecutionPlanTagOutput)
 }
 
+func (i ExecutionPlanTagArgs) ToOutput(ctx context.Context) pulumix.Output[ExecutionPlanTag] {
+	return pulumix.Output[ExecutionPlanTag]{
+		OutputState: i.ToExecutionPlanTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExecutionPlanTagArrayInput is an input type that accepts ExecutionPlanTagArray and ExecutionPlanTagArrayOutput values.
 // You can construct a concrete instance of `ExecutionPlanTagArrayInput` via:
 //
@@ -210,6 +241,12 @@ func (i ExecutionPlanTagArray) ToExecutionPlanTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ExecutionPlanTagArrayOutput)
 }
 
+func (i ExecutionPlanTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ExecutionPlanTag] {
+	return pulumix.Output[[]ExecutionPlanTag]{
+		OutputState: i.ToExecutionPlanTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A label for tagging KendraRanking resources
 type ExecutionPlanTagOutput struct{ *pulumi.OutputState }
 
@@ -223,6 +260,12 @@ func (o ExecutionPlanTagOutput) ToExecutionPlanTagOutput() ExecutionPlanTagOutpu
 
 func (o ExecutionPlanTagOutput) ToExecutionPlanTagOutputWithContext(ctx context.Context) ExecutionPlanTagOutput {
 	return o
+}
+
+func (o ExecutionPlanTagOutput) ToOutput(ctx context.Context) pulumix.Output[ExecutionPlanTag] {
+	return pulumix.Output[ExecutionPlanTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string used to identify this tag
@@ -247,6 +290,12 @@ func (o ExecutionPlanTagArrayOutput) ToExecutionPlanTagArrayOutput() ExecutionPl
 
 func (o ExecutionPlanTagArrayOutput) ToExecutionPlanTagArrayOutputWithContext(ctx context.Context) ExecutionPlanTagArrayOutput {
 	return o
+}
+
+func (o ExecutionPlanTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExecutionPlanTag] {
+	return pulumix.Output[[]ExecutionPlanTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExecutionPlanTagArrayOutput) Index(i pulumi.IntInput) ExecutionPlanTagOutput {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DataSourceConditionOperator string
@@ -86,6 +87,12 @@ func (o DataSourceConditionOperatorOutput) ToDataSourceConditionOperatorPtrOutpu
 	}).(DataSourceConditionOperatorPtrOutput)
 }
 
+func (o DataSourceConditionOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConditionOperator] {
+	return pulumix.Output[DataSourceConditionOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConditionOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,6 +126,12 @@ func (o DataSourceConditionOperatorPtrOutput) ToDataSourceConditionOperatorPtrOu
 
 func (o DataSourceConditionOperatorPtrOutput) ToDataSourceConditionOperatorPtrOutputWithContext(ctx context.Context) DataSourceConditionOperatorPtrOutput {
 	return o
+}
+
+func (o DataSourceConditionOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConditionOperator] {
+	return pulumix.Output[*DataSourceConditionOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConditionOperatorPtrOutput) Elem() DataSourceConditionOperatorOutput {
@@ -181,6 +194,12 @@ func (in *dataSourceConditionOperatorPtr) ToDataSourceConditionOperatorPtrOutput
 
 func (in *dataSourceConditionOperatorPtr) ToDataSourceConditionOperatorPtrOutputWithContext(ctx context.Context) DataSourceConditionOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceConditionOperatorPtrOutput)
+}
+
+func (in *dataSourceConditionOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConditionOperator] {
+	return pulumix.Output[*DataSourceConditionOperator]{
+		OutputState: in.ToDataSourceConditionOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceConfluenceAttachmentFieldName string
@@ -259,6 +278,12 @@ func (o DataSourceConfluenceAttachmentFieldNameOutput) ToDataSourceConfluenceAtt
 	}).(DataSourceConfluenceAttachmentFieldNamePtrOutput)
 }
 
+func (o DataSourceConfluenceAttachmentFieldNameOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfluenceAttachmentFieldName] {
+	return pulumix.Output[DataSourceConfluenceAttachmentFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceAttachmentFieldNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -292,6 +317,12 @@ func (o DataSourceConfluenceAttachmentFieldNamePtrOutput) ToDataSourceConfluence
 
 func (o DataSourceConfluenceAttachmentFieldNamePtrOutput) ToDataSourceConfluenceAttachmentFieldNamePtrOutputWithContext(ctx context.Context) DataSourceConfluenceAttachmentFieldNamePtrOutput {
 	return o
+}
+
+func (o DataSourceConfluenceAttachmentFieldNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceAttachmentFieldName] {
+	return pulumix.Output[*DataSourceConfluenceAttachmentFieldName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfluenceAttachmentFieldNamePtrOutput) Elem() DataSourceConfluenceAttachmentFieldNameOutput {
@@ -354,6 +385,12 @@ func (in *dataSourceConfluenceAttachmentFieldNamePtr) ToDataSourceConfluenceAtta
 
 func (in *dataSourceConfluenceAttachmentFieldNamePtr) ToDataSourceConfluenceAttachmentFieldNamePtrOutputWithContext(ctx context.Context) DataSourceConfluenceAttachmentFieldNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceConfluenceAttachmentFieldNamePtrOutput)
+}
+
+func (in *dataSourceConfluenceAttachmentFieldNamePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceAttachmentFieldName] {
+	return pulumix.Output[*DataSourceConfluenceAttachmentFieldName]{
+		OutputState: in.ToDataSourceConfluenceAttachmentFieldNamePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceConfluenceBlogFieldName string
@@ -430,6 +467,12 @@ func (o DataSourceConfluenceBlogFieldNameOutput) ToDataSourceConfluenceBlogField
 	}).(DataSourceConfluenceBlogFieldNamePtrOutput)
 }
 
+func (o DataSourceConfluenceBlogFieldNameOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfluenceBlogFieldName] {
+	return pulumix.Output[DataSourceConfluenceBlogFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceBlogFieldNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -463,6 +506,12 @@ func (o DataSourceConfluenceBlogFieldNamePtrOutput) ToDataSourceConfluenceBlogFi
 
 func (o DataSourceConfluenceBlogFieldNamePtrOutput) ToDataSourceConfluenceBlogFieldNamePtrOutputWithContext(ctx context.Context) DataSourceConfluenceBlogFieldNamePtrOutput {
 	return o
+}
+
+func (o DataSourceConfluenceBlogFieldNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceBlogFieldName] {
+	return pulumix.Output[*DataSourceConfluenceBlogFieldName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfluenceBlogFieldNamePtrOutput) Elem() DataSourceConfluenceBlogFieldNameOutput {
@@ -525,6 +574,12 @@ func (in *dataSourceConfluenceBlogFieldNamePtr) ToDataSourceConfluenceBlogFieldN
 
 func (in *dataSourceConfluenceBlogFieldNamePtr) ToDataSourceConfluenceBlogFieldNamePtrOutputWithContext(ctx context.Context) DataSourceConfluenceBlogFieldNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceConfluenceBlogFieldNamePtrOutput)
+}
+
+func (in *dataSourceConfluenceBlogFieldNamePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceBlogFieldName] {
+	return pulumix.Output[*DataSourceConfluenceBlogFieldName]{
+		OutputState: in.ToDataSourceConfluenceBlogFieldNamePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceConfluencePageFieldName string
@@ -604,6 +659,12 @@ func (o DataSourceConfluencePageFieldNameOutput) ToDataSourceConfluencePageField
 	}).(DataSourceConfluencePageFieldNamePtrOutput)
 }
 
+func (o DataSourceConfluencePageFieldNameOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfluencePageFieldName] {
+	return pulumix.Output[DataSourceConfluencePageFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluencePageFieldNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -637,6 +698,12 @@ func (o DataSourceConfluencePageFieldNamePtrOutput) ToDataSourceConfluencePageFi
 
 func (o DataSourceConfluencePageFieldNamePtrOutput) ToDataSourceConfluencePageFieldNamePtrOutputWithContext(ctx context.Context) DataSourceConfluencePageFieldNamePtrOutput {
 	return o
+}
+
+func (o DataSourceConfluencePageFieldNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluencePageFieldName] {
+	return pulumix.Output[*DataSourceConfluencePageFieldName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfluencePageFieldNamePtrOutput) Elem() DataSourceConfluencePageFieldNameOutput {
@@ -699,6 +766,12 @@ func (in *dataSourceConfluencePageFieldNamePtr) ToDataSourceConfluencePageFieldN
 
 func (in *dataSourceConfluencePageFieldNamePtr) ToDataSourceConfluencePageFieldNamePtrOutputWithContext(ctx context.Context) DataSourceConfluencePageFieldNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceConfluencePageFieldNamePtrOutput)
+}
+
+func (in *dataSourceConfluencePageFieldNamePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluencePageFieldName] {
+	return pulumix.Output[*DataSourceConfluencePageFieldName]{
+		OutputState: in.ToDataSourceConfluencePageFieldNamePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceConfluenceSpaceFieldName string
@@ -770,6 +843,12 @@ func (o DataSourceConfluenceSpaceFieldNameOutput) ToDataSourceConfluenceSpaceFie
 	}).(DataSourceConfluenceSpaceFieldNamePtrOutput)
 }
 
+func (o DataSourceConfluenceSpaceFieldNameOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfluenceSpaceFieldName] {
+	return pulumix.Output[DataSourceConfluenceSpaceFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceSpaceFieldNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -803,6 +882,12 @@ func (o DataSourceConfluenceSpaceFieldNamePtrOutput) ToDataSourceConfluenceSpace
 
 func (o DataSourceConfluenceSpaceFieldNamePtrOutput) ToDataSourceConfluenceSpaceFieldNamePtrOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceFieldNamePtrOutput {
 	return o
+}
+
+func (o DataSourceConfluenceSpaceFieldNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceSpaceFieldName] {
+	return pulumix.Output[*DataSourceConfluenceSpaceFieldName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfluenceSpaceFieldNamePtrOutput) Elem() DataSourceConfluenceSpaceFieldNameOutput {
@@ -865,6 +950,12 @@ func (in *dataSourceConfluenceSpaceFieldNamePtr) ToDataSourceConfluenceSpaceFiel
 
 func (in *dataSourceConfluenceSpaceFieldNamePtr) ToDataSourceConfluenceSpaceFieldNamePtrOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceFieldNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceConfluenceSpaceFieldNamePtrOutput)
+}
+
+func (in *dataSourceConfluenceSpaceFieldNamePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceSpaceFieldName] {
+	return pulumix.Output[*DataSourceConfluenceSpaceFieldName]{
+		OutputState: in.ToDataSourceConfluenceSpaceFieldNamePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceConfluenceVersion string
@@ -934,6 +1025,12 @@ func (o DataSourceConfluenceVersionOutput) ToDataSourceConfluenceVersionPtrOutpu
 	}).(DataSourceConfluenceVersionPtrOutput)
 }
 
+func (o DataSourceConfluenceVersionOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfluenceVersion] {
+	return pulumix.Output[DataSourceConfluenceVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -967,6 +1064,12 @@ func (o DataSourceConfluenceVersionPtrOutput) ToDataSourceConfluenceVersionPtrOu
 
 func (o DataSourceConfluenceVersionPtrOutput) ToDataSourceConfluenceVersionPtrOutputWithContext(ctx context.Context) DataSourceConfluenceVersionPtrOutput {
 	return o
+}
+
+func (o DataSourceConfluenceVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceVersion] {
+	return pulumix.Output[*DataSourceConfluenceVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfluenceVersionPtrOutput) Elem() DataSourceConfluenceVersionOutput {
@@ -1029,6 +1132,12 @@ func (in *dataSourceConfluenceVersionPtr) ToDataSourceConfluenceVersionPtrOutput
 
 func (in *dataSourceConfluenceVersionPtr) ToDataSourceConfluenceVersionPtrOutputWithContext(ctx context.Context) DataSourceConfluenceVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceConfluenceVersionPtrOutput)
+}
+
+func (in *dataSourceConfluenceVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceVersion] {
+	return pulumix.Output[*DataSourceConfluenceVersion]{
+		OutputState: in.ToDataSourceConfluenceVersionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceDatabaseEngineType string
@@ -1100,6 +1209,12 @@ func (o DataSourceDatabaseEngineTypeOutput) ToDataSourceDatabaseEngineTypePtrOut
 	}).(DataSourceDatabaseEngineTypePtrOutput)
 }
 
+func (o DataSourceDatabaseEngineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceDatabaseEngineType] {
+	return pulumix.Output[DataSourceDatabaseEngineType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceDatabaseEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1133,6 +1248,12 @@ func (o DataSourceDatabaseEngineTypePtrOutput) ToDataSourceDatabaseEngineTypePtr
 
 func (o DataSourceDatabaseEngineTypePtrOutput) ToDataSourceDatabaseEngineTypePtrOutputWithContext(ctx context.Context) DataSourceDatabaseEngineTypePtrOutput {
 	return o
+}
+
+func (o DataSourceDatabaseEngineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceDatabaseEngineType] {
+	return pulumix.Output[*DataSourceDatabaseEngineType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceDatabaseEngineTypePtrOutput) Elem() DataSourceDatabaseEngineTypeOutput {
@@ -1195,6 +1316,12 @@ func (in *dataSourceDatabaseEngineTypePtr) ToDataSourceDatabaseEngineTypePtrOutp
 
 func (in *dataSourceDatabaseEngineTypePtr) ToDataSourceDatabaseEngineTypePtrOutputWithContext(ctx context.Context) DataSourceDatabaseEngineTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceDatabaseEngineTypePtrOutput)
+}
+
+func (in *dataSourceDatabaseEngineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceDatabaseEngineType] {
+	return pulumix.Output[*DataSourceDatabaseEngineType]{
+		OutputState: in.ToDataSourceDatabaseEngineTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceQueryIdentifiersEnclosingOption string
@@ -1264,6 +1391,12 @@ func (o DataSourceQueryIdentifiersEnclosingOptionOutput) ToDataSourceQueryIdenti
 	}).(DataSourceQueryIdentifiersEnclosingOptionPtrOutput)
 }
 
+func (o DataSourceQueryIdentifiersEnclosingOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceQueryIdentifiersEnclosingOption] {
+	return pulumix.Output[DataSourceQueryIdentifiersEnclosingOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceQueryIdentifiersEnclosingOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1297,6 +1430,12 @@ func (o DataSourceQueryIdentifiersEnclosingOptionPtrOutput) ToDataSourceQueryIde
 
 func (o DataSourceQueryIdentifiersEnclosingOptionPtrOutput) ToDataSourceQueryIdentifiersEnclosingOptionPtrOutputWithContext(ctx context.Context) DataSourceQueryIdentifiersEnclosingOptionPtrOutput {
 	return o
+}
+
+func (o DataSourceQueryIdentifiersEnclosingOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceQueryIdentifiersEnclosingOption] {
+	return pulumix.Output[*DataSourceQueryIdentifiersEnclosingOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceQueryIdentifiersEnclosingOptionPtrOutput) Elem() DataSourceQueryIdentifiersEnclosingOptionOutput {
@@ -1359,6 +1498,12 @@ func (in *dataSourceQueryIdentifiersEnclosingOptionPtr) ToDataSourceQueryIdentif
 
 func (in *dataSourceQueryIdentifiersEnclosingOptionPtr) ToDataSourceQueryIdentifiersEnclosingOptionPtrOutputWithContext(ctx context.Context) DataSourceQueryIdentifiersEnclosingOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceQueryIdentifiersEnclosingOptionPtrOutput)
+}
+
+func (in *dataSourceQueryIdentifiersEnclosingOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceQueryIdentifiersEnclosingOption] {
+	return pulumix.Output[*DataSourceQueryIdentifiersEnclosingOption]{
+		OutputState: in.ToDataSourceQueryIdentifiersEnclosingOptionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceSalesforceChatterFeedIncludeFilterType string
@@ -1428,6 +1573,12 @@ func (o DataSourceSalesforceChatterFeedIncludeFilterTypeOutput) ToDataSourceSale
 	}).(DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput)
 }
 
+func (o DataSourceSalesforceChatterFeedIncludeFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceSalesforceChatterFeedIncludeFilterType] {
+	return pulumix.Output[DataSourceSalesforceChatterFeedIncludeFilterType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSalesforceChatterFeedIncludeFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1461,6 +1612,12 @@ func (o DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput) ToDataSourceS
 
 func (o DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput) ToDataSourceSalesforceChatterFeedIncludeFilterTypePtrOutputWithContext(ctx context.Context) DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput {
 	return o
+}
+
+func (o DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSalesforceChatterFeedIncludeFilterType] {
+	return pulumix.Output[*DataSourceSalesforceChatterFeedIncludeFilterType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput) Elem() DataSourceSalesforceChatterFeedIncludeFilterTypeOutput {
@@ -1525,6 +1682,12 @@ func (in *dataSourceSalesforceChatterFeedIncludeFilterTypePtr) ToDataSourceSales
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput)
 }
 
+func (in *dataSourceSalesforceChatterFeedIncludeFilterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSalesforceChatterFeedIncludeFilterType] {
+	return pulumix.Output[*DataSourceSalesforceChatterFeedIncludeFilterType]{
+		OutputState: in.ToDataSourceSalesforceChatterFeedIncludeFilterTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataSourceSalesforceChatterFeedIncludeFilterTypeArrayInput is an input type that accepts DataSourceSalesforceChatterFeedIncludeFilterTypeArray and DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput values.
 // You can construct a concrete instance of `DataSourceSalesforceChatterFeedIncludeFilterTypeArrayInput` via:
 //
@@ -1550,6 +1713,12 @@ func (i DataSourceSalesforceChatterFeedIncludeFilterTypeArray) ToDataSourceSales
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput)
 }
 
+func (i DataSourceSalesforceChatterFeedIncludeFilterTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceSalesforceChatterFeedIncludeFilterType] {
+	return pulumix.Output[[]DataSourceSalesforceChatterFeedIncludeFilterType]{
+		OutputState: i.ToDataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput) ElementType() reflect.Type {
@@ -1562,6 +1731,12 @@ func (o DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput) ToDataSourc
 
 func (o DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput) ToDataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutputWithContext(ctx context.Context) DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput {
 	return o
+}
+
+func (o DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceSalesforceChatterFeedIncludeFilterType] {
+	return pulumix.Output[[]DataSourceSalesforceChatterFeedIncludeFilterType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput) Index(i pulumi.IntInput) DataSourceSalesforceChatterFeedIncludeFilterTypeOutput {
@@ -1638,6 +1813,12 @@ func (o DataSourceSalesforceKnowledgeArticleStateOutput) ToDataSourceSalesforceK
 	}).(DataSourceSalesforceKnowledgeArticleStatePtrOutput)
 }
 
+func (o DataSourceSalesforceKnowledgeArticleStateOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceSalesforceKnowledgeArticleState] {
+	return pulumix.Output[DataSourceSalesforceKnowledgeArticleState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSalesforceKnowledgeArticleStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1671,6 +1852,12 @@ func (o DataSourceSalesforceKnowledgeArticleStatePtrOutput) ToDataSourceSalesfor
 
 func (o DataSourceSalesforceKnowledgeArticleStatePtrOutput) ToDataSourceSalesforceKnowledgeArticleStatePtrOutputWithContext(ctx context.Context) DataSourceSalesforceKnowledgeArticleStatePtrOutput {
 	return o
+}
+
+func (o DataSourceSalesforceKnowledgeArticleStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSalesforceKnowledgeArticleState] {
+	return pulumix.Output[*DataSourceSalesforceKnowledgeArticleState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceSalesforceKnowledgeArticleStatePtrOutput) Elem() DataSourceSalesforceKnowledgeArticleStateOutput {
@@ -1735,6 +1922,12 @@ func (in *dataSourceSalesforceKnowledgeArticleStatePtr) ToDataSourceSalesforceKn
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceSalesforceKnowledgeArticleStatePtrOutput)
 }
 
+func (in *dataSourceSalesforceKnowledgeArticleStatePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSalesforceKnowledgeArticleState] {
+	return pulumix.Output[*DataSourceSalesforceKnowledgeArticleState]{
+		OutputState: in.ToDataSourceSalesforceKnowledgeArticleStatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataSourceSalesforceKnowledgeArticleStateArrayInput is an input type that accepts DataSourceSalesforceKnowledgeArticleStateArray and DataSourceSalesforceKnowledgeArticleStateArrayOutput values.
 // You can construct a concrete instance of `DataSourceSalesforceKnowledgeArticleStateArrayInput` via:
 //
@@ -1760,6 +1953,12 @@ func (i DataSourceSalesforceKnowledgeArticleStateArray) ToDataSourceSalesforceKn
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceKnowledgeArticleStateArrayOutput)
 }
 
+func (i DataSourceSalesforceKnowledgeArticleStateArray) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceSalesforceKnowledgeArticleState] {
+	return pulumix.Output[[]DataSourceSalesforceKnowledgeArticleState]{
+		OutputState: i.ToDataSourceSalesforceKnowledgeArticleStateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceSalesforceKnowledgeArticleStateArrayOutput struct{ *pulumi.OutputState }
 
 func (DataSourceSalesforceKnowledgeArticleStateArrayOutput) ElementType() reflect.Type {
@@ -1772,6 +1971,12 @@ func (o DataSourceSalesforceKnowledgeArticleStateArrayOutput) ToDataSourceSalesf
 
 func (o DataSourceSalesforceKnowledgeArticleStateArrayOutput) ToDataSourceSalesforceKnowledgeArticleStateArrayOutputWithContext(ctx context.Context) DataSourceSalesforceKnowledgeArticleStateArrayOutput {
 	return o
+}
+
+func (o DataSourceSalesforceKnowledgeArticleStateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceSalesforceKnowledgeArticleState] {
+	return pulumix.Output[[]DataSourceSalesforceKnowledgeArticleState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceSalesforceKnowledgeArticleStateArrayOutput) Index(i pulumi.IntInput) DataSourceSalesforceKnowledgeArticleStateOutput {
@@ -1862,6 +2067,12 @@ func (o DataSourceSalesforceStandardObjectNameOutput) ToDataSourceSalesforceStan
 	}).(DataSourceSalesforceStandardObjectNamePtrOutput)
 }
 
+func (o DataSourceSalesforceStandardObjectNameOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceSalesforceStandardObjectName] {
+	return pulumix.Output[DataSourceSalesforceStandardObjectName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSalesforceStandardObjectNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1895,6 +2106,12 @@ func (o DataSourceSalesforceStandardObjectNamePtrOutput) ToDataSourceSalesforceS
 
 func (o DataSourceSalesforceStandardObjectNamePtrOutput) ToDataSourceSalesforceStandardObjectNamePtrOutputWithContext(ctx context.Context) DataSourceSalesforceStandardObjectNamePtrOutput {
 	return o
+}
+
+func (o DataSourceSalesforceStandardObjectNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSalesforceStandardObjectName] {
+	return pulumix.Output[*DataSourceSalesforceStandardObjectName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceSalesforceStandardObjectNamePtrOutput) Elem() DataSourceSalesforceStandardObjectNameOutput {
@@ -1957,6 +2174,12 @@ func (in *dataSourceSalesforceStandardObjectNamePtr) ToDataSourceSalesforceStand
 
 func (in *dataSourceSalesforceStandardObjectNamePtr) ToDataSourceSalesforceStandardObjectNamePtrOutputWithContext(ctx context.Context) DataSourceSalesforceStandardObjectNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceSalesforceStandardObjectNamePtrOutput)
+}
+
+func (in *dataSourceSalesforceStandardObjectNamePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSalesforceStandardObjectName] {
+	return pulumix.Output[*DataSourceSalesforceStandardObjectName]{
+		OutputState: in.ToDataSourceSalesforceStandardObjectNamePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceServiceNowAuthenticationType string
@@ -2026,6 +2249,12 @@ func (o DataSourceServiceNowAuthenticationTypeOutput) ToDataSourceServiceNowAuth
 	}).(DataSourceServiceNowAuthenticationTypePtrOutput)
 }
 
+func (o DataSourceServiceNowAuthenticationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceServiceNowAuthenticationType] {
+	return pulumix.Output[DataSourceServiceNowAuthenticationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceServiceNowAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2059,6 +2288,12 @@ func (o DataSourceServiceNowAuthenticationTypePtrOutput) ToDataSourceServiceNowA
 
 func (o DataSourceServiceNowAuthenticationTypePtrOutput) ToDataSourceServiceNowAuthenticationTypePtrOutputWithContext(ctx context.Context) DataSourceServiceNowAuthenticationTypePtrOutput {
 	return o
+}
+
+func (o DataSourceServiceNowAuthenticationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceServiceNowAuthenticationType] {
+	return pulumix.Output[*DataSourceServiceNowAuthenticationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceServiceNowAuthenticationTypePtrOutput) Elem() DataSourceServiceNowAuthenticationTypeOutput {
@@ -2121,6 +2356,12 @@ func (in *dataSourceServiceNowAuthenticationTypePtr) ToDataSourceServiceNowAuthe
 
 func (in *dataSourceServiceNowAuthenticationTypePtr) ToDataSourceServiceNowAuthenticationTypePtrOutputWithContext(ctx context.Context) DataSourceServiceNowAuthenticationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceServiceNowAuthenticationTypePtrOutput)
+}
+
+func (in *dataSourceServiceNowAuthenticationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceServiceNowAuthenticationType] {
+	return pulumix.Output[*DataSourceServiceNowAuthenticationType]{
+		OutputState: in.ToDataSourceServiceNowAuthenticationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceServiceNowBuildVersionType string
@@ -2190,6 +2431,12 @@ func (o DataSourceServiceNowBuildVersionTypeOutput) ToDataSourceServiceNowBuildV
 	}).(DataSourceServiceNowBuildVersionTypePtrOutput)
 }
 
+func (o DataSourceServiceNowBuildVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceServiceNowBuildVersionType] {
+	return pulumix.Output[DataSourceServiceNowBuildVersionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceServiceNowBuildVersionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2223,6 +2470,12 @@ func (o DataSourceServiceNowBuildVersionTypePtrOutput) ToDataSourceServiceNowBui
 
 func (o DataSourceServiceNowBuildVersionTypePtrOutput) ToDataSourceServiceNowBuildVersionTypePtrOutputWithContext(ctx context.Context) DataSourceServiceNowBuildVersionTypePtrOutput {
 	return o
+}
+
+func (o DataSourceServiceNowBuildVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceServiceNowBuildVersionType] {
+	return pulumix.Output[*DataSourceServiceNowBuildVersionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceServiceNowBuildVersionTypePtrOutput) Elem() DataSourceServiceNowBuildVersionTypeOutput {
@@ -2285,6 +2538,12 @@ func (in *dataSourceServiceNowBuildVersionTypePtr) ToDataSourceServiceNowBuildVe
 
 func (in *dataSourceServiceNowBuildVersionTypePtr) ToDataSourceServiceNowBuildVersionTypePtrOutputWithContext(ctx context.Context) DataSourceServiceNowBuildVersionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceServiceNowBuildVersionTypePtrOutput)
+}
+
+func (in *dataSourceServiceNowBuildVersionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceServiceNowBuildVersionType] {
+	return pulumix.Output[*DataSourceServiceNowBuildVersionType]{
+		OutputState: in.ToDataSourceServiceNowBuildVersionTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceSharePointConfigurationSharePointVersion string
@@ -2355,6 +2614,12 @@ func (o DataSourceSharePointConfigurationSharePointVersionOutput) ToDataSourceSh
 	}).(DataSourceSharePointConfigurationSharePointVersionPtrOutput)
 }
 
+func (o DataSourceSharePointConfigurationSharePointVersionOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceSharePointConfigurationSharePointVersion] {
+	return pulumix.Output[DataSourceSharePointConfigurationSharePointVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSharePointConfigurationSharePointVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2388,6 +2653,12 @@ func (o DataSourceSharePointConfigurationSharePointVersionPtrOutput) ToDataSourc
 
 func (o DataSourceSharePointConfigurationSharePointVersionPtrOutput) ToDataSourceSharePointConfigurationSharePointVersionPtrOutputWithContext(ctx context.Context) DataSourceSharePointConfigurationSharePointVersionPtrOutput {
 	return o
+}
+
+func (o DataSourceSharePointConfigurationSharePointVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSharePointConfigurationSharePointVersion] {
+	return pulumix.Output[*DataSourceSharePointConfigurationSharePointVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceSharePointConfigurationSharePointVersionPtrOutput) Elem() DataSourceSharePointConfigurationSharePointVersionOutput {
@@ -2450,6 +2721,12 @@ func (in *dataSourceSharePointConfigurationSharePointVersionPtr) ToDataSourceSha
 
 func (in *dataSourceSharePointConfigurationSharePointVersionPtr) ToDataSourceSharePointConfigurationSharePointVersionPtrOutputWithContext(ctx context.Context) DataSourceSharePointConfigurationSharePointVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceSharePointConfigurationSharePointVersionPtrOutput)
+}
+
+func (in *dataSourceSharePointConfigurationSharePointVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSharePointConfigurationSharePointVersion] {
+	return pulumix.Output[*DataSourceSharePointConfigurationSharePointVersion]{
+		OutputState: in.ToDataSourceSharePointConfigurationSharePointVersionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Data source type
@@ -2530,6 +2807,12 @@ func (o DataSourceTypeOutput) ToDataSourceTypePtrOutputWithContext(ctx context.C
 	}).(DataSourceTypePtrOutput)
 }
 
+func (o DataSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceType] {
+	return pulumix.Output[DataSourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2563,6 +2846,12 @@ func (o DataSourceTypePtrOutput) ToDataSourceTypePtrOutput() DataSourceTypePtrOu
 
 func (o DataSourceTypePtrOutput) ToDataSourceTypePtrOutputWithContext(ctx context.Context) DataSourceTypePtrOutput {
 	return o
+}
+
+func (o DataSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceType] {
+	return pulumix.Output[*DataSourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceTypePtrOutput) Elem() DataSourceTypeOutput {
@@ -2625,6 +2914,12 @@ func (in *dataSourceTypePtr) ToDataSourceTypePtrOutput() DataSourceTypePtrOutput
 
 func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Context) DataSourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTypePtrOutput)
+}
+
+func (in *dataSourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceType] {
+	return pulumix.Output[*DataSourceType]{
+		OutputState: in.ToDataSourceTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode string
@@ -2695,6 +2990,12 @@ func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToDataSour
 	}).(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput)
 }
 
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode] {
+	return pulumix.Output[DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2728,6 +3029,12 @@ func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) ToDataS
 
 func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
 	return o
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode] {
+	return pulumix.Output[*DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) Elem() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput {
@@ -2790,6 +3097,12 @@ func (in *dataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtr) ToDataSourc
 
 func (in *dataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtr) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput)
+}
+
+func (in *dataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode] {
+	return pulumix.Output[*DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode]{
+		OutputState: in.ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Format of the input file
@@ -2861,6 +3174,12 @@ func (o FaqFileFormatOutput) ToFaqFileFormatPtrOutputWithContext(ctx context.Con
 	}).(FaqFileFormatPtrOutput)
 }
 
+func (o FaqFileFormatOutput) ToOutput(ctx context.Context) pulumix.Output[FaqFileFormat] {
+	return pulumix.Output[FaqFileFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FaqFileFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2894,6 +3213,12 @@ func (o FaqFileFormatPtrOutput) ToFaqFileFormatPtrOutput() FaqFileFormatPtrOutpu
 
 func (o FaqFileFormatPtrOutput) ToFaqFileFormatPtrOutputWithContext(ctx context.Context) FaqFileFormatPtrOutput {
 	return o
+}
+
+func (o FaqFileFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FaqFileFormat] {
+	return pulumix.Output[*FaqFileFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FaqFileFormatPtrOutput) Elem() FaqFileFormatOutput {
@@ -2956,6 +3281,12 @@ func (in *faqFileFormatPtr) ToFaqFileFormatPtrOutput() FaqFileFormatPtrOutput {
 
 func (in *faqFileFormatPtr) ToFaqFileFormatPtrOutputWithContext(ctx context.Context) FaqFileFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FaqFileFormatPtrOutput)
+}
+
+func (in *faqFileFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*FaqFileFormat] {
+	return pulumix.Output[*FaqFileFormat]{
+		OutputState: in.ToFaqFileFormatPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type IndexDocumentAttributeValueType string
@@ -3027,6 +3358,12 @@ func (o IndexDocumentAttributeValueTypeOutput) ToIndexDocumentAttributeValueType
 	}).(IndexDocumentAttributeValueTypePtrOutput)
 }
 
+func (o IndexDocumentAttributeValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IndexDocumentAttributeValueType] {
+	return pulumix.Output[IndexDocumentAttributeValueType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexDocumentAttributeValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3060,6 +3397,12 @@ func (o IndexDocumentAttributeValueTypePtrOutput) ToIndexDocumentAttributeValueT
 
 func (o IndexDocumentAttributeValueTypePtrOutput) ToIndexDocumentAttributeValueTypePtrOutputWithContext(ctx context.Context) IndexDocumentAttributeValueTypePtrOutput {
 	return o
+}
+
+func (o IndexDocumentAttributeValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexDocumentAttributeValueType] {
+	return pulumix.Output[*IndexDocumentAttributeValueType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexDocumentAttributeValueTypePtrOutput) Elem() IndexDocumentAttributeValueTypeOutput {
@@ -3122,6 +3465,12 @@ func (in *indexDocumentAttributeValueTypePtr) ToIndexDocumentAttributeValueTypeP
 
 func (in *indexDocumentAttributeValueTypePtr) ToIndexDocumentAttributeValueTypePtrOutputWithContext(ctx context.Context) IndexDocumentAttributeValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IndexDocumentAttributeValueTypePtrOutput)
+}
+
+func (in *indexDocumentAttributeValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*IndexDocumentAttributeValueType] {
+	return pulumix.Output[*IndexDocumentAttributeValueType]{
+		OutputState: in.ToIndexDocumentAttributeValueTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Edition of index
@@ -3192,6 +3541,12 @@ func (o IndexEditionOutput) ToIndexEditionPtrOutputWithContext(ctx context.Conte
 	}).(IndexEditionPtrOutput)
 }
 
+func (o IndexEditionOutput) ToOutput(ctx context.Context) pulumix.Output[IndexEdition] {
+	return pulumix.Output[IndexEdition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexEditionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3225,6 +3580,12 @@ func (o IndexEditionPtrOutput) ToIndexEditionPtrOutput() IndexEditionPtrOutput {
 
 func (o IndexEditionPtrOutput) ToIndexEditionPtrOutputWithContext(ctx context.Context) IndexEditionPtrOutput {
 	return o
+}
+
+func (o IndexEditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexEdition] {
+	return pulumix.Output[*IndexEdition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexEditionPtrOutput) Elem() IndexEditionOutput {
@@ -3287,6 +3648,12 @@ func (in *indexEditionPtr) ToIndexEditionPtrOutput() IndexEditionPtrOutput {
 
 func (in *indexEditionPtr) ToIndexEditionPtrOutputWithContext(ctx context.Context) IndexEditionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IndexEditionPtrOutput)
+}
+
+func (in *indexEditionPtr) ToOutput(ctx context.Context) pulumix.Output[*IndexEdition] {
+	return pulumix.Output[*IndexEdition]{
+		OutputState: in.ToIndexEditionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type IndexKeyLocation string
@@ -3356,6 +3723,12 @@ func (o IndexKeyLocationOutput) ToIndexKeyLocationPtrOutputWithContext(ctx conte
 	}).(IndexKeyLocationPtrOutput)
 }
 
+func (o IndexKeyLocationOutput) ToOutput(ctx context.Context) pulumix.Output[IndexKeyLocation] {
+	return pulumix.Output[IndexKeyLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexKeyLocationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3389,6 +3762,12 @@ func (o IndexKeyLocationPtrOutput) ToIndexKeyLocationPtrOutput() IndexKeyLocatio
 
 func (o IndexKeyLocationPtrOutput) ToIndexKeyLocationPtrOutputWithContext(ctx context.Context) IndexKeyLocationPtrOutput {
 	return o
+}
+
+func (o IndexKeyLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexKeyLocation] {
+	return pulumix.Output[*IndexKeyLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexKeyLocationPtrOutput) Elem() IndexKeyLocationOutput {
@@ -3451,6 +3830,12 @@ func (in *indexKeyLocationPtr) ToIndexKeyLocationPtrOutput() IndexKeyLocationPtr
 
 func (in *indexKeyLocationPtr) ToIndexKeyLocationPtrOutputWithContext(ctx context.Context) IndexKeyLocationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IndexKeyLocationPtrOutput)
+}
+
+func (in *indexKeyLocationPtr) ToOutput(ctx context.Context) pulumix.Output[*IndexKeyLocation] {
+	return pulumix.Output[*IndexKeyLocation]{
+		OutputState: in.ToIndexKeyLocationPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type IndexOrder string
@@ -3520,6 +3905,12 @@ func (o IndexOrderOutput) ToIndexOrderPtrOutputWithContext(ctx context.Context) 
 	}).(IndexOrderPtrOutput)
 }
 
+func (o IndexOrderOutput) ToOutput(ctx context.Context) pulumix.Output[IndexOrder] {
+	return pulumix.Output[IndexOrder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3553,6 +3944,12 @@ func (o IndexOrderPtrOutput) ToIndexOrderPtrOutput() IndexOrderPtrOutput {
 
 func (o IndexOrderPtrOutput) ToIndexOrderPtrOutputWithContext(ctx context.Context) IndexOrderPtrOutput {
 	return o
+}
+
+func (o IndexOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexOrder] {
+	return pulumix.Output[*IndexOrder]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexOrderPtrOutput) Elem() IndexOrderOutput {
@@ -3615,6 +4012,12 @@ func (in *indexOrderPtr) ToIndexOrderPtrOutput() IndexOrderPtrOutput {
 
 func (in *indexOrderPtr) ToIndexOrderPtrOutputWithContext(ctx context.Context) IndexOrderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IndexOrderPtrOutput)
+}
+
+func (in *indexOrderPtr) ToOutput(ctx context.Context) pulumix.Output[*IndexOrder] {
+	return pulumix.Output[*IndexOrder]{
+		OutputState: in.ToIndexOrderPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type IndexUserContextPolicy string
@@ -3684,6 +4087,12 @@ func (o IndexUserContextPolicyOutput) ToIndexUserContextPolicyPtrOutputWithConte
 	}).(IndexUserContextPolicyPtrOutput)
 }
 
+func (o IndexUserContextPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[IndexUserContextPolicy] {
+	return pulumix.Output[IndexUserContextPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexUserContextPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3717,6 +4126,12 @@ func (o IndexUserContextPolicyPtrOutput) ToIndexUserContextPolicyPtrOutput() Ind
 
 func (o IndexUserContextPolicyPtrOutput) ToIndexUserContextPolicyPtrOutputWithContext(ctx context.Context) IndexUserContextPolicyPtrOutput {
 	return o
+}
+
+func (o IndexUserContextPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexUserContextPolicy] {
+	return pulumix.Output[*IndexUserContextPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexUserContextPolicyPtrOutput) Elem() IndexUserContextPolicyOutput {
@@ -3779,6 +4194,12 @@ func (in *indexUserContextPolicyPtr) ToIndexUserContextPolicyPtrOutput() IndexUs
 
 func (in *indexUserContextPolicyPtr) ToIndexUserContextPolicyPtrOutputWithContext(ctx context.Context) IndexUserContextPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IndexUserContextPolicyPtrOutput)
+}
+
+func (in *indexUserContextPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*IndexUserContextPolicy] {
+	return pulumix.Output[*IndexUserContextPolicy]{
+		OutputState: in.ToIndexUserContextPolicyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for StateMachineVersion
@@ -105,6 +106,12 @@ func (i *StateMachineVersion) ToStateMachineVersionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineVersionOutput)
 }
 
+func (i *StateMachineVersion) ToOutput(ctx context.Context) pulumix.Output[*StateMachineVersion] {
+	return pulumix.Output[*StateMachineVersion]{
+		OutputState: i.ToStateMachineVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineVersionOutput struct{ *pulumi.OutputState }
 
 func (StateMachineVersionOutput) ElementType() reflect.Type {
@@ -117,6 +124,12 @@ func (o StateMachineVersionOutput) ToStateMachineVersionOutput() StateMachineVer
 
 func (o StateMachineVersionOutput) ToStateMachineVersionOutputWithContext(ctx context.Context) StateMachineVersionOutput {
 	return o
+}
+
+func (o StateMachineVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineVersion] {
+	return pulumix.Output[*StateMachineVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineVersionOutput) Arn() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for SSO PermissionSet
@@ -145,6 +146,12 @@ func (i *PermissionSet) ToPermissionSetOutputWithContext(ctx context.Context) Pe
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetOutput)
 }
 
+func (i *PermissionSet) ToOutput(ctx context.Context) pulumix.Output[*PermissionSet] {
+	return pulumix.Output[*PermissionSet]{
+		OutputState: i.ToPermissionSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionSetOutput struct{ *pulumi.OutputState }
 
 func (PermissionSetOutput) ElementType() reflect.Type {
@@ -157,6 +164,12 @@ func (o PermissionSetOutput) ToPermissionSetOutput() PermissionSetOutput {
 
 func (o PermissionSetOutput) ToPermissionSetOutputWithContext(ctx context.Context) PermissionSetOutput {
 	return o
+}
+
+func (o PermissionSetOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionSet] {
+	return pulumix.Output[*PermissionSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionSetOutput) CustomerManagedPolicyReferences() PermissionSetCustomerManagedPolicyReferenceArrayOutput {

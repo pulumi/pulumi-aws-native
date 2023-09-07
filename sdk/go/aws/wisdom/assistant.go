@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Wisdom::Assistant Resource Type
@@ -115,6 +116,12 @@ func (i *Assistant) ToAssistantOutputWithContext(ctx context.Context) AssistantO
 	return pulumi.ToOutputWithContext(ctx, i).(AssistantOutput)
 }
 
+func (i *Assistant) ToOutput(ctx context.Context) pulumix.Output[*Assistant] {
+	return pulumix.Output[*Assistant]{
+		OutputState: i.ToAssistantOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssistantOutput struct{ *pulumi.OutputState }
 
 func (AssistantOutput) ElementType() reflect.Type {
@@ -127,6 +134,12 @@ func (o AssistantOutput) ToAssistantOutput() AssistantOutput {
 
 func (o AssistantOutput) ToAssistantOutputWithContext(ctx context.Context) AssistantOutput {
 	return o
+}
+
+func (o AssistantOutput) ToOutput(ctx context.Context) pulumix.Output[*Assistant] {
+	return pulumix.Output[*Assistant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssistantOutput) AssistantArn() pulumi.StringOutput {

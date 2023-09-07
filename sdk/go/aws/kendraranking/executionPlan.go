@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A KendraRanking Rescore execution plan
@@ -108,6 +109,12 @@ func (i *ExecutionPlan) ToExecutionPlanOutputWithContext(ctx context.Context) Ex
 	return pulumi.ToOutputWithContext(ctx, i).(ExecutionPlanOutput)
 }
 
+func (i *ExecutionPlan) ToOutput(ctx context.Context) pulumix.Output[*ExecutionPlan] {
+	return pulumix.Output[*ExecutionPlan]{
+		OutputState: i.ToExecutionPlanOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExecutionPlanOutput struct{ *pulumi.OutputState }
 
 func (ExecutionPlanOutput) ElementType() reflect.Type {
@@ -120,6 +127,12 @@ func (o ExecutionPlanOutput) ToExecutionPlanOutput() ExecutionPlanOutput {
 
 func (o ExecutionPlanOutput) ToExecutionPlanOutputWithContext(ctx context.Context) ExecutionPlanOutput {
 	return o
+}
+
+func (o ExecutionPlanOutput) ToOutput(ctx context.Context) pulumix.Output[*ExecutionPlan] {
+	return pulumix.Output[*ExecutionPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExecutionPlanOutput) Arn() pulumi.StringOutput {

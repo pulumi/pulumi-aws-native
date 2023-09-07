@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -32,6 +33,12 @@ func (o ConnectionAliasAssociationOutput) ToConnectionAliasAssociationOutput() C
 
 func (o ConnectionAliasAssociationOutput) ToConnectionAliasAssociationOutputWithContext(ctx context.Context) ConnectionAliasAssociationOutput {
 	return o
+}
+
+func (o ConnectionAliasAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectionAliasAssociation] {
+	return pulumix.Output[ConnectionAliasAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionAliasAssociationOutput) AssociatedAccountId() pulumi.StringPtrOutput {
@@ -64,6 +71,12 @@ func (o ConnectionAliasAssociationArrayOutput) ToConnectionAliasAssociationArray
 
 func (o ConnectionAliasAssociationArrayOutput) ToConnectionAliasAssociationArrayOutputWithContext(ctx context.Context) ConnectionAliasAssociationArrayOutput {
 	return o
+}
+
+func (o ConnectionAliasAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectionAliasAssociation] {
+	return pulumix.Output[[]ConnectionAliasAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionAliasAssociationArrayOutput) Index(i pulumi.IntInput) ConnectionAliasAssociationOutput {
@@ -105,6 +118,12 @@ func (i ConnectionAliasTagArgs) ToConnectionAliasTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasTagOutput)
 }
 
+func (i ConnectionAliasTagArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectionAliasTag] {
+	return pulumix.Output[ConnectionAliasTag]{
+		OutputState: i.ToConnectionAliasTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectionAliasTagArrayInput is an input type that accepts ConnectionAliasTagArray and ConnectionAliasTagArrayOutput values.
 // You can construct a concrete instance of `ConnectionAliasTagArrayInput` via:
 //
@@ -130,6 +149,12 @@ func (i ConnectionAliasTagArray) ToConnectionAliasTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasTagArrayOutput)
 }
 
+func (i ConnectionAliasTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectionAliasTag] {
+	return pulumix.Output[[]ConnectionAliasTag]{
+		OutputState: i.ToConnectionAliasTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectionAliasTagOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAliasTagOutput) ElementType() reflect.Type {
@@ -142,6 +167,12 @@ func (o ConnectionAliasTagOutput) ToConnectionAliasTagOutput() ConnectionAliasTa
 
 func (o ConnectionAliasTagOutput) ToConnectionAliasTagOutputWithContext(ctx context.Context) ConnectionAliasTagOutput {
 	return o
+}
+
+func (o ConnectionAliasTagOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectionAliasTag] {
+	return pulumix.Output[ConnectionAliasTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionAliasTagOutput) Key() pulumi.StringOutput {
@@ -164,6 +195,12 @@ func (o ConnectionAliasTagArrayOutput) ToConnectionAliasTagArrayOutput() Connect
 
 func (o ConnectionAliasTagArrayOutput) ToConnectionAliasTagArrayOutputWithContext(ctx context.Context) ConnectionAliasTagArrayOutput {
 	return o
+}
+
+func (o ConnectionAliasTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectionAliasTag] {
+	return pulumix.Output[[]ConnectionAliasTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionAliasTagArrayOutput) Index(i pulumi.IntInput) ConnectionAliasTagOutput {
@@ -211,6 +248,12 @@ func (i WorkspacePropertiesArgs) ToWorkspacePropertiesOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesOutput)
 }
 
+func (i WorkspacePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceProperties] {
+	return pulumix.Output[WorkspaceProperties]{
+		OutputState: i.ToWorkspacePropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkspacePropertiesArgs) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
 	return i.ToWorkspacePropertiesPtrOutputWithContext(context.Background())
 }
@@ -252,6 +295,12 @@ func (i *workspacePropertiesPtrType) ToWorkspacePropertiesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesPtrOutput)
 }
 
+func (i *workspacePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceProperties] {
+	return pulumix.Output[*WorkspaceProperties]{
+		OutputState: i.ToWorkspacePropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspacePropertiesOutput struct{ *pulumi.OutputState }
 
 func (WorkspacePropertiesOutput) ElementType() reflect.Type {
@@ -274,6 +323,12 @@ func (o WorkspacePropertiesOutput) ToWorkspacePropertiesPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceProperties) *WorkspaceProperties {
 		return &v
 	}).(WorkspacePropertiesPtrOutput)
+}
+
+func (o WorkspacePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceProperties] {
+	return pulumix.Output[WorkspaceProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspacePropertiesOutput) ComputeTypeName() pulumi.StringPtrOutput {
@@ -308,6 +363,12 @@ func (o WorkspacePropertiesPtrOutput) ToWorkspacePropertiesPtrOutput() Workspace
 
 func (o WorkspacePropertiesPtrOutput) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
 	return o
+}
+
+func (o WorkspacePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceProperties] {
+	return pulumix.Output[*WorkspaceProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspacePropertiesPtrOutput) Elem() WorkspacePropertiesOutput {
@@ -398,6 +459,12 @@ func (i WorkspaceTagArgs) ToWorkspaceTagOutputWithContext(ctx context.Context) W
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTagOutput)
 }
 
+func (i WorkspaceTagArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceTag] {
+	return pulumix.Output[WorkspaceTag]{
+		OutputState: i.ToWorkspaceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspaceTagArrayInput is an input type that accepts WorkspaceTagArray and WorkspaceTagArrayOutput values.
 // You can construct a concrete instance of `WorkspaceTagArrayInput` via:
 //
@@ -423,6 +490,12 @@ func (i WorkspaceTagArray) ToWorkspaceTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTagArrayOutput)
 }
 
+func (i WorkspaceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceTag] {
+	return pulumix.Output[[]WorkspaceTag]{
+		OutputState: i.ToWorkspaceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceTagOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceTagOutput) ElementType() reflect.Type {
@@ -435,6 +508,12 @@ func (o WorkspaceTagOutput) ToWorkspaceTagOutput() WorkspaceTagOutput {
 
 func (o WorkspaceTagOutput) ToWorkspaceTagOutputWithContext(ctx context.Context) WorkspaceTagOutput {
 	return o
+}
+
+func (o WorkspaceTagOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceTag] {
+	return pulumix.Output[WorkspaceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceTagOutput) Key() pulumi.StringOutput {
@@ -457,6 +536,12 @@ func (o WorkspaceTagArrayOutput) ToWorkspaceTagArrayOutput() WorkspaceTagArrayOu
 
 func (o WorkspaceTagArrayOutput) ToWorkspaceTagArrayOutputWithContext(ctx context.Context) WorkspaceTagArrayOutput {
 	return o
+}
+
+func (o WorkspaceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceTag] {
+	return pulumix.Output[[]WorkspaceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceTagArrayOutput) Index(i pulumi.IntInput) WorkspaceTagOutput {

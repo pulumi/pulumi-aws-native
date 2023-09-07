@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The state of the contact flow module.
@@ -78,6 +79,12 @@ func (o ContactFlowModuleStateEnumOutput) ToContactFlowModuleStateEnumPtrOutputW
 	}).(ContactFlowModuleStateEnumPtrOutput)
 }
 
+func (o ContactFlowModuleStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ContactFlowModuleStateEnum] {
+	return pulumix.Output[ContactFlowModuleStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactFlowModuleStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o ContactFlowModuleStateEnumPtrOutput) ToContactFlowModuleStateEnumPtrOutp
 
 func (o ContactFlowModuleStateEnumPtrOutput) ToContactFlowModuleStateEnumPtrOutputWithContext(ctx context.Context) ContactFlowModuleStateEnumPtrOutput {
 	return o
+}
+
+func (o ContactFlowModuleStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactFlowModuleStateEnum] {
+	return pulumix.Output[*ContactFlowModuleStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactFlowModuleStateEnumPtrOutput) Elem() ContactFlowModuleStateEnumOutput {
@@ -175,6 +188,12 @@ func (in *contactFlowModuleStateEnumPtr) ToContactFlowModuleStateEnumPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ContactFlowModuleStateEnumPtrOutput)
 }
 
+func (in *contactFlowModuleStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*ContactFlowModuleStateEnum] {
+	return pulumix.Output[*ContactFlowModuleStateEnum]{
+		OutputState: in.ToContactFlowModuleStateEnumPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The status of the contact flow module.
 type ContactFlowModuleStatus string
 
@@ -205,6 +224,12 @@ func (o ContactFlowModuleStatusOutput) ToContactFlowModuleStatusPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactFlowModuleStatus) *ContactFlowModuleStatus {
 		return &v
 	}).(ContactFlowModuleStatusPtrOutput)
+}
+
+func (o ContactFlowModuleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ContactFlowModuleStatus] {
+	return pulumix.Output[ContactFlowModuleStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactFlowModuleStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -240,6 +265,12 @@ func (o ContactFlowModuleStatusPtrOutput) ToContactFlowModuleStatusPtrOutput() C
 
 func (o ContactFlowModuleStatusPtrOutput) ToContactFlowModuleStatusPtrOutputWithContext(ctx context.Context) ContactFlowModuleStatusPtrOutput {
 	return o
+}
+
+func (o ContactFlowModuleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactFlowModuleStatus] {
+	return pulumix.Output[*ContactFlowModuleStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactFlowModuleStatusPtrOutput) Elem() ContactFlowModuleStatusOutput {
@@ -334,6 +365,12 @@ func (o ContactFlowStateEnumOutput) ToContactFlowStateEnumPtrOutputWithContext(c
 	}).(ContactFlowStateEnumPtrOutput)
 }
 
+func (o ContactFlowStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ContactFlowStateEnum] {
+	return pulumix.Output[ContactFlowStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactFlowStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -367,6 +404,12 @@ func (o ContactFlowStateEnumPtrOutput) ToContactFlowStateEnumPtrOutput() Contact
 
 func (o ContactFlowStateEnumPtrOutput) ToContactFlowStateEnumPtrOutputWithContext(ctx context.Context) ContactFlowStateEnumPtrOutput {
 	return o
+}
+
+func (o ContactFlowStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactFlowStateEnum] {
+	return pulumix.Output[*ContactFlowStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactFlowStateEnumPtrOutput) Elem() ContactFlowStateEnumOutput {
@@ -429,6 +472,12 @@ func (in *contactFlowStateEnumPtr) ToContactFlowStateEnumPtrOutput() ContactFlow
 
 func (in *contactFlowStateEnumPtr) ToContactFlowStateEnumPtrOutputWithContext(ctx context.Context) ContactFlowStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContactFlowStateEnumPtrOutput)
+}
+
+func (in *contactFlowStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*ContactFlowStateEnum] {
+	return pulumix.Output[*ContactFlowStateEnum]{
+		OutputState: in.ToContactFlowStateEnumPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of the contact flow.
@@ -506,6 +555,12 @@ func (o ContactFlowTypeOutput) ToContactFlowTypePtrOutputWithContext(ctx context
 	}).(ContactFlowTypePtrOutput)
 }
 
+func (o ContactFlowTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContactFlowType] {
+	return pulumix.Output[ContactFlowType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactFlowTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -539,6 +594,12 @@ func (o ContactFlowTypePtrOutput) ToContactFlowTypePtrOutput() ContactFlowTypePt
 
 func (o ContactFlowTypePtrOutput) ToContactFlowTypePtrOutputWithContext(ctx context.Context) ContactFlowTypePtrOutput {
 	return o
+}
+
+func (o ContactFlowTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactFlowType] {
+	return pulumix.Output[*ContactFlowType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactFlowTypePtrOutput) Elem() ContactFlowTypeOutput {
@@ -601,6 +662,12 @@ func (in *contactFlowTypePtr) ToContactFlowTypePtrOutput() ContactFlowTypePtrOut
 
 func (in *contactFlowTypePtr) ToContactFlowTypePtrOutputWithContext(ctx context.Context) ContactFlowTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContactFlowTypePtrOutput)
+}
+
+func (in *contactFlowTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ContactFlowType] {
+	return pulumix.Output[*ContactFlowType]{
+		OutputState: in.ToContactFlowTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The automation property label.
@@ -677,6 +744,12 @@ func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToEvalu
 	}).(EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput)
 }
 
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormNumericQuestionPropertyValueAutomationLabel] {
+	return pulumix.Output[EvaluationFormNumericQuestionPropertyValueAutomationLabel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -710,6 +783,12 @@ func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ToEv
 
 func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
 	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormNumericQuestionPropertyValueAutomationLabel] {
+	return pulumix.Output[*EvaluationFormNumericQuestionPropertyValueAutomationLabel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) Elem() EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput {
@@ -772,6 +851,12 @@ func (in *evaluationFormNumericQuestionPropertyValueAutomationLabelPtr) ToEvalua
 
 func (in *evaluationFormNumericQuestionPropertyValueAutomationLabelPtr) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput)
+}
+
+func (in *evaluationFormNumericQuestionPropertyValueAutomationLabelPtr) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormNumericQuestionPropertyValueAutomationLabel] {
+	return pulumix.Output[*EvaluationFormNumericQuestionPropertyValueAutomationLabel]{
+		OutputState: in.ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of the question.
@@ -843,6 +928,12 @@ func (o EvaluationFormQuestionQuestionTypeOutput) ToEvaluationFormQuestionQuesti
 	}).(EvaluationFormQuestionQuestionTypePtrOutput)
 }
 
+func (o EvaluationFormQuestionQuestionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormQuestionQuestionType] {
+	return pulumix.Output[EvaluationFormQuestionQuestionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EvaluationFormQuestionQuestionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -876,6 +967,12 @@ func (o EvaluationFormQuestionQuestionTypePtrOutput) ToEvaluationFormQuestionQue
 
 func (o EvaluationFormQuestionQuestionTypePtrOutput) ToEvaluationFormQuestionQuestionTypePtrOutputWithContext(ctx context.Context) EvaluationFormQuestionQuestionTypePtrOutput {
 	return o
+}
+
+func (o EvaluationFormQuestionQuestionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormQuestionQuestionType] {
+	return pulumix.Output[*EvaluationFormQuestionQuestionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EvaluationFormQuestionQuestionTypePtrOutput) Elem() EvaluationFormQuestionQuestionTypeOutput {
@@ -938,6 +1035,12 @@ func (in *evaluationFormQuestionQuestionTypePtr) ToEvaluationFormQuestionQuestio
 
 func (in *evaluationFormQuestionQuestionTypePtr) ToEvaluationFormQuestionQuestionTypePtrOutputWithContext(ctx context.Context) EvaluationFormQuestionQuestionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormQuestionQuestionTypePtrOutput)
+}
+
+func (in *evaluationFormQuestionQuestionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormQuestionQuestionType] {
+	return pulumix.Output[*EvaluationFormQuestionQuestionType]{
+		OutputState: in.ToEvaluationFormQuestionQuestionTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The scoring mode.
@@ -1008,6 +1111,12 @@ func (o EvaluationFormScoringStrategyModeOutput) ToEvaluationFormScoringStrategy
 	}).(EvaluationFormScoringStrategyModePtrOutput)
 }
 
+func (o EvaluationFormScoringStrategyModeOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormScoringStrategyMode] {
+	return pulumix.Output[EvaluationFormScoringStrategyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EvaluationFormScoringStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1041,6 +1150,12 @@ func (o EvaluationFormScoringStrategyModePtrOutput) ToEvaluationFormScoringStrat
 
 func (o EvaluationFormScoringStrategyModePtrOutput) ToEvaluationFormScoringStrategyModePtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyModePtrOutput {
 	return o
+}
+
+func (o EvaluationFormScoringStrategyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormScoringStrategyMode] {
+	return pulumix.Output[*EvaluationFormScoringStrategyMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EvaluationFormScoringStrategyModePtrOutput) Elem() EvaluationFormScoringStrategyModeOutput {
@@ -1103,6 +1218,12 @@ func (in *evaluationFormScoringStrategyModePtr) ToEvaluationFormScoringStrategyM
 
 func (in *evaluationFormScoringStrategyModePtr) ToEvaluationFormScoringStrategyModePtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormScoringStrategyModePtrOutput)
+}
+
+func (in *evaluationFormScoringStrategyModePtr) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormScoringStrategyMode] {
+	return pulumix.Output[*EvaluationFormScoringStrategyMode]{
+		OutputState: in.ToEvaluationFormScoringStrategyModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The scoring status.
@@ -1173,6 +1294,12 @@ func (o EvaluationFormScoringStrategyStatusOutput) ToEvaluationFormScoringStrate
 	}).(EvaluationFormScoringStrategyStatusPtrOutput)
 }
 
+func (o EvaluationFormScoringStrategyStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormScoringStrategyStatus] {
+	return pulumix.Output[EvaluationFormScoringStrategyStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EvaluationFormScoringStrategyStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1206,6 +1333,12 @@ func (o EvaluationFormScoringStrategyStatusPtrOutput) ToEvaluationFormScoringStr
 
 func (o EvaluationFormScoringStrategyStatusPtrOutput) ToEvaluationFormScoringStrategyStatusPtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyStatusPtrOutput {
 	return o
+}
+
+func (o EvaluationFormScoringStrategyStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormScoringStrategyStatus] {
+	return pulumix.Output[*EvaluationFormScoringStrategyStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EvaluationFormScoringStrategyStatusPtrOutput) Elem() EvaluationFormScoringStrategyStatusOutput {
@@ -1268,6 +1401,12 @@ func (in *evaluationFormScoringStrategyStatusPtr) ToEvaluationFormScoringStrateg
 
 func (in *evaluationFormScoringStrategyStatusPtr) ToEvaluationFormScoringStrategyStatusPtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormScoringStrategyStatusPtrOutput)
+}
+
+func (in *evaluationFormScoringStrategyStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormScoringStrategyStatus] {
+	return pulumix.Output[*EvaluationFormScoringStrategyStatus]{
+		OutputState: in.ToEvaluationFormScoringStrategyStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The display mode of the single-select question.
@@ -1338,6 +1477,12 @@ func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToEvaluatio
 	}).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput)
 }
 
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormSingleSelectQuestionPropertiesDisplayAs] {
+	return pulumix.Output[EvaluationFormSingleSelectQuestionPropertiesDisplayAs]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1371,6 +1516,12 @@ func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) ToEvalua
 
 func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
 	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormSingleSelectQuestionPropertiesDisplayAs] {
+	return pulumix.Output[*EvaluationFormSingleSelectQuestionPropertiesDisplayAs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) Elem() EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput {
@@ -1433,6 +1584,12 @@ func (in *evaluationFormSingleSelectQuestionPropertiesDisplayAsPtr) ToEvaluation
 
 func (in *evaluationFormSingleSelectQuestionPropertiesDisplayAsPtr) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput)
+}
+
+func (in *evaluationFormSingleSelectQuestionPropertiesDisplayAsPtr) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormSingleSelectQuestionPropertiesDisplayAs] {
+	return pulumix.Output[*EvaluationFormSingleSelectQuestionPropertiesDisplayAs]{
+		OutputState: in.ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The automation condition applied on contact categories.
@@ -1503,6 +1660,12 @@ func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput)
 	}).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput)
 }
 
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition] {
+	return pulumix.Output[EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1536,6 +1699,12 @@ func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutp
 
 func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput {
 	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition] {
+	return pulumix.Output[*EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput) Elem() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput {
@@ -1598,6 +1767,12 @@ func (in *evaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtr) 
 
 func (in *evaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtr) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput)
+}
+
+func (in *evaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtr) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition] {
+	return pulumix.Output[*EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition]{
+		OutputState: in.ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The status of the evaluation form.
@@ -1668,6 +1843,12 @@ func (o EvaluationFormStatusOutput) ToEvaluationFormStatusPtrOutputWithContext(c
 	}).(EvaluationFormStatusPtrOutput)
 }
 
+func (o EvaluationFormStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormStatus] {
+	return pulumix.Output[EvaluationFormStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EvaluationFormStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1701,6 +1882,12 @@ func (o EvaluationFormStatusPtrOutput) ToEvaluationFormStatusPtrOutput() Evaluat
 
 func (o EvaluationFormStatusPtrOutput) ToEvaluationFormStatusPtrOutputWithContext(ctx context.Context) EvaluationFormStatusPtrOutput {
 	return o
+}
+
+func (o EvaluationFormStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormStatus] {
+	return pulumix.Output[*EvaluationFormStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EvaluationFormStatusPtrOutput) Elem() EvaluationFormStatusOutput {
@@ -1763,6 +1950,12 @@ func (in *evaluationFormStatusPtr) ToEvaluationFormStatusPtrOutput() EvaluationF
 
 func (in *evaluationFormStatusPtr) ToEvaluationFormStatusPtrOutputWithContext(ctx context.Context) EvaluationFormStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormStatusPtrOutput)
+}
+
+func (in *evaluationFormStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormStatus] {
+	return pulumix.Output[*EvaluationFormStatus]{
+		OutputState: in.ToEvaluationFormStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The day that the hours of operation applies to.
@@ -1838,6 +2031,12 @@ func (o HoursOfOperationConfigDayOutput) ToHoursOfOperationConfigDayPtrOutputWit
 	}).(HoursOfOperationConfigDayPtrOutput)
 }
 
+func (o HoursOfOperationConfigDayOutput) ToOutput(ctx context.Context) pulumix.Output[HoursOfOperationConfigDay] {
+	return pulumix.Output[HoursOfOperationConfigDay]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HoursOfOperationConfigDayOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1871,6 +2070,12 @@ func (o HoursOfOperationConfigDayPtrOutput) ToHoursOfOperationConfigDayPtrOutput
 
 func (o HoursOfOperationConfigDayPtrOutput) ToHoursOfOperationConfigDayPtrOutputWithContext(ctx context.Context) HoursOfOperationConfigDayPtrOutput {
 	return o
+}
+
+func (o HoursOfOperationConfigDayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HoursOfOperationConfigDay] {
+	return pulumix.Output[*HoursOfOperationConfigDay]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HoursOfOperationConfigDayPtrOutput) Elem() HoursOfOperationConfigDayOutput {
@@ -1933,6 +2138,12 @@ func (in *hoursOfOperationConfigDayPtr) ToHoursOfOperationConfigDayPtrOutput() H
 
 func (in *hoursOfOperationConfigDayPtr) ToHoursOfOperationConfigDayPtrOutputWithContext(ctx context.Context) HoursOfOperationConfigDayPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HoursOfOperationConfigDayPtrOutput)
+}
+
+func (in *hoursOfOperationConfigDayPtr) ToOutput(ctx context.Context) pulumix.Output[*HoursOfOperationConfigDay] {
+	return pulumix.Output[*HoursOfOperationConfigDay]{
+		OutputState: in.ToHoursOfOperationConfigDayPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies the type of directory integration for new instance.
@@ -2004,6 +2215,12 @@ func (o InstanceIdentityManagementTypeOutput) ToInstanceIdentityManagementTypePt
 	}).(InstanceIdentityManagementTypePtrOutput)
 }
 
+func (o InstanceIdentityManagementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceIdentityManagementType] {
+	return pulumix.Output[InstanceIdentityManagementType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceIdentityManagementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2037,6 +2254,12 @@ func (o InstanceIdentityManagementTypePtrOutput) ToInstanceIdentityManagementTyp
 
 func (o InstanceIdentityManagementTypePtrOutput) ToInstanceIdentityManagementTypePtrOutputWithContext(ctx context.Context) InstanceIdentityManagementTypePtrOutput {
 	return o
+}
+
+func (o InstanceIdentityManagementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceIdentityManagementType] {
+	return pulumix.Output[*InstanceIdentityManagementType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceIdentityManagementTypePtrOutput) Elem() InstanceIdentityManagementTypeOutput {
@@ -2101,6 +2324,12 @@ func (in *instanceIdentityManagementTypePtr) ToInstanceIdentityManagementTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceIdentityManagementTypePtrOutput)
 }
 
+func (in *instanceIdentityManagementTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceIdentityManagementType] {
+	return pulumix.Output[*InstanceIdentityManagementType]{
+		OutputState: in.ToInstanceIdentityManagementTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies the creation status of new instance.
 type InstanceStatus string
 
@@ -2132,6 +2361,12 @@ func (o InstanceStatusOutput) ToInstanceStatusPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceStatus) *InstanceStatus {
 		return &v
 	}).(InstanceStatusPtrOutput)
+}
+
+func (o InstanceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceStatus] {
+	return pulumix.Output[InstanceStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -2167,6 +2402,12 @@ func (o InstanceStatusPtrOutput) ToInstanceStatusPtrOutput() InstanceStatusPtrOu
 
 func (o InstanceStatusPtrOutput) ToInstanceStatusPtrOutputWithContext(ctx context.Context) InstanceStatusPtrOutput {
 	return o
+}
+
+func (o InstanceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStatus] {
+	return pulumix.Output[*InstanceStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceStatusPtrOutput) Elem() InstanceStatusOutput {
@@ -2260,6 +2501,12 @@ func (o InstanceStorageConfigEncryptionTypeOutput) ToInstanceStorageConfigEncryp
 	}).(InstanceStorageConfigEncryptionTypePtrOutput)
 }
 
+func (o InstanceStorageConfigEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceStorageConfigEncryptionType] {
+	return pulumix.Output[InstanceStorageConfigEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceStorageConfigEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2293,6 +2540,12 @@ func (o InstanceStorageConfigEncryptionTypePtrOutput) ToInstanceStorageConfigEnc
 
 func (o InstanceStorageConfigEncryptionTypePtrOutput) ToInstanceStorageConfigEncryptionTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionTypePtrOutput {
 	return o
+}
+
+func (o InstanceStorageConfigEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfigEncryptionType] {
+	return pulumix.Output[*InstanceStorageConfigEncryptionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceStorageConfigEncryptionTypePtrOutput) Elem() InstanceStorageConfigEncryptionTypeOutput {
@@ -2355,6 +2608,12 @@ func (in *instanceStorageConfigEncryptionTypePtr) ToInstanceStorageConfigEncrypt
 
 func (in *instanceStorageConfigEncryptionTypePtr) ToInstanceStorageConfigEncryptionTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceStorageConfigEncryptionTypePtrOutput)
+}
+
+func (in *instanceStorageConfigEncryptionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfigEncryptionType] {
+	return pulumix.Output[*InstanceStorageConfigEncryptionType]{
+		OutputState: in.ToInstanceStorageConfigEncryptionTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies the type of storage resource available for the instance
@@ -2429,6 +2688,12 @@ func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToInstanceStorag
 	}).(InstanceStorageConfigInstanceStorageResourceTypePtrOutput)
 }
 
+func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceStorageConfigInstanceStorageResourceType] {
+	return pulumix.Output[InstanceStorageConfigInstanceStorageResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2462,6 +2727,12 @@ func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ToInstanceSto
 
 func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ToInstanceStorageConfigInstanceStorageResourceTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigInstanceStorageResourceTypePtrOutput {
 	return o
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfigInstanceStorageResourceType] {
+	return pulumix.Output[*InstanceStorageConfigInstanceStorageResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) Elem() InstanceStorageConfigInstanceStorageResourceTypeOutput {
@@ -2524,6 +2795,12 @@ func (in *instanceStorageConfigInstanceStorageResourceTypePtr) ToInstanceStorage
 
 func (in *instanceStorageConfigInstanceStorageResourceTypePtr) ToInstanceStorageConfigInstanceStorageResourceTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigInstanceStorageResourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceStorageConfigInstanceStorageResourceTypePtrOutput)
+}
+
+func (in *instanceStorageConfigInstanceStorageResourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfigInstanceStorageResourceType] {
+	return pulumix.Output[*InstanceStorageConfigInstanceStorageResourceType]{
+		OutputState: in.ToInstanceStorageConfigInstanceStorageResourceTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies the storage type to be associated with the instance
@@ -2596,6 +2873,12 @@ func (o InstanceStorageConfigStorageTypeOutput) ToInstanceStorageConfigStorageTy
 	}).(InstanceStorageConfigStorageTypePtrOutput)
 }
 
+func (o InstanceStorageConfigStorageTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceStorageConfigStorageType] {
+	return pulumix.Output[InstanceStorageConfigStorageType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceStorageConfigStorageTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2629,6 +2912,12 @@ func (o InstanceStorageConfigStorageTypePtrOutput) ToInstanceStorageConfigStorag
 
 func (o InstanceStorageConfigStorageTypePtrOutput) ToInstanceStorageConfigStorageTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigStorageTypePtrOutput {
 	return o
+}
+
+func (o InstanceStorageConfigStorageTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfigStorageType] {
+	return pulumix.Output[*InstanceStorageConfigStorageType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceStorageConfigStorageTypePtrOutput) Elem() InstanceStorageConfigStorageTypeOutput {
@@ -2691,6 +2980,12 @@ func (in *instanceStorageConfigStorageTypePtr) ToInstanceStorageConfigStorageTyp
 
 func (in *instanceStorageConfigStorageTypePtr) ToInstanceStorageConfigStorageTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigStorageTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceStorageConfigStorageTypePtrOutput)
+}
+
+func (in *instanceStorageConfigStorageTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfigStorageType] {
+	return pulumix.Output[*InstanceStorageConfigStorageType]{
+		OutputState: in.ToInstanceStorageConfigStorageTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies the integration type to be associated with the instance
@@ -2761,6 +3056,12 @@ func (o IntegrationAssociationIntegrationTypeOutput) ToIntegrationAssociationInt
 	}).(IntegrationAssociationIntegrationTypePtrOutput)
 }
 
+func (o IntegrationAssociationIntegrationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationAssociationIntegrationType] {
+	return pulumix.Output[IntegrationAssociationIntegrationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationAssociationIntegrationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2794,6 +3095,12 @@ func (o IntegrationAssociationIntegrationTypePtrOutput) ToIntegrationAssociation
 
 func (o IntegrationAssociationIntegrationTypePtrOutput) ToIntegrationAssociationIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationIntegrationTypePtrOutput {
 	return o
+}
+
+func (o IntegrationAssociationIntegrationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAssociationIntegrationType] {
+	return pulumix.Output[*IntegrationAssociationIntegrationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationAssociationIntegrationTypePtrOutput) Elem() IntegrationAssociationIntegrationTypeOutput {
@@ -2856,6 +3163,12 @@ func (in *integrationAssociationIntegrationTypePtr) ToIntegrationAssociationInte
 
 func (in *integrationAssociationIntegrationTypePtr) ToIntegrationAssociationIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationIntegrationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationAssociationIntegrationTypePtrOutput)
+}
+
+func (in *integrationAssociationIntegrationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAssociationIntegrationType] {
+	return pulumix.Output[*IntegrationAssociationIntegrationType]{
+		OutputState: in.ToIntegrationAssociationIntegrationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The status of the queue.
@@ -2926,6 +3239,12 @@ func (o QueueStatusOutput) ToQueueStatusPtrOutputWithContext(ctx context.Context
 	}).(QueueStatusPtrOutput)
 }
 
+func (o QueueStatusOutput) ToOutput(ctx context.Context) pulumix.Output[QueueStatus] {
+	return pulumix.Output[QueueStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o QueueStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2959,6 +3278,12 @@ func (o QueueStatusPtrOutput) ToQueueStatusPtrOutput() QueueStatusPtrOutput {
 
 func (o QueueStatusPtrOutput) ToQueueStatusPtrOutputWithContext(ctx context.Context) QueueStatusPtrOutput {
 	return o
+}
+
+func (o QueueStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*QueueStatus] {
+	return pulumix.Output[*QueueStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o QueueStatusPtrOutput) Elem() QueueStatusOutput {
@@ -3023,6 +3348,12 @@ func (in *queueStatusPtr) ToQueueStatusPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(QueueStatusPtrOutput)
 }
 
+func (in *queueStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*QueueStatus] {
+	return pulumix.Output[*QueueStatus]{
+		OutputState: in.ToQueueStatusPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The type of queue.
 type QueueType string
 
@@ -3053,6 +3384,12 @@ func (o QueueTypeOutput) ToQueueTypePtrOutputWithContext(ctx context.Context) Qu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueType) *QueueType {
 		return &v
 	}).(QueueTypePtrOutput)
+}
+
+func (o QueueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[QueueType] {
+	return pulumix.Output[QueueType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o QueueTypeOutput) ToStringOutput() pulumi.StringOutput {
@@ -3088,6 +3425,12 @@ func (o QueueTypePtrOutput) ToQueueTypePtrOutput() QueueTypePtrOutput {
 
 func (o QueueTypePtrOutput) ToQueueTypePtrOutputWithContext(ctx context.Context) QueueTypePtrOutput {
 	return o
+}
+
+func (o QueueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*QueueType] {
+	return pulumix.Output[*QueueType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o QueueTypePtrOutput) Elem() QueueTypeOutput {
@@ -3183,6 +3526,12 @@ func (o QuickConnectTypeOutput) ToQuickConnectTypePtrOutputWithContext(ctx conte
 	}).(QuickConnectTypePtrOutput)
 }
 
+func (o QuickConnectTypeOutput) ToOutput(ctx context.Context) pulumix.Output[QuickConnectType] {
+	return pulumix.Output[QuickConnectType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o QuickConnectTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3216,6 +3565,12 @@ func (o QuickConnectTypePtrOutput) ToQuickConnectTypePtrOutput() QuickConnectTyp
 
 func (o QuickConnectTypePtrOutput) ToQuickConnectTypePtrOutputWithContext(ctx context.Context) QuickConnectTypePtrOutput {
 	return o
+}
+
+func (o QuickConnectTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*QuickConnectType] {
+	return pulumix.Output[*QuickConnectType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o QuickConnectTypePtrOutput) Elem() QuickConnectTypeOutput {
@@ -3278,6 +3633,12 @@ func (in *quickConnectTypePtr) ToQuickConnectTypePtrOutput() QuickConnectTypePtr
 
 func (in *quickConnectTypePtr) ToQuickConnectTypePtrOutputWithContext(ctx context.Context) QuickConnectTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(QuickConnectTypePtrOutput)
+}
+
+func (in *quickConnectTypePtr) ToOutput(ctx context.Context) pulumix.Output[*QuickConnectType] {
+	return pulumix.Output[*QuickConnectType]{
+		OutputState: in.ToQuickConnectTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies the other channels that can be routed to an agent handling their current channel.
@@ -3348,6 +3709,12 @@ func (o RoutingProfileBehaviorTypeOutput) ToRoutingProfileBehaviorTypePtrOutputW
 	}).(RoutingProfileBehaviorTypePtrOutput)
 }
 
+func (o RoutingProfileBehaviorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RoutingProfileBehaviorType] {
+	return pulumix.Output[RoutingProfileBehaviorType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RoutingProfileBehaviorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3381,6 +3748,12 @@ func (o RoutingProfileBehaviorTypePtrOutput) ToRoutingProfileBehaviorTypePtrOutp
 
 func (o RoutingProfileBehaviorTypePtrOutput) ToRoutingProfileBehaviorTypePtrOutputWithContext(ctx context.Context) RoutingProfileBehaviorTypePtrOutput {
 	return o
+}
+
+func (o RoutingProfileBehaviorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfileBehaviorType] {
+	return pulumix.Output[*RoutingProfileBehaviorType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoutingProfileBehaviorTypePtrOutput) Elem() RoutingProfileBehaviorTypeOutput {
@@ -3443,6 +3816,12 @@ func (in *routingProfileBehaviorTypePtr) ToRoutingProfileBehaviorTypePtrOutput()
 
 func (in *routingProfileBehaviorTypePtr) ToRoutingProfileBehaviorTypePtrOutputWithContext(ctx context.Context) RoutingProfileBehaviorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RoutingProfileBehaviorTypePtrOutput)
+}
+
+func (in *routingProfileBehaviorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfileBehaviorType] {
+	return pulumix.Output[*RoutingProfileBehaviorType]{
+		OutputState: in.ToRoutingProfileBehaviorTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The channels that agents can handle in the Contact Control Panel (CCP).
@@ -3514,6 +3893,12 @@ func (o RoutingProfileChannelOutput) ToRoutingProfileChannelPtrOutputWithContext
 	}).(RoutingProfileChannelPtrOutput)
 }
 
+func (o RoutingProfileChannelOutput) ToOutput(ctx context.Context) pulumix.Output[RoutingProfileChannel] {
+	return pulumix.Output[RoutingProfileChannel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RoutingProfileChannelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3547,6 +3932,12 @@ func (o RoutingProfileChannelPtrOutput) ToRoutingProfileChannelPtrOutput() Routi
 
 func (o RoutingProfileChannelPtrOutput) ToRoutingProfileChannelPtrOutputWithContext(ctx context.Context) RoutingProfileChannelPtrOutput {
 	return o
+}
+
+func (o RoutingProfileChannelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfileChannel] {
+	return pulumix.Output[*RoutingProfileChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoutingProfileChannelPtrOutput) Elem() RoutingProfileChannelOutput {
@@ -3609,6 +4000,12 @@ func (in *routingProfileChannelPtr) ToRoutingProfileChannelPtrOutput() RoutingPr
 
 func (in *routingProfileChannelPtr) ToRoutingProfileChannelPtrOutputWithContext(ctx context.Context) RoutingProfileChannelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RoutingProfileChannelPtrOutput)
+}
+
+func (in *routingProfileChannelPtr) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfileChannel] {
+	return pulumix.Output[*RoutingProfileChannel]{
+		OutputState: in.ToRoutingProfileChannelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The publish status of a rule, either draft or published.
@@ -3679,6 +4076,12 @@ func (o RulePublishStatusOutput) ToRulePublishStatusPtrOutputWithContext(ctx con
 	}).(RulePublishStatusPtrOutput)
 }
 
+func (o RulePublishStatusOutput) ToOutput(ctx context.Context) pulumix.Output[RulePublishStatus] {
+	return pulumix.Output[RulePublishStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RulePublishStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3712,6 +4115,12 @@ func (o RulePublishStatusPtrOutput) ToRulePublishStatusPtrOutput() RulePublishSt
 
 func (o RulePublishStatusPtrOutput) ToRulePublishStatusPtrOutputWithContext(ctx context.Context) RulePublishStatusPtrOutput {
 	return o
+}
+
+func (o RulePublishStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RulePublishStatus] {
+	return pulumix.Output[*RulePublishStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulePublishStatusPtrOutput) Elem() RulePublishStatusOutput {
@@ -3774,6 +4183,12 @@ func (in *rulePublishStatusPtr) ToRulePublishStatusPtrOutput() RulePublishStatus
 
 func (in *rulePublishStatusPtr) ToRulePublishStatusPtrOutputWithContext(ctx context.Context) RulePublishStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RulePublishStatusPtrOutput)
+}
+
+func (in *rulePublishStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*RulePublishStatus] {
+	return pulumix.Output[*RulePublishStatus]{
+		OutputState: in.ToRulePublishStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of content.
@@ -3843,6 +4258,12 @@ func (o RuleSendNotificationActionContentTypeOutput) ToRuleSendNotificationActio
 	}).(RuleSendNotificationActionContentTypePtrOutput)
 }
 
+func (o RuleSendNotificationActionContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleSendNotificationActionContentType] {
+	return pulumix.Output[RuleSendNotificationActionContentType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleSendNotificationActionContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3876,6 +4297,12 @@ func (o RuleSendNotificationActionContentTypePtrOutput) ToRuleSendNotificationAc
 
 func (o RuleSendNotificationActionContentTypePtrOutput) ToRuleSendNotificationActionContentTypePtrOutputWithContext(ctx context.Context) RuleSendNotificationActionContentTypePtrOutput {
 	return o
+}
+
+func (o RuleSendNotificationActionContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleSendNotificationActionContentType] {
+	return pulumix.Output[*RuleSendNotificationActionContentType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleSendNotificationActionContentTypePtrOutput) Elem() RuleSendNotificationActionContentTypeOutput {
@@ -3938,6 +4365,12 @@ func (in *ruleSendNotificationActionContentTypePtr) ToRuleSendNotificationAction
 
 func (in *ruleSendNotificationActionContentTypePtr) ToRuleSendNotificationActionContentTypePtrOutputWithContext(ctx context.Context) RuleSendNotificationActionContentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleSendNotificationActionContentTypePtrOutput)
+}
+
+func (in *ruleSendNotificationActionContentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleSendNotificationActionContentType] {
+	return pulumix.Output[*RuleSendNotificationActionContentType]{
+		OutputState: in.ToRuleSendNotificationActionContentTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The means of delivery.
@@ -4007,6 +4440,12 @@ func (o RuleSendNotificationActionDeliveryMethodOutput) ToRuleSendNotificationAc
 	}).(RuleSendNotificationActionDeliveryMethodPtrOutput)
 }
 
+func (o RuleSendNotificationActionDeliveryMethodOutput) ToOutput(ctx context.Context) pulumix.Output[RuleSendNotificationActionDeliveryMethod] {
+	return pulumix.Output[RuleSendNotificationActionDeliveryMethod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleSendNotificationActionDeliveryMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4040,6 +4479,12 @@ func (o RuleSendNotificationActionDeliveryMethodPtrOutput) ToRuleSendNotificatio
 
 func (o RuleSendNotificationActionDeliveryMethodPtrOutput) ToRuleSendNotificationActionDeliveryMethodPtrOutputWithContext(ctx context.Context) RuleSendNotificationActionDeliveryMethodPtrOutput {
 	return o
+}
+
+func (o RuleSendNotificationActionDeliveryMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleSendNotificationActionDeliveryMethod] {
+	return pulumix.Output[*RuleSendNotificationActionDeliveryMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleSendNotificationActionDeliveryMethodPtrOutput) Elem() RuleSendNotificationActionDeliveryMethodOutput {
@@ -4102,6 +4547,12 @@ func (in *ruleSendNotificationActionDeliveryMethodPtr) ToRuleSendNotificationAct
 
 func (in *ruleSendNotificationActionDeliveryMethodPtr) ToRuleSendNotificationActionDeliveryMethodPtrOutputWithContext(ctx context.Context) RuleSendNotificationActionDeliveryMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleSendNotificationActionDeliveryMethodPtrOutput)
+}
+
+func (in *ruleSendNotificationActionDeliveryMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleSendNotificationActionDeliveryMethod] {
+	return pulumix.Output[*RuleSendNotificationActionDeliveryMethod]{
+		OutputState: in.ToRuleSendNotificationActionDeliveryMethodPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The name of event source.
@@ -4177,6 +4628,12 @@ func (o RuleTriggerEventSourceEventSourceNameOutput) ToRuleTriggerEventSourceEve
 	}).(RuleTriggerEventSourceEventSourceNamePtrOutput)
 }
 
+func (o RuleTriggerEventSourceEventSourceNameOutput) ToOutput(ctx context.Context) pulumix.Output[RuleTriggerEventSourceEventSourceName] {
+	return pulumix.Output[RuleTriggerEventSourceEventSourceName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleTriggerEventSourceEventSourceNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4210,6 +4667,12 @@ func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToRuleTriggerEventSource
 
 func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToRuleTriggerEventSourceEventSourceNamePtrOutputWithContext(ctx context.Context) RuleTriggerEventSourceEventSourceNamePtrOutput {
 	return o
+}
+
+func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleTriggerEventSourceEventSourceName] {
+	return pulumix.Output[*RuleTriggerEventSourceEventSourceName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleTriggerEventSourceEventSourceNamePtrOutput) Elem() RuleTriggerEventSourceEventSourceNameOutput {
@@ -4272,6 +4735,12 @@ func (in *ruleTriggerEventSourceEventSourceNamePtr) ToRuleTriggerEventSourceEven
 
 func (in *ruleTriggerEventSourceEventSourceNamePtr) ToRuleTriggerEventSourceEventSourceNamePtrOutputWithContext(ctx context.Context) RuleTriggerEventSourceEventSourceNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleTriggerEventSourceEventSourceNamePtrOutput)
+}
+
+func (in *ruleTriggerEventSourceEventSourceNamePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleTriggerEventSourceEventSourceName] {
+	return pulumix.Output[*RuleTriggerEventSourceEventSourceName]{
+		OutputState: in.ToRuleTriggerEventSourceEventSourceNamePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of the task template's field
@@ -4352,6 +4821,12 @@ func (o TaskTemplateFieldTypeOutput) ToTaskTemplateFieldTypePtrOutputWithContext
 	}).(TaskTemplateFieldTypePtrOutput)
 }
 
+func (o TaskTemplateFieldTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskTemplateFieldType] {
+	return pulumix.Output[TaskTemplateFieldType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskTemplateFieldTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4385,6 +4860,12 @@ func (o TaskTemplateFieldTypePtrOutput) ToTaskTemplateFieldTypePtrOutput() TaskT
 
 func (o TaskTemplateFieldTypePtrOutput) ToTaskTemplateFieldTypePtrOutputWithContext(ctx context.Context) TaskTemplateFieldTypePtrOutput {
 	return o
+}
+
+func (o TaskTemplateFieldTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskTemplateFieldType] {
+	return pulumix.Output[*TaskTemplateFieldType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskTemplateFieldTypePtrOutput) Elem() TaskTemplateFieldTypeOutput {
@@ -4447,6 +4928,12 @@ func (in *taskTemplateFieldTypePtr) ToTaskTemplateFieldTypePtrOutput() TaskTempl
 
 func (in *taskTemplateFieldTypePtr) ToTaskTemplateFieldTypePtrOutputWithContext(ctx context.Context) TaskTemplateFieldTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskTemplateFieldTypePtrOutput)
+}
+
+func (in *taskTemplateFieldTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TaskTemplateFieldType] {
+	return pulumix.Output[*TaskTemplateFieldType]{
+		OutputState: in.ToTaskTemplateFieldTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The status of the task template
@@ -4517,6 +5004,12 @@ func (o TaskTemplateStatusOutput) ToTaskTemplateStatusPtrOutputWithContext(ctx c
 	}).(TaskTemplateStatusPtrOutput)
 }
 
+func (o TaskTemplateStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TaskTemplateStatus] {
+	return pulumix.Output[TaskTemplateStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskTemplateStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4550,6 +5043,12 @@ func (o TaskTemplateStatusPtrOutput) ToTaskTemplateStatusPtrOutput() TaskTemplat
 
 func (o TaskTemplateStatusPtrOutput) ToTaskTemplateStatusPtrOutputWithContext(ctx context.Context) TaskTemplateStatusPtrOutput {
 	return o
+}
+
+func (o TaskTemplateStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskTemplateStatus] {
+	return pulumix.Output[*TaskTemplateStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskTemplateStatusPtrOutput) Elem() TaskTemplateStatusOutput {
@@ -4614,6 +5113,12 @@ func (in *taskTemplateStatusPtr) ToTaskTemplateStatusPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(TaskTemplateStatusPtrOutput)
 }
 
+func (in *taskTemplateStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskTemplateStatus] {
+	return pulumix.Output[*TaskTemplateStatus]{
+		OutputState: in.ToTaskTemplateStatusPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The status of the traffic distribution group.
 type TrafficDistributionGroupStatus string
 
@@ -4650,6 +5155,12 @@ func (o TrafficDistributionGroupStatusOutput) ToTrafficDistributionGroupStatusPt
 	}).(TrafficDistributionGroupStatusPtrOutput)
 }
 
+func (o TrafficDistributionGroupStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TrafficDistributionGroupStatus] {
+	return pulumix.Output[TrafficDistributionGroupStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrafficDistributionGroupStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4683,6 +5194,12 @@ func (o TrafficDistributionGroupStatusPtrOutput) ToTrafficDistributionGroupStatu
 
 func (o TrafficDistributionGroupStatusPtrOutput) ToTrafficDistributionGroupStatusPtrOutputWithContext(ctx context.Context) TrafficDistributionGroupStatusPtrOutput {
 	return o
+}
+
+func (o TrafficDistributionGroupStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficDistributionGroupStatus] {
+	return pulumix.Output[*TrafficDistributionGroupStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrafficDistributionGroupStatusPtrOutput) Elem() TrafficDistributionGroupStatusOutput {
@@ -4777,6 +5294,12 @@ func (o UserPhoneTypeOutput) ToUserPhoneTypePtrOutputWithContext(ctx context.Con
 	}).(UserPhoneTypePtrOutput)
 }
 
+func (o UserPhoneTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPhoneType] {
+	return pulumix.Output[UserPhoneType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserPhoneTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4810,6 +5333,12 @@ func (o UserPhoneTypePtrOutput) ToUserPhoneTypePtrOutput() UserPhoneTypePtrOutpu
 
 func (o UserPhoneTypePtrOutput) ToUserPhoneTypePtrOutputWithContext(ctx context.Context) UserPhoneTypePtrOutput {
 	return o
+}
+
+func (o UserPhoneTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPhoneType] {
+	return pulumix.Output[*UserPhoneType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPhoneTypePtrOutput) Elem() UserPhoneTypeOutput {
@@ -4872,6 +5401,12 @@ func (in *userPhoneTypePtr) ToUserPhoneTypePtrOutput() UserPhoneTypePtrOutput {
 
 func (in *userPhoneTypePtr) ToUserPhoneTypePtrOutputWithContext(ctx context.Context) UserPhoneTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserPhoneTypePtrOutput)
+}
+
+func (in *userPhoneTypePtr) ToOutput(ctx context.Context) pulumix.Output[*UserPhoneType] {
+	return pulumix.Output[*UserPhoneType]{
+		OutputState: in.ToUserPhoneTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

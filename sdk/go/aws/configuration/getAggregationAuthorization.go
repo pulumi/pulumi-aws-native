@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Config::AggregationAuthorization
@@ -72,6 +73,12 @@ func (o LookupAggregationAuthorizationResultOutput) ToLookupAggregationAuthoriza
 
 func (o LookupAggregationAuthorizationResultOutput) ToLookupAggregationAuthorizationResultOutputWithContext(ctx context.Context) LookupAggregationAuthorizationResultOutput {
 	return o
+}
+
+func (o LookupAggregationAuthorizationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAggregationAuthorizationResult] {
+	return pulumix.Output[LookupAggregationAuthorizationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the AggregationAuthorization.

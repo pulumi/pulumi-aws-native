@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type TrustAnchorType string
@@ -78,6 +79,12 @@ func (o TrustAnchorTypeOutput) ToTrustAnchorTypePtrOutputWithContext(ctx context
 	}).(TrustAnchorTypePtrOutput)
 }
 
+func (o TrustAnchorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorType] {
+	return pulumix.Output[TrustAnchorType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrustAnchorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o TrustAnchorTypePtrOutput) ToTrustAnchorTypePtrOutput() TrustAnchorTypePt
 
 func (o TrustAnchorTypePtrOutput) ToTrustAnchorTypePtrOutputWithContext(ctx context.Context) TrustAnchorTypePtrOutput {
 	return o
+}
+
+func (o TrustAnchorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorType] {
+	return pulumix.Output[*TrustAnchorType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrustAnchorTypePtrOutput) Elem() TrustAnchorTypeOutput {
@@ -173,6 +186,12 @@ func (in *trustAnchorTypePtr) ToTrustAnchorTypePtrOutput() TrustAnchorTypePtrOut
 
 func (in *trustAnchorTypePtr) ToTrustAnchorTypePtrOutputWithContext(ctx context.Context) TrustAnchorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TrustAnchorTypePtrOutput)
+}
+
+func (in *trustAnchorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorType] {
+	return pulumix.Output[*TrustAnchorType]{
+		OutputState: in.ToTrustAnchorTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

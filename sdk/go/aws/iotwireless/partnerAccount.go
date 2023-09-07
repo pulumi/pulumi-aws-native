@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create and manage partner account
@@ -138,6 +139,12 @@ func (i *PartnerAccount) ToPartnerAccountOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountOutput)
 }
 
+func (i *PartnerAccount) ToOutput(ctx context.Context) pulumix.Output[*PartnerAccount] {
+	return pulumix.Output[*PartnerAccount]{
+		OutputState: i.ToPartnerAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PartnerAccountOutput struct{ *pulumi.OutputState }
 
 func (PartnerAccountOutput) ElementType() reflect.Type {
@@ -150,6 +157,12 @@ func (o PartnerAccountOutput) ToPartnerAccountOutput() PartnerAccountOutput {
 
 func (o PartnerAccountOutput) ToPartnerAccountOutputWithContext(ctx context.Context) PartnerAccountOutput {
 	return o
+}
+
+func (o PartnerAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*PartnerAccount] {
+	return pulumix.Output[*PartnerAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the partner account is linked to the AWS account.

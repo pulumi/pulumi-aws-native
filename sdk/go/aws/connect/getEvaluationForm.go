@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::EvaluationForm
@@ -80,6 +81,12 @@ func (o LookupEvaluationFormResultOutput) ToLookupEvaluationFormResultOutput() L
 
 func (o LookupEvaluationFormResultOutput) ToLookupEvaluationFormResultOutputWithContext(ctx context.Context) LookupEvaluationFormResultOutput {
 	return o
+}
+
+func (o LookupEvaluationFormResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEvaluationFormResult] {
+	return pulumix.Output[LookupEvaluationFormResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the evaluation form.

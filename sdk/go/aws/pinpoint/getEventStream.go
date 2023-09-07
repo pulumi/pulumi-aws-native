@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::EventStream
@@ -65,6 +66,12 @@ func (o LookupEventStreamResultOutput) ToLookupEventStreamResultOutput() LookupE
 
 func (o LookupEventStreamResultOutput) ToLookupEventStreamResultOutputWithContext(ctx context.Context) LookupEventStreamResultOutput {
 	return o
+}
+
+func (o LookupEventStreamResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventStreamResult] {
+	return pulumix.Output[LookupEventStreamResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupEventStreamResultOutput) DestinationStreamArn() pulumi.StringPtrOutput {

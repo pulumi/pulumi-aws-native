@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i FlowTemplateDefinitionDocumentArgs) ToFlowTemplateDefinitionDocumentOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTemplateDefinitionDocumentOutput)
 }
 
+func (i FlowTemplateDefinitionDocumentArgs) ToOutput(ctx context.Context) pulumix.Output[FlowTemplateDefinitionDocument] {
+	return pulumix.Output[FlowTemplateDefinitionDocument]{
+		OutputState: i.ToFlowTemplateDefinitionDocumentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlowTemplateDefinitionDocumentOutput struct{ *pulumi.OutputState }
 
 func (FlowTemplateDefinitionDocumentOutput) ElementType() reflect.Type {
@@ -58,6 +65,12 @@ func (o FlowTemplateDefinitionDocumentOutput) ToFlowTemplateDefinitionDocumentOu
 
 func (o FlowTemplateDefinitionDocumentOutput) ToFlowTemplateDefinitionDocumentOutputWithContext(ctx context.Context) FlowTemplateDefinitionDocumentOutput {
 	return o
+}
+
+func (o FlowTemplateDefinitionDocumentOutput) ToOutput(ctx context.Context) pulumix.Output[FlowTemplateDefinitionDocument] {
+	return pulumix.Output[FlowTemplateDefinitionDocument]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowTemplateDefinitionDocumentOutput) Language() pulumi.StringOutput {
@@ -80,6 +93,12 @@ func (o FlowTemplateDefinitionDocumentPtrOutput) ToFlowTemplateDefinitionDocumen
 
 func (o FlowTemplateDefinitionDocumentPtrOutput) ToFlowTemplateDefinitionDocumentPtrOutputWithContext(ctx context.Context) FlowTemplateDefinitionDocumentPtrOutput {
 	return o
+}
+
+func (o FlowTemplateDefinitionDocumentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowTemplateDefinitionDocument] {
+	return pulumix.Output[*FlowTemplateDefinitionDocument]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowTemplateDefinitionDocumentPtrOutput) Elem() FlowTemplateDefinitionDocumentOutput {

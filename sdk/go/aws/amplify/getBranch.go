@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Amplify::Branch resource creates a new branch within an app.
@@ -73,6 +74,12 @@ func (o LookupBranchResultOutput) ToLookupBranchResultOutput() LookupBranchResul
 
 func (o LookupBranchResultOutput) ToLookupBranchResultOutputWithContext(ctx context.Context) LookupBranchResultOutput {
 	return o
+}
+
+func (o LookupBranchResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBranchResult] {
+	return pulumix.Output[LookupBranchResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupBranchResultOutput) Arn() pulumi.StringPtrOutput {

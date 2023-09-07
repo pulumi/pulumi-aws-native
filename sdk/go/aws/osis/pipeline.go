@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.
@@ -142,6 +143,12 @@ func (i *Pipeline) ToPipelineOutputWithContext(ctx context.Context) PipelineOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput)
 }
 
+func (i *Pipeline) ToOutput(ctx context.Context) pulumix.Output[*Pipeline] {
+	return pulumix.Output[*Pipeline]{
+		OutputState: i.ToPipelineOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineOutput struct{ *pulumi.OutputState }
 
 func (PipelineOutput) ElementType() reflect.Type {
@@ -154,6 +161,12 @@ func (o PipelineOutput) ToPipelineOutput() PipelineOutput {
 
 func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
 	return o
+}
+
+func (o PipelineOutput) ToOutput(ctx context.Context) pulumix.Output[*Pipeline] {
+	return pulumix.Output[*Pipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of endpoints that can be used for ingesting data into a pipeline

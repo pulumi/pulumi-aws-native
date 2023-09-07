@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Config::RemediationConfiguration
@@ -132,6 +133,12 @@ func (i *RemediationConfiguration) ToRemediationConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationOutput)
 }
 
+func (i *RemediationConfiguration) ToOutput(ctx context.Context) pulumix.Output[*RemediationConfiguration] {
+	return pulumix.Output[*RemediationConfiguration]{
+		OutputState: i.ToRemediationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemediationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RemediationConfigurationOutput) ElementType() reflect.Type {
@@ -144,6 +151,12 @@ func (o RemediationConfigurationOutput) ToRemediationConfigurationOutput() Remed
 
 func (o RemediationConfigurationOutput) ToRemediationConfigurationOutputWithContext(ctx context.Context) RemediationConfigurationOutput {
 	return o
+}
+
+func (o RemediationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*RemediationConfiguration] {
+	return pulumix.Output[*RemediationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemediationConfigurationOutput) Automatic() pulumi.BoolPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -32,6 +33,12 @@ func (o ComponentTypeStatusOutput) ToComponentTypeStatusOutputWithContext(ctx co
 	return o
 }
 
+func (o ComponentTypeStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentTypeStatus] {
+	return pulumix.Output[ComponentTypeStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ComponentTypeStatusOutput) Error() pulumi.AnyOutput {
 	return o.ApplyT(func(v ComponentTypeStatus) interface{} { return v.Error }).(pulumi.AnyOutput)
 }
@@ -52,6 +59,12 @@ func (o ComponentTypeStatusPtrOutput) ToComponentTypeStatusPtrOutput() Component
 
 func (o ComponentTypeStatusPtrOutput) ToComponentTypeStatusPtrOutputWithContext(ctx context.Context) ComponentTypeStatusPtrOutput {
 	return o
+}
+
+func (o ComponentTypeStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentTypeStatus] {
+	return pulumix.Output[*ComponentTypeStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComponentTypeStatusPtrOutput) Elem() ComponentTypeStatusOutput {
@@ -113,6 +126,12 @@ func (o EntityStatusOutput) ToEntityStatusOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o EntityStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EntityStatus] {
+	return pulumix.Output[EntityStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EntityStatusOutput) Error() pulumi.AnyOutput {
 	return o.ApplyT(func(v EntityStatus) interface{} { return v.Error }).(pulumi.AnyOutput)
 }
@@ -133,6 +152,12 @@ func (o EntityStatusPtrOutput) ToEntityStatusPtrOutput() EntityStatusPtrOutput {
 
 func (o EntityStatusPtrOutput) ToEntityStatusPtrOutputWithContext(ctx context.Context) EntityStatusPtrOutput {
 	return o
+}
+
+func (o EntityStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EntityStatus] {
+	return pulumix.Output[*EntityStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EntityStatusPtrOutput) Elem() EntityStatusOutput {

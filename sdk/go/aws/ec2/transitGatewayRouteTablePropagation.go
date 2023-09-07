@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::TransitGatewayRouteTablePropagation
@@ -106,6 +107,12 @@ func (i *TransitGatewayRouteTablePropagation) ToTransitGatewayRouteTablePropagat
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTablePropagationOutput)
 }
 
+func (i *TransitGatewayRouteTablePropagation) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTablePropagation] {
+	return pulumix.Output[*TransitGatewayRouteTablePropagation]{
+		OutputState: i.ToTransitGatewayRouteTablePropagationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayRouteTablePropagationOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRouteTablePropagationOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o TransitGatewayRouteTablePropagationOutput) ToTransitGatewayRouteTablePro
 
 func (o TransitGatewayRouteTablePropagationOutput) ToTransitGatewayRouteTablePropagationOutputWithContext(ctx context.Context) TransitGatewayRouteTablePropagationOutput {
 	return o
+}
+
+func (o TransitGatewayRouteTablePropagationOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTablePropagation] {
+	return pulumix.Output[*TransitGatewayRouteTablePropagation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayRouteTablePropagationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {

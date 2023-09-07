@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::PinpointEmail::Identity
@@ -113,6 +114,12 @@ func (i *Identity) ToIdentityOutputWithContext(ctx context.Context) IdentityOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput)
 }
 
+func (i *Identity) ToOutput(ctx context.Context) pulumix.Output[*Identity] {
+	return pulumix.Output[*Identity]{
+		OutputState: i.ToIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -125,6 +132,12 @@ func (o IdentityOutput) ToIdentityOutput() IdentityOutput {
 
 func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
 	return o
+}
+
+func (o IdentityOutput) ToOutput(ctx context.Context) pulumix.Output[*Identity] {
+	return pulumix.Output[*Identity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityOutput) DkimSigningEnabled() pulumi.BoolPtrOutput {

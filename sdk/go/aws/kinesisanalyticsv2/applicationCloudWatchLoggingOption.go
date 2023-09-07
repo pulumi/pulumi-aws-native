@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption
@@ -105,6 +106,12 @@ func (i *ApplicationCloudWatchLoggingOption) ToApplicationCloudWatchLoggingOptio
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCloudWatchLoggingOptionOutput)
 }
 
+func (i *ApplicationCloudWatchLoggingOption) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCloudWatchLoggingOption] {
+	return pulumix.Output[*ApplicationCloudWatchLoggingOption]{
+		OutputState: i.ToApplicationCloudWatchLoggingOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationCloudWatchLoggingOptionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCloudWatchLoggingOptionOutput) ElementType() reflect.Type {
@@ -117,6 +124,12 @@ func (o ApplicationCloudWatchLoggingOptionOutput) ToApplicationCloudWatchLogging
 
 func (o ApplicationCloudWatchLoggingOptionOutput) ToApplicationCloudWatchLoggingOptionOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingOptionOutput {
 	return o
+}
+
+func (o ApplicationCloudWatchLoggingOptionOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCloudWatchLoggingOption] {
+	return pulumix.Output[*ApplicationCloudWatchLoggingOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCloudWatchLoggingOptionOutput) ApplicationName() pulumi.StringOutput {

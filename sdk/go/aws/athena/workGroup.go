@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Athena::WorkGroup
@@ -134,6 +135,12 @@ func (i *WorkGroup) ToWorkGroupOutputWithContext(ctx context.Context) WorkGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupOutput)
 }
 
+func (i *WorkGroup) ToOutput(ctx context.Context) pulumix.Output[*WorkGroup] {
+	return pulumix.Output[*WorkGroup]{
+		OutputState: i.ToWorkGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkGroupOutput struct{ *pulumi.OutputState }
 
 func (WorkGroupOutput) ElementType() reflect.Type {
@@ -146,6 +153,12 @@ func (o WorkGroupOutput) ToWorkGroupOutput() WorkGroupOutput {
 
 func (o WorkGroupOutput) ToWorkGroupOutputWithContext(ctx context.Context) WorkGroupOutput {
 	return o
+}
+
+func (o WorkGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroup] {
+	return pulumix.Output[*WorkGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The date and time the workgroup was created.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
@@ -130,6 +131,12 @@ func (i *ResourceSet) ToResourceSetOutputWithContext(ctx context.Context) Resour
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetOutput)
 }
 
+func (i *ResourceSet) ToOutput(ctx context.Context) pulumix.Output[*ResourceSet] {
+	return pulumix.Output[*ResourceSet]{
+		OutputState: i.ToResourceSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceSetOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetOutput) ElementType() reflect.Type {
@@ -142,6 +149,12 @@ func (o ResourceSetOutput) ToResourceSetOutput() ResourceSetOutput {
 
 func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) ResourceSetOutput {
 	return o
+}
+
+func (o ResourceSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceSet] {
+	return pulumix.Output[*ResourceSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the resource set.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::ADMChannel
@@ -66,6 +67,12 @@ func (o LookupAdmChannelResultOutput) ToLookupAdmChannelResultOutput() LookupAdm
 
 func (o LookupAdmChannelResultOutput) ToLookupAdmChannelResultOutputWithContext(ctx context.Context) LookupAdmChannelResultOutput {
 	return o
+}
+
+func (o LookupAdmChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAdmChannelResult] {
+	return pulumix.Output[LookupAdmChannelResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAdmChannelResultOutput) ClientId() pulumi.StringPtrOutput {

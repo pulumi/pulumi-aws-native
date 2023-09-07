@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The implementation provider chosen for tracing App Runner services.
@@ -77,6 +78,12 @@ func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToObservabilit
 	}).(ObservabilityConfigurationTraceConfigurationVendorPtrOutput)
 }
 
+func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToOutput(ctx context.Context) pulumix.Output[ObservabilityConfigurationTraceConfigurationVendor] {
+	return pulumix.Output[ObservabilityConfigurationTraceConfigurationVendor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ToObservabi
 
 func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ToObservabilityConfigurationTraceConfigurationVendorPtrOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationVendorPtrOutput {
 	return o
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ObservabilityConfigurationTraceConfigurationVendor] {
+	return pulumix.Output[*ObservabilityConfigurationTraceConfigurationVendor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) Elem() ObservabilityConfigurationTraceConfigurationVendorOutput {
@@ -172,6 +185,12 @@ func (in *observabilityConfigurationTraceConfigurationVendorPtr) ToObservability
 
 func (in *observabilityConfigurationTraceConfigurationVendorPtr) ToObservabilityConfigurationTraceConfigurationVendorPtrOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationVendorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ObservabilityConfigurationTraceConfigurationVendorPtrOutput)
+}
+
+func (in *observabilityConfigurationTraceConfigurationVendorPtr) ToOutput(ctx context.Context) pulumix.Output[*ObservabilityConfigurationTraceConfigurationVendor] {
+	return pulumix.Output[*ObservabilityConfigurationTraceConfigurationVendor]{
+		OutputState: in.ToObservabilityConfigurationTraceConfigurationVendorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Configuration Source
@@ -242,6 +261,12 @@ func (o ServiceCodeConfigurationConfigurationSourceOutput) ToServiceCodeConfigur
 	}).(ServiceCodeConfigurationConfigurationSourcePtrOutput)
 }
 
+func (o ServiceCodeConfigurationConfigurationSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceCodeConfigurationConfigurationSource] {
+	return pulumix.Output[ServiceCodeConfigurationConfigurationSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceCodeConfigurationConfigurationSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -275,6 +300,12 @@ func (o ServiceCodeConfigurationConfigurationSourcePtrOutput) ToServiceCodeConfi
 
 func (o ServiceCodeConfigurationConfigurationSourcePtrOutput) ToServiceCodeConfigurationConfigurationSourcePtrOutputWithContext(ctx context.Context) ServiceCodeConfigurationConfigurationSourcePtrOutput {
 	return o
+}
+
+func (o ServiceCodeConfigurationConfigurationSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceCodeConfigurationConfigurationSource] {
+	return pulumix.Output[*ServiceCodeConfigurationConfigurationSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceCodeConfigurationConfigurationSourcePtrOutput) Elem() ServiceCodeConfigurationConfigurationSourceOutput {
@@ -337,6 +368,12 @@ func (in *serviceCodeConfigurationConfigurationSourcePtr) ToServiceCodeConfigura
 
 func (in *serviceCodeConfigurationConfigurationSourcePtr) ToServiceCodeConfigurationConfigurationSourcePtrOutputWithContext(ctx context.Context) ServiceCodeConfigurationConfigurationSourcePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceCodeConfigurationConfigurationSourcePtrOutput)
+}
+
+func (in *serviceCodeConfigurationConfigurationSourcePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceCodeConfigurationConfigurationSource] {
+	return pulumix.Output[*ServiceCodeConfigurationConfigurationSource]{
+		OutputState: in.ToServiceCodeConfigurationConfigurationSourcePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Runtime
@@ -415,6 +452,12 @@ func (o ServiceCodeConfigurationValuesRuntimeOutput) ToServiceCodeConfigurationV
 	}).(ServiceCodeConfigurationValuesRuntimePtrOutput)
 }
 
+func (o ServiceCodeConfigurationValuesRuntimeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceCodeConfigurationValuesRuntime] {
+	return pulumix.Output[ServiceCodeConfigurationValuesRuntime]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceCodeConfigurationValuesRuntimeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -448,6 +491,12 @@ func (o ServiceCodeConfigurationValuesRuntimePtrOutput) ToServiceCodeConfigurati
 
 func (o ServiceCodeConfigurationValuesRuntimePtrOutput) ToServiceCodeConfigurationValuesRuntimePtrOutputWithContext(ctx context.Context) ServiceCodeConfigurationValuesRuntimePtrOutput {
 	return o
+}
+
+func (o ServiceCodeConfigurationValuesRuntimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceCodeConfigurationValuesRuntime] {
+	return pulumix.Output[*ServiceCodeConfigurationValuesRuntime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceCodeConfigurationValuesRuntimePtrOutput) Elem() ServiceCodeConfigurationValuesRuntimeOutput {
@@ -510,6 +559,12 @@ func (in *serviceCodeConfigurationValuesRuntimePtr) ToServiceCodeConfigurationVa
 
 func (in *serviceCodeConfigurationValuesRuntimePtr) ToServiceCodeConfigurationValuesRuntimePtrOutputWithContext(ctx context.Context) ServiceCodeConfigurationValuesRuntimePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceCodeConfigurationValuesRuntimePtrOutput)
+}
+
+func (in *serviceCodeConfigurationValuesRuntimePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceCodeConfigurationValuesRuntime] {
+	return pulumix.Output[*ServiceCodeConfigurationValuesRuntime]{
+		OutputState: in.ToServiceCodeConfigurationValuesRuntimePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Network egress type.
@@ -580,6 +635,12 @@ func (o ServiceEgressConfigurationEgressTypeOutput) ToServiceEgressConfiguration
 	}).(ServiceEgressConfigurationEgressTypePtrOutput)
 }
 
+func (o ServiceEgressConfigurationEgressTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEgressConfigurationEgressType] {
+	return pulumix.Output[ServiceEgressConfigurationEgressType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceEgressConfigurationEgressTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -613,6 +674,12 @@ func (o ServiceEgressConfigurationEgressTypePtrOutput) ToServiceEgressConfigurat
 
 func (o ServiceEgressConfigurationEgressTypePtrOutput) ToServiceEgressConfigurationEgressTypePtrOutputWithContext(ctx context.Context) ServiceEgressConfigurationEgressTypePtrOutput {
 	return o
+}
+
+func (o ServiceEgressConfigurationEgressTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEgressConfigurationEgressType] {
+	return pulumix.Output[*ServiceEgressConfigurationEgressType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEgressConfigurationEgressTypePtrOutput) Elem() ServiceEgressConfigurationEgressTypeOutput {
@@ -675,6 +742,12 @@ func (in *serviceEgressConfigurationEgressTypePtr) ToServiceEgressConfigurationE
 
 func (in *serviceEgressConfigurationEgressTypePtr) ToServiceEgressConfigurationEgressTypePtrOutputWithContext(ctx context.Context) ServiceEgressConfigurationEgressTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceEgressConfigurationEgressTypePtrOutput)
+}
+
+func (in *serviceEgressConfigurationEgressTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceEgressConfigurationEgressType] {
+	return pulumix.Output[*ServiceEgressConfigurationEgressType]{
+		OutputState: in.ToServiceEgressConfigurationEgressTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Health Check Protocol
@@ -745,6 +818,12 @@ func (o ServiceHealthCheckConfigurationProtocolOutput) ToServiceHealthCheckConfi
 	}).(ServiceHealthCheckConfigurationProtocolPtrOutput)
 }
 
+func (o ServiceHealthCheckConfigurationProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHealthCheckConfigurationProtocol] {
+	return pulumix.Output[ServiceHealthCheckConfigurationProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceHealthCheckConfigurationProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -778,6 +857,12 @@ func (o ServiceHealthCheckConfigurationProtocolPtrOutput) ToServiceHealthCheckCo
 
 func (o ServiceHealthCheckConfigurationProtocolPtrOutput) ToServiceHealthCheckConfigurationProtocolPtrOutputWithContext(ctx context.Context) ServiceHealthCheckConfigurationProtocolPtrOutput {
 	return o
+}
+
+func (o ServiceHealthCheckConfigurationProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceHealthCheckConfigurationProtocol] {
+	return pulumix.Output[*ServiceHealthCheckConfigurationProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceHealthCheckConfigurationProtocolPtrOutput) Elem() ServiceHealthCheckConfigurationProtocolOutput {
@@ -840,6 +925,12 @@ func (in *serviceHealthCheckConfigurationProtocolPtr) ToServiceHealthCheckConfig
 
 func (in *serviceHealthCheckConfigurationProtocolPtr) ToServiceHealthCheckConfigurationProtocolPtrOutputWithContext(ctx context.Context) ServiceHealthCheckConfigurationProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceHealthCheckConfigurationProtocolPtrOutput)
+}
+
+func (in *serviceHealthCheckConfigurationProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceHealthCheckConfigurationProtocol] {
+	return pulumix.Output[*ServiceHealthCheckConfigurationProtocol]{
+		OutputState: in.ToServiceHealthCheckConfigurationProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Image Repository Type
@@ -910,6 +1001,12 @@ func (o ServiceImageRepositoryImageRepositoryTypeOutput) ToServiceImageRepositor
 	}).(ServiceImageRepositoryImageRepositoryTypePtrOutput)
 }
 
+func (o ServiceImageRepositoryImageRepositoryTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceImageRepositoryImageRepositoryType] {
+	return pulumix.Output[ServiceImageRepositoryImageRepositoryType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceImageRepositoryImageRepositoryTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -943,6 +1040,12 @@ func (o ServiceImageRepositoryImageRepositoryTypePtrOutput) ToServiceImageReposi
 
 func (o ServiceImageRepositoryImageRepositoryTypePtrOutput) ToServiceImageRepositoryImageRepositoryTypePtrOutputWithContext(ctx context.Context) ServiceImageRepositoryImageRepositoryTypePtrOutput {
 	return o
+}
+
+func (o ServiceImageRepositoryImageRepositoryTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceImageRepositoryImageRepositoryType] {
+	return pulumix.Output[*ServiceImageRepositoryImageRepositoryType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceImageRepositoryImageRepositoryTypePtrOutput) Elem() ServiceImageRepositoryImageRepositoryTypeOutput {
@@ -1005,6 +1108,12 @@ func (in *serviceImageRepositoryImageRepositoryTypePtr) ToServiceImageRepository
 
 func (in *serviceImageRepositoryImageRepositoryTypePtr) ToServiceImageRepositoryImageRepositoryTypePtrOutputWithContext(ctx context.Context) ServiceImageRepositoryImageRepositoryTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceImageRepositoryImageRepositoryTypePtrOutput)
+}
+
+func (in *serviceImageRepositoryImageRepositoryTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceImageRepositoryImageRepositoryType] {
+	return pulumix.Output[*ServiceImageRepositoryImageRepositoryType]{
+		OutputState: in.ToServiceImageRepositoryImageRepositoryTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Source Code Version Type
@@ -1074,6 +1183,12 @@ func (o ServiceSourceCodeVersionTypeOutput) ToServiceSourceCodeVersionTypePtrOut
 	}).(ServiceSourceCodeVersionTypePtrOutput)
 }
 
+func (o ServiceSourceCodeVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSourceCodeVersionType] {
+	return pulumix.Output[ServiceSourceCodeVersionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceSourceCodeVersionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1107,6 +1222,12 @@ func (o ServiceSourceCodeVersionTypePtrOutput) ToServiceSourceCodeVersionTypePtr
 
 func (o ServiceSourceCodeVersionTypePtrOutput) ToServiceSourceCodeVersionTypePtrOutputWithContext(ctx context.Context) ServiceSourceCodeVersionTypePtrOutput {
 	return o
+}
+
+func (o ServiceSourceCodeVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSourceCodeVersionType] {
+	return pulumix.Output[*ServiceSourceCodeVersionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceSourceCodeVersionTypePtrOutput) Elem() ServiceSourceCodeVersionTypeOutput {
@@ -1171,6 +1292,12 @@ func (in *serviceSourceCodeVersionTypePtr) ToServiceSourceCodeVersionTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceSourceCodeVersionTypePtrOutput)
 }
 
+func (in *serviceSourceCodeVersionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceSourceCodeVersionType] {
+	return pulumix.Output[*ServiceSourceCodeVersionType]{
+		OutputState: in.ToServiceSourceCodeVersionTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The current status of the VpcIngressConnection.
 type VpcIngressConnectionStatus string
 
@@ -1209,6 +1336,12 @@ func (o VpcIngressConnectionStatusOutput) ToVpcIngressConnectionStatusPtrOutputW
 	}).(VpcIngressConnectionStatusPtrOutput)
 }
 
+func (o VpcIngressConnectionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[VpcIngressConnectionStatus] {
+	return pulumix.Output[VpcIngressConnectionStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcIngressConnectionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1242,6 +1375,12 @@ func (o VpcIngressConnectionStatusPtrOutput) ToVpcIngressConnectionStatusPtrOutp
 
 func (o VpcIngressConnectionStatusPtrOutput) ToVpcIngressConnectionStatusPtrOutputWithContext(ctx context.Context) VpcIngressConnectionStatusPtrOutput {
 	return o
+}
+
+func (o VpcIngressConnectionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIngressConnectionStatus] {
+	return pulumix.Output[*VpcIngressConnectionStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcIngressConnectionStatusPtrOutput) Elem() VpcIngressConnectionStatusOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::FunctionConfiguration
@@ -143,6 +144,12 @@ func (i *FunctionConfiguration) ToFunctionConfigurationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigurationOutput)
 }
 
+func (i *FunctionConfiguration) ToOutput(ctx context.Context) pulumix.Output[*FunctionConfiguration] {
+	return pulumix.Output[*FunctionConfiguration]{
+		OutputState: i.ToFunctionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FunctionConfigurationOutput) ElementType() reflect.Type {
@@ -155,6 +162,12 @@ func (o FunctionConfigurationOutput) ToFunctionConfigurationOutput() FunctionCon
 
 func (o FunctionConfigurationOutput) ToFunctionConfigurationOutputWithContext(ctx context.Context) FunctionConfigurationOutput {
 	return o
+}
+
+func (o FunctionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionConfiguration] {
+	return pulumix.Output[*FunctionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionConfigurationOutput) ApiId() pulumi.StringOutput {

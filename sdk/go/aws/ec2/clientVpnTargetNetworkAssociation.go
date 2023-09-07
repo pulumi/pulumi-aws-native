@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation
@@ -106,6 +107,12 @@ func (i *ClientVpnTargetNetworkAssociation) ToClientVpnTargetNetworkAssociationO
 	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnTargetNetworkAssociationOutput)
 }
 
+func (i *ClientVpnTargetNetworkAssociation) ToOutput(ctx context.Context) pulumix.Output[*ClientVpnTargetNetworkAssociation] {
+	return pulumix.Output[*ClientVpnTargetNetworkAssociation]{
+		OutputState: i.ToClientVpnTargetNetworkAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClientVpnTargetNetworkAssociationOutput struct{ *pulumi.OutputState }
 
 func (ClientVpnTargetNetworkAssociationOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o ClientVpnTargetNetworkAssociationOutput) ToClientVpnTargetNetworkAssocia
 
 func (o ClientVpnTargetNetworkAssociationOutput) ToClientVpnTargetNetworkAssociationOutputWithContext(ctx context.Context) ClientVpnTargetNetworkAssociationOutput {
 	return o
+}
+
+func (o ClientVpnTargetNetworkAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ClientVpnTargetNetworkAssociation] {
+	return pulumix.Output[*ClientVpnTargetNetworkAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClientVpnTargetNetworkAssociationOutput) ClientVpnEndpointId() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::LaunchNotificationConstraint
@@ -118,6 +119,12 @@ func (i *LaunchNotificationConstraint) ToLaunchNotificationConstraintOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchNotificationConstraintOutput)
 }
 
+func (i *LaunchNotificationConstraint) ToOutput(ctx context.Context) pulumix.Output[*LaunchNotificationConstraint] {
+	return pulumix.Output[*LaunchNotificationConstraint]{
+		OutputState: i.ToLaunchNotificationConstraintOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchNotificationConstraintOutput struct{ *pulumi.OutputState }
 
 func (LaunchNotificationConstraintOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o LaunchNotificationConstraintOutput) ToLaunchNotificationConstraintOutput
 
 func (o LaunchNotificationConstraintOutput) ToLaunchNotificationConstraintOutputWithContext(ctx context.Context) LaunchNotificationConstraintOutput {
 	return o
+}
+
+func (o LaunchNotificationConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchNotificationConstraint] {
+	return pulumix.Output[*LaunchNotificationConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchNotificationConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {

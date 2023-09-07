@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Location::GeofenceCollection Resource Type
@@ -115,6 +116,12 @@ func (i *GeofenceCollection) ToGeofenceCollectionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GeofenceCollectionOutput)
 }
 
+func (i *GeofenceCollection) ToOutput(ctx context.Context) pulumix.Output[*GeofenceCollection] {
+	return pulumix.Output[*GeofenceCollection]{
+		OutputState: i.ToGeofenceCollectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GeofenceCollectionOutput struct{ *pulumi.OutputState }
 
 func (GeofenceCollectionOutput) ElementType() reflect.Type {
@@ -127,6 +134,12 @@ func (o GeofenceCollectionOutput) ToGeofenceCollectionOutput() GeofenceCollectio
 
 func (o GeofenceCollectionOutput) ToGeofenceCollectionOutputWithContext(ctx context.Context) GeofenceCollectionOutput {
 	return o
+}
+
+func (o GeofenceCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*GeofenceCollection] {
+	return pulumix.Output[*GeofenceCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GeofenceCollectionOutput) Arn() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
@@ -145,6 +146,12 @@ func (i *StackSetConstraint) ToStackSetConstraintOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetConstraintOutput)
 }
 
+func (i *StackSetConstraint) ToOutput(ctx context.Context) pulumix.Output[*StackSetConstraint] {
+	return pulumix.Output[*StackSetConstraint]{
+		OutputState: i.ToStackSetConstraintOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackSetConstraintOutput struct{ *pulumi.OutputState }
 
 func (StackSetConstraintOutput) ElementType() reflect.Type {
@@ -157,6 +164,12 @@ func (o StackSetConstraintOutput) ToStackSetConstraintOutput() StackSetConstrain
 
 func (o StackSetConstraintOutput) ToStackSetConstraintOutputWithContext(ctx context.Context) StackSetConstraintOutput {
 	return o
+}
+
+func (o StackSetConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetConstraint] {
+	return pulumix.Output[*StackSetConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackSetConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {

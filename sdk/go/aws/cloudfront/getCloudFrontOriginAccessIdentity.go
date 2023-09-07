@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
@@ -65,6 +66,12 @@ func (o LookupCloudFrontOriginAccessIdentityResultOutput) ToLookupCloudFrontOrig
 
 func (o LookupCloudFrontOriginAccessIdentityResultOutput) ToLookupCloudFrontOriginAccessIdentityResultOutputWithContext(ctx context.Context) LookupCloudFrontOriginAccessIdentityResultOutput {
 	return o
+}
+
+func (o LookupCloudFrontOriginAccessIdentityResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCloudFrontOriginAccessIdentityResult] {
+	return pulumix.Output[LookupCloudFrontOriginAccessIdentityResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupCloudFrontOriginAccessIdentityResultOutput) CloudFrontOriginAccessIdentityConfig() CloudFrontOriginAccessIdentityConfigPtrOutput {

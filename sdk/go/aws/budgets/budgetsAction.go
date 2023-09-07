@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -138,6 +139,12 @@ func (i *BudgetsAction) ToBudgetsActionOutputWithContext(ctx context.Context) Bu
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetsActionOutput)
 }
 
+func (i *BudgetsAction) ToOutput(ctx context.Context) pulumix.Output[*BudgetsAction] {
+	return pulumix.Output[*BudgetsAction]{
+		OutputState: i.ToBudgetsActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetsActionOutput struct{ *pulumi.OutputState }
 
 func (BudgetsActionOutput) ElementType() reflect.Type {
@@ -150,6 +157,12 @@ func (o BudgetsActionOutput) ToBudgetsActionOutput() BudgetsActionOutput {
 
 func (o BudgetsActionOutput) ToBudgetsActionOutputWithContext(ctx context.Context) BudgetsActionOutput {
 	return o
+}
+
+func (o BudgetsActionOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsAction] {
+	return pulumix.Output[*BudgetsAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetsActionOutput) ActionId() pulumi.StringOutput {

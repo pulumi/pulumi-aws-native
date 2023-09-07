@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersOu
 
 func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCsvMappingParametersOutput)
+}
+
+func (i ApplicationCsvMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCsvMappingParameters] {
+	return pulumix.Output[ApplicationCsvMappingParameters]{
+		OutputState: i.ToApplicationCsvMappingParametersOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput {
@@ -87,6 +94,12 @@ func (i *applicationCsvMappingParametersPtrType) ToApplicationCsvMappingParamete
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCsvMappingParametersPtrOutput)
 }
 
+func (i *applicationCsvMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCsvMappingParameters] {
+	return pulumix.Output[*ApplicationCsvMappingParameters]{
+		OutputState: i.ToApplicationCsvMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationCsvMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCsvMappingParametersOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o ApplicationCsvMappingParametersOutput) ToApplicationCsvMappingParameters
 	}).(ApplicationCsvMappingParametersPtrOutput)
 }
 
+func (o ApplicationCsvMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCsvMappingParameters] {
+	return pulumix.Output[ApplicationCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationCsvMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationCsvMappingParameters) string { return v.RecordColumnDelimiter }).(pulumi.StringOutput)
 }
@@ -131,6 +150,12 @@ func (o ApplicationCsvMappingParametersPtrOutput) ToApplicationCsvMappingParamet
 
 func (o ApplicationCsvMappingParametersPtrOutput) ToApplicationCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationCsvMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCsvMappingParameters] {
+	return pulumix.Output[*ApplicationCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCsvMappingParametersPtrOutput) Elem() ApplicationCsvMappingParametersOutput {
@@ -202,6 +227,12 @@ func (i ApplicationInputTypeArgs) ToApplicationInputTypeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputTypeOutput)
 }
 
+func (i ApplicationInputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputType] {
+	return pulumix.Output[ApplicationInputType]{
+		OutputState: i.ToApplicationInputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationInputTypeArrayInput is an input type that accepts ApplicationInputTypeArray and ApplicationInputTypeArrayOutput values.
 // You can construct a concrete instance of `ApplicationInputTypeArrayInput` via:
 //
@@ -227,6 +258,12 @@ func (i ApplicationInputTypeArray) ToApplicationInputTypeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputTypeArrayOutput)
 }
 
+func (i ApplicationInputTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationInputType] {
+	return pulumix.Output[[]ApplicationInputType]{
+		OutputState: i.ToApplicationInputTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationInputTypeOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInputTypeOutput) ElementType() reflect.Type {
@@ -239,6 +276,12 @@ func (o ApplicationInputTypeOutput) ToApplicationInputTypeOutput() ApplicationIn
 
 func (o ApplicationInputTypeOutput) ToApplicationInputTypeOutputWithContext(ctx context.Context) ApplicationInputTypeOutput {
 	return o
+}
+
+func (o ApplicationInputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputType] {
+	return pulumix.Output[ApplicationInputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInputTypeOutput) InputParallelism() ApplicationInputParallelismPtrOutput {
@@ -281,6 +324,12 @@ func (o ApplicationInputTypeArrayOutput) ToApplicationInputTypeArrayOutputWithCo
 	return o
 }
 
+func (o ApplicationInputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationInputType] {
+	return pulumix.Output[[]ApplicationInputType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationInputTypeArrayOutput) Index(i pulumi.IntInput) ApplicationInputTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationInputType {
 		return vs[0].([]ApplicationInputType)[vs[1].(int)]
@@ -318,6 +367,12 @@ func (i ApplicationInputLambdaProcessorArgs) ToApplicationInputLambdaProcessorOu
 
 func (i ApplicationInputLambdaProcessorArgs) ToApplicationInputLambdaProcessorOutputWithContext(ctx context.Context) ApplicationInputLambdaProcessorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputLambdaProcessorOutput)
+}
+
+func (i ApplicationInputLambdaProcessorArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputLambdaProcessor] {
+	return pulumix.Output[ApplicationInputLambdaProcessor]{
+		OutputState: i.ToApplicationInputLambdaProcessorOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ApplicationInputLambdaProcessorArgs) ToApplicationInputLambdaProcessorPtrOutput() ApplicationInputLambdaProcessorPtrOutput {
@@ -361,6 +416,12 @@ func (i *applicationInputLambdaProcessorPtrType) ToApplicationInputLambdaProcess
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputLambdaProcessorPtrOutput)
 }
 
+func (i *applicationInputLambdaProcessorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputLambdaProcessor] {
+	return pulumix.Output[*ApplicationInputLambdaProcessor]{
+		OutputState: i.ToApplicationInputLambdaProcessorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationInputLambdaProcessorOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInputLambdaProcessorOutput) ElementType() reflect.Type {
@@ -385,6 +446,12 @@ func (o ApplicationInputLambdaProcessorOutput) ToApplicationInputLambdaProcessor
 	}).(ApplicationInputLambdaProcessorPtrOutput)
 }
 
+func (o ApplicationInputLambdaProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputLambdaProcessor] {
+	return pulumix.Output[ApplicationInputLambdaProcessor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationInputLambdaProcessorOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationInputLambdaProcessor) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -405,6 +472,12 @@ func (o ApplicationInputLambdaProcessorPtrOutput) ToApplicationInputLambdaProces
 
 func (o ApplicationInputLambdaProcessorPtrOutput) ToApplicationInputLambdaProcessorPtrOutputWithContext(ctx context.Context) ApplicationInputLambdaProcessorPtrOutput {
 	return o
+}
+
+func (o ApplicationInputLambdaProcessorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputLambdaProcessor] {
+	return pulumix.Output[*ApplicationInputLambdaProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInputLambdaProcessorPtrOutput) Elem() ApplicationInputLambdaProcessorOutput {
@@ -466,6 +539,12 @@ func (i ApplicationInputParallelismArgs) ToApplicationInputParallelismOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputParallelismOutput)
 }
 
+func (i ApplicationInputParallelismArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputParallelism] {
+	return pulumix.Output[ApplicationInputParallelism]{
+		OutputState: i.ToApplicationInputParallelismOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationInputParallelismArgs) ToApplicationInputParallelismPtrOutput() ApplicationInputParallelismPtrOutput {
 	return i.ToApplicationInputParallelismPtrOutputWithContext(context.Background())
 }
@@ -507,6 +586,12 @@ func (i *applicationInputParallelismPtrType) ToApplicationInputParallelismPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputParallelismPtrOutput)
 }
 
+func (i *applicationInputParallelismPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputParallelism] {
+	return pulumix.Output[*ApplicationInputParallelism]{
+		OutputState: i.ToApplicationInputParallelismPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationInputParallelismOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInputParallelismOutput) ElementType() reflect.Type {
@@ -531,6 +616,12 @@ func (o ApplicationInputParallelismOutput) ToApplicationInputParallelismPtrOutpu
 	}).(ApplicationInputParallelismPtrOutput)
 }
 
+func (o ApplicationInputParallelismOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputParallelism] {
+	return pulumix.Output[ApplicationInputParallelism]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationInputParallelismOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationInputParallelism) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -547,6 +638,12 @@ func (o ApplicationInputParallelismPtrOutput) ToApplicationInputParallelismPtrOu
 
 func (o ApplicationInputParallelismPtrOutput) ToApplicationInputParallelismPtrOutputWithContext(ctx context.Context) ApplicationInputParallelismPtrOutput {
 	return o
+}
+
+func (o ApplicationInputParallelismPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputParallelism] {
+	return pulumix.Output[*ApplicationInputParallelism]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInputParallelismPtrOutput) Elem() ApplicationInputParallelismOutput {
@@ -599,6 +696,12 @@ func (i ApplicationInputProcessingConfigurationArgs) ToApplicationInputProcessin
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputProcessingConfigurationOutput)
 }
 
+func (i ApplicationInputProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputProcessingConfiguration] {
+	return pulumix.Output[ApplicationInputProcessingConfiguration]{
+		OutputState: i.ToApplicationInputProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationInputProcessingConfigurationArgs) ToApplicationInputProcessingConfigurationPtrOutput() ApplicationInputProcessingConfigurationPtrOutput {
 	return i.ToApplicationInputProcessingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -640,6 +743,12 @@ func (i *applicationInputProcessingConfigurationPtrType) ToApplicationInputProce
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputProcessingConfigurationPtrOutput)
 }
 
+func (i *applicationInputProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputProcessingConfiguration] {
+	return pulumix.Output[*ApplicationInputProcessingConfiguration]{
+		OutputState: i.ToApplicationInputProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationInputProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInputProcessingConfigurationOutput) ElementType() reflect.Type {
@@ -664,6 +773,12 @@ func (o ApplicationInputProcessingConfigurationOutput) ToApplicationInputProcess
 	}).(ApplicationInputProcessingConfigurationPtrOutput)
 }
 
+func (o ApplicationInputProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputProcessingConfiguration] {
+	return pulumix.Output[ApplicationInputProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationInputProcessingConfigurationOutput) InputLambdaProcessor() ApplicationInputLambdaProcessorPtrOutput {
 	return o.ApplyT(func(v ApplicationInputProcessingConfiguration) *ApplicationInputLambdaProcessor {
 		return v.InputLambdaProcessor
@@ -682,6 +797,12 @@ func (o ApplicationInputProcessingConfigurationPtrOutput) ToApplicationInputProc
 
 func (o ApplicationInputProcessingConfigurationPtrOutput) ToApplicationInputProcessingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationInputProcessingConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationInputProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputProcessingConfiguration] {
+	return pulumix.Output[*ApplicationInputProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInputProcessingConfigurationPtrOutput) Elem() ApplicationInputProcessingConfigurationOutput {
@@ -738,6 +859,12 @@ func (i ApplicationInputSchemaArgs) ToApplicationInputSchemaOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputSchemaOutput)
 }
 
+func (i ApplicationInputSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputSchema] {
+	return pulumix.Output[ApplicationInputSchema]{
+		OutputState: i.ToApplicationInputSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationInputSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInputSchemaOutput) ElementType() reflect.Type {
@@ -750,6 +877,12 @@ func (o ApplicationInputSchemaOutput) ToApplicationInputSchemaOutput() Applicati
 
 func (o ApplicationInputSchemaOutput) ToApplicationInputSchemaOutputWithContext(ctx context.Context) ApplicationInputSchemaOutput {
 	return o
+}
+
+func (o ApplicationInputSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputSchema] {
+	return pulumix.Output[ApplicationInputSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInputSchemaOutput) RecordColumns() ApplicationRecordColumnArrayOutput {
@@ -795,6 +928,12 @@ func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParameters
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJsonMappingParametersOutput)
 }
 
+func (i ApplicationJsonMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationJsonMappingParameters] {
+	return pulumix.Output[ApplicationJsonMappingParameters]{
+		OutputState: i.ToApplicationJsonMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput {
 	return i.ToApplicationJsonMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -836,6 +975,12 @@ func (i *applicationJsonMappingParametersPtrType) ToApplicationJsonMappingParame
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJsonMappingParametersPtrOutput)
 }
 
+func (i *applicationJsonMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationJsonMappingParameters] {
+	return pulumix.Output[*ApplicationJsonMappingParameters]{
+		OutputState: i.ToApplicationJsonMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationJsonMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationJsonMappingParametersOutput) ElementType() reflect.Type {
@@ -860,6 +1005,12 @@ func (o ApplicationJsonMappingParametersOutput) ToApplicationJsonMappingParamete
 	}).(ApplicationJsonMappingParametersPtrOutput)
 }
 
+func (o ApplicationJsonMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationJsonMappingParameters] {
+	return pulumix.Output[ApplicationJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationJsonMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationJsonMappingParameters) string { return v.RecordRowPath }).(pulumi.StringOutput)
 }
@@ -876,6 +1027,12 @@ func (o ApplicationJsonMappingParametersPtrOutput) ToApplicationJsonMappingParam
 
 func (o ApplicationJsonMappingParametersPtrOutput) ToApplicationJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationJsonMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationJsonMappingParameters] {
+	return pulumix.Output[*ApplicationJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationJsonMappingParametersPtrOutput) Elem() ApplicationJsonMappingParametersOutput {
@@ -930,6 +1087,12 @@ func (i ApplicationKinesisFirehoseInputArgs) ToApplicationKinesisFirehoseInputOu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisFirehoseInputOutput)
 }
 
+func (i ApplicationKinesisFirehoseInputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationKinesisFirehoseInput] {
+	return pulumix.Output[ApplicationKinesisFirehoseInput]{
+		OutputState: i.ToApplicationKinesisFirehoseInputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationKinesisFirehoseInputArgs) ToApplicationKinesisFirehoseInputPtrOutput() ApplicationKinesisFirehoseInputPtrOutput {
 	return i.ToApplicationKinesisFirehoseInputPtrOutputWithContext(context.Background())
 }
@@ -971,6 +1134,12 @@ func (i *applicationKinesisFirehoseInputPtrType) ToApplicationKinesisFirehoseInp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisFirehoseInputPtrOutput)
 }
 
+func (i *applicationKinesisFirehoseInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationKinesisFirehoseInput] {
+	return pulumix.Output[*ApplicationKinesisFirehoseInput]{
+		OutputState: i.ToApplicationKinesisFirehoseInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationKinesisFirehoseInputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationKinesisFirehoseInputOutput) ElementType() reflect.Type {
@@ -995,6 +1164,12 @@ func (o ApplicationKinesisFirehoseInputOutput) ToApplicationKinesisFirehoseInput
 	}).(ApplicationKinesisFirehoseInputPtrOutput)
 }
 
+func (o ApplicationKinesisFirehoseInputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationKinesisFirehoseInput] {
+	return pulumix.Output[ApplicationKinesisFirehoseInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationKinesisFirehoseInputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationKinesisFirehoseInput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -1015,6 +1190,12 @@ func (o ApplicationKinesisFirehoseInputPtrOutput) ToApplicationKinesisFirehoseIn
 
 func (o ApplicationKinesisFirehoseInputPtrOutput) ToApplicationKinesisFirehoseInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisFirehoseInputPtrOutput {
 	return o
+}
+
+func (o ApplicationKinesisFirehoseInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationKinesisFirehoseInput] {
+	return pulumix.Output[*ApplicationKinesisFirehoseInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationKinesisFirehoseInputPtrOutput) Elem() ApplicationKinesisFirehoseInputOutput {
@@ -1078,6 +1259,12 @@ func (i ApplicationKinesisStreamsInputArgs) ToApplicationKinesisStreamsInputOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisStreamsInputOutput)
 }
 
+func (i ApplicationKinesisStreamsInputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationKinesisStreamsInput] {
+	return pulumix.Output[ApplicationKinesisStreamsInput]{
+		OutputState: i.ToApplicationKinesisStreamsInputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationKinesisStreamsInputArgs) ToApplicationKinesisStreamsInputPtrOutput() ApplicationKinesisStreamsInputPtrOutput {
 	return i.ToApplicationKinesisStreamsInputPtrOutputWithContext(context.Background())
 }
@@ -1119,6 +1306,12 @@ func (i *applicationKinesisStreamsInputPtrType) ToApplicationKinesisStreamsInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisStreamsInputPtrOutput)
 }
 
+func (i *applicationKinesisStreamsInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationKinesisStreamsInput] {
+	return pulumix.Output[*ApplicationKinesisStreamsInput]{
+		OutputState: i.ToApplicationKinesisStreamsInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationKinesisStreamsInputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationKinesisStreamsInputOutput) ElementType() reflect.Type {
@@ -1143,6 +1336,12 @@ func (o ApplicationKinesisStreamsInputOutput) ToApplicationKinesisStreamsInputPt
 	}).(ApplicationKinesisStreamsInputPtrOutput)
 }
 
+func (o ApplicationKinesisStreamsInputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationKinesisStreamsInput] {
+	return pulumix.Output[ApplicationKinesisStreamsInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationKinesisStreamsInputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationKinesisStreamsInput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -1163,6 +1362,12 @@ func (o ApplicationKinesisStreamsInputPtrOutput) ToApplicationKinesisStreamsInpu
 
 func (o ApplicationKinesisStreamsInputPtrOutput) ToApplicationKinesisStreamsInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisStreamsInputPtrOutput {
 	return o
+}
+
+func (o ApplicationKinesisStreamsInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationKinesisStreamsInput] {
+	return pulumix.Output[*ApplicationKinesisStreamsInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationKinesisStreamsInputPtrOutput) Elem() ApplicationKinesisStreamsInputOutput {
@@ -1226,6 +1431,12 @@ func (i ApplicationMappingParametersArgs) ToApplicationMappingParametersOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMappingParametersOutput)
 }
 
+func (i ApplicationMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationMappingParameters] {
+	return pulumix.Output[ApplicationMappingParameters]{
+		OutputState: i.ToApplicationMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationMappingParametersArgs) ToApplicationMappingParametersPtrOutput() ApplicationMappingParametersPtrOutput {
 	return i.ToApplicationMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -1267,6 +1478,12 @@ func (i *applicationMappingParametersPtrType) ToApplicationMappingParametersPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMappingParametersPtrOutput)
 }
 
+func (i *applicationMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMappingParameters] {
+	return pulumix.Output[*ApplicationMappingParameters]{
+		OutputState: i.ToApplicationMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationMappingParametersOutput) ElementType() reflect.Type {
@@ -1291,6 +1508,12 @@ func (o ApplicationMappingParametersOutput) ToApplicationMappingParametersPtrOut
 	}).(ApplicationMappingParametersPtrOutput)
 }
 
+func (o ApplicationMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMappingParameters] {
+	return pulumix.Output[ApplicationMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationMappingParametersOutput) CsvMappingParameters() ApplicationCsvMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationCsvMappingParameters { return v.CsvMappingParameters }).(ApplicationCsvMappingParametersPtrOutput)
 }
@@ -1311,6 +1534,12 @@ func (o ApplicationMappingParametersPtrOutput) ToApplicationMappingParametersPtr
 
 func (o ApplicationMappingParametersPtrOutput) ToApplicationMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMappingParameters] {
+	return pulumix.Output[*ApplicationMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMappingParametersPtrOutput) Elem() ApplicationMappingParametersOutput {
@@ -1372,6 +1601,12 @@ func (i ApplicationOutputResourceDestinationSchemaArgs) ToApplicationOutputResou
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceDestinationSchemaOutput)
 }
 
+func (i ApplicationOutputResourceDestinationSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceDestinationSchema] {
+	return pulumix.Output[ApplicationOutputResourceDestinationSchema]{
+		OutputState: i.ToApplicationOutputResourceDestinationSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutputResourceDestinationSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceDestinationSchemaOutput) ElementType() reflect.Type {
@@ -1384,6 +1619,12 @@ func (o ApplicationOutputResourceDestinationSchemaOutput) ToApplicationOutputRes
 
 func (o ApplicationOutputResourceDestinationSchemaOutput) ToApplicationOutputResourceDestinationSchemaOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceDestinationSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceDestinationSchema] {
+	return pulumix.Output[ApplicationOutputResourceDestinationSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceDestinationSchemaOutput) RecordFormatType() pulumi.StringPtrOutput {
@@ -1402,6 +1643,12 @@ func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToApplicationOutput
 
 func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceDestinationSchema] {
+	return pulumix.Output[*ApplicationOutputResourceDestinationSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceDestinationSchemaPtrOutput) Elem() ApplicationOutputResourceDestinationSchemaOutput {
@@ -1456,6 +1703,12 @@ func (i ApplicationOutputResourceKinesisFirehoseOutputArgs) ToApplicationOutputR
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisFirehoseOutputOutput)
 }
 
+func (i ApplicationOutputResourceKinesisFirehoseOutputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceKinesisFirehoseOutput] {
+	return pulumix.Output[ApplicationOutputResourceKinesisFirehoseOutput]{
+		OutputState: i.ToApplicationOutputResourceKinesisFirehoseOutputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationOutputResourceKinesisFirehoseOutputArgs) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutput() ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
 	return i.ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(context.Background())
 }
@@ -1497,6 +1750,12 @@ func (i *applicationOutputResourceKinesisFirehoseOutputPtrType) ToApplicationOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
 }
 
+func (i *applicationOutputResourceKinesisFirehoseOutputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceKinesisFirehoseOutput] {
+	return pulumix.Output[*ApplicationOutputResourceKinesisFirehoseOutput]{
+		OutputState: i.ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutputResourceKinesisFirehoseOutputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceKinesisFirehoseOutputOutput) ElementType() reflect.Type {
@@ -1521,6 +1780,12 @@ func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ToApplicationOutpu
 	}).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
 }
 
+func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceKinesisFirehoseOutput] {
+	return pulumix.Output[ApplicationOutputResourceKinesisFirehoseOutput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationOutputResourceKinesisFirehoseOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -1541,6 +1806,12 @@ func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ToApplicationOu
 
 func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceKinesisFirehoseOutput] {
+	return pulumix.Output[*ApplicationOutputResourceKinesisFirehoseOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) Elem() ApplicationOutputResourceKinesisFirehoseOutputOutput {
@@ -1604,6 +1875,12 @@ func (i ApplicationOutputResourceKinesisStreamsOutputArgs) ToApplicationOutputRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisStreamsOutputOutput)
 }
 
+func (i ApplicationOutputResourceKinesisStreamsOutputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceKinesisStreamsOutput] {
+	return pulumix.Output[ApplicationOutputResourceKinesisStreamsOutput]{
+		OutputState: i.ToApplicationOutputResourceKinesisStreamsOutputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationOutputResourceKinesisStreamsOutputArgs) ToApplicationOutputResourceKinesisStreamsOutputPtrOutput() ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
 	return i.ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(context.Background())
 }
@@ -1645,6 +1922,12 @@ func (i *applicationOutputResourceKinesisStreamsOutputPtrType) ToApplicationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
 }
 
+func (i *applicationOutputResourceKinesisStreamsOutputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceKinesisStreamsOutput] {
+	return pulumix.Output[*ApplicationOutputResourceKinesisStreamsOutput]{
+		OutputState: i.ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutputResourceKinesisStreamsOutputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceKinesisStreamsOutputOutput) ElementType() reflect.Type {
@@ -1669,6 +1952,12 @@ func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ToApplicationOutput
 	}).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
 }
 
+func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceKinesisStreamsOutput] {
+	return pulumix.Output[ApplicationOutputResourceKinesisStreamsOutput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationOutputResourceKinesisStreamsOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -1689,6 +1978,12 @@ func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ToApplicationOut
 
 func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceKinesisStreamsOutput] {
+	return pulumix.Output[*ApplicationOutputResourceKinesisStreamsOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) Elem() ApplicationOutputResourceKinesisStreamsOutputOutput {
@@ -1752,6 +2047,12 @@ func (i ApplicationOutputResourceLambdaOutputArgs) ToApplicationOutputResourceLa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceLambdaOutputOutput)
 }
 
+func (i ApplicationOutputResourceLambdaOutputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceLambdaOutput] {
+	return pulumix.Output[ApplicationOutputResourceLambdaOutput]{
+		OutputState: i.ToApplicationOutputResourceLambdaOutputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationOutputResourceLambdaOutputArgs) ToApplicationOutputResourceLambdaOutputPtrOutput() ApplicationOutputResourceLambdaOutputPtrOutput {
 	return i.ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(context.Background())
 }
@@ -1793,6 +2094,12 @@ func (i *applicationOutputResourceLambdaOutputPtrType) ToApplicationOutputResour
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceLambdaOutputPtrOutput)
 }
 
+func (i *applicationOutputResourceLambdaOutputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceLambdaOutput] {
+	return pulumix.Output[*ApplicationOutputResourceLambdaOutput]{
+		OutputState: i.ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutputResourceLambdaOutputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceLambdaOutputOutput) ElementType() reflect.Type {
@@ -1817,6 +2124,12 @@ func (o ApplicationOutputResourceLambdaOutputOutput) ToApplicationOutputResource
 	}).(ApplicationOutputResourceLambdaOutputPtrOutput)
 }
 
+func (o ApplicationOutputResourceLambdaOutputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceLambdaOutput] {
+	return pulumix.Output[ApplicationOutputResourceLambdaOutput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationOutputResourceLambdaOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationOutputResourceLambdaOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -1837,6 +2150,12 @@ func (o ApplicationOutputResourceLambdaOutputPtrOutput) ToApplicationOutputResou
 
 func (o ApplicationOutputResourceLambdaOutputPtrOutput) ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceLambdaOutputPtrOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceLambdaOutputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceLambdaOutput] {
+	return pulumix.Output[*ApplicationOutputResourceLambdaOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceLambdaOutputPtrOutput) Elem() ApplicationOutputResourceLambdaOutputOutput {
@@ -1906,6 +2225,12 @@ func (i ApplicationOutputResourceOutputTypeArgs) ToApplicationOutputResourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutputTypeOutput)
 }
 
+func (i ApplicationOutputResourceOutputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceOutputType] {
+	return pulumix.Output[ApplicationOutputResourceOutputType]{
+		OutputState: i.ToApplicationOutputResourceOutputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutputResourceOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceOutputTypeOutput) ElementType() reflect.Type {
@@ -1918,6 +2243,12 @@ func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOu
 
 func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOutputTypeOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypeOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationOutputResourceOutputType] {
+	return pulumix.Output[ApplicationOutputResourceOutputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceOutputTypeOutput) DestinationSchema() ApplicationOutputResourceDestinationSchemaOutput {
@@ -1960,6 +2291,12 @@ func (o ApplicationOutputResourceOutputTypePtrOutput) ToApplicationOutputResourc
 
 func (o ApplicationOutputResourceOutputTypePtrOutput) ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypePtrOutput {
 	return o
+}
+
+func (o ApplicationOutputResourceOutputTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationOutputResourceOutputType] {
+	return pulumix.Output[*ApplicationOutputResourceOutputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutputResourceOutputTypePtrOutput) Elem() ApplicationOutputResourceOutputTypeOutput {
@@ -2052,6 +2389,12 @@ func (i ApplicationRecordColumnArgs) ToApplicationRecordColumnOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRecordColumnOutput)
 }
 
+func (i ApplicationRecordColumnArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationRecordColumn] {
+	return pulumix.Output[ApplicationRecordColumn]{
+		OutputState: i.ToApplicationRecordColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationRecordColumnArrayInput is an input type that accepts ApplicationRecordColumnArray and ApplicationRecordColumnArrayOutput values.
 // You can construct a concrete instance of `ApplicationRecordColumnArrayInput` via:
 //
@@ -2077,6 +2420,12 @@ func (i ApplicationRecordColumnArray) ToApplicationRecordColumnArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRecordColumnArrayOutput)
 }
 
+func (i ApplicationRecordColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationRecordColumn] {
+	return pulumix.Output[[]ApplicationRecordColumn]{
+		OutputState: i.ToApplicationRecordColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationRecordColumnOutput struct{ *pulumi.OutputState }
 
 func (ApplicationRecordColumnOutput) ElementType() reflect.Type {
@@ -2089,6 +2438,12 @@ func (o ApplicationRecordColumnOutput) ToApplicationRecordColumnOutput() Applica
 
 func (o ApplicationRecordColumnOutput) ToApplicationRecordColumnOutputWithContext(ctx context.Context) ApplicationRecordColumnOutput {
 	return o
+}
+
+func (o ApplicationRecordColumnOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRecordColumn] {
+	return pulumix.Output[ApplicationRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationRecordColumnOutput) Mapping() pulumi.StringPtrOutput {
@@ -2115,6 +2470,12 @@ func (o ApplicationRecordColumnArrayOutput) ToApplicationRecordColumnArrayOutput
 
 func (o ApplicationRecordColumnArrayOutput) ToApplicationRecordColumnArrayOutputWithContext(ctx context.Context) ApplicationRecordColumnArrayOutput {
 	return o
+}
+
+func (o ApplicationRecordColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationRecordColumn] {
+	return pulumix.Output[[]ApplicationRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationRecordColumnArrayOutput) Index(i pulumi.IntInput) ApplicationRecordColumnOutput {
@@ -2156,6 +2517,12 @@ func (i ApplicationRecordFormatArgs) ToApplicationRecordFormatOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRecordFormatOutput)
 }
 
+func (i ApplicationRecordFormatArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationRecordFormat] {
+	return pulumix.Output[ApplicationRecordFormat]{
+		OutputState: i.ToApplicationRecordFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationRecordFormatOutput struct{ *pulumi.OutputState }
 
 func (ApplicationRecordFormatOutput) ElementType() reflect.Type {
@@ -2168,6 +2535,12 @@ func (o ApplicationRecordFormatOutput) ToApplicationRecordFormatOutput() Applica
 
 func (o ApplicationRecordFormatOutput) ToApplicationRecordFormatOutputWithContext(ctx context.Context) ApplicationRecordFormatOutput {
 	return o
+}
+
+func (o ApplicationRecordFormatOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRecordFormat] {
+	return pulumix.Output[ApplicationRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationRecordFormatOutput) MappingParameters() ApplicationMappingParametersPtrOutput {
@@ -2211,6 +2584,12 @@ func (i ApplicationReferenceDataSourceCsvMappingParametersArgs) ToApplicationRef
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceCsvMappingParametersOutput)
 }
 
+func (i ApplicationReferenceDataSourceCsvMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceCsvMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceCsvMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceCsvMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationReferenceDataSourceCsvMappingParametersArgs) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutput() ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
 	return i.ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -2252,6 +2631,12 @@ func (i *applicationReferenceDataSourceCsvMappingParametersPtrType) ToApplicatio
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceCsvMappingParametersPtrOutput)
 }
 
+func (i *applicationReferenceDataSourceCsvMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceCsvMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceCsvMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceCsvMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceCsvMappingParametersOutput) ElementType() reflect.Type {
@@ -2276,6 +2661,12 @@ func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) ToApplicationR
 	}).(ApplicationReferenceDataSourceCsvMappingParametersPtrOutput)
 }
 
+func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceCsvMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceCsvMappingParameters) string { return v.RecordColumnDelimiter }).(pulumi.StringOutput)
 }
@@ -2296,6 +2687,12 @@ func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) ToApplicati
 
 func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceCsvMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) Elem() ApplicationReferenceDataSourceCsvMappingParametersOutput {
@@ -2357,6 +2754,12 @@ func (i ApplicationReferenceDataSourceJsonMappingParametersArgs) ToApplicationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceJsonMappingParametersOutput)
 }
 
+func (i ApplicationReferenceDataSourceJsonMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceJsonMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceJsonMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceJsonMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationReferenceDataSourceJsonMappingParametersArgs) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutput() ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
 	return i.ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -2398,6 +2801,12 @@ func (i *applicationReferenceDataSourceJsonMappingParametersPtrType) ToApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceJsonMappingParametersPtrOutput)
 }
 
+func (i *applicationReferenceDataSourceJsonMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceJsonMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceJsonMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceJsonMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceJsonMappingParametersOutput) ElementType() reflect.Type {
@@ -2422,6 +2831,12 @@ func (o ApplicationReferenceDataSourceJsonMappingParametersOutput) ToApplication
 	}).(ApplicationReferenceDataSourceJsonMappingParametersPtrOutput)
 }
 
+func (o ApplicationReferenceDataSourceJsonMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceJsonMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationReferenceDataSourceJsonMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceJsonMappingParameters) string { return v.RecordRowPath }).(pulumi.StringOutput)
 }
@@ -2438,6 +2853,12 @@ func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) ToApplicat
 
 func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceJsonMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) Elem() ApplicationReferenceDataSourceJsonMappingParametersOutput {
@@ -2492,6 +2913,12 @@ func (i ApplicationReferenceDataSourceMappingParametersArgs) ToApplicationRefere
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceMappingParametersOutput)
 }
 
+func (i ApplicationReferenceDataSourceMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationReferenceDataSourceMappingParametersArgs) ToApplicationReferenceDataSourceMappingParametersPtrOutput() ApplicationReferenceDataSourceMappingParametersPtrOutput {
 	return i.ToApplicationReferenceDataSourceMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -2533,6 +2960,12 @@ func (i *applicationReferenceDataSourceMappingParametersPtrType) ToApplicationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceMappingParametersPtrOutput)
 }
 
+func (i *applicationReferenceDataSourceMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceMappingParameters]{
+		OutputState: i.ToApplicationReferenceDataSourceMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceMappingParametersOutput) ElementType() reflect.Type {
@@ -2555,6 +2988,12 @@ func (o ApplicationReferenceDataSourceMappingParametersOutput) ToApplicationRefe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceMappingParameters {
 		return &v
 	}).(ApplicationReferenceDataSourceMappingParametersPtrOutput)
+}
+
+func (o ApplicationReferenceDataSourceMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceMappingParameters] {
+	return pulumix.Output[ApplicationReferenceDataSourceMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceMappingParametersOutput) CsvMappingParameters() ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
@@ -2581,6 +3020,12 @@ func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) ToApplicationR
 
 func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) ToApplicationReferenceDataSourceMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceMappingParameters] {
+	return pulumix.Output[*ApplicationReferenceDataSourceMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) Elem() ApplicationReferenceDataSourceMappingParametersOutput {
@@ -2646,6 +3091,12 @@ func (i ApplicationReferenceDataSourceRecordColumnArgs) ToApplicationReferenceDa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceRecordColumnOutput)
 }
 
+func (i ApplicationReferenceDataSourceRecordColumnArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceRecordColumn] {
+	return pulumix.Output[ApplicationReferenceDataSourceRecordColumn]{
+		OutputState: i.ToApplicationReferenceDataSourceRecordColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationReferenceDataSourceRecordColumnArrayInput is an input type that accepts ApplicationReferenceDataSourceRecordColumnArray and ApplicationReferenceDataSourceRecordColumnArrayOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceRecordColumnArrayInput` via:
 //
@@ -2671,6 +3122,12 @@ func (i ApplicationReferenceDataSourceRecordColumnArray) ToApplicationReferenceD
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceRecordColumnArrayOutput)
 }
 
+func (i ApplicationReferenceDataSourceRecordColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationReferenceDataSourceRecordColumn] {
+	return pulumix.Output[[]ApplicationReferenceDataSourceRecordColumn]{
+		OutputState: i.ToApplicationReferenceDataSourceRecordColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceRecordColumnOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceRecordColumnOutput) ElementType() reflect.Type {
@@ -2683,6 +3140,12 @@ func (o ApplicationReferenceDataSourceRecordColumnOutput) ToApplicationReference
 
 func (o ApplicationReferenceDataSourceRecordColumnOutput) ToApplicationReferenceDataSourceRecordColumnOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordColumnOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceRecordColumnOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceRecordColumn] {
+	return pulumix.Output[ApplicationReferenceDataSourceRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceRecordColumnOutput) Mapping() pulumi.StringPtrOutput {
@@ -2709,6 +3172,12 @@ func (o ApplicationReferenceDataSourceRecordColumnArrayOutput) ToApplicationRefe
 
 func (o ApplicationReferenceDataSourceRecordColumnArrayOutput) ToApplicationReferenceDataSourceRecordColumnArrayOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordColumnArrayOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceRecordColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationReferenceDataSourceRecordColumn] {
+	return pulumix.Output[[]ApplicationReferenceDataSourceRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceRecordColumnArrayOutput) Index(i pulumi.IntInput) ApplicationReferenceDataSourceRecordColumnOutput {
@@ -2750,6 +3219,12 @@ func (i ApplicationReferenceDataSourceRecordFormatArgs) ToApplicationReferenceDa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceRecordFormatOutput)
 }
 
+func (i ApplicationReferenceDataSourceRecordFormatArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceRecordFormat] {
+	return pulumix.Output[ApplicationReferenceDataSourceRecordFormat]{
+		OutputState: i.ToApplicationReferenceDataSourceRecordFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceRecordFormatOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceRecordFormatOutput) ElementType() reflect.Type {
@@ -2762,6 +3237,12 @@ func (o ApplicationReferenceDataSourceRecordFormatOutput) ToApplicationReference
 
 func (o ApplicationReferenceDataSourceRecordFormatOutput) ToApplicationReferenceDataSourceRecordFormatOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordFormatOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceRecordFormatOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceRecordFormat] {
+	return pulumix.Output[ApplicationReferenceDataSourceRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceRecordFormatOutput) MappingParameters() ApplicationReferenceDataSourceMappingParametersPtrOutput {
@@ -2786,6 +3267,12 @@ func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) ToApplicationRefere
 
 func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordFormatPtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceRecordFormat] {
+	return pulumix.Output[*ApplicationReferenceDataSourceRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) Elem() ApplicationReferenceDataSourceRecordFormatOutput {
@@ -2851,6 +3338,12 @@ func (i ApplicationReferenceDataSourceReferenceDataSourceArgs) ToApplicationRefe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceReferenceDataSourceOutput)
 }
 
+func (i ApplicationReferenceDataSourceReferenceDataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceReferenceDataSource] {
+	return pulumix.Output[ApplicationReferenceDataSourceReferenceDataSource]{
+		OutputState: i.ToApplicationReferenceDataSourceReferenceDataSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceReferenceDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceReferenceDataSourceOutput) ElementType() reflect.Type {
@@ -2863,6 +3356,12 @@ func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ToApplicationRe
 
 func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ToApplicationReferenceDataSourceReferenceDataSourceOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceDataSourceOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceReferenceDataSource] {
+	return pulumix.Output[ApplicationReferenceDataSourceReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ReferenceSchema() ApplicationReferenceDataSourceReferenceSchemaOutput {
@@ -2893,6 +3392,12 @@ func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ToApplicatio
 
 func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceReferenceDataSource] {
+	return pulumix.Output[*ApplicationReferenceDataSourceReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) Elem() ApplicationReferenceDataSourceReferenceDataSourceOutput {
@@ -2967,6 +3472,12 @@ func (i ApplicationReferenceDataSourceReferenceSchemaArgs) ToApplicationReferenc
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceReferenceSchemaOutput)
 }
 
+func (i ApplicationReferenceDataSourceReferenceSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceReferenceSchema] {
+	return pulumix.Output[ApplicationReferenceDataSourceReferenceSchema]{
+		OutputState: i.ToApplicationReferenceDataSourceReferenceSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceReferenceSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceReferenceSchemaOutput) ElementType() reflect.Type {
@@ -2979,6 +3490,12 @@ func (o ApplicationReferenceDataSourceReferenceSchemaOutput) ToApplicationRefere
 
 func (o ApplicationReferenceDataSourceReferenceSchemaOutput) ToApplicationReferenceDataSourceReferenceSchemaOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceSchemaOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceReferenceSchema] {
+	return pulumix.Output[ApplicationReferenceDataSourceReferenceSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceReferenceSchemaOutput) RecordColumns() ApplicationReferenceDataSourceRecordColumnArrayOutput {
@@ -3009,6 +3526,12 @@ func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ToApplicationRef
 
 func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceReferenceSchema] {
+	return pulumix.Output[*ApplicationReferenceDataSourceReferenceSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) Elem() ApplicationReferenceDataSourceReferenceSchemaOutput {
@@ -3083,6 +3606,12 @@ func (i ApplicationReferenceDataSourceS3ReferenceDataSourceArgs) ToApplicationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceS3ReferenceDataSourceOutput)
 }
 
+func (i ApplicationReferenceDataSourceS3ReferenceDataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[ApplicationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: i.ToApplicationReferenceDataSourceS3ReferenceDataSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationReferenceDataSourceS3ReferenceDataSourceArgs) ToApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput() ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput {
 	return i.ToApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutputWithContext(context.Background())
 }
@@ -3124,6 +3653,12 @@ func (i *applicationReferenceDataSourceS3ReferenceDataSourcePtrType) ToApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
 }
 
+func (i *applicationReferenceDataSourceS3ReferenceDataSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[*ApplicationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: i.ToApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationReferenceDataSourceS3ReferenceDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) ElementType() reflect.Type {
@@ -3146,6 +3681,12 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) ToApplication
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationReferenceDataSourceS3ReferenceDataSource) *ApplicationReferenceDataSourceS3ReferenceDataSource {
 		return &v
 	}).(ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
+}
+
+func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[ApplicationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) BucketArn() pulumi.StringOutput {
@@ -3172,6 +3713,12 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) ToApplicat
 
 func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) ToApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput {
 	return o
+}
+
+func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[*ApplicationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) Elem() ApplicationReferenceDataSourceS3ReferenceDataSourceOutput {

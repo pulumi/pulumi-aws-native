@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i AssistantAssociationAssociationDataArgs) ToAssistantAssociationAssociati
 	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationAssociationDataOutput)
 }
 
+func (i AssistantAssociationAssociationDataArgs) ToOutput(ctx context.Context) pulumix.Output[AssistantAssociationAssociationData] {
+	return pulumix.Output[AssistantAssociationAssociationData]{
+		OutputState: i.ToAssistantAssociationAssociationDataOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssistantAssociationAssociationDataOutput struct{ *pulumi.OutputState }
 
 func (AssistantAssociationAssociationDataOutput) ElementType() reflect.Type {
@@ -56,6 +63,12 @@ func (o AssistantAssociationAssociationDataOutput) ToAssistantAssociationAssocia
 
 func (o AssistantAssociationAssociationDataOutput) ToAssistantAssociationAssociationDataOutputWithContext(ctx context.Context) AssistantAssociationAssociationDataOutput {
 	return o
+}
+
+func (o AssistantAssociationAssociationDataOutput) ToOutput(ctx context.Context) pulumix.Output[AssistantAssociationAssociationData] {
+	return pulumix.Output[AssistantAssociationAssociationData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssistantAssociationAssociationDataOutput) KnowledgeBaseId() pulumi.StringOutput {
@@ -95,6 +108,12 @@ func (i AssistantAssociationTagArgs) ToAssistantAssociationTagOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationTagOutput)
 }
 
+func (i AssistantAssociationTagArgs) ToOutput(ctx context.Context) pulumix.Output[AssistantAssociationTag] {
+	return pulumix.Output[AssistantAssociationTag]{
+		OutputState: i.ToAssistantAssociationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssistantAssociationTagArrayInput is an input type that accepts AssistantAssociationTagArray and AssistantAssociationTagArrayOutput values.
 // You can construct a concrete instance of `AssistantAssociationTagArrayInput` via:
 //
@@ -120,6 +139,12 @@ func (i AssistantAssociationTagArray) ToAssistantAssociationTagArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationTagArrayOutput)
 }
 
+func (i AssistantAssociationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AssistantAssociationTag] {
+	return pulumix.Output[[]AssistantAssociationTag]{
+		OutputState: i.ToAssistantAssociationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssistantAssociationTagOutput struct{ *pulumi.OutputState }
 
 func (AssistantAssociationTagOutput) ElementType() reflect.Type {
@@ -132,6 +157,12 @@ func (o AssistantAssociationTagOutput) ToAssistantAssociationTagOutput() Assista
 
 func (o AssistantAssociationTagOutput) ToAssistantAssociationTagOutputWithContext(ctx context.Context) AssistantAssociationTagOutput {
 	return o
+}
+
+func (o AssistantAssociationTagOutput) ToOutput(ctx context.Context) pulumix.Output[AssistantAssociationTag] {
+	return pulumix.Output[AssistantAssociationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssistantAssociationTagOutput) Key() pulumi.StringOutput {
@@ -154,6 +185,12 @@ func (o AssistantAssociationTagArrayOutput) ToAssistantAssociationTagArrayOutput
 
 func (o AssistantAssociationTagArrayOutput) ToAssistantAssociationTagArrayOutputWithContext(ctx context.Context) AssistantAssociationTagArrayOutput {
 	return o
+}
+
+func (o AssistantAssociationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssistantAssociationTag] {
+	return pulumix.Output[[]AssistantAssociationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssistantAssociationTagArrayOutput) Index(i pulumi.IntInput) AssistantAssociationTagOutput {
@@ -191,6 +228,12 @@ func (i AssistantServerSideEncryptionConfigurationArgs) ToAssistantServerSideEnc
 
 func (i AssistantServerSideEncryptionConfigurationArgs) ToAssistantServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) AssistantServerSideEncryptionConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssistantServerSideEncryptionConfigurationOutput)
+}
+
+func (i AssistantServerSideEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AssistantServerSideEncryptionConfiguration] {
+	return pulumix.Output[AssistantServerSideEncryptionConfiguration]{
+		OutputState: i.ToAssistantServerSideEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AssistantServerSideEncryptionConfigurationArgs) ToAssistantServerSideEncryptionConfigurationPtrOutput() AssistantServerSideEncryptionConfigurationPtrOutput {
@@ -234,6 +277,12 @@ func (i *assistantServerSideEncryptionConfigurationPtrType) ToAssistantServerSid
 	return pulumi.ToOutputWithContext(ctx, i).(AssistantServerSideEncryptionConfigurationPtrOutput)
 }
 
+func (i *assistantServerSideEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AssistantServerSideEncryptionConfiguration] {
+	return pulumix.Output[*AssistantServerSideEncryptionConfiguration]{
+		OutputState: i.ToAssistantServerSideEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssistantServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AssistantServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -258,6 +307,12 @@ func (o AssistantServerSideEncryptionConfigurationOutput) ToAssistantServerSideE
 	}).(AssistantServerSideEncryptionConfigurationPtrOutput)
 }
 
+func (o AssistantServerSideEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AssistantServerSideEncryptionConfiguration] {
+	return pulumix.Output[AssistantServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssistantServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssistantServerSideEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -274,6 +329,12 @@ func (o AssistantServerSideEncryptionConfigurationPtrOutput) ToAssistantServerSi
 
 func (o AssistantServerSideEncryptionConfigurationPtrOutput) ToAssistantServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) AssistantServerSideEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o AssistantServerSideEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssistantServerSideEncryptionConfiguration] {
+	return pulumix.Output[*AssistantServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssistantServerSideEncryptionConfigurationPtrOutput) Elem() AssistantServerSideEncryptionConfigurationOutput {
@@ -328,6 +389,12 @@ func (i AssistantTagArgs) ToAssistantTagOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AssistantTagOutput)
 }
 
+func (i AssistantTagArgs) ToOutput(ctx context.Context) pulumix.Output[AssistantTag] {
+	return pulumix.Output[AssistantTag]{
+		OutputState: i.ToAssistantTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssistantTagArrayInput is an input type that accepts AssistantTagArray and AssistantTagArrayOutput values.
 // You can construct a concrete instance of `AssistantTagArrayInput` via:
 //
@@ -353,6 +420,12 @@ func (i AssistantTagArray) ToAssistantTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AssistantTagArrayOutput)
 }
 
+func (i AssistantTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AssistantTag] {
+	return pulumix.Output[[]AssistantTag]{
+		OutputState: i.ToAssistantTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssistantTagOutput struct{ *pulumi.OutputState }
 
 func (AssistantTagOutput) ElementType() reflect.Type {
@@ -365,6 +438,12 @@ func (o AssistantTagOutput) ToAssistantTagOutput() AssistantTagOutput {
 
 func (o AssistantTagOutput) ToAssistantTagOutputWithContext(ctx context.Context) AssistantTagOutput {
 	return o
+}
+
+func (o AssistantTagOutput) ToOutput(ctx context.Context) pulumix.Output[AssistantTag] {
+	return pulumix.Output[AssistantTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssistantTagOutput) Key() pulumi.StringOutput {
@@ -387,6 +466,12 @@ func (o AssistantTagArrayOutput) ToAssistantTagArrayOutput() AssistantTagArrayOu
 
 func (o AssistantTagArrayOutput) ToAssistantTagArrayOutputWithContext(ctx context.Context) AssistantTagArrayOutput {
 	return o
+}
+
+func (o AssistantTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssistantTag] {
+	return pulumix.Output[[]AssistantTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssistantTagArrayOutput) Index(i pulumi.IntInput) AssistantTagOutput {
@@ -426,6 +511,12 @@ func (i KnowledgeBaseAppIntegrationsConfigurationArgs) ToKnowledgeBaseAppIntegra
 
 func (i KnowledgeBaseAppIntegrationsConfigurationArgs) ToKnowledgeBaseAppIntegrationsConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseAppIntegrationsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseAppIntegrationsConfigurationOutput)
+}
+
+func (i KnowledgeBaseAppIntegrationsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseAppIntegrationsConfiguration] {
+	return pulumix.Output[KnowledgeBaseAppIntegrationsConfiguration]{
+		OutputState: i.ToKnowledgeBaseAppIntegrationsConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i KnowledgeBaseAppIntegrationsConfigurationArgs) ToKnowledgeBaseAppIntegrationsConfigurationPtrOutput() KnowledgeBaseAppIntegrationsConfigurationPtrOutput {
@@ -469,6 +560,12 @@ func (i *knowledgeBaseAppIntegrationsConfigurationPtrType) ToKnowledgeBaseAppInt
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseAppIntegrationsConfigurationPtrOutput)
 }
 
+func (i *knowledgeBaseAppIntegrationsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*KnowledgeBaseAppIntegrationsConfiguration] {
+	return pulumix.Output[*KnowledgeBaseAppIntegrationsConfiguration]{
+		OutputState: i.ToKnowledgeBaseAppIntegrationsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KnowledgeBaseAppIntegrationsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KnowledgeBaseAppIntegrationsConfigurationOutput) ElementType() reflect.Type {
@@ -493,6 +590,12 @@ func (o KnowledgeBaseAppIntegrationsConfigurationOutput) ToKnowledgeBaseAppInteg
 	}).(KnowledgeBaseAppIntegrationsConfigurationPtrOutput)
 }
 
+func (o KnowledgeBaseAppIntegrationsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseAppIntegrationsConfiguration] {
+	return pulumix.Output[KnowledgeBaseAppIntegrationsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KnowledgeBaseAppIntegrationsConfigurationOutput) AppIntegrationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v KnowledgeBaseAppIntegrationsConfiguration) string { return v.AppIntegrationArn }).(pulumi.StringOutput)
 }
@@ -513,6 +616,12 @@ func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) ToKnowledgeBaseAppIn
 
 func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) ToKnowledgeBaseAppIntegrationsConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseAppIntegrationsConfigurationPtrOutput {
 	return o
+}
+
+func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KnowledgeBaseAppIntegrationsConfiguration] {
+	return pulumix.Output[*KnowledgeBaseAppIntegrationsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) Elem() KnowledgeBaseAppIntegrationsConfigurationOutput {
@@ -574,6 +683,12 @@ func (i KnowledgeBaseRenderingConfigurationArgs) ToKnowledgeBaseRenderingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseRenderingConfigurationOutput)
 }
 
+func (i KnowledgeBaseRenderingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseRenderingConfiguration] {
+	return pulumix.Output[KnowledgeBaseRenderingConfiguration]{
+		OutputState: i.ToKnowledgeBaseRenderingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KnowledgeBaseRenderingConfigurationArgs) ToKnowledgeBaseRenderingConfigurationPtrOutput() KnowledgeBaseRenderingConfigurationPtrOutput {
 	return i.ToKnowledgeBaseRenderingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -615,6 +730,12 @@ func (i *knowledgeBaseRenderingConfigurationPtrType) ToKnowledgeBaseRenderingCon
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseRenderingConfigurationPtrOutput)
 }
 
+func (i *knowledgeBaseRenderingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*KnowledgeBaseRenderingConfiguration] {
+	return pulumix.Output[*KnowledgeBaseRenderingConfiguration]{
+		OutputState: i.ToKnowledgeBaseRenderingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KnowledgeBaseRenderingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KnowledgeBaseRenderingConfigurationOutput) ElementType() reflect.Type {
@@ -639,6 +760,12 @@ func (o KnowledgeBaseRenderingConfigurationOutput) ToKnowledgeBaseRenderingConfi
 	}).(KnowledgeBaseRenderingConfigurationPtrOutput)
 }
 
+func (o KnowledgeBaseRenderingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseRenderingConfiguration] {
+	return pulumix.Output[KnowledgeBaseRenderingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KnowledgeBaseRenderingConfigurationOutput) TemplateUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseRenderingConfiguration) *string { return v.TemplateUri }).(pulumi.StringPtrOutput)
 }
@@ -655,6 +782,12 @@ func (o KnowledgeBaseRenderingConfigurationPtrOutput) ToKnowledgeBaseRenderingCo
 
 func (o KnowledgeBaseRenderingConfigurationPtrOutput) ToKnowledgeBaseRenderingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseRenderingConfigurationPtrOutput {
 	return o
+}
+
+func (o KnowledgeBaseRenderingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KnowledgeBaseRenderingConfiguration] {
+	return pulumix.Output[*KnowledgeBaseRenderingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KnowledgeBaseRenderingConfigurationPtrOutput) Elem() KnowledgeBaseRenderingConfigurationOutput {
@@ -707,6 +840,12 @@ func (i KnowledgeBaseServerSideEncryptionConfigurationArgs) ToKnowledgeBaseServe
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseServerSideEncryptionConfigurationOutput)
 }
 
+func (i KnowledgeBaseServerSideEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseServerSideEncryptionConfiguration] {
+	return pulumix.Output[KnowledgeBaseServerSideEncryptionConfiguration]{
+		OutputState: i.ToKnowledgeBaseServerSideEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KnowledgeBaseServerSideEncryptionConfigurationArgs) ToKnowledgeBaseServerSideEncryptionConfigurationPtrOutput() KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
 	return i.ToKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -748,6 +887,12 @@ func (i *knowledgeBaseServerSideEncryptionConfigurationPtrType) ToKnowledgeBaseS
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
 }
 
+func (i *knowledgeBaseServerSideEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*KnowledgeBaseServerSideEncryptionConfiguration] {
+	return pulumix.Output[*KnowledgeBaseServerSideEncryptionConfiguration]{
+		OutputState: i.ToKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KnowledgeBaseServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KnowledgeBaseServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -772,6 +917,12 @@ func (o KnowledgeBaseServerSideEncryptionConfigurationOutput) ToKnowledgeBaseSer
 	}).(KnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
 }
 
+func (o KnowledgeBaseServerSideEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseServerSideEncryptionConfiguration] {
+	return pulumix.Output[KnowledgeBaseServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KnowledgeBaseServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseServerSideEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -788,6 +939,12 @@ func (o KnowledgeBaseServerSideEncryptionConfigurationPtrOutput) ToKnowledgeBase
 
 func (o KnowledgeBaseServerSideEncryptionConfigurationPtrOutput) ToKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o KnowledgeBaseServerSideEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KnowledgeBaseServerSideEncryptionConfiguration] {
+	return pulumix.Output[*KnowledgeBaseServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KnowledgeBaseServerSideEncryptionConfigurationPtrOutput) Elem() KnowledgeBaseServerSideEncryptionConfigurationOutput {
@@ -840,6 +997,12 @@ func (i KnowledgeBaseSourceConfigurationArgs) ToKnowledgeBaseSourceConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSourceConfigurationOutput)
 }
 
+func (i KnowledgeBaseSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseSourceConfiguration] {
+	return pulumix.Output[KnowledgeBaseSourceConfiguration]{
+		OutputState: i.ToKnowledgeBaseSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KnowledgeBaseSourceConfigurationArgs) ToKnowledgeBaseSourceConfigurationPtrOutput() KnowledgeBaseSourceConfigurationPtrOutput {
 	return i.ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -881,6 +1044,12 @@ func (i *knowledgeBaseSourceConfigurationPtrType) ToKnowledgeBaseSourceConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSourceConfigurationPtrOutput)
 }
 
+func (i *knowledgeBaseSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*KnowledgeBaseSourceConfiguration] {
+	return pulumix.Output[*KnowledgeBaseSourceConfiguration]{
+		OutputState: i.ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KnowledgeBaseSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KnowledgeBaseSourceConfigurationOutput) ElementType() reflect.Type {
@@ -905,6 +1074,12 @@ func (o KnowledgeBaseSourceConfigurationOutput) ToKnowledgeBaseSourceConfigurati
 	}).(KnowledgeBaseSourceConfigurationPtrOutput)
 }
 
+func (o KnowledgeBaseSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseSourceConfiguration] {
+	return pulumix.Output[KnowledgeBaseSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KnowledgeBaseSourceConfigurationOutput) AppIntegrations() KnowledgeBaseAppIntegrationsConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseSourceConfiguration) *KnowledgeBaseAppIntegrationsConfiguration {
 		return v.AppIntegrations
@@ -923,6 +1098,12 @@ func (o KnowledgeBaseSourceConfigurationPtrOutput) ToKnowledgeBaseSourceConfigur
 
 func (o KnowledgeBaseSourceConfigurationPtrOutput) ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfigurationPtrOutput {
 	return o
+}
+
+func (o KnowledgeBaseSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KnowledgeBaseSourceConfiguration] {
+	return pulumix.Output[*KnowledgeBaseSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KnowledgeBaseSourceConfigurationPtrOutput) Elem() KnowledgeBaseSourceConfigurationOutput {
@@ -977,6 +1158,12 @@ func (i KnowledgeBaseTagArgs) ToKnowledgeBaseTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseTagOutput)
 }
 
+func (i KnowledgeBaseTagArgs) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseTag] {
+	return pulumix.Output[KnowledgeBaseTag]{
+		OutputState: i.ToKnowledgeBaseTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KnowledgeBaseTagArrayInput is an input type that accepts KnowledgeBaseTagArray and KnowledgeBaseTagArrayOutput values.
 // You can construct a concrete instance of `KnowledgeBaseTagArrayInput` via:
 //
@@ -1002,6 +1189,12 @@ func (i KnowledgeBaseTagArray) ToKnowledgeBaseTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseTagArrayOutput)
 }
 
+func (i KnowledgeBaseTagArray) ToOutput(ctx context.Context) pulumix.Output[[]KnowledgeBaseTag] {
+	return pulumix.Output[[]KnowledgeBaseTag]{
+		OutputState: i.ToKnowledgeBaseTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KnowledgeBaseTagOutput struct{ *pulumi.OutputState }
 
 func (KnowledgeBaseTagOutput) ElementType() reflect.Type {
@@ -1014,6 +1207,12 @@ func (o KnowledgeBaseTagOutput) ToKnowledgeBaseTagOutput() KnowledgeBaseTagOutpu
 
 func (o KnowledgeBaseTagOutput) ToKnowledgeBaseTagOutputWithContext(ctx context.Context) KnowledgeBaseTagOutput {
 	return o
+}
+
+func (o KnowledgeBaseTagOutput) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseTag] {
+	return pulumix.Output[KnowledgeBaseTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KnowledgeBaseTagOutput) Key() pulumi.StringOutput {
@@ -1036,6 +1235,12 @@ func (o KnowledgeBaseTagArrayOutput) ToKnowledgeBaseTagArrayOutput() KnowledgeBa
 
 func (o KnowledgeBaseTagArrayOutput) ToKnowledgeBaseTagArrayOutputWithContext(ctx context.Context) KnowledgeBaseTagArrayOutput {
 	return o
+}
+
+func (o KnowledgeBaseTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KnowledgeBaseTag] {
+	return pulumix.Output[[]KnowledgeBaseTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KnowledgeBaseTagArrayOutput) Index(i pulumi.IntInput) KnowledgeBaseTagOutput {

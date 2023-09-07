@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The type of AWS DMS Serverless replication to provision using this replication configuration
@@ -79,6 +80,12 @@ func (o ReplicationConfigReplicationTypeOutput) ToReplicationConfigReplicationTy
 	}).(ReplicationConfigReplicationTypePtrOutput)
 }
 
+func (o ReplicationConfigReplicationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigReplicationType] {
+	return pulumix.Output[ReplicationConfigReplicationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicationConfigReplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +119,12 @@ func (o ReplicationConfigReplicationTypePtrOutput) ToReplicationConfigReplicatio
 
 func (o ReplicationConfigReplicationTypePtrOutput) ToReplicationConfigReplicationTypePtrOutputWithContext(ctx context.Context) ReplicationConfigReplicationTypePtrOutput {
 	return o
+}
+
+func (o ReplicationConfigReplicationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigReplicationType] {
+	return pulumix.Output[*ReplicationConfigReplicationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigReplicationTypePtrOutput) Elem() ReplicationConfigReplicationTypeOutput {
@@ -174,6 +187,12 @@ func (in *replicationConfigReplicationTypePtr) ToReplicationConfigReplicationTyp
 
 func (in *replicationConfigReplicationTypePtr) ToReplicationConfigReplicationTypePtrOutputWithContext(ctx context.Context) ReplicationConfigReplicationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicationConfigReplicationTypePtrOutput)
+}
+
+func (in *replicationConfigReplicationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigReplicationType] {
+	return pulumix.Output[*ReplicationConfigReplicationType]{
+		OutputState: in.ToReplicationConfigReplicationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

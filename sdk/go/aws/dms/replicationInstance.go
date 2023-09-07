@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DMS::ReplicationInstance
@@ -146,6 +147,12 @@ func (i *ReplicationInstance) ToReplicationInstanceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceOutput)
 }
 
+func (i *ReplicationInstance) ToOutput(ctx context.Context) pulumix.Output[*ReplicationInstance] {
+	return pulumix.Output[*ReplicationInstance]{
+		OutputState: i.ToReplicationInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicationInstanceOutput struct{ *pulumi.OutputState }
 
 func (ReplicationInstanceOutput) ElementType() reflect.Type {
@@ -158,6 +165,12 @@ func (o ReplicationInstanceOutput) ToReplicationInstanceOutput() ReplicationInst
 
 func (o ReplicationInstanceOutput) ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput {
 	return o
+}
+
+func (o ReplicationInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationInstance] {
+	return pulumix.Output[*ReplicationInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationInstanceOutput) AllocatedStorage() pulumi.IntPtrOutput {

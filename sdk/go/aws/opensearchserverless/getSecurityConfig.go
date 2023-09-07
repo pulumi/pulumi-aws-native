@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Amazon OpenSearchServerless security config resource
@@ -69,6 +70,12 @@ func (o LookupSecurityConfigResultOutput) ToLookupSecurityConfigResultOutput() L
 
 func (o LookupSecurityConfigResultOutput) ToLookupSecurityConfigResultOutputWithContext(ctx context.Context) LookupSecurityConfigResultOutput {
 	return o
+}
+
+func (o LookupSecurityConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecurityConfigResult] {
+	return pulumix.Output[LookupSecurityConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Security config description

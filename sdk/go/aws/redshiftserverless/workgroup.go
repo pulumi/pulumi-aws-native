@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::RedshiftServerless::Workgroup Resource Type
@@ -122,6 +123,12 @@ func (i *Workgroup) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupOutput)
 }
 
+func (i *Workgroup) ToOutput(ctx context.Context) pulumix.Output[*Workgroup] {
+	return pulumix.Output[*Workgroup]{
+		OutputState: i.ToWorkgroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkgroupOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupOutput) ElementType() reflect.Type {
@@ -134,6 +141,12 @@ func (o WorkgroupOutput) ToWorkgroupOutput() WorkgroupOutput {
 
 func (o WorkgroupOutput) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupOutput {
 	return o
+}
+
+func (o WorkgroupOutput) ToOutput(ctx context.Context) pulumix.Output[*Workgroup] {
+	return pulumix.Output[*Workgroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupOutput) BaseCapacity() pulumi.IntPtrOutput {

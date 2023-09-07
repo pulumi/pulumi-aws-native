@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i GraphTagArgs) ToGraphTagOutputWithContext(ctx context.Context) GraphTagO
 	return pulumi.ToOutputWithContext(ctx, i).(GraphTagOutput)
 }
 
+func (i GraphTagArgs) ToOutput(ctx context.Context) pulumix.Output[GraphTag] {
+	return pulumix.Output[GraphTag]{
+		OutputState: i.ToGraphTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GraphTagArrayInput is an input type that accepts GraphTagArray and GraphTagArrayOutput values.
 // You can construct a concrete instance of `GraphTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i GraphTagArray) ToGraphTagArrayOutputWithContext(ctx context.Context) Gra
 	return pulumi.ToOutputWithContext(ctx, i).(GraphTagArrayOutput)
 }
 
+func (i GraphTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GraphTag] {
+	return pulumix.Output[[]GraphTag]{
+		OutputState: i.ToGraphTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type GraphTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o GraphTagOutput) ToGraphTagOutput() GraphTagOutput {
 
 func (o GraphTagOutput) ToGraphTagOutputWithContext(ctx context.Context) GraphTagOutput {
 	return o
+}
+
+func (o GraphTagOutput) ToOutput(ctx context.Context) pulumix.Output[GraphTag] {
+	return pulumix.Output[GraphTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @
@@ -114,6 +133,12 @@ func (o GraphTagArrayOutput) ToGraphTagArrayOutput() GraphTagArrayOutput {
 
 func (o GraphTagArrayOutput) ToGraphTagArrayOutputWithContext(ctx context.Context) GraphTagArrayOutput {
 	return o
+}
+
+func (o GraphTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GraphTag] {
+	return pulumix.Output[[]GraphTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphTagArrayOutput) Index(i pulumi.IntInput) GraphTagOutput {

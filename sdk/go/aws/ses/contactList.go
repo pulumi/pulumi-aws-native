@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::SES::ContactList.
@@ -114,6 +115,12 @@ func (i *ContactList) ToContactListOutputWithContext(ctx context.Context) Contac
 	return pulumi.ToOutputWithContext(ctx, i).(ContactListOutput)
 }
 
+func (i *ContactList) ToOutput(ctx context.Context) pulumix.Output[*ContactList] {
+	return pulumix.Output[*ContactList]{
+		OutputState: i.ToContactListOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContactListOutput struct{ *pulumi.OutputState }
 
 func (ContactListOutput) ElementType() reflect.Type {
@@ -126,6 +133,12 @@ func (o ContactListOutput) ToContactListOutput() ContactListOutput {
 
 func (o ContactListOutput) ToContactListOutputWithContext(ctx context.Context) ContactListOutput {
 	return o
+}
+
+func (o ContactListOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactList] {
+	return pulumix.Output[*ContactList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the contact list.

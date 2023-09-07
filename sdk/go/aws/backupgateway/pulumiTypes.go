@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i HypervisorTagArgs) ToHypervisorTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(HypervisorTagOutput)
 }
 
+func (i HypervisorTagArgs) ToOutput(ctx context.Context) pulumix.Output[HypervisorTag] {
+	return pulumix.Output[HypervisorTag]{
+		OutputState: i.ToHypervisorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HypervisorTagArrayInput is an input type that accepts HypervisorTagArray and HypervisorTagArrayOutput values.
 // You can construct a concrete instance of `HypervisorTagArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i HypervisorTagArray) ToHypervisorTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(HypervisorTagArrayOutput)
 }
 
+func (i HypervisorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]HypervisorTag] {
+	return pulumix.Output[[]HypervisorTag]{
+		OutputState: i.ToHypervisorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HypervisorTagOutput struct{ *pulumi.OutputState }
 
 func (HypervisorTagOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o HypervisorTagOutput) ToHypervisorTagOutput() HypervisorTagOutput {
 
 func (o HypervisorTagOutput) ToHypervisorTagOutputWithContext(ctx context.Context) HypervisorTagOutput {
 	return o
+}
+
+func (o HypervisorTagOutput) ToOutput(ctx context.Context) pulumix.Output[HypervisorTag] {
+	return pulumix.Output[HypervisorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HypervisorTagOutput) Key() pulumi.StringOutput {
@@ -105,6 +124,12 @@ func (o HypervisorTagArrayOutput) ToHypervisorTagArrayOutput() HypervisorTagArra
 
 func (o HypervisorTagArrayOutput) ToHypervisorTagArrayOutputWithContext(ctx context.Context) HypervisorTagArrayOutput {
 	return o
+}
+
+func (o HypervisorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HypervisorTag] {
+	return pulumix.Output[[]HypervisorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HypervisorTagArrayOutput) Index(i pulumi.IntInput) HypervisorTagOutput {

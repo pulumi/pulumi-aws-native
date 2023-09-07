@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i SuiteDefinitionConfigurationPropertiesArgs) ToSuiteDefinitionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionConfigurationPropertiesOutput)
 }
 
+func (i SuiteDefinitionConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SuiteDefinitionConfigurationProperties] {
+	return pulumix.Output[SuiteDefinitionConfigurationProperties]{
+		OutputState: i.ToSuiteDefinitionConfigurationPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SuiteDefinitionConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SuiteDefinitionConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -64,6 +71,12 @@ func (o SuiteDefinitionConfigurationPropertiesOutput) ToSuiteDefinitionConfigura
 
 func (o SuiteDefinitionConfigurationPropertiesOutput) ToSuiteDefinitionConfigurationPropertiesOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesOutput {
 	return o
+}
+
+func (o SuiteDefinitionConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SuiteDefinitionConfigurationProperties] {
+	return pulumix.Output[SuiteDefinitionConfigurationProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SuiteDefinitionConfigurationPropertiesOutput) DevicePermissionRoleArn() pulumi.StringOutput {
@@ -98,6 +111,12 @@ func (o SuiteDefinitionConfigurationPropertiesPtrOutput) ToSuiteDefinitionConfig
 
 func (o SuiteDefinitionConfigurationPropertiesPtrOutput) ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput {
 	return o
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SuiteDefinitionConfigurationProperties] {
+	return pulumix.Output[*SuiteDefinitionConfigurationProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SuiteDefinitionConfigurationPropertiesPtrOutput) Elem() SuiteDefinitionConfigurationPropertiesOutput {
@@ -188,6 +207,12 @@ func (i SuiteDefinitionDeviceUnderTestArgs) ToSuiteDefinitionDeviceUnderTestOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionDeviceUnderTestOutput)
 }
 
+func (i SuiteDefinitionDeviceUnderTestArgs) ToOutput(ctx context.Context) pulumix.Output[SuiteDefinitionDeviceUnderTest] {
+	return pulumix.Output[SuiteDefinitionDeviceUnderTest]{
+		OutputState: i.ToSuiteDefinitionDeviceUnderTestOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SuiteDefinitionDeviceUnderTestArrayInput is an input type that accepts SuiteDefinitionDeviceUnderTestArray and SuiteDefinitionDeviceUnderTestArrayOutput values.
 // You can construct a concrete instance of `SuiteDefinitionDeviceUnderTestArrayInput` via:
 //
@@ -213,6 +238,12 @@ func (i SuiteDefinitionDeviceUnderTestArray) ToSuiteDefinitionDeviceUnderTestArr
 	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionDeviceUnderTestArrayOutput)
 }
 
+func (i SuiteDefinitionDeviceUnderTestArray) ToOutput(ctx context.Context) pulumix.Output[[]SuiteDefinitionDeviceUnderTest] {
+	return pulumix.Output[[]SuiteDefinitionDeviceUnderTest]{
+		OutputState: i.ToSuiteDefinitionDeviceUnderTestArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SuiteDefinitionDeviceUnderTestOutput struct{ *pulumi.OutputState }
 
 func (SuiteDefinitionDeviceUnderTestOutput) ElementType() reflect.Type {
@@ -225,6 +256,12 @@ func (o SuiteDefinitionDeviceUnderTestOutput) ToSuiteDefinitionDeviceUnderTestOu
 
 func (o SuiteDefinitionDeviceUnderTestOutput) ToSuiteDefinitionDeviceUnderTestOutputWithContext(ctx context.Context) SuiteDefinitionDeviceUnderTestOutput {
 	return o
+}
+
+func (o SuiteDefinitionDeviceUnderTestOutput) ToOutput(ctx context.Context) pulumix.Output[SuiteDefinitionDeviceUnderTest] {
+	return pulumix.Output[SuiteDefinitionDeviceUnderTest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SuiteDefinitionDeviceUnderTestOutput) CertificateArn() pulumi.StringPtrOutput {
@@ -247,6 +284,12 @@ func (o SuiteDefinitionDeviceUnderTestArrayOutput) ToSuiteDefinitionDeviceUnderT
 
 func (o SuiteDefinitionDeviceUnderTestArrayOutput) ToSuiteDefinitionDeviceUnderTestArrayOutputWithContext(ctx context.Context) SuiteDefinitionDeviceUnderTestArrayOutput {
 	return o
+}
+
+func (o SuiteDefinitionDeviceUnderTestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SuiteDefinitionDeviceUnderTest] {
+	return pulumix.Output[[]SuiteDefinitionDeviceUnderTest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SuiteDefinitionDeviceUnderTestArrayOutput) Index(i pulumi.IntInput) SuiteDefinitionDeviceUnderTestOutput {
@@ -294,6 +337,12 @@ func (i SuiteDefinitionTagArgs) ToSuiteDefinitionTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionTagOutput)
 }
 
+func (i SuiteDefinitionTagArgs) ToOutput(ctx context.Context) pulumix.Output[SuiteDefinitionTag] {
+	return pulumix.Output[SuiteDefinitionTag]{
+		OutputState: i.ToSuiteDefinitionTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SuiteDefinitionTagArrayInput is an input type that accepts SuiteDefinitionTagArray and SuiteDefinitionTagArrayOutput values.
 // You can construct a concrete instance of `SuiteDefinitionTagArrayInput` via:
 //
@@ -319,6 +368,12 @@ func (i SuiteDefinitionTagArray) ToSuiteDefinitionTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionTagArrayOutput)
 }
 
+func (i SuiteDefinitionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SuiteDefinitionTag] {
+	return pulumix.Output[[]SuiteDefinitionTag]{
+		OutputState: i.ToSuiteDefinitionTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type SuiteDefinitionTagOutput struct{ *pulumi.OutputState }
 
@@ -332,6 +387,12 @@ func (o SuiteDefinitionTagOutput) ToSuiteDefinitionTagOutput() SuiteDefinitionTa
 
 func (o SuiteDefinitionTagOutput) ToSuiteDefinitionTagOutputWithContext(ctx context.Context) SuiteDefinitionTagOutput {
 	return o
+}
+
+func (o SuiteDefinitionTagOutput) ToOutput(ctx context.Context) pulumix.Output[SuiteDefinitionTag] {
+	return pulumix.Output[SuiteDefinitionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -356,6 +417,12 @@ func (o SuiteDefinitionTagArrayOutput) ToSuiteDefinitionTagArrayOutput() SuiteDe
 
 func (o SuiteDefinitionTagArrayOutput) ToSuiteDefinitionTagArrayOutputWithContext(ctx context.Context) SuiteDefinitionTagArrayOutput {
 	return o
+}
+
+func (o SuiteDefinitionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SuiteDefinitionTag] {
+	return pulumix.Output[[]SuiteDefinitionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SuiteDefinitionTagArrayOutput) Index(i pulumi.IntInput) SuiteDefinitionTagOutput {

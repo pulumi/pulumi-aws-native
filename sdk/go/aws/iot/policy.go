@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoT::Policy
@@ -101,6 +102,12 @@ func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyOutput)
 }
 
+func (i *Policy) ToOutput(ctx context.Context) pulumix.Output[*Policy] {
+	return pulumix.Output[*Policy]{
+		OutputState: i.ToPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicyOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o PolicyOutput) ToPolicyOutput() PolicyOutput {
 
 func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return o
+}
+
+func (o PolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*Policy] {
+	return pulumix.Output[*Policy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyOutput) Arn() pulumi.StringOutput {

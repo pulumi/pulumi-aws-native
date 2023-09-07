@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Config::ConfigurationAggregator
@@ -110,6 +111,12 @@ func (i *ConfigurationAggregator) ToConfigurationAggregatorOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorOutput)
 }
 
+func (i *ConfigurationAggregator) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAggregator] {
+	return pulumix.Output[*ConfigurationAggregator]{
+		OutputState: i.ToConfigurationAggregatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationAggregatorOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorOutput) ElementType() reflect.Type {
@@ -122,6 +129,12 @@ func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutput() Configu
 
 func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutputWithContext(ctx context.Context) ConfigurationAggregatorOutput {
 	return o
+}
+
+func (o ConfigurationAggregatorOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAggregator] {
+	return pulumix.Output[*ConfigurationAggregator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationAggregatorOutput) AccountAggregationSources() ConfigurationAggregatorAccountAggregationSourceArrayOutput {

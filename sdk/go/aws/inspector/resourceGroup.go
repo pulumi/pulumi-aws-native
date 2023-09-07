@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Inspector::ResourceGroup
@@ -98,6 +99,12 @@ func (i *ResourceGroup) ToResourceGroupOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupOutput)
 }
 
+func (i *ResourceGroup) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroup] {
+	return pulumix.Output[*ResourceGroup]{
+		OutputState: i.ToResourceGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupOutput) ElementType() reflect.Type {
@@ -110,6 +117,12 @@ func (o ResourceGroupOutput) ToResourceGroupOutput() ResourceGroupOutput {
 
 func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Context) ResourceGroupOutput {
 	return o
+}
+
+func (o ResourceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroup] {
+	return pulumix.Output[*ResourceGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupOutput) Arn() pulumi.StringOutput {

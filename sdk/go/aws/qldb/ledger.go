@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::QLDB::Ledger
@@ -111,6 +112,12 @@ func (i *Ledger) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerOutput)
 }
 
+func (i *Ledger) ToOutput(ctx context.Context) pulumix.Output[*Ledger] {
+	return pulumix.Output[*Ledger]{
+		OutputState: i.ToLedgerOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LedgerOutput struct{ *pulumi.OutputState }
 
 func (LedgerOutput) ElementType() reflect.Type {
@@ -123,6 +130,12 @@ func (o LedgerOutput) ToLedgerOutput() LedgerOutput {
 
 func (o LedgerOutput) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
 	return o
+}
+
+func (o LedgerOutput) ToOutput(ctx context.Context) pulumix.Output[*Ledger] {
+	return pulumix.Output[*Ledger]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LedgerOutput) DeletionProtection() pulumi.BoolPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolUserToGroupAttachment
@@ -63,6 +64,12 @@ func (o LookupUserPoolUserToGroupAttachmentResultOutput) ToLookupUserPoolUserToG
 
 func (o LookupUserPoolUserToGroupAttachmentResultOutput) ToLookupUserPoolUserToGroupAttachmentResultOutputWithContext(ctx context.Context) LookupUserPoolUserToGroupAttachmentResultOutput {
 	return o
+}
+
+func (o LookupUserPoolUserToGroupAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserPoolUserToGroupAttachmentResult] {
+	return pulumix.Output[LookupUserPoolUserToGroupAttachmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupUserPoolUserToGroupAttachmentResultOutput) Id() pulumi.StringPtrOutput {

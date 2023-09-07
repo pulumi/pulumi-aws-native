@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Status of the Addon
@@ -83,6 +84,12 @@ func (o DiskAddOnStatusOutput) ToDiskAddOnStatusPtrOutputWithContext(ctx context
 	}).(DiskAddOnStatusPtrOutput)
 }
 
+func (o DiskAddOnStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DiskAddOnStatus] {
+	return pulumix.Output[DiskAddOnStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DiskAddOnStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -116,6 +123,12 @@ func (o DiskAddOnStatusPtrOutput) ToDiskAddOnStatusPtrOutput() DiskAddOnStatusPt
 
 func (o DiskAddOnStatusPtrOutput) ToDiskAddOnStatusPtrOutputWithContext(ctx context.Context) DiskAddOnStatusPtrOutput {
 	return o
+}
+
+func (o DiskAddOnStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiskAddOnStatus] {
+	return pulumix.Output[*DiskAddOnStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiskAddOnStatusPtrOutput) Elem() DiskAddOnStatusOutput {
@@ -178,6 +191,12 @@ func (in *diskAddOnStatusPtr) ToDiskAddOnStatusPtrOutput() DiskAddOnStatusPtrOut
 
 func (in *diskAddOnStatusPtr) ToDiskAddOnStatusPtrOutputWithContext(ctx context.Context) DiskAddOnStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DiskAddOnStatusPtrOutput)
+}
+
+func (in *diskAddOnStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*DiskAddOnStatus] {
+	return pulumix.Output[*DiskAddOnStatus]{
+		OutputState: in.ToDiskAddOnStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Status of the Addon
@@ -253,6 +272,12 @@ func (o InstanceAddOnStatusOutput) ToInstanceAddOnStatusPtrOutputWithContext(ctx
 	}).(InstanceAddOnStatusPtrOutput)
 }
 
+func (o InstanceAddOnStatusOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceAddOnStatus] {
+	return pulumix.Output[InstanceAddOnStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceAddOnStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -286,6 +311,12 @@ func (o InstanceAddOnStatusPtrOutput) ToInstanceAddOnStatusPtrOutput() InstanceA
 
 func (o InstanceAddOnStatusPtrOutput) ToInstanceAddOnStatusPtrOutputWithContext(ctx context.Context) InstanceAddOnStatusPtrOutput {
 	return o
+}
+
+func (o InstanceAddOnStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceAddOnStatus] {
+	return pulumix.Output[*InstanceAddOnStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceAddOnStatusPtrOutput) Elem() InstanceAddOnStatusOutput {
@@ -348,6 +379,12 @@ func (in *instanceAddOnStatusPtr) ToInstanceAddOnStatusPtrOutput() InstanceAddOn
 
 func (in *instanceAddOnStatusPtr) ToInstanceAddOnStatusPtrOutputWithContext(ctx context.Context) InstanceAddOnStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceAddOnStatusPtrOutput)
+}
+
+func (in *instanceAddOnStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceAddOnStatus] {
+	return pulumix.Output[*InstanceAddOnStatus]{
+		OutputState: in.ToInstanceAddOnStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

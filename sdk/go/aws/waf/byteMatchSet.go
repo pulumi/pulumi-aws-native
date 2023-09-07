@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAF::ByteMatchSet
@@ -98,6 +99,12 @@ func (i *ByteMatchSet) ToByteMatchSetOutputWithContext(ctx context.Context) Byte
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetOutput)
 }
 
+func (i *ByteMatchSet) ToOutput(ctx context.Context) pulumix.Output[*ByteMatchSet] {
+	return pulumix.Output[*ByteMatchSet]{
+		OutputState: i.ToByteMatchSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ByteMatchSetOutput struct{ *pulumi.OutputState }
 
 func (ByteMatchSetOutput) ElementType() reflect.Type {
@@ -110,6 +117,12 @@ func (o ByteMatchSetOutput) ToByteMatchSetOutput() ByteMatchSetOutput {
 
 func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context) ByteMatchSetOutput {
 	return o
+}
+
+func (o ByteMatchSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ByteMatchSet] {
+	return pulumix.Output[*ByteMatchSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ByteMatchSetOutput) ByteMatchTuples() ByteMatchSetByteMatchTupleArrayOutput {

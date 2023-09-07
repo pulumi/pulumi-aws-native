@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MSK::VpcConnection
@@ -132,6 +133,12 @@ func (i *VpcConnection) ToVpcConnectionOutputWithContext(ctx context.Context) Vp
 	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectionOutput)
 }
 
+func (i *VpcConnection) ToOutput(ctx context.Context) pulumix.Output[*VpcConnection] {
+	return pulumix.Output[*VpcConnection]{
+		OutputState: i.ToVpcConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpcConnectionOutput) ElementType() reflect.Type {
@@ -144,6 +151,12 @@ func (o VpcConnectionOutput) ToVpcConnectionOutput() VpcConnectionOutput {
 
 func (o VpcConnectionOutput) ToVpcConnectionOutputWithContext(ctx context.Context) VpcConnectionOutput {
 	return o
+}
+
+func (o VpcConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnection] {
+	return pulumix.Output[*VpcConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcConnectionOutput) Arn() pulumi.StringOutput {

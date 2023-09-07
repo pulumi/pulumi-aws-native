@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i CollaborationDataEncryptionMetadataArgs) ToCollaborationDataEncryptionMe
 
 func (i CollaborationDataEncryptionMetadataArgs) ToCollaborationDataEncryptionMetadataOutputWithContext(ctx context.Context) CollaborationDataEncryptionMetadataOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationDataEncryptionMetadataOutput)
+}
+
+func (i CollaborationDataEncryptionMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[CollaborationDataEncryptionMetadata] {
+	return pulumix.Output[CollaborationDataEncryptionMetadata]{
+		OutputState: i.ToCollaborationDataEncryptionMetadataOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i CollaborationDataEncryptionMetadataArgs) ToCollaborationDataEncryptionMetadataPtrOutput() CollaborationDataEncryptionMetadataPtrOutput {
@@ -91,6 +98,12 @@ func (i *collaborationDataEncryptionMetadataPtrType) ToCollaborationDataEncrypti
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationDataEncryptionMetadataPtrOutput)
 }
 
+func (i *collaborationDataEncryptionMetadataPtrType) ToOutput(ctx context.Context) pulumix.Output[*CollaborationDataEncryptionMetadata] {
+	return pulumix.Output[*CollaborationDataEncryptionMetadata]{
+		OutputState: i.ToCollaborationDataEncryptionMetadataPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CollaborationDataEncryptionMetadataOutput struct{ *pulumi.OutputState }
 
 func (CollaborationDataEncryptionMetadataOutput) ElementType() reflect.Type {
@@ -113,6 +126,12 @@ func (o CollaborationDataEncryptionMetadataOutput) ToCollaborationDataEncryption
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationDataEncryptionMetadata) *CollaborationDataEncryptionMetadata {
 		return &v
 	}).(CollaborationDataEncryptionMetadataPtrOutput)
+}
+
+func (o CollaborationDataEncryptionMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationDataEncryptionMetadata] {
+	return pulumix.Output[CollaborationDataEncryptionMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CollaborationDataEncryptionMetadataOutput) AllowCleartext() pulumi.BoolOutput {
@@ -143,6 +162,12 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) ToCollaborationDataEncrypt
 
 func (o CollaborationDataEncryptionMetadataPtrOutput) ToCollaborationDataEncryptionMetadataPtrOutputWithContext(ctx context.Context) CollaborationDataEncryptionMetadataPtrOutput {
 	return o
+}
+
+func (o CollaborationDataEncryptionMetadataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollaborationDataEncryptionMetadata] {
+	return pulumix.Output[*CollaborationDataEncryptionMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CollaborationDataEncryptionMetadataPtrOutput) Elem() CollaborationDataEncryptionMetadataOutput {
@@ -226,6 +251,12 @@ func (i CollaborationMemberSpecificationArgs) ToCollaborationMemberSpecification
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMemberSpecificationOutput)
 }
 
+func (i CollaborationMemberSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[CollaborationMemberSpecification] {
+	return pulumix.Output[CollaborationMemberSpecification]{
+		OutputState: i.ToCollaborationMemberSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CollaborationMemberSpecificationArrayInput is an input type that accepts CollaborationMemberSpecificationArray and CollaborationMemberSpecificationArrayOutput values.
 // You can construct a concrete instance of `CollaborationMemberSpecificationArrayInput` via:
 //
@@ -251,6 +282,12 @@ func (i CollaborationMemberSpecificationArray) ToCollaborationMemberSpecificatio
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMemberSpecificationArrayOutput)
 }
 
+func (i CollaborationMemberSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationMemberSpecification] {
+	return pulumix.Output[[]CollaborationMemberSpecification]{
+		OutputState: i.ToCollaborationMemberSpecificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CollaborationMemberSpecificationOutput struct{ *pulumi.OutputState }
 
 func (CollaborationMemberSpecificationOutput) ElementType() reflect.Type {
@@ -263,6 +300,12 @@ func (o CollaborationMemberSpecificationOutput) ToCollaborationMemberSpecificati
 
 func (o CollaborationMemberSpecificationOutput) ToCollaborationMemberSpecificationOutputWithContext(ctx context.Context) CollaborationMemberSpecificationOutput {
 	return o
+}
+
+func (o CollaborationMemberSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationMemberSpecification] {
+	return pulumix.Output[CollaborationMemberSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CollaborationMemberSpecificationOutput) AccountId() pulumi.StringOutput {
@@ -289,6 +332,12 @@ func (o CollaborationMemberSpecificationArrayOutput) ToCollaborationMemberSpecif
 
 func (o CollaborationMemberSpecificationArrayOutput) ToCollaborationMemberSpecificationArrayOutputWithContext(ctx context.Context) CollaborationMemberSpecificationArrayOutput {
 	return o
+}
+
+func (o CollaborationMemberSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationMemberSpecification] {
+	return pulumix.Output[[]CollaborationMemberSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CollaborationMemberSpecificationArrayOutput) Index(i pulumi.IntInput) CollaborationMemberSpecificationOutput {
@@ -330,6 +379,12 @@ func (i CollaborationTagArgs) ToCollaborationTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationTagOutput)
 }
 
+func (i CollaborationTagArgs) ToOutput(ctx context.Context) pulumix.Output[CollaborationTag] {
+	return pulumix.Output[CollaborationTag]{
+		OutputState: i.ToCollaborationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CollaborationTagArrayInput is an input type that accepts CollaborationTagArray and CollaborationTagArrayOutput values.
 // You can construct a concrete instance of `CollaborationTagArrayInput` via:
 //
@@ -355,6 +410,12 @@ func (i CollaborationTagArray) ToCollaborationTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationTagArrayOutput)
 }
 
+func (i CollaborationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationTag] {
+	return pulumix.Output[[]CollaborationTag]{
+		OutputState: i.ToCollaborationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CollaborationTagOutput struct{ *pulumi.OutputState }
 
 func (CollaborationTagOutput) ElementType() reflect.Type {
@@ -367,6 +428,12 @@ func (o CollaborationTagOutput) ToCollaborationTagOutput() CollaborationTagOutpu
 
 func (o CollaborationTagOutput) ToCollaborationTagOutputWithContext(ctx context.Context) CollaborationTagOutput {
 	return o
+}
+
+func (o CollaborationTagOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationTag] {
+	return pulumix.Output[CollaborationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CollaborationTagOutput) Key() pulumi.StringOutput {
@@ -389,6 +456,12 @@ func (o CollaborationTagArrayOutput) ToCollaborationTagArrayOutput() Collaborati
 
 func (o CollaborationTagArrayOutput) ToCollaborationTagArrayOutputWithContext(ctx context.Context) CollaborationTagArrayOutput {
 	return o
+}
+
+func (o CollaborationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationTag] {
+	return pulumix.Output[[]CollaborationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CollaborationTagArrayOutput) Index(i pulumi.IntInput) CollaborationTagOutput {
@@ -441,6 +514,12 @@ func (i ConfiguredTableAnalysisRuleArgs) ToConfiguredTableAnalysisRuleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRuleOutput)
 }
 
+func (i ConfiguredTableAnalysisRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisRule] {
+	return pulumix.Output[ConfiguredTableAnalysisRule]{
+		OutputState: i.ToConfiguredTableAnalysisRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfiguredTableAnalysisRuleArrayInput is an input type that accepts ConfiguredTableAnalysisRuleArray and ConfiguredTableAnalysisRuleArrayOutput values.
 // You can construct a concrete instance of `ConfiguredTableAnalysisRuleArrayInput` via:
 //
@@ -466,6 +545,12 @@ func (i ConfiguredTableAnalysisRuleArray) ToConfiguredTableAnalysisRuleArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRuleArrayOutput)
 }
 
+func (i ConfiguredTableAnalysisRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableAnalysisRule] {
+	return pulumix.Output[[]ConfiguredTableAnalysisRule]{
+		OutputState: i.ToConfiguredTableAnalysisRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfiguredTableAnalysisRuleOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableAnalysisRuleOutput) ElementType() reflect.Type {
@@ -478,6 +563,12 @@ func (o ConfiguredTableAnalysisRuleOutput) ToConfiguredTableAnalysisRuleOutput()
 
 func (o ConfiguredTableAnalysisRuleOutput) ToConfiguredTableAnalysisRuleOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleOutput {
 	return o
+}
+
+func (o ConfiguredTableAnalysisRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisRule] {
+	return pulumix.Output[ConfiguredTableAnalysisRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfiguredTableAnalysisRuleOutput) Policy() ConfiguredTableAnalysisRulePolicyOutput {
@@ -500,6 +591,12 @@ func (o ConfiguredTableAnalysisRuleArrayOutput) ToConfiguredTableAnalysisRuleArr
 
 func (o ConfiguredTableAnalysisRuleArrayOutput) ToConfiguredTableAnalysisRuleArrayOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleArrayOutput {
 	return o
+}
+
+func (o ConfiguredTableAnalysisRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableAnalysisRule] {
+	return pulumix.Output[[]ConfiguredTableAnalysisRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfiguredTableAnalysisRuleArrayOutput) Index(i pulumi.IntInput) ConfiguredTableAnalysisRuleOutput {
@@ -560,6 +657,12 @@ func (i ConfiguredTableAnalysisRulePolicyArgs) ToConfiguredTableAnalysisRulePoli
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRulePolicyOutput)
 }
 
+func (i ConfiguredTableAnalysisRulePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisRulePolicy] {
+	return pulumix.Output[ConfiguredTableAnalysisRulePolicy]{
+		OutputState: i.ToConfiguredTableAnalysisRulePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfiguredTableAnalysisRulePolicyOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableAnalysisRulePolicyOutput) ElementType() reflect.Type {
@@ -572,6 +675,12 @@ func (o ConfiguredTableAnalysisRulePolicyOutput) ToConfiguredTableAnalysisRulePo
 
 func (o ConfiguredTableAnalysisRulePolicyOutput) ToConfiguredTableAnalysisRulePolicyOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRulePolicyOutput {
 	return o
+}
+
+func (o ConfiguredTableAnalysisRulePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisRulePolicy] {
+	return pulumix.Output[ConfiguredTableAnalysisRulePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfiguredTableAnalysisRulePolicyOutput) V1() pulumi.AnyOutput {
@@ -623,6 +732,12 @@ func (i ConfiguredTableAssociationTagArgs) ToConfiguredTableAssociationTagOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationTagOutput)
 }
 
+func (i ConfiguredTableAssociationTagArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAssociationTag] {
+	return pulumix.Output[ConfiguredTableAssociationTag]{
+		OutputState: i.ToConfiguredTableAssociationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfiguredTableAssociationTagArrayInput is an input type that accepts ConfiguredTableAssociationTagArray and ConfiguredTableAssociationTagArrayOutput values.
 // You can construct a concrete instance of `ConfiguredTableAssociationTagArrayInput` via:
 //
@@ -648,6 +763,12 @@ func (i ConfiguredTableAssociationTagArray) ToConfiguredTableAssociationTagArray
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationTagArrayOutput)
 }
 
+func (i ConfiguredTableAssociationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableAssociationTag] {
+	return pulumix.Output[[]ConfiguredTableAssociationTag]{
+		OutputState: i.ToConfiguredTableAssociationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfiguredTableAssociationTagOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableAssociationTagOutput) ElementType() reflect.Type {
@@ -660,6 +781,12 @@ func (o ConfiguredTableAssociationTagOutput) ToConfiguredTableAssociationTagOutp
 
 func (o ConfiguredTableAssociationTagOutput) ToConfiguredTableAssociationTagOutputWithContext(ctx context.Context) ConfiguredTableAssociationTagOutput {
 	return o
+}
+
+func (o ConfiguredTableAssociationTagOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAssociationTag] {
+	return pulumix.Output[ConfiguredTableAssociationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfiguredTableAssociationTagOutput) Key() pulumi.StringOutput {
@@ -682,6 +809,12 @@ func (o ConfiguredTableAssociationTagArrayOutput) ToConfiguredTableAssociationTa
 
 func (o ConfiguredTableAssociationTagArrayOutput) ToConfiguredTableAssociationTagArrayOutputWithContext(ctx context.Context) ConfiguredTableAssociationTagArrayOutput {
 	return o
+}
+
+func (o ConfiguredTableAssociationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableAssociationTag] {
+	return pulumix.Output[[]ConfiguredTableAssociationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfiguredTableAssociationTagArrayOutput) Index(i pulumi.IntInput) ConfiguredTableAssociationTagOutput {
@@ -723,6 +856,12 @@ func (i ConfiguredTableGlueTableReferenceArgs) ToConfiguredTableGlueTableReferen
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableGlueTableReferenceOutput)
 }
 
+func (i ConfiguredTableGlueTableReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableGlueTableReference] {
+	return pulumix.Output[ConfiguredTableGlueTableReference]{
+		OutputState: i.ToConfiguredTableGlueTableReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfiguredTableGlueTableReferenceOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableGlueTableReferenceOutput) ElementType() reflect.Type {
@@ -735,6 +874,12 @@ func (o ConfiguredTableGlueTableReferenceOutput) ToConfiguredTableGlueTableRefer
 
 func (o ConfiguredTableGlueTableReferenceOutput) ToConfiguredTableGlueTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableGlueTableReferenceOutput {
 	return o
+}
+
+func (o ConfiguredTableGlueTableReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableGlueTableReference] {
+	return pulumix.Output[ConfiguredTableGlueTableReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfiguredTableGlueTableReferenceOutput) DatabaseName() pulumi.StringOutput {
@@ -776,6 +921,12 @@ func (i ConfiguredTableTableReferenceArgs) ToConfiguredTableTableReferenceOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTableReferenceOutput)
 }
 
+func (i ConfiguredTableTableReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableTableReference] {
+	return pulumix.Output[ConfiguredTableTableReference]{
+		OutputState: i.ToConfiguredTableTableReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfiguredTableTableReferenceOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableTableReferenceOutput) ElementType() reflect.Type {
@@ -788,6 +939,12 @@ func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferenceOutp
 
 func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableTableReferenceOutput {
 	return o
+}
+
+func (o ConfiguredTableTableReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableTableReference] {
+	return pulumix.Output[ConfiguredTableTableReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfiguredTableTableReferenceOutput) Glue() ConfiguredTableGlueTableReferenceOutput {
@@ -827,6 +984,12 @@ func (i ConfiguredTableTagArgs) ToConfiguredTableTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTagOutput)
 }
 
+func (i ConfiguredTableTagArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableTag] {
+	return pulumix.Output[ConfiguredTableTag]{
+		OutputState: i.ToConfiguredTableTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfiguredTableTagArrayInput is an input type that accepts ConfiguredTableTagArray and ConfiguredTableTagArrayOutput values.
 // You can construct a concrete instance of `ConfiguredTableTagArrayInput` via:
 //
@@ -852,6 +1015,12 @@ func (i ConfiguredTableTagArray) ToConfiguredTableTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTagArrayOutput)
 }
 
+func (i ConfiguredTableTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableTag] {
+	return pulumix.Output[[]ConfiguredTableTag]{
+		OutputState: i.ToConfiguredTableTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfiguredTableTagOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableTagOutput) ElementType() reflect.Type {
@@ -864,6 +1033,12 @@ func (o ConfiguredTableTagOutput) ToConfiguredTableTagOutput() ConfiguredTableTa
 
 func (o ConfiguredTableTagOutput) ToConfiguredTableTagOutputWithContext(ctx context.Context) ConfiguredTableTagOutput {
 	return o
+}
+
+func (o ConfiguredTableTagOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableTag] {
+	return pulumix.Output[ConfiguredTableTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfiguredTableTagOutput) Key() pulumi.StringOutput {
@@ -886,6 +1061,12 @@ func (o ConfiguredTableTagArrayOutput) ToConfiguredTableTagArrayOutput() Configu
 
 func (o ConfiguredTableTagArrayOutput) ToConfiguredTableTagArrayOutputWithContext(ctx context.Context) ConfiguredTableTagArrayOutput {
 	return o
+}
+
+func (o ConfiguredTableTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableTag] {
+	return pulumix.Output[[]ConfiguredTableTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfiguredTableTagArrayOutput) Index(i pulumi.IntInput) ConfiguredTableTagOutput {
@@ -927,6 +1108,12 @@ func (i MembershipTagArgs) ToMembershipTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipTagOutput)
 }
 
+func (i MembershipTagArgs) ToOutput(ctx context.Context) pulumix.Output[MembershipTag] {
+	return pulumix.Output[MembershipTag]{
+		OutputState: i.ToMembershipTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MembershipTagArrayInput is an input type that accepts MembershipTagArray and MembershipTagArrayOutput values.
 // You can construct a concrete instance of `MembershipTagArrayInput` via:
 //
@@ -952,6 +1139,12 @@ func (i MembershipTagArray) ToMembershipTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipTagArrayOutput)
 }
 
+func (i MembershipTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MembershipTag] {
+	return pulumix.Output[[]MembershipTag]{
+		OutputState: i.ToMembershipTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MembershipTagOutput struct{ *pulumi.OutputState }
 
 func (MembershipTagOutput) ElementType() reflect.Type {
@@ -964,6 +1157,12 @@ func (o MembershipTagOutput) ToMembershipTagOutput() MembershipTagOutput {
 
 func (o MembershipTagOutput) ToMembershipTagOutputWithContext(ctx context.Context) MembershipTagOutput {
 	return o
+}
+
+func (o MembershipTagOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipTag] {
+	return pulumix.Output[MembershipTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MembershipTagOutput) Key() pulumi.StringOutput {
@@ -986,6 +1185,12 @@ func (o MembershipTagArrayOutput) ToMembershipTagArrayOutput() MembershipTagArra
 
 func (o MembershipTagArrayOutput) ToMembershipTagArrayOutputWithContext(ctx context.Context) MembershipTagArrayOutput {
 	return o
+}
+
+func (o MembershipTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MembershipTag] {
+	return pulumix.Output[[]MembershipTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MembershipTagArrayOutput) Index(i pulumi.IntInput) MembershipTagOutput {

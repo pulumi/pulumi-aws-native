@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
@@ -65,6 +66,12 @@ func (o LookupJobTemplateResultOutput) ToLookupJobTemplateResultOutput() LookupJ
 
 func (o LookupJobTemplateResultOutput) ToLookupJobTemplateResultOutputWithContext(ctx context.Context) LookupJobTemplateResultOutput {
 	return o
+}
+
+func (o LookupJobTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupJobTemplateResult] {
+	return pulumix.Output[LookupJobTemplateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupJobTemplateResultOutput) Arn() pulumi.StringPtrOutput {

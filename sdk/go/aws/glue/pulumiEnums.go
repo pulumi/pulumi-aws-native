@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Compatibility setting for the schema.
@@ -84,6 +85,12 @@ func (o SchemaCompatibilityOutput) ToSchemaCompatibilityPtrOutputWithContext(ctx
 	}).(SchemaCompatibilityPtrOutput)
 }
 
+func (o SchemaCompatibilityOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaCompatibility] {
+	return pulumix.Output[SchemaCompatibility]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SchemaCompatibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,6 +124,12 @@ func (o SchemaCompatibilityPtrOutput) ToSchemaCompatibilityPtrOutput() SchemaCom
 
 func (o SchemaCompatibilityPtrOutput) ToSchemaCompatibilityPtrOutputWithContext(ctx context.Context) SchemaCompatibilityPtrOutput {
 	return o
+}
+
+func (o SchemaCompatibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaCompatibility] {
+	return pulumix.Output[*SchemaCompatibility]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaCompatibilityPtrOutput) Elem() SchemaCompatibilityOutput {
@@ -179,6 +192,12 @@ func (in *schemaCompatibilityPtr) ToSchemaCompatibilityPtrOutput() SchemaCompati
 
 func (in *schemaCompatibilityPtr) ToSchemaCompatibilityPtrOutputWithContext(ctx context.Context) SchemaCompatibilityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaCompatibilityPtrOutput)
+}
+
+func (in *schemaCompatibilityPtr) ToOutput(ctx context.Context) pulumix.Output[*SchemaCompatibility] {
+	return pulumix.Output[*SchemaCompatibility]{
+		OutputState: in.ToSchemaCompatibilityPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
@@ -250,6 +269,12 @@ func (o SchemaDataFormatOutput) ToSchemaDataFormatPtrOutputWithContext(ctx conte
 	}).(SchemaDataFormatPtrOutput)
 }
 
+func (o SchemaDataFormatOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaDataFormat] {
+	return pulumix.Output[SchemaDataFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SchemaDataFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -283,6 +308,12 @@ func (o SchemaDataFormatPtrOutput) ToSchemaDataFormatPtrOutput() SchemaDataForma
 
 func (o SchemaDataFormatPtrOutput) ToSchemaDataFormatPtrOutputWithContext(ctx context.Context) SchemaDataFormatPtrOutput {
 	return o
+}
+
+func (o SchemaDataFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaDataFormat] {
+	return pulumix.Output[*SchemaDataFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaDataFormatPtrOutput) Elem() SchemaDataFormatOutput {
@@ -345,6 +376,12 @@ func (in *schemaDataFormatPtr) ToSchemaDataFormatPtrOutput() SchemaDataFormatPtr
 
 func (in *schemaDataFormatPtr) ToSchemaDataFormatPtrOutputWithContext(ctx context.Context) SchemaDataFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaDataFormatPtrOutput)
+}
+
+func (in *schemaDataFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*SchemaDataFormat] {
+	return pulumix.Output[*SchemaDataFormat]{
+		OutputState: in.ToSchemaDataFormatPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

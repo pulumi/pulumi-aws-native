@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Location::Map Resource Type
@@ -114,6 +115,12 @@ func (i *Map) ToMapOutputWithContext(ctx context.Context) MapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MapOutput)
 }
 
+func (i *Map) ToOutput(ctx context.Context) pulumix.Output[*Map] {
+	return pulumix.Output[*Map]{
+		OutputState: i.ToMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MapOutput struct{ *pulumi.OutputState }
 
 func (MapOutput) ElementType() reflect.Type {
@@ -126,6 +133,12 @@ func (o MapOutput) ToMapOutput() MapOutput {
 
 func (o MapOutput) ToMapOutputWithContext(ctx context.Context) MapOutput {
 	return o
+}
+
+func (o MapOutput) ToOutput(ctx context.Context) pulumix.Output[*Map] {
+	return pulumix.Output[*Map]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MapOutput) Arn() pulumi.StringOutput {

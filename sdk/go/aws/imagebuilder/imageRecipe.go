@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::ImageBuilder::ImageRecipe
@@ -163,6 +164,12 @@ func (i *ImageRecipe) ToImageRecipeOutputWithContext(ctx context.Context) ImageR
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeOutput)
 }
 
+func (i *ImageRecipe) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipe] {
+	return pulumix.Output[*ImageRecipe]{
+		OutputState: i.ToImageRecipeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageRecipeOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeOutput) ElementType() reflect.Type {
@@ -175,6 +182,12 @@ func (o ImageRecipeOutput) ToImageRecipeOutput() ImageRecipeOutput {
 
 func (o ImageRecipeOutput) ToImageRecipeOutputWithContext(ctx context.Context) ImageRecipeOutput {
 	return o
+}
+
+func (o ImageRecipeOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipe] {
+	return pulumix.Output[*ImageRecipe]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify additional settings and launch scripts for your build instances.

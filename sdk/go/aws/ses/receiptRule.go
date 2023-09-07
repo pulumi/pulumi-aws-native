@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SES::ReceiptRule
@@ -108,6 +109,12 @@ func (i *ReceiptRule) ToReceiptRuleOutputWithContext(ctx context.Context) Receip
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleOutput)
 }
 
+func (i *ReceiptRule) ToOutput(ctx context.Context) pulumix.Output[*ReceiptRule] {
+	return pulumix.Output[*ReceiptRule]{
+		OutputState: i.ToReceiptRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReceiptRuleOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleOutput) ElementType() reflect.Type {
@@ -120,6 +127,12 @@ func (o ReceiptRuleOutput) ToReceiptRuleOutput() ReceiptRuleOutput {
 
 func (o ReceiptRuleOutput) ToReceiptRuleOutputWithContext(ctx context.Context) ReceiptRuleOutput {
 	return o
+}
+
+func (o ReceiptRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ReceiptRule] {
+	return pulumix.Output[*ReceiptRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReceiptRuleOutput) After() pulumi.StringPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::ConnectorDefinition
@@ -103,6 +104,12 @@ func (i *ConnectorDefinition) ToConnectorDefinitionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionOutput)
 }
 
+func (i *ConnectorDefinition) ToOutput(ctx context.Context) pulumix.Output[*ConnectorDefinition] {
+	return pulumix.Output[*ConnectorDefinition]{
+		OutputState: i.ToConnectorDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ConnectorDefinitionOutput) ElementType() reflect.Type {
@@ -115,6 +122,12 @@ func (o ConnectorDefinitionOutput) ToConnectorDefinitionOutput() ConnectorDefini
 
 func (o ConnectorDefinitionOutput) ToConnectorDefinitionOutputWithContext(ctx context.Context) ConnectorDefinitionOutput {
 	return o
+}
+
+func (o ConnectorDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorDefinition] {
+	return pulumix.Output[*ConnectorDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorDefinitionOutput) Arn() pulumi.StringOutput {

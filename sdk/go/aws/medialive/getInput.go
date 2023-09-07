@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MediaLive::Input
@@ -72,6 +73,12 @@ func (o LookupInputResultOutput) ToLookupInputResultOutput() LookupInputResultOu
 
 func (o LookupInputResultOutput) ToLookupInputResultOutputWithContext(ctx context.Context) LookupInputResultOutput {
 	return o
+}
+
+func (o LookupInputResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInputResult] {
+	return pulumix.Output[LookupInputResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupInputResultOutput) Arn() pulumi.StringPtrOutput {

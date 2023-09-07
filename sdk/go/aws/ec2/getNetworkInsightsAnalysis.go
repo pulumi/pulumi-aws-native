@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::EC2::NetworkInsightsAnalysis
@@ -75,6 +76,12 @@ func (o LookupNetworkInsightsAnalysisResultOutput) ToLookupNetworkInsightsAnalys
 
 func (o LookupNetworkInsightsAnalysisResultOutput) ToLookupNetworkInsightsAnalysisResultOutputWithContext(ctx context.Context) LookupNetworkInsightsAnalysisResultOutput {
 	return o
+}
+
+func (o LookupNetworkInsightsAnalysisResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkInsightsAnalysisResult] {
+	return pulumix.Output[LookupNetworkInsightsAnalysisResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupNetworkInsightsAnalysisResultOutput) AdditionalAccounts() pulumi.StringArrayOutput {

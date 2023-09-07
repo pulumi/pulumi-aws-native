@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::RolesAnywhere::CRL Resource Type
@@ -106,6 +107,12 @@ func (i *Crl) ToCrlOutputWithContext(ctx context.Context) CrlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CrlOutput)
 }
 
+func (i *Crl) ToOutput(ctx context.Context) pulumix.Output[*Crl] {
+	return pulumix.Output[*Crl]{
+		OutputState: i.ToCrlOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CrlOutput struct{ *pulumi.OutputState }
 
 func (CrlOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o CrlOutput) ToCrlOutput() CrlOutput {
 
 func (o CrlOutput) ToCrlOutputWithContext(ctx context.Context) CrlOutput {
 	return o
+}
+
+func (o CrlOutput) ToOutput(ctx context.Context) pulumix.Output[*Crl] {
+	return pulumix.Output[*Crl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CrlOutput) CrlData() pulumi.StringOutput {

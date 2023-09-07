@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lambda::Alias
@@ -118,6 +119,12 @@ func (i *Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AliasOutput)
 }
 
+func (i *Alias) ToOutput(ctx context.Context) pulumix.Output[*Alias] {
+	return pulumix.Output[*Alias]{
+		OutputState: i.ToAliasOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AliasOutput struct{ *pulumi.OutputState }
 
 func (AliasOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o AliasOutput) ToAliasOutput() AliasOutput {
 
 func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
+}
+
+func (o AliasOutput) ToOutput(ctx context.Context) pulumix.Output[*Alias] {
+	return pulumix.Output[*Alias]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AliasOutput) Description() pulumi.StringPtrOutput {

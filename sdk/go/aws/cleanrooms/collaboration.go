@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a collaboration between AWS accounts that allows for secure data collaboration
@@ -139,6 +140,12 @@ func (i *Collaboration) ToCollaborationOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationOutput)
 }
 
+func (i *Collaboration) ToOutput(ctx context.Context) pulumix.Output[*Collaboration] {
+	return pulumix.Output[*Collaboration]{
+		OutputState: i.ToCollaborationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CollaborationOutput struct{ *pulumi.OutputState }
 
 func (CollaborationOutput) ElementType() reflect.Type {
@@ -151,6 +158,12 @@ func (o CollaborationOutput) ToCollaborationOutput() CollaborationOutput {
 
 func (o CollaborationOutput) ToCollaborationOutputWithContext(ctx context.Context) CollaborationOutput {
 	return o
+}
+
+func (o CollaborationOutput) ToOutput(ctx context.Context) pulumix.Output[*Collaboration] {
+	return pulumix.Output[*Collaboration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CollaborationOutput) Arn() pulumi.StringOutput {

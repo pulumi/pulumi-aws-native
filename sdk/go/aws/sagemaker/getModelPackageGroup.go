@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::ModelPackageGroup
@@ -70,6 +71,12 @@ func (o LookupModelPackageGroupResultOutput) ToLookupModelPackageGroupResultOutp
 
 func (o LookupModelPackageGroupResultOutput) ToLookupModelPackageGroupResultOutputWithContext(ctx context.Context) LookupModelPackageGroupResultOutput {
 	return o
+}
+
+func (o LookupModelPackageGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupModelPackageGroupResult] {
+	return pulumix.Output[LookupModelPackageGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The time at which the model package group was created.

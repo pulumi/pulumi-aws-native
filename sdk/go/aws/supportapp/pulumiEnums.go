@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The severity level of a support case that a customer wants to get notified for.
@@ -79,6 +80,12 @@ func (o SlackChannelConfigurationNotifyOnCaseSeverityOutput) ToSlackChannelConfi
 	}).(SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput)
 }
 
+func (o SlackChannelConfigurationNotifyOnCaseSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[SlackChannelConfigurationNotifyOnCaseSeverity] {
+	return pulumix.Output[SlackChannelConfigurationNotifyOnCaseSeverity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SlackChannelConfigurationNotifyOnCaseSeverityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +119,12 @@ func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) ToSlackChannelCo
 
 func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) ToSlackChannelConfigurationNotifyOnCaseSeverityPtrOutputWithContext(ctx context.Context) SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput {
 	return o
+}
+
+func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SlackChannelConfigurationNotifyOnCaseSeverity] {
+	return pulumix.Output[*SlackChannelConfigurationNotifyOnCaseSeverity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) Elem() SlackChannelConfigurationNotifyOnCaseSeverityOutput {
@@ -174,6 +187,12 @@ func (in *slackChannelConfigurationNotifyOnCaseSeverityPtr) ToSlackChannelConfig
 
 func (in *slackChannelConfigurationNotifyOnCaseSeverityPtr) ToSlackChannelConfigurationNotifyOnCaseSeverityPtrOutputWithContext(ctx context.Context) SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput)
+}
+
+func (in *slackChannelConfigurationNotifyOnCaseSeverityPtr) ToOutput(ctx context.Context) pulumix.Output[*SlackChannelConfigurationNotifyOnCaseSeverity] {
+	return pulumix.Output[*SlackChannelConfigurationNotifyOnCaseSeverity]{
+		OutputState: in.ToSlackChannelConfigurationNotifyOnCaseSeverityPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

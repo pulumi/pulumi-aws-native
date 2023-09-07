@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::TransitGatewayRouteTableAssociation
@@ -106,6 +107,12 @@ func (i *TransitGatewayRouteTableAssociation) ToTransitGatewayRouteTableAssociat
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAssociationOutput)
 }
 
+func (i *TransitGatewayRouteTableAssociation) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTableAssociation] {
+	return pulumix.Output[*TransitGatewayRouteTableAssociation]{
+		OutputState: i.ToTransitGatewayRouteTableAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayRouteTableAssociationOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRouteTableAssociationOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o TransitGatewayRouteTableAssociationOutput) ToTransitGatewayRouteTableAss
 
 func (o TransitGatewayRouteTableAssociationOutput) ToTransitGatewayRouteTableAssociationOutputWithContext(ctx context.Context) TransitGatewayRouteTableAssociationOutput {
 	return o
+}
+
+func (o TransitGatewayRouteTableAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTableAssociation] {
+	return pulumix.Output[*TransitGatewayRouteTableAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayRouteTableAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {

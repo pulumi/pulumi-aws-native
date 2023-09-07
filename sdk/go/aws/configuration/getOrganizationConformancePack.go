@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Config::OrganizationConformancePack.
@@ -72,6 +73,12 @@ func (o LookupOrganizationConformancePackResultOutput) ToLookupOrganizationConfo
 
 func (o LookupOrganizationConformancePackResultOutput) ToLookupOrganizationConformancePackResultOutputWithContext(ctx context.Context) LookupOrganizationConformancePackResultOutput {
 	return o
+}
+
+func (o LookupOrganizationConformancePackResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOrganizationConformancePackResult] {
+	return pulumix.Output[LookupOrganizationConformancePackResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of ConformancePackInputParameter objects.

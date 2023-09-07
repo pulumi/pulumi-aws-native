@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The API Schema for AWS Route53 Recovery Readiness Cells.
@@ -112,6 +113,12 @@ func (i *Cell) ToCellOutputWithContext(ctx context.Context) CellOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CellOutput)
 }
 
+func (i *Cell) ToOutput(ctx context.Context) pulumix.Output[*Cell] {
+	return pulumix.Output[*Cell]{
+		OutputState: i.ToCellOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CellOutput struct{ *pulumi.OutputState }
 
 func (CellOutput) ElementType() reflect.Type {
@@ -124,6 +131,12 @@ func (o CellOutput) ToCellOutput() CellOutput {
 
 func (o CellOutput) ToCellOutputWithContext(ctx context.Context) CellOutput {
 	return o
+}
+
+func (o CellOutput) ToOutput(ctx context.Context) pulumix.Output[*Cell] {
+	return pulumix.Output[*Cell]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the cell.

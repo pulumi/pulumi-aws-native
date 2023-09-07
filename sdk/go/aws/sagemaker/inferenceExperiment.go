@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::InferenceExperiment
@@ -182,6 +183,12 @@ func (i *InferenceExperiment) ToInferenceExperimentOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentOutput)
 }
 
+func (i *InferenceExperiment) ToOutput(ctx context.Context) pulumix.Output[*InferenceExperiment] {
+	return pulumix.Output[*InferenceExperiment]{
+		OutputState: i.ToInferenceExperimentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InferenceExperimentOutput struct{ *pulumi.OutputState }
 
 func (InferenceExperimentOutput) ElementType() reflect.Type {
@@ -194,6 +201,12 @@ func (o InferenceExperimentOutput) ToInferenceExperimentOutput() InferenceExperi
 
 func (o InferenceExperimentOutput) ToInferenceExperimentOutputWithContext(ctx context.Context) InferenceExperimentOutput {
 	return o
+}
+
+func (o InferenceExperimentOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceExperiment] {
+	return pulumix.Output[*InferenceExperiment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the inference experiment.

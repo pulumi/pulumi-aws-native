@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Batch::ComputeEnvironment
@@ -132,6 +133,12 @@ func (i *ComputeEnvironment) ToComputeEnvironmentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentOutput)
 }
 
+func (i *ComputeEnvironment) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironment] {
+	return pulumix.Output[*ComputeEnvironment]{
+		OutputState: i.ToComputeEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ComputeEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentOutput) ElementType() reflect.Type {
@@ -144,6 +151,12 @@ func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutput() ComputeEnvironmen
 
 func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutputWithContext(ctx context.Context) ComputeEnvironmentOutput {
 	return o
+}
+
+func (o ComputeEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironment] {
+	return pulumix.Output[*ComputeEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComputeEnvironmentOutput) ComputeEnvironmentArn() pulumi.StringOutput {

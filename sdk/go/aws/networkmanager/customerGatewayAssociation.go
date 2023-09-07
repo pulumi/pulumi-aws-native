@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
@@ -127,6 +128,12 @@ func (i *CustomerGatewayAssociation) ToCustomerGatewayAssociationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayAssociationOutput)
 }
 
+func (i *CustomerGatewayAssociation) ToOutput(ctx context.Context) pulumix.Output[*CustomerGatewayAssociation] {
+	return pulumix.Output[*CustomerGatewayAssociation]{
+		OutputState: i.ToCustomerGatewayAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomerGatewayAssociationOutput struct{ *pulumi.OutputState }
 
 func (CustomerGatewayAssociationOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o CustomerGatewayAssociationOutput) ToCustomerGatewayAssociationOutput() C
 
 func (o CustomerGatewayAssociationOutput) ToCustomerGatewayAssociationOutputWithContext(ctx context.Context) CustomerGatewayAssociationOutput {
 	return o
+}
+
+func (o CustomerGatewayAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomerGatewayAssociation] {
+	return pulumix.Output[*CustomerGatewayAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the customer gateway.

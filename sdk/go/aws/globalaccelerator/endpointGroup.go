@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
@@ -154,6 +155,12 @@ func (i *EndpointGroup) ToEndpointGroupOutputWithContext(ctx context.Context) En
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupOutput)
 }
 
+func (i *EndpointGroup) ToOutput(ctx context.Context) pulumix.Output[*EndpointGroup] {
+	return pulumix.Output[*EndpointGroup]{
+		OutputState: i.ToEndpointGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointGroupOutput struct{ *pulumi.OutputState }
 
 func (EndpointGroupOutput) ElementType() reflect.Type {
@@ -166,6 +173,12 @@ func (o EndpointGroupOutput) ToEndpointGroupOutput() EndpointGroupOutput {
 
 func (o EndpointGroupOutput) ToEndpointGroupOutputWithContext(ctx context.Context) EndpointGroupOutput {
 	return o
+}
+
+func (o EndpointGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointGroup] {
+	return pulumix.Output[*EndpointGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of endpoint objects.

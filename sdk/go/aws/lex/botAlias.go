@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A Bot Alias enables you to change the version of a bot without updating applications that use the bot
@@ -127,6 +128,12 @@ func (i *BotAlias) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasOutput)
 }
 
+func (i *BotAlias) ToOutput(ctx context.Context) pulumix.Output[*BotAlias] {
+	return pulumix.Output[*BotAlias]{
+		OutputState: i.ToBotAliasOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotAliasOutput struct{ *pulumi.OutputState }
 
 func (BotAliasOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o BotAliasOutput) ToBotAliasOutput() BotAliasOutput {
 
 func (o BotAliasOutput) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutput {
 	return o
+}
+
+func (o BotAliasOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAlias] {
+	return pulumix.Output[*BotAlias]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasOutput) Arn() pulumi.StringOutput {

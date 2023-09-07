@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The comparison operator.
@@ -82,6 +83,12 @@ func (o AlarmModelSimpleRuleComparisonOperatorOutput) ToAlarmModelSimpleRuleComp
 	}).(AlarmModelSimpleRuleComparisonOperatorPtrOutput)
 }
 
+func (o AlarmModelSimpleRuleComparisonOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelSimpleRuleComparisonOperator] {
+	return pulumix.Output[AlarmModelSimpleRuleComparisonOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlarmModelSimpleRuleComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -115,6 +122,12 @@ func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) ToAlarmModelSimpleRuleC
 
 func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) ToAlarmModelSimpleRuleComparisonOperatorPtrOutputWithContext(ctx context.Context) AlarmModelSimpleRuleComparisonOperatorPtrOutput {
 	return o
+}
+
+func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelSimpleRuleComparisonOperator] {
+	return pulumix.Output[*AlarmModelSimpleRuleComparisonOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) Elem() AlarmModelSimpleRuleComparisonOperatorOutput {
@@ -177,6 +190,12 @@ func (in *alarmModelSimpleRuleComparisonOperatorPtr) ToAlarmModelSimpleRuleCompa
 
 func (in *alarmModelSimpleRuleComparisonOperatorPtr) ToAlarmModelSimpleRuleComparisonOperatorPtrOutputWithContext(ctx context.Context) AlarmModelSimpleRuleComparisonOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AlarmModelSimpleRuleComparisonOperatorPtrOutput)
+}
+
+func (in *alarmModelSimpleRuleComparisonOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelSimpleRuleComparisonOperator] {
+	return pulumix.Output[*AlarmModelSimpleRuleComparisonOperator]{
+		OutputState: in.ToAlarmModelSimpleRuleComparisonOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Information about the order in which events are evaluated and how actions are executed.
@@ -247,6 +266,12 @@ func (o DetectorModelEvaluationMethodOutput) ToDetectorModelEvaluationMethodPtrO
 	}).(DetectorModelEvaluationMethodPtrOutput)
 }
 
+func (o DetectorModelEvaluationMethodOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelEvaluationMethod] {
+	return pulumix.Output[DetectorModelEvaluationMethod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DetectorModelEvaluationMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -280,6 +305,12 @@ func (o DetectorModelEvaluationMethodPtrOutput) ToDetectorModelEvaluationMethodP
 
 func (o DetectorModelEvaluationMethodPtrOutput) ToDetectorModelEvaluationMethodPtrOutputWithContext(ctx context.Context) DetectorModelEvaluationMethodPtrOutput {
 	return o
+}
+
+func (o DetectorModelEvaluationMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelEvaluationMethod] {
+	return pulumix.Output[*DetectorModelEvaluationMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelEvaluationMethodPtrOutput) Elem() DetectorModelEvaluationMethodOutput {
@@ -342,6 +373,12 @@ func (in *detectorModelEvaluationMethodPtr) ToDetectorModelEvaluationMethodPtrOu
 
 func (in *detectorModelEvaluationMethodPtr) ToDetectorModelEvaluationMethodPtrOutputWithContext(ctx context.Context) DetectorModelEvaluationMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorModelEvaluationMethodPtrOutput)
+}
+
+func (in *detectorModelEvaluationMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelEvaluationMethod] {
+	return pulumix.Output[*DetectorModelEvaluationMethod]{
+		OutputState: in.ToDetectorModelEvaluationMethodPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

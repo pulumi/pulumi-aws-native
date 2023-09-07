@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
@@ -160,6 +161,12 @@ func (i *Association) ToAssociationOutputWithContext(ctx context.Context) Associ
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutput)
 }
 
+func (i *Association) ToOutput(ctx context.Context) pulumix.Output[*Association] {
+	return pulumix.Output[*Association]{
+		OutputState: i.ToAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssociationOutput struct{ *pulumi.OutputState }
 
 func (AssociationOutput) ElementType() reflect.Type {
@@ -172,6 +179,12 @@ func (o AssociationOutput) ToAssociationOutput() AssociationOutput {
 
 func (o AssociationOutput) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
 	return o
+}
+
+func (o AssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*Association] {
+	return pulumix.Output[*Association]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssociationOutput) ApplyOnlyAtCronInterval() pulumi.BoolPtrOutput {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ConnectionAliasAssociationAssociationStatus string
@@ -44,6 +45,12 @@ func (o ConnectionAliasAssociationAssociationStatusOutput) ToConnectionAliasAsso
 	}).(ConnectionAliasAssociationAssociationStatusPtrOutput)
 }
 
+func (o ConnectionAliasAssociationAssociationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectionAliasAssociationAssociationStatus] {
+	return pulumix.Output[ConnectionAliasAssociationAssociationStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectionAliasAssociationAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -77,6 +84,12 @@ func (o ConnectionAliasAssociationAssociationStatusPtrOutput) ToConnectionAliasA
 
 func (o ConnectionAliasAssociationAssociationStatusPtrOutput) ToConnectionAliasAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) ConnectionAliasAssociationAssociationStatusPtrOutput {
 	return o
+}
+
+func (o ConnectionAliasAssociationAssociationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAliasAssociationAssociationStatus] {
+	return pulumix.Output[*ConnectionAliasAssociationAssociationStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionAliasAssociationAssociationStatusPtrOutput) Elem() ConnectionAliasAssociationAssociationStatusOutput {
@@ -135,6 +148,12 @@ func (o ConnectionAliasStateEnumOutput) ToConnectionAliasStateEnumPtrOutputWithC
 	}).(ConnectionAliasStateEnumPtrOutput)
 }
 
+func (o ConnectionAliasStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectionAliasStateEnum] {
+	return pulumix.Output[ConnectionAliasStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectionAliasStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -168,6 +187,12 @@ func (o ConnectionAliasStateEnumPtrOutput) ToConnectionAliasStateEnumPtrOutput()
 
 func (o ConnectionAliasStateEnumPtrOutput) ToConnectionAliasStateEnumPtrOutputWithContext(ctx context.Context) ConnectionAliasStateEnumPtrOutput {
 	return o
+}
+
+func (o ConnectionAliasStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAliasStateEnum] {
+	return pulumix.Output[*ConnectionAliasStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionAliasStateEnumPtrOutput) Elem() ConnectionAliasStateEnumOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for IAM Role Policy
@@ -70,6 +71,12 @@ func (o LookupRolePolicyResultOutput) ToLookupRolePolicyResultOutput() LookupRol
 
 func (o LookupRolePolicyResultOutput) ToLookupRolePolicyResultOutputWithContext(ctx context.Context) LookupRolePolicyResultOutput {
 	return o
+}
+
+func (o LookupRolePolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRolePolicyResult] {
+	return pulumix.Output[LookupRolePolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The policy document.

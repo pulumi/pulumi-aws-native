@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
@@ -116,6 +117,12 @@ func (i *EnclaveCertificateIamRoleAssociation) ToEnclaveCertificateIamRoleAssoci
 	return pulumi.ToOutputWithContext(ctx, i).(EnclaveCertificateIamRoleAssociationOutput)
 }
 
+func (i *EnclaveCertificateIamRoleAssociation) ToOutput(ctx context.Context) pulumix.Output[*EnclaveCertificateIamRoleAssociation] {
+	return pulumix.Output[*EnclaveCertificateIamRoleAssociation]{
+		OutputState: i.ToEnclaveCertificateIamRoleAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnclaveCertificateIamRoleAssociationOutput struct{ *pulumi.OutputState }
 
 func (EnclaveCertificateIamRoleAssociationOutput) ElementType() reflect.Type {
@@ -128,6 +135,12 @@ func (o EnclaveCertificateIamRoleAssociationOutput) ToEnclaveCertificateIamRoleA
 
 func (o EnclaveCertificateIamRoleAssociationOutput) ToEnclaveCertificateIamRoleAssociationOutputWithContext(ctx context.Context) EnclaveCertificateIamRoleAssociationOutput {
 	return o
+}
+
+func (o EnclaveCertificateIamRoleAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*EnclaveCertificateIamRoleAssociation] {
+	return pulumix.Output[*EnclaveCertificateIamRoleAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.

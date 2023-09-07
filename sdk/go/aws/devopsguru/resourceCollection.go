@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
@@ -95,6 +96,12 @@ func (i *ResourceCollection) ToResourceCollectionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionOutput)
 }
 
+func (i *ResourceCollection) ToOutput(ctx context.Context) pulumix.Output[*ResourceCollection] {
+	return pulumix.Output[*ResourceCollection]{
+		OutputState: i.ToResourceCollectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceCollectionOutput struct{ *pulumi.OutputState }
 
 func (ResourceCollectionOutput) ElementType() reflect.Type {
@@ -107,6 +114,12 @@ func (o ResourceCollectionOutput) ToResourceCollectionOutput() ResourceCollectio
 
 func (o ResourceCollectionOutput) ToResourceCollectionOutputWithContext(ctx context.Context) ResourceCollectionOutput {
 	return o
+}
+
+func (o ResourceCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceCollection] {
+	return pulumix.Output[*ResourceCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceCollectionOutput) ResourceCollectionFilter() ResourceCollectionFilterOutput {

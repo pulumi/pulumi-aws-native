@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The status of the delegation.
@@ -79,6 +80,12 @@ func (o AssessmentDelegationStatusOutput) ToAssessmentDelegationStatusPtrOutputW
 	}).(AssessmentDelegationStatusPtrOutput)
 }
 
+func (o AssessmentDelegationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentDelegationStatus] {
+	return pulumix.Output[AssessmentDelegationStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssessmentDelegationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +119,12 @@ func (o AssessmentDelegationStatusPtrOutput) ToAssessmentDelegationStatusPtrOutp
 
 func (o AssessmentDelegationStatusPtrOutput) ToAssessmentDelegationStatusPtrOutputWithContext(ctx context.Context) AssessmentDelegationStatusPtrOutput {
 	return o
+}
+
+func (o AssessmentDelegationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentDelegationStatus] {
+	return pulumix.Output[*AssessmentDelegationStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentDelegationStatusPtrOutput) Elem() AssessmentDelegationStatusOutput {
@@ -174,6 +187,12 @@ func (in *assessmentDelegationStatusPtr) ToAssessmentDelegationStatusPtrOutput()
 
 func (in *assessmentDelegationStatusPtr) ToAssessmentDelegationStatusPtrOutputWithContext(ctx context.Context) AssessmentDelegationStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentDelegationStatusPtrOutput)
+}
+
+func (in *assessmentDelegationStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*AssessmentDelegationStatus] {
+	return pulumix.Output[*AssessmentDelegationStatus]{
+		OutputState: in.ToAssessmentDelegationStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The destination type, such as Amazon S3.
@@ -243,6 +262,12 @@ func (o AssessmentReportDestinationTypeOutput) ToAssessmentReportDestinationType
 	}).(AssessmentReportDestinationTypePtrOutput)
 }
 
+func (o AssessmentReportDestinationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentReportDestinationType] {
+	return pulumix.Output[AssessmentReportDestinationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssessmentReportDestinationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -276,6 +301,12 @@ func (o AssessmentReportDestinationTypePtrOutput) ToAssessmentReportDestinationT
 
 func (o AssessmentReportDestinationTypePtrOutput) ToAssessmentReportDestinationTypePtrOutputWithContext(ctx context.Context) AssessmentReportDestinationTypePtrOutput {
 	return o
+}
+
+func (o AssessmentReportDestinationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentReportDestinationType] {
+	return pulumix.Output[*AssessmentReportDestinationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentReportDestinationTypePtrOutput) Elem() AssessmentReportDestinationTypeOutput {
@@ -338,6 +369,12 @@ func (in *assessmentReportDestinationTypePtr) ToAssessmentReportDestinationTypeP
 
 func (in *assessmentReportDestinationTypePtr) ToAssessmentReportDestinationTypePtrOutputWithContext(ctx context.Context) AssessmentReportDestinationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentReportDestinationTypePtrOutput)
+}
+
+func (in *assessmentReportDestinationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AssessmentReportDestinationType] {
+	return pulumix.Output[*AssessmentReportDestinationType]{
+		OutputState: in.ToAssessmentReportDestinationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The IAM role type.
@@ -408,6 +445,12 @@ func (o AssessmentRoleTypeOutput) ToAssessmentRoleTypePtrOutputWithContext(ctx c
 	}).(AssessmentRoleTypePtrOutput)
 }
 
+func (o AssessmentRoleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentRoleType] {
+	return pulumix.Output[AssessmentRoleType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssessmentRoleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -441,6 +484,12 @@ func (o AssessmentRoleTypePtrOutput) ToAssessmentRoleTypePtrOutput() AssessmentR
 
 func (o AssessmentRoleTypePtrOutput) ToAssessmentRoleTypePtrOutputWithContext(ctx context.Context) AssessmentRoleTypePtrOutput {
 	return o
+}
+
+func (o AssessmentRoleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentRoleType] {
+	return pulumix.Output[*AssessmentRoleType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentRoleTypePtrOutput) Elem() AssessmentRoleTypeOutput {
@@ -503,6 +552,12 @@ func (in *assessmentRoleTypePtr) ToAssessmentRoleTypePtrOutput() AssessmentRoleT
 
 func (in *assessmentRoleTypePtr) ToAssessmentRoleTypePtrOutputWithContext(ctx context.Context) AssessmentRoleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentRoleTypePtrOutput)
+}
+
+func (in *assessmentRoleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AssessmentRoleType] {
+	return pulumix.Output[*AssessmentRoleType]{
+		OutputState: in.ToAssessmentRoleTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The status of the specified assessment.
@@ -573,6 +628,12 @@ func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx conte
 	}).(AssessmentStatusPtrOutput)
 }
 
+func (o AssessmentStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentStatus] {
+	return pulumix.Output[AssessmentStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssessmentStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -606,6 +667,12 @@ func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutput() AssessmentStatu
 
 func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
 	return o
+}
+
+func (o AssessmentStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentStatus] {
+	return pulumix.Output[*AssessmentStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
@@ -668,6 +735,12 @@ func (in *assessmentStatusPtr) ToAssessmentStatusPtrOutput() AssessmentStatusPtr
 
 func (in *assessmentStatusPtr) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentStatusPtrOutput)
+}
+
+func (in *assessmentStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*AssessmentStatus] {
+	return pulumix.Output[*AssessmentStatus]{
+		OutputState: in.ToAssessmentStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

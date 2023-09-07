@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
@@ -163,6 +164,12 @@ func (i *ScalingPolicy) ToScalingPolicyOutputWithContext(ctx context.Context) Sc
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyOutput)
 }
 
+func (i *ScalingPolicy) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicy] {
+	return pulumix.Output[*ScalingPolicy]{
+		OutputState: i.ToScalingPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScalingPolicyOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyOutput) ElementType() reflect.Type {
@@ -175,6 +182,12 @@ func (o ScalingPolicyOutput) ToScalingPolicyOutput() ScalingPolicyOutput {
 
 func (o ScalingPolicyOutput) ToScalingPolicyOutputWithContext(ctx context.Context) ScalingPolicyOutput {
 	return o
+}
+
+func (o ScalingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicy] {
+	return pulumix.Output[*ScalingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.

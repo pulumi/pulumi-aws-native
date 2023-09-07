@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
@@ -129,6 +130,12 @@ func (i *DbParameterGroup) ToDbParameterGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DbParameterGroupOutput)
 }
 
+func (i *DbParameterGroup) ToOutput(ctx context.Context) pulumix.Output[*DbParameterGroup] {
+	return pulumix.Output[*DbParameterGroup]{
+		OutputState: i.ToDbParameterGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DbParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (DbParameterGroupOutput) ElementType() reflect.Type {
@@ -141,6 +148,12 @@ func (o DbParameterGroupOutput) ToDbParameterGroupOutput() DbParameterGroupOutpu
 
 func (o DbParameterGroupOutput) ToDbParameterGroupOutputWithContext(ctx context.Context) DbParameterGroupOutput {
 	return o
+}
+
+func (o DbParameterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DbParameterGroup] {
+	return pulumix.Output[*DbParameterGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the DB parameter group

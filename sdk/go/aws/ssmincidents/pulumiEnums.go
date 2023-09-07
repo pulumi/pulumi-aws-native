@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The account type to use when starting the SSM automation document.
@@ -78,6 +79,12 @@ func (o ResponsePlanSsmAutomationTargetAccountOutput) ToResponsePlanSsmAutomatio
 	}).(ResponsePlanSsmAutomationTargetAccountPtrOutput)
 }
 
+func (o ResponsePlanSsmAutomationTargetAccountOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanSsmAutomationTargetAccount] {
+	return pulumix.Output[ResponsePlanSsmAutomationTargetAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResponsePlanSsmAutomationTargetAccountOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) ToResponsePlanSsmAutoma
 
 func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) ToResponsePlanSsmAutomationTargetAccountPtrOutputWithContext(ctx context.Context) ResponsePlanSsmAutomationTargetAccountPtrOutput {
 	return o
+}
+
+func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanSsmAutomationTargetAccount] {
+	return pulumix.Output[*ResponsePlanSsmAutomationTargetAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) Elem() ResponsePlanSsmAutomationTargetAccountOutput {
@@ -173,6 +186,12 @@ func (in *responsePlanSsmAutomationTargetAccountPtr) ToResponsePlanSsmAutomation
 
 func (in *responsePlanSsmAutomationTargetAccountPtr) ToResponsePlanSsmAutomationTargetAccountPtrOutputWithContext(ctx context.Context) ResponsePlanSsmAutomationTargetAccountPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ResponsePlanSsmAutomationTargetAccountPtrOutput)
+}
+
+func (in *responsePlanSsmAutomationTargetAccountPtr) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanSsmAutomationTargetAccount] {
+	return pulumix.Output[*ResponsePlanSsmAutomationTargetAccount]{
+		OutputState: in.ToResponsePlanSsmAutomationTargetAccountPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The variable types used as dynamic parameter value when starting the SSM automation document.
@@ -243,6 +262,12 @@ func (o ResponsePlanVariableTypeOutput) ToResponsePlanVariableTypePtrOutputWithC
 	}).(ResponsePlanVariableTypePtrOutput)
 }
 
+func (o ResponsePlanVariableTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanVariableType] {
+	return pulumix.Output[ResponsePlanVariableType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResponsePlanVariableTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -276,6 +301,12 @@ func (o ResponsePlanVariableTypePtrOutput) ToResponsePlanVariableTypePtrOutput()
 
 func (o ResponsePlanVariableTypePtrOutput) ToResponsePlanVariableTypePtrOutputWithContext(ctx context.Context) ResponsePlanVariableTypePtrOutput {
 	return o
+}
+
+func (o ResponsePlanVariableTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanVariableType] {
+	return pulumix.Output[*ResponsePlanVariableType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResponsePlanVariableTypePtrOutput) Elem() ResponsePlanVariableTypeOutput {
@@ -338,6 +369,12 @@ func (in *responsePlanVariableTypePtr) ToResponsePlanVariableTypePtrOutput() Res
 
 func (in *responsePlanVariableTypePtr) ToResponsePlanVariableTypePtrOutputWithContext(ctx context.Context) ResponsePlanVariableTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ResponsePlanVariableTypePtrOutput)
+}
+
+func (in *responsePlanVariableTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanVariableType] {
+	return pulumix.Output[*ResponsePlanVariableType]{
+		OutputState: in.ToResponsePlanVariableTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

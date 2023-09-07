@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::EC2::NetworkInsightsAnalysis
@@ -118,6 +119,12 @@ func (i *NetworkInsightsAnalysis) ToNetworkInsightsAnalysisOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisOutput)
 }
 
+func (i *NetworkInsightsAnalysis) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAnalysis] {
+	return pulumix.Output[*NetworkInsightsAnalysis]{
+		OutputState: i.ToNetworkInsightsAnalysisOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkInsightsAnalysisOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o NetworkInsightsAnalysisOutput) ToNetworkInsightsAnalysisOutput() Network
 
 func (o NetworkInsightsAnalysisOutput) ToNetworkInsightsAnalysisOutputWithContext(ctx context.Context) NetworkInsightsAnalysisOutput {
 	return o
+}
+
+func (o NetworkInsightsAnalysisOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAnalysis] {
+	return pulumix.Output[*NetworkInsightsAnalysis]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAnalysisOutput) AdditionalAccounts() pulumi.StringArrayOutput {

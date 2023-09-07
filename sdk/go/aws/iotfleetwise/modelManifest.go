@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::IoTFleetWise::ModelManifest Resource Type
@@ -117,6 +118,12 @@ func (i *ModelManifest) ToModelManifestOutputWithContext(ctx context.Context) Mo
 	return pulumi.ToOutputWithContext(ctx, i).(ModelManifestOutput)
 }
 
+func (i *ModelManifest) ToOutput(ctx context.Context) pulumix.Output[*ModelManifest] {
+	return pulumix.Output[*ModelManifest]{
+		OutputState: i.ToModelManifestOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ModelManifestOutput struct{ *pulumi.OutputState }
 
 func (ModelManifestOutput) ElementType() reflect.Type {
@@ -129,6 +136,12 @@ func (o ModelManifestOutput) ToModelManifestOutput() ModelManifestOutput {
 
 func (o ModelManifestOutput) ToModelManifestOutputWithContext(ctx context.Context) ModelManifestOutput {
 	return o
+}
+
+func (o ModelManifestOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelManifest] {
+	return pulumix.Output[*ModelManifest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ModelManifestOutput) Arn() pulumi.StringOutput {

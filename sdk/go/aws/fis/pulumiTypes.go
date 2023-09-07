@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -42,6 +43,12 @@ func (i ExperimentTemplateActionMapArgs) ToExperimentTemplateActionMapOutput() E
 
 func (i ExperimentTemplateActionMapArgs) ToExperimentTemplateActionMapOutputWithContext(ctx context.Context) ExperimentTemplateActionMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionMapOutput)
+}
+
+func (i ExperimentTemplateActionMapArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateActionMap] {
+	return pulumix.Output[ExperimentTemplateActionMap]{
+		OutputState: i.ToExperimentTemplateActionMapOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ExperimentTemplateActionMapArgs) ToExperimentTemplateActionMapPtrOutput() ExperimentTemplateActionMapPtrOutput {
@@ -85,6 +92,12 @@ func (i *experimentTemplateActionMapPtrType) ToExperimentTemplateActionMapPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionMapPtrOutput)
 }
 
+func (i *experimentTemplateActionMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateActionMap] {
+	return pulumix.Output[*ExperimentTemplateActionMap]{
+		OutputState: i.ToExperimentTemplateActionMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The actions for the experiment.
 type ExperimentTemplateActionMapOutput struct{ *pulumi.OutputState }
 
@@ -110,6 +123,12 @@ func (o ExperimentTemplateActionMapOutput) ToExperimentTemplateActionMapPtrOutpu
 	}).(ExperimentTemplateActionMapPtrOutput)
 }
 
+func (o ExperimentTemplateActionMapOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateActionMap] {
+	return pulumix.Output[ExperimentTemplateActionMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ExperimentTemplateActionMapPtrOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateActionMapPtrOutput) ElementType() reflect.Type {
@@ -122,6 +141,12 @@ func (o ExperimentTemplateActionMapPtrOutput) ToExperimentTemplateActionMapPtrOu
 
 func (o ExperimentTemplateActionMapPtrOutput) ToExperimentTemplateActionMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateActionMapPtrOutput {
 	return o
+}
+
+func (o ExperimentTemplateActionMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateActionMap] {
+	return pulumix.Output[*ExperimentTemplateActionMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateActionMapPtrOutput) Elem() ExperimentTemplateActionMapOutput {
@@ -169,6 +194,12 @@ func (i ExperimentTemplateLogConfigurationArgs) ToExperimentTemplateLogConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationOutput)
 }
 
+func (i ExperimentTemplateLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateLogConfiguration] {
+	return pulumix.Output[ExperimentTemplateLogConfiguration]{
+		OutputState: i.ToExperimentTemplateLogConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ExperimentTemplateLogConfigurationArgs) ToExperimentTemplateLogConfigurationPtrOutput() ExperimentTemplateLogConfigurationPtrOutput {
 	return i.ToExperimentTemplateLogConfigurationPtrOutputWithContext(context.Background())
 }
@@ -210,6 +241,12 @@ func (i *experimentTemplateLogConfigurationPtrType) ToExperimentTemplateLogConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationPtrOutput)
 }
 
+func (i *experimentTemplateLogConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateLogConfiguration] {
+	return pulumix.Output[*ExperimentTemplateLogConfiguration]{
+		OutputState: i.ToExperimentTemplateLogConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateLogConfigurationOutput) ElementType() reflect.Type {
@@ -232,6 +269,12 @@ func (o ExperimentTemplateLogConfigurationOutput) ToExperimentTemplateLogConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfiguration {
 		return &v
 	}).(ExperimentTemplateLogConfigurationPtrOutput)
+}
+
+func (o ExperimentTemplateLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateLogConfiguration] {
+	return pulumix.Output[ExperimentTemplateLogConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateLogConfigurationOutput) CloudWatchLogsConfiguration() ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput {
@@ -262,6 +305,12 @@ func (o ExperimentTemplateLogConfigurationPtrOutput) ToExperimentTemplateLogConf
 
 func (o ExperimentTemplateLogConfigurationPtrOutput) ToExperimentTemplateLogConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationPtrOutput {
 	return o
+}
+
+func (o ExperimentTemplateLogConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateLogConfiguration] {
+	return pulumix.Output[*ExperimentTemplateLogConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateLogConfigurationPtrOutput) Elem() ExperimentTemplateLogConfigurationOutput {
@@ -332,6 +381,12 @@ func (i ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesA
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput)
 }
 
+func (i ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties] {
+	return pulumix.Output[ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties]{
+		OutputState: i.ToExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs) ToExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput() ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput {
 	return i.ToExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutputWithContext(context.Background())
 }
@@ -373,6 +428,12 @@ func (i *experimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput)
 }
 
+func (i *experimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties] {
+	return pulumix.Output[*ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties]{
+		OutputState: i.ToExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -397,6 +458,12 @@ func (o ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesO
 	}).(ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput)
 }
 
+func (o ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties] {
+	return pulumix.Output[ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties) string {
 		return v.LogGroupArn
@@ -415,6 +482,12 @@ func (o ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesP
 
 func (o ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput) ToExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput {
 	return o
+}
+
+func (o ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties] {
+	return pulumix.Output[*ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput) Elem() ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput {
@@ -469,6 +542,12 @@ func (i ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs) ToExper
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutput)
 }
 
+func (i ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateLogConfigurationS3ConfigurationProperties] {
+	return pulumix.Output[ExperimentTemplateLogConfigurationS3ConfigurationProperties]{
+		OutputState: i.ToExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs) ToExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput() ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput {
 	return i.ToExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutputWithContext(context.Background())
 }
@@ -510,6 +589,12 @@ func (i *experimentTemplateLogConfigurationS3ConfigurationPropertiesPtrType) ToE
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput)
 }
 
+func (i *experimentTemplateLogConfigurationS3ConfigurationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateLogConfigurationS3ConfigurationProperties] {
+	return pulumix.Output[*ExperimentTemplateLogConfigurationS3ConfigurationProperties]{
+		OutputState: i.ToExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -534,6 +619,12 @@ func (o ExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutput) ToExp
 	}).(ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput)
 }
 
+func (o ExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateLogConfigurationS3ConfigurationProperties] {
+	return pulumix.Output[ExperimentTemplateLogConfigurationS3ConfigurationProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfigurationS3ConfigurationProperties) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -554,6 +645,12 @@ func (o ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput) To
 
 func (o ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput) ToExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput {
 	return o
+}
+
+func (o ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateLogConfigurationS3ConfigurationProperties] {
+	return pulumix.Output[*ExperimentTemplateLogConfigurationS3ConfigurationProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput) Elem() ExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutput {
@@ -617,6 +714,12 @@ func (i ExperimentTemplateStopConditionArgs) ToExperimentTemplateStopConditionOu
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateStopConditionOutput)
 }
 
+func (i ExperimentTemplateStopConditionArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateStopCondition] {
+	return pulumix.Output[ExperimentTemplateStopCondition]{
+		OutputState: i.ToExperimentTemplateStopConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExperimentTemplateStopConditionArrayInput is an input type that accepts ExperimentTemplateStopConditionArray and ExperimentTemplateStopConditionArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateStopConditionArrayInput` via:
 //
@@ -642,6 +745,12 @@ func (i ExperimentTemplateStopConditionArray) ToExperimentTemplateStopConditionA
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateStopConditionArrayOutput)
 }
 
+func (i ExperimentTemplateStopConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateStopCondition] {
+	return pulumix.Output[[]ExperimentTemplateStopCondition]{
+		OutputState: i.ToExperimentTemplateStopConditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateStopConditionOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateStopConditionOutput) ElementType() reflect.Type {
@@ -654,6 +763,12 @@ func (o ExperimentTemplateStopConditionOutput) ToExperimentTemplateStopCondition
 
 func (o ExperimentTemplateStopConditionOutput) ToExperimentTemplateStopConditionOutputWithContext(ctx context.Context) ExperimentTemplateStopConditionOutput {
 	return o
+}
+
+func (o ExperimentTemplateStopConditionOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateStopCondition] {
+	return pulumix.Output[ExperimentTemplateStopCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateStopConditionOutput) Source() pulumi.StringOutput {
@@ -676,6 +791,12 @@ func (o ExperimentTemplateStopConditionArrayOutput) ToExperimentTemplateStopCond
 
 func (o ExperimentTemplateStopConditionArrayOutput) ToExperimentTemplateStopConditionArrayOutputWithContext(ctx context.Context) ExperimentTemplateStopConditionArrayOutput {
 	return o
+}
+
+func (o ExperimentTemplateStopConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateStopCondition] {
+	return pulumix.Output[[]ExperimentTemplateStopCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateStopConditionArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateStopConditionOutput {
@@ -715,6 +836,12 @@ func (i ExperimentTemplateTargetMapArgs) ToExperimentTemplateTargetMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateTargetMapOutput)
 }
 
+func (i ExperimentTemplateTargetMapArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateTargetMap] {
+	return pulumix.Output[ExperimentTemplateTargetMap]{
+		OutputState: i.ToExperimentTemplateTargetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The targets for the experiment.
 type ExperimentTemplateTargetMapOutput struct{ *pulumi.OutputState }
 
@@ -730,6 +857,12 @@ func (o ExperimentTemplateTargetMapOutput) ToExperimentTemplateTargetMapOutputWi
 	return o
 }
 
+func (o ExperimentTemplateTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateTargetMap] {
+	return pulumix.Output[ExperimentTemplateTargetMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ExperimentTemplateTargetMapPtrOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateTargetMapPtrOutput) ElementType() reflect.Type {
@@ -742,6 +875,12 @@ func (o ExperimentTemplateTargetMapPtrOutput) ToExperimentTemplateTargetMapPtrOu
 
 func (o ExperimentTemplateTargetMapPtrOutput) ToExperimentTemplateTargetMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateTargetMapPtrOutput {
 	return o
+}
+
+func (o ExperimentTemplateTargetMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateTargetMap] {
+	return pulumix.Output[*ExperimentTemplateTargetMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateTargetMapPtrOutput) Elem() ExperimentTemplateTargetMapOutput {

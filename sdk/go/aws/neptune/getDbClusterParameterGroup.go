@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Neptune::DBClusterParameterGroup
@@ -65,6 +66,12 @@ func (o LookupDbClusterParameterGroupResultOutput) ToLookupDbClusterParameterGro
 
 func (o LookupDbClusterParameterGroupResultOutput) ToLookupDbClusterParameterGroupResultOutputWithContext(ctx context.Context) LookupDbClusterParameterGroupResultOutput {
 	return o
+}
+
+func (o LookupDbClusterParameterGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDbClusterParameterGroupResult] {
+	return pulumix.Output[LookupDbClusterParameterGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDbClusterParameterGroupResultOutput) Id() pulumi.StringPtrOutput {

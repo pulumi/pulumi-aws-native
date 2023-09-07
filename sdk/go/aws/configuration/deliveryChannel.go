@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Config::DeliveryChannel
@@ -114,6 +115,12 @@ func (i *DeliveryChannel) ToDeliveryChannelOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelOutput)
 }
 
+func (i *DeliveryChannel) ToOutput(ctx context.Context) pulumix.Output[*DeliveryChannel] {
+	return pulumix.Output[*DeliveryChannel]{
+		OutputState: i.ToDeliveryChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryChannelOutput struct{ *pulumi.OutputState }
 
 func (DeliveryChannelOutput) ElementType() reflect.Type {
@@ -126,6 +133,12 @@ func (o DeliveryChannelOutput) ToDeliveryChannelOutput() DeliveryChannelOutput {
 
 func (o DeliveryChannelOutput) ToDeliveryChannelOutputWithContext(ctx context.Context) DeliveryChannelOutput {
 	return o
+}
+
+func (o DeliveryChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryChannel] {
+	return pulumix.Output[*DeliveryChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryChannelOutput) ConfigSnapshotDeliveryProperties() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {

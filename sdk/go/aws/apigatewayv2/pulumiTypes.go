@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i ApiBodyS3LocationArgs) ToApiBodyS3LocationOutput() ApiBodyS3LocationOutp
 
 func (i ApiBodyS3LocationArgs) ToApiBodyS3LocationOutputWithContext(ctx context.Context) ApiBodyS3LocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiBodyS3LocationOutput)
+}
+
+func (i ApiBodyS3LocationArgs) ToOutput(ctx context.Context) pulumix.Output[ApiBodyS3Location] {
+	return pulumix.Output[ApiBodyS3Location]{
+		OutputState: i.ToApiBodyS3LocationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ApiBodyS3LocationArgs) ToApiBodyS3LocationPtrOutput() ApiBodyS3LocationPtrOutput {
@@ -91,6 +98,12 @@ func (i *apiBodyS3LocationPtrType) ToApiBodyS3LocationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ApiBodyS3LocationPtrOutput)
 }
 
+func (i *apiBodyS3LocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiBodyS3Location] {
+	return pulumix.Output[*ApiBodyS3Location]{
+		OutputState: i.ToApiBodyS3LocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiBodyS3LocationOutput struct{ *pulumi.OutputState }
 
 func (ApiBodyS3LocationOutput) ElementType() reflect.Type {
@@ -113,6 +126,12 @@ func (o ApiBodyS3LocationOutput) ToApiBodyS3LocationPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiBodyS3Location) *ApiBodyS3Location {
 		return &v
 	}).(ApiBodyS3LocationPtrOutput)
+}
+
+func (o ApiBodyS3LocationOutput) ToOutput(ctx context.Context) pulumix.Output[ApiBodyS3Location] {
+	return pulumix.Output[ApiBodyS3Location]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiBodyS3LocationOutput) Bucket() pulumi.StringPtrOutput {
@@ -143,6 +162,12 @@ func (o ApiBodyS3LocationPtrOutput) ToApiBodyS3LocationPtrOutput() ApiBodyS3Loca
 
 func (o ApiBodyS3LocationPtrOutput) ToApiBodyS3LocationPtrOutputWithContext(ctx context.Context) ApiBodyS3LocationPtrOutput {
 	return o
+}
+
+func (o ApiBodyS3LocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiBodyS3Location] {
+	return pulumix.Output[*ApiBodyS3Location]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiBodyS3LocationPtrOutput) Elem() ApiBodyS3LocationOutput {
@@ -232,6 +257,12 @@ func (i ApiCorsArgs) ToApiCorsOutputWithContext(ctx context.Context) ApiCorsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApiCorsOutput)
 }
 
+func (i ApiCorsArgs) ToOutput(ctx context.Context) pulumix.Output[ApiCors] {
+	return pulumix.Output[ApiCors]{
+		OutputState: i.ToApiCorsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiCorsArgs) ToApiCorsPtrOutput() ApiCorsPtrOutput {
 	return i.ToApiCorsPtrOutputWithContext(context.Background())
 }
@@ -273,6 +304,12 @@ func (i *apiCorsPtrType) ToApiCorsPtrOutputWithContext(ctx context.Context) ApiC
 	return pulumi.ToOutputWithContext(ctx, i).(ApiCorsPtrOutput)
 }
 
+func (i *apiCorsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiCors] {
+	return pulumix.Output[*ApiCors]{
+		OutputState: i.ToApiCorsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiCorsOutput struct{ *pulumi.OutputState }
 
 func (ApiCorsOutput) ElementType() reflect.Type {
@@ -295,6 +332,12 @@ func (o ApiCorsOutput) ToApiCorsPtrOutputWithContext(ctx context.Context) ApiCor
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiCors) *ApiCors {
 		return &v
 	}).(ApiCorsPtrOutput)
+}
+
+func (o ApiCorsOutput) ToOutput(ctx context.Context) pulumix.Output[ApiCors] {
+	return pulumix.Output[ApiCors]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiCorsOutput) AllowCredentials() pulumi.BoolPtrOutput {
@@ -333,6 +376,12 @@ func (o ApiCorsPtrOutput) ToApiCorsPtrOutput() ApiCorsPtrOutput {
 
 func (o ApiCorsPtrOutput) ToApiCorsPtrOutputWithContext(ctx context.Context) ApiCorsPtrOutput {
 	return o
+}
+
+func (o ApiCorsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiCors] {
+	return pulumix.Output[*ApiCors]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiCorsPtrOutput) Elem() ApiCorsOutput {
@@ -432,6 +481,12 @@ func (i ApiGatewayManagedOverridesAccessLogSettingsArgs) ToApiGatewayManagedOver
 	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesAccessLogSettingsOutput)
 }
 
+func (i ApiGatewayManagedOverridesAccessLogSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ApiGatewayManagedOverridesAccessLogSettings] {
+	return pulumix.Output[ApiGatewayManagedOverridesAccessLogSettings]{
+		OutputState: i.ToApiGatewayManagedOverridesAccessLogSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiGatewayManagedOverridesAccessLogSettingsArgs) ToApiGatewayManagedOverridesAccessLogSettingsPtrOutput() ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
 	return i.ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(context.Background())
 }
@@ -473,6 +528,12 @@ func (i *apiGatewayManagedOverridesAccessLogSettingsPtrType) ToApiGatewayManaged
 	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesAccessLogSettingsPtrOutput)
 }
 
+func (i *apiGatewayManagedOverridesAccessLogSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverridesAccessLogSettings] {
+	return pulumix.Output[*ApiGatewayManagedOverridesAccessLogSettings]{
+		OutputState: i.ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiGatewayManagedOverridesAccessLogSettingsOutput struct{ *pulumi.OutputState }
 
 func (ApiGatewayManagedOverridesAccessLogSettingsOutput) ElementType() reflect.Type {
@@ -497,6 +558,12 @@ func (o ApiGatewayManagedOverridesAccessLogSettingsOutput) ToApiGatewayManagedOv
 	}).(ApiGatewayManagedOverridesAccessLogSettingsPtrOutput)
 }
 
+func (o ApiGatewayManagedOverridesAccessLogSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ApiGatewayManagedOverridesAccessLogSettings] {
+	return pulumix.Output[ApiGatewayManagedOverridesAccessLogSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiGatewayManagedOverridesAccessLogSettingsOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiGatewayManagedOverridesAccessLogSettings) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
@@ -517,6 +584,12 @@ func (o ApiGatewayManagedOverridesAccessLogSettingsPtrOutput) ToApiGatewayManage
 
 func (o ApiGatewayManagedOverridesAccessLogSettingsPtrOutput) ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
 	return o
+}
+
+func (o ApiGatewayManagedOverridesAccessLogSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverridesAccessLogSettings] {
+	return pulumix.Output[*ApiGatewayManagedOverridesAccessLogSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiGatewayManagedOverridesAccessLogSettingsPtrOutput) Elem() ApiGatewayManagedOverridesAccessLogSettingsOutput {
@@ -584,6 +657,12 @@ func (i ApiGatewayManagedOverridesIntegrationOverridesArgs) ToApiGatewayManagedO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesIntegrationOverridesOutput)
 }
 
+func (i ApiGatewayManagedOverridesIntegrationOverridesArgs) ToOutput(ctx context.Context) pulumix.Output[ApiGatewayManagedOverridesIntegrationOverrides] {
+	return pulumix.Output[ApiGatewayManagedOverridesIntegrationOverrides]{
+		OutputState: i.ToApiGatewayManagedOverridesIntegrationOverridesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiGatewayManagedOverridesIntegrationOverridesArgs) ToApiGatewayManagedOverridesIntegrationOverridesPtrOutput() ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
 	return i.ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(context.Background())
 }
@@ -625,6 +704,12 @@ func (i *apiGatewayManagedOverridesIntegrationOverridesPtrType) ToApiGatewayMana
 	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesIntegrationOverridesPtrOutput)
 }
 
+func (i *apiGatewayManagedOverridesIntegrationOverridesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverridesIntegrationOverrides] {
+	return pulumix.Output[*ApiGatewayManagedOverridesIntegrationOverrides]{
+		OutputState: i.ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiGatewayManagedOverridesIntegrationOverridesOutput struct{ *pulumi.OutputState }
 
 func (ApiGatewayManagedOverridesIntegrationOverridesOutput) ElementType() reflect.Type {
@@ -647,6 +732,12 @@ func (o ApiGatewayManagedOverridesIntegrationOverridesOutput) ToApiGatewayManage
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiGatewayManagedOverridesIntegrationOverrides) *ApiGatewayManagedOverridesIntegrationOverrides {
 		return &v
 	}).(ApiGatewayManagedOverridesIntegrationOverridesPtrOutput)
+}
+
+func (o ApiGatewayManagedOverridesIntegrationOverridesOutput) ToOutput(ctx context.Context) pulumix.Output[ApiGatewayManagedOverridesIntegrationOverrides] {
+	return pulumix.Output[ApiGatewayManagedOverridesIntegrationOverrides]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiGatewayManagedOverridesIntegrationOverridesOutput) Description() pulumi.StringPtrOutput {
@@ -677,6 +768,12 @@ func (o ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) ToApiGatewayMan
 
 func (o ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
 	return o
+}
+
+func (o ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverridesIntegrationOverrides] {
+	return pulumix.Output[*ApiGatewayManagedOverridesIntegrationOverrides]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) Elem() ApiGatewayManagedOverridesIntegrationOverridesOutput {
@@ -764,6 +861,12 @@ func (i ApiGatewayManagedOverridesRouteOverridesArgs) ToApiGatewayManagedOverrid
 	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesRouteOverridesOutput)
 }
 
+func (i ApiGatewayManagedOverridesRouteOverridesArgs) ToOutput(ctx context.Context) pulumix.Output[ApiGatewayManagedOverridesRouteOverrides] {
+	return pulumix.Output[ApiGatewayManagedOverridesRouteOverrides]{
+		OutputState: i.ToApiGatewayManagedOverridesRouteOverridesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiGatewayManagedOverridesRouteOverridesArgs) ToApiGatewayManagedOverridesRouteOverridesPtrOutput() ApiGatewayManagedOverridesRouteOverridesPtrOutput {
 	return i.ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(context.Background())
 }
@@ -805,6 +908,12 @@ func (i *apiGatewayManagedOverridesRouteOverridesPtrType) ToApiGatewayManagedOve
 	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesRouteOverridesPtrOutput)
 }
 
+func (i *apiGatewayManagedOverridesRouteOverridesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverridesRouteOverrides] {
+	return pulumix.Output[*ApiGatewayManagedOverridesRouteOverrides]{
+		OutputState: i.ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiGatewayManagedOverridesRouteOverridesOutput struct{ *pulumi.OutputState }
 
 func (ApiGatewayManagedOverridesRouteOverridesOutput) ElementType() reflect.Type {
@@ -827,6 +936,12 @@ func (o ApiGatewayManagedOverridesRouteOverridesOutput) ToApiGatewayManagedOverr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiGatewayManagedOverridesRouteOverrides) *ApiGatewayManagedOverridesRouteOverrides {
 		return &v
 	}).(ApiGatewayManagedOverridesRouteOverridesPtrOutput)
+}
+
+func (o ApiGatewayManagedOverridesRouteOverridesOutput) ToOutput(ctx context.Context) pulumix.Output[ApiGatewayManagedOverridesRouteOverrides] {
+	return pulumix.Output[ApiGatewayManagedOverridesRouteOverrides]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiGatewayManagedOverridesRouteOverridesOutput) AuthorizationScopes() pulumi.StringArrayOutput {
@@ -861,6 +976,12 @@ func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) ToApiGatewayManagedOv
 
 func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteOverridesPtrOutput {
 	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverridesRouteOverrides] {
+	return pulumix.Output[*ApiGatewayManagedOverridesRouteOverrides]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) Elem() ApiGatewayManagedOverridesRouteOverridesOutput {
@@ -957,6 +1078,12 @@ func (i ApiGatewayManagedOverridesRouteSettingsArgs) ToApiGatewayManagedOverride
 	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesRouteSettingsOutput)
 }
 
+func (i ApiGatewayManagedOverridesRouteSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ApiGatewayManagedOverridesRouteSettings] {
+	return pulumix.Output[ApiGatewayManagedOverridesRouteSettings]{
+		OutputState: i.ToApiGatewayManagedOverridesRouteSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiGatewayManagedOverridesRouteSettingsArgs) ToApiGatewayManagedOverridesRouteSettingsPtrOutput() ApiGatewayManagedOverridesRouteSettingsPtrOutput {
 	return i.ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(context.Background())
 }
@@ -998,6 +1125,12 @@ func (i *apiGatewayManagedOverridesRouteSettingsPtrType) ToApiGatewayManagedOver
 	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesRouteSettingsPtrOutput)
 }
 
+func (i *apiGatewayManagedOverridesRouteSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverridesRouteSettings] {
+	return pulumix.Output[*ApiGatewayManagedOverridesRouteSettings]{
+		OutputState: i.ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiGatewayManagedOverridesRouteSettingsOutput struct{ *pulumi.OutputState }
 
 func (ApiGatewayManagedOverridesRouteSettingsOutput) ElementType() reflect.Type {
@@ -1020,6 +1153,12 @@ func (o ApiGatewayManagedOverridesRouteSettingsOutput) ToApiGatewayManagedOverri
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiGatewayManagedOverridesRouteSettings) *ApiGatewayManagedOverridesRouteSettings {
 		return &v
 	}).(ApiGatewayManagedOverridesRouteSettingsPtrOutput)
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ApiGatewayManagedOverridesRouteSettings] {
+	return pulumix.Output[ApiGatewayManagedOverridesRouteSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiGatewayManagedOverridesRouteSettingsOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
@@ -1054,6 +1193,12 @@ func (o ApiGatewayManagedOverridesRouteSettingsPtrOutput) ToApiGatewayManagedOve
 
 func (o ApiGatewayManagedOverridesRouteSettingsPtrOutput) ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteSettingsPtrOutput {
 	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverridesRouteSettings] {
+	return pulumix.Output[*ApiGatewayManagedOverridesRouteSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiGatewayManagedOverridesRouteSettingsPtrOutput) Elem() ApiGatewayManagedOverridesRouteSettingsOutput {
@@ -1152,6 +1297,12 @@ func (i ApiGatewayManagedOverridesStageOverridesArgs) ToApiGatewayManagedOverrid
 	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesStageOverridesOutput)
 }
 
+func (i ApiGatewayManagedOverridesStageOverridesArgs) ToOutput(ctx context.Context) pulumix.Output[ApiGatewayManagedOverridesStageOverrides] {
+	return pulumix.Output[ApiGatewayManagedOverridesStageOverrides]{
+		OutputState: i.ToApiGatewayManagedOverridesStageOverridesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiGatewayManagedOverridesStageOverridesArgs) ToApiGatewayManagedOverridesStageOverridesPtrOutput() ApiGatewayManagedOverridesStageOverridesPtrOutput {
 	return i.ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(context.Background())
 }
@@ -1193,6 +1344,12 @@ func (i *apiGatewayManagedOverridesStageOverridesPtrType) ToApiGatewayManagedOve
 	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesStageOverridesPtrOutput)
 }
 
+func (i *apiGatewayManagedOverridesStageOverridesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverridesStageOverrides] {
+	return pulumix.Output[*ApiGatewayManagedOverridesStageOverrides]{
+		OutputState: i.ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiGatewayManagedOverridesStageOverridesOutput struct{ *pulumi.OutputState }
 
 func (ApiGatewayManagedOverridesStageOverridesOutput) ElementType() reflect.Type {
@@ -1215,6 +1372,12 @@ func (o ApiGatewayManagedOverridesStageOverridesOutput) ToApiGatewayManagedOverr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiGatewayManagedOverridesStageOverrides) *ApiGatewayManagedOverridesStageOverrides {
 		return &v
 	}).(ApiGatewayManagedOverridesStageOverridesPtrOutput)
+}
+
+func (o ApiGatewayManagedOverridesStageOverridesOutput) ToOutput(ctx context.Context) pulumix.Output[ApiGatewayManagedOverridesStageOverrides] {
+	return pulumix.Output[ApiGatewayManagedOverridesStageOverrides]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiGatewayManagedOverridesStageOverridesOutput) AccessLogSettings() ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
@@ -1257,6 +1420,12 @@ func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) ToApiGatewayManagedOv
 
 func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesStageOverridesPtrOutput {
 	return o
+}
+
+func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverridesStageOverrides] {
+	return pulumix.Output[*ApiGatewayManagedOverridesStageOverrides]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) Elem() ApiGatewayManagedOverridesStageOverridesOutput {
@@ -1356,6 +1525,12 @@ func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationOutput)
 }
 
+func (i AuthorizerJwtConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AuthorizerJwtConfiguration] {
+	return pulumix.Output[AuthorizerJwtConfiguration]{
+		OutputState: i.ToAuthorizerJwtConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput {
 	return i.ToAuthorizerJwtConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1397,6 +1572,12 @@ func (i *authorizerJwtConfigurationPtrType) ToAuthorizerJwtConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationPtrOutput)
 }
 
+func (i *authorizerJwtConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AuthorizerJwtConfiguration] {
+	return pulumix.Output[*AuthorizerJwtConfiguration]{
+		OutputState: i.ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthorizerJwtConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizerJwtConfigurationOutput) ElementType() reflect.Type {
@@ -1421,6 +1602,12 @@ func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationPtrOutputW
 	}).(AuthorizerJwtConfigurationPtrOutput)
 }
 
+func (o AuthorizerJwtConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AuthorizerJwtConfiguration] {
+	return pulumix.Output[AuthorizerJwtConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AuthorizerJwtConfigurationOutput) Audience() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthorizerJwtConfiguration) []string { return v.Audience }).(pulumi.StringArrayOutput)
 }
@@ -1441,6 +1628,12 @@ func (o AuthorizerJwtConfigurationPtrOutput) ToAuthorizerJwtConfigurationPtrOutp
 
 func (o AuthorizerJwtConfigurationPtrOutput) ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationPtrOutput {
 	return o
+}
+
+func (o AuthorizerJwtConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthorizerJwtConfiguration] {
+	return pulumix.Output[*AuthorizerJwtConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthorizerJwtConfigurationPtrOutput) Elem() AuthorizerJwtConfigurationOutput {
@@ -1510,6 +1703,12 @@ func (i DomainNameConfigurationArgs) ToDomainNameConfigurationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameConfigurationOutput)
 }
 
+func (i DomainNameConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DomainNameConfiguration] {
+	return pulumix.Output[DomainNameConfiguration]{
+		OutputState: i.ToDomainNameConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainNameConfigurationArrayInput is an input type that accepts DomainNameConfigurationArray and DomainNameConfigurationArrayOutput values.
 // You can construct a concrete instance of `DomainNameConfigurationArrayInput` via:
 //
@@ -1535,6 +1734,12 @@ func (i DomainNameConfigurationArray) ToDomainNameConfigurationArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameConfigurationArrayOutput)
 }
 
+func (i DomainNameConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainNameConfiguration] {
+	return pulumix.Output[[]DomainNameConfiguration]{
+		OutputState: i.ToDomainNameConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainNameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameConfigurationOutput) ElementType() reflect.Type {
@@ -1547,6 +1752,12 @@ func (o DomainNameConfigurationOutput) ToDomainNameConfigurationOutput() DomainN
 
 func (o DomainNameConfigurationOutput) ToDomainNameConfigurationOutputWithContext(ctx context.Context) DomainNameConfigurationOutput {
 	return o
+}
+
+func (o DomainNameConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DomainNameConfiguration] {
+	return pulumix.Output[DomainNameConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainNameConfigurationOutput) CertificateArn() pulumi.StringPtrOutput {
@@ -1581,6 +1792,12 @@ func (o DomainNameConfigurationArrayOutput) ToDomainNameConfigurationArrayOutput
 
 func (o DomainNameConfigurationArrayOutput) ToDomainNameConfigurationArrayOutputWithContext(ctx context.Context) DomainNameConfigurationArrayOutput {
 	return o
+}
+
+func (o DomainNameConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainNameConfiguration] {
+	return pulumix.Output[[]DomainNameConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainNameConfigurationArrayOutput) Index(i pulumi.IntInput) DomainNameConfigurationOutput {
@@ -1620,6 +1837,12 @@ func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticati
 
 func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationOutput)
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[DomainNameMutualTlsAuthentication] {
+	return pulumix.Output[DomainNameMutualTlsAuthentication]{
+		OutputState: i.ToDomainNameMutualTlsAuthenticationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
@@ -1663,6 +1886,12 @@ func (i *domainNameMutualTlsAuthenticationPtrType) ToDomainNameMutualTlsAuthenti
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
+func (i *domainNameMutualTlsAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainNameMutualTlsAuthentication] {
+	return pulumix.Output[*DomainNameMutualTlsAuthentication]{
+		OutputState: i.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainNameMutualTlsAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameMutualTlsAuthenticationOutput) ElementType() reflect.Type {
@@ -1687,6 +1916,12 @@ func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthentica
 	}).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
+func (o DomainNameMutualTlsAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[DomainNameMutualTlsAuthentication] {
+	return pulumix.Output[DomainNameMutualTlsAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreUri }).(pulumi.StringPtrOutput)
 }
@@ -1707,6 +1942,12 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthent
 
 func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
 	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainNameMutualTlsAuthentication] {
+	return pulumix.Output[*DomainNameMutualTlsAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAuthenticationOutput {
@@ -1768,6 +2009,12 @@ func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTlsConfigOutput)
 }
 
+func (i IntegrationTlsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationTlsConfig] {
+	return pulumix.Output[IntegrationTlsConfig]{
+		OutputState: i.ToIntegrationTlsConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput {
 	return i.ToIntegrationTlsConfigPtrOutputWithContext(context.Background())
 }
@@ -1809,6 +2056,12 @@ func (i *integrationTlsConfigPtrType) ToIntegrationTlsConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTlsConfigPtrOutput)
 }
 
+func (i *integrationTlsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntegrationTlsConfig] {
+	return pulumix.Output[*IntegrationTlsConfig]{
+		OutputState: i.ToIntegrationTlsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationTlsConfigOutput struct{ *pulumi.OutputState }
 
 func (IntegrationTlsConfigOutput) ElementType() reflect.Type {
@@ -1833,6 +2086,12 @@ func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigPtrOutputWithContext(c
 	}).(IntegrationTlsConfigPtrOutput)
 }
 
+func (o IntegrationTlsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationTlsConfig] {
+	return pulumix.Output[IntegrationTlsConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationTlsConfigOutput) ServerNameToVerify() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationTlsConfig) *string { return v.ServerNameToVerify }).(pulumi.StringPtrOutput)
 }
@@ -1849,6 +2108,12 @@ func (o IntegrationTlsConfigPtrOutput) ToIntegrationTlsConfigPtrOutput() Integra
 
 func (o IntegrationTlsConfigPtrOutput) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
 	return o
+}
+
+func (o IntegrationTlsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationTlsConfig] {
+	return pulumix.Output[*IntegrationTlsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationTlsConfigPtrOutput) Elem() IntegrationTlsConfigOutput {
@@ -1899,6 +2164,12 @@ func (i RouteResponseRouteParametersArgs) ToRouteResponseRouteParametersOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseRouteParametersOutput)
 }
 
+func (i RouteResponseRouteParametersArgs) ToOutput(ctx context.Context) pulumix.Output[RouteResponseRouteParameters] {
+	return pulumix.Output[RouteResponseRouteParameters]{
+		OutputState: i.ToRouteResponseRouteParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteResponseRouteParametersArgs) ToRouteResponseRouteParametersPtrOutput() RouteResponseRouteParametersPtrOutput {
 	return i.ToRouteResponseRouteParametersPtrOutputWithContext(context.Background())
 }
@@ -1940,6 +2211,12 @@ func (i *routeResponseRouteParametersPtrType) ToRouteResponseRouteParametersPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseRouteParametersPtrOutput)
 }
 
+func (i *routeResponseRouteParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteResponseRouteParameters] {
+	return pulumix.Output[*RouteResponseRouteParameters]{
+		OutputState: i.ToRouteResponseRouteParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteResponseRouteParametersOutput struct{ *pulumi.OutputState }
 
 func (RouteResponseRouteParametersOutput) ElementType() reflect.Type {
@@ -1964,6 +2241,12 @@ func (o RouteResponseRouteParametersOutput) ToRouteResponseRouteParametersPtrOut
 	}).(RouteResponseRouteParametersPtrOutput)
 }
 
+func (o RouteResponseRouteParametersOutput) ToOutput(ctx context.Context) pulumix.Output[RouteResponseRouteParameters] {
+	return pulumix.Output[RouteResponseRouteParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 type RouteResponseRouteParametersPtrOutput struct{ *pulumi.OutputState }
 
 func (RouteResponseRouteParametersPtrOutput) ElementType() reflect.Type {
@@ -1976,6 +2259,12 @@ func (o RouteResponseRouteParametersPtrOutput) ToRouteResponseRouteParametersPtr
 
 func (o RouteResponseRouteParametersPtrOutput) ToRouteResponseRouteParametersPtrOutputWithContext(ctx context.Context) RouteResponseRouteParametersPtrOutput {
 	return o
+}
+
+func (o RouteResponseRouteParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteResponseRouteParameters] {
+	return pulumix.Output[*RouteResponseRouteParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteResponseRouteParametersPtrOutput) Elem() RouteResponseRouteParametersOutput {
@@ -2021,6 +2310,12 @@ func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingsOutput)
 }
 
+func (i StageAccessLogSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[StageAccessLogSettings] {
+	return pulumix.Output[StageAccessLogSettings]{
+		OutputState: i.ToStageAccessLogSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput {
 	return i.ToStageAccessLogSettingsPtrOutputWithContext(context.Background())
 }
@@ -2062,6 +2357,12 @@ func (i *stageAccessLogSettingsPtrType) ToStageAccessLogSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingsPtrOutput)
 }
 
+func (i *stageAccessLogSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StageAccessLogSettings] {
+	return pulumix.Output[*StageAccessLogSettings]{
+		OutputState: i.ToStageAccessLogSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StageAccessLogSettingsOutput struct{ *pulumi.OutputState }
 
 func (StageAccessLogSettingsOutput) ElementType() reflect.Type {
@@ -2086,6 +2387,12 @@ func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsPtrOutputWithConte
 	}).(StageAccessLogSettingsPtrOutput)
 }
 
+func (o StageAccessLogSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[StageAccessLogSettings] {
+	return pulumix.Output[StageAccessLogSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StageAccessLogSettingsOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageAccessLogSettings) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
@@ -2106,6 +2413,12 @@ func (o StageAccessLogSettingsPtrOutput) ToStageAccessLogSettingsPtrOutput() Sta
 
 func (o StageAccessLogSettingsPtrOutput) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
 	return o
+}
+
+func (o StageAccessLogSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StageAccessLogSettings] {
+	return pulumix.Output[*StageAccessLogSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StageAccessLogSettingsPtrOutput) Elem() StageAccessLogSettingsOutput {
@@ -2175,6 +2488,12 @@ func (i StageRouteSettingsArgs) ToStageRouteSettingsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StageRouteSettingsOutput)
 }
 
+func (i StageRouteSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[StageRouteSettings] {
+	return pulumix.Output[StageRouteSettings]{
+		OutputState: i.ToStageRouteSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StageRouteSettingsArgs) ToStageRouteSettingsPtrOutput() StageRouteSettingsPtrOutput {
 	return i.ToStageRouteSettingsPtrOutputWithContext(context.Background())
 }
@@ -2216,6 +2535,12 @@ func (i *stageRouteSettingsPtrType) ToStageRouteSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(StageRouteSettingsPtrOutput)
 }
 
+func (i *stageRouteSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StageRouteSettings] {
+	return pulumix.Output[*StageRouteSettings]{
+		OutputState: i.ToStageRouteSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StageRouteSettingsOutput struct{ *pulumi.OutputState }
 
 func (StageRouteSettingsOutput) ElementType() reflect.Type {
@@ -2238,6 +2563,12 @@ func (o StageRouteSettingsOutput) ToStageRouteSettingsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageRouteSettings) *StageRouteSettings {
 		return &v
 	}).(StageRouteSettingsPtrOutput)
+}
+
+func (o StageRouteSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[StageRouteSettings] {
+	return pulumix.Output[StageRouteSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StageRouteSettingsOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
@@ -2272,6 +2603,12 @@ func (o StageRouteSettingsPtrOutput) ToStageRouteSettingsPtrOutput() StageRouteS
 
 func (o StageRouteSettingsPtrOutput) ToStageRouteSettingsPtrOutputWithContext(ctx context.Context) StageRouteSettingsPtrOutput {
 	return o
+}
+
+func (o StageRouteSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StageRouteSettings] {
+	return pulumix.Output[*StageRouteSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StageRouteSettingsPtrOutput) Elem() StageRouteSettingsOutput {

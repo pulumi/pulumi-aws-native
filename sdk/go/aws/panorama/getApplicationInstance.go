@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for ApplicationInstance CloudFormation Resource
@@ -71,6 +72,12 @@ func (o LookupApplicationInstanceResultOutput) ToLookupApplicationInstanceResult
 
 func (o LookupApplicationInstanceResultOutput) ToLookupApplicationInstanceResultOutputWithContext(ctx context.Context) LookupApplicationInstanceResultOutput {
 	return o
+}
+
+func (o LookupApplicationInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApplicationInstanceResult] {
+	return pulumix.Output[LookupApplicationInstanceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupApplicationInstanceResultOutput) ApplicationInstanceId() pulumi.StringPtrOutput {

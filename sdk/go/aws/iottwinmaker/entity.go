@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::IoTTwinMaker::Entity
@@ -147,6 +148,12 @@ func (i *Entity) ToEntityOutputWithContext(ctx context.Context) EntityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EntityOutput)
 }
 
+func (i *Entity) ToOutput(ctx context.Context) pulumix.Output[*Entity] {
+	return pulumix.Output[*Entity]{
+		OutputState: i.ToEntityOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EntityOutput struct{ *pulumi.OutputState }
 
 func (EntityOutput) ElementType() reflect.Type {
@@ -159,6 +166,12 @@ func (o EntityOutput) ToEntityOutput() EntityOutput {
 
 func (o EntityOutput) ToEntityOutputWithContext(ctx context.Context) EntityOutput {
 	return o
+}
+
+func (o EntityOutput) ToOutput(ctx context.Context) pulumix.Output[*Entity] {
+	return pulumix.Output[*Entity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the entity.

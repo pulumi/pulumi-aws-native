@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SES::Template
@@ -93,6 +94,12 @@ func (i *Template) ToTemplateOutputWithContext(ctx context.Context) TemplateOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateOutput)
 }
 
+func (i *Template) ToOutput(ctx context.Context) pulumix.Output[*Template] {
+	return pulumix.Output[*Template]{
+		OutputState: i.ToTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TemplateOutput struct{ *pulumi.OutputState }
 
 func (TemplateOutput) ElementType() reflect.Type {
@@ -105,6 +112,12 @@ func (o TemplateOutput) ToTemplateOutput() TemplateOutput {
 
 func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) TemplateOutput {
 	return o
+}
+
+func (o TemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*Template] {
+	return pulumix.Output[*Template]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TemplateOutput) Template() TemplateTypePtrOutput {

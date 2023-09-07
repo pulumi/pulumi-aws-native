@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i GatewayRouteGrpcGatewayRouteArgs) ToGatewayRouteGrpcGatewayRouteOutput()
 
 func (i GatewayRouteGrpcGatewayRouteArgs) ToGatewayRouteGrpcGatewayRouteOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteOutput)
+}
+
+func (i GatewayRouteGrpcGatewayRouteArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteGrpcGatewayRoute] {
+	return pulumix.Output[GatewayRouteGrpcGatewayRoute]{
+		OutputState: i.ToGatewayRouteGrpcGatewayRouteOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GatewayRouteGrpcGatewayRouteArgs) ToGatewayRouteGrpcGatewayRoutePtrOutput() GatewayRouteGrpcGatewayRoutePtrOutput {
@@ -87,6 +94,12 @@ func (i *gatewayRouteGrpcGatewayRoutePtrType) ToGatewayRouteGrpcGatewayRoutePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRoutePtrOutput)
 }
 
+func (i *gatewayRouteGrpcGatewayRoutePtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteGrpcGatewayRoute] {
+	return pulumix.Output[*GatewayRouteGrpcGatewayRoute]{
+		OutputState: i.ToGatewayRouteGrpcGatewayRoutePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteGrpcGatewayRouteOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteGrpcGatewayRouteOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o GatewayRouteGrpcGatewayRouteOutput) ToGatewayRouteGrpcGatewayRoutePtrOut
 	}).(GatewayRouteGrpcGatewayRoutePtrOutput)
 }
 
+func (o GatewayRouteGrpcGatewayRouteOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteGrpcGatewayRoute] {
+	return pulumix.Output[GatewayRouteGrpcGatewayRoute]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteGrpcGatewayRouteOutput) Action() GatewayRouteGrpcGatewayRouteActionOutput {
 	return o.ApplyT(func(v GatewayRouteGrpcGatewayRoute) GatewayRouteGrpcGatewayRouteAction { return v.Action }).(GatewayRouteGrpcGatewayRouteActionOutput)
 }
@@ -131,6 +150,12 @@ func (o GatewayRouteGrpcGatewayRoutePtrOutput) ToGatewayRouteGrpcGatewayRoutePtr
 
 func (o GatewayRouteGrpcGatewayRoutePtrOutput) ToGatewayRouteGrpcGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRoutePtrOutput {
 	return o
+}
+
+func (o GatewayRouteGrpcGatewayRoutePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteGrpcGatewayRoute] {
+	return pulumix.Output[*GatewayRouteGrpcGatewayRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteGrpcGatewayRoutePtrOutput) Elem() GatewayRouteGrpcGatewayRouteOutput {
@@ -194,6 +219,12 @@ func (i GatewayRouteGrpcGatewayRouteActionArgs) ToGatewayRouteGrpcGatewayRouteAc
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteActionOutput)
 }
 
+func (i GatewayRouteGrpcGatewayRouteActionArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteGrpcGatewayRouteAction] {
+	return pulumix.Output[GatewayRouteGrpcGatewayRouteAction]{
+		OutputState: i.ToGatewayRouteGrpcGatewayRouteActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteGrpcGatewayRouteActionArgs) ToGatewayRouteGrpcGatewayRouteActionPtrOutput() GatewayRouteGrpcGatewayRouteActionPtrOutput {
 	return i.ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(context.Background())
 }
@@ -235,6 +266,12 @@ func (i *gatewayRouteGrpcGatewayRouteActionPtrType) ToGatewayRouteGrpcGatewayRou
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteActionPtrOutput)
 }
 
+func (i *gatewayRouteGrpcGatewayRouteActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteGrpcGatewayRouteAction] {
+	return pulumix.Output[*GatewayRouteGrpcGatewayRouteAction]{
+		OutputState: i.ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteGrpcGatewayRouteActionOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteGrpcGatewayRouteActionOutput) ElementType() reflect.Type {
@@ -259,6 +296,12 @@ func (o GatewayRouteGrpcGatewayRouteActionOutput) ToGatewayRouteGrpcGatewayRoute
 	}).(GatewayRouteGrpcGatewayRouteActionPtrOutput)
 }
 
+func (o GatewayRouteGrpcGatewayRouteActionOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteGrpcGatewayRouteAction] {
+	return pulumix.Output[GatewayRouteGrpcGatewayRouteAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteGrpcGatewayRouteActionOutput) Rewrite() GatewayRouteGrpcGatewayRouteRewritePtrOutput {
 	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteAction) *GatewayRouteGrpcGatewayRouteRewrite { return v.Rewrite }).(GatewayRouteGrpcGatewayRouteRewritePtrOutput)
 }
@@ -279,6 +322,12 @@ func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) ToGatewayRouteGrpcGatewayRo
 
 func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteActionPtrOutput {
 	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteGrpcGatewayRouteAction] {
+	return pulumix.Output[*GatewayRouteGrpcGatewayRouteAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) Elem() GatewayRouteGrpcGatewayRouteActionOutput {
@@ -346,6 +395,12 @@ func (i GatewayRouteGrpcGatewayRouteMatchArgs) ToGatewayRouteGrpcGatewayRouteMat
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteMatchOutput)
 }
 
+func (i GatewayRouteGrpcGatewayRouteMatchArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteGrpcGatewayRouteMatch] {
+	return pulumix.Output[GatewayRouteGrpcGatewayRouteMatch]{
+		OutputState: i.ToGatewayRouteGrpcGatewayRouteMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteGrpcGatewayRouteMatchArgs) ToGatewayRouteGrpcGatewayRouteMatchPtrOutput() GatewayRouteGrpcGatewayRouteMatchPtrOutput {
 	return i.ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(context.Background())
 }
@@ -387,6 +442,12 @@ func (i *gatewayRouteGrpcGatewayRouteMatchPtrType) ToGatewayRouteGrpcGatewayRout
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteMatchPtrOutput)
 }
 
+func (i *gatewayRouteGrpcGatewayRouteMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteGrpcGatewayRouteMatch] {
+	return pulumix.Output[*GatewayRouteGrpcGatewayRouteMatch]{
+		OutputState: i.ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteGrpcGatewayRouteMatchOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteGrpcGatewayRouteMatchOutput) ElementType() reflect.Type {
@@ -409,6 +470,12 @@ func (o GatewayRouteGrpcGatewayRouteMatchOutput) ToGatewayRouteGrpcGatewayRouteM
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteGrpcGatewayRouteMatch) *GatewayRouteGrpcGatewayRouteMatch {
 		return &v
 	}).(GatewayRouteGrpcGatewayRouteMatchPtrOutput)
+}
+
+func (o GatewayRouteGrpcGatewayRouteMatchOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteGrpcGatewayRouteMatch] {
+	return pulumix.Output[GatewayRouteGrpcGatewayRouteMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteGrpcGatewayRouteMatchOutput) Hostname() GatewayRouteHostnameMatchPtrOutput {
@@ -439,6 +506,12 @@ func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) ToGatewayRouteGrpcGatewayRou
 
 func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteMatchPtrOutput {
 	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteGrpcGatewayRouteMatch] {
+	return pulumix.Output[*GatewayRouteGrpcGatewayRouteMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) Elem() GatewayRouteGrpcGatewayRouteMatchOutput {
@@ -522,6 +595,12 @@ func (i GatewayRouteGrpcGatewayRouteMetadataArgs) ToGatewayRouteGrpcGatewayRoute
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteMetadataOutput)
 }
 
+func (i GatewayRouteGrpcGatewayRouteMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteGrpcGatewayRouteMetadata] {
+	return pulumix.Output[GatewayRouteGrpcGatewayRouteMetadata]{
+		OutputState: i.ToGatewayRouteGrpcGatewayRouteMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayRouteGrpcGatewayRouteMetadataArrayInput is an input type that accepts GatewayRouteGrpcGatewayRouteMetadataArray and GatewayRouteGrpcGatewayRouteMetadataArrayOutput values.
 // You can construct a concrete instance of `GatewayRouteGrpcGatewayRouteMetadataArrayInput` via:
 //
@@ -547,6 +626,12 @@ func (i GatewayRouteGrpcGatewayRouteMetadataArray) ToGatewayRouteGrpcGatewayRout
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteMetadataArrayOutput)
 }
 
+func (i GatewayRouteGrpcGatewayRouteMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]GatewayRouteGrpcGatewayRouteMetadata] {
+	return pulumix.Output[[]GatewayRouteGrpcGatewayRouteMetadata]{
+		OutputState: i.ToGatewayRouteGrpcGatewayRouteMetadataArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteGrpcGatewayRouteMetadataOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteGrpcGatewayRouteMetadataOutput) ElementType() reflect.Type {
@@ -559,6 +644,12 @@ func (o GatewayRouteGrpcGatewayRouteMetadataOutput) ToGatewayRouteGrpcGatewayRou
 
 func (o GatewayRouteGrpcGatewayRouteMetadataOutput) ToGatewayRouteGrpcGatewayRouteMetadataOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteMetadataOutput {
 	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteGrpcGatewayRouteMetadata] {
+	return pulumix.Output[GatewayRouteGrpcGatewayRouteMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteGrpcGatewayRouteMetadataOutput) Invert() pulumi.BoolPtrOutput {
@@ -585,6 +676,12 @@ func (o GatewayRouteGrpcGatewayRouteMetadataArrayOutput) ToGatewayRouteGrpcGatew
 
 func (o GatewayRouteGrpcGatewayRouteMetadataArrayOutput) ToGatewayRouteGrpcGatewayRouteMetadataArrayOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteMetadataArrayOutput {
 	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GatewayRouteGrpcGatewayRouteMetadata] {
+	return pulumix.Output[[]GatewayRouteGrpcGatewayRouteMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteGrpcGatewayRouteMetadataArrayOutput) Index(i pulumi.IntInput) GatewayRouteGrpcGatewayRouteMetadataOutput {
@@ -622,6 +719,12 @@ func (i GatewayRouteGrpcGatewayRouteRewriteArgs) ToGatewayRouteGrpcGatewayRouteR
 
 func (i GatewayRouteGrpcGatewayRouteRewriteArgs) ToGatewayRouteGrpcGatewayRouteRewriteOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteRewriteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteRewriteOutput)
+}
+
+func (i GatewayRouteGrpcGatewayRouteRewriteArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteGrpcGatewayRouteRewrite] {
+	return pulumix.Output[GatewayRouteGrpcGatewayRouteRewrite]{
+		OutputState: i.ToGatewayRouteGrpcGatewayRouteRewriteOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GatewayRouteGrpcGatewayRouteRewriteArgs) ToGatewayRouteGrpcGatewayRouteRewritePtrOutput() GatewayRouteGrpcGatewayRouteRewritePtrOutput {
@@ -665,6 +768,12 @@ func (i *gatewayRouteGrpcGatewayRouteRewritePtrType) ToGatewayRouteGrpcGatewayRo
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteRewritePtrOutput)
 }
 
+func (i *gatewayRouteGrpcGatewayRouteRewritePtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteGrpcGatewayRouteRewrite] {
+	return pulumix.Output[*GatewayRouteGrpcGatewayRouteRewrite]{
+		OutputState: i.ToGatewayRouteGrpcGatewayRouteRewritePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteGrpcGatewayRouteRewriteOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteGrpcGatewayRouteRewriteOutput) ElementType() reflect.Type {
@@ -689,6 +798,12 @@ func (o GatewayRouteGrpcGatewayRouteRewriteOutput) ToGatewayRouteGrpcGatewayRout
 	}).(GatewayRouteGrpcGatewayRouteRewritePtrOutput)
 }
 
+func (o GatewayRouteGrpcGatewayRouteRewriteOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteGrpcGatewayRouteRewrite] {
+	return pulumix.Output[GatewayRouteGrpcGatewayRouteRewrite]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteGrpcGatewayRouteRewriteOutput) Hostname() GatewayRouteHostnameRewritePtrOutput {
 	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteRewrite) *GatewayRouteHostnameRewrite { return v.Hostname }).(GatewayRouteHostnameRewritePtrOutput)
 }
@@ -705,6 +820,12 @@ func (o GatewayRouteGrpcGatewayRouteRewritePtrOutput) ToGatewayRouteGrpcGatewayR
 
 func (o GatewayRouteGrpcGatewayRouteRewritePtrOutput) ToGatewayRouteGrpcGatewayRouteRewritePtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteRewritePtrOutput {
 	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteRewritePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteGrpcGatewayRouteRewrite] {
+	return pulumix.Output[*GatewayRouteGrpcGatewayRouteRewrite]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteGrpcGatewayRouteRewritePtrOutput) Elem() GatewayRouteGrpcGatewayRouteRewriteOutput {
@@ -759,6 +880,12 @@ func (i GatewayRouteHostnameMatchArgs) ToGatewayRouteHostnameMatchOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHostnameMatchOutput)
 }
 
+func (i GatewayRouteHostnameMatchArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHostnameMatch] {
+	return pulumix.Output[GatewayRouteHostnameMatch]{
+		OutputState: i.ToGatewayRouteHostnameMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteHostnameMatchArgs) ToGatewayRouteHostnameMatchPtrOutput() GatewayRouteHostnameMatchPtrOutput {
 	return i.ToGatewayRouteHostnameMatchPtrOutputWithContext(context.Background())
 }
@@ -800,6 +927,12 @@ func (i *gatewayRouteHostnameMatchPtrType) ToGatewayRouteHostnameMatchPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHostnameMatchPtrOutput)
 }
 
+func (i *gatewayRouteHostnameMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHostnameMatch] {
+	return pulumix.Output[*GatewayRouteHostnameMatch]{
+		OutputState: i.ToGatewayRouteHostnameMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHostnameMatchOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHostnameMatchOutput) ElementType() reflect.Type {
@@ -824,6 +957,12 @@ func (o GatewayRouteHostnameMatchOutput) ToGatewayRouteHostnameMatchPtrOutputWit
 	}).(GatewayRouteHostnameMatchPtrOutput)
 }
 
+func (o GatewayRouteHostnameMatchOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHostnameMatch] {
+	return pulumix.Output[GatewayRouteHostnameMatch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteHostnameMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteHostnameMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -844,6 +983,12 @@ func (o GatewayRouteHostnameMatchPtrOutput) ToGatewayRouteHostnameMatchPtrOutput
 
 func (o GatewayRouteHostnameMatchPtrOutput) ToGatewayRouteHostnameMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHostnameMatchPtrOutput {
 	return o
+}
+
+func (o GatewayRouteHostnameMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHostnameMatch] {
+	return pulumix.Output[*GatewayRouteHostnameMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHostnameMatchPtrOutput) Elem() GatewayRouteHostnameMatchOutput {
@@ -905,6 +1050,12 @@ func (i GatewayRouteHostnameRewriteArgs) ToGatewayRouteHostnameRewriteOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHostnameRewriteOutput)
 }
 
+func (i GatewayRouteHostnameRewriteArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHostnameRewrite] {
+	return pulumix.Output[GatewayRouteHostnameRewrite]{
+		OutputState: i.ToGatewayRouteHostnameRewriteOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteHostnameRewriteArgs) ToGatewayRouteHostnameRewritePtrOutput() GatewayRouteHostnameRewritePtrOutput {
 	return i.ToGatewayRouteHostnameRewritePtrOutputWithContext(context.Background())
 }
@@ -946,6 +1097,12 @@ func (i *gatewayRouteHostnameRewritePtrType) ToGatewayRouteHostnameRewritePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHostnameRewritePtrOutput)
 }
 
+func (i *gatewayRouteHostnameRewritePtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHostnameRewrite] {
+	return pulumix.Output[*GatewayRouteHostnameRewrite]{
+		OutputState: i.ToGatewayRouteHostnameRewritePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHostnameRewriteOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHostnameRewriteOutput) ElementType() reflect.Type {
@@ -970,6 +1127,12 @@ func (o GatewayRouteHostnameRewriteOutput) ToGatewayRouteHostnameRewritePtrOutpu
 	}).(GatewayRouteHostnameRewritePtrOutput)
 }
 
+func (o GatewayRouteHostnameRewriteOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHostnameRewrite] {
+	return pulumix.Output[GatewayRouteHostnameRewrite]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteHostnameRewriteOutput) DefaultTargetHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteHostnameRewrite) *string { return v.DefaultTargetHostname }).(pulumi.StringPtrOutput)
 }
@@ -986,6 +1149,12 @@ func (o GatewayRouteHostnameRewritePtrOutput) ToGatewayRouteHostnameRewritePtrOu
 
 func (o GatewayRouteHostnameRewritePtrOutput) ToGatewayRouteHostnameRewritePtrOutputWithContext(ctx context.Context) GatewayRouteHostnameRewritePtrOutput {
 	return o
+}
+
+func (o GatewayRouteHostnameRewritePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHostnameRewrite] {
+	return pulumix.Output[*GatewayRouteHostnameRewrite]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHostnameRewritePtrOutput) Elem() GatewayRouteHostnameRewriteOutput {
@@ -1040,6 +1209,12 @@ func (i GatewayRouteHttpGatewayRouteArgs) ToGatewayRouteHttpGatewayRouteOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteOutput)
 }
 
+func (i GatewayRouteHttpGatewayRouteArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRoute] {
+	return pulumix.Output[GatewayRouteHttpGatewayRoute]{
+		OutputState: i.ToGatewayRouteHttpGatewayRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteHttpGatewayRouteArgs) ToGatewayRouteHttpGatewayRoutePtrOutput() GatewayRouteHttpGatewayRoutePtrOutput {
 	return i.ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(context.Background())
 }
@@ -1081,6 +1256,12 @@ func (i *gatewayRouteHttpGatewayRoutePtrType) ToGatewayRouteHttpGatewayRoutePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRoutePtrOutput)
 }
 
+func (i *gatewayRouteHttpGatewayRoutePtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRoute] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRoute]{
+		OutputState: i.ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHttpGatewayRouteOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHttpGatewayRouteOutput) ElementType() reflect.Type {
@@ -1105,6 +1286,12 @@ func (o GatewayRouteHttpGatewayRouteOutput) ToGatewayRouteHttpGatewayRoutePtrOut
 	}).(GatewayRouteHttpGatewayRoutePtrOutput)
 }
 
+func (o GatewayRouteHttpGatewayRouteOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRoute] {
+	return pulumix.Output[GatewayRouteHttpGatewayRoute]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteHttpGatewayRouteOutput) Action() GatewayRouteHttpGatewayRouteActionOutput {
 	return o.ApplyT(func(v GatewayRouteHttpGatewayRoute) GatewayRouteHttpGatewayRouteAction { return v.Action }).(GatewayRouteHttpGatewayRouteActionOutput)
 }
@@ -1125,6 +1312,12 @@ func (o GatewayRouteHttpGatewayRoutePtrOutput) ToGatewayRouteHttpGatewayRoutePtr
 
 func (o GatewayRouteHttpGatewayRoutePtrOutput) ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRoutePtrOutput {
 	return o
+}
+
+func (o GatewayRouteHttpGatewayRoutePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRoute] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRoutePtrOutput) Elem() GatewayRouteHttpGatewayRouteOutput {
@@ -1188,6 +1381,12 @@ func (i GatewayRouteHttpGatewayRouteActionArgs) ToGatewayRouteHttpGatewayRouteAc
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteActionOutput)
 }
 
+func (i GatewayRouteHttpGatewayRouteActionArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRouteAction] {
+	return pulumix.Output[GatewayRouteHttpGatewayRouteAction]{
+		OutputState: i.ToGatewayRouteHttpGatewayRouteActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteHttpGatewayRouteActionArgs) ToGatewayRouteHttpGatewayRouteActionPtrOutput() GatewayRouteHttpGatewayRouteActionPtrOutput {
 	return i.ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(context.Background())
 }
@@ -1229,6 +1428,12 @@ func (i *gatewayRouteHttpGatewayRouteActionPtrType) ToGatewayRouteHttpGatewayRou
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteActionPtrOutput)
 }
 
+func (i *gatewayRouteHttpGatewayRouteActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRouteAction] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRouteAction]{
+		OutputState: i.ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHttpGatewayRouteActionOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHttpGatewayRouteActionOutput) ElementType() reflect.Type {
@@ -1253,6 +1458,12 @@ func (o GatewayRouteHttpGatewayRouteActionOutput) ToGatewayRouteHttpGatewayRoute
 	}).(GatewayRouteHttpGatewayRouteActionPtrOutput)
 }
 
+func (o GatewayRouteHttpGatewayRouteActionOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRouteAction] {
+	return pulumix.Output[GatewayRouteHttpGatewayRouteAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteHttpGatewayRouteActionOutput) Rewrite() GatewayRouteHttpGatewayRouteRewritePtrOutput {
 	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteAction) *GatewayRouteHttpGatewayRouteRewrite { return v.Rewrite }).(GatewayRouteHttpGatewayRouteRewritePtrOutput)
 }
@@ -1273,6 +1484,12 @@ func (o GatewayRouteHttpGatewayRouteActionPtrOutput) ToGatewayRouteHttpGatewayRo
 
 func (o GatewayRouteHttpGatewayRouteActionPtrOutput) ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteActionPtrOutput {
 	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRouteAction] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRouteAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRouteActionPtrOutput) Elem() GatewayRouteHttpGatewayRouteActionOutput {
@@ -1338,6 +1555,12 @@ func (i GatewayRouteHttpGatewayRouteHeaderArgs) ToGatewayRouteHttpGatewayRouteHe
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteHeaderOutput)
 }
 
+func (i GatewayRouteHttpGatewayRouteHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRouteHeader] {
+	return pulumix.Output[GatewayRouteHttpGatewayRouteHeader]{
+		OutputState: i.ToGatewayRouteHttpGatewayRouteHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayRouteHttpGatewayRouteHeaderArrayInput is an input type that accepts GatewayRouteHttpGatewayRouteHeaderArray and GatewayRouteHttpGatewayRouteHeaderArrayOutput values.
 // You can construct a concrete instance of `GatewayRouteHttpGatewayRouteHeaderArrayInput` via:
 //
@@ -1363,6 +1586,12 @@ func (i GatewayRouteHttpGatewayRouteHeaderArray) ToGatewayRouteHttpGatewayRouteH
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteHeaderArrayOutput)
 }
 
+func (i GatewayRouteHttpGatewayRouteHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]GatewayRouteHttpGatewayRouteHeader] {
+	return pulumix.Output[[]GatewayRouteHttpGatewayRouteHeader]{
+		OutputState: i.ToGatewayRouteHttpGatewayRouteHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHttpGatewayRouteHeaderOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHttpGatewayRouteHeaderOutput) ElementType() reflect.Type {
@@ -1375,6 +1604,12 @@ func (o GatewayRouteHttpGatewayRouteHeaderOutput) ToGatewayRouteHttpGatewayRoute
 
 func (o GatewayRouteHttpGatewayRouteHeaderOutput) ToGatewayRouteHttpGatewayRouteHeaderOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteHeaderOutput {
 	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRouteHeader] {
+	return pulumix.Output[GatewayRouteHttpGatewayRouteHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRouteHeaderOutput) Invert() pulumi.BoolPtrOutput {
@@ -1401,6 +1636,12 @@ func (o GatewayRouteHttpGatewayRouteHeaderArrayOutput) ToGatewayRouteHttpGateway
 
 func (o GatewayRouteHttpGatewayRouteHeaderArrayOutput) ToGatewayRouteHttpGatewayRouteHeaderArrayOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteHeaderArrayOutput {
 	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GatewayRouteHttpGatewayRouteHeader] {
+	return pulumix.Output[[]GatewayRouteHttpGatewayRouteHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRouteHeaderArrayOutput) Index(i pulumi.IntInput) GatewayRouteHttpGatewayRouteHeaderOutput {
@@ -1448,6 +1689,12 @@ func (i GatewayRouteHttpGatewayRouteHeaderMatchArgs) ToGatewayRouteHttpGatewayRo
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteHeaderMatchOutput)
 }
 
+func (i GatewayRouteHttpGatewayRouteHeaderMatchArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRouteHeaderMatch] {
+	return pulumix.Output[GatewayRouteHttpGatewayRouteHeaderMatch]{
+		OutputState: i.ToGatewayRouteHttpGatewayRouteHeaderMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteHttpGatewayRouteHeaderMatchArgs) ToGatewayRouteHttpGatewayRouteHeaderMatchPtrOutput() GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput {
 	return i.ToGatewayRouteHttpGatewayRouteHeaderMatchPtrOutputWithContext(context.Background())
 }
@@ -1489,6 +1736,12 @@ func (i *gatewayRouteHttpGatewayRouteHeaderMatchPtrType) ToGatewayRouteHttpGatew
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput)
 }
 
+func (i *gatewayRouteHttpGatewayRouteHeaderMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRouteHeaderMatch] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRouteHeaderMatch]{
+		OutputState: i.ToGatewayRouteHttpGatewayRouteHeaderMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHttpGatewayRouteHeaderMatchOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHttpGatewayRouteHeaderMatchOutput) ElementType() reflect.Type {
@@ -1511,6 +1764,12 @@ func (o GatewayRouteHttpGatewayRouteHeaderMatchOutput) ToGatewayRouteHttpGateway
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteHttpGatewayRouteHeaderMatch) *GatewayRouteHttpGatewayRouteHeaderMatch {
 		return &v
 	}).(GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput)
+}
+
+func (o GatewayRouteHttpGatewayRouteHeaderMatchOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRouteHeaderMatch] {
+	return pulumix.Output[GatewayRouteHttpGatewayRouteHeaderMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRouteHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
@@ -1545,6 +1804,12 @@ func (o GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput) ToGatewayRouteHttpGate
 
 func (o GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput) ToGatewayRouteHttpGatewayRouteHeaderMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput {
 	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRouteHeaderMatch] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRouteHeaderMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput) Elem() GatewayRouteHttpGatewayRouteHeaderMatchOutput {
@@ -1645,6 +1910,12 @@ func (i GatewayRouteHttpGatewayRouteMatchArgs) ToGatewayRouteHttpGatewayRouteMat
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteMatchOutput)
 }
 
+func (i GatewayRouteHttpGatewayRouteMatchArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRouteMatch] {
+	return pulumix.Output[GatewayRouteHttpGatewayRouteMatch]{
+		OutputState: i.ToGatewayRouteHttpGatewayRouteMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteHttpGatewayRouteMatchArgs) ToGatewayRouteHttpGatewayRouteMatchPtrOutput() GatewayRouteHttpGatewayRouteMatchPtrOutput {
 	return i.ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(context.Background())
 }
@@ -1686,6 +1957,12 @@ func (i *gatewayRouteHttpGatewayRouteMatchPtrType) ToGatewayRouteHttpGatewayRout
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteMatchPtrOutput)
 }
 
+func (i *gatewayRouteHttpGatewayRouteMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRouteMatch] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRouteMatch]{
+		OutputState: i.ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHttpGatewayRouteMatchOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHttpGatewayRouteMatchOutput) ElementType() reflect.Type {
@@ -1708,6 +1985,12 @@ func (o GatewayRouteHttpGatewayRouteMatchOutput) ToGatewayRouteHttpGatewayRouteM
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteHttpGatewayRouteMatch) *GatewayRouteHttpGatewayRouteMatch {
 		return &v
 	}).(GatewayRouteHttpGatewayRouteMatchPtrOutput)
+}
+
+func (o GatewayRouteHttpGatewayRouteMatchOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRouteMatch] {
+	return pulumix.Output[GatewayRouteHttpGatewayRouteMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRouteMatchOutput) Headers() GatewayRouteHttpGatewayRouteHeaderArrayOutput {
@@ -1750,6 +2033,12 @@ func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) ToGatewayRouteHttpGatewayRou
 
 func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteMatchPtrOutput {
 	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRouteMatch] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRouteMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) Elem() GatewayRouteHttpGatewayRouteMatchOutput {
@@ -1856,6 +2145,12 @@ func (i GatewayRouteHttpGatewayRoutePathRewriteArgs) ToGatewayRouteHttpGatewayRo
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRoutePathRewriteOutput)
 }
 
+func (i GatewayRouteHttpGatewayRoutePathRewriteArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRoutePathRewrite] {
+	return pulumix.Output[GatewayRouteHttpGatewayRoutePathRewrite]{
+		OutputState: i.ToGatewayRouteHttpGatewayRoutePathRewriteOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteHttpGatewayRoutePathRewriteArgs) ToGatewayRouteHttpGatewayRoutePathRewritePtrOutput() GatewayRouteHttpGatewayRoutePathRewritePtrOutput {
 	return i.ToGatewayRouteHttpGatewayRoutePathRewritePtrOutputWithContext(context.Background())
 }
@@ -1897,6 +2192,12 @@ func (i *gatewayRouteHttpGatewayRoutePathRewritePtrType) ToGatewayRouteHttpGatew
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRoutePathRewritePtrOutput)
 }
 
+func (i *gatewayRouteHttpGatewayRoutePathRewritePtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRoutePathRewrite] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRoutePathRewrite]{
+		OutputState: i.ToGatewayRouteHttpGatewayRoutePathRewritePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHttpGatewayRoutePathRewriteOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHttpGatewayRoutePathRewriteOutput) ElementType() reflect.Type {
@@ -1921,6 +2222,12 @@ func (o GatewayRouteHttpGatewayRoutePathRewriteOutput) ToGatewayRouteHttpGateway
 	}).(GatewayRouteHttpGatewayRoutePathRewritePtrOutput)
 }
 
+func (o GatewayRouteHttpGatewayRoutePathRewriteOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRoutePathRewrite] {
+	return pulumix.Output[GatewayRouteHttpGatewayRoutePathRewrite]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteHttpGatewayRoutePathRewriteOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteHttpGatewayRoutePathRewrite) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -1937,6 +2244,12 @@ func (o GatewayRouteHttpGatewayRoutePathRewritePtrOutput) ToGatewayRouteHttpGate
 
 func (o GatewayRouteHttpGatewayRoutePathRewritePtrOutput) ToGatewayRouteHttpGatewayRoutePathRewritePtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRoutePathRewritePtrOutput {
 	return o
+}
+
+func (o GatewayRouteHttpGatewayRoutePathRewritePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRoutePathRewrite] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRoutePathRewrite]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRoutePathRewritePtrOutput) Elem() GatewayRouteHttpGatewayRoutePathRewriteOutput {
@@ -1991,6 +2304,12 @@ func (i GatewayRouteHttpGatewayRoutePrefixRewriteArgs) ToGatewayRouteHttpGateway
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRoutePrefixRewriteOutput)
 }
 
+func (i GatewayRouteHttpGatewayRoutePrefixRewriteArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRoutePrefixRewrite] {
+	return pulumix.Output[GatewayRouteHttpGatewayRoutePrefixRewrite]{
+		OutputState: i.ToGatewayRouteHttpGatewayRoutePrefixRewriteOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteHttpGatewayRoutePrefixRewriteArgs) ToGatewayRouteHttpGatewayRoutePrefixRewritePtrOutput() GatewayRouteHttpGatewayRoutePrefixRewritePtrOutput {
 	return i.ToGatewayRouteHttpGatewayRoutePrefixRewritePtrOutputWithContext(context.Background())
 }
@@ -2032,6 +2351,12 @@ func (i *gatewayRouteHttpGatewayRoutePrefixRewritePtrType) ToGatewayRouteHttpGat
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRoutePrefixRewritePtrOutput)
 }
 
+func (i *gatewayRouteHttpGatewayRoutePrefixRewritePtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRoutePrefixRewrite] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRoutePrefixRewrite]{
+		OutputState: i.ToGatewayRouteHttpGatewayRoutePrefixRewritePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHttpGatewayRoutePrefixRewriteOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHttpGatewayRoutePrefixRewriteOutput) ElementType() reflect.Type {
@@ -2056,6 +2381,12 @@ func (o GatewayRouteHttpGatewayRoutePrefixRewriteOutput) ToGatewayRouteHttpGatew
 	}).(GatewayRouteHttpGatewayRoutePrefixRewritePtrOutput)
 }
 
+func (o GatewayRouteHttpGatewayRoutePrefixRewriteOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRoutePrefixRewrite] {
+	return pulumix.Output[GatewayRouteHttpGatewayRoutePrefixRewrite]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteHttpGatewayRoutePrefixRewriteOutput) DefaultPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteHttpGatewayRoutePrefixRewrite) *string { return v.DefaultPrefix }).(pulumi.StringPtrOutput)
 }
@@ -2076,6 +2407,12 @@ func (o GatewayRouteHttpGatewayRoutePrefixRewritePtrOutput) ToGatewayRouteHttpGa
 
 func (o GatewayRouteHttpGatewayRoutePrefixRewritePtrOutput) ToGatewayRouteHttpGatewayRoutePrefixRewritePtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRoutePrefixRewritePtrOutput {
 	return o
+}
+
+func (o GatewayRouteHttpGatewayRoutePrefixRewritePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRoutePrefixRewrite] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRoutePrefixRewrite]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRoutePrefixRewritePtrOutput) Elem() GatewayRouteHttpGatewayRoutePrefixRewriteOutput {
@@ -2141,6 +2478,12 @@ func (i GatewayRouteHttpGatewayRouteRewriteArgs) ToGatewayRouteHttpGatewayRouteR
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteRewriteOutput)
 }
 
+func (i GatewayRouteHttpGatewayRouteRewriteArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRouteRewrite] {
+	return pulumix.Output[GatewayRouteHttpGatewayRouteRewrite]{
+		OutputState: i.ToGatewayRouteHttpGatewayRouteRewriteOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteHttpGatewayRouteRewriteArgs) ToGatewayRouteHttpGatewayRouteRewritePtrOutput() GatewayRouteHttpGatewayRouteRewritePtrOutput {
 	return i.ToGatewayRouteHttpGatewayRouteRewritePtrOutputWithContext(context.Background())
 }
@@ -2182,6 +2525,12 @@ func (i *gatewayRouteHttpGatewayRouteRewritePtrType) ToGatewayRouteHttpGatewayRo
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteRewritePtrOutput)
 }
 
+func (i *gatewayRouteHttpGatewayRouteRewritePtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRouteRewrite] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRouteRewrite]{
+		OutputState: i.ToGatewayRouteHttpGatewayRouteRewritePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHttpGatewayRouteRewriteOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHttpGatewayRouteRewriteOutput) ElementType() reflect.Type {
@@ -2204,6 +2553,12 @@ func (o GatewayRouteHttpGatewayRouteRewriteOutput) ToGatewayRouteHttpGatewayRout
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteHttpGatewayRouteRewrite) *GatewayRouteHttpGatewayRouteRewrite {
 		return &v
 	}).(GatewayRouteHttpGatewayRouteRewritePtrOutput)
+}
+
+func (o GatewayRouteHttpGatewayRouteRewriteOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpGatewayRouteRewrite] {
+	return pulumix.Output[GatewayRouteHttpGatewayRouteRewrite]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRouteRewriteOutput) Hostname() GatewayRouteHostnameRewritePtrOutput {
@@ -2232,6 +2587,12 @@ func (o GatewayRouteHttpGatewayRouteRewritePtrOutput) ToGatewayRouteHttpGatewayR
 
 func (o GatewayRouteHttpGatewayRouteRewritePtrOutput) ToGatewayRouteHttpGatewayRouteRewritePtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteRewritePtrOutput {
 	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteRewritePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpGatewayRouteRewrite] {
+	return pulumix.Output[*GatewayRouteHttpGatewayRouteRewrite]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpGatewayRouteRewritePtrOutput) Elem() GatewayRouteHttpGatewayRouteRewriteOutput {
@@ -2304,6 +2665,12 @@ func (i GatewayRouteHttpPathMatchArgs) ToGatewayRouteHttpPathMatchOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpPathMatchOutput)
 }
 
+func (i GatewayRouteHttpPathMatchArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpPathMatch] {
+	return pulumix.Output[GatewayRouteHttpPathMatch]{
+		OutputState: i.ToGatewayRouteHttpPathMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteHttpPathMatchArgs) ToGatewayRouteHttpPathMatchPtrOutput() GatewayRouteHttpPathMatchPtrOutput {
 	return i.ToGatewayRouteHttpPathMatchPtrOutputWithContext(context.Background())
 }
@@ -2345,6 +2712,12 @@ func (i *gatewayRouteHttpPathMatchPtrType) ToGatewayRouteHttpPathMatchPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpPathMatchPtrOutput)
 }
 
+func (i *gatewayRouteHttpPathMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpPathMatch] {
+	return pulumix.Output[*GatewayRouteHttpPathMatch]{
+		OutputState: i.ToGatewayRouteHttpPathMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHttpPathMatchOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHttpPathMatchOutput) ElementType() reflect.Type {
@@ -2369,6 +2742,12 @@ func (o GatewayRouteHttpPathMatchOutput) ToGatewayRouteHttpPathMatchPtrOutputWit
 	}).(GatewayRouteHttpPathMatchPtrOutput)
 }
 
+func (o GatewayRouteHttpPathMatchOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpPathMatch] {
+	return pulumix.Output[GatewayRouteHttpPathMatch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteHttpPathMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteHttpPathMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -2389,6 +2768,12 @@ func (o GatewayRouteHttpPathMatchPtrOutput) ToGatewayRouteHttpPathMatchPtrOutput
 
 func (o GatewayRouteHttpPathMatchPtrOutput) ToGatewayRouteHttpPathMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHttpPathMatchPtrOutput {
 	return o
+}
+
+func (o GatewayRouteHttpPathMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpPathMatch] {
+	return pulumix.Output[*GatewayRouteHttpPathMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpPathMatchPtrOutput) Elem() GatewayRouteHttpPathMatchOutput {
@@ -2450,6 +2835,12 @@ func (i GatewayRouteHttpQueryParameterMatchArgs) ToGatewayRouteHttpQueryParamete
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpQueryParameterMatchOutput)
 }
 
+func (i GatewayRouteHttpQueryParameterMatchArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpQueryParameterMatch] {
+	return pulumix.Output[GatewayRouteHttpQueryParameterMatch]{
+		OutputState: i.ToGatewayRouteHttpQueryParameterMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteHttpQueryParameterMatchArgs) ToGatewayRouteHttpQueryParameterMatchPtrOutput() GatewayRouteHttpQueryParameterMatchPtrOutput {
 	return i.ToGatewayRouteHttpQueryParameterMatchPtrOutputWithContext(context.Background())
 }
@@ -2491,6 +2882,12 @@ func (i *gatewayRouteHttpQueryParameterMatchPtrType) ToGatewayRouteHttpQueryPara
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpQueryParameterMatchPtrOutput)
 }
 
+func (i *gatewayRouteHttpQueryParameterMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpQueryParameterMatch] {
+	return pulumix.Output[*GatewayRouteHttpQueryParameterMatch]{
+		OutputState: i.ToGatewayRouteHttpQueryParameterMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteHttpQueryParameterMatchOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteHttpQueryParameterMatchOutput) ElementType() reflect.Type {
@@ -2515,6 +2912,12 @@ func (o GatewayRouteHttpQueryParameterMatchOutput) ToGatewayRouteHttpQueryParame
 	}).(GatewayRouteHttpQueryParameterMatchPtrOutput)
 }
 
+func (o GatewayRouteHttpQueryParameterMatchOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteHttpQueryParameterMatch] {
+	return pulumix.Output[GatewayRouteHttpQueryParameterMatch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteHttpQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteHttpQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -2531,6 +2934,12 @@ func (o GatewayRouteHttpQueryParameterMatchPtrOutput) ToGatewayRouteHttpQueryPar
 
 func (o GatewayRouteHttpQueryParameterMatchPtrOutput) ToGatewayRouteHttpQueryParameterMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHttpQueryParameterMatchPtrOutput {
 	return o
+}
+
+func (o GatewayRouteHttpQueryParameterMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteHttpQueryParameterMatch] {
+	return pulumix.Output[*GatewayRouteHttpQueryParameterMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteHttpQueryParameterMatchPtrOutput) Elem() GatewayRouteHttpQueryParameterMatchOutput {
@@ -2591,6 +3000,12 @@ func (i GatewayRouteMetadataMatchArgs) ToGatewayRouteMetadataMatchOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteMetadataMatchOutput)
 }
 
+func (i GatewayRouteMetadataMatchArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteMetadataMatch] {
+	return pulumix.Output[GatewayRouteMetadataMatch]{
+		OutputState: i.ToGatewayRouteMetadataMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteMetadataMatchArgs) ToGatewayRouteMetadataMatchPtrOutput() GatewayRouteMetadataMatchPtrOutput {
 	return i.ToGatewayRouteMetadataMatchPtrOutputWithContext(context.Background())
 }
@@ -2632,6 +3047,12 @@ func (i *gatewayRouteMetadataMatchPtrType) ToGatewayRouteMetadataMatchPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteMetadataMatchPtrOutput)
 }
 
+func (i *gatewayRouteMetadataMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteMetadataMatch] {
+	return pulumix.Output[*GatewayRouteMetadataMatch]{
+		OutputState: i.ToGatewayRouteMetadataMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteMetadataMatchOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteMetadataMatchOutput) ElementType() reflect.Type {
@@ -2654,6 +3075,12 @@ func (o GatewayRouteMetadataMatchOutput) ToGatewayRouteMetadataMatchPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteMetadataMatch) *GatewayRouteMetadataMatch {
 		return &v
 	}).(GatewayRouteMetadataMatchPtrOutput)
+}
+
+func (o GatewayRouteMetadataMatchOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteMetadataMatch] {
+	return pulumix.Output[GatewayRouteMetadataMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteMetadataMatchOutput) Exact() pulumi.StringPtrOutput {
@@ -2688,6 +3115,12 @@ func (o GatewayRouteMetadataMatchPtrOutput) ToGatewayRouteMetadataMatchPtrOutput
 
 func (o GatewayRouteMetadataMatchPtrOutput) ToGatewayRouteMetadataMatchPtrOutputWithContext(ctx context.Context) GatewayRouteMetadataMatchPtrOutput {
 	return o
+}
+
+func (o GatewayRouteMetadataMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteMetadataMatch] {
+	return pulumix.Output[*GatewayRouteMetadataMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteMetadataMatchPtrOutput) Elem() GatewayRouteMetadataMatchOutput {
@@ -2778,6 +3211,12 @@ func (i GatewayRouteQueryParameterArgs) ToGatewayRouteQueryParameterOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteQueryParameterOutput)
 }
 
+func (i GatewayRouteQueryParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteQueryParameter] {
+	return pulumix.Output[GatewayRouteQueryParameter]{
+		OutputState: i.ToGatewayRouteQueryParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayRouteQueryParameterArrayInput is an input type that accepts GatewayRouteQueryParameterArray and GatewayRouteQueryParameterArrayOutput values.
 // You can construct a concrete instance of `GatewayRouteQueryParameterArrayInput` via:
 //
@@ -2803,6 +3242,12 @@ func (i GatewayRouteQueryParameterArray) ToGatewayRouteQueryParameterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteQueryParameterArrayOutput)
 }
 
+func (i GatewayRouteQueryParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GatewayRouteQueryParameter] {
+	return pulumix.Output[[]GatewayRouteQueryParameter]{
+		OutputState: i.ToGatewayRouteQueryParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteQueryParameterOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteQueryParameterOutput) ElementType() reflect.Type {
@@ -2815,6 +3260,12 @@ func (o GatewayRouteQueryParameterOutput) ToGatewayRouteQueryParameterOutput() G
 
 func (o GatewayRouteQueryParameterOutput) ToGatewayRouteQueryParameterOutputWithContext(ctx context.Context) GatewayRouteQueryParameterOutput {
 	return o
+}
+
+func (o GatewayRouteQueryParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteQueryParameter] {
+	return pulumix.Output[GatewayRouteQueryParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteQueryParameterOutput) Match() GatewayRouteHttpQueryParameterMatchPtrOutput {
@@ -2837,6 +3288,12 @@ func (o GatewayRouteQueryParameterArrayOutput) ToGatewayRouteQueryParameterArray
 
 func (o GatewayRouteQueryParameterArrayOutput) ToGatewayRouteQueryParameterArrayOutputWithContext(ctx context.Context) GatewayRouteQueryParameterArrayOutput {
 	return o
+}
+
+func (o GatewayRouteQueryParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GatewayRouteQueryParameter] {
+	return pulumix.Output[[]GatewayRouteQueryParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteQueryParameterArrayOutput) Index(i pulumi.IntInput) GatewayRouteQueryParameterOutput {
@@ -2876,6 +3333,12 @@ func (i GatewayRouteRangeMatchArgs) ToGatewayRouteRangeMatchOutput() GatewayRout
 
 func (i GatewayRouteRangeMatchArgs) ToGatewayRouteRangeMatchOutputWithContext(ctx context.Context) GatewayRouteRangeMatchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteRangeMatchOutput)
+}
+
+func (i GatewayRouteRangeMatchArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteRangeMatch] {
+	return pulumix.Output[GatewayRouteRangeMatch]{
+		OutputState: i.ToGatewayRouteRangeMatchOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GatewayRouteRangeMatchArgs) ToGatewayRouteRangeMatchPtrOutput() GatewayRouteRangeMatchPtrOutput {
@@ -2919,6 +3382,12 @@ func (i *gatewayRouteRangeMatchPtrType) ToGatewayRouteRangeMatchPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteRangeMatchPtrOutput)
 }
 
+func (i *gatewayRouteRangeMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteRangeMatch] {
+	return pulumix.Output[*GatewayRouteRangeMatch]{
+		OutputState: i.ToGatewayRouteRangeMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteRangeMatchOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteRangeMatchOutput) ElementType() reflect.Type {
@@ -2943,6 +3412,12 @@ func (o GatewayRouteRangeMatchOutput) ToGatewayRouteRangeMatchPtrOutputWithConte
 	}).(GatewayRouteRangeMatchPtrOutput)
 }
 
+func (o GatewayRouteRangeMatchOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteRangeMatch] {
+	return pulumix.Output[GatewayRouteRangeMatch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteRangeMatchOutput) End() pulumi.IntOutput {
 	return o.ApplyT(func(v GatewayRouteRangeMatch) int { return v.End }).(pulumi.IntOutput)
 }
@@ -2963,6 +3438,12 @@ func (o GatewayRouteRangeMatchPtrOutput) ToGatewayRouteRangeMatchPtrOutput() Gat
 
 func (o GatewayRouteRangeMatchPtrOutput) ToGatewayRouteRangeMatchPtrOutputWithContext(ctx context.Context) GatewayRouteRangeMatchPtrOutput {
 	return o
+}
+
+func (o GatewayRouteRangeMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteRangeMatch] {
+	return pulumix.Output[*GatewayRouteRangeMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteRangeMatchPtrOutput) Elem() GatewayRouteRangeMatchOutput {
@@ -3030,6 +3511,12 @@ func (i GatewayRouteSpecArgs) ToGatewayRouteSpecOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecOutput)
 }
 
+func (i GatewayRouteSpecArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteSpec] {
+	return pulumix.Output[GatewayRouteSpec]{
+		OutputState: i.ToGatewayRouteSpecOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteSpecOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteSpecOutput) ElementType() reflect.Type {
@@ -3042,6 +3529,12 @@ func (o GatewayRouteSpecOutput) ToGatewayRouteSpecOutput() GatewayRouteSpecOutpu
 
 func (o GatewayRouteSpecOutput) ToGatewayRouteSpecOutputWithContext(ctx context.Context) GatewayRouteSpecOutput {
 	return o
+}
+
+func (o GatewayRouteSpecOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteSpec] {
+	return pulumix.Output[GatewayRouteSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteSpecOutput) GrpcRoute() GatewayRouteGrpcGatewayRoutePtrOutput {
@@ -3072,6 +3565,12 @@ func (o GatewayRouteSpecPtrOutput) ToGatewayRouteSpecPtrOutput() GatewayRouteSpe
 
 func (o GatewayRouteSpecPtrOutput) ToGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteSpecPtrOutput {
 	return o
+}
+
+func (o GatewayRouteSpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteSpec] {
+	return pulumix.Output[*GatewayRouteSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteSpecPtrOutput) Elem() GatewayRouteSpecOutput {
@@ -3153,6 +3652,12 @@ func (i GatewayRouteTagArgs) ToGatewayRouteTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteTagOutput)
 }
 
+func (i GatewayRouteTagArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteTag] {
+	return pulumix.Output[GatewayRouteTag]{
+		OutputState: i.ToGatewayRouteTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayRouteTagArrayInput is an input type that accepts GatewayRouteTagArray and GatewayRouteTagArrayOutput values.
 // You can construct a concrete instance of `GatewayRouteTagArrayInput` via:
 //
@@ -3178,6 +3683,12 @@ func (i GatewayRouteTagArray) ToGatewayRouteTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteTagArrayOutput)
 }
 
+func (i GatewayRouteTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GatewayRouteTag] {
+	return pulumix.Output[[]GatewayRouteTag]{
+		OutputState: i.ToGatewayRouteTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteTagOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteTagOutput) ElementType() reflect.Type {
@@ -3190,6 +3701,12 @@ func (o GatewayRouteTagOutput) ToGatewayRouteTagOutput() GatewayRouteTagOutput {
 
 func (o GatewayRouteTagOutput) ToGatewayRouteTagOutputWithContext(ctx context.Context) GatewayRouteTagOutput {
 	return o
+}
+
+func (o GatewayRouteTagOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteTag] {
+	return pulumix.Output[GatewayRouteTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteTagOutput) Key() pulumi.StringOutput {
@@ -3212,6 +3729,12 @@ func (o GatewayRouteTagArrayOutput) ToGatewayRouteTagArrayOutput() GatewayRouteT
 
 func (o GatewayRouteTagArrayOutput) ToGatewayRouteTagArrayOutputWithContext(ctx context.Context) GatewayRouteTagArrayOutput {
 	return o
+}
+
+func (o GatewayRouteTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GatewayRouteTag] {
+	return pulumix.Output[[]GatewayRouteTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteTagArrayOutput) Index(i pulumi.IntInput) GatewayRouteTagOutput {
@@ -3251,6 +3774,12 @@ func (i GatewayRouteTargetArgs) ToGatewayRouteTargetOutput() GatewayRouteTargetO
 
 func (i GatewayRouteTargetArgs) ToGatewayRouteTargetOutputWithContext(ctx context.Context) GatewayRouteTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteTargetOutput)
+}
+
+func (i GatewayRouteTargetArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteTarget] {
+	return pulumix.Output[GatewayRouteTarget]{
+		OutputState: i.ToGatewayRouteTargetOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GatewayRouteTargetArgs) ToGatewayRouteTargetPtrOutput() GatewayRouteTargetPtrOutput {
@@ -3294,6 +3823,12 @@ func (i *gatewayRouteTargetPtrType) ToGatewayRouteTargetPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteTargetPtrOutput)
 }
 
+func (i *gatewayRouteTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteTarget] {
+	return pulumix.Output[*GatewayRouteTarget]{
+		OutputState: i.ToGatewayRouteTargetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteTargetOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteTargetOutput) ElementType() reflect.Type {
@@ -3318,6 +3853,12 @@ func (o GatewayRouteTargetOutput) ToGatewayRouteTargetPtrOutputWithContext(ctx c
 	}).(GatewayRouteTargetPtrOutput)
 }
 
+func (o GatewayRouteTargetOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteTarget] {
+	return pulumix.Output[GatewayRouteTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteTargetOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GatewayRouteTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -3338,6 +3879,12 @@ func (o GatewayRouteTargetPtrOutput) ToGatewayRouteTargetPtrOutput() GatewayRout
 
 func (o GatewayRouteTargetPtrOutput) ToGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteTargetPtrOutput {
 	return o
+}
+
+func (o GatewayRouteTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteTarget] {
+	return pulumix.Output[*GatewayRouteTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteTargetPtrOutput) Elem() GatewayRouteTargetOutput {
@@ -3399,6 +3946,12 @@ func (i GatewayRouteVirtualServiceArgs) ToGatewayRouteVirtualServiceOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteVirtualServiceOutput)
 }
 
+func (i GatewayRouteVirtualServiceArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteVirtualService] {
+	return pulumix.Output[GatewayRouteVirtualService]{
+		OutputState: i.ToGatewayRouteVirtualServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayRouteVirtualServiceArgs) ToGatewayRouteVirtualServicePtrOutput() GatewayRouteVirtualServicePtrOutput {
 	return i.ToGatewayRouteVirtualServicePtrOutputWithContext(context.Background())
 }
@@ -3440,6 +3993,12 @@ func (i *gatewayRouteVirtualServicePtrType) ToGatewayRouteVirtualServicePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteVirtualServicePtrOutput)
 }
 
+func (i *gatewayRouteVirtualServicePtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteVirtualService] {
+	return pulumix.Output[*GatewayRouteVirtualService]{
+		OutputState: i.ToGatewayRouteVirtualServicePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteVirtualServiceOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteVirtualServiceOutput) ElementType() reflect.Type {
@@ -3464,6 +4023,12 @@ func (o GatewayRouteVirtualServiceOutput) ToGatewayRouteVirtualServicePtrOutputW
 	}).(GatewayRouteVirtualServicePtrOutput)
 }
 
+func (o GatewayRouteVirtualServiceOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayRouteVirtualService] {
+	return pulumix.Output[GatewayRouteVirtualService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
@@ -3480,6 +4045,12 @@ func (o GatewayRouteVirtualServicePtrOutput) ToGatewayRouteVirtualServicePtrOutp
 
 func (o GatewayRouteVirtualServicePtrOutput) ToGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteVirtualServicePtrOutput {
 	return o
+}
+
+func (o GatewayRouteVirtualServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteVirtualService] {
+	return pulumix.Output[*GatewayRouteVirtualService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteVirtualServicePtrOutput) Elem() GatewayRouteVirtualServiceOutput {
@@ -3532,6 +4103,12 @@ func (i MeshEgressFilterArgs) ToMeshEgressFilterOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MeshEgressFilterOutput)
 }
 
+func (i MeshEgressFilterArgs) ToOutput(ctx context.Context) pulumix.Output[MeshEgressFilter] {
+	return pulumix.Output[MeshEgressFilter]{
+		OutputState: i.ToMeshEgressFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MeshEgressFilterArgs) ToMeshEgressFilterPtrOutput() MeshEgressFilterPtrOutput {
 	return i.ToMeshEgressFilterPtrOutputWithContext(context.Background())
 }
@@ -3573,6 +4150,12 @@ func (i *meshEgressFilterPtrType) ToMeshEgressFilterPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(MeshEgressFilterPtrOutput)
 }
 
+func (i *meshEgressFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*MeshEgressFilter] {
+	return pulumix.Output[*MeshEgressFilter]{
+		OutputState: i.ToMeshEgressFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MeshEgressFilterOutput struct{ *pulumi.OutputState }
 
 func (MeshEgressFilterOutput) ElementType() reflect.Type {
@@ -3597,6 +4180,12 @@ func (o MeshEgressFilterOutput) ToMeshEgressFilterPtrOutputWithContext(ctx conte
 	}).(MeshEgressFilterPtrOutput)
 }
 
+func (o MeshEgressFilterOutput) ToOutput(ctx context.Context) pulumix.Output[MeshEgressFilter] {
+	return pulumix.Output[MeshEgressFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MeshEgressFilterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MeshEgressFilter) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3613,6 +4202,12 @@ func (o MeshEgressFilterPtrOutput) ToMeshEgressFilterPtrOutput() MeshEgressFilte
 
 func (o MeshEgressFilterPtrOutput) ToMeshEgressFilterPtrOutputWithContext(ctx context.Context) MeshEgressFilterPtrOutput {
 	return o
+}
+
+func (o MeshEgressFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MeshEgressFilter] {
+	return pulumix.Output[*MeshEgressFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MeshEgressFilterPtrOutput) Elem() MeshEgressFilterOutput {
@@ -3665,6 +4260,12 @@ func (i MeshServiceDiscoveryArgs) ToMeshServiceDiscoveryOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MeshServiceDiscoveryOutput)
 }
 
+func (i MeshServiceDiscoveryArgs) ToOutput(ctx context.Context) pulumix.Output[MeshServiceDiscovery] {
+	return pulumix.Output[MeshServiceDiscovery]{
+		OutputState: i.ToMeshServiceDiscoveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MeshServiceDiscoveryArgs) ToMeshServiceDiscoveryPtrOutput() MeshServiceDiscoveryPtrOutput {
 	return i.ToMeshServiceDiscoveryPtrOutputWithContext(context.Background())
 }
@@ -3706,6 +4307,12 @@ func (i *meshServiceDiscoveryPtrType) ToMeshServiceDiscoveryPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(MeshServiceDiscoveryPtrOutput)
 }
 
+func (i *meshServiceDiscoveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*MeshServiceDiscovery] {
+	return pulumix.Output[*MeshServiceDiscovery]{
+		OutputState: i.ToMeshServiceDiscoveryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MeshServiceDiscoveryOutput struct{ *pulumi.OutputState }
 
 func (MeshServiceDiscoveryOutput) ElementType() reflect.Type {
@@ -3730,6 +4337,12 @@ func (o MeshServiceDiscoveryOutput) ToMeshServiceDiscoveryPtrOutputWithContext(c
 	}).(MeshServiceDiscoveryPtrOutput)
 }
 
+func (o MeshServiceDiscoveryOutput) ToOutput(ctx context.Context) pulumix.Output[MeshServiceDiscovery] {
+	return pulumix.Output[MeshServiceDiscovery]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MeshServiceDiscoveryOutput) IpPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MeshServiceDiscovery) *string { return v.IpPreference }).(pulumi.StringPtrOutput)
 }
@@ -3746,6 +4359,12 @@ func (o MeshServiceDiscoveryPtrOutput) ToMeshServiceDiscoveryPtrOutput() MeshSer
 
 func (o MeshServiceDiscoveryPtrOutput) ToMeshServiceDiscoveryPtrOutputWithContext(ctx context.Context) MeshServiceDiscoveryPtrOutput {
 	return o
+}
+
+func (o MeshServiceDiscoveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MeshServiceDiscovery] {
+	return pulumix.Output[*MeshServiceDiscovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MeshServiceDiscoveryPtrOutput) Elem() MeshServiceDiscoveryOutput {
@@ -3800,6 +4419,12 @@ func (i MeshSpecArgs) ToMeshSpecOutputWithContext(ctx context.Context) MeshSpecO
 	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecOutput)
 }
 
+func (i MeshSpecArgs) ToOutput(ctx context.Context) pulumix.Output[MeshSpec] {
+	return pulumix.Output[MeshSpec]{
+		OutputState: i.ToMeshSpecOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MeshSpecArgs) ToMeshSpecPtrOutput() MeshSpecPtrOutput {
 	return i.ToMeshSpecPtrOutputWithContext(context.Background())
 }
@@ -3841,6 +4466,12 @@ func (i *meshSpecPtrType) ToMeshSpecPtrOutputWithContext(ctx context.Context) Me
 	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecPtrOutput)
 }
 
+func (i *meshSpecPtrType) ToOutput(ctx context.Context) pulumix.Output[*MeshSpec] {
+	return pulumix.Output[*MeshSpec]{
+		OutputState: i.ToMeshSpecPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MeshSpecOutput struct{ *pulumi.OutputState }
 
 func (MeshSpecOutput) ElementType() reflect.Type {
@@ -3865,6 +4496,12 @@ func (o MeshSpecOutput) ToMeshSpecPtrOutputWithContext(ctx context.Context) Mesh
 	}).(MeshSpecPtrOutput)
 }
 
+func (o MeshSpecOutput) ToOutput(ctx context.Context) pulumix.Output[MeshSpec] {
+	return pulumix.Output[MeshSpec]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MeshSpecOutput) EgressFilter() MeshEgressFilterPtrOutput {
 	return o.ApplyT(func(v MeshSpec) *MeshEgressFilter { return v.EgressFilter }).(MeshEgressFilterPtrOutput)
 }
@@ -3885,6 +4522,12 @@ func (o MeshSpecPtrOutput) ToMeshSpecPtrOutput() MeshSpecPtrOutput {
 
 func (o MeshSpecPtrOutput) ToMeshSpecPtrOutputWithContext(ctx context.Context) MeshSpecPtrOutput {
 	return o
+}
+
+func (o MeshSpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MeshSpec] {
+	return pulumix.Output[*MeshSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MeshSpecPtrOutput) Elem() MeshSpecOutput {
@@ -3948,6 +4591,12 @@ func (i MeshTagArgs) ToMeshTagOutputWithContext(ctx context.Context) MeshTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MeshTagOutput)
 }
 
+func (i MeshTagArgs) ToOutput(ctx context.Context) pulumix.Output[MeshTag] {
+	return pulumix.Output[MeshTag]{
+		OutputState: i.ToMeshTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MeshTagArrayInput is an input type that accepts MeshTagArray and MeshTagArrayOutput values.
 // You can construct a concrete instance of `MeshTagArrayInput` via:
 //
@@ -3973,6 +4622,12 @@ func (i MeshTagArray) ToMeshTagArrayOutputWithContext(ctx context.Context) MeshT
 	return pulumi.ToOutputWithContext(ctx, i).(MeshTagArrayOutput)
 }
 
+func (i MeshTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MeshTag] {
+	return pulumix.Output[[]MeshTag]{
+		OutputState: i.ToMeshTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MeshTagOutput struct{ *pulumi.OutputState }
 
 func (MeshTagOutput) ElementType() reflect.Type {
@@ -3985,6 +4640,12 @@ func (o MeshTagOutput) ToMeshTagOutput() MeshTagOutput {
 
 func (o MeshTagOutput) ToMeshTagOutputWithContext(ctx context.Context) MeshTagOutput {
 	return o
+}
+
+func (o MeshTagOutput) ToOutput(ctx context.Context) pulumix.Output[MeshTag] {
+	return pulumix.Output[MeshTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MeshTagOutput) Key() pulumi.StringOutput {
@@ -4007,6 +4668,12 @@ func (o MeshTagArrayOutput) ToMeshTagArrayOutput() MeshTagArrayOutput {
 
 func (o MeshTagArrayOutput) ToMeshTagArrayOutputWithContext(ctx context.Context) MeshTagArrayOutput {
 	return o
+}
+
+func (o MeshTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MeshTag] {
+	return pulumix.Output[[]MeshTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MeshTagArrayOutput) Index(i pulumi.IntInput) MeshTagOutput {
@@ -4046,6 +4713,12 @@ func (i RouteDurationArgs) ToRouteDurationOutput() RouteDurationOutput {
 
 func (i RouteDurationArgs) ToRouteDurationOutputWithContext(ctx context.Context) RouteDurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteDurationOutput)
+}
+
+func (i RouteDurationArgs) ToOutput(ctx context.Context) pulumix.Output[RouteDuration] {
+	return pulumix.Output[RouteDuration]{
+		OutputState: i.ToRouteDurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RouteDurationArgs) ToRouteDurationPtrOutput() RouteDurationPtrOutput {
@@ -4089,6 +4762,12 @@ func (i *routeDurationPtrType) ToRouteDurationPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(RouteDurationPtrOutput)
 }
 
+func (i *routeDurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteDuration] {
+	return pulumix.Output[*RouteDuration]{
+		OutputState: i.ToRouteDurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteDurationOutput struct{ *pulumi.OutputState }
 
 func (RouteDurationOutput) ElementType() reflect.Type {
@@ -4113,6 +4792,12 @@ func (o RouteDurationOutput) ToRouteDurationPtrOutputWithContext(ctx context.Con
 	}).(RouteDurationPtrOutput)
 }
 
+func (o RouteDurationOutput) ToOutput(ctx context.Context) pulumix.Output[RouteDuration] {
+	return pulumix.Output[RouteDuration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteDurationOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteDuration) string { return v.Unit }).(pulumi.StringOutput)
 }
@@ -4133,6 +4818,12 @@ func (o RouteDurationPtrOutput) ToRouteDurationPtrOutput() RouteDurationPtrOutpu
 
 func (o RouteDurationPtrOutput) ToRouteDurationPtrOutputWithContext(ctx context.Context) RouteDurationPtrOutput {
 	return o
+}
+
+func (o RouteDurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteDuration] {
+	return pulumix.Output[*RouteDuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteDurationPtrOutput) Elem() RouteDurationOutput {
@@ -4202,6 +4893,12 @@ func (i RouteGrpcRetryPolicyArgs) ToRouteGrpcRetryPolicyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRetryPolicyOutput)
 }
 
+func (i RouteGrpcRetryPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRetryPolicy] {
+	return pulumix.Output[RouteGrpcRetryPolicy]{
+		OutputState: i.ToRouteGrpcRetryPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteGrpcRetryPolicyArgs) ToRouteGrpcRetryPolicyPtrOutput() RouteGrpcRetryPolicyPtrOutput {
 	return i.ToRouteGrpcRetryPolicyPtrOutputWithContext(context.Background())
 }
@@ -4243,6 +4940,12 @@ func (i *routeGrpcRetryPolicyPtrType) ToRouteGrpcRetryPolicyPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRetryPolicyPtrOutput)
 }
 
+func (i *routeGrpcRetryPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcRetryPolicy] {
+	return pulumix.Output[*RouteGrpcRetryPolicy]{
+		OutputState: i.ToRouteGrpcRetryPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteGrpcRetryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RouteGrpcRetryPolicyOutput) ElementType() reflect.Type {
@@ -4265,6 +4968,12 @@ func (o RouteGrpcRetryPolicyOutput) ToRouteGrpcRetryPolicyPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteGrpcRetryPolicy) *RouteGrpcRetryPolicy {
 		return &v
 	}).(RouteGrpcRetryPolicyPtrOutput)
+}
+
+func (o RouteGrpcRetryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRetryPolicy] {
+	return pulumix.Output[RouteGrpcRetryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcRetryPolicyOutput) GrpcRetryEvents() pulumi.StringArrayOutput {
@@ -4299,6 +5008,12 @@ func (o RouteGrpcRetryPolicyPtrOutput) ToRouteGrpcRetryPolicyPtrOutput() RouteGr
 
 func (o RouteGrpcRetryPolicyPtrOutput) ToRouteGrpcRetryPolicyPtrOutputWithContext(ctx context.Context) RouteGrpcRetryPolicyPtrOutput {
 	return o
+}
+
+func (o RouteGrpcRetryPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcRetryPolicy] {
+	return pulumix.Output[*RouteGrpcRetryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcRetryPolicyPtrOutput) Elem() RouteGrpcRetryPolicyOutput {
@@ -4393,6 +5108,12 @@ func (i RouteGrpcRouteArgs) ToRouteGrpcRouteOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRouteOutput)
 }
 
+func (i RouteGrpcRouteArgs) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRoute] {
+	return pulumix.Output[RouteGrpcRoute]{
+		OutputState: i.ToRouteGrpcRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteGrpcRouteArgs) ToRouteGrpcRoutePtrOutput() RouteGrpcRoutePtrOutput {
 	return i.ToRouteGrpcRoutePtrOutputWithContext(context.Background())
 }
@@ -4434,6 +5155,12 @@ func (i *routeGrpcRoutePtrType) ToRouteGrpcRoutePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRoutePtrOutput)
 }
 
+func (i *routeGrpcRoutePtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcRoute] {
+	return pulumix.Output[*RouteGrpcRoute]{
+		OutputState: i.ToRouteGrpcRoutePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteGrpcRouteOutput struct{ *pulumi.OutputState }
 
 func (RouteGrpcRouteOutput) ElementType() reflect.Type {
@@ -4456,6 +5183,12 @@ func (o RouteGrpcRouteOutput) ToRouteGrpcRoutePtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteGrpcRoute) *RouteGrpcRoute {
 		return &v
 	}).(RouteGrpcRoutePtrOutput)
+}
+
+func (o RouteGrpcRouteOutput) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRoute] {
+	return pulumix.Output[RouteGrpcRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcRouteOutput) Action() RouteGrpcRouteActionOutput {
@@ -4486,6 +5219,12 @@ func (o RouteGrpcRoutePtrOutput) ToRouteGrpcRoutePtrOutput() RouteGrpcRoutePtrOu
 
 func (o RouteGrpcRoutePtrOutput) ToRouteGrpcRoutePtrOutputWithContext(ctx context.Context) RouteGrpcRoutePtrOutput {
 	return o
+}
+
+func (o RouteGrpcRoutePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcRoute] {
+	return pulumix.Output[*RouteGrpcRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcRoutePtrOutput) Elem() RouteGrpcRouteOutput {
@@ -4565,6 +5304,12 @@ func (i RouteGrpcRouteActionArgs) ToRouteGrpcRouteActionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRouteActionOutput)
 }
 
+func (i RouteGrpcRouteActionArgs) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRouteAction] {
+	return pulumix.Output[RouteGrpcRouteAction]{
+		OutputState: i.ToRouteGrpcRouteActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteGrpcRouteActionArgs) ToRouteGrpcRouteActionPtrOutput() RouteGrpcRouteActionPtrOutput {
 	return i.ToRouteGrpcRouteActionPtrOutputWithContext(context.Background())
 }
@@ -4606,6 +5351,12 @@ func (i *routeGrpcRouteActionPtrType) ToRouteGrpcRouteActionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRouteActionPtrOutput)
 }
 
+func (i *routeGrpcRouteActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcRouteAction] {
+	return pulumix.Output[*RouteGrpcRouteAction]{
+		OutputState: i.ToRouteGrpcRouteActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteGrpcRouteActionOutput struct{ *pulumi.OutputState }
 
 func (RouteGrpcRouteActionOutput) ElementType() reflect.Type {
@@ -4630,6 +5381,12 @@ func (o RouteGrpcRouteActionOutput) ToRouteGrpcRouteActionPtrOutputWithContext(c
 	}).(RouteGrpcRouteActionPtrOutput)
 }
 
+func (o RouteGrpcRouteActionOutput) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRouteAction] {
+	return pulumix.Output[RouteGrpcRouteAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteGrpcRouteActionOutput) WeightedTargets() RouteWeightedTargetArrayOutput {
 	return o.ApplyT(func(v RouteGrpcRouteAction) []RouteWeightedTarget { return v.WeightedTargets }).(RouteWeightedTargetArrayOutput)
 }
@@ -4646,6 +5403,12 @@ func (o RouteGrpcRouteActionPtrOutput) ToRouteGrpcRouteActionPtrOutput() RouteGr
 
 func (o RouteGrpcRouteActionPtrOutput) ToRouteGrpcRouteActionPtrOutputWithContext(ctx context.Context) RouteGrpcRouteActionPtrOutput {
 	return o
+}
+
+func (o RouteGrpcRouteActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcRouteAction] {
+	return pulumix.Output[*RouteGrpcRouteAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcRouteActionPtrOutput) Elem() RouteGrpcRouteActionOutput {
@@ -4704,6 +5467,12 @@ func (i RouteGrpcRouteMatchArgs) ToRouteGrpcRouteMatchOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRouteMatchOutput)
 }
 
+func (i RouteGrpcRouteMatchArgs) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRouteMatch] {
+	return pulumix.Output[RouteGrpcRouteMatch]{
+		OutputState: i.ToRouteGrpcRouteMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteGrpcRouteMatchArgs) ToRouteGrpcRouteMatchPtrOutput() RouteGrpcRouteMatchPtrOutput {
 	return i.ToRouteGrpcRouteMatchPtrOutputWithContext(context.Background())
 }
@@ -4745,6 +5514,12 @@ func (i *routeGrpcRouteMatchPtrType) ToRouteGrpcRouteMatchPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRouteMatchPtrOutput)
 }
 
+func (i *routeGrpcRouteMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcRouteMatch] {
+	return pulumix.Output[*RouteGrpcRouteMatch]{
+		OutputState: i.ToRouteGrpcRouteMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteGrpcRouteMatchOutput struct{ *pulumi.OutputState }
 
 func (RouteGrpcRouteMatchOutput) ElementType() reflect.Type {
@@ -4767,6 +5542,12 @@ func (o RouteGrpcRouteMatchOutput) ToRouteGrpcRouteMatchPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteGrpcRouteMatch) *RouteGrpcRouteMatch {
 		return &v
 	}).(RouteGrpcRouteMatchPtrOutput)
+}
+
+func (o RouteGrpcRouteMatchOutput) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRouteMatch] {
+	return pulumix.Output[RouteGrpcRouteMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcRouteMatchOutput) Metadata() RouteGrpcRouteMetadataArrayOutput {
@@ -4797,6 +5578,12 @@ func (o RouteGrpcRouteMatchPtrOutput) ToRouteGrpcRouteMatchPtrOutput() RouteGrpc
 
 func (o RouteGrpcRouteMatchPtrOutput) ToRouteGrpcRouteMatchPtrOutputWithContext(ctx context.Context) RouteGrpcRouteMatchPtrOutput {
 	return o
+}
+
+func (o RouteGrpcRouteMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcRouteMatch] {
+	return pulumix.Output[*RouteGrpcRouteMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcRouteMatchPtrOutput) Elem() RouteGrpcRouteMatchOutput {
@@ -4880,6 +5667,12 @@ func (i RouteGrpcRouteMetadataArgs) ToRouteGrpcRouteMetadataOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRouteMetadataOutput)
 }
 
+func (i RouteGrpcRouteMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRouteMetadata] {
+	return pulumix.Output[RouteGrpcRouteMetadata]{
+		OutputState: i.ToRouteGrpcRouteMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteGrpcRouteMetadataArrayInput is an input type that accepts RouteGrpcRouteMetadataArray and RouteGrpcRouteMetadataArrayOutput values.
 // You can construct a concrete instance of `RouteGrpcRouteMetadataArrayInput` via:
 //
@@ -4905,6 +5698,12 @@ func (i RouteGrpcRouteMetadataArray) ToRouteGrpcRouteMetadataArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRouteMetadataArrayOutput)
 }
 
+func (i RouteGrpcRouteMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]RouteGrpcRouteMetadata] {
+	return pulumix.Output[[]RouteGrpcRouteMetadata]{
+		OutputState: i.ToRouteGrpcRouteMetadataArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteGrpcRouteMetadataOutput struct{ *pulumi.OutputState }
 
 func (RouteGrpcRouteMetadataOutput) ElementType() reflect.Type {
@@ -4917,6 +5716,12 @@ func (o RouteGrpcRouteMetadataOutput) ToRouteGrpcRouteMetadataOutput() RouteGrpc
 
 func (o RouteGrpcRouteMetadataOutput) ToRouteGrpcRouteMetadataOutputWithContext(ctx context.Context) RouteGrpcRouteMetadataOutput {
 	return o
+}
+
+func (o RouteGrpcRouteMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRouteMetadata] {
+	return pulumix.Output[RouteGrpcRouteMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcRouteMetadataOutput) Invert() pulumi.BoolPtrOutput {
@@ -4943,6 +5748,12 @@ func (o RouteGrpcRouteMetadataArrayOutput) ToRouteGrpcRouteMetadataArrayOutput()
 
 func (o RouteGrpcRouteMetadataArrayOutput) ToRouteGrpcRouteMetadataArrayOutputWithContext(ctx context.Context) RouteGrpcRouteMetadataArrayOutput {
 	return o
+}
+
+func (o RouteGrpcRouteMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RouteGrpcRouteMetadata] {
+	return pulumix.Output[[]RouteGrpcRouteMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcRouteMetadataArrayOutput) Index(i pulumi.IntInput) RouteGrpcRouteMetadataOutput {
@@ -4990,6 +5801,12 @@ func (i RouteGrpcRouteMetadataMatchMethodArgs) ToRouteGrpcRouteMetadataMatchMeth
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRouteMetadataMatchMethodOutput)
 }
 
+func (i RouteGrpcRouteMetadataMatchMethodArgs) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRouteMetadataMatchMethod] {
+	return pulumix.Output[RouteGrpcRouteMetadataMatchMethod]{
+		OutputState: i.ToRouteGrpcRouteMetadataMatchMethodOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteGrpcRouteMetadataMatchMethodArgs) ToRouteGrpcRouteMetadataMatchMethodPtrOutput() RouteGrpcRouteMetadataMatchMethodPtrOutput {
 	return i.ToRouteGrpcRouteMetadataMatchMethodPtrOutputWithContext(context.Background())
 }
@@ -5031,6 +5848,12 @@ func (i *routeGrpcRouteMetadataMatchMethodPtrType) ToRouteGrpcRouteMetadataMatch
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcRouteMetadataMatchMethodPtrOutput)
 }
 
+func (i *routeGrpcRouteMetadataMatchMethodPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcRouteMetadataMatchMethod] {
+	return pulumix.Output[*RouteGrpcRouteMetadataMatchMethod]{
+		OutputState: i.ToRouteGrpcRouteMetadataMatchMethodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteGrpcRouteMetadataMatchMethodOutput struct{ *pulumi.OutputState }
 
 func (RouteGrpcRouteMetadataMatchMethodOutput) ElementType() reflect.Type {
@@ -5053,6 +5876,12 @@ func (o RouteGrpcRouteMetadataMatchMethodOutput) ToRouteGrpcRouteMetadataMatchMe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteGrpcRouteMetadataMatchMethod) *RouteGrpcRouteMetadataMatchMethod {
 		return &v
 	}).(RouteGrpcRouteMetadataMatchMethodPtrOutput)
+}
+
+func (o RouteGrpcRouteMetadataMatchMethodOutput) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcRouteMetadataMatchMethod] {
+	return pulumix.Output[RouteGrpcRouteMetadataMatchMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcRouteMetadataMatchMethodOutput) Exact() pulumi.StringPtrOutput {
@@ -5087,6 +5916,12 @@ func (o RouteGrpcRouteMetadataMatchMethodPtrOutput) ToRouteGrpcRouteMetadataMatc
 
 func (o RouteGrpcRouteMetadataMatchMethodPtrOutput) ToRouteGrpcRouteMetadataMatchMethodPtrOutputWithContext(ctx context.Context) RouteGrpcRouteMetadataMatchMethodPtrOutput {
 	return o
+}
+
+func (o RouteGrpcRouteMetadataMatchMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcRouteMetadataMatchMethod] {
+	return pulumix.Output[*RouteGrpcRouteMetadataMatchMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcRouteMetadataMatchMethodPtrOutput) Elem() RouteGrpcRouteMetadataMatchMethodOutput {
@@ -5177,6 +6012,12 @@ func (i RouteGrpcTimeoutArgs) ToRouteGrpcTimeoutOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcTimeoutOutput)
 }
 
+func (i RouteGrpcTimeoutArgs) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcTimeout] {
+	return pulumix.Output[RouteGrpcTimeout]{
+		OutputState: i.ToRouteGrpcTimeoutOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteGrpcTimeoutArgs) ToRouteGrpcTimeoutPtrOutput() RouteGrpcTimeoutPtrOutput {
 	return i.ToRouteGrpcTimeoutPtrOutputWithContext(context.Background())
 }
@@ -5218,6 +6059,12 @@ func (i *routeGrpcTimeoutPtrType) ToRouteGrpcTimeoutPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RouteGrpcTimeoutPtrOutput)
 }
 
+func (i *routeGrpcTimeoutPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcTimeout] {
+	return pulumix.Output[*RouteGrpcTimeout]{
+		OutputState: i.ToRouteGrpcTimeoutPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteGrpcTimeoutOutput struct{ *pulumi.OutputState }
 
 func (RouteGrpcTimeoutOutput) ElementType() reflect.Type {
@@ -5242,6 +6089,12 @@ func (o RouteGrpcTimeoutOutput) ToRouteGrpcTimeoutPtrOutputWithContext(ctx conte
 	}).(RouteGrpcTimeoutPtrOutput)
 }
 
+func (o RouteGrpcTimeoutOutput) ToOutput(ctx context.Context) pulumix.Output[RouteGrpcTimeout] {
+	return pulumix.Output[RouteGrpcTimeout]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteGrpcTimeoutOutput) Idle() RouteDurationPtrOutput {
 	return o.ApplyT(func(v RouteGrpcTimeout) *RouteDuration { return v.Idle }).(RouteDurationPtrOutput)
 }
@@ -5262,6 +6115,12 @@ func (o RouteGrpcTimeoutPtrOutput) ToRouteGrpcTimeoutPtrOutput() RouteGrpcTimeou
 
 func (o RouteGrpcTimeoutPtrOutput) ToRouteGrpcTimeoutPtrOutputWithContext(ctx context.Context) RouteGrpcTimeoutPtrOutput {
 	return o
+}
+
+func (o RouteGrpcTimeoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteGrpcTimeout] {
+	return pulumix.Output[*RouteGrpcTimeout]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteGrpcTimeoutPtrOutput) Elem() RouteGrpcTimeoutOutput {
@@ -5331,6 +6190,12 @@ func (i RouteHeaderMatchMethodArgs) ToRouteHeaderMatchMethodOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHeaderMatchMethodOutput)
 }
 
+func (i RouteHeaderMatchMethodArgs) ToOutput(ctx context.Context) pulumix.Output[RouteHeaderMatchMethod] {
+	return pulumix.Output[RouteHeaderMatchMethod]{
+		OutputState: i.ToRouteHeaderMatchMethodOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteHeaderMatchMethodArgs) ToRouteHeaderMatchMethodPtrOutput() RouteHeaderMatchMethodPtrOutput {
 	return i.ToRouteHeaderMatchMethodPtrOutputWithContext(context.Background())
 }
@@ -5372,6 +6237,12 @@ func (i *routeHeaderMatchMethodPtrType) ToRouteHeaderMatchMethodPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHeaderMatchMethodPtrOutput)
 }
 
+func (i *routeHeaderMatchMethodPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteHeaderMatchMethod] {
+	return pulumix.Output[*RouteHeaderMatchMethod]{
+		OutputState: i.ToRouteHeaderMatchMethodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteHeaderMatchMethodOutput struct{ *pulumi.OutputState }
 
 func (RouteHeaderMatchMethodOutput) ElementType() reflect.Type {
@@ -5394,6 +6265,12 @@ func (o RouteHeaderMatchMethodOutput) ToRouteHeaderMatchMethodPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteHeaderMatchMethod) *RouteHeaderMatchMethod {
 		return &v
 	}).(RouteHeaderMatchMethodPtrOutput)
+}
+
+func (o RouteHeaderMatchMethodOutput) ToOutput(ctx context.Context) pulumix.Output[RouteHeaderMatchMethod] {
+	return pulumix.Output[RouteHeaderMatchMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHeaderMatchMethodOutput) Exact() pulumi.StringPtrOutput {
@@ -5428,6 +6305,12 @@ func (o RouteHeaderMatchMethodPtrOutput) ToRouteHeaderMatchMethodPtrOutput() Rou
 
 func (o RouteHeaderMatchMethodPtrOutput) ToRouteHeaderMatchMethodPtrOutputWithContext(ctx context.Context) RouteHeaderMatchMethodPtrOutput {
 	return o
+}
+
+func (o RouteHeaderMatchMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteHeaderMatchMethod] {
+	return pulumix.Output[*RouteHeaderMatchMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHeaderMatchMethodPtrOutput) Elem() RouteHeaderMatchMethodOutput {
@@ -5518,6 +6401,12 @@ func (i RouteHttpPathMatchArgs) ToRouteHttpPathMatchOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpPathMatchOutput)
 }
 
+func (i RouteHttpPathMatchArgs) ToOutput(ctx context.Context) pulumix.Output[RouteHttpPathMatch] {
+	return pulumix.Output[RouteHttpPathMatch]{
+		OutputState: i.ToRouteHttpPathMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteHttpPathMatchArgs) ToRouteHttpPathMatchPtrOutput() RouteHttpPathMatchPtrOutput {
 	return i.ToRouteHttpPathMatchPtrOutputWithContext(context.Background())
 }
@@ -5559,6 +6448,12 @@ func (i *routeHttpPathMatchPtrType) ToRouteHttpPathMatchPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpPathMatchPtrOutput)
 }
 
+func (i *routeHttpPathMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpPathMatch] {
+	return pulumix.Output[*RouteHttpPathMatch]{
+		OutputState: i.ToRouteHttpPathMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteHttpPathMatchOutput struct{ *pulumi.OutputState }
 
 func (RouteHttpPathMatchOutput) ElementType() reflect.Type {
@@ -5583,6 +6478,12 @@ func (o RouteHttpPathMatchOutput) ToRouteHttpPathMatchPtrOutputWithContext(ctx c
 	}).(RouteHttpPathMatchPtrOutput)
 }
 
+func (o RouteHttpPathMatchOutput) ToOutput(ctx context.Context) pulumix.Output[RouteHttpPathMatch] {
+	return pulumix.Output[RouteHttpPathMatch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteHttpPathMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteHttpPathMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -5603,6 +6504,12 @@ func (o RouteHttpPathMatchPtrOutput) ToRouteHttpPathMatchPtrOutput() RouteHttpPa
 
 func (o RouteHttpPathMatchPtrOutput) ToRouteHttpPathMatchPtrOutputWithContext(ctx context.Context) RouteHttpPathMatchPtrOutput {
 	return o
+}
+
+func (o RouteHttpPathMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpPathMatch] {
+	return pulumix.Output[*RouteHttpPathMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpPathMatchPtrOutput) Elem() RouteHttpPathMatchOutput {
@@ -5664,6 +6571,12 @@ func (i RouteHttpQueryParameterMatchArgs) ToRouteHttpQueryParameterMatchOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpQueryParameterMatchOutput)
 }
 
+func (i RouteHttpQueryParameterMatchArgs) ToOutput(ctx context.Context) pulumix.Output[RouteHttpQueryParameterMatch] {
+	return pulumix.Output[RouteHttpQueryParameterMatch]{
+		OutputState: i.ToRouteHttpQueryParameterMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteHttpQueryParameterMatchArgs) ToRouteHttpQueryParameterMatchPtrOutput() RouteHttpQueryParameterMatchPtrOutput {
 	return i.ToRouteHttpQueryParameterMatchPtrOutputWithContext(context.Background())
 }
@@ -5705,6 +6618,12 @@ func (i *routeHttpQueryParameterMatchPtrType) ToRouteHttpQueryParameterMatchPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpQueryParameterMatchPtrOutput)
 }
 
+func (i *routeHttpQueryParameterMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpQueryParameterMatch] {
+	return pulumix.Output[*RouteHttpQueryParameterMatch]{
+		OutputState: i.ToRouteHttpQueryParameterMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteHttpQueryParameterMatchOutput struct{ *pulumi.OutputState }
 
 func (RouteHttpQueryParameterMatchOutput) ElementType() reflect.Type {
@@ -5729,6 +6648,12 @@ func (o RouteHttpQueryParameterMatchOutput) ToRouteHttpQueryParameterMatchPtrOut
 	}).(RouteHttpQueryParameterMatchPtrOutput)
 }
 
+func (o RouteHttpQueryParameterMatchOutput) ToOutput(ctx context.Context) pulumix.Output[RouteHttpQueryParameterMatch] {
+	return pulumix.Output[RouteHttpQueryParameterMatch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteHttpQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteHttpQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -5745,6 +6670,12 @@ func (o RouteHttpQueryParameterMatchPtrOutput) ToRouteHttpQueryParameterMatchPtr
 
 func (o RouteHttpQueryParameterMatchPtrOutput) ToRouteHttpQueryParameterMatchPtrOutputWithContext(ctx context.Context) RouteHttpQueryParameterMatchPtrOutput {
 	return o
+}
+
+func (o RouteHttpQueryParameterMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpQueryParameterMatch] {
+	return pulumix.Output[*RouteHttpQueryParameterMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpQueryParameterMatchPtrOutput) Elem() RouteHttpQueryParameterMatchOutput {
@@ -5803,6 +6734,12 @@ func (i RouteHttpRetryPolicyArgs) ToRouteHttpRetryPolicyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpRetryPolicyOutput)
 }
 
+func (i RouteHttpRetryPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RouteHttpRetryPolicy] {
+	return pulumix.Output[RouteHttpRetryPolicy]{
+		OutputState: i.ToRouteHttpRetryPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteHttpRetryPolicyArgs) ToRouteHttpRetryPolicyPtrOutput() RouteHttpRetryPolicyPtrOutput {
 	return i.ToRouteHttpRetryPolicyPtrOutputWithContext(context.Background())
 }
@@ -5844,6 +6781,12 @@ func (i *routeHttpRetryPolicyPtrType) ToRouteHttpRetryPolicyPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpRetryPolicyPtrOutput)
 }
 
+func (i *routeHttpRetryPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpRetryPolicy] {
+	return pulumix.Output[*RouteHttpRetryPolicy]{
+		OutputState: i.ToRouteHttpRetryPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteHttpRetryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RouteHttpRetryPolicyOutput) ElementType() reflect.Type {
@@ -5866,6 +6809,12 @@ func (o RouteHttpRetryPolicyOutput) ToRouteHttpRetryPolicyPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteHttpRetryPolicy) *RouteHttpRetryPolicy {
 		return &v
 	}).(RouteHttpRetryPolicyPtrOutput)
+}
+
+func (o RouteHttpRetryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RouteHttpRetryPolicy] {
+	return pulumix.Output[RouteHttpRetryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpRetryPolicyOutput) HttpRetryEvents() pulumi.StringArrayOutput {
@@ -5896,6 +6845,12 @@ func (o RouteHttpRetryPolicyPtrOutput) ToRouteHttpRetryPolicyPtrOutput() RouteHt
 
 func (o RouteHttpRetryPolicyPtrOutput) ToRouteHttpRetryPolicyPtrOutputWithContext(ctx context.Context) RouteHttpRetryPolicyPtrOutput {
 	return o
+}
+
+func (o RouteHttpRetryPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpRetryPolicy] {
+	return pulumix.Output[*RouteHttpRetryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpRetryPolicyPtrOutput) Elem() RouteHttpRetryPolicyOutput {
@@ -5981,6 +6936,12 @@ func (i RouteHttpRouteArgs) ToRouteHttpRouteOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpRouteOutput)
 }
 
+func (i RouteHttpRouteArgs) ToOutput(ctx context.Context) pulumix.Output[RouteHttpRoute] {
+	return pulumix.Output[RouteHttpRoute]{
+		OutputState: i.ToRouteHttpRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteHttpRouteArgs) ToRouteHttpRoutePtrOutput() RouteHttpRoutePtrOutput {
 	return i.ToRouteHttpRoutePtrOutputWithContext(context.Background())
 }
@@ -6022,6 +6983,12 @@ func (i *routeHttpRoutePtrType) ToRouteHttpRoutePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpRoutePtrOutput)
 }
 
+func (i *routeHttpRoutePtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpRoute] {
+	return pulumix.Output[*RouteHttpRoute]{
+		OutputState: i.ToRouteHttpRoutePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteHttpRouteOutput struct{ *pulumi.OutputState }
 
 func (RouteHttpRouteOutput) ElementType() reflect.Type {
@@ -6044,6 +7011,12 @@ func (o RouteHttpRouteOutput) ToRouteHttpRoutePtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteHttpRoute) *RouteHttpRoute {
 		return &v
 	}).(RouteHttpRoutePtrOutput)
+}
+
+func (o RouteHttpRouteOutput) ToOutput(ctx context.Context) pulumix.Output[RouteHttpRoute] {
+	return pulumix.Output[RouteHttpRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpRouteOutput) Action() RouteHttpRouteActionOutput {
@@ -6074,6 +7047,12 @@ func (o RouteHttpRoutePtrOutput) ToRouteHttpRoutePtrOutput() RouteHttpRoutePtrOu
 
 func (o RouteHttpRoutePtrOutput) ToRouteHttpRoutePtrOutputWithContext(ctx context.Context) RouteHttpRoutePtrOutput {
 	return o
+}
+
+func (o RouteHttpRoutePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpRoute] {
+	return pulumix.Output[*RouteHttpRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpRoutePtrOutput) Elem() RouteHttpRouteOutput {
@@ -6153,6 +7132,12 @@ func (i RouteHttpRouteActionArgs) ToRouteHttpRouteActionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpRouteActionOutput)
 }
 
+func (i RouteHttpRouteActionArgs) ToOutput(ctx context.Context) pulumix.Output[RouteHttpRouteAction] {
+	return pulumix.Output[RouteHttpRouteAction]{
+		OutputState: i.ToRouteHttpRouteActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteHttpRouteActionArgs) ToRouteHttpRouteActionPtrOutput() RouteHttpRouteActionPtrOutput {
 	return i.ToRouteHttpRouteActionPtrOutputWithContext(context.Background())
 }
@@ -6194,6 +7179,12 @@ func (i *routeHttpRouteActionPtrType) ToRouteHttpRouteActionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpRouteActionPtrOutput)
 }
 
+func (i *routeHttpRouteActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpRouteAction] {
+	return pulumix.Output[*RouteHttpRouteAction]{
+		OutputState: i.ToRouteHttpRouteActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteHttpRouteActionOutput struct{ *pulumi.OutputState }
 
 func (RouteHttpRouteActionOutput) ElementType() reflect.Type {
@@ -6218,6 +7209,12 @@ func (o RouteHttpRouteActionOutput) ToRouteHttpRouteActionPtrOutputWithContext(c
 	}).(RouteHttpRouteActionPtrOutput)
 }
 
+func (o RouteHttpRouteActionOutput) ToOutput(ctx context.Context) pulumix.Output[RouteHttpRouteAction] {
+	return pulumix.Output[RouteHttpRouteAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteHttpRouteActionOutput) WeightedTargets() RouteWeightedTargetArrayOutput {
 	return o.ApplyT(func(v RouteHttpRouteAction) []RouteWeightedTarget { return v.WeightedTargets }).(RouteWeightedTargetArrayOutput)
 }
@@ -6234,6 +7231,12 @@ func (o RouteHttpRouteActionPtrOutput) ToRouteHttpRouteActionPtrOutput() RouteHt
 
 func (o RouteHttpRouteActionPtrOutput) ToRouteHttpRouteActionPtrOutputWithContext(ctx context.Context) RouteHttpRouteActionPtrOutput {
 	return o
+}
+
+func (o RouteHttpRouteActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpRouteAction] {
+	return pulumix.Output[*RouteHttpRouteAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpRouteActionPtrOutput) Elem() RouteHttpRouteActionOutput {
@@ -6290,6 +7293,12 @@ func (i RouteHttpRouteHeaderArgs) ToRouteHttpRouteHeaderOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpRouteHeaderOutput)
 }
 
+func (i RouteHttpRouteHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[RouteHttpRouteHeader] {
+	return pulumix.Output[RouteHttpRouteHeader]{
+		OutputState: i.ToRouteHttpRouteHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteHttpRouteHeaderArrayInput is an input type that accepts RouteHttpRouteHeaderArray and RouteHttpRouteHeaderArrayOutput values.
 // You can construct a concrete instance of `RouteHttpRouteHeaderArrayInput` via:
 //
@@ -6315,6 +7324,12 @@ func (i RouteHttpRouteHeaderArray) ToRouteHttpRouteHeaderArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpRouteHeaderArrayOutput)
 }
 
+func (i RouteHttpRouteHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]RouteHttpRouteHeader] {
+	return pulumix.Output[[]RouteHttpRouteHeader]{
+		OutputState: i.ToRouteHttpRouteHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteHttpRouteHeaderOutput struct{ *pulumi.OutputState }
 
 func (RouteHttpRouteHeaderOutput) ElementType() reflect.Type {
@@ -6327,6 +7342,12 @@ func (o RouteHttpRouteHeaderOutput) ToRouteHttpRouteHeaderOutput() RouteHttpRout
 
 func (o RouteHttpRouteHeaderOutput) ToRouteHttpRouteHeaderOutputWithContext(ctx context.Context) RouteHttpRouteHeaderOutput {
 	return o
+}
+
+func (o RouteHttpRouteHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[RouteHttpRouteHeader] {
+	return pulumix.Output[RouteHttpRouteHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpRouteHeaderOutput) Invert() pulumi.BoolPtrOutput {
@@ -6353,6 +7374,12 @@ func (o RouteHttpRouteHeaderArrayOutput) ToRouteHttpRouteHeaderArrayOutput() Rou
 
 func (o RouteHttpRouteHeaderArrayOutput) ToRouteHttpRouteHeaderArrayOutputWithContext(ctx context.Context) RouteHttpRouteHeaderArrayOutput {
 	return o
+}
+
+func (o RouteHttpRouteHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RouteHttpRouteHeader] {
+	return pulumix.Output[[]RouteHttpRouteHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpRouteHeaderArrayOutput) Index(i pulumi.IntInput) RouteHttpRouteHeaderOutput {
@@ -6404,6 +7431,12 @@ func (i RouteHttpRouteMatchArgs) ToRouteHttpRouteMatchOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpRouteMatchOutput)
 }
 
+func (i RouteHttpRouteMatchArgs) ToOutput(ctx context.Context) pulumix.Output[RouteHttpRouteMatch] {
+	return pulumix.Output[RouteHttpRouteMatch]{
+		OutputState: i.ToRouteHttpRouteMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteHttpRouteMatchArgs) ToRouteHttpRouteMatchPtrOutput() RouteHttpRouteMatchPtrOutput {
 	return i.ToRouteHttpRouteMatchPtrOutputWithContext(context.Background())
 }
@@ -6445,6 +7478,12 @@ func (i *routeHttpRouteMatchPtrType) ToRouteHttpRouteMatchPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpRouteMatchPtrOutput)
 }
 
+func (i *routeHttpRouteMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpRouteMatch] {
+	return pulumix.Output[*RouteHttpRouteMatch]{
+		OutputState: i.ToRouteHttpRouteMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteHttpRouteMatchOutput struct{ *pulumi.OutputState }
 
 func (RouteHttpRouteMatchOutput) ElementType() reflect.Type {
@@ -6467,6 +7506,12 @@ func (o RouteHttpRouteMatchOutput) ToRouteHttpRouteMatchPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteHttpRouteMatch) *RouteHttpRouteMatch {
 		return &v
 	}).(RouteHttpRouteMatchPtrOutput)
+}
+
+func (o RouteHttpRouteMatchOutput) ToOutput(ctx context.Context) pulumix.Output[RouteHttpRouteMatch] {
+	return pulumix.Output[RouteHttpRouteMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpRouteMatchOutput) Headers() RouteHttpRouteHeaderArrayOutput {
@@ -6509,6 +7554,12 @@ func (o RouteHttpRouteMatchPtrOutput) ToRouteHttpRouteMatchPtrOutput() RouteHttp
 
 func (o RouteHttpRouteMatchPtrOutput) ToRouteHttpRouteMatchPtrOutputWithContext(ctx context.Context) RouteHttpRouteMatchPtrOutput {
 	return o
+}
+
+func (o RouteHttpRouteMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpRouteMatch] {
+	return pulumix.Output[*RouteHttpRouteMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpRouteMatchPtrOutput) Elem() RouteHttpRouteMatchOutput {
@@ -6617,6 +7668,12 @@ func (i RouteHttpTimeoutArgs) ToRouteHttpTimeoutOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpTimeoutOutput)
 }
 
+func (i RouteHttpTimeoutArgs) ToOutput(ctx context.Context) pulumix.Output[RouteHttpTimeout] {
+	return pulumix.Output[RouteHttpTimeout]{
+		OutputState: i.ToRouteHttpTimeoutOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteHttpTimeoutArgs) ToRouteHttpTimeoutPtrOutput() RouteHttpTimeoutPtrOutput {
 	return i.ToRouteHttpTimeoutPtrOutputWithContext(context.Background())
 }
@@ -6658,6 +7715,12 @@ func (i *routeHttpTimeoutPtrType) ToRouteHttpTimeoutPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RouteHttpTimeoutPtrOutput)
 }
 
+func (i *routeHttpTimeoutPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpTimeout] {
+	return pulumix.Output[*RouteHttpTimeout]{
+		OutputState: i.ToRouteHttpTimeoutPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteHttpTimeoutOutput struct{ *pulumi.OutputState }
 
 func (RouteHttpTimeoutOutput) ElementType() reflect.Type {
@@ -6682,6 +7745,12 @@ func (o RouteHttpTimeoutOutput) ToRouteHttpTimeoutPtrOutputWithContext(ctx conte
 	}).(RouteHttpTimeoutPtrOutput)
 }
 
+func (o RouteHttpTimeoutOutput) ToOutput(ctx context.Context) pulumix.Output[RouteHttpTimeout] {
+	return pulumix.Output[RouteHttpTimeout]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteHttpTimeoutOutput) Idle() RouteDurationPtrOutput {
 	return o.ApplyT(func(v RouteHttpTimeout) *RouteDuration { return v.Idle }).(RouteDurationPtrOutput)
 }
@@ -6702,6 +7771,12 @@ func (o RouteHttpTimeoutPtrOutput) ToRouteHttpTimeoutPtrOutput() RouteHttpTimeou
 
 func (o RouteHttpTimeoutPtrOutput) ToRouteHttpTimeoutPtrOutputWithContext(ctx context.Context) RouteHttpTimeoutPtrOutput {
 	return o
+}
+
+func (o RouteHttpTimeoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteHttpTimeout] {
+	return pulumix.Output[*RouteHttpTimeout]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteHttpTimeoutPtrOutput) Elem() RouteHttpTimeoutOutput {
@@ -6765,6 +7840,12 @@ func (i RouteMatchRangeArgs) ToRouteMatchRangeOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMatchRangeOutput)
 }
 
+func (i RouteMatchRangeArgs) ToOutput(ctx context.Context) pulumix.Output[RouteMatchRange] {
+	return pulumix.Output[RouteMatchRange]{
+		OutputState: i.ToRouteMatchRangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteMatchRangeArgs) ToRouteMatchRangePtrOutput() RouteMatchRangePtrOutput {
 	return i.ToRouteMatchRangePtrOutputWithContext(context.Background())
 }
@@ -6806,6 +7887,12 @@ func (i *routeMatchRangePtrType) ToRouteMatchRangePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMatchRangePtrOutput)
 }
 
+func (i *routeMatchRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteMatchRange] {
+	return pulumix.Output[*RouteMatchRange]{
+		OutputState: i.ToRouteMatchRangePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteMatchRangeOutput struct{ *pulumi.OutputState }
 
 func (RouteMatchRangeOutput) ElementType() reflect.Type {
@@ -6830,6 +7917,12 @@ func (o RouteMatchRangeOutput) ToRouteMatchRangePtrOutputWithContext(ctx context
 	}).(RouteMatchRangePtrOutput)
 }
 
+func (o RouteMatchRangeOutput) ToOutput(ctx context.Context) pulumix.Output[RouteMatchRange] {
+	return pulumix.Output[RouteMatchRange]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteMatchRangeOutput) End() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteMatchRange) int { return v.End }).(pulumi.IntOutput)
 }
@@ -6850,6 +7943,12 @@ func (o RouteMatchRangePtrOutput) ToRouteMatchRangePtrOutput() RouteMatchRangePt
 
 func (o RouteMatchRangePtrOutput) ToRouteMatchRangePtrOutputWithContext(ctx context.Context) RouteMatchRangePtrOutput {
 	return o
+}
+
+func (o RouteMatchRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteMatchRange] {
+	return pulumix.Output[*RouteMatchRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteMatchRangePtrOutput) Elem() RouteMatchRangeOutput {
@@ -6913,6 +8012,12 @@ func (i RouteQueryParameterArgs) ToRouteQueryParameterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RouteQueryParameterOutput)
 }
 
+func (i RouteQueryParameterArgs) ToOutput(ctx context.Context) pulumix.Output[RouteQueryParameter] {
+	return pulumix.Output[RouteQueryParameter]{
+		OutputState: i.ToRouteQueryParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteQueryParameterArrayInput is an input type that accepts RouteQueryParameterArray and RouteQueryParameterArrayOutput values.
 // You can construct a concrete instance of `RouteQueryParameterArrayInput` via:
 //
@@ -6938,6 +8043,12 @@ func (i RouteQueryParameterArray) ToRouteQueryParameterArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RouteQueryParameterArrayOutput)
 }
 
+func (i RouteQueryParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]RouteQueryParameter] {
+	return pulumix.Output[[]RouteQueryParameter]{
+		OutputState: i.ToRouteQueryParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteQueryParameterOutput struct{ *pulumi.OutputState }
 
 func (RouteQueryParameterOutput) ElementType() reflect.Type {
@@ -6950,6 +8061,12 @@ func (o RouteQueryParameterOutput) ToRouteQueryParameterOutput() RouteQueryParam
 
 func (o RouteQueryParameterOutput) ToRouteQueryParameterOutputWithContext(ctx context.Context) RouteQueryParameterOutput {
 	return o
+}
+
+func (o RouteQueryParameterOutput) ToOutput(ctx context.Context) pulumix.Output[RouteQueryParameter] {
+	return pulumix.Output[RouteQueryParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteQueryParameterOutput) Match() RouteHttpQueryParameterMatchPtrOutput {
@@ -6972,6 +8089,12 @@ func (o RouteQueryParameterArrayOutput) ToRouteQueryParameterArrayOutput() Route
 
 func (o RouteQueryParameterArrayOutput) ToRouteQueryParameterArrayOutputWithContext(ctx context.Context) RouteQueryParameterArrayOutput {
 	return o
+}
+
+func (o RouteQueryParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RouteQueryParameter] {
+	return pulumix.Output[[]RouteQueryParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteQueryParameterArrayOutput) Index(i pulumi.IntInput) RouteQueryParameterOutput {
@@ -7019,6 +8142,12 @@ func (i RouteSpecArgs) ToRouteSpecOutputWithContext(ctx context.Context) RouteSp
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecOutput)
 }
 
+func (i RouteSpecArgs) ToOutput(ctx context.Context) pulumix.Output[RouteSpec] {
+	return pulumix.Output[RouteSpec]{
+		OutputState: i.ToRouteSpecOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteSpecOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecOutput) ElementType() reflect.Type {
@@ -7031,6 +8160,12 @@ func (o RouteSpecOutput) ToRouteSpecOutput() RouteSpecOutput {
 
 func (o RouteSpecOutput) ToRouteSpecOutputWithContext(ctx context.Context) RouteSpecOutput {
 	return o
+}
+
+func (o RouteSpecOutput) ToOutput(ctx context.Context) pulumix.Output[RouteSpec] {
+	return pulumix.Output[RouteSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteSpecOutput) GrpcRoute() RouteGrpcRoutePtrOutput {
@@ -7065,6 +8200,12 @@ func (o RouteSpecPtrOutput) ToRouteSpecPtrOutput() RouteSpecPtrOutput {
 
 func (o RouteSpecPtrOutput) ToRouteSpecPtrOutputWithContext(ctx context.Context) RouteSpecPtrOutput {
 	return o
+}
+
+func (o RouteSpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteSpec] {
+	return pulumix.Output[*RouteSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteSpecPtrOutput) Elem() RouteSpecOutput {
@@ -7155,6 +8296,12 @@ func (i RouteTagArgs) ToRouteTagOutputWithContext(ctx context.Context) RouteTagO
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTagOutput)
 }
 
+func (i RouteTagArgs) ToOutput(ctx context.Context) pulumix.Output[RouteTag] {
+	return pulumix.Output[RouteTag]{
+		OutputState: i.ToRouteTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteTagArrayInput is an input type that accepts RouteTagArray and RouteTagArrayOutput values.
 // You can construct a concrete instance of `RouteTagArrayInput` via:
 //
@@ -7180,6 +8327,12 @@ func (i RouteTagArray) ToRouteTagArrayOutputWithContext(ctx context.Context) Rou
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTagArrayOutput)
 }
 
+func (i RouteTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RouteTag] {
+	return pulumix.Output[[]RouteTag]{
+		OutputState: i.ToRouteTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteTagOutput struct{ *pulumi.OutputState }
 
 func (RouteTagOutput) ElementType() reflect.Type {
@@ -7192,6 +8345,12 @@ func (o RouteTagOutput) ToRouteTagOutput() RouteTagOutput {
 
 func (o RouteTagOutput) ToRouteTagOutputWithContext(ctx context.Context) RouteTagOutput {
 	return o
+}
+
+func (o RouteTagOutput) ToOutput(ctx context.Context) pulumix.Output[RouteTag] {
+	return pulumix.Output[RouteTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTagOutput) Key() pulumi.StringOutput {
@@ -7214,6 +8373,12 @@ func (o RouteTagArrayOutput) ToRouteTagArrayOutput() RouteTagArrayOutput {
 
 func (o RouteTagArrayOutput) ToRouteTagArrayOutputWithContext(ctx context.Context) RouteTagArrayOutput {
 	return o
+}
+
+func (o RouteTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RouteTag] {
+	return pulumix.Output[[]RouteTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTagArrayOutput) Index(i pulumi.IntInput) RouteTagOutput {
@@ -7257,6 +8422,12 @@ func (i RouteTcpRouteArgs) ToRouteTcpRouteOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTcpRouteOutput)
 }
 
+func (i RouteTcpRouteArgs) ToOutput(ctx context.Context) pulumix.Output[RouteTcpRoute] {
+	return pulumix.Output[RouteTcpRoute]{
+		OutputState: i.ToRouteTcpRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteTcpRouteArgs) ToRouteTcpRoutePtrOutput() RouteTcpRoutePtrOutput {
 	return i.ToRouteTcpRoutePtrOutputWithContext(context.Background())
 }
@@ -7298,6 +8469,12 @@ func (i *routeTcpRoutePtrType) ToRouteTcpRoutePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTcpRoutePtrOutput)
 }
 
+func (i *routeTcpRoutePtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteTcpRoute] {
+	return pulumix.Output[*RouteTcpRoute]{
+		OutputState: i.ToRouteTcpRoutePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteTcpRouteOutput struct{ *pulumi.OutputState }
 
 func (RouteTcpRouteOutput) ElementType() reflect.Type {
@@ -7320,6 +8497,12 @@ func (o RouteTcpRouteOutput) ToRouteTcpRoutePtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteTcpRoute) *RouteTcpRoute {
 		return &v
 	}).(RouteTcpRoutePtrOutput)
+}
+
+func (o RouteTcpRouteOutput) ToOutput(ctx context.Context) pulumix.Output[RouteTcpRoute] {
+	return pulumix.Output[RouteTcpRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTcpRouteOutput) Action() RouteTcpRouteActionOutput {
@@ -7346,6 +8529,12 @@ func (o RouteTcpRoutePtrOutput) ToRouteTcpRoutePtrOutput() RouteTcpRoutePtrOutpu
 
 func (o RouteTcpRoutePtrOutput) ToRouteTcpRoutePtrOutputWithContext(ctx context.Context) RouteTcpRoutePtrOutput {
 	return o
+}
+
+func (o RouteTcpRoutePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteTcpRoute] {
+	return pulumix.Output[*RouteTcpRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTcpRoutePtrOutput) Elem() RouteTcpRouteOutput {
@@ -7416,6 +8605,12 @@ func (i RouteTcpRouteActionArgs) ToRouteTcpRouteActionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTcpRouteActionOutput)
 }
 
+func (i RouteTcpRouteActionArgs) ToOutput(ctx context.Context) pulumix.Output[RouteTcpRouteAction] {
+	return pulumix.Output[RouteTcpRouteAction]{
+		OutputState: i.ToRouteTcpRouteActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteTcpRouteActionArgs) ToRouteTcpRouteActionPtrOutput() RouteTcpRouteActionPtrOutput {
 	return i.ToRouteTcpRouteActionPtrOutputWithContext(context.Background())
 }
@@ -7457,6 +8652,12 @@ func (i *routeTcpRouteActionPtrType) ToRouteTcpRouteActionPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTcpRouteActionPtrOutput)
 }
 
+func (i *routeTcpRouteActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteTcpRouteAction] {
+	return pulumix.Output[*RouteTcpRouteAction]{
+		OutputState: i.ToRouteTcpRouteActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteTcpRouteActionOutput struct{ *pulumi.OutputState }
 
 func (RouteTcpRouteActionOutput) ElementType() reflect.Type {
@@ -7481,6 +8682,12 @@ func (o RouteTcpRouteActionOutput) ToRouteTcpRouteActionPtrOutputWithContext(ctx
 	}).(RouteTcpRouteActionPtrOutput)
 }
 
+func (o RouteTcpRouteActionOutput) ToOutput(ctx context.Context) pulumix.Output[RouteTcpRouteAction] {
+	return pulumix.Output[RouteTcpRouteAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteTcpRouteActionOutput) WeightedTargets() RouteWeightedTargetArrayOutput {
 	return o.ApplyT(func(v RouteTcpRouteAction) []RouteWeightedTarget { return v.WeightedTargets }).(RouteWeightedTargetArrayOutput)
 }
@@ -7497,6 +8704,12 @@ func (o RouteTcpRouteActionPtrOutput) ToRouteTcpRouteActionPtrOutput() RouteTcpR
 
 func (o RouteTcpRouteActionPtrOutput) ToRouteTcpRouteActionPtrOutputWithContext(ctx context.Context) RouteTcpRouteActionPtrOutput {
 	return o
+}
+
+func (o RouteTcpRouteActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteTcpRouteAction] {
+	return pulumix.Output[*RouteTcpRouteAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTcpRouteActionPtrOutput) Elem() RouteTcpRouteActionOutput {
@@ -7549,6 +8762,12 @@ func (i RouteTcpRouteMatchArgs) ToRouteTcpRouteMatchOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTcpRouteMatchOutput)
 }
 
+func (i RouteTcpRouteMatchArgs) ToOutput(ctx context.Context) pulumix.Output[RouteTcpRouteMatch] {
+	return pulumix.Output[RouteTcpRouteMatch]{
+		OutputState: i.ToRouteTcpRouteMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteTcpRouteMatchArgs) ToRouteTcpRouteMatchPtrOutput() RouteTcpRouteMatchPtrOutput {
 	return i.ToRouteTcpRouteMatchPtrOutputWithContext(context.Background())
 }
@@ -7590,6 +8809,12 @@ func (i *routeTcpRouteMatchPtrType) ToRouteTcpRouteMatchPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTcpRouteMatchPtrOutput)
 }
 
+func (i *routeTcpRouteMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteTcpRouteMatch] {
+	return pulumix.Output[*RouteTcpRouteMatch]{
+		OutputState: i.ToRouteTcpRouteMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteTcpRouteMatchOutput struct{ *pulumi.OutputState }
 
 func (RouteTcpRouteMatchOutput) ElementType() reflect.Type {
@@ -7614,6 +8839,12 @@ func (o RouteTcpRouteMatchOutput) ToRouteTcpRouteMatchPtrOutputWithContext(ctx c
 	}).(RouteTcpRouteMatchPtrOutput)
 }
 
+func (o RouteTcpRouteMatchOutput) ToOutput(ctx context.Context) pulumix.Output[RouteTcpRouteMatch] {
+	return pulumix.Output[RouteTcpRouteMatch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteTcpRouteMatchOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RouteTcpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -7630,6 +8861,12 @@ func (o RouteTcpRouteMatchPtrOutput) ToRouteTcpRouteMatchPtrOutput() RouteTcpRou
 
 func (o RouteTcpRouteMatchPtrOutput) ToRouteTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteTcpRouteMatchPtrOutput {
 	return o
+}
+
+func (o RouteTcpRouteMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteTcpRouteMatch] {
+	return pulumix.Output[*RouteTcpRouteMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTcpRouteMatchPtrOutput) Elem() RouteTcpRouteMatchOutput {
@@ -7682,6 +8919,12 @@ func (i RouteTcpTimeoutArgs) ToRouteTcpTimeoutOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTcpTimeoutOutput)
 }
 
+func (i RouteTcpTimeoutArgs) ToOutput(ctx context.Context) pulumix.Output[RouteTcpTimeout] {
+	return pulumix.Output[RouteTcpTimeout]{
+		OutputState: i.ToRouteTcpTimeoutOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteTcpTimeoutArgs) ToRouteTcpTimeoutPtrOutput() RouteTcpTimeoutPtrOutput {
 	return i.ToRouteTcpTimeoutPtrOutputWithContext(context.Background())
 }
@@ -7723,6 +8966,12 @@ func (i *routeTcpTimeoutPtrType) ToRouteTcpTimeoutPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTcpTimeoutPtrOutput)
 }
 
+func (i *routeTcpTimeoutPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteTcpTimeout] {
+	return pulumix.Output[*RouteTcpTimeout]{
+		OutputState: i.ToRouteTcpTimeoutPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteTcpTimeoutOutput struct{ *pulumi.OutputState }
 
 func (RouteTcpTimeoutOutput) ElementType() reflect.Type {
@@ -7747,6 +8996,12 @@ func (o RouteTcpTimeoutOutput) ToRouteTcpTimeoutPtrOutputWithContext(ctx context
 	}).(RouteTcpTimeoutPtrOutput)
 }
 
+func (o RouteTcpTimeoutOutput) ToOutput(ctx context.Context) pulumix.Output[RouteTcpTimeout] {
+	return pulumix.Output[RouteTcpTimeout]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteTcpTimeoutOutput) Idle() RouteDurationPtrOutput {
 	return o.ApplyT(func(v RouteTcpTimeout) *RouteDuration { return v.Idle }).(RouteDurationPtrOutput)
 }
@@ -7763,6 +9018,12 @@ func (o RouteTcpTimeoutPtrOutput) ToRouteTcpTimeoutPtrOutput() RouteTcpTimeoutPt
 
 func (o RouteTcpTimeoutPtrOutput) ToRouteTcpTimeoutPtrOutputWithContext(ctx context.Context) RouteTcpTimeoutPtrOutput {
 	return o
+}
+
+func (o RouteTcpTimeoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteTcpTimeout] {
+	return pulumix.Output[*RouteTcpTimeout]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTcpTimeoutPtrOutput) Elem() RouteTcpTimeoutOutput {
@@ -7819,6 +9080,12 @@ func (i RouteWeightedTargetArgs) ToRouteWeightedTargetOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RouteWeightedTargetOutput)
 }
 
+func (i RouteWeightedTargetArgs) ToOutput(ctx context.Context) pulumix.Output[RouteWeightedTarget] {
+	return pulumix.Output[RouteWeightedTarget]{
+		OutputState: i.ToRouteWeightedTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteWeightedTargetArrayInput is an input type that accepts RouteWeightedTargetArray and RouteWeightedTargetArrayOutput values.
 // You can construct a concrete instance of `RouteWeightedTargetArrayInput` via:
 //
@@ -7844,6 +9111,12 @@ func (i RouteWeightedTargetArray) ToRouteWeightedTargetArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RouteWeightedTargetArrayOutput)
 }
 
+func (i RouteWeightedTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]RouteWeightedTarget] {
+	return pulumix.Output[[]RouteWeightedTarget]{
+		OutputState: i.ToRouteWeightedTargetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteWeightedTargetOutput struct{ *pulumi.OutputState }
 
 func (RouteWeightedTargetOutput) ElementType() reflect.Type {
@@ -7856,6 +9129,12 @@ func (o RouteWeightedTargetOutput) ToRouteWeightedTargetOutput() RouteWeightedTa
 
 func (o RouteWeightedTargetOutput) ToRouteWeightedTargetOutputWithContext(ctx context.Context) RouteWeightedTargetOutput {
 	return o
+}
+
+func (o RouteWeightedTargetOutput) ToOutput(ctx context.Context) pulumix.Output[RouteWeightedTarget] {
+	return pulumix.Output[RouteWeightedTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteWeightedTargetOutput) Port() pulumi.IntPtrOutput {
@@ -7882,6 +9161,12 @@ func (o RouteWeightedTargetArrayOutput) ToRouteWeightedTargetArrayOutput() Route
 
 func (o RouteWeightedTargetArrayOutput) ToRouteWeightedTargetArrayOutputWithContext(ctx context.Context) RouteWeightedTargetArrayOutput {
 	return o
+}
+
+func (o RouteWeightedTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RouteWeightedTarget] {
+	return pulumix.Output[[]RouteWeightedTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteWeightedTargetArrayOutput) Index(i pulumi.IntInput) RouteWeightedTargetOutput {
@@ -7919,6 +9204,12 @@ func (i VirtualGatewayAccessLogArgs) ToVirtualGatewayAccessLogOutput() VirtualGa
 
 func (i VirtualGatewayAccessLogArgs) ToVirtualGatewayAccessLogOutputWithContext(ctx context.Context) VirtualGatewayAccessLogOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayAccessLogOutput)
+}
+
+func (i VirtualGatewayAccessLogArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayAccessLog] {
+	return pulumix.Output[VirtualGatewayAccessLog]{
+		OutputState: i.ToVirtualGatewayAccessLogOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i VirtualGatewayAccessLogArgs) ToVirtualGatewayAccessLogPtrOutput() VirtualGatewayAccessLogPtrOutput {
@@ -7962,6 +9253,12 @@ func (i *virtualGatewayAccessLogPtrType) ToVirtualGatewayAccessLogPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayAccessLogPtrOutput)
 }
 
+func (i *virtualGatewayAccessLogPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayAccessLog] {
+	return pulumix.Output[*VirtualGatewayAccessLog]{
+		OutputState: i.ToVirtualGatewayAccessLogPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayAccessLogOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayAccessLogOutput) ElementType() reflect.Type {
@@ -7986,6 +9283,12 @@ func (o VirtualGatewayAccessLogOutput) ToVirtualGatewayAccessLogPtrOutputWithCon
 	}).(VirtualGatewayAccessLogPtrOutput)
 }
 
+func (o VirtualGatewayAccessLogOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayAccessLog] {
+	return pulumix.Output[VirtualGatewayAccessLog]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayAccessLogOutput) File() VirtualGatewayFileAccessLogPtrOutput {
 	return o.ApplyT(func(v VirtualGatewayAccessLog) *VirtualGatewayFileAccessLog { return v.File }).(VirtualGatewayFileAccessLogPtrOutput)
 }
@@ -8002,6 +9305,12 @@ func (o VirtualGatewayAccessLogPtrOutput) ToVirtualGatewayAccessLogPtrOutput() V
 
 func (o VirtualGatewayAccessLogPtrOutput) ToVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayAccessLogPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayAccessLogPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayAccessLog] {
+	return pulumix.Output[*VirtualGatewayAccessLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayAccessLogPtrOutput) Elem() VirtualGatewayAccessLogOutput {
@@ -8054,6 +9363,12 @@ func (i VirtualGatewayBackendDefaultsArgs) ToVirtualGatewayBackendDefaultsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayBackendDefaultsOutput)
 }
 
+func (i VirtualGatewayBackendDefaultsArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayBackendDefaults] {
+	return pulumix.Output[VirtualGatewayBackendDefaults]{
+		OutputState: i.ToVirtualGatewayBackendDefaultsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayBackendDefaultsArgs) ToVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayBackendDefaultsPtrOutput {
 	return i.ToVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Background())
 }
@@ -8095,6 +9410,12 @@ func (i *virtualGatewayBackendDefaultsPtrType) ToVirtualGatewayBackendDefaultsPt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayBackendDefaultsPtrOutput)
 }
 
+func (i *virtualGatewayBackendDefaultsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayBackendDefaults] {
+	return pulumix.Output[*VirtualGatewayBackendDefaults]{
+		OutputState: i.ToVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayBackendDefaultsOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayBackendDefaultsOutput) ElementType() reflect.Type {
@@ -8119,6 +9440,12 @@ func (o VirtualGatewayBackendDefaultsOutput) ToVirtualGatewayBackendDefaultsPtrO
 	}).(VirtualGatewayBackendDefaultsPtrOutput)
 }
 
+func (o VirtualGatewayBackendDefaultsOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayBackendDefaults] {
+	return pulumix.Output[VirtualGatewayBackendDefaults]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayBackendDefaultsOutput) ClientPolicy() VirtualGatewayClientPolicyPtrOutput {
 	return o.ApplyT(func(v VirtualGatewayBackendDefaults) *VirtualGatewayClientPolicy { return v.ClientPolicy }).(VirtualGatewayClientPolicyPtrOutput)
 }
@@ -8135,6 +9462,12 @@ func (o VirtualGatewayBackendDefaultsPtrOutput) ToVirtualGatewayBackendDefaultsP
 
 func (o VirtualGatewayBackendDefaultsPtrOutput) ToVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayBackendDefaultsPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayBackendDefaultsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayBackendDefaults] {
+	return pulumix.Output[*VirtualGatewayBackendDefaults]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayBackendDefaultsPtrOutput) Elem() VirtualGatewayBackendDefaultsOutput {
@@ -8187,6 +9520,12 @@ func (i VirtualGatewayClientPolicyArgs) ToVirtualGatewayClientPolicyOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientPolicyOutput)
 }
 
+func (i VirtualGatewayClientPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayClientPolicy] {
+	return pulumix.Output[VirtualGatewayClientPolicy]{
+		OutputState: i.ToVirtualGatewayClientPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayClientPolicyArgs) ToVirtualGatewayClientPolicyPtrOutput() VirtualGatewayClientPolicyPtrOutput {
 	return i.ToVirtualGatewayClientPolicyPtrOutputWithContext(context.Background())
 }
@@ -8228,6 +9567,12 @@ func (i *virtualGatewayClientPolicyPtrType) ToVirtualGatewayClientPolicyPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientPolicyPtrOutput)
 }
 
+func (i *virtualGatewayClientPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayClientPolicy] {
+	return pulumix.Output[*VirtualGatewayClientPolicy]{
+		OutputState: i.ToVirtualGatewayClientPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayClientPolicyOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayClientPolicyOutput) ElementType() reflect.Type {
@@ -8252,6 +9597,12 @@ func (o VirtualGatewayClientPolicyOutput) ToVirtualGatewayClientPolicyPtrOutputW
 	}).(VirtualGatewayClientPolicyPtrOutput)
 }
 
+func (o VirtualGatewayClientPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayClientPolicy] {
+	return pulumix.Output[VirtualGatewayClientPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayClientPolicyOutput) Tls() VirtualGatewayClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v VirtualGatewayClientPolicy) *VirtualGatewayClientPolicyTls { return v.Tls }).(VirtualGatewayClientPolicyTlsPtrOutput)
 }
@@ -8268,6 +9619,12 @@ func (o VirtualGatewayClientPolicyPtrOutput) ToVirtualGatewayClientPolicyPtrOutp
 
 func (o VirtualGatewayClientPolicyPtrOutput) ToVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayClientPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayClientPolicy] {
+	return pulumix.Output[*VirtualGatewayClientPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayClientPolicyPtrOutput) Elem() VirtualGatewayClientPolicyOutput {
@@ -8326,6 +9683,12 @@ func (i VirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayClientPolicyTlsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientPolicyTlsOutput)
 }
 
+func (i VirtualGatewayClientPolicyTlsArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayClientPolicyTls] {
+	return pulumix.Output[VirtualGatewayClientPolicyTls]{
+		OutputState: i.ToVirtualGatewayClientPolicyTlsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayClientPolicyTlsPtrOutput {
 	return i.ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Background())
 }
@@ -8367,6 +9730,12 @@ func (i *virtualGatewayClientPolicyTlsPtrType) ToVirtualGatewayClientPolicyTlsPt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientPolicyTlsPtrOutput)
 }
 
+func (i *virtualGatewayClientPolicyTlsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayClientPolicyTls] {
+	return pulumix.Output[*VirtualGatewayClientPolicyTls]{
+		OutputState: i.ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayClientPolicyTlsOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayClientPolicyTlsOutput) ElementType() reflect.Type {
@@ -8389,6 +9758,12 @@ func (o VirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayClientPolicyTlsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayClientPolicyTls) *VirtualGatewayClientPolicyTls {
 		return &v
 	}).(VirtualGatewayClientPolicyTlsPtrOutput)
+}
+
+func (o VirtualGatewayClientPolicyTlsOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayClientPolicyTls] {
+	return pulumix.Output[VirtualGatewayClientPolicyTls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayClientPolicyTlsOutput) Certificate() VirtualGatewayClientTlsCertificatePtrOutput {
@@ -8419,6 +9794,12 @@ func (o VirtualGatewayClientPolicyTlsPtrOutput) ToVirtualGatewayClientPolicyTlsP
 
 func (o VirtualGatewayClientPolicyTlsPtrOutput) ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyTlsPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayClientPolicyTlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayClientPolicyTls] {
+	return pulumix.Output[*VirtualGatewayClientPolicyTls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayClientPolicyTlsPtrOutput) Elem() VirtualGatewayClientPolicyTlsOutput {
@@ -8500,6 +9881,12 @@ func (i VirtualGatewayClientTlsCertificateArgs) ToVirtualGatewayClientTlsCertifi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientTlsCertificateOutput)
 }
 
+func (i VirtualGatewayClientTlsCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayClientTlsCertificate] {
+	return pulumix.Output[VirtualGatewayClientTlsCertificate]{
+		OutputState: i.ToVirtualGatewayClientTlsCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayClientTlsCertificateArgs) ToVirtualGatewayClientTlsCertificatePtrOutput() VirtualGatewayClientTlsCertificatePtrOutput {
 	return i.ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(context.Background())
 }
@@ -8541,6 +9928,12 @@ func (i *virtualGatewayClientTlsCertificatePtrType) ToVirtualGatewayClientTlsCer
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientTlsCertificatePtrOutput)
 }
 
+func (i *virtualGatewayClientTlsCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayClientTlsCertificate] {
+	return pulumix.Output[*VirtualGatewayClientTlsCertificate]{
+		OutputState: i.ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayClientTlsCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayClientTlsCertificateOutput) ElementType() reflect.Type {
@@ -8565,6 +9958,12 @@ func (o VirtualGatewayClientTlsCertificateOutput) ToVirtualGatewayClientTlsCerti
 	}).(VirtualGatewayClientTlsCertificatePtrOutput)
 }
 
+func (o VirtualGatewayClientTlsCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayClientTlsCertificate] {
+	return pulumix.Output[VirtualGatewayClientTlsCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayClientTlsCertificateOutput) File() VirtualGatewayListenerTlsFileCertificatePtrOutput {
 	return o.ApplyT(func(v VirtualGatewayClientTlsCertificate) *VirtualGatewayListenerTlsFileCertificate { return v.File }).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
 }
@@ -8585,6 +9984,12 @@ func (o VirtualGatewayClientTlsCertificatePtrOutput) ToVirtualGatewayClientTlsCe
 
 func (o VirtualGatewayClientTlsCertificatePtrOutput) ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayClientTlsCertificatePtrOutput {
 	return o
+}
+
+func (o VirtualGatewayClientTlsCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayClientTlsCertificate] {
+	return pulumix.Output[*VirtualGatewayClientTlsCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayClientTlsCertificatePtrOutput) Elem() VirtualGatewayClientTlsCertificateOutput {
@@ -8650,6 +10055,12 @@ func (i VirtualGatewayConnectionPoolArgs) ToVirtualGatewayConnectionPoolOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayConnectionPoolOutput)
 }
 
+func (i VirtualGatewayConnectionPoolArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayConnectionPool] {
+	return pulumix.Output[VirtualGatewayConnectionPool]{
+		OutputState: i.ToVirtualGatewayConnectionPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayConnectionPoolArgs) ToVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayConnectionPoolPtrOutput {
 	return i.ToVirtualGatewayConnectionPoolPtrOutputWithContext(context.Background())
 }
@@ -8691,6 +10102,12 @@ func (i *virtualGatewayConnectionPoolPtrType) ToVirtualGatewayConnectionPoolPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayConnectionPoolPtrOutput)
 }
 
+func (i *virtualGatewayConnectionPoolPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayConnectionPool] {
+	return pulumix.Output[*VirtualGatewayConnectionPool]{
+		OutputState: i.ToVirtualGatewayConnectionPoolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayConnectionPoolOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayConnectionPoolOutput) ElementType() reflect.Type {
@@ -8713,6 +10130,12 @@ func (o VirtualGatewayConnectionPoolOutput) ToVirtualGatewayConnectionPoolPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayConnectionPool) *VirtualGatewayConnectionPool {
 		return &v
 	}).(VirtualGatewayConnectionPoolPtrOutput)
+}
+
+func (o VirtualGatewayConnectionPoolOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayConnectionPool] {
+	return pulumix.Output[VirtualGatewayConnectionPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayConnectionPoolOutput) Grpc() VirtualGatewayGrpcConnectionPoolPtrOutput {
@@ -8739,6 +10162,12 @@ func (o VirtualGatewayConnectionPoolPtrOutput) ToVirtualGatewayConnectionPoolPtr
 
 func (o VirtualGatewayConnectionPoolPtrOutput) ToVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayConnectionPoolPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayConnectionPoolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayConnectionPool] {
+	return pulumix.Output[*VirtualGatewayConnectionPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayConnectionPoolPtrOutput) Elem() VirtualGatewayConnectionPoolOutput {
@@ -8811,6 +10240,12 @@ func (i VirtualGatewayFileAccessLogArgs) ToVirtualGatewayFileAccessLogOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayFileAccessLogOutput)
 }
 
+func (i VirtualGatewayFileAccessLogArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayFileAccessLog] {
+	return pulumix.Output[VirtualGatewayFileAccessLog]{
+		OutputState: i.ToVirtualGatewayFileAccessLogOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayFileAccessLogArgs) ToVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayFileAccessLogPtrOutput {
 	return i.ToVirtualGatewayFileAccessLogPtrOutputWithContext(context.Background())
 }
@@ -8852,6 +10287,12 @@ func (i *virtualGatewayFileAccessLogPtrType) ToVirtualGatewayFileAccessLogPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayFileAccessLogPtrOutput)
 }
 
+func (i *virtualGatewayFileAccessLogPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayFileAccessLog] {
+	return pulumix.Output[*VirtualGatewayFileAccessLog]{
+		OutputState: i.ToVirtualGatewayFileAccessLogPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayFileAccessLogOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayFileAccessLogOutput) ElementType() reflect.Type {
@@ -8876,6 +10317,12 @@ func (o VirtualGatewayFileAccessLogOutput) ToVirtualGatewayFileAccessLogPtrOutpu
 	}).(VirtualGatewayFileAccessLogPtrOutput)
 }
 
+func (o VirtualGatewayFileAccessLogOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayFileAccessLog] {
+	return pulumix.Output[VirtualGatewayFileAccessLog]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayFileAccessLogOutput) Format() VirtualGatewayLoggingFormatPtrOutput {
 	return o.ApplyT(func(v VirtualGatewayFileAccessLog) *VirtualGatewayLoggingFormat { return v.Format }).(VirtualGatewayLoggingFormatPtrOutput)
 }
@@ -8896,6 +10343,12 @@ func (o VirtualGatewayFileAccessLogPtrOutput) ToVirtualGatewayFileAccessLogPtrOu
 
 func (o VirtualGatewayFileAccessLogPtrOutput) ToVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayFileAccessLogPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayFileAccessLogPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayFileAccessLog] {
+	return pulumix.Output[*VirtualGatewayFileAccessLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayFileAccessLogPtrOutput) Elem() VirtualGatewayFileAccessLogOutput {
@@ -8957,6 +10410,12 @@ func (i VirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayGrpcConnectionPool
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayGrpcConnectionPoolOutput)
 }
 
+func (i VirtualGatewayGrpcConnectionPoolArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayGrpcConnectionPool] {
+	return pulumix.Output[VirtualGatewayGrpcConnectionPool]{
+		OutputState: i.ToVirtualGatewayGrpcConnectionPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayGrpcConnectionPoolPtrOutput {
 	return i.ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Background())
 }
@@ -8998,6 +10457,12 @@ func (i *virtualGatewayGrpcConnectionPoolPtrType) ToVirtualGatewayGrpcConnection
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayGrpcConnectionPoolPtrOutput)
 }
 
+func (i *virtualGatewayGrpcConnectionPoolPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayGrpcConnectionPool] {
+	return pulumix.Output[*VirtualGatewayGrpcConnectionPool]{
+		OutputState: i.ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayGrpcConnectionPoolOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayGrpcConnectionPoolOutput) ElementType() reflect.Type {
@@ -9022,6 +10487,12 @@ func (o VirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayGrpcConnectionPo
 	}).(VirtualGatewayGrpcConnectionPoolPtrOutput)
 }
 
+func (o VirtualGatewayGrpcConnectionPoolOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayGrpcConnectionPool] {
+	return pulumix.Output[VirtualGatewayGrpcConnectionPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayGrpcConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewayGrpcConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
 }
@@ -9038,6 +10509,12 @@ func (o VirtualGatewayGrpcConnectionPoolPtrOutput) ToVirtualGatewayGrpcConnectio
 
 func (o VirtualGatewayGrpcConnectionPoolPtrOutput) ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayGrpcConnectionPoolPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayGrpcConnectionPoolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayGrpcConnectionPool] {
+	return pulumix.Output[*VirtualGatewayGrpcConnectionPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayGrpcConnectionPoolPtrOutput) Elem() VirtualGatewayGrpcConnectionPoolOutput {
@@ -9102,6 +10579,12 @@ func (i VirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayHealthCheckPolicyOu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHealthCheckPolicyOutput)
 }
 
+func (i VirtualGatewayHealthCheckPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayHealthCheckPolicy] {
+	return pulumix.Output[VirtualGatewayHealthCheckPolicy]{
+		OutputState: i.ToVirtualGatewayHealthCheckPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayHealthCheckPolicyPtrOutput {
 	return i.ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Background())
 }
@@ -9143,6 +10626,12 @@ func (i *virtualGatewayHealthCheckPolicyPtrType) ToVirtualGatewayHealthCheckPoli
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHealthCheckPolicyPtrOutput)
 }
 
+func (i *virtualGatewayHealthCheckPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayHealthCheckPolicy] {
+	return pulumix.Output[*VirtualGatewayHealthCheckPolicy]{
+		OutputState: i.ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayHealthCheckPolicyOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayHealthCheckPolicyOutput) ElementType() reflect.Type {
@@ -9165,6 +10654,12 @@ func (o VirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayHealthCheckPolicy
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayHealthCheckPolicy) *VirtualGatewayHealthCheckPolicy {
 		return &v
 	}).(VirtualGatewayHealthCheckPolicyPtrOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayHealthCheckPolicy] {
+	return pulumix.Output[VirtualGatewayHealthCheckPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayHealthCheckPolicyOutput) HealthyThreshold() pulumi.IntOutput {
@@ -9207,6 +10702,12 @@ func (o VirtualGatewayHealthCheckPolicyPtrOutput) ToVirtualGatewayHealthCheckPol
 
 func (o VirtualGatewayHealthCheckPolicyPtrOutput) ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayHealthCheckPolicyPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayHealthCheckPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayHealthCheckPolicy] {
+	return pulumix.Output[*VirtualGatewayHealthCheckPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayHealthCheckPolicyPtrOutput) Elem() VirtualGatewayHealthCheckPolicyOutput {
@@ -9313,6 +10814,12 @@ func (i VirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayHttp2ConnectionPo
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHttp2ConnectionPoolOutput)
 }
 
+func (i VirtualGatewayHttp2ConnectionPoolArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayHttp2ConnectionPool] {
+	return pulumix.Output[VirtualGatewayHttp2ConnectionPool]{
+		OutputState: i.ToVirtualGatewayHttp2ConnectionPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayHttp2ConnectionPoolPtrOutput {
 	return i.ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Background())
 }
@@ -9354,6 +10861,12 @@ func (i *virtualGatewayHttp2ConnectionPoolPtrType) ToVirtualGatewayHttp2Connecti
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHttp2ConnectionPoolPtrOutput)
 }
 
+func (i *virtualGatewayHttp2ConnectionPoolPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayHttp2ConnectionPool] {
+	return pulumix.Output[*VirtualGatewayHttp2ConnectionPool]{
+		OutputState: i.ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayHttp2ConnectionPoolOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayHttp2ConnectionPoolOutput) ElementType() reflect.Type {
@@ -9378,6 +10891,12 @@ func (o VirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayHttp2Connection
 	}).(VirtualGatewayHttp2ConnectionPoolPtrOutput)
 }
 
+func (o VirtualGatewayHttp2ConnectionPoolOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayHttp2ConnectionPool] {
+	return pulumix.Output[VirtualGatewayHttp2ConnectionPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayHttp2ConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewayHttp2ConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
 }
@@ -9394,6 +10913,12 @@ func (o VirtualGatewayHttp2ConnectionPoolPtrOutput) ToVirtualGatewayHttp2Connect
 
 func (o VirtualGatewayHttp2ConnectionPoolPtrOutput) ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayHttp2ConnectionPoolPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayHttp2ConnectionPoolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayHttp2ConnectionPool] {
+	return pulumix.Output[*VirtualGatewayHttp2ConnectionPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayHttp2ConnectionPoolPtrOutput) Elem() VirtualGatewayHttp2ConnectionPoolOutput {
@@ -9448,6 +10973,12 @@ func (i VirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayHttpConnectionPool
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHttpConnectionPoolOutput)
 }
 
+func (i VirtualGatewayHttpConnectionPoolArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayHttpConnectionPool] {
+	return pulumix.Output[VirtualGatewayHttpConnectionPool]{
+		OutputState: i.ToVirtualGatewayHttpConnectionPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayHttpConnectionPoolPtrOutput {
 	return i.ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Background())
 }
@@ -9489,6 +11020,12 @@ func (i *virtualGatewayHttpConnectionPoolPtrType) ToVirtualGatewayHttpConnection
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHttpConnectionPoolPtrOutput)
 }
 
+func (i *virtualGatewayHttpConnectionPoolPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayHttpConnectionPool] {
+	return pulumix.Output[*VirtualGatewayHttpConnectionPool]{
+		OutputState: i.ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayHttpConnectionPoolOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayHttpConnectionPoolOutput) ElementType() reflect.Type {
@@ -9513,6 +11050,12 @@ func (o VirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayHttpConnectionPo
 	}).(VirtualGatewayHttpConnectionPoolPtrOutput)
 }
 
+func (o VirtualGatewayHttpConnectionPoolOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayHttpConnectionPool] {
+	return pulumix.Output[VirtualGatewayHttpConnectionPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayHttpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewayHttpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
 }
@@ -9533,6 +11076,12 @@ func (o VirtualGatewayHttpConnectionPoolPtrOutput) ToVirtualGatewayHttpConnectio
 
 func (o VirtualGatewayHttpConnectionPoolPtrOutput) ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayHttpConnectionPoolPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayHttpConnectionPoolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayHttpConnectionPool] {
+	return pulumix.Output[*VirtualGatewayHttpConnectionPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayHttpConnectionPoolPtrOutput) Elem() VirtualGatewayHttpConnectionPoolOutput {
@@ -9596,6 +11145,12 @@ func (i VirtualGatewayJsonFormatRefArgs) ToVirtualGatewayJsonFormatRefOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayJsonFormatRefOutput)
 }
 
+func (i VirtualGatewayJsonFormatRefArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayJsonFormatRef] {
+	return pulumix.Output[VirtualGatewayJsonFormatRef]{
+		OutputState: i.ToVirtualGatewayJsonFormatRefOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualGatewayJsonFormatRefArrayInput is an input type that accepts VirtualGatewayJsonFormatRefArray and VirtualGatewayJsonFormatRefArrayOutput values.
 // You can construct a concrete instance of `VirtualGatewayJsonFormatRefArrayInput` via:
 //
@@ -9621,6 +11176,12 @@ func (i VirtualGatewayJsonFormatRefArray) ToVirtualGatewayJsonFormatRefArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayJsonFormatRefArrayOutput)
 }
 
+func (i VirtualGatewayJsonFormatRefArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualGatewayJsonFormatRef] {
+	return pulumix.Output[[]VirtualGatewayJsonFormatRef]{
+		OutputState: i.ToVirtualGatewayJsonFormatRefArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayJsonFormatRefOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayJsonFormatRefOutput) ElementType() reflect.Type {
@@ -9633,6 +11194,12 @@ func (o VirtualGatewayJsonFormatRefOutput) ToVirtualGatewayJsonFormatRefOutput()
 
 func (o VirtualGatewayJsonFormatRefOutput) ToVirtualGatewayJsonFormatRefOutputWithContext(ctx context.Context) VirtualGatewayJsonFormatRefOutput {
 	return o
+}
+
+func (o VirtualGatewayJsonFormatRefOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayJsonFormatRef] {
+	return pulumix.Output[VirtualGatewayJsonFormatRef]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayJsonFormatRefOutput) Key() pulumi.StringOutput {
@@ -9655,6 +11222,12 @@ func (o VirtualGatewayJsonFormatRefArrayOutput) ToVirtualGatewayJsonFormatRefArr
 
 func (o VirtualGatewayJsonFormatRefArrayOutput) ToVirtualGatewayJsonFormatRefArrayOutputWithContext(ctx context.Context) VirtualGatewayJsonFormatRefArrayOutput {
 	return o
+}
+
+func (o VirtualGatewayJsonFormatRefArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualGatewayJsonFormatRef] {
+	return pulumix.Output[[]VirtualGatewayJsonFormatRef]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayJsonFormatRefArrayOutput) Index(i pulumi.IntInput) VirtualGatewayJsonFormatRefOutput {
@@ -9700,6 +11273,12 @@ func (i VirtualGatewayListenerArgs) ToVirtualGatewayListenerOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerOutput)
 }
 
+func (i VirtualGatewayListenerArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListener] {
+	return pulumix.Output[VirtualGatewayListener]{
+		OutputState: i.ToVirtualGatewayListenerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualGatewayListenerArrayInput is an input type that accepts VirtualGatewayListenerArray and VirtualGatewayListenerArrayOutput values.
 // You can construct a concrete instance of `VirtualGatewayListenerArrayInput` via:
 //
@@ -9725,6 +11304,12 @@ func (i VirtualGatewayListenerArray) ToVirtualGatewayListenerArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerArrayOutput)
 }
 
+func (i VirtualGatewayListenerArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualGatewayListener] {
+	return pulumix.Output[[]VirtualGatewayListener]{
+		OutputState: i.ToVirtualGatewayListenerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayListenerOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayListenerOutput) ElementType() reflect.Type {
@@ -9737,6 +11322,12 @@ func (o VirtualGatewayListenerOutput) ToVirtualGatewayListenerOutput() VirtualGa
 
 func (o VirtualGatewayListenerOutput) ToVirtualGatewayListenerOutputWithContext(ctx context.Context) VirtualGatewayListenerOutput {
 	return o
+}
+
+func (o VirtualGatewayListenerOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListener] {
+	return pulumix.Output[VirtualGatewayListener]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerOutput) ConnectionPool() VirtualGatewayConnectionPoolPtrOutput {
@@ -9767,6 +11358,12 @@ func (o VirtualGatewayListenerArrayOutput) ToVirtualGatewayListenerArrayOutput()
 
 func (o VirtualGatewayListenerArrayOutput) ToVirtualGatewayListenerArrayOutputWithContext(ctx context.Context) VirtualGatewayListenerArrayOutput {
 	return o
+}
+
+func (o VirtualGatewayListenerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualGatewayListener] {
+	return pulumix.Output[[]VirtualGatewayListener]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerArrayOutput) Index(i pulumi.IntInput) VirtualGatewayListenerOutput {
@@ -9810,6 +11407,12 @@ func (i VirtualGatewayListenerTlsArgs) ToVirtualGatewayListenerTlsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsOutput)
 }
 
+func (i VirtualGatewayListenerTlsArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTls] {
+	return pulumix.Output[VirtualGatewayListenerTls]{
+		OutputState: i.ToVirtualGatewayListenerTlsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayListenerTlsArgs) ToVirtualGatewayListenerTlsPtrOutput() VirtualGatewayListenerTlsPtrOutput {
 	return i.ToVirtualGatewayListenerTlsPtrOutputWithContext(context.Background())
 }
@@ -9851,6 +11454,12 @@ func (i *virtualGatewayListenerTlsPtrType) ToVirtualGatewayListenerTlsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsPtrOutput)
 }
 
+func (i *virtualGatewayListenerTlsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTls] {
+	return pulumix.Output[*VirtualGatewayListenerTls]{
+		OutputState: i.ToVirtualGatewayListenerTlsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayListenerTlsOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayListenerTlsOutput) ElementType() reflect.Type {
@@ -9873,6 +11482,12 @@ func (o VirtualGatewayListenerTlsOutput) ToVirtualGatewayListenerTlsPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayListenerTls) *VirtualGatewayListenerTls {
 		return &v
 	}).(VirtualGatewayListenerTlsPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTls] {
+	return pulumix.Output[VirtualGatewayListenerTls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerTlsOutput) Certificate() VirtualGatewayListenerTlsCertificateOutput {
@@ -9899,6 +11514,12 @@ func (o VirtualGatewayListenerTlsPtrOutput) ToVirtualGatewayListenerTlsPtrOutput
 
 func (o VirtualGatewayListenerTlsPtrOutput) ToVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayListenerTlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTls] {
+	return pulumix.Output[*VirtualGatewayListenerTls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerTlsPtrOutput) Elem() VirtualGatewayListenerTlsOutput {
@@ -9969,6 +11590,12 @@ func (i VirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayListenerTls
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsAcmCertificateOutput)
 }
 
+func (i VirtualGatewayListenerTlsAcmCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsAcmCertificate] {
+	return pulumix.Output[VirtualGatewayListenerTlsAcmCertificate]{
+		OutputState: i.ToVirtualGatewayListenerTlsAcmCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
 	return i.ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Background())
 }
@@ -10010,6 +11637,12 @@ func (i *virtualGatewayListenerTlsAcmCertificatePtrType) ToVirtualGatewayListene
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsAcmCertificatePtrOutput)
 }
 
+func (i *virtualGatewayListenerTlsAcmCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsAcmCertificate] {
+	return pulumix.Output[*VirtualGatewayListenerTlsAcmCertificate]{
+		OutputState: i.ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayListenerTlsAcmCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayListenerTlsAcmCertificateOutput) ElementType() reflect.Type {
@@ -10034,6 +11667,12 @@ func (o VirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayListenerT
 	}).(VirtualGatewayListenerTlsAcmCertificatePtrOutput)
 }
 
+func (o VirtualGatewayListenerTlsAcmCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsAcmCertificate] {
+	return pulumix.Output[VirtualGatewayListenerTlsAcmCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayListenerTlsAcmCertificateOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewayListenerTlsAcmCertificate) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -10050,6 +11689,12 @@ func (o VirtualGatewayListenerTlsAcmCertificatePtrOutput) ToVirtualGatewayListen
 
 func (o VirtualGatewayListenerTlsAcmCertificatePtrOutput) ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsAcmCertificatePtrOutput {
 	return o
+}
+
+func (o VirtualGatewayListenerTlsAcmCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsAcmCertificate] {
+	return pulumix.Output[*VirtualGatewayListenerTlsAcmCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerTlsAcmCertificatePtrOutput) Elem() VirtualGatewayListenerTlsAcmCertificateOutput {
@@ -10106,6 +11751,12 @@ func (i VirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayListenerTlsCer
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsCertificateOutput)
 }
 
+func (i VirtualGatewayListenerTlsCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsCertificate] {
+	return pulumix.Output[VirtualGatewayListenerTlsCertificate]{
+		OutputState: i.ToVirtualGatewayListenerTlsCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayListenerTlsCertificatePtrOutput {
 	return i.ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Background())
 }
@@ -10147,6 +11798,12 @@ func (i *virtualGatewayListenerTlsCertificatePtrType) ToVirtualGatewayListenerTl
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsCertificatePtrOutput)
 }
 
+func (i *virtualGatewayListenerTlsCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsCertificate] {
+	return pulumix.Output[*VirtualGatewayListenerTlsCertificate]{
+		OutputState: i.ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayListenerTlsCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayListenerTlsCertificateOutput) ElementType() reflect.Type {
@@ -10169,6 +11826,12 @@ func (o VirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayListenerTlsC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsCertificate {
 		return &v
 	}).(VirtualGatewayListenerTlsCertificatePtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsCertificate] {
+	return pulumix.Output[VirtualGatewayListenerTlsCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerTlsCertificateOutput) Acm() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
@@ -10195,6 +11858,12 @@ func (o VirtualGatewayListenerTlsCertificatePtrOutput) ToVirtualGatewayListenerT
 
 func (o VirtualGatewayListenerTlsCertificatePtrOutput) ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsCertificatePtrOutput {
 	return o
+}
+
+func (o VirtualGatewayListenerTlsCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsCertificate] {
+	return pulumix.Output[*VirtualGatewayListenerTlsCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerTlsCertificatePtrOutput) Elem() VirtualGatewayListenerTlsCertificateOutput {
@@ -10267,6 +11936,12 @@ func (i VirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayListenerTl
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsFileCertificateOutput)
 }
 
+func (i VirtualGatewayListenerTlsFileCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsFileCertificate] {
+	return pulumix.Output[VirtualGatewayListenerTlsFileCertificate]{
+		OutputState: i.ToVirtualGatewayListenerTlsFileCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayListenerTlsFileCertificatePtrOutput {
 	return i.ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Background())
 }
@@ -10308,6 +11983,12 @@ func (i *virtualGatewayListenerTlsFileCertificatePtrType) ToVirtualGatewayListen
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
 }
 
+func (i *virtualGatewayListenerTlsFileCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsFileCertificate] {
+	return pulumix.Output[*VirtualGatewayListenerTlsFileCertificate]{
+		OutputState: i.ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayListenerTlsFileCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayListenerTlsFileCertificateOutput) ElementType() reflect.Type {
@@ -10332,6 +12013,12 @@ func (o VirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayListener
 	}).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
 }
 
+func (o VirtualGatewayListenerTlsFileCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsFileCertificate] {
+	return pulumix.Output[VirtualGatewayListenerTlsFileCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayListenerTlsFileCertificateOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewayListenerTlsFileCertificate) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -10352,6 +12039,12 @@ func (o VirtualGatewayListenerTlsFileCertificatePtrOutput) ToVirtualGatewayListe
 
 func (o VirtualGatewayListenerTlsFileCertificatePtrOutput) ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsFileCertificatePtrOutput {
 	return o
+}
+
+func (o VirtualGatewayListenerTlsFileCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsFileCertificate] {
+	return pulumix.Output[*VirtualGatewayListenerTlsFileCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerTlsFileCertificatePtrOutput) Elem() VirtualGatewayListenerTlsFileCertificateOutput {
@@ -10413,6 +12106,12 @@ func (i VirtualGatewayListenerTlsSdsCertificateArgs) ToVirtualGatewayListenerTls
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsSdsCertificateOutput)
 }
 
+func (i VirtualGatewayListenerTlsSdsCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsSdsCertificate] {
+	return pulumix.Output[VirtualGatewayListenerTlsSdsCertificate]{
+		OutputState: i.ToVirtualGatewayListenerTlsSdsCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayListenerTlsSdsCertificateArgs) ToVirtualGatewayListenerTlsSdsCertificatePtrOutput() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
 	return i.ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(context.Background())
 }
@@ -10454,6 +12153,12 @@ func (i *virtualGatewayListenerTlsSdsCertificatePtrType) ToVirtualGatewayListene
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
 }
 
+func (i *virtualGatewayListenerTlsSdsCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsSdsCertificate] {
+	return pulumix.Output[*VirtualGatewayListenerTlsSdsCertificate]{
+		OutputState: i.ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayListenerTlsSdsCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayListenerTlsSdsCertificateOutput) ElementType() reflect.Type {
@@ -10478,6 +12183,12 @@ func (o VirtualGatewayListenerTlsSdsCertificateOutput) ToVirtualGatewayListenerT
 	}).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
 }
 
+func (o VirtualGatewayListenerTlsSdsCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsSdsCertificate] {
+	return pulumix.Output[VirtualGatewayListenerTlsSdsCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayListenerTlsSdsCertificateOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewayListenerTlsSdsCertificate) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -10494,6 +12205,12 @@ func (o VirtualGatewayListenerTlsSdsCertificatePtrOutput) ToVirtualGatewayListen
 
 func (o VirtualGatewayListenerTlsSdsCertificatePtrOutput) ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsSdsCertificatePtrOutput {
 	return o
+}
+
+func (o VirtualGatewayListenerTlsSdsCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsSdsCertificate] {
+	return pulumix.Output[*VirtualGatewayListenerTlsSdsCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerTlsSdsCertificatePtrOutput) Elem() VirtualGatewayListenerTlsSdsCertificateOutput {
@@ -10548,6 +12265,12 @@ func (i VirtualGatewayListenerTlsValidationContextArgs) ToVirtualGatewayListener
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsValidationContextOutput)
 }
 
+func (i VirtualGatewayListenerTlsValidationContextArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsValidationContext] {
+	return pulumix.Output[VirtualGatewayListenerTlsValidationContext]{
+		OutputState: i.ToVirtualGatewayListenerTlsValidationContextOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayListenerTlsValidationContextArgs) ToVirtualGatewayListenerTlsValidationContextPtrOutput() VirtualGatewayListenerTlsValidationContextPtrOutput {
 	return i.ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(context.Background())
 }
@@ -10589,6 +12312,12 @@ func (i *virtualGatewayListenerTlsValidationContextPtrType) ToVirtualGatewayList
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsValidationContextPtrOutput)
 }
 
+func (i *virtualGatewayListenerTlsValidationContextPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsValidationContext] {
+	return pulumix.Output[*VirtualGatewayListenerTlsValidationContext]{
+		OutputState: i.ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayListenerTlsValidationContextOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayListenerTlsValidationContextOutput) ElementType() reflect.Type {
@@ -10611,6 +12340,12 @@ func (o VirtualGatewayListenerTlsValidationContextOutput) ToVirtualGatewayListen
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayListenerTlsValidationContext) *VirtualGatewayListenerTlsValidationContext {
 		return &v
 	}).(VirtualGatewayListenerTlsValidationContextPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsValidationContextOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsValidationContext] {
+	return pulumix.Output[VirtualGatewayListenerTlsValidationContext]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerTlsValidationContextOutput) SubjectAlternativeNames() VirtualGatewaySubjectAlternativeNamesPtrOutput {
@@ -10637,6 +12372,12 @@ func (o VirtualGatewayListenerTlsValidationContextPtrOutput) ToVirtualGatewayLis
 
 func (o VirtualGatewayListenerTlsValidationContextPtrOutput) ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayListenerTlsValidationContextPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsValidationContext] {
+	return pulumix.Output[*VirtualGatewayListenerTlsValidationContext]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerTlsValidationContextPtrOutput) Elem() VirtualGatewayListenerTlsValidationContextOutput {
@@ -10700,6 +12441,12 @@ func (i VirtualGatewayListenerTlsValidationContextTrustArgs) ToVirtualGatewayLis
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsValidationContextTrustOutput)
 }
 
+func (i VirtualGatewayListenerTlsValidationContextTrustArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsValidationContextTrust] {
+	return pulumix.Output[VirtualGatewayListenerTlsValidationContextTrust]{
+		OutputState: i.ToVirtualGatewayListenerTlsValidationContextTrustOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayListenerTlsValidationContextTrustArgs) ToVirtualGatewayListenerTlsValidationContextTrustPtrOutput() VirtualGatewayListenerTlsValidationContextTrustPtrOutput {
 	return i.ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(context.Background())
 }
@@ -10741,6 +12488,12 @@ func (i *virtualGatewayListenerTlsValidationContextTrustPtrType) ToVirtualGatewa
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsValidationContextTrustPtrOutput)
 }
 
+func (i *virtualGatewayListenerTlsValidationContextTrustPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsValidationContextTrust] {
+	return pulumix.Output[*VirtualGatewayListenerTlsValidationContextTrust]{
+		OutputState: i.ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayListenerTlsValidationContextTrustOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayListenerTlsValidationContextTrustOutput) ElementType() reflect.Type {
@@ -10763,6 +12516,12 @@ func (o VirtualGatewayListenerTlsValidationContextTrustOutput) ToVirtualGatewayL
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayListenerTlsValidationContextTrust {
 		return &v
 	}).(VirtualGatewayListenerTlsValidationContextTrustPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayListenerTlsValidationContextTrust] {
+	return pulumix.Output[VirtualGatewayListenerTlsValidationContextTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerTlsValidationContextTrustOutput) File() VirtualGatewayTlsValidationContextFileTrustPtrOutput {
@@ -10789,6 +12548,12 @@ func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) ToVirtualGatew
 
 func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextTrustPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayListenerTlsValidationContextTrust] {
+	return pulumix.Output[*VirtualGatewayListenerTlsValidationContextTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) Elem() VirtualGatewayListenerTlsValidationContextTrustOutput {
@@ -10850,6 +12615,12 @@ func (i VirtualGatewayLoggingArgs) ToVirtualGatewayLoggingOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayLoggingOutput)
 }
 
+func (i VirtualGatewayLoggingArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayLogging] {
+	return pulumix.Output[VirtualGatewayLogging]{
+		OutputState: i.ToVirtualGatewayLoggingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayLoggingArgs) ToVirtualGatewayLoggingPtrOutput() VirtualGatewayLoggingPtrOutput {
 	return i.ToVirtualGatewayLoggingPtrOutputWithContext(context.Background())
 }
@@ -10891,6 +12662,12 @@ func (i *virtualGatewayLoggingPtrType) ToVirtualGatewayLoggingPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayLoggingPtrOutput)
 }
 
+func (i *virtualGatewayLoggingPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayLogging] {
+	return pulumix.Output[*VirtualGatewayLogging]{
+		OutputState: i.ToVirtualGatewayLoggingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayLoggingOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayLoggingOutput) ElementType() reflect.Type {
@@ -10915,6 +12692,12 @@ func (o VirtualGatewayLoggingOutput) ToVirtualGatewayLoggingPtrOutputWithContext
 	}).(VirtualGatewayLoggingPtrOutput)
 }
 
+func (o VirtualGatewayLoggingOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayLogging] {
+	return pulumix.Output[VirtualGatewayLogging]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayLoggingOutput) AccessLog() VirtualGatewayAccessLogPtrOutput {
 	return o.ApplyT(func(v VirtualGatewayLogging) *VirtualGatewayAccessLog { return v.AccessLog }).(VirtualGatewayAccessLogPtrOutput)
 }
@@ -10931,6 +12714,12 @@ func (o VirtualGatewayLoggingPtrOutput) ToVirtualGatewayLoggingPtrOutput() Virtu
 
 func (o VirtualGatewayLoggingPtrOutput) ToVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayLoggingPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayLoggingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayLogging] {
+	return pulumix.Output[*VirtualGatewayLogging]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayLoggingPtrOutput) Elem() VirtualGatewayLoggingOutput {
@@ -10985,6 +12774,12 @@ func (i VirtualGatewayLoggingFormatArgs) ToVirtualGatewayLoggingFormatOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayLoggingFormatOutput)
 }
 
+func (i VirtualGatewayLoggingFormatArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayLoggingFormat] {
+	return pulumix.Output[VirtualGatewayLoggingFormat]{
+		OutputState: i.ToVirtualGatewayLoggingFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayLoggingFormatArgs) ToVirtualGatewayLoggingFormatPtrOutput() VirtualGatewayLoggingFormatPtrOutput {
 	return i.ToVirtualGatewayLoggingFormatPtrOutputWithContext(context.Background())
 }
@@ -11026,6 +12821,12 @@ func (i *virtualGatewayLoggingFormatPtrType) ToVirtualGatewayLoggingFormatPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayLoggingFormatPtrOutput)
 }
 
+func (i *virtualGatewayLoggingFormatPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayLoggingFormat] {
+	return pulumix.Output[*VirtualGatewayLoggingFormat]{
+		OutputState: i.ToVirtualGatewayLoggingFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayLoggingFormatOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayLoggingFormatOutput) ElementType() reflect.Type {
@@ -11050,6 +12851,12 @@ func (o VirtualGatewayLoggingFormatOutput) ToVirtualGatewayLoggingFormatPtrOutpu
 	}).(VirtualGatewayLoggingFormatPtrOutput)
 }
 
+func (o VirtualGatewayLoggingFormatOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayLoggingFormat] {
+	return pulumix.Output[VirtualGatewayLoggingFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayLoggingFormatOutput) Json() VirtualGatewayJsonFormatRefArrayOutput {
 	return o.ApplyT(func(v VirtualGatewayLoggingFormat) []VirtualGatewayJsonFormatRef { return v.Json }).(VirtualGatewayJsonFormatRefArrayOutput)
 }
@@ -11070,6 +12877,12 @@ func (o VirtualGatewayLoggingFormatPtrOutput) ToVirtualGatewayLoggingFormatPtrOu
 
 func (o VirtualGatewayLoggingFormatPtrOutput) ToVirtualGatewayLoggingFormatPtrOutputWithContext(ctx context.Context) VirtualGatewayLoggingFormatPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayLoggingFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayLoggingFormat] {
+	return pulumix.Output[*VirtualGatewayLoggingFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayLoggingFormatPtrOutput) Elem() VirtualGatewayLoggingFormatOutput {
@@ -11133,6 +12946,12 @@ func (i VirtualGatewayPortMappingArgs) ToVirtualGatewayPortMappingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayPortMappingOutput)
 }
 
+func (i VirtualGatewayPortMappingArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayPortMapping] {
+	return pulumix.Output[VirtualGatewayPortMapping]{
+		OutputState: i.ToVirtualGatewayPortMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayPortMappingOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayPortMappingOutput) ElementType() reflect.Type {
@@ -11145,6 +12964,12 @@ func (o VirtualGatewayPortMappingOutput) ToVirtualGatewayPortMappingOutput() Vir
 
 func (o VirtualGatewayPortMappingOutput) ToVirtualGatewayPortMappingOutputWithContext(ctx context.Context) VirtualGatewayPortMappingOutput {
 	return o
+}
+
+func (o VirtualGatewayPortMappingOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayPortMapping] {
+	return pulumix.Output[VirtualGatewayPortMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayPortMappingOutput) Port() pulumi.IntOutput {
@@ -11190,6 +13015,12 @@ func (i VirtualGatewaySpecArgs) ToVirtualGatewaySpecOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecOutput)
 }
 
+func (i VirtualGatewaySpecArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewaySpec] {
+	return pulumix.Output[VirtualGatewaySpec]{
+		OutputState: i.ToVirtualGatewaySpecOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewaySpecOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewaySpecOutput) ElementType() reflect.Type {
@@ -11202,6 +13033,12 @@ func (o VirtualGatewaySpecOutput) ToVirtualGatewaySpecOutput() VirtualGatewaySpe
 
 func (o VirtualGatewaySpecOutput) ToVirtualGatewaySpecOutputWithContext(ctx context.Context) VirtualGatewaySpecOutput {
 	return o
+}
+
+func (o VirtualGatewaySpecOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewaySpec] {
+	return pulumix.Output[VirtualGatewaySpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewaySpecOutput) BackendDefaults() VirtualGatewayBackendDefaultsPtrOutput {
@@ -11228,6 +13065,12 @@ func (o VirtualGatewaySpecPtrOutput) ToVirtualGatewaySpecPtrOutput() VirtualGate
 
 func (o VirtualGatewaySpecPtrOutput) ToVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecPtrOutput {
 	return o
+}
+
+func (o VirtualGatewaySpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewaySpec] {
+	return pulumix.Output[*VirtualGatewaySpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewaySpecPtrOutput) Elem() VirtualGatewaySpecOutput {
@@ -11298,6 +13141,12 @@ func (i VirtualGatewaySubjectAlternativeNameMatchersArgs) ToVirtualGatewaySubjec
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySubjectAlternativeNameMatchersOutput)
 }
 
+func (i VirtualGatewaySubjectAlternativeNameMatchersArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewaySubjectAlternativeNameMatchers] {
+	return pulumix.Output[VirtualGatewaySubjectAlternativeNameMatchers]{
+		OutputState: i.ToVirtualGatewaySubjectAlternativeNameMatchersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewaySubjectAlternativeNameMatchersArgs) ToVirtualGatewaySubjectAlternativeNameMatchersPtrOutput() VirtualGatewaySubjectAlternativeNameMatchersPtrOutput {
 	return i.ToVirtualGatewaySubjectAlternativeNameMatchersPtrOutputWithContext(context.Background())
 }
@@ -11339,6 +13188,12 @@ func (i *virtualGatewaySubjectAlternativeNameMatchersPtrType) ToVirtualGatewaySu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySubjectAlternativeNameMatchersPtrOutput)
 }
 
+func (i *virtualGatewaySubjectAlternativeNameMatchersPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewaySubjectAlternativeNameMatchers] {
+	return pulumix.Output[*VirtualGatewaySubjectAlternativeNameMatchers]{
+		OutputState: i.ToVirtualGatewaySubjectAlternativeNameMatchersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewaySubjectAlternativeNameMatchersOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewaySubjectAlternativeNameMatchersOutput) ElementType() reflect.Type {
@@ -11363,6 +13218,12 @@ func (o VirtualGatewaySubjectAlternativeNameMatchersOutput) ToVirtualGatewaySubj
 	}).(VirtualGatewaySubjectAlternativeNameMatchersPtrOutput)
 }
 
+func (o VirtualGatewaySubjectAlternativeNameMatchersOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewaySubjectAlternativeNameMatchers] {
+	return pulumix.Output[VirtualGatewaySubjectAlternativeNameMatchers]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewaySubjectAlternativeNameMatchersOutput) Exact() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualGatewaySubjectAlternativeNameMatchers) []string { return v.Exact }).(pulumi.StringArrayOutput)
 }
@@ -11379,6 +13240,12 @@ func (o VirtualGatewaySubjectAlternativeNameMatchersPtrOutput) ToVirtualGatewayS
 
 func (o VirtualGatewaySubjectAlternativeNameMatchersPtrOutput) ToVirtualGatewaySubjectAlternativeNameMatchersPtrOutputWithContext(ctx context.Context) VirtualGatewaySubjectAlternativeNameMatchersPtrOutput {
 	return o
+}
+
+func (o VirtualGatewaySubjectAlternativeNameMatchersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewaySubjectAlternativeNameMatchers] {
+	return pulumix.Output[*VirtualGatewaySubjectAlternativeNameMatchers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewaySubjectAlternativeNameMatchersPtrOutput) Elem() VirtualGatewaySubjectAlternativeNameMatchersOutput {
@@ -11431,6 +13298,12 @@ func (i VirtualGatewaySubjectAlternativeNamesArgs) ToVirtualGatewaySubjectAltern
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySubjectAlternativeNamesOutput)
 }
 
+func (i VirtualGatewaySubjectAlternativeNamesArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewaySubjectAlternativeNames] {
+	return pulumix.Output[VirtualGatewaySubjectAlternativeNames]{
+		OutputState: i.ToVirtualGatewaySubjectAlternativeNamesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewaySubjectAlternativeNamesArgs) ToVirtualGatewaySubjectAlternativeNamesPtrOutput() VirtualGatewaySubjectAlternativeNamesPtrOutput {
 	return i.ToVirtualGatewaySubjectAlternativeNamesPtrOutputWithContext(context.Background())
 }
@@ -11472,6 +13345,12 @@ func (i *virtualGatewaySubjectAlternativeNamesPtrType) ToVirtualGatewaySubjectAl
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySubjectAlternativeNamesPtrOutput)
 }
 
+func (i *virtualGatewaySubjectAlternativeNamesPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewaySubjectAlternativeNames] {
+	return pulumix.Output[*VirtualGatewaySubjectAlternativeNames]{
+		OutputState: i.ToVirtualGatewaySubjectAlternativeNamesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewaySubjectAlternativeNamesOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewaySubjectAlternativeNamesOutput) ElementType() reflect.Type {
@@ -11496,6 +13375,12 @@ func (o VirtualGatewaySubjectAlternativeNamesOutput) ToVirtualGatewaySubjectAlte
 	}).(VirtualGatewaySubjectAlternativeNamesPtrOutput)
 }
 
+func (o VirtualGatewaySubjectAlternativeNamesOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewaySubjectAlternativeNames] {
+	return pulumix.Output[VirtualGatewaySubjectAlternativeNames]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewaySubjectAlternativeNamesOutput) Match() VirtualGatewaySubjectAlternativeNameMatchersOutput {
 	return o.ApplyT(func(v VirtualGatewaySubjectAlternativeNames) VirtualGatewaySubjectAlternativeNameMatchers {
 		return v.Match
@@ -11514,6 +13399,12 @@ func (o VirtualGatewaySubjectAlternativeNamesPtrOutput) ToVirtualGatewaySubjectA
 
 func (o VirtualGatewaySubjectAlternativeNamesPtrOutput) ToVirtualGatewaySubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualGatewaySubjectAlternativeNamesPtrOutput {
 	return o
+}
+
+func (o VirtualGatewaySubjectAlternativeNamesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewaySubjectAlternativeNames] {
+	return pulumix.Output[*VirtualGatewaySubjectAlternativeNames]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewaySubjectAlternativeNamesPtrOutput) Elem() VirtualGatewaySubjectAlternativeNamesOutput {
@@ -11568,6 +13459,12 @@ func (i VirtualGatewayTagArgs) ToVirtualGatewayTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTagOutput)
 }
 
+func (i VirtualGatewayTagArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTag] {
+	return pulumix.Output[VirtualGatewayTag]{
+		OutputState: i.ToVirtualGatewayTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualGatewayTagArrayInput is an input type that accepts VirtualGatewayTagArray and VirtualGatewayTagArrayOutput values.
 // You can construct a concrete instance of `VirtualGatewayTagArrayInput` via:
 //
@@ -11593,6 +13490,12 @@ func (i VirtualGatewayTagArray) ToVirtualGatewayTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTagArrayOutput)
 }
 
+func (i VirtualGatewayTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualGatewayTag] {
+	return pulumix.Output[[]VirtualGatewayTag]{
+		OutputState: i.ToVirtualGatewayTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayTagOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayTagOutput) ElementType() reflect.Type {
@@ -11605,6 +13508,12 @@ func (o VirtualGatewayTagOutput) ToVirtualGatewayTagOutput() VirtualGatewayTagOu
 
 func (o VirtualGatewayTagOutput) ToVirtualGatewayTagOutputWithContext(ctx context.Context) VirtualGatewayTagOutput {
 	return o
+}
+
+func (o VirtualGatewayTagOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTag] {
+	return pulumix.Output[VirtualGatewayTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayTagOutput) Key() pulumi.StringOutput {
@@ -11627,6 +13536,12 @@ func (o VirtualGatewayTagArrayOutput) ToVirtualGatewayTagArrayOutput() VirtualGa
 
 func (o VirtualGatewayTagArrayOutput) ToVirtualGatewayTagArrayOutputWithContext(ctx context.Context) VirtualGatewayTagArrayOutput {
 	return o
+}
+
+func (o VirtualGatewayTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualGatewayTag] {
+	return pulumix.Output[[]VirtualGatewayTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayTagArrayOutput) Index(i pulumi.IntInput) VirtualGatewayTagOutput {
@@ -11666,6 +13581,12 @@ func (i VirtualGatewayTlsValidationContextArgs) ToVirtualGatewayTlsValidationCon
 
 func (i VirtualGatewayTlsValidationContextArgs) ToVirtualGatewayTlsValidationContextOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextOutput)
+}
+
+func (i VirtualGatewayTlsValidationContextArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTlsValidationContext] {
+	return pulumix.Output[VirtualGatewayTlsValidationContext]{
+		OutputState: i.ToVirtualGatewayTlsValidationContextOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i VirtualGatewayTlsValidationContextArgs) ToVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayTlsValidationContextPtrOutput {
@@ -11709,6 +13630,12 @@ func (i *virtualGatewayTlsValidationContextPtrType) ToVirtualGatewayTlsValidatio
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextPtrOutput)
 }
 
+func (i *virtualGatewayTlsValidationContextPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayTlsValidationContext] {
+	return pulumix.Output[*VirtualGatewayTlsValidationContext]{
+		OutputState: i.ToVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayTlsValidationContextOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayTlsValidationContextOutput) ElementType() reflect.Type {
@@ -11733,6 +13660,12 @@ func (o VirtualGatewayTlsValidationContextOutput) ToVirtualGatewayTlsValidationC
 	}).(VirtualGatewayTlsValidationContextPtrOutput)
 }
 
+func (o VirtualGatewayTlsValidationContextOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTlsValidationContext] {
+	return pulumix.Output[VirtualGatewayTlsValidationContext]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayTlsValidationContextOutput) SubjectAlternativeNames() VirtualGatewaySubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v VirtualGatewayTlsValidationContext) *VirtualGatewaySubjectAlternativeNames {
 		return v.SubjectAlternativeNames
@@ -11755,6 +13688,12 @@ func (o VirtualGatewayTlsValidationContextPtrOutput) ToVirtualGatewayTlsValidati
 
 func (o VirtualGatewayTlsValidationContextPtrOutput) ToVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayTlsValidationContextPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayTlsValidationContext] {
+	return pulumix.Output[*VirtualGatewayTlsValidationContext]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayTlsValidationContextPtrOutput) Elem() VirtualGatewayTlsValidationContextOutput {
@@ -11816,6 +13755,12 @@ func (i VirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayTlsValid
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextAcmTrustOutput)
 }
 
+func (i VirtualGatewayTlsValidationContextAcmTrustArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTlsValidationContextAcmTrust] {
+	return pulumix.Output[VirtualGatewayTlsValidationContextAcmTrust]{
+		OutputState: i.ToVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
 	return i.ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Background())
 }
@@ -11857,6 +13802,12 @@ func (i *virtualGatewayTlsValidationContextAcmTrustPtrType) ToVirtualGatewayTlsV
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextAcmTrustPtrOutput)
 }
 
+func (i *virtualGatewayTlsValidationContextAcmTrustPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayTlsValidationContextAcmTrust] {
+	return pulumix.Output[*VirtualGatewayTlsValidationContextAcmTrust]{
+		OutputState: i.ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayTlsValidationContextAcmTrustOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayTlsValidationContextAcmTrustOutput) ElementType() reflect.Type {
@@ -11881,6 +13832,12 @@ func (o VirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayTlsVal
 	}).(VirtualGatewayTlsValidationContextAcmTrustPtrOutput)
 }
 
+func (o VirtualGatewayTlsValidationContextAcmTrustOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTlsValidationContextAcmTrust] {
+	return pulumix.Output[VirtualGatewayTlsValidationContextAcmTrust]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayTlsValidationContextAcmTrustOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualGatewayTlsValidationContextAcmTrust) []string { return v.CertificateAuthorityArns }).(pulumi.StringArrayOutput)
 }
@@ -11897,6 +13854,12 @@ func (o VirtualGatewayTlsValidationContextAcmTrustPtrOutput) ToVirtualGatewayTls
 
 func (o VirtualGatewayTlsValidationContextAcmTrustPtrOutput) ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayTlsValidationContextAcmTrustPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayTlsValidationContextAcmTrust] {
+	return pulumix.Output[*VirtualGatewayTlsValidationContextAcmTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayTlsValidationContextAcmTrustPtrOutput) Elem() VirtualGatewayTlsValidationContextAcmTrustOutput {
@@ -11949,6 +13912,12 @@ func (i VirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayTlsVali
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextFileTrustOutput)
 }
 
+func (i VirtualGatewayTlsValidationContextFileTrustArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTlsValidationContextFileTrust] {
+	return pulumix.Output[VirtualGatewayTlsValidationContextFileTrust]{
+		OutputState: i.ToVirtualGatewayTlsValidationContextFileTrustOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayTlsValidationContextFileTrustPtrOutput {
 	return i.ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Background())
 }
@@ -11990,6 +13959,12 @@ func (i *virtualGatewayTlsValidationContextFileTrustPtrType) ToVirtualGatewayTls
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
 }
 
+func (i *virtualGatewayTlsValidationContextFileTrustPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayTlsValidationContextFileTrust] {
+	return pulumix.Output[*VirtualGatewayTlsValidationContextFileTrust]{
+		OutputState: i.ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayTlsValidationContextFileTrustOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayTlsValidationContextFileTrustOutput) ElementType() reflect.Type {
@@ -12014,6 +13989,12 @@ func (o VirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayTlsVa
 	}).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
 }
 
+func (o VirtualGatewayTlsValidationContextFileTrustOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTlsValidationContextFileTrust] {
+	return pulumix.Output[VirtualGatewayTlsValidationContextFileTrust]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayTlsValidationContextFileTrustOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewayTlsValidationContextFileTrust) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -12030,6 +14011,12 @@ func (o VirtualGatewayTlsValidationContextFileTrustPtrOutput) ToVirtualGatewayTl
 
 func (o VirtualGatewayTlsValidationContextFileTrustPtrOutput) ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextFileTrustPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayTlsValidationContextFileTrustPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayTlsValidationContextFileTrust] {
+	return pulumix.Output[*VirtualGatewayTlsValidationContextFileTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayTlsValidationContextFileTrustPtrOutput) Elem() VirtualGatewayTlsValidationContextFileTrustOutput {
@@ -12082,6 +14069,12 @@ func (i VirtualGatewayTlsValidationContextSdsTrustArgs) ToVirtualGatewayTlsValid
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextSdsTrustOutput)
 }
 
+func (i VirtualGatewayTlsValidationContextSdsTrustArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTlsValidationContextSdsTrust] {
+	return pulumix.Output[VirtualGatewayTlsValidationContextSdsTrust]{
+		OutputState: i.ToVirtualGatewayTlsValidationContextSdsTrustOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayTlsValidationContextSdsTrustArgs) ToVirtualGatewayTlsValidationContextSdsTrustPtrOutput() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
 	return i.ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(context.Background())
 }
@@ -12123,6 +14116,12 @@ func (i *virtualGatewayTlsValidationContextSdsTrustPtrType) ToVirtualGatewayTlsV
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
 }
 
+func (i *virtualGatewayTlsValidationContextSdsTrustPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayTlsValidationContextSdsTrust] {
+	return pulumix.Output[*VirtualGatewayTlsValidationContextSdsTrust]{
+		OutputState: i.ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayTlsValidationContextSdsTrustOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayTlsValidationContextSdsTrustOutput) ElementType() reflect.Type {
@@ -12147,6 +14146,12 @@ func (o VirtualGatewayTlsValidationContextSdsTrustOutput) ToVirtualGatewayTlsVal
 	}).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
 }
 
+func (o VirtualGatewayTlsValidationContextSdsTrustOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTlsValidationContextSdsTrust] {
+	return pulumix.Output[VirtualGatewayTlsValidationContextSdsTrust]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGatewayTlsValidationContextSdsTrustOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewayTlsValidationContextSdsTrust) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -12163,6 +14168,12 @@ func (o VirtualGatewayTlsValidationContextSdsTrustPtrOutput) ToVirtualGatewayTls
 
 func (o VirtualGatewayTlsValidationContextSdsTrustPtrOutput) ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayTlsValidationContextSdsTrustPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayTlsValidationContextSdsTrust] {
+	return pulumix.Output[*VirtualGatewayTlsValidationContextSdsTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayTlsValidationContextSdsTrustPtrOutput) Elem() VirtualGatewayTlsValidationContextSdsTrustOutput {
@@ -12219,6 +14230,12 @@ func (i VirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayTlsValidati
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextTrustOutput)
 }
 
+func (i VirtualGatewayTlsValidationContextTrustArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTlsValidationContextTrust] {
+	return pulumix.Output[VirtualGatewayTlsValidationContextTrust]{
+		OutputState: i.ToVirtualGatewayTlsValidationContextTrustOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayTlsValidationContextTrustPtrOutput {
 	return i.ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Background())
 }
@@ -12260,6 +14277,12 @@ func (i *virtualGatewayTlsValidationContextTrustPtrType) ToVirtualGatewayTlsVali
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextTrustPtrOutput)
 }
 
+func (i *virtualGatewayTlsValidationContextTrustPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayTlsValidationContextTrust] {
+	return pulumix.Output[*VirtualGatewayTlsValidationContextTrust]{
+		OutputState: i.ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGatewayTlsValidationContextTrustOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayTlsValidationContextTrustOutput) ElementType() reflect.Type {
@@ -12282,6 +14305,12 @@ func (o VirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayTlsValida
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextTrust {
 		return &v
 	}).(VirtualGatewayTlsValidationContextTrustPtrOutput)
+}
+
+func (o VirtualGatewayTlsValidationContextTrustOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualGatewayTlsValidationContextTrust] {
+	return pulumix.Output[VirtualGatewayTlsValidationContextTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayTlsValidationContextTrustOutput) Acm() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
@@ -12314,6 +14343,12 @@ func (o VirtualGatewayTlsValidationContextTrustPtrOutput) ToVirtualGatewayTlsVal
 
 func (o VirtualGatewayTlsValidationContextTrustPtrOutput) ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextTrustPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayTlsValidationContextTrustPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGatewayTlsValidationContextTrust] {
+	return pulumix.Output[*VirtualGatewayTlsValidationContextTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGatewayTlsValidationContextTrustPtrOutput) Elem() VirtualGatewayTlsValidationContextTrustOutput {
@@ -12384,6 +14419,12 @@ func (i VirtualNodeAccessLogArgs) ToVirtualNodeAccessLogOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeAccessLogOutput)
 }
 
+func (i VirtualNodeAccessLogArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeAccessLog] {
+	return pulumix.Output[VirtualNodeAccessLog]{
+		OutputState: i.ToVirtualNodeAccessLogOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeAccessLogArgs) ToVirtualNodeAccessLogPtrOutput() VirtualNodeAccessLogPtrOutput {
 	return i.ToVirtualNodeAccessLogPtrOutputWithContext(context.Background())
 }
@@ -12425,6 +14466,12 @@ func (i *virtualNodeAccessLogPtrType) ToVirtualNodeAccessLogPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeAccessLogPtrOutput)
 }
 
+func (i *virtualNodeAccessLogPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeAccessLog] {
+	return pulumix.Output[*VirtualNodeAccessLog]{
+		OutputState: i.ToVirtualNodeAccessLogPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeAccessLogOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeAccessLogOutput) ElementType() reflect.Type {
@@ -12449,6 +14496,12 @@ func (o VirtualNodeAccessLogOutput) ToVirtualNodeAccessLogPtrOutputWithContext(c
 	}).(VirtualNodeAccessLogPtrOutput)
 }
 
+func (o VirtualNodeAccessLogOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeAccessLog] {
+	return pulumix.Output[VirtualNodeAccessLog]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeAccessLogOutput) File() VirtualNodeFileAccessLogPtrOutput {
 	return o.ApplyT(func(v VirtualNodeAccessLog) *VirtualNodeFileAccessLog { return v.File }).(VirtualNodeFileAccessLogPtrOutput)
 }
@@ -12465,6 +14518,12 @@ func (o VirtualNodeAccessLogPtrOutput) ToVirtualNodeAccessLogPtrOutput() Virtual
 
 func (o VirtualNodeAccessLogPtrOutput) ToVirtualNodeAccessLogPtrOutputWithContext(ctx context.Context) VirtualNodeAccessLogPtrOutput {
 	return o
+}
+
+func (o VirtualNodeAccessLogPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeAccessLog] {
+	return pulumix.Output[*VirtualNodeAccessLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeAccessLogPtrOutput) Elem() VirtualNodeAccessLogOutput {
@@ -12519,6 +14578,12 @@ func (i VirtualNodeAwsCloudMapInstanceAttributeArgs) ToVirtualNodeAwsCloudMapIns
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeAwsCloudMapInstanceAttributeOutput)
 }
 
+func (i VirtualNodeAwsCloudMapInstanceAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeAwsCloudMapInstanceAttribute] {
+	return pulumix.Output[VirtualNodeAwsCloudMapInstanceAttribute]{
+		OutputState: i.ToVirtualNodeAwsCloudMapInstanceAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNodeAwsCloudMapInstanceAttributeArrayInput is an input type that accepts VirtualNodeAwsCloudMapInstanceAttributeArray and VirtualNodeAwsCloudMapInstanceAttributeArrayOutput values.
 // You can construct a concrete instance of `VirtualNodeAwsCloudMapInstanceAttributeArrayInput` via:
 //
@@ -12544,6 +14609,12 @@ func (i VirtualNodeAwsCloudMapInstanceAttributeArray) ToVirtualNodeAwsCloudMapIn
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeAwsCloudMapInstanceAttributeArrayOutput)
 }
 
+func (i VirtualNodeAwsCloudMapInstanceAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualNodeAwsCloudMapInstanceAttribute] {
+	return pulumix.Output[[]VirtualNodeAwsCloudMapInstanceAttribute]{
+		OutputState: i.ToVirtualNodeAwsCloudMapInstanceAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeAwsCloudMapInstanceAttributeOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeAwsCloudMapInstanceAttributeOutput) ElementType() reflect.Type {
@@ -12556,6 +14627,12 @@ func (o VirtualNodeAwsCloudMapInstanceAttributeOutput) ToVirtualNodeAwsCloudMapI
 
 func (o VirtualNodeAwsCloudMapInstanceAttributeOutput) ToVirtualNodeAwsCloudMapInstanceAttributeOutputWithContext(ctx context.Context) VirtualNodeAwsCloudMapInstanceAttributeOutput {
 	return o
+}
+
+func (o VirtualNodeAwsCloudMapInstanceAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeAwsCloudMapInstanceAttribute] {
+	return pulumix.Output[VirtualNodeAwsCloudMapInstanceAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeAwsCloudMapInstanceAttributeOutput) Key() pulumi.StringOutput {
@@ -12578,6 +14655,12 @@ func (o VirtualNodeAwsCloudMapInstanceAttributeArrayOutput) ToVirtualNodeAwsClou
 
 func (o VirtualNodeAwsCloudMapInstanceAttributeArrayOutput) ToVirtualNodeAwsCloudMapInstanceAttributeArrayOutputWithContext(ctx context.Context) VirtualNodeAwsCloudMapInstanceAttributeArrayOutput {
 	return o
+}
+
+func (o VirtualNodeAwsCloudMapInstanceAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualNodeAwsCloudMapInstanceAttribute] {
+	return pulumix.Output[[]VirtualNodeAwsCloudMapInstanceAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeAwsCloudMapInstanceAttributeArrayOutput) Index(i pulumi.IntInput) VirtualNodeAwsCloudMapInstanceAttributeOutput {
@@ -12623,6 +14706,12 @@ func (i VirtualNodeAwsCloudMapServiceDiscoveryArgs) ToVirtualNodeAwsCloudMapServ
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeAwsCloudMapServiceDiscoveryOutput)
 }
 
+func (i VirtualNodeAwsCloudMapServiceDiscoveryArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeAwsCloudMapServiceDiscovery] {
+	return pulumix.Output[VirtualNodeAwsCloudMapServiceDiscovery]{
+		OutputState: i.ToVirtualNodeAwsCloudMapServiceDiscoveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeAwsCloudMapServiceDiscoveryArgs) ToVirtualNodeAwsCloudMapServiceDiscoveryPtrOutput() VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput {
 	return i.ToVirtualNodeAwsCloudMapServiceDiscoveryPtrOutputWithContext(context.Background())
 }
@@ -12664,6 +14753,12 @@ func (i *virtualNodeAwsCloudMapServiceDiscoveryPtrType) ToVirtualNodeAwsCloudMap
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput)
 }
 
+func (i *virtualNodeAwsCloudMapServiceDiscoveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeAwsCloudMapServiceDiscovery] {
+	return pulumix.Output[*VirtualNodeAwsCloudMapServiceDiscovery]{
+		OutputState: i.ToVirtualNodeAwsCloudMapServiceDiscoveryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeAwsCloudMapServiceDiscoveryOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeAwsCloudMapServiceDiscoveryOutput) ElementType() reflect.Type {
@@ -12686,6 +14781,12 @@ func (o VirtualNodeAwsCloudMapServiceDiscoveryOutput) ToVirtualNodeAwsCloudMapSe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeAwsCloudMapServiceDiscovery) *VirtualNodeAwsCloudMapServiceDiscovery {
 		return &v
 	}).(VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput)
+}
+
+func (o VirtualNodeAwsCloudMapServiceDiscoveryOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeAwsCloudMapServiceDiscovery] {
+	return pulumix.Output[VirtualNodeAwsCloudMapServiceDiscovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeAwsCloudMapServiceDiscoveryOutput) Attributes() VirtualNodeAwsCloudMapInstanceAttributeArrayOutput {
@@ -12718,6 +14819,12 @@ func (o VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput) ToVirtualNodeAwsCloudMa
 
 func (o VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput) ToVirtualNodeAwsCloudMapServiceDiscoveryPtrOutputWithContext(ctx context.Context) VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput {
 	return o
+}
+
+func (o VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeAwsCloudMapServiceDiscovery] {
+	return pulumix.Output[*VirtualNodeAwsCloudMapServiceDiscovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput) Elem() VirtualNodeAwsCloudMapServiceDiscoveryOutput {
@@ -12797,6 +14904,12 @@ func (i VirtualNodeBackendArgs) ToVirtualNodeBackendOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeBackendOutput)
 }
 
+func (i VirtualNodeBackendArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeBackend] {
+	return pulumix.Output[VirtualNodeBackend]{
+		OutputState: i.ToVirtualNodeBackendOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNodeBackendArrayInput is an input type that accepts VirtualNodeBackendArray and VirtualNodeBackendArrayOutput values.
 // You can construct a concrete instance of `VirtualNodeBackendArrayInput` via:
 //
@@ -12822,6 +14935,12 @@ func (i VirtualNodeBackendArray) ToVirtualNodeBackendArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeBackendArrayOutput)
 }
 
+func (i VirtualNodeBackendArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualNodeBackend] {
+	return pulumix.Output[[]VirtualNodeBackend]{
+		OutputState: i.ToVirtualNodeBackendArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeBackendOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeBackendOutput) ElementType() reflect.Type {
@@ -12834,6 +14953,12 @@ func (o VirtualNodeBackendOutput) ToVirtualNodeBackendOutput() VirtualNodeBacken
 
 func (o VirtualNodeBackendOutput) ToVirtualNodeBackendOutputWithContext(ctx context.Context) VirtualNodeBackendOutput {
 	return o
+}
+
+func (o VirtualNodeBackendOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeBackend] {
+	return pulumix.Output[VirtualNodeBackend]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeBackendOutput) VirtualService() VirtualNodeVirtualServiceBackendPtrOutput {
@@ -12852,6 +14977,12 @@ func (o VirtualNodeBackendArrayOutput) ToVirtualNodeBackendArrayOutput() Virtual
 
 func (o VirtualNodeBackendArrayOutput) ToVirtualNodeBackendArrayOutputWithContext(ctx context.Context) VirtualNodeBackendArrayOutput {
 	return o
+}
+
+func (o VirtualNodeBackendArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualNodeBackend] {
+	return pulumix.Output[[]VirtualNodeBackend]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeBackendArrayOutput) Index(i pulumi.IntInput) VirtualNodeBackendOutput {
@@ -12889,6 +15020,12 @@ func (i VirtualNodeBackendDefaultsArgs) ToVirtualNodeBackendDefaultsOutput() Vir
 
 func (i VirtualNodeBackendDefaultsArgs) ToVirtualNodeBackendDefaultsOutputWithContext(ctx context.Context) VirtualNodeBackendDefaultsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeBackendDefaultsOutput)
+}
+
+func (i VirtualNodeBackendDefaultsArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeBackendDefaults] {
+	return pulumix.Output[VirtualNodeBackendDefaults]{
+		OutputState: i.ToVirtualNodeBackendDefaultsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i VirtualNodeBackendDefaultsArgs) ToVirtualNodeBackendDefaultsPtrOutput() VirtualNodeBackendDefaultsPtrOutput {
@@ -12932,6 +15069,12 @@ func (i *virtualNodeBackendDefaultsPtrType) ToVirtualNodeBackendDefaultsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeBackendDefaultsPtrOutput)
 }
 
+func (i *virtualNodeBackendDefaultsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeBackendDefaults] {
+	return pulumix.Output[*VirtualNodeBackendDefaults]{
+		OutputState: i.ToVirtualNodeBackendDefaultsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeBackendDefaultsOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeBackendDefaultsOutput) ElementType() reflect.Type {
@@ -12956,6 +15099,12 @@ func (o VirtualNodeBackendDefaultsOutput) ToVirtualNodeBackendDefaultsPtrOutputW
 	}).(VirtualNodeBackendDefaultsPtrOutput)
 }
 
+func (o VirtualNodeBackendDefaultsOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeBackendDefaults] {
+	return pulumix.Output[VirtualNodeBackendDefaults]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeBackendDefaultsOutput) ClientPolicy() VirtualNodeClientPolicyPtrOutput {
 	return o.ApplyT(func(v VirtualNodeBackendDefaults) *VirtualNodeClientPolicy { return v.ClientPolicy }).(VirtualNodeClientPolicyPtrOutput)
 }
@@ -12972,6 +15121,12 @@ func (o VirtualNodeBackendDefaultsPtrOutput) ToVirtualNodeBackendDefaultsPtrOutp
 
 func (o VirtualNodeBackendDefaultsPtrOutput) ToVirtualNodeBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualNodeBackendDefaultsPtrOutput {
 	return o
+}
+
+func (o VirtualNodeBackendDefaultsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeBackendDefaults] {
+	return pulumix.Output[*VirtualNodeBackendDefaults]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeBackendDefaultsPtrOutput) Elem() VirtualNodeBackendDefaultsOutput {
@@ -13024,6 +15179,12 @@ func (i VirtualNodeClientPolicyArgs) ToVirtualNodeClientPolicyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeClientPolicyOutput)
 }
 
+func (i VirtualNodeClientPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeClientPolicy] {
+	return pulumix.Output[VirtualNodeClientPolicy]{
+		OutputState: i.ToVirtualNodeClientPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeClientPolicyArgs) ToVirtualNodeClientPolicyPtrOutput() VirtualNodeClientPolicyPtrOutput {
 	return i.ToVirtualNodeClientPolicyPtrOutputWithContext(context.Background())
 }
@@ -13065,6 +15226,12 @@ func (i *virtualNodeClientPolicyPtrType) ToVirtualNodeClientPolicyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeClientPolicyPtrOutput)
 }
 
+func (i *virtualNodeClientPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeClientPolicy] {
+	return pulumix.Output[*VirtualNodeClientPolicy]{
+		OutputState: i.ToVirtualNodeClientPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeClientPolicyOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeClientPolicyOutput) ElementType() reflect.Type {
@@ -13089,6 +15256,12 @@ func (o VirtualNodeClientPolicyOutput) ToVirtualNodeClientPolicyPtrOutputWithCon
 	}).(VirtualNodeClientPolicyPtrOutput)
 }
 
+func (o VirtualNodeClientPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeClientPolicy] {
+	return pulumix.Output[VirtualNodeClientPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeClientPolicyOutput) Tls() VirtualNodeClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeClientPolicy) *VirtualNodeClientPolicyTls { return v.Tls }).(VirtualNodeClientPolicyTlsPtrOutput)
 }
@@ -13105,6 +15278,12 @@ func (o VirtualNodeClientPolicyPtrOutput) ToVirtualNodeClientPolicyPtrOutput() V
 
 func (o VirtualNodeClientPolicyPtrOutput) ToVirtualNodeClientPolicyPtrOutputWithContext(ctx context.Context) VirtualNodeClientPolicyPtrOutput {
 	return o
+}
+
+func (o VirtualNodeClientPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeClientPolicy] {
+	return pulumix.Output[*VirtualNodeClientPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeClientPolicyPtrOutput) Elem() VirtualNodeClientPolicyOutput {
@@ -13163,6 +15342,12 @@ func (i VirtualNodeClientPolicyTlsArgs) ToVirtualNodeClientPolicyTlsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeClientPolicyTlsOutput)
 }
 
+func (i VirtualNodeClientPolicyTlsArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeClientPolicyTls] {
+	return pulumix.Output[VirtualNodeClientPolicyTls]{
+		OutputState: i.ToVirtualNodeClientPolicyTlsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeClientPolicyTlsArgs) ToVirtualNodeClientPolicyTlsPtrOutput() VirtualNodeClientPolicyTlsPtrOutput {
 	return i.ToVirtualNodeClientPolicyTlsPtrOutputWithContext(context.Background())
 }
@@ -13204,6 +15389,12 @@ func (i *virtualNodeClientPolicyTlsPtrType) ToVirtualNodeClientPolicyTlsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeClientPolicyTlsPtrOutput)
 }
 
+func (i *virtualNodeClientPolicyTlsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeClientPolicyTls] {
+	return pulumix.Output[*VirtualNodeClientPolicyTls]{
+		OutputState: i.ToVirtualNodeClientPolicyTlsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeClientPolicyTlsOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeClientPolicyTlsOutput) ElementType() reflect.Type {
@@ -13226,6 +15417,12 @@ func (o VirtualNodeClientPolicyTlsOutput) ToVirtualNodeClientPolicyTlsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeClientPolicyTls) *VirtualNodeClientPolicyTls {
 		return &v
 	}).(VirtualNodeClientPolicyTlsPtrOutput)
+}
+
+func (o VirtualNodeClientPolicyTlsOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeClientPolicyTls] {
+	return pulumix.Output[VirtualNodeClientPolicyTls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeClientPolicyTlsOutput) Certificate() VirtualNodeClientTlsCertificatePtrOutput {
@@ -13256,6 +15453,12 @@ func (o VirtualNodeClientPolicyTlsPtrOutput) ToVirtualNodeClientPolicyTlsPtrOutp
 
 func (o VirtualNodeClientPolicyTlsPtrOutput) ToVirtualNodeClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualNodeClientPolicyTlsPtrOutput {
 	return o
+}
+
+func (o VirtualNodeClientPolicyTlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeClientPolicyTls] {
+	return pulumix.Output[*VirtualNodeClientPolicyTls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeClientPolicyTlsPtrOutput) Elem() VirtualNodeClientPolicyTlsOutput {
@@ -13337,6 +15540,12 @@ func (i VirtualNodeClientTlsCertificateArgs) ToVirtualNodeClientTlsCertificateOu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeClientTlsCertificateOutput)
 }
 
+func (i VirtualNodeClientTlsCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeClientTlsCertificate] {
+	return pulumix.Output[VirtualNodeClientTlsCertificate]{
+		OutputState: i.ToVirtualNodeClientTlsCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeClientTlsCertificateArgs) ToVirtualNodeClientTlsCertificatePtrOutput() VirtualNodeClientTlsCertificatePtrOutput {
 	return i.ToVirtualNodeClientTlsCertificatePtrOutputWithContext(context.Background())
 }
@@ -13378,6 +15587,12 @@ func (i *virtualNodeClientTlsCertificatePtrType) ToVirtualNodeClientTlsCertifica
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeClientTlsCertificatePtrOutput)
 }
 
+func (i *virtualNodeClientTlsCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeClientTlsCertificate] {
+	return pulumix.Output[*VirtualNodeClientTlsCertificate]{
+		OutputState: i.ToVirtualNodeClientTlsCertificatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeClientTlsCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeClientTlsCertificateOutput) ElementType() reflect.Type {
@@ -13402,6 +15617,12 @@ func (o VirtualNodeClientTlsCertificateOutput) ToVirtualNodeClientTlsCertificate
 	}).(VirtualNodeClientTlsCertificatePtrOutput)
 }
 
+func (o VirtualNodeClientTlsCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeClientTlsCertificate] {
+	return pulumix.Output[VirtualNodeClientTlsCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeClientTlsCertificateOutput) File() VirtualNodeListenerTlsFileCertificatePtrOutput {
 	return o.ApplyT(func(v VirtualNodeClientTlsCertificate) *VirtualNodeListenerTlsFileCertificate { return v.File }).(VirtualNodeListenerTlsFileCertificatePtrOutput)
 }
@@ -13422,6 +15643,12 @@ func (o VirtualNodeClientTlsCertificatePtrOutput) ToVirtualNodeClientTlsCertific
 
 func (o VirtualNodeClientTlsCertificatePtrOutput) ToVirtualNodeClientTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeClientTlsCertificatePtrOutput {
 	return o
+}
+
+func (o VirtualNodeClientTlsCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeClientTlsCertificate] {
+	return pulumix.Output[*VirtualNodeClientTlsCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeClientTlsCertificatePtrOutput) Elem() VirtualNodeClientTlsCertificateOutput {
@@ -13489,6 +15716,12 @@ func (i VirtualNodeConnectionPoolArgs) ToVirtualNodeConnectionPoolOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeConnectionPoolOutput)
 }
 
+func (i VirtualNodeConnectionPoolArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeConnectionPool] {
+	return pulumix.Output[VirtualNodeConnectionPool]{
+		OutputState: i.ToVirtualNodeConnectionPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeConnectionPoolArgs) ToVirtualNodeConnectionPoolPtrOutput() VirtualNodeConnectionPoolPtrOutput {
 	return i.ToVirtualNodeConnectionPoolPtrOutputWithContext(context.Background())
 }
@@ -13530,6 +15763,12 @@ func (i *virtualNodeConnectionPoolPtrType) ToVirtualNodeConnectionPoolPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeConnectionPoolPtrOutput)
 }
 
+func (i *virtualNodeConnectionPoolPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeConnectionPool] {
+	return pulumix.Output[*VirtualNodeConnectionPool]{
+		OutputState: i.ToVirtualNodeConnectionPoolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeConnectionPoolOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeConnectionPoolOutput) ElementType() reflect.Type {
@@ -13552,6 +15791,12 @@ func (o VirtualNodeConnectionPoolOutput) ToVirtualNodeConnectionPoolPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeConnectionPool) *VirtualNodeConnectionPool {
 		return &v
 	}).(VirtualNodeConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeConnectionPoolOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeConnectionPool] {
+	return pulumix.Output[VirtualNodeConnectionPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeConnectionPoolOutput) Grpc() VirtualNodeGrpcConnectionPoolPtrOutput {
@@ -13582,6 +15827,12 @@ func (o VirtualNodeConnectionPoolPtrOutput) ToVirtualNodeConnectionPoolPtrOutput
 
 func (o VirtualNodeConnectionPoolPtrOutput) ToVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeConnectionPoolPtrOutput {
 	return o
+}
+
+func (o VirtualNodeConnectionPoolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeConnectionPool] {
+	return pulumix.Output[*VirtualNodeConnectionPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeConnectionPoolPtrOutput) Elem() VirtualNodeConnectionPoolOutput {
@@ -13665,6 +15916,12 @@ func (i VirtualNodeDnsServiceDiscoveryArgs) ToVirtualNodeDnsServiceDiscoveryOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeDnsServiceDiscoveryOutput)
 }
 
+func (i VirtualNodeDnsServiceDiscoveryArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeDnsServiceDiscovery] {
+	return pulumix.Output[VirtualNodeDnsServiceDiscovery]{
+		OutputState: i.ToVirtualNodeDnsServiceDiscoveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeDnsServiceDiscoveryArgs) ToVirtualNodeDnsServiceDiscoveryPtrOutput() VirtualNodeDnsServiceDiscoveryPtrOutput {
 	return i.ToVirtualNodeDnsServiceDiscoveryPtrOutputWithContext(context.Background())
 }
@@ -13706,6 +15963,12 @@ func (i *virtualNodeDnsServiceDiscoveryPtrType) ToVirtualNodeDnsServiceDiscovery
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeDnsServiceDiscoveryPtrOutput)
 }
 
+func (i *virtualNodeDnsServiceDiscoveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeDnsServiceDiscovery] {
+	return pulumix.Output[*VirtualNodeDnsServiceDiscovery]{
+		OutputState: i.ToVirtualNodeDnsServiceDiscoveryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeDnsServiceDiscoveryOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeDnsServiceDiscoveryOutput) ElementType() reflect.Type {
@@ -13728,6 +15991,12 @@ func (o VirtualNodeDnsServiceDiscoveryOutput) ToVirtualNodeDnsServiceDiscoveryPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeDnsServiceDiscovery) *VirtualNodeDnsServiceDiscovery {
 		return &v
 	}).(VirtualNodeDnsServiceDiscoveryPtrOutput)
+}
+
+func (o VirtualNodeDnsServiceDiscoveryOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeDnsServiceDiscovery] {
+	return pulumix.Output[VirtualNodeDnsServiceDiscovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeDnsServiceDiscoveryOutput) Hostname() pulumi.StringOutput {
@@ -13754,6 +16023,12 @@ func (o VirtualNodeDnsServiceDiscoveryPtrOutput) ToVirtualNodeDnsServiceDiscover
 
 func (o VirtualNodeDnsServiceDiscoveryPtrOutput) ToVirtualNodeDnsServiceDiscoveryPtrOutputWithContext(ctx context.Context) VirtualNodeDnsServiceDiscoveryPtrOutput {
 	return o
+}
+
+func (o VirtualNodeDnsServiceDiscoveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeDnsServiceDiscovery] {
+	return pulumix.Output[*VirtualNodeDnsServiceDiscovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeDnsServiceDiscoveryPtrOutput) Elem() VirtualNodeDnsServiceDiscoveryOutput {
@@ -13826,6 +16101,12 @@ func (i VirtualNodeDurationArgs) ToVirtualNodeDurationOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeDurationOutput)
 }
 
+func (i VirtualNodeDurationArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeDuration] {
+	return pulumix.Output[VirtualNodeDuration]{
+		OutputState: i.ToVirtualNodeDurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeDurationArgs) ToVirtualNodeDurationPtrOutput() VirtualNodeDurationPtrOutput {
 	return i.ToVirtualNodeDurationPtrOutputWithContext(context.Background())
 }
@@ -13867,6 +16148,12 @@ func (i *virtualNodeDurationPtrType) ToVirtualNodeDurationPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeDurationPtrOutput)
 }
 
+func (i *virtualNodeDurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeDuration] {
+	return pulumix.Output[*VirtualNodeDuration]{
+		OutputState: i.ToVirtualNodeDurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeDurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeDurationOutput) ElementType() reflect.Type {
@@ -13891,6 +16178,12 @@ func (o VirtualNodeDurationOutput) ToVirtualNodeDurationPtrOutputWithContext(ctx
 	}).(VirtualNodeDurationPtrOutput)
 }
 
+func (o VirtualNodeDurationOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeDuration] {
+	return pulumix.Output[VirtualNodeDuration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeDurationOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeDuration) string { return v.Unit }).(pulumi.StringOutput)
 }
@@ -13911,6 +16204,12 @@ func (o VirtualNodeDurationPtrOutput) ToVirtualNodeDurationPtrOutput() VirtualNo
 
 func (o VirtualNodeDurationPtrOutput) ToVirtualNodeDurationPtrOutputWithContext(ctx context.Context) VirtualNodeDurationPtrOutput {
 	return o
+}
+
+func (o VirtualNodeDurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeDuration] {
+	return pulumix.Output[*VirtualNodeDuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeDurationPtrOutput) Elem() VirtualNodeDurationOutput {
@@ -13974,6 +16273,12 @@ func (i VirtualNodeFileAccessLogArgs) ToVirtualNodeFileAccessLogOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeFileAccessLogOutput)
 }
 
+func (i VirtualNodeFileAccessLogArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeFileAccessLog] {
+	return pulumix.Output[VirtualNodeFileAccessLog]{
+		OutputState: i.ToVirtualNodeFileAccessLogOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeFileAccessLogArgs) ToVirtualNodeFileAccessLogPtrOutput() VirtualNodeFileAccessLogPtrOutput {
 	return i.ToVirtualNodeFileAccessLogPtrOutputWithContext(context.Background())
 }
@@ -14015,6 +16320,12 @@ func (i *virtualNodeFileAccessLogPtrType) ToVirtualNodeFileAccessLogPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeFileAccessLogPtrOutput)
 }
 
+func (i *virtualNodeFileAccessLogPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeFileAccessLog] {
+	return pulumix.Output[*VirtualNodeFileAccessLog]{
+		OutputState: i.ToVirtualNodeFileAccessLogPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeFileAccessLogOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeFileAccessLogOutput) ElementType() reflect.Type {
@@ -14039,6 +16350,12 @@ func (o VirtualNodeFileAccessLogOutput) ToVirtualNodeFileAccessLogPtrOutputWithC
 	}).(VirtualNodeFileAccessLogPtrOutput)
 }
 
+func (o VirtualNodeFileAccessLogOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeFileAccessLog] {
+	return pulumix.Output[VirtualNodeFileAccessLog]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeFileAccessLogOutput) Format() VirtualNodeLoggingFormatPtrOutput {
 	return o.ApplyT(func(v VirtualNodeFileAccessLog) *VirtualNodeLoggingFormat { return v.Format }).(VirtualNodeLoggingFormatPtrOutput)
 }
@@ -14059,6 +16376,12 @@ func (o VirtualNodeFileAccessLogPtrOutput) ToVirtualNodeFileAccessLogPtrOutput()
 
 func (o VirtualNodeFileAccessLogPtrOutput) ToVirtualNodeFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualNodeFileAccessLogPtrOutput {
 	return o
+}
+
+func (o VirtualNodeFileAccessLogPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeFileAccessLog] {
+	return pulumix.Output[*VirtualNodeFileAccessLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeFileAccessLogPtrOutput) Elem() VirtualNodeFileAccessLogOutput {
@@ -14120,6 +16443,12 @@ func (i VirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeGrpcConnectionPoolOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeGrpcConnectionPoolOutput)
 }
 
+func (i VirtualNodeGrpcConnectionPoolArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeGrpcConnectionPool] {
+	return pulumix.Output[VirtualNodeGrpcConnectionPool]{
+		OutputState: i.ToVirtualNodeGrpcConnectionPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeGrpcConnectionPoolPtrOutput {
 	return i.ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Background())
 }
@@ -14161,6 +16490,12 @@ func (i *virtualNodeGrpcConnectionPoolPtrType) ToVirtualNodeGrpcConnectionPoolPt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeGrpcConnectionPoolPtrOutput)
 }
 
+func (i *virtualNodeGrpcConnectionPoolPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeGrpcConnectionPool] {
+	return pulumix.Output[*VirtualNodeGrpcConnectionPool]{
+		OutputState: i.ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeGrpcConnectionPoolOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeGrpcConnectionPoolOutput) ElementType() reflect.Type {
@@ -14185,6 +16520,12 @@ func (o VirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeGrpcConnectionPoolPtrO
 	}).(VirtualNodeGrpcConnectionPoolPtrOutput)
 }
 
+func (o VirtualNodeGrpcConnectionPoolOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeGrpcConnectionPool] {
+	return pulumix.Output[VirtualNodeGrpcConnectionPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeGrpcConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeGrpcConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
 }
@@ -14201,6 +16542,12 @@ func (o VirtualNodeGrpcConnectionPoolPtrOutput) ToVirtualNodeGrpcConnectionPoolP
 
 func (o VirtualNodeGrpcConnectionPoolPtrOutput) ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeGrpcConnectionPoolPtrOutput {
 	return o
+}
+
+func (o VirtualNodeGrpcConnectionPoolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeGrpcConnectionPool] {
+	return pulumix.Output[*VirtualNodeGrpcConnectionPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeGrpcConnectionPoolPtrOutput) Elem() VirtualNodeGrpcConnectionPoolOutput {
@@ -14255,6 +16602,12 @@ func (i VirtualNodeGrpcTimeoutArgs) ToVirtualNodeGrpcTimeoutOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeGrpcTimeoutOutput)
 }
 
+func (i VirtualNodeGrpcTimeoutArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeGrpcTimeout] {
+	return pulumix.Output[VirtualNodeGrpcTimeout]{
+		OutputState: i.ToVirtualNodeGrpcTimeoutOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeGrpcTimeoutArgs) ToVirtualNodeGrpcTimeoutPtrOutput() VirtualNodeGrpcTimeoutPtrOutput {
 	return i.ToVirtualNodeGrpcTimeoutPtrOutputWithContext(context.Background())
 }
@@ -14296,6 +16649,12 @@ func (i *virtualNodeGrpcTimeoutPtrType) ToVirtualNodeGrpcTimeoutPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeGrpcTimeoutPtrOutput)
 }
 
+func (i *virtualNodeGrpcTimeoutPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeGrpcTimeout] {
+	return pulumix.Output[*VirtualNodeGrpcTimeout]{
+		OutputState: i.ToVirtualNodeGrpcTimeoutPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeGrpcTimeoutOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeGrpcTimeoutOutput) ElementType() reflect.Type {
@@ -14320,6 +16679,12 @@ func (o VirtualNodeGrpcTimeoutOutput) ToVirtualNodeGrpcTimeoutPtrOutputWithConte
 	}).(VirtualNodeGrpcTimeoutPtrOutput)
 }
 
+func (o VirtualNodeGrpcTimeoutOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeGrpcTimeout] {
+	return pulumix.Output[VirtualNodeGrpcTimeout]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeGrpcTimeoutOutput) Idle() VirtualNodeDurationPtrOutput {
 	return o.ApplyT(func(v VirtualNodeGrpcTimeout) *VirtualNodeDuration { return v.Idle }).(VirtualNodeDurationPtrOutput)
 }
@@ -14340,6 +16705,12 @@ func (o VirtualNodeGrpcTimeoutPtrOutput) ToVirtualNodeGrpcTimeoutPtrOutput() Vir
 
 func (o VirtualNodeGrpcTimeoutPtrOutput) ToVirtualNodeGrpcTimeoutPtrOutputWithContext(ctx context.Context) VirtualNodeGrpcTimeoutPtrOutput {
 	return o
+}
+
+func (o VirtualNodeGrpcTimeoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeGrpcTimeout] {
+	return pulumix.Output[*VirtualNodeGrpcTimeout]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeGrpcTimeoutPtrOutput) Elem() VirtualNodeGrpcTimeoutOutput {
@@ -14413,6 +16784,12 @@ func (i VirtualNodeHealthCheckArgs) ToVirtualNodeHealthCheckOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHealthCheckOutput)
 }
 
+func (i VirtualNodeHealthCheckArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeHealthCheck] {
+	return pulumix.Output[VirtualNodeHealthCheck]{
+		OutputState: i.ToVirtualNodeHealthCheckOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeHealthCheckArgs) ToVirtualNodeHealthCheckPtrOutput() VirtualNodeHealthCheckPtrOutput {
 	return i.ToVirtualNodeHealthCheckPtrOutputWithContext(context.Background())
 }
@@ -14454,6 +16831,12 @@ func (i *virtualNodeHealthCheckPtrType) ToVirtualNodeHealthCheckPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHealthCheckPtrOutput)
 }
 
+func (i *virtualNodeHealthCheckPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeHealthCheck] {
+	return pulumix.Output[*VirtualNodeHealthCheck]{
+		OutputState: i.ToVirtualNodeHealthCheckPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeHealthCheckOutput) ElementType() reflect.Type {
@@ -14476,6 +16859,12 @@ func (o VirtualNodeHealthCheckOutput) ToVirtualNodeHealthCheckPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeHealthCheck) *VirtualNodeHealthCheck {
 		return &v
 	}).(VirtualNodeHealthCheckPtrOutput)
+}
+
+func (o VirtualNodeHealthCheckOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeHealthCheck] {
+	return pulumix.Output[VirtualNodeHealthCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
@@ -14518,6 +16907,12 @@ func (o VirtualNodeHealthCheckPtrOutput) ToVirtualNodeHealthCheckPtrOutput() Vir
 
 func (o VirtualNodeHealthCheckPtrOutput) ToVirtualNodeHealthCheckPtrOutputWithContext(ctx context.Context) VirtualNodeHealthCheckPtrOutput {
 	return o
+}
+
+func (o VirtualNodeHealthCheckPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeHealthCheck] {
+	return pulumix.Output[*VirtualNodeHealthCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeHealthCheckPtrOutput) Elem() VirtualNodeHealthCheckOutput {
@@ -14624,6 +17019,12 @@ func (i VirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeHttp2ConnectionPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttp2ConnectionPoolOutput)
 }
 
+func (i VirtualNodeHttp2ConnectionPoolArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeHttp2ConnectionPool] {
+	return pulumix.Output[VirtualNodeHttp2ConnectionPool]{
+		OutputState: i.ToVirtualNodeHttp2ConnectionPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeHttp2ConnectionPoolPtrOutput {
 	return i.ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Background())
 }
@@ -14665,6 +17066,12 @@ func (i *virtualNodeHttp2ConnectionPoolPtrType) ToVirtualNodeHttp2ConnectionPool
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttp2ConnectionPoolPtrOutput)
 }
 
+func (i *virtualNodeHttp2ConnectionPoolPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeHttp2ConnectionPool] {
+	return pulumix.Output[*VirtualNodeHttp2ConnectionPool]{
+		OutputState: i.ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeHttp2ConnectionPoolOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeHttp2ConnectionPoolOutput) ElementType() reflect.Type {
@@ -14689,6 +17096,12 @@ func (o VirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeHttp2ConnectionPoolPt
 	}).(VirtualNodeHttp2ConnectionPoolPtrOutput)
 }
 
+func (o VirtualNodeHttp2ConnectionPoolOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeHttp2ConnectionPool] {
+	return pulumix.Output[VirtualNodeHttp2ConnectionPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeHttp2ConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeHttp2ConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
 }
@@ -14705,6 +17118,12 @@ func (o VirtualNodeHttp2ConnectionPoolPtrOutput) ToVirtualNodeHttp2ConnectionPoo
 
 func (o VirtualNodeHttp2ConnectionPoolPtrOutput) ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeHttp2ConnectionPoolPtrOutput {
 	return o
+}
+
+func (o VirtualNodeHttp2ConnectionPoolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeHttp2ConnectionPool] {
+	return pulumix.Output[*VirtualNodeHttp2ConnectionPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeHttp2ConnectionPoolPtrOutput) Elem() VirtualNodeHttp2ConnectionPoolOutput {
@@ -14759,6 +17178,12 @@ func (i VirtualNodeHttpConnectionPoolArgs) ToVirtualNodeHttpConnectionPoolOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttpConnectionPoolOutput)
 }
 
+func (i VirtualNodeHttpConnectionPoolArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeHttpConnectionPool] {
+	return pulumix.Output[VirtualNodeHttpConnectionPool]{
+		OutputState: i.ToVirtualNodeHttpConnectionPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeHttpConnectionPoolArgs) ToVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeHttpConnectionPoolPtrOutput {
 	return i.ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Background())
 }
@@ -14800,6 +17225,12 @@ func (i *virtualNodeHttpConnectionPoolPtrType) ToVirtualNodeHttpConnectionPoolPt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttpConnectionPoolPtrOutput)
 }
 
+func (i *virtualNodeHttpConnectionPoolPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeHttpConnectionPool] {
+	return pulumix.Output[*VirtualNodeHttpConnectionPool]{
+		OutputState: i.ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeHttpConnectionPoolOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeHttpConnectionPoolOutput) ElementType() reflect.Type {
@@ -14824,6 +17255,12 @@ func (o VirtualNodeHttpConnectionPoolOutput) ToVirtualNodeHttpConnectionPoolPtrO
 	}).(VirtualNodeHttpConnectionPoolPtrOutput)
 }
 
+func (o VirtualNodeHttpConnectionPoolOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeHttpConnectionPool] {
+	return pulumix.Output[VirtualNodeHttpConnectionPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeHttpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeHttpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
 }
@@ -14844,6 +17281,12 @@ func (o VirtualNodeHttpConnectionPoolPtrOutput) ToVirtualNodeHttpConnectionPoolP
 
 func (o VirtualNodeHttpConnectionPoolPtrOutput) ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeHttpConnectionPoolPtrOutput {
 	return o
+}
+
+func (o VirtualNodeHttpConnectionPoolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeHttpConnectionPool] {
+	return pulumix.Output[*VirtualNodeHttpConnectionPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeHttpConnectionPoolPtrOutput) Elem() VirtualNodeHttpConnectionPoolOutput {
@@ -14907,6 +17350,12 @@ func (i VirtualNodeHttpTimeoutArgs) ToVirtualNodeHttpTimeoutOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttpTimeoutOutput)
 }
 
+func (i VirtualNodeHttpTimeoutArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeHttpTimeout] {
+	return pulumix.Output[VirtualNodeHttpTimeout]{
+		OutputState: i.ToVirtualNodeHttpTimeoutOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeHttpTimeoutArgs) ToVirtualNodeHttpTimeoutPtrOutput() VirtualNodeHttpTimeoutPtrOutput {
 	return i.ToVirtualNodeHttpTimeoutPtrOutputWithContext(context.Background())
 }
@@ -14948,6 +17397,12 @@ func (i *virtualNodeHttpTimeoutPtrType) ToVirtualNodeHttpTimeoutPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttpTimeoutPtrOutput)
 }
 
+func (i *virtualNodeHttpTimeoutPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeHttpTimeout] {
+	return pulumix.Output[*VirtualNodeHttpTimeout]{
+		OutputState: i.ToVirtualNodeHttpTimeoutPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeHttpTimeoutOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeHttpTimeoutOutput) ElementType() reflect.Type {
@@ -14972,6 +17427,12 @@ func (o VirtualNodeHttpTimeoutOutput) ToVirtualNodeHttpTimeoutPtrOutputWithConte
 	}).(VirtualNodeHttpTimeoutPtrOutput)
 }
 
+func (o VirtualNodeHttpTimeoutOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeHttpTimeout] {
+	return pulumix.Output[VirtualNodeHttpTimeout]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeHttpTimeoutOutput) Idle() VirtualNodeDurationPtrOutput {
 	return o.ApplyT(func(v VirtualNodeHttpTimeout) *VirtualNodeDuration { return v.Idle }).(VirtualNodeDurationPtrOutput)
 }
@@ -14992,6 +17453,12 @@ func (o VirtualNodeHttpTimeoutPtrOutput) ToVirtualNodeHttpTimeoutPtrOutput() Vir
 
 func (o VirtualNodeHttpTimeoutPtrOutput) ToVirtualNodeHttpTimeoutPtrOutputWithContext(ctx context.Context) VirtualNodeHttpTimeoutPtrOutput {
 	return o
+}
+
+func (o VirtualNodeHttpTimeoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeHttpTimeout] {
+	return pulumix.Output[*VirtualNodeHttpTimeout]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeHttpTimeoutPtrOutput) Elem() VirtualNodeHttpTimeoutOutput {
@@ -15055,6 +17522,12 @@ func (i VirtualNodeJsonFormatRefArgs) ToVirtualNodeJsonFormatRefOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeJsonFormatRefOutput)
 }
 
+func (i VirtualNodeJsonFormatRefArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeJsonFormatRef] {
+	return pulumix.Output[VirtualNodeJsonFormatRef]{
+		OutputState: i.ToVirtualNodeJsonFormatRefOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNodeJsonFormatRefArrayInput is an input type that accepts VirtualNodeJsonFormatRefArray and VirtualNodeJsonFormatRefArrayOutput values.
 // You can construct a concrete instance of `VirtualNodeJsonFormatRefArrayInput` via:
 //
@@ -15080,6 +17553,12 @@ func (i VirtualNodeJsonFormatRefArray) ToVirtualNodeJsonFormatRefArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeJsonFormatRefArrayOutput)
 }
 
+func (i VirtualNodeJsonFormatRefArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualNodeJsonFormatRef] {
+	return pulumix.Output[[]VirtualNodeJsonFormatRef]{
+		OutputState: i.ToVirtualNodeJsonFormatRefArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeJsonFormatRefOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeJsonFormatRefOutput) ElementType() reflect.Type {
@@ -15092,6 +17571,12 @@ func (o VirtualNodeJsonFormatRefOutput) ToVirtualNodeJsonFormatRefOutput() Virtu
 
 func (o VirtualNodeJsonFormatRefOutput) ToVirtualNodeJsonFormatRefOutputWithContext(ctx context.Context) VirtualNodeJsonFormatRefOutput {
 	return o
+}
+
+func (o VirtualNodeJsonFormatRefOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeJsonFormatRef] {
+	return pulumix.Output[VirtualNodeJsonFormatRef]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeJsonFormatRefOutput) Key() pulumi.StringOutput {
@@ -15114,6 +17599,12 @@ func (o VirtualNodeJsonFormatRefArrayOutput) ToVirtualNodeJsonFormatRefArrayOutp
 
 func (o VirtualNodeJsonFormatRefArrayOutput) ToVirtualNodeJsonFormatRefArrayOutputWithContext(ctx context.Context) VirtualNodeJsonFormatRefArrayOutput {
 	return o
+}
+
+func (o VirtualNodeJsonFormatRefArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualNodeJsonFormatRef] {
+	return pulumix.Output[[]VirtualNodeJsonFormatRef]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeJsonFormatRefArrayOutput) Index(i pulumi.IntInput) VirtualNodeJsonFormatRefOutput {
@@ -15163,6 +17654,12 @@ func (i VirtualNodeListenerArgs) ToVirtualNodeListenerOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerOutput)
 }
 
+func (i VirtualNodeListenerArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListener] {
+	return pulumix.Output[VirtualNodeListener]{
+		OutputState: i.ToVirtualNodeListenerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNodeListenerArrayInput is an input type that accepts VirtualNodeListenerArray and VirtualNodeListenerArrayOutput values.
 // You can construct a concrete instance of `VirtualNodeListenerArrayInput` via:
 //
@@ -15188,6 +17685,12 @@ func (i VirtualNodeListenerArray) ToVirtualNodeListenerArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerArrayOutput)
 }
 
+func (i VirtualNodeListenerArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualNodeListener] {
+	return pulumix.Output[[]VirtualNodeListener]{
+		OutputState: i.ToVirtualNodeListenerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeListenerOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeListenerOutput) ElementType() reflect.Type {
@@ -15200,6 +17703,12 @@ func (o VirtualNodeListenerOutput) ToVirtualNodeListenerOutput() VirtualNodeList
 
 func (o VirtualNodeListenerOutput) ToVirtualNodeListenerOutputWithContext(ctx context.Context) VirtualNodeListenerOutput {
 	return o
+}
+
+func (o VirtualNodeListenerOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListener] {
+	return pulumix.Output[VirtualNodeListener]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerOutput) ConnectionPool() VirtualNodeConnectionPoolPtrOutput {
@@ -15238,6 +17747,12 @@ func (o VirtualNodeListenerArrayOutput) ToVirtualNodeListenerArrayOutput() Virtu
 
 func (o VirtualNodeListenerArrayOutput) ToVirtualNodeListenerArrayOutputWithContext(ctx context.Context) VirtualNodeListenerArrayOutput {
 	return o
+}
+
+func (o VirtualNodeListenerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualNodeListener] {
+	return pulumix.Output[[]VirtualNodeListener]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerArrayOutput) Index(i pulumi.IntInput) VirtualNodeListenerOutput {
@@ -15283,6 +17798,12 @@ func (i VirtualNodeListenerTimeoutArgs) ToVirtualNodeListenerTimeoutOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTimeoutOutput)
 }
 
+func (i VirtualNodeListenerTimeoutArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTimeout] {
+	return pulumix.Output[VirtualNodeListenerTimeout]{
+		OutputState: i.ToVirtualNodeListenerTimeoutOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeListenerTimeoutArgs) ToVirtualNodeListenerTimeoutPtrOutput() VirtualNodeListenerTimeoutPtrOutput {
 	return i.ToVirtualNodeListenerTimeoutPtrOutputWithContext(context.Background())
 }
@@ -15324,6 +17845,12 @@ func (i *virtualNodeListenerTimeoutPtrType) ToVirtualNodeListenerTimeoutPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTimeoutPtrOutput)
 }
 
+func (i *virtualNodeListenerTimeoutPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTimeout] {
+	return pulumix.Output[*VirtualNodeListenerTimeout]{
+		OutputState: i.ToVirtualNodeListenerTimeoutPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeListenerTimeoutOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeListenerTimeoutOutput) ElementType() reflect.Type {
@@ -15346,6 +17873,12 @@ func (o VirtualNodeListenerTimeoutOutput) ToVirtualNodeListenerTimeoutPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeListenerTimeout) *VirtualNodeListenerTimeout {
 		return &v
 	}).(VirtualNodeListenerTimeoutPtrOutput)
+}
+
+func (o VirtualNodeListenerTimeoutOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTimeout] {
+	return pulumix.Output[VirtualNodeListenerTimeout]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTimeoutOutput) Grpc() VirtualNodeGrpcTimeoutPtrOutput {
@@ -15376,6 +17909,12 @@ func (o VirtualNodeListenerTimeoutPtrOutput) ToVirtualNodeListenerTimeoutPtrOutp
 
 func (o VirtualNodeListenerTimeoutPtrOutput) ToVirtualNodeListenerTimeoutPtrOutputWithContext(ctx context.Context) VirtualNodeListenerTimeoutPtrOutput {
 	return o
+}
+
+func (o VirtualNodeListenerTimeoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTimeout] {
+	return pulumix.Output[*VirtualNodeListenerTimeout]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTimeoutPtrOutput) Elem() VirtualNodeListenerTimeoutOutput {
@@ -15459,6 +17998,12 @@ func (i VirtualNodeListenerTlsArgs) ToVirtualNodeListenerTlsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsOutput)
 }
 
+func (i VirtualNodeListenerTlsArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTls] {
+	return pulumix.Output[VirtualNodeListenerTls]{
+		OutputState: i.ToVirtualNodeListenerTlsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeListenerTlsArgs) ToVirtualNodeListenerTlsPtrOutput() VirtualNodeListenerTlsPtrOutput {
 	return i.ToVirtualNodeListenerTlsPtrOutputWithContext(context.Background())
 }
@@ -15500,6 +18045,12 @@ func (i *virtualNodeListenerTlsPtrType) ToVirtualNodeListenerTlsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsPtrOutput)
 }
 
+func (i *virtualNodeListenerTlsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTls] {
+	return pulumix.Output[*VirtualNodeListenerTls]{
+		OutputState: i.ToVirtualNodeListenerTlsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeListenerTlsOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeListenerTlsOutput) ElementType() reflect.Type {
@@ -15522,6 +18073,12 @@ func (o VirtualNodeListenerTlsOutput) ToVirtualNodeListenerTlsPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeListenerTls) *VirtualNodeListenerTls {
 		return &v
 	}).(VirtualNodeListenerTlsPtrOutput)
+}
+
+func (o VirtualNodeListenerTlsOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTls] {
+	return pulumix.Output[VirtualNodeListenerTls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTlsOutput) Certificate() VirtualNodeListenerTlsCertificateOutput {
@@ -15548,6 +18105,12 @@ func (o VirtualNodeListenerTlsPtrOutput) ToVirtualNodeListenerTlsPtrOutput() Vir
 
 func (o VirtualNodeListenerTlsPtrOutput) ToVirtualNodeListenerTlsPtrOutputWithContext(ctx context.Context) VirtualNodeListenerTlsPtrOutput {
 	return o
+}
+
+func (o VirtualNodeListenerTlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTls] {
+	return pulumix.Output[*VirtualNodeListenerTls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTlsPtrOutput) Elem() VirtualNodeListenerTlsOutput {
@@ -15618,6 +18181,12 @@ func (i VirtualNodeListenerTlsAcmCertificateArgs) ToVirtualNodeListenerTlsAcmCer
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsAcmCertificateOutput)
 }
 
+func (i VirtualNodeListenerTlsAcmCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsAcmCertificate] {
+	return pulumix.Output[VirtualNodeListenerTlsAcmCertificate]{
+		OutputState: i.ToVirtualNodeListenerTlsAcmCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeListenerTlsAcmCertificateArgs) ToVirtualNodeListenerTlsAcmCertificatePtrOutput() VirtualNodeListenerTlsAcmCertificatePtrOutput {
 	return i.ToVirtualNodeListenerTlsAcmCertificatePtrOutputWithContext(context.Background())
 }
@@ -15659,6 +18228,12 @@ func (i *virtualNodeListenerTlsAcmCertificatePtrType) ToVirtualNodeListenerTlsAc
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsAcmCertificatePtrOutput)
 }
 
+func (i *virtualNodeListenerTlsAcmCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsAcmCertificate] {
+	return pulumix.Output[*VirtualNodeListenerTlsAcmCertificate]{
+		OutputState: i.ToVirtualNodeListenerTlsAcmCertificatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeListenerTlsAcmCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeListenerTlsAcmCertificateOutput) ElementType() reflect.Type {
@@ -15683,6 +18258,12 @@ func (o VirtualNodeListenerTlsAcmCertificateOutput) ToVirtualNodeListenerTlsAcmC
 	}).(VirtualNodeListenerTlsAcmCertificatePtrOutput)
 }
 
+func (o VirtualNodeListenerTlsAcmCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsAcmCertificate] {
+	return pulumix.Output[VirtualNodeListenerTlsAcmCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeListenerTlsAcmCertificateOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeListenerTlsAcmCertificate) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -15699,6 +18280,12 @@ func (o VirtualNodeListenerTlsAcmCertificatePtrOutput) ToVirtualNodeListenerTlsA
 
 func (o VirtualNodeListenerTlsAcmCertificatePtrOutput) ToVirtualNodeListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeListenerTlsAcmCertificatePtrOutput {
 	return o
+}
+
+func (o VirtualNodeListenerTlsAcmCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsAcmCertificate] {
+	return pulumix.Output[*VirtualNodeListenerTlsAcmCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTlsAcmCertificatePtrOutput) Elem() VirtualNodeListenerTlsAcmCertificateOutput {
@@ -15755,6 +18342,12 @@ func (i VirtualNodeListenerTlsCertificateArgs) ToVirtualNodeListenerTlsCertifica
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsCertificateOutput)
 }
 
+func (i VirtualNodeListenerTlsCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsCertificate] {
+	return pulumix.Output[VirtualNodeListenerTlsCertificate]{
+		OutputState: i.ToVirtualNodeListenerTlsCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeListenerTlsCertificateArgs) ToVirtualNodeListenerTlsCertificatePtrOutput() VirtualNodeListenerTlsCertificatePtrOutput {
 	return i.ToVirtualNodeListenerTlsCertificatePtrOutputWithContext(context.Background())
 }
@@ -15796,6 +18389,12 @@ func (i *virtualNodeListenerTlsCertificatePtrType) ToVirtualNodeListenerTlsCerti
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsCertificatePtrOutput)
 }
 
+func (i *virtualNodeListenerTlsCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsCertificate] {
+	return pulumix.Output[*VirtualNodeListenerTlsCertificate]{
+		OutputState: i.ToVirtualNodeListenerTlsCertificatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeListenerTlsCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeListenerTlsCertificateOutput) ElementType() reflect.Type {
@@ -15818,6 +18417,12 @@ func (o VirtualNodeListenerTlsCertificateOutput) ToVirtualNodeListenerTlsCertifi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeListenerTlsCertificate) *VirtualNodeListenerTlsCertificate {
 		return &v
 	}).(VirtualNodeListenerTlsCertificatePtrOutput)
+}
+
+func (o VirtualNodeListenerTlsCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsCertificate] {
+	return pulumix.Output[VirtualNodeListenerTlsCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTlsCertificateOutput) Acm() VirtualNodeListenerTlsAcmCertificatePtrOutput {
@@ -15844,6 +18449,12 @@ func (o VirtualNodeListenerTlsCertificatePtrOutput) ToVirtualNodeListenerTlsCert
 
 func (o VirtualNodeListenerTlsCertificatePtrOutput) ToVirtualNodeListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeListenerTlsCertificatePtrOutput {
 	return o
+}
+
+func (o VirtualNodeListenerTlsCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsCertificate] {
+	return pulumix.Output[*VirtualNodeListenerTlsCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTlsCertificatePtrOutput) Elem() VirtualNodeListenerTlsCertificateOutput {
@@ -15916,6 +18527,12 @@ func (i VirtualNodeListenerTlsFileCertificateArgs) ToVirtualNodeListenerTlsFileC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsFileCertificateOutput)
 }
 
+func (i VirtualNodeListenerTlsFileCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsFileCertificate] {
+	return pulumix.Output[VirtualNodeListenerTlsFileCertificate]{
+		OutputState: i.ToVirtualNodeListenerTlsFileCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeListenerTlsFileCertificateArgs) ToVirtualNodeListenerTlsFileCertificatePtrOutput() VirtualNodeListenerTlsFileCertificatePtrOutput {
 	return i.ToVirtualNodeListenerTlsFileCertificatePtrOutputWithContext(context.Background())
 }
@@ -15957,6 +18574,12 @@ func (i *virtualNodeListenerTlsFileCertificatePtrType) ToVirtualNodeListenerTlsF
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsFileCertificatePtrOutput)
 }
 
+func (i *virtualNodeListenerTlsFileCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsFileCertificate] {
+	return pulumix.Output[*VirtualNodeListenerTlsFileCertificate]{
+		OutputState: i.ToVirtualNodeListenerTlsFileCertificatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeListenerTlsFileCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeListenerTlsFileCertificateOutput) ElementType() reflect.Type {
@@ -15981,6 +18604,12 @@ func (o VirtualNodeListenerTlsFileCertificateOutput) ToVirtualNodeListenerTlsFil
 	}).(VirtualNodeListenerTlsFileCertificatePtrOutput)
 }
 
+func (o VirtualNodeListenerTlsFileCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsFileCertificate] {
+	return pulumix.Output[VirtualNodeListenerTlsFileCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeListenerTlsFileCertificateOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeListenerTlsFileCertificate) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -16001,6 +18630,12 @@ func (o VirtualNodeListenerTlsFileCertificatePtrOutput) ToVirtualNodeListenerTls
 
 func (o VirtualNodeListenerTlsFileCertificatePtrOutput) ToVirtualNodeListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeListenerTlsFileCertificatePtrOutput {
 	return o
+}
+
+func (o VirtualNodeListenerTlsFileCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsFileCertificate] {
+	return pulumix.Output[*VirtualNodeListenerTlsFileCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTlsFileCertificatePtrOutput) Elem() VirtualNodeListenerTlsFileCertificateOutput {
@@ -16062,6 +18697,12 @@ func (i VirtualNodeListenerTlsSdsCertificateArgs) ToVirtualNodeListenerTlsSdsCer
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsSdsCertificateOutput)
 }
 
+func (i VirtualNodeListenerTlsSdsCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsSdsCertificate] {
+	return pulumix.Output[VirtualNodeListenerTlsSdsCertificate]{
+		OutputState: i.ToVirtualNodeListenerTlsSdsCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeListenerTlsSdsCertificateArgs) ToVirtualNodeListenerTlsSdsCertificatePtrOutput() VirtualNodeListenerTlsSdsCertificatePtrOutput {
 	return i.ToVirtualNodeListenerTlsSdsCertificatePtrOutputWithContext(context.Background())
 }
@@ -16103,6 +18744,12 @@ func (i *virtualNodeListenerTlsSdsCertificatePtrType) ToVirtualNodeListenerTlsSd
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsSdsCertificatePtrOutput)
 }
 
+func (i *virtualNodeListenerTlsSdsCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsSdsCertificate] {
+	return pulumix.Output[*VirtualNodeListenerTlsSdsCertificate]{
+		OutputState: i.ToVirtualNodeListenerTlsSdsCertificatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeListenerTlsSdsCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeListenerTlsSdsCertificateOutput) ElementType() reflect.Type {
@@ -16127,6 +18774,12 @@ func (o VirtualNodeListenerTlsSdsCertificateOutput) ToVirtualNodeListenerTlsSdsC
 	}).(VirtualNodeListenerTlsSdsCertificatePtrOutput)
 }
 
+func (o VirtualNodeListenerTlsSdsCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsSdsCertificate] {
+	return pulumix.Output[VirtualNodeListenerTlsSdsCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeListenerTlsSdsCertificateOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeListenerTlsSdsCertificate) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -16143,6 +18796,12 @@ func (o VirtualNodeListenerTlsSdsCertificatePtrOutput) ToVirtualNodeListenerTlsS
 
 func (o VirtualNodeListenerTlsSdsCertificatePtrOutput) ToVirtualNodeListenerTlsSdsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeListenerTlsSdsCertificatePtrOutput {
 	return o
+}
+
+func (o VirtualNodeListenerTlsSdsCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsSdsCertificate] {
+	return pulumix.Output[*VirtualNodeListenerTlsSdsCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTlsSdsCertificatePtrOutput) Elem() VirtualNodeListenerTlsSdsCertificateOutput {
@@ -16197,6 +18856,12 @@ func (i VirtualNodeListenerTlsValidationContextArgs) ToVirtualNodeListenerTlsVal
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsValidationContextOutput)
 }
 
+func (i VirtualNodeListenerTlsValidationContextArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsValidationContext] {
+	return pulumix.Output[VirtualNodeListenerTlsValidationContext]{
+		OutputState: i.ToVirtualNodeListenerTlsValidationContextOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeListenerTlsValidationContextArgs) ToVirtualNodeListenerTlsValidationContextPtrOutput() VirtualNodeListenerTlsValidationContextPtrOutput {
 	return i.ToVirtualNodeListenerTlsValidationContextPtrOutputWithContext(context.Background())
 }
@@ -16238,6 +18903,12 @@ func (i *virtualNodeListenerTlsValidationContextPtrType) ToVirtualNodeListenerTl
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsValidationContextPtrOutput)
 }
 
+func (i *virtualNodeListenerTlsValidationContextPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsValidationContext] {
+	return pulumix.Output[*VirtualNodeListenerTlsValidationContext]{
+		OutputState: i.ToVirtualNodeListenerTlsValidationContextPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeListenerTlsValidationContextOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeListenerTlsValidationContextOutput) ElementType() reflect.Type {
@@ -16260,6 +18931,12 @@ func (o VirtualNodeListenerTlsValidationContextOutput) ToVirtualNodeListenerTlsV
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeListenerTlsValidationContext) *VirtualNodeListenerTlsValidationContext {
 		return &v
 	}).(VirtualNodeListenerTlsValidationContextPtrOutput)
+}
+
+func (o VirtualNodeListenerTlsValidationContextOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsValidationContext] {
+	return pulumix.Output[VirtualNodeListenerTlsValidationContext]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTlsValidationContextOutput) SubjectAlternativeNames() VirtualNodeSubjectAlternativeNamesPtrOutput {
@@ -16286,6 +18963,12 @@ func (o VirtualNodeListenerTlsValidationContextPtrOutput) ToVirtualNodeListenerT
 
 func (o VirtualNodeListenerTlsValidationContextPtrOutput) ToVirtualNodeListenerTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualNodeListenerTlsValidationContextPtrOutput {
 	return o
+}
+
+func (o VirtualNodeListenerTlsValidationContextPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsValidationContext] {
+	return pulumix.Output[*VirtualNodeListenerTlsValidationContext]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTlsValidationContextPtrOutput) Elem() VirtualNodeListenerTlsValidationContextOutput {
@@ -16349,6 +19032,12 @@ func (i VirtualNodeListenerTlsValidationContextTrustArgs) ToVirtualNodeListenerT
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsValidationContextTrustOutput)
 }
 
+func (i VirtualNodeListenerTlsValidationContextTrustArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsValidationContextTrust] {
+	return pulumix.Output[VirtualNodeListenerTlsValidationContextTrust]{
+		OutputState: i.ToVirtualNodeListenerTlsValidationContextTrustOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeListenerTlsValidationContextTrustArgs) ToVirtualNodeListenerTlsValidationContextTrustPtrOutput() VirtualNodeListenerTlsValidationContextTrustPtrOutput {
 	return i.ToVirtualNodeListenerTlsValidationContextTrustPtrOutputWithContext(context.Background())
 }
@@ -16390,6 +19079,12 @@ func (i *virtualNodeListenerTlsValidationContextTrustPtrType) ToVirtualNodeListe
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeListenerTlsValidationContextTrustPtrOutput)
 }
 
+func (i *virtualNodeListenerTlsValidationContextTrustPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsValidationContextTrust] {
+	return pulumix.Output[*VirtualNodeListenerTlsValidationContextTrust]{
+		OutputState: i.ToVirtualNodeListenerTlsValidationContextTrustPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeListenerTlsValidationContextTrustOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeListenerTlsValidationContextTrustOutput) ElementType() reflect.Type {
@@ -16412,6 +19107,12 @@ func (o VirtualNodeListenerTlsValidationContextTrustOutput) ToVirtualNodeListene
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeListenerTlsValidationContextTrust) *VirtualNodeListenerTlsValidationContextTrust {
 		return &v
 	}).(VirtualNodeListenerTlsValidationContextTrustPtrOutput)
+}
+
+func (o VirtualNodeListenerTlsValidationContextTrustOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeListenerTlsValidationContextTrust] {
+	return pulumix.Output[VirtualNodeListenerTlsValidationContextTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTlsValidationContextTrustOutput) File() VirtualNodeTlsValidationContextFileTrustPtrOutput {
@@ -16438,6 +19139,12 @@ func (o VirtualNodeListenerTlsValidationContextTrustPtrOutput) ToVirtualNodeList
 
 func (o VirtualNodeListenerTlsValidationContextTrustPtrOutput) ToVirtualNodeListenerTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualNodeListenerTlsValidationContextTrustPtrOutput {
 	return o
+}
+
+func (o VirtualNodeListenerTlsValidationContextTrustPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeListenerTlsValidationContextTrust] {
+	return pulumix.Output[*VirtualNodeListenerTlsValidationContextTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeListenerTlsValidationContextTrustPtrOutput) Elem() VirtualNodeListenerTlsValidationContextTrustOutput {
@@ -16499,6 +19206,12 @@ func (i VirtualNodeLoggingArgs) ToVirtualNodeLoggingOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeLoggingOutput)
 }
 
+func (i VirtualNodeLoggingArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeLogging] {
+	return pulumix.Output[VirtualNodeLogging]{
+		OutputState: i.ToVirtualNodeLoggingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeLoggingArgs) ToVirtualNodeLoggingPtrOutput() VirtualNodeLoggingPtrOutput {
 	return i.ToVirtualNodeLoggingPtrOutputWithContext(context.Background())
 }
@@ -16540,6 +19253,12 @@ func (i *virtualNodeLoggingPtrType) ToVirtualNodeLoggingPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeLoggingPtrOutput)
 }
 
+func (i *virtualNodeLoggingPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeLogging] {
+	return pulumix.Output[*VirtualNodeLogging]{
+		OutputState: i.ToVirtualNodeLoggingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeLoggingOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeLoggingOutput) ElementType() reflect.Type {
@@ -16564,6 +19283,12 @@ func (o VirtualNodeLoggingOutput) ToVirtualNodeLoggingPtrOutputWithContext(ctx c
 	}).(VirtualNodeLoggingPtrOutput)
 }
 
+func (o VirtualNodeLoggingOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeLogging] {
+	return pulumix.Output[VirtualNodeLogging]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeLoggingOutput) AccessLog() VirtualNodeAccessLogPtrOutput {
 	return o.ApplyT(func(v VirtualNodeLogging) *VirtualNodeAccessLog { return v.AccessLog }).(VirtualNodeAccessLogPtrOutput)
 }
@@ -16580,6 +19305,12 @@ func (o VirtualNodeLoggingPtrOutput) ToVirtualNodeLoggingPtrOutput() VirtualNode
 
 func (o VirtualNodeLoggingPtrOutput) ToVirtualNodeLoggingPtrOutputWithContext(ctx context.Context) VirtualNodeLoggingPtrOutput {
 	return o
+}
+
+func (o VirtualNodeLoggingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeLogging] {
+	return pulumix.Output[*VirtualNodeLogging]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeLoggingPtrOutput) Elem() VirtualNodeLoggingOutput {
@@ -16634,6 +19365,12 @@ func (i VirtualNodeLoggingFormatArgs) ToVirtualNodeLoggingFormatOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeLoggingFormatOutput)
 }
 
+func (i VirtualNodeLoggingFormatArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeLoggingFormat] {
+	return pulumix.Output[VirtualNodeLoggingFormat]{
+		OutputState: i.ToVirtualNodeLoggingFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeLoggingFormatArgs) ToVirtualNodeLoggingFormatPtrOutput() VirtualNodeLoggingFormatPtrOutput {
 	return i.ToVirtualNodeLoggingFormatPtrOutputWithContext(context.Background())
 }
@@ -16675,6 +19412,12 @@ func (i *virtualNodeLoggingFormatPtrType) ToVirtualNodeLoggingFormatPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeLoggingFormatPtrOutput)
 }
 
+func (i *virtualNodeLoggingFormatPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeLoggingFormat] {
+	return pulumix.Output[*VirtualNodeLoggingFormat]{
+		OutputState: i.ToVirtualNodeLoggingFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeLoggingFormatOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeLoggingFormatOutput) ElementType() reflect.Type {
@@ -16699,6 +19442,12 @@ func (o VirtualNodeLoggingFormatOutput) ToVirtualNodeLoggingFormatPtrOutputWithC
 	}).(VirtualNodeLoggingFormatPtrOutput)
 }
 
+func (o VirtualNodeLoggingFormatOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeLoggingFormat] {
+	return pulumix.Output[VirtualNodeLoggingFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeLoggingFormatOutput) Json() VirtualNodeJsonFormatRefArrayOutput {
 	return o.ApplyT(func(v VirtualNodeLoggingFormat) []VirtualNodeJsonFormatRef { return v.Json }).(VirtualNodeJsonFormatRefArrayOutput)
 }
@@ -16719,6 +19468,12 @@ func (o VirtualNodeLoggingFormatPtrOutput) ToVirtualNodeLoggingFormatPtrOutput()
 
 func (o VirtualNodeLoggingFormatPtrOutput) ToVirtualNodeLoggingFormatPtrOutputWithContext(ctx context.Context) VirtualNodeLoggingFormatPtrOutput {
 	return o
+}
+
+func (o VirtualNodeLoggingFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeLoggingFormat] {
+	return pulumix.Output[*VirtualNodeLoggingFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeLoggingFormatPtrOutput) Elem() VirtualNodeLoggingFormatOutput {
@@ -16786,6 +19541,12 @@ func (i VirtualNodeOutlierDetectionArgs) ToVirtualNodeOutlierDetectionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeOutlierDetectionOutput)
 }
 
+func (i VirtualNodeOutlierDetectionArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeOutlierDetection] {
+	return pulumix.Output[VirtualNodeOutlierDetection]{
+		OutputState: i.ToVirtualNodeOutlierDetectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeOutlierDetectionArgs) ToVirtualNodeOutlierDetectionPtrOutput() VirtualNodeOutlierDetectionPtrOutput {
 	return i.ToVirtualNodeOutlierDetectionPtrOutputWithContext(context.Background())
 }
@@ -16827,6 +19588,12 @@ func (i *virtualNodeOutlierDetectionPtrType) ToVirtualNodeOutlierDetectionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeOutlierDetectionPtrOutput)
 }
 
+func (i *virtualNodeOutlierDetectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeOutlierDetection] {
+	return pulumix.Output[*VirtualNodeOutlierDetection]{
+		OutputState: i.ToVirtualNodeOutlierDetectionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeOutlierDetectionOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeOutlierDetectionOutput) ElementType() reflect.Type {
@@ -16849,6 +19616,12 @@ func (o VirtualNodeOutlierDetectionOutput) ToVirtualNodeOutlierDetectionPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeOutlierDetection) *VirtualNodeOutlierDetection {
 		return &v
 	}).(VirtualNodeOutlierDetectionPtrOutput)
+}
+
+func (o VirtualNodeOutlierDetectionOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeOutlierDetection] {
+	return pulumix.Output[VirtualNodeOutlierDetection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeOutlierDetectionOutput) BaseEjectionDuration() VirtualNodeDurationOutput {
@@ -16879,6 +19652,12 @@ func (o VirtualNodeOutlierDetectionPtrOutput) ToVirtualNodeOutlierDetectionPtrOu
 
 func (o VirtualNodeOutlierDetectionPtrOutput) ToVirtualNodeOutlierDetectionPtrOutputWithContext(ctx context.Context) VirtualNodeOutlierDetectionPtrOutput {
 	return o
+}
+
+func (o VirtualNodeOutlierDetectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeOutlierDetection] {
+	return pulumix.Output[*VirtualNodeOutlierDetection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeOutlierDetectionPtrOutput) Elem() VirtualNodeOutlierDetectionOutput {
@@ -16960,6 +19739,12 @@ func (i VirtualNodePortMappingArgs) ToVirtualNodePortMappingOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodePortMappingOutput)
 }
 
+func (i VirtualNodePortMappingArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodePortMapping] {
+	return pulumix.Output[VirtualNodePortMapping]{
+		OutputState: i.ToVirtualNodePortMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodePortMappingOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodePortMappingOutput) ElementType() reflect.Type {
@@ -16972,6 +19757,12 @@ func (o VirtualNodePortMappingOutput) ToVirtualNodePortMappingOutput() VirtualNo
 
 func (o VirtualNodePortMappingOutput) ToVirtualNodePortMappingOutputWithContext(ctx context.Context) VirtualNodePortMappingOutput {
 	return o
+}
+
+func (o VirtualNodePortMappingOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodePortMapping] {
+	return pulumix.Output[VirtualNodePortMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodePortMappingOutput) Port() pulumi.IntOutput {
@@ -17015,6 +19806,12 @@ func (i VirtualNodeServiceDiscoveryArgs) ToVirtualNodeServiceDiscoveryOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeServiceDiscoveryOutput)
 }
 
+func (i VirtualNodeServiceDiscoveryArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeServiceDiscovery] {
+	return pulumix.Output[VirtualNodeServiceDiscovery]{
+		OutputState: i.ToVirtualNodeServiceDiscoveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeServiceDiscoveryArgs) ToVirtualNodeServiceDiscoveryPtrOutput() VirtualNodeServiceDiscoveryPtrOutput {
 	return i.ToVirtualNodeServiceDiscoveryPtrOutputWithContext(context.Background())
 }
@@ -17056,6 +19853,12 @@ func (i *virtualNodeServiceDiscoveryPtrType) ToVirtualNodeServiceDiscoveryPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeServiceDiscoveryPtrOutput)
 }
 
+func (i *virtualNodeServiceDiscoveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeServiceDiscovery] {
+	return pulumix.Output[*VirtualNodeServiceDiscovery]{
+		OutputState: i.ToVirtualNodeServiceDiscoveryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeServiceDiscoveryOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeServiceDiscoveryOutput) ElementType() reflect.Type {
@@ -17080,6 +19883,12 @@ func (o VirtualNodeServiceDiscoveryOutput) ToVirtualNodeServiceDiscoveryPtrOutpu
 	}).(VirtualNodeServiceDiscoveryPtrOutput)
 }
 
+func (o VirtualNodeServiceDiscoveryOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeServiceDiscovery] {
+	return pulumix.Output[VirtualNodeServiceDiscovery]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeServiceDiscoveryOutput) AwsCloudMap() VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput {
 	return o.ApplyT(func(v VirtualNodeServiceDiscovery) *VirtualNodeAwsCloudMapServiceDiscovery { return v.AwsCloudMap }).(VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput)
 }
@@ -17100,6 +19909,12 @@ func (o VirtualNodeServiceDiscoveryPtrOutput) ToVirtualNodeServiceDiscoveryPtrOu
 
 func (o VirtualNodeServiceDiscoveryPtrOutput) ToVirtualNodeServiceDiscoveryPtrOutputWithContext(ctx context.Context) VirtualNodeServiceDiscoveryPtrOutput {
 	return o
+}
+
+func (o VirtualNodeServiceDiscoveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeServiceDiscovery] {
+	return pulumix.Output[*VirtualNodeServiceDiscovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeServiceDiscoveryPtrOutput) Elem() VirtualNodeServiceDiscoveryOutput {
@@ -17169,6 +19984,12 @@ func (i VirtualNodeSpecArgs) ToVirtualNodeSpecOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecOutput)
 }
 
+func (i VirtualNodeSpecArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeSpec] {
+	return pulumix.Output[VirtualNodeSpec]{
+		OutputState: i.ToVirtualNodeSpecOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeSpecOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecOutput) ElementType() reflect.Type {
@@ -17181,6 +20002,12 @@ func (o VirtualNodeSpecOutput) ToVirtualNodeSpecOutput() VirtualNodeSpecOutput {
 
 func (o VirtualNodeSpecOutput) ToVirtualNodeSpecOutputWithContext(ctx context.Context) VirtualNodeSpecOutput {
 	return o
+}
+
+func (o VirtualNodeSpecOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeSpec] {
+	return pulumix.Output[VirtualNodeSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeSpecOutput) BackendDefaults() VirtualNodeBackendDefaultsPtrOutput {
@@ -17215,6 +20042,12 @@ func (o VirtualNodeSpecPtrOutput) ToVirtualNodeSpecPtrOutput() VirtualNodeSpecPt
 
 func (o VirtualNodeSpecPtrOutput) ToVirtualNodeSpecPtrOutputWithContext(ctx context.Context) VirtualNodeSpecPtrOutput {
 	return o
+}
+
+func (o VirtualNodeSpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeSpec] {
+	return pulumix.Output[*VirtualNodeSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeSpecPtrOutput) Elem() VirtualNodeSpecOutput {
@@ -17303,6 +20136,12 @@ func (i VirtualNodeSubjectAlternativeNameMatchersArgs) ToVirtualNodeSubjectAlter
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSubjectAlternativeNameMatchersOutput)
 }
 
+func (i VirtualNodeSubjectAlternativeNameMatchersArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeSubjectAlternativeNameMatchers] {
+	return pulumix.Output[VirtualNodeSubjectAlternativeNameMatchers]{
+		OutputState: i.ToVirtualNodeSubjectAlternativeNameMatchersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeSubjectAlternativeNameMatchersArgs) ToVirtualNodeSubjectAlternativeNameMatchersPtrOutput() VirtualNodeSubjectAlternativeNameMatchersPtrOutput {
 	return i.ToVirtualNodeSubjectAlternativeNameMatchersPtrOutputWithContext(context.Background())
 }
@@ -17344,6 +20183,12 @@ func (i *virtualNodeSubjectAlternativeNameMatchersPtrType) ToVirtualNodeSubjectA
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSubjectAlternativeNameMatchersPtrOutput)
 }
 
+func (i *virtualNodeSubjectAlternativeNameMatchersPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeSubjectAlternativeNameMatchers] {
+	return pulumix.Output[*VirtualNodeSubjectAlternativeNameMatchers]{
+		OutputState: i.ToVirtualNodeSubjectAlternativeNameMatchersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeSubjectAlternativeNameMatchersOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSubjectAlternativeNameMatchersOutput) ElementType() reflect.Type {
@@ -17368,6 +20213,12 @@ func (o VirtualNodeSubjectAlternativeNameMatchersOutput) ToVirtualNodeSubjectAlt
 	}).(VirtualNodeSubjectAlternativeNameMatchersPtrOutput)
 }
 
+func (o VirtualNodeSubjectAlternativeNameMatchersOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeSubjectAlternativeNameMatchers] {
+	return pulumix.Output[VirtualNodeSubjectAlternativeNameMatchers]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeSubjectAlternativeNameMatchersOutput) Exact() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNodeSubjectAlternativeNameMatchers) []string { return v.Exact }).(pulumi.StringArrayOutput)
 }
@@ -17384,6 +20235,12 @@ func (o VirtualNodeSubjectAlternativeNameMatchersPtrOutput) ToVirtualNodeSubject
 
 func (o VirtualNodeSubjectAlternativeNameMatchersPtrOutput) ToVirtualNodeSubjectAlternativeNameMatchersPtrOutputWithContext(ctx context.Context) VirtualNodeSubjectAlternativeNameMatchersPtrOutput {
 	return o
+}
+
+func (o VirtualNodeSubjectAlternativeNameMatchersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeSubjectAlternativeNameMatchers] {
+	return pulumix.Output[*VirtualNodeSubjectAlternativeNameMatchers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeSubjectAlternativeNameMatchersPtrOutput) Elem() VirtualNodeSubjectAlternativeNameMatchersOutput {
@@ -17436,6 +20293,12 @@ func (i VirtualNodeSubjectAlternativeNamesArgs) ToVirtualNodeSubjectAlternativeN
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSubjectAlternativeNamesOutput)
 }
 
+func (i VirtualNodeSubjectAlternativeNamesArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeSubjectAlternativeNames] {
+	return pulumix.Output[VirtualNodeSubjectAlternativeNames]{
+		OutputState: i.ToVirtualNodeSubjectAlternativeNamesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeSubjectAlternativeNamesArgs) ToVirtualNodeSubjectAlternativeNamesPtrOutput() VirtualNodeSubjectAlternativeNamesPtrOutput {
 	return i.ToVirtualNodeSubjectAlternativeNamesPtrOutputWithContext(context.Background())
 }
@@ -17477,6 +20340,12 @@ func (i *virtualNodeSubjectAlternativeNamesPtrType) ToVirtualNodeSubjectAlternat
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSubjectAlternativeNamesPtrOutput)
 }
 
+func (i *virtualNodeSubjectAlternativeNamesPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeSubjectAlternativeNames] {
+	return pulumix.Output[*VirtualNodeSubjectAlternativeNames]{
+		OutputState: i.ToVirtualNodeSubjectAlternativeNamesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeSubjectAlternativeNamesOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSubjectAlternativeNamesOutput) ElementType() reflect.Type {
@@ -17501,6 +20370,12 @@ func (o VirtualNodeSubjectAlternativeNamesOutput) ToVirtualNodeSubjectAlternativ
 	}).(VirtualNodeSubjectAlternativeNamesPtrOutput)
 }
 
+func (o VirtualNodeSubjectAlternativeNamesOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeSubjectAlternativeNames] {
+	return pulumix.Output[VirtualNodeSubjectAlternativeNames]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeSubjectAlternativeNamesOutput) Match() VirtualNodeSubjectAlternativeNameMatchersOutput {
 	return o.ApplyT(func(v VirtualNodeSubjectAlternativeNames) VirtualNodeSubjectAlternativeNameMatchers { return v.Match }).(VirtualNodeSubjectAlternativeNameMatchersOutput)
 }
@@ -17517,6 +20392,12 @@ func (o VirtualNodeSubjectAlternativeNamesPtrOutput) ToVirtualNodeSubjectAlterna
 
 func (o VirtualNodeSubjectAlternativeNamesPtrOutput) ToVirtualNodeSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSubjectAlternativeNamesPtrOutput {
 	return o
+}
+
+func (o VirtualNodeSubjectAlternativeNamesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeSubjectAlternativeNames] {
+	return pulumix.Output[*VirtualNodeSubjectAlternativeNames]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeSubjectAlternativeNamesPtrOutput) Elem() VirtualNodeSubjectAlternativeNamesOutput {
@@ -17571,6 +20452,12 @@ func (i VirtualNodeTagArgs) ToVirtualNodeTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTagOutput)
 }
 
+func (i VirtualNodeTagArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTag] {
+	return pulumix.Output[VirtualNodeTag]{
+		OutputState: i.ToVirtualNodeTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNodeTagArrayInput is an input type that accepts VirtualNodeTagArray and VirtualNodeTagArrayOutput values.
 // You can construct a concrete instance of `VirtualNodeTagArrayInput` via:
 //
@@ -17596,6 +20483,12 @@ func (i VirtualNodeTagArray) ToVirtualNodeTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTagArrayOutput)
 }
 
+func (i VirtualNodeTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualNodeTag] {
+	return pulumix.Output[[]VirtualNodeTag]{
+		OutputState: i.ToVirtualNodeTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeTagOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeTagOutput) ElementType() reflect.Type {
@@ -17608,6 +20501,12 @@ func (o VirtualNodeTagOutput) ToVirtualNodeTagOutput() VirtualNodeTagOutput {
 
 func (o VirtualNodeTagOutput) ToVirtualNodeTagOutputWithContext(ctx context.Context) VirtualNodeTagOutput {
 	return o
+}
+
+func (o VirtualNodeTagOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTag] {
+	return pulumix.Output[VirtualNodeTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeTagOutput) Key() pulumi.StringOutput {
@@ -17630,6 +20529,12 @@ func (o VirtualNodeTagArrayOutput) ToVirtualNodeTagArrayOutput() VirtualNodeTagA
 
 func (o VirtualNodeTagArrayOutput) ToVirtualNodeTagArrayOutputWithContext(ctx context.Context) VirtualNodeTagArrayOutput {
 	return o
+}
+
+func (o VirtualNodeTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualNodeTag] {
+	return pulumix.Output[[]VirtualNodeTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeTagArrayOutput) Index(i pulumi.IntInput) VirtualNodeTagOutput {
@@ -17667,6 +20572,12 @@ func (i VirtualNodeTcpConnectionPoolArgs) ToVirtualNodeTcpConnectionPoolOutput()
 
 func (i VirtualNodeTcpConnectionPoolArgs) ToVirtualNodeTcpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeTcpConnectionPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTcpConnectionPoolOutput)
+}
+
+func (i VirtualNodeTcpConnectionPoolArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTcpConnectionPool] {
+	return pulumix.Output[VirtualNodeTcpConnectionPool]{
+		OutputState: i.ToVirtualNodeTcpConnectionPoolOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i VirtualNodeTcpConnectionPoolArgs) ToVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeTcpConnectionPoolPtrOutput {
@@ -17710,6 +20621,12 @@ func (i *virtualNodeTcpConnectionPoolPtrType) ToVirtualNodeTcpConnectionPoolPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTcpConnectionPoolPtrOutput)
 }
 
+func (i *virtualNodeTcpConnectionPoolPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTcpConnectionPool] {
+	return pulumix.Output[*VirtualNodeTcpConnectionPool]{
+		OutputState: i.ToVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeTcpConnectionPoolOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeTcpConnectionPoolOutput) ElementType() reflect.Type {
@@ -17734,6 +20651,12 @@ func (o VirtualNodeTcpConnectionPoolOutput) ToVirtualNodeTcpConnectionPoolPtrOut
 	}).(VirtualNodeTcpConnectionPoolPtrOutput)
 }
 
+func (o VirtualNodeTcpConnectionPoolOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTcpConnectionPool] {
+	return pulumix.Output[VirtualNodeTcpConnectionPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeTcpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeTcpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
 }
@@ -17750,6 +20673,12 @@ func (o VirtualNodeTcpConnectionPoolPtrOutput) ToVirtualNodeTcpConnectionPoolPtr
 
 func (o VirtualNodeTcpConnectionPoolPtrOutput) ToVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeTcpConnectionPoolPtrOutput {
 	return o
+}
+
+func (o VirtualNodeTcpConnectionPoolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTcpConnectionPool] {
+	return pulumix.Output[*VirtualNodeTcpConnectionPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeTcpConnectionPoolPtrOutput) Elem() VirtualNodeTcpConnectionPoolOutput {
@@ -17802,6 +20731,12 @@ func (i VirtualNodeTcpTimeoutArgs) ToVirtualNodeTcpTimeoutOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTcpTimeoutOutput)
 }
 
+func (i VirtualNodeTcpTimeoutArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTcpTimeout] {
+	return pulumix.Output[VirtualNodeTcpTimeout]{
+		OutputState: i.ToVirtualNodeTcpTimeoutOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeTcpTimeoutArgs) ToVirtualNodeTcpTimeoutPtrOutput() VirtualNodeTcpTimeoutPtrOutput {
 	return i.ToVirtualNodeTcpTimeoutPtrOutputWithContext(context.Background())
 }
@@ -17843,6 +20778,12 @@ func (i *virtualNodeTcpTimeoutPtrType) ToVirtualNodeTcpTimeoutPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTcpTimeoutPtrOutput)
 }
 
+func (i *virtualNodeTcpTimeoutPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTcpTimeout] {
+	return pulumix.Output[*VirtualNodeTcpTimeout]{
+		OutputState: i.ToVirtualNodeTcpTimeoutPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeTcpTimeoutOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeTcpTimeoutOutput) ElementType() reflect.Type {
@@ -17867,6 +20808,12 @@ func (o VirtualNodeTcpTimeoutOutput) ToVirtualNodeTcpTimeoutPtrOutputWithContext
 	}).(VirtualNodeTcpTimeoutPtrOutput)
 }
 
+func (o VirtualNodeTcpTimeoutOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTcpTimeout] {
+	return pulumix.Output[VirtualNodeTcpTimeout]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeTcpTimeoutOutput) Idle() VirtualNodeDurationPtrOutput {
 	return o.ApplyT(func(v VirtualNodeTcpTimeout) *VirtualNodeDuration { return v.Idle }).(VirtualNodeDurationPtrOutput)
 }
@@ -17883,6 +20830,12 @@ func (o VirtualNodeTcpTimeoutPtrOutput) ToVirtualNodeTcpTimeoutPtrOutput() Virtu
 
 func (o VirtualNodeTcpTimeoutPtrOutput) ToVirtualNodeTcpTimeoutPtrOutputWithContext(ctx context.Context) VirtualNodeTcpTimeoutPtrOutput {
 	return o
+}
+
+func (o VirtualNodeTcpTimeoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTcpTimeout] {
+	return pulumix.Output[*VirtualNodeTcpTimeout]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeTcpTimeoutPtrOutput) Elem() VirtualNodeTcpTimeoutOutput {
@@ -17937,6 +20890,12 @@ func (i VirtualNodeTlsValidationContextArgs) ToVirtualNodeTlsValidationContextOu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTlsValidationContextOutput)
 }
 
+func (i VirtualNodeTlsValidationContextArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTlsValidationContext] {
+	return pulumix.Output[VirtualNodeTlsValidationContext]{
+		OutputState: i.ToVirtualNodeTlsValidationContextOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeTlsValidationContextArgs) ToVirtualNodeTlsValidationContextPtrOutput() VirtualNodeTlsValidationContextPtrOutput {
 	return i.ToVirtualNodeTlsValidationContextPtrOutputWithContext(context.Background())
 }
@@ -17978,6 +20937,12 @@ func (i *virtualNodeTlsValidationContextPtrType) ToVirtualNodeTlsValidationConte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTlsValidationContextPtrOutput)
 }
 
+func (i *virtualNodeTlsValidationContextPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTlsValidationContext] {
+	return pulumix.Output[*VirtualNodeTlsValidationContext]{
+		OutputState: i.ToVirtualNodeTlsValidationContextPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeTlsValidationContextOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeTlsValidationContextOutput) ElementType() reflect.Type {
@@ -18002,6 +20967,12 @@ func (o VirtualNodeTlsValidationContextOutput) ToVirtualNodeTlsValidationContext
 	}).(VirtualNodeTlsValidationContextPtrOutput)
 }
 
+func (o VirtualNodeTlsValidationContextOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTlsValidationContext] {
+	return pulumix.Output[VirtualNodeTlsValidationContext]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeTlsValidationContextOutput) SubjectAlternativeNames() VirtualNodeSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v VirtualNodeTlsValidationContext) *VirtualNodeSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
@@ -18024,6 +20995,12 @@ func (o VirtualNodeTlsValidationContextPtrOutput) ToVirtualNodeTlsValidationCont
 
 func (o VirtualNodeTlsValidationContextPtrOutput) ToVirtualNodeTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualNodeTlsValidationContextPtrOutput {
 	return o
+}
+
+func (o VirtualNodeTlsValidationContextPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTlsValidationContext] {
+	return pulumix.Output[*VirtualNodeTlsValidationContext]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeTlsValidationContextPtrOutput) Elem() VirtualNodeTlsValidationContextOutput {
@@ -18085,6 +21062,12 @@ func (i VirtualNodeTlsValidationContextAcmTrustArgs) ToVirtualNodeTlsValidationC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTlsValidationContextAcmTrustOutput)
 }
 
+func (i VirtualNodeTlsValidationContextAcmTrustArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTlsValidationContextAcmTrust] {
+	return pulumix.Output[VirtualNodeTlsValidationContextAcmTrust]{
+		OutputState: i.ToVirtualNodeTlsValidationContextAcmTrustOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeTlsValidationContextAcmTrustArgs) ToVirtualNodeTlsValidationContextAcmTrustPtrOutput() VirtualNodeTlsValidationContextAcmTrustPtrOutput {
 	return i.ToVirtualNodeTlsValidationContextAcmTrustPtrOutputWithContext(context.Background())
 }
@@ -18126,6 +21109,12 @@ func (i *virtualNodeTlsValidationContextAcmTrustPtrType) ToVirtualNodeTlsValidat
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTlsValidationContextAcmTrustPtrOutput)
 }
 
+func (i *virtualNodeTlsValidationContextAcmTrustPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTlsValidationContextAcmTrust] {
+	return pulumix.Output[*VirtualNodeTlsValidationContextAcmTrust]{
+		OutputState: i.ToVirtualNodeTlsValidationContextAcmTrustPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeTlsValidationContextAcmTrustOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeTlsValidationContextAcmTrustOutput) ElementType() reflect.Type {
@@ -18150,6 +21139,12 @@ func (o VirtualNodeTlsValidationContextAcmTrustOutput) ToVirtualNodeTlsValidatio
 	}).(VirtualNodeTlsValidationContextAcmTrustPtrOutput)
 }
 
+func (o VirtualNodeTlsValidationContextAcmTrustOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTlsValidationContextAcmTrust] {
+	return pulumix.Output[VirtualNodeTlsValidationContextAcmTrust]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeTlsValidationContextAcmTrustOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNodeTlsValidationContextAcmTrust) []string { return v.CertificateAuthorityArns }).(pulumi.StringArrayOutput)
 }
@@ -18166,6 +21161,12 @@ func (o VirtualNodeTlsValidationContextAcmTrustPtrOutput) ToVirtualNodeTlsValida
 
 func (o VirtualNodeTlsValidationContextAcmTrustPtrOutput) ToVirtualNodeTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualNodeTlsValidationContextAcmTrustPtrOutput {
 	return o
+}
+
+func (o VirtualNodeTlsValidationContextAcmTrustPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTlsValidationContextAcmTrust] {
+	return pulumix.Output[*VirtualNodeTlsValidationContextAcmTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeTlsValidationContextAcmTrustPtrOutput) Elem() VirtualNodeTlsValidationContextAcmTrustOutput {
@@ -18218,6 +21219,12 @@ func (i VirtualNodeTlsValidationContextFileTrustArgs) ToVirtualNodeTlsValidation
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTlsValidationContextFileTrustOutput)
 }
 
+func (i VirtualNodeTlsValidationContextFileTrustArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTlsValidationContextFileTrust] {
+	return pulumix.Output[VirtualNodeTlsValidationContextFileTrust]{
+		OutputState: i.ToVirtualNodeTlsValidationContextFileTrustOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeTlsValidationContextFileTrustArgs) ToVirtualNodeTlsValidationContextFileTrustPtrOutput() VirtualNodeTlsValidationContextFileTrustPtrOutput {
 	return i.ToVirtualNodeTlsValidationContextFileTrustPtrOutputWithContext(context.Background())
 }
@@ -18259,6 +21266,12 @@ func (i *virtualNodeTlsValidationContextFileTrustPtrType) ToVirtualNodeTlsValida
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTlsValidationContextFileTrustPtrOutput)
 }
 
+func (i *virtualNodeTlsValidationContextFileTrustPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTlsValidationContextFileTrust] {
+	return pulumix.Output[*VirtualNodeTlsValidationContextFileTrust]{
+		OutputState: i.ToVirtualNodeTlsValidationContextFileTrustPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeTlsValidationContextFileTrustOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeTlsValidationContextFileTrustOutput) ElementType() reflect.Type {
@@ -18283,6 +21296,12 @@ func (o VirtualNodeTlsValidationContextFileTrustOutput) ToVirtualNodeTlsValidati
 	}).(VirtualNodeTlsValidationContextFileTrustPtrOutput)
 }
 
+func (o VirtualNodeTlsValidationContextFileTrustOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTlsValidationContextFileTrust] {
+	return pulumix.Output[VirtualNodeTlsValidationContextFileTrust]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeTlsValidationContextFileTrustOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeTlsValidationContextFileTrust) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -18299,6 +21318,12 @@ func (o VirtualNodeTlsValidationContextFileTrustPtrOutput) ToVirtualNodeTlsValid
 
 func (o VirtualNodeTlsValidationContextFileTrustPtrOutput) ToVirtualNodeTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualNodeTlsValidationContextFileTrustPtrOutput {
 	return o
+}
+
+func (o VirtualNodeTlsValidationContextFileTrustPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTlsValidationContextFileTrust] {
+	return pulumix.Output[*VirtualNodeTlsValidationContextFileTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeTlsValidationContextFileTrustPtrOutput) Elem() VirtualNodeTlsValidationContextFileTrustOutput {
@@ -18351,6 +21376,12 @@ func (i VirtualNodeTlsValidationContextSdsTrustArgs) ToVirtualNodeTlsValidationC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTlsValidationContextSdsTrustOutput)
 }
 
+func (i VirtualNodeTlsValidationContextSdsTrustArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTlsValidationContextSdsTrust] {
+	return pulumix.Output[VirtualNodeTlsValidationContextSdsTrust]{
+		OutputState: i.ToVirtualNodeTlsValidationContextSdsTrustOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeTlsValidationContextSdsTrustArgs) ToVirtualNodeTlsValidationContextSdsTrustPtrOutput() VirtualNodeTlsValidationContextSdsTrustPtrOutput {
 	return i.ToVirtualNodeTlsValidationContextSdsTrustPtrOutputWithContext(context.Background())
 }
@@ -18392,6 +21423,12 @@ func (i *virtualNodeTlsValidationContextSdsTrustPtrType) ToVirtualNodeTlsValidat
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTlsValidationContextSdsTrustPtrOutput)
 }
 
+func (i *virtualNodeTlsValidationContextSdsTrustPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTlsValidationContextSdsTrust] {
+	return pulumix.Output[*VirtualNodeTlsValidationContextSdsTrust]{
+		OutputState: i.ToVirtualNodeTlsValidationContextSdsTrustPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeTlsValidationContextSdsTrustOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeTlsValidationContextSdsTrustOutput) ElementType() reflect.Type {
@@ -18416,6 +21453,12 @@ func (o VirtualNodeTlsValidationContextSdsTrustOutput) ToVirtualNodeTlsValidatio
 	}).(VirtualNodeTlsValidationContextSdsTrustPtrOutput)
 }
 
+func (o VirtualNodeTlsValidationContextSdsTrustOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTlsValidationContextSdsTrust] {
+	return pulumix.Output[VirtualNodeTlsValidationContextSdsTrust]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeTlsValidationContextSdsTrustOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeTlsValidationContextSdsTrust) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -18432,6 +21475,12 @@ func (o VirtualNodeTlsValidationContextSdsTrustPtrOutput) ToVirtualNodeTlsValida
 
 func (o VirtualNodeTlsValidationContextSdsTrustPtrOutput) ToVirtualNodeTlsValidationContextSdsTrustPtrOutputWithContext(ctx context.Context) VirtualNodeTlsValidationContextSdsTrustPtrOutput {
 	return o
+}
+
+func (o VirtualNodeTlsValidationContextSdsTrustPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTlsValidationContextSdsTrust] {
+	return pulumix.Output[*VirtualNodeTlsValidationContextSdsTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeTlsValidationContextSdsTrustPtrOutput) Elem() VirtualNodeTlsValidationContextSdsTrustOutput {
@@ -18488,6 +21537,12 @@ func (i VirtualNodeTlsValidationContextTrustArgs) ToVirtualNodeTlsValidationCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTlsValidationContextTrustOutput)
 }
 
+func (i VirtualNodeTlsValidationContextTrustArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTlsValidationContextTrust] {
+	return pulumix.Output[VirtualNodeTlsValidationContextTrust]{
+		OutputState: i.ToVirtualNodeTlsValidationContextTrustOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeTlsValidationContextTrustArgs) ToVirtualNodeTlsValidationContextTrustPtrOutput() VirtualNodeTlsValidationContextTrustPtrOutput {
 	return i.ToVirtualNodeTlsValidationContextTrustPtrOutputWithContext(context.Background())
 }
@@ -18529,6 +21584,12 @@ func (i *virtualNodeTlsValidationContextTrustPtrType) ToVirtualNodeTlsValidation
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTlsValidationContextTrustPtrOutput)
 }
 
+func (i *virtualNodeTlsValidationContextTrustPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTlsValidationContextTrust] {
+	return pulumix.Output[*VirtualNodeTlsValidationContextTrust]{
+		OutputState: i.ToVirtualNodeTlsValidationContextTrustPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeTlsValidationContextTrustOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeTlsValidationContextTrustOutput) ElementType() reflect.Type {
@@ -18551,6 +21612,12 @@ func (o VirtualNodeTlsValidationContextTrustOutput) ToVirtualNodeTlsValidationCo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeTlsValidationContextTrust) *VirtualNodeTlsValidationContextTrust {
 		return &v
 	}).(VirtualNodeTlsValidationContextTrustPtrOutput)
+}
+
+func (o VirtualNodeTlsValidationContextTrustOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeTlsValidationContextTrust] {
+	return pulumix.Output[VirtualNodeTlsValidationContextTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeTlsValidationContextTrustOutput) Acm() VirtualNodeTlsValidationContextAcmTrustPtrOutput {
@@ -18577,6 +21644,12 @@ func (o VirtualNodeTlsValidationContextTrustPtrOutput) ToVirtualNodeTlsValidatio
 
 func (o VirtualNodeTlsValidationContextTrustPtrOutput) ToVirtualNodeTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualNodeTlsValidationContextTrustPtrOutput {
 	return o
+}
+
+func (o VirtualNodeTlsValidationContextTrustPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeTlsValidationContextTrust] {
+	return pulumix.Output[*VirtualNodeTlsValidationContextTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeTlsValidationContextTrustPtrOutput) Elem() VirtualNodeTlsValidationContextTrustOutput {
@@ -18649,6 +21722,12 @@ func (i VirtualNodeVirtualServiceBackendArgs) ToVirtualNodeVirtualServiceBackend
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualServiceBackendOutput)
 }
 
+func (i VirtualNodeVirtualServiceBackendArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeVirtualServiceBackend] {
+	return pulumix.Output[VirtualNodeVirtualServiceBackend]{
+		OutputState: i.ToVirtualNodeVirtualServiceBackendOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNodeVirtualServiceBackendArgs) ToVirtualNodeVirtualServiceBackendPtrOutput() VirtualNodeVirtualServiceBackendPtrOutput {
 	return i.ToVirtualNodeVirtualServiceBackendPtrOutputWithContext(context.Background())
 }
@@ -18690,6 +21769,12 @@ func (i *virtualNodeVirtualServiceBackendPtrType) ToVirtualNodeVirtualServiceBac
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualServiceBackendPtrOutput)
 }
 
+func (i *virtualNodeVirtualServiceBackendPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeVirtualServiceBackend] {
+	return pulumix.Output[*VirtualNodeVirtualServiceBackend]{
+		OutputState: i.ToVirtualNodeVirtualServiceBackendPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeVirtualServiceBackendOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeVirtualServiceBackendOutput) ElementType() reflect.Type {
@@ -18714,6 +21799,12 @@ func (o VirtualNodeVirtualServiceBackendOutput) ToVirtualNodeVirtualServiceBacke
 	}).(VirtualNodeVirtualServiceBackendPtrOutput)
 }
 
+func (o VirtualNodeVirtualServiceBackendOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNodeVirtualServiceBackend] {
+	return pulumix.Output[VirtualNodeVirtualServiceBackend]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeVirtualServiceBackendOutput) ClientPolicy() VirtualNodeClientPolicyPtrOutput {
 	return o.ApplyT(func(v VirtualNodeVirtualServiceBackend) *VirtualNodeClientPolicy { return v.ClientPolicy }).(VirtualNodeClientPolicyPtrOutput)
 }
@@ -18734,6 +21825,12 @@ func (o VirtualNodeVirtualServiceBackendPtrOutput) ToVirtualNodeVirtualServiceBa
 
 func (o VirtualNodeVirtualServiceBackendPtrOutput) ToVirtualNodeVirtualServiceBackendPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualServiceBackendPtrOutput {
 	return o
+}
+
+func (o VirtualNodeVirtualServiceBackendPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNodeVirtualServiceBackend] {
+	return pulumix.Output[*VirtualNodeVirtualServiceBackend]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeVirtualServiceBackendPtrOutput) Elem() VirtualNodeVirtualServiceBackendOutput {
@@ -18795,6 +21892,12 @@ func (i VirtualRouterListenerArgs) ToVirtualRouterListenerOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterListenerOutput)
 }
 
+func (i VirtualRouterListenerArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualRouterListener] {
+	return pulumix.Output[VirtualRouterListener]{
+		OutputState: i.ToVirtualRouterListenerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualRouterListenerArrayInput is an input type that accepts VirtualRouterListenerArray and VirtualRouterListenerArrayOutput values.
 // You can construct a concrete instance of `VirtualRouterListenerArrayInput` via:
 //
@@ -18820,6 +21923,12 @@ func (i VirtualRouterListenerArray) ToVirtualRouterListenerArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterListenerArrayOutput)
 }
 
+func (i VirtualRouterListenerArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualRouterListener] {
+	return pulumix.Output[[]VirtualRouterListener]{
+		OutputState: i.ToVirtualRouterListenerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualRouterListenerOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterListenerOutput) ElementType() reflect.Type {
@@ -18832,6 +21941,12 @@ func (o VirtualRouterListenerOutput) ToVirtualRouterListenerOutput() VirtualRout
 
 func (o VirtualRouterListenerOutput) ToVirtualRouterListenerOutputWithContext(ctx context.Context) VirtualRouterListenerOutput {
 	return o
+}
+
+func (o VirtualRouterListenerOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualRouterListener] {
+	return pulumix.Output[VirtualRouterListener]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualRouterListenerOutput) PortMapping() VirtualRouterPortMappingOutput {
@@ -18850,6 +21965,12 @@ func (o VirtualRouterListenerArrayOutput) ToVirtualRouterListenerArrayOutput() V
 
 func (o VirtualRouterListenerArrayOutput) ToVirtualRouterListenerArrayOutputWithContext(ctx context.Context) VirtualRouterListenerArrayOutput {
 	return o
+}
+
+func (o VirtualRouterListenerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualRouterListener] {
+	return pulumix.Output[[]VirtualRouterListener]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualRouterListenerArrayOutput) Index(i pulumi.IntInput) VirtualRouterListenerOutput {
@@ -18891,6 +22012,12 @@ func (i VirtualRouterPortMappingArgs) ToVirtualRouterPortMappingOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterPortMappingOutput)
 }
 
+func (i VirtualRouterPortMappingArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualRouterPortMapping] {
+	return pulumix.Output[VirtualRouterPortMapping]{
+		OutputState: i.ToVirtualRouterPortMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualRouterPortMappingOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterPortMappingOutput) ElementType() reflect.Type {
@@ -18903,6 +22030,12 @@ func (o VirtualRouterPortMappingOutput) ToVirtualRouterPortMappingOutput() Virtu
 
 func (o VirtualRouterPortMappingOutput) ToVirtualRouterPortMappingOutputWithContext(ctx context.Context) VirtualRouterPortMappingOutput {
 	return o
+}
+
+func (o VirtualRouterPortMappingOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualRouterPortMapping] {
+	return pulumix.Output[VirtualRouterPortMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualRouterPortMappingOutput) Port() pulumi.IntOutput {
@@ -18944,6 +22077,12 @@ func (i VirtualRouterSpecArgs) ToVirtualRouterSpecOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecOutput)
 }
 
+func (i VirtualRouterSpecArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualRouterSpec] {
+	return pulumix.Output[VirtualRouterSpec]{
+		OutputState: i.ToVirtualRouterSpecOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualRouterSpecOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterSpecOutput) ElementType() reflect.Type {
@@ -18956,6 +22095,12 @@ func (o VirtualRouterSpecOutput) ToVirtualRouterSpecOutput() VirtualRouterSpecOu
 
 func (o VirtualRouterSpecOutput) ToVirtualRouterSpecOutputWithContext(ctx context.Context) VirtualRouterSpecOutput {
 	return o
+}
+
+func (o VirtualRouterSpecOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualRouterSpec] {
+	return pulumix.Output[VirtualRouterSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualRouterSpecOutput) Listeners() VirtualRouterListenerArrayOutput {
@@ -18974,6 +22119,12 @@ func (o VirtualRouterSpecPtrOutput) ToVirtualRouterSpecPtrOutput() VirtualRouter
 
 func (o VirtualRouterSpecPtrOutput) ToVirtualRouterSpecPtrOutputWithContext(ctx context.Context) VirtualRouterSpecPtrOutput {
 	return o
+}
+
+func (o VirtualRouterSpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualRouterSpec] {
+	return pulumix.Output[*VirtualRouterSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualRouterSpecPtrOutput) Elem() VirtualRouterSpecOutput {
@@ -19028,6 +22179,12 @@ func (i VirtualRouterTagArgs) ToVirtualRouterTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterTagOutput)
 }
 
+func (i VirtualRouterTagArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualRouterTag] {
+	return pulumix.Output[VirtualRouterTag]{
+		OutputState: i.ToVirtualRouterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualRouterTagArrayInput is an input type that accepts VirtualRouterTagArray and VirtualRouterTagArrayOutput values.
 // You can construct a concrete instance of `VirtualRouterTagArrayInput` via:
 //
@@ -19053,6 +22210,12 @@ func (i VirtualRouterTagArray) ToVirtualRouterTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterTagArrayOutput)
 }
 
+func (i VirtualRouterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualRouterTag] {
+	return pulumix.Output[[]VirtualRouterTag]{
+		OutputState: i.ToVirtualRouterTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualRouterTagOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterTagOutput) ElementType() reflect.Type {
@@ -19065,6 +22228,12 @@ func (o VirtualRouterTagOutput) ToVirtualRouterTagOutput() VirtualRouterTagOutpu
 
 func (o VirtualRouterTagOutput) ToVirtualRouterTagOutputWithContext(ctx context.Context) VirtualRouterTagOutput {
 	return o
+}
+
+func (o VirtualRouterTagOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualRouterTag] {
+	return pulumix.Output[VirtualRouterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualRouterTagOutput) Key() pulumi.StringOutput {
@@ -19087,6 +22256,12 @@ func (o VirtualRouterTagArrayOutput) ToVirtualRouterTagArrayOutput() VirtualRout
 
 func (o VirtualRouterTagArrayOutput) ToVirtualRouterTagArrayOutputWithContext(ctx context.Context) VirtualRouterTagArrayOutput {
 	return o
+}
+
+func (o VirtualRouterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualRouterTag] {
+	return pulumix.Output[[]VirtualRouterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualRouterTagArrayOutput) Index(i pulumi.IntInput) VirtualRouterTagOutput {
@@ -19126,6 +22301,12 @@ func (i VirtualServiceProviderArgs) ToVirtualServiceProviderOutput() VirtualServ
 
 func (i VirtualServiceProviderArgs) ToVirtualServiceProviderOutputWithContext(ctx context.Context) VirtualServiceProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceProviderOutput)
+}
+
+func (i VirtualServiceProviderArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualServiceProvider] {
+	return pulumix.Output[VirtualServiceProvider]{
+		OutputState: i.ToVirtualServiceProviderOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i VirtualServiceProviderArgs) ToVirtualServiceProviderPtrOutput() VirtualServiceProviderPtrOutput {
@@ -19169,6 +22350,12 @@ func (i *virtualServiceProviderPtrType) ToVirtualServiceProviderPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceProviderPtrOutput)
 }
 
+func (i *virtualServiceProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualServiceProvider] {
+	return pulumix.Output[*VirtualServiceProvider]{
+		OutputState: i.ToVirtualServiceProviderPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualServiceProviderOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceProviderOutput) ElementType() reflect.Type {
@@ -19193,6 +22380,12 @@ func (o VirtualServiceProviderOutput) ToVirtualServiceProviderPtrOutputWithConte
 	}).(VirtualServiceProviderPtrOutput)
 }
 
+func (o VirtualServiceProviderOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualServiceProvider] {
+	return pulumix.Output[VirtualServiceProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualServiceProviderOutput) VirtualNode() VirtualServiceVirtualNodeServiceProviderPtrOutput {
 	return o.ApplyT(func(v VirtualServiceProvider) *VirtualServiceVirtualNodeServiceProvider { return v.VirtualNode }).(VirtualServiceVirtualNodeServiceProviderPtrOutput)
 }
@@ -19213,6 +22406,12 @@ func (o VirtualServiceProviderPtrOutput) ToVirtualServiceProviderPtrOutput() Vir
 
 func (o VirtualServiceProviderPtrOutput) ToVirtualServiceProviderPtrOutputWithContext(ctx context.Context) VirtualServiceProviderPtrOutput {
 	return o
+}
+
+func (o VirtualServiceProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualServiceProvider] {
+	return pulumix.Output[*VirtualServiceProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualServiceProviderPtrOutput) Elem() VirtualServiceProviderOutput {
@@ -19274,6 +22473,12 @@ func (i VirtualServiceSpecArgs) ToVirtualServiceSpecOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecOutput)
 }
 
+func (i VirtualServiceSpecArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualServiceSpec] {
+	return pulumix.Output[VirtualServiceSpec]{
+		OutputState: i.ToVirtualServiceSpecOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualServiceSpecOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceSpecOutput) ElementType() reflect.Type {
@@ -19286,6 +22491,12 @@ func (o VirtualServiceSpecOutput) ToVirtualServiceSpecOutput() VirtualServiceSpe
 
 func (o VirtualServiceSpecOutput) ToVirtualServiceSpecOutputWithContext(ctx context.Context) VirtualServiceSpecOutput {
 	return o
+}
+
+func (o VirtualServiceSpecOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualServiceSpec] {
+	return pulumix.Output[VirtualServiceSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualServiceSpecOutput) Provider() VirtualServiceProviderPtrOutput {
@@ -19304,6 +22515,12 @@ func (o VirtualServiceSpecPtrOutput) ToVirtualServiceSpecPtrOutput() VirtualServ
 
 func (o VirtualServiceSpecPtrOutput) ToVirtualServiceSpecPtrOutputWithContext(ctx context.Context) VirtualServiceSpecPtrOutput {
 	return o
+}
+
+func (o VirtualServiceSpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualServiceSpec] {
+	return pulumix.Output[*VirtualServiceSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualServiceSpecPtrOutput) Elem() VirtualServiceSpecOutput {
@@ -19358,6 +22575,12 @@ func (i VirtualServiceTagArgs) ToVirtualServiceTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceTagOutput)
 }
 
+func (i VirtualServiceTagArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualServiceTag] {
+	return pulumix.Output[VirtualServiceTag]{
+		OutputState: i.ToVirtualServiceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualServiceTagArrayInput is an input type that accepts VirtualServiceTagArray and VirtualServiceTagArrayOutput values.
 // You can construct a concrete instance of `VirtualServiceTagArrayInput` via:
 //
@@ -19383,6 +22606,12 @@ func (i VirtualServiceTagArray) ToVirtualServiceTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceTagArrayOutput)
 }
 
+func (i VirtualServiceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualServiceTag] {
+	return pulumix.Output[[]VirtualServiceTag]{
+		OutputState: i.ToVirtualServiceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualServiceTagOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceTagOutput) ElementType() reflect.Type {
@@ -19395,6 +22624,12 @@ func (o VirtualServiceTagOutput) ToVirtualServiceTagOutput() VirtualServiceTagOu
 
 func (o VirtualServiceTagOutput) ToVirtualServiceTagOutputWithContext(ctx context.Context) VirtualServiceTagOutput {
 	return o
+}
+
+func (o VirtualServiceTagOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualServiceTag] {
+	return pulumix.Output[VirtualServiceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualServiceTagOutput) Key() pulumi.StringOutput {
@@ -19417,6 +22652,12 @@ func (o VirtualServiceTagArrayOutput) ToVirtualServiceTagArrayOutput() VirtualSe
 
 func (o VirtualServiceTagArrayOutput) ToVirtualServiceTagArrayOutputWithContext(ctx context.Context) VirtualServiceTagArrayOutput {
 	return o
+}
+
+func (o VirtualServiceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualServiceTag] {
+	return pulumix.Output[[]VirtualServiceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualServiceTagArrayOutput) Index(i pulumi.IntInput) VirtualServiceTagOutput {
@@ -19454,6 +22695,12 @@ func (i VirtualServiceVirtualNodeServiceProviderArgs) ToVirtualServiceVirtualNod
 
 func (i VirtualServiceVirtualNodeServiceProviderArgs) ToVirtualServiceVirtualNodeServiceProviderOutputWithContext(ctx context.Context) VirtualServiceVirtualNodeServiceProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceVirtualNodeServiceProviderOutput)
+}
+
+func (i VirtualServiceVirtualNodeServiceProviderArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualServiceVirtualNodeServiceProvider] {
+	return pulumix.Output[VirtualServiceVirtualNodeServiceProvider]{
+		OutputState: i.ToVirtualServiceVirtualNodeServiceProviderOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i VirtualServiceVirtualNodeServiceProviderArgs) ToVirtualServiceVirtualNodeServiceProviderPtrOutput() VirtualServiceVirtualNodeServiceProviderPtrOutput {
@@ -19497,6 +22744,12 @@ func (i *virtualServiceVirtualNodeServiceProviderPtrType) ToVirtualServiceVirtua
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceVirtualNodeServiceProviderPtrOutput)
 }
 
+func (i *virtualServiceVirtualNodeServiceProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualServiceVirtualNodeServiceProvider] {
+	return pulumix.Output[*VirtualServiceVirtualNodeServiceProvider]{
+		OutputState: i.ToVirtualServiceVirtualNodeServiceProviderPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualServiceVirtualNodeServiceProviderOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceVirtualNodeServiceProviderOutput) ElementType() reflect.Type {
@@ -19521,6 +22774,12 @@ func (o VirtualServiceVirtualNodeServiceProviderOutput) ToVirtualServiceVirtualN
 	}).(VirtualServiceVirtualNodeServiceProviderPtrOutput)
 }
 
+func (o VirtualServiceVirtualNodeServiceProviderOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualServiceVirtualNodeServiceProvider] {
+	return pulumix.Output[VirtualServiceVirtualNodeServiceProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualServiceVirtualNodeServiceProviderOutput) VirtualNodeName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualServiceVirtualNodeServiceProvider) string { return v.VirtualNodeName }).(pulumi.StringOutput)
 }
@@ -19537,6 +22796,12 @@ func (o VirtualServiceVirtualNodeServiceProviderPtrOutput) ToVirtualServiceVirtu
 
 func (o VirtualServiceVirtualNodeServiceProviderPtrOutput) ToVirtualServiceVirtualNodeServiceProviderPtrOutputWithContext(ctx context.Context) VirtualServiceVirtualNodeServiceProviderPtrOutput {
 	return o
+}
+
+func (o VirtualServiceVirtualNodeServiceProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualServiceVirtualNodeServiceProvider] {
+	return pulumix.Output[*VirtualServiceVirtualNodeServiceProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualServiceVirtualNodeServiceProviderPtrOutput) Elem() VirtualServiceVirtualNodeServiceProviderOutput {
@@ -19589,6 +22854,12 @@ func (i VirtualServiceVirtualRouterServiceProviderArgs) ToVirtualServiceVirtualR
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceVirtualRouterServiceProviderOutput)
 }
 
+func (i VirtualServiceVirtualRouterServiceProviderArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualServiceVirtualRouterServiceProvider] {
+	return pulumix.Output[VirtualServiceVirtualRouterServiceProvider]{
+		OutputState: i.ToVirtualServiceVirtualRouterServiceProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualServiceVirtualRouterServiceProviderArgs) ToVirtualServiceVirtualRouterServiceProviderPtrOutput() VirtualServiceVirtualRouterServiceProviderPtrOutput {
 	return i.ToVirtualServiceVirtualRouterServiceProviderPtrOutputWithContext(context.Background())
 }
@@ -19630,6 +22901,12 @@ func (i *virtualServiceVirtualRouterServiceProviderPtrType) ToVirtualServiceVirt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceVirtualRouterServiceProviderPtrOutput)
 }
 
+func (i *virtualServiceVirtualRouterServiceProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualServiceVirtualRouterServiceProvider] {
+	return pulumix.Output[*VirtualServiceVirtualRouterServiceProvider]{
+		OutputState: i.ToVirtualServiceVirtualRouterServiceProviderPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualServiceVirtualRouterServiceProviderOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceVirtualRouterServiceProviderOutput) ElementType() reflect.Type {
@@ -19654,6 +22931,12 @@ func (o VirtualServiceVirtualRouterServiceProviderOutput) ToVirtualServiceVirtua
 	}).(VirtualServiceVirtualRouterServiceProviderPtrOutput)
 }
 
+func (o VirtualServiceVirtualRouterServiceProviderOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualServiceVirtualRouterServiceProvider] {
+	return pulumix.Output[VirtualServiceVirtualRouterServiceProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualServiceVirtualRouterServiceProviderOutput) VirtualRouterName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualServiceVirtualRouterServiceProvider) string { return v.VirtualRouterName }).(pulumi.StringOutput)
 }
@@ -19670,6 +22953,12 @@ func (o VirtualServiceVirtualRouterServiceProviderPtrOutput) ToVirtualServiceVir
 
 func (o VirtualServiceVirtualRouterServiceProviderPtrOutput) ToVirtualServiceVirtualRouterServiceProviderPtrOutputWithContext(ctx context.Context) VirtualServiceVirtualRouterServiceProviderPtrOutput {
 	return o
+}
+
+func (o VirtualServiceVirtualRouterServiceProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualServiceVirtualRouterServiceProvider] {
+	return pulumix.Output[*VirtualServiceVirtualRouterServiceProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualServiceVirtualRouterServiceProviderPtrOutput) Elem() VirtualServiceVirtualRouterServiceProviderOutput {

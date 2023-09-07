@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled`, `CheckpointInterval`, or `MinPauseBetweenCheckpoints` parameters.
@@ -78,6 +79,12 @@ func (o ApplicationCheckpointConfigurationConfigurationTypeOutput) ToApplication
 	}).(ApplicationCheckpointConfigurationConfigurationTypePtrOutput)
 }
 
+func (o ApplicationCheckpointConfigurationConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCheckpointConfigurationConfigurationType] {
+	return pulumix.Output[ApplicationCheckpointConfigurationConfigurationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationCheckpointConfigurationConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) ToApplicat
 
 func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) ToApplicationCheckpointConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationCheckpointConfigurationConfigurationTypePtrOutput {
 	return o
+}
+
+func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCheckpointConfigurationConfigurationType] {
+	return pulumix.Output[*ApplicationCheckpointConfigurationConfigurationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) Elem() ApplicationCheckpointConfigurationConfigurationTypeOutput {
@@ -173,6 +186,12 @@ func (in *applicationCheckpointConfigurationConfigurationTypePtr) ToApplicationC
 
 func (in *applicationCheckpointConfigurationConfigurationTypePtr) ToApplicationCheckpointConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationCheckpointConfigurationConfigurationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationCheckpointConfigurationConfigurationTypePtrOutput)
+}
+
+func (in *applicationCheckpointConfigurationConfigurationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCheckpointConfigurationConfigurationType] {
+	return pulumix.Output[*ApplicationCheckpointConfigurationConfigurationType]{
+		OutputState: in.ToApplicationCheckpointConfigurationConfigurationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies whether the code content is in text or zip format.
@@ -243,6 +262,12 @@ func (o ApplicationCodeConfigurationCodeContentTypeOutput) ToApplicationCodeConf
 	}).(ApplicationCodeConfigurationCodeContentTypePtrOutput)
 }
 
+func (o ApplicationCodeConfigurationCodeContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCodeConfigurationCodeContentType] {
+	return pulumix.Output[ApplicationCodeConfigurationCodeContentType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationCodeConfigurationCodeContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -276,6 +301,12 @@ func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) ToApplicationCodeC
 
 func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) ToApplicationCodeConfigurationCodeContentTypePtrOutputWithContext(ctx context.Context) ApplicationCodeConfigurationCodeContentTypePtrOutput {
 	return o
+}
+
+func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCodeConfigurationCodeContentType] {
+	return pulumix.Output[*ApplicationCodeConfigurationCodeContentType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) Elem() ApplicationCodeConfigurationCodeContentTypeOutput {
@@ -338,6 +369,12 @@ func (in *applicationCodeConfigurationCodeContentTypePtr) ToApplicationCodeConfi
 
 func (in *applicationCodeConfigurationCodeContentTypePtr) ToApplicationCodeConfigurationCodeContentTypePtrOutputWithContext(ctx context.Context) ApplicationCodeConfigurationCodeContentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationCodeConfigurationCodeContentTypePtrOutput)
+}
+
+func (in *applicationCodeConfigurationCodeContentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCodeConfigurationCodeContentType] {
+	return pulumix.Output[*ApplicationCodeConfigurationCodeContentType]{
+		OutputState: in.ToApplicationCodeConfigurationCodeContentTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
@@ -408,6 +445,12 @@ func (o ApplicationCustomArtifactConfigurationArtifactTypeOutput) ToApplicationC
 	}).(ApplicationCustomArtifactConfigurationArtifactTypePtrOutput)
 }
 
+func (o ApplicationCustomArtifactConfigurationArtifactTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCustomArtifactConfigurationArtifactType] {
+	return pulumix.Output[ApplicationCustomArtifactConfigurationArtifactType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationCustomArtifactConfigurationArtifactTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -441,6 +484,12 @@ func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) ToApplicati
 
 func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) ToApplicationCustomArtifactConfigurationArtifactTypePtrOutputWithContext(ctx context.Context) ApplicationCustomArtifactConfigurationArtifactTypePtrOutput {
 	return o
+}
+
+func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCustomArtifactConfigurationArtifactType] {
+	return pulumix.Output[*ApplicationCustomArtifactConfigurationArtifactType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) Elem() ApplicationCustomArtifactConfigurationArtifactTypeOutput {
@@ -503,6 +552,12 @@ func (in *applicationCustomArtifactConfigurationArtifactTypePtr) ToApplicationCu
 
 func (in *applicationCustomArtifactConfigurationArtifactTypePtr) ToApplicationCustomArtifactConfigurationArtifactTypePtrOutputWithContext(ctx context.Context) ApplicationCustomArtifactConfigurationArtifactTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationCustomArtifactConfigurationArtifactTypePtrOutput)
+}
+
+func (in *applicationCustomArtifactConfigurationArtifactTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCustomArtifactConfigurationArtifactType] {
+	return pulumix.Output[*ApplicationCustomArtifactConfigurationArtifactType]{
+		OutputState: in.ToApplicationCustomArtifactConfigurationArtifactTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies the encoding of the records in the streaming source. For example, UTF-8.
@@ -572,6 +627,12 @@ func (o ApplicationInputSchemaRecordEncodingOutput) ToApplicationInputSchemaReco
 	}).(ApplicationInputSchemaRecordEncodingPtrOutput)
 }
 
+func (o ApplicationInputSchemaRecordEncodingOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputSchemaRecordEncoding] {
+	return pulumix.Output[ApplicationInputSchemaRecordEncoding]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationInputSchemaRecordEncodingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -605,6 +666,12 @@ func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToApplicationInputSchemaR
 
 func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(ctx context.Context) ApplicationInputSchemaRecordEncodingPtrOutput {
 	return o
+}
+
+func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputSchemaRecordEncoding] {
+	return pulumix.Output[*ApplicationInputSchemaRecordEncoding]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInputSchemaRecordEncodingPtrOutput) Elem() ApplicationInputSchemaRecordEncodingOutput {
@@ -667,6 +734,12 @@ func (in *applicationInputSchemaRecordEncodingPtr) ToApplicationInputSchemaRecor
 
 func (in *applicationInputSchemaRecordEncodingPtr) ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(ctx context.Context) ApplicationInputSchemaRecordEncodingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationInputSchemaRecordEncodingPtrOutput)
+}
+
+func (in *applicationInputSchemaRecordEncodingPtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputSchemaRecordEncoding] {
+	return pulumix.Output[*ApplicationInputSchemaRecordEncoding]{
+		OutputState: in.ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
@@ -737,6 +810,12 @@ func (o ApplicationModeOutput) ToApplicationModePtrOutputWithContext(ctx context
 	}).(ApplicationModePtrOutput)
 }
 
+func (o ApplicationModeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMode] {
+	return pulumix.Output[ApplicationMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -770,6 +849,12 @@ func (o ApplicationModePtrOutput) ToApplicationModePtrOutput() ApplicationModePt
 
 func (o ApplicationModePtrOutput) ToApplicationModePtrOutputWithContext(ctx context.Context) ApplicationModePtrOutput {
 	return o
+}
+
+func (o ApplicationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMode] {
+	return pulumix.Output[*ApplicationMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationModePtrOutput) Elem() ApplicationModeOutput {
@@ -832,6 +917,12 @@ func (in *applicationModePtr) ToApplicationModePtrOutput() ApplicationModePtrOut
 
 func (in *applicationModePtr) ToApplicationModePtrOutputWithContext(ctx context.Context) ApplicationModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationModePtrOutput)
+}
+
+func (in *applicationModePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMode] {
+	return pulumix.Output[*ApplicationMode]{
+		OutputState: in.ToApplicationModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
@@ -902,6 +993,12 @@ func (o ApplicationMonitoringConfigurationConfigurationTypeOutput) ToApplication
 	}).(ApplicationMonitoringConfigurationConfigurationTypePtrOutput)
 }
 
+func (o ApplicationMonitoringConfigurationConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfigurationConfigurationType] {
+	return pulumix.Output[ApplicationMonitoringConfigurationConfigurationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationMonitoringConfigurationConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -935,6 +1032,12 @@ func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) ToApplicat
 
 func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) ToApplicationMonitoringConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationConfigurationTypePtrOutput {
 	return o
+}
+
+func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationConfigurationType] {
+	return pulumix.Output[*ApplicationMonitoringConfigurationConfigurationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) Elem() ApplicationMonitoringConfigurationConfigurationTypeOutput {
@@ -997,6 +1100,12 @@ func (in *applicationMonitoringConfigurationConfigurationTypePtr) ToApplicationM
 
 func (in *applicationMonitoringConfigurationConfigurationTypePtr) ToApplicationMonitoringConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationConfigurationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationMonitoringConfigurationConfigurationTypePtrOutput)
+}
+
+func (in *applicationMonitoringConfigurationConfigurationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationConfigurationType] {
+	return pulumix.Output[*ApplicationMonitoringConfigurationConfigurationType]{
+		OutputState: in.ToApplicationMonitoringConfigurationConfigurationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Describes the verbosity of the CloudWatch Logs for an application.
@@ -1069,6 +1178,12 @@ func (o ApplicationMonitoringConfigurationLogLevelOutput) ToApplicationMonitorin
 	}).(ApplicationMonitoringConfigurationLogLevelPtrOutput)
 }
 
+func (o ApplicationMonitoringConfigurationLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfigurationLogLevel] {
+	return pulumix.Output[ApplicationMonitoringConfigurationLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationMonitoringConfigurationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1102,6 +1217,12 @@ func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) ToApplicationMonito
 
 func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) ToApplicationMonitoringConfigurationLogLevelPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationLogLevelPtrOutput {
 	return o
+}
+
+func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationLogLevel] {
+	return pulumix.Output[*ApplicationMonitoringConfigurationLogLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) Elem() ApplicationMonitoringConfigurationLogLevelOutput {
@@ -1164,6 +1285,12 @@ func (in *applicationMonitoringConfigurationLogLevelPtr) ToApplicationMonitoring
 
 func (in *applicationMonitoringConfigurationLogLevelPtr) ToApplicationMonitoringConfigurationLogLevelPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationMonitoringConfigurationLogLevelPtrOutput)
+}
+
+func (in *applicationMonitoringConfigurationLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationLogLevel] {
+	return pulumix.Output[*ApplicationMonitoringConfigurationLogLevel]{
+		OutputState: in.ToApplicationMonitoringConfigurationLogLevelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
@@ -1236,6 +1363,12 @@ func (o ApplicationMonitoringConfigurationMetricsLevelOutput) ToApplicationMonit
 	}).(ApplicationMonitoringConfigurationMetricsLevelPtrOutput)
 }
 
+func (o ApplicationMonitoringConfigurationMetricsLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfigurationMetricsLevel] {
+	return pulumix.Output[ApplicationMonitoringConfigurationMetricsLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationMonitoringConfigurationMetricsLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1269,6 +1402,12 @@ func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) ToApplicationMo
 
 func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) ToApplicationMonitoringConfigurationMetricsLevelPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationMetricsLevelPtrOutput {
 	return o
+}
+
+func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationMetricsLevel] {
+	return pulumix.Output[*ApplicationMonitoringConfigurationMetricsLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) Elem() ApplicationMonitoringConfigurationMetricsLevelOutput {
@@ -1331,6 +1470,12 @@ func (in *applicationMonitoringConfigurationMetricsLevelPtr) ToApplicationMonito
 
 func (in *applicationMonitoringConfigurationMetricsLevelPtr) ToApplicationMonitoringConfigurationMetricsLevelPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationMetricsLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationMonitoringConfigurationMetricsLevelPtrOutput)
+}
+
+func (in *applicationMonitoringConfigurationMetricsLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationMetricsLevel] {
+	return pulumix.Output[*ApplicationMonitoringConfigurationMetricsLevel]{
+		OutputState: in.ToApplicationMonitoringConfigurationMetricsLevelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties.
@@ -1401,6 +1546,12 @@ func (o ApplicationParallelismConfigurationConfigurationTypeOutput) ToApplicatio
 	}).(ApplicationParallelismConfigurationConfigurationTypePtrOutput)
 }
 
+func (o ApplicationParallelismConfigurationConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationParallelismConfigurationConfigurationType] {
+	return pulumix.Output[ApplicationParallelismConfigurationConfigurationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationParallelismConfigurationConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1434,6 +1585,12 @@ func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) ToApplica
 
 func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) ToApplicationParallelismConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationParallelismConfigurationConfigurationTypePtrOutput {
 	return o
+}
+
+func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationParallelismConfigurationConfigurationType] {
+	return pulumix.Output[*ApplicationParallelismConfigurationConfigurationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) Elem() ApplicationParallelismConfigurationConfigurationTypeOutput {
@@ -1496,6 +1653,12 @@ func (in *applicationParallelismConfigurationConfigurationTypePtr) ToApplication
 
 func (in *applicationParallelismConfigurationConfigurationTypePtr) ToApplicationParallelismConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationParallelismConfigurationConfigurationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationParallelismConfigurationConfigurationTypePtrOutput)
+}
+
+func (in *applicationParallelismConfigurationConfigurationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationParallelismConfigurationConfigurationType] {
+	return pulumix.Output[*ApplicationParallelismConfigurationConfigurationType]{
+		OutputState: in.ToApplicationParallelismConfigurationConfigurationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of record format.
@@ -1566,6 +1729,12 @@ func (o ApplicationRecordFormatRecordFormatTypeOutput) ToApplicationRecordFormat
 	}).(ApplicationRecordFormatRecordFormatTypePtrOutput)
 }
 
+func (o ApplicationRecordFormatRecordFormatTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRecordFormatRecordFormatType] {
+	return pulumix.Output[ApplicationRecordFormatRecordFormatType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationRecordFormatRecordFormatTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1599,6 +1768,12 @@ func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToApplicationRecordFor
 
 func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(ctx context.Context) ApplicationRecordFormatRecordFormatTypePtrOutput {
 	return o
+}
+
+func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRecordFormatRecordFormatType] {
+	return pulumix.Output[*ApplicationRecordFormatRecordFormatType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationRecordFormatRecordFormatTypePtrOutput) Elem() ApplicationRecordFormatRecordFormatTypeOutput {
@@ -1661,6 +1836,12 @@ func (in *applicationRecordFormatRecordFormatTypePtr) ToApplicationRecordFormatR
 
 func (in *applicationRecordFormatRecordFormatTypePtr) ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(ctx context.Context) ApplicationRecordFormatRecordFormatTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationRecordFormatRecordFormatTypePtrOutput)
+}
+
+func (in *applicationRecordFormatRecordFormatTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRecordFormatRecordFormatType] {
+	return pulumix.Output[*ApplicationRecordFormatRecordFormatType]{
+		OutputState: in.ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies how the application should be restored.
@@ -1732,6 +1913,12 @@ func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToApplicati
 	}).(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput)
 }
 
+func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRestoreConfigurationApplicationRestoreType] {
+	return pulumix.Output[ApplicationRestoreConfigurationApplicationRestoreType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1765,6 +1952,12 @@ func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToApplic
 
 func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
 	return o
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRestoreConfigurationApplicationRestoreType] {
+	return pulumix.Output[*ApplicationRestoreConfigurationApplicationRestoreType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) Elem() ApplicationRestoreConfigurationApplicationRestoreTypeOutput {
@@ -1827,6 +2020,12 @@ func (in *applicationRestoreConfigurationApplicationRestoreTypePtr) ToApplicatio
 
 func (in *applicationRestoreConfigurationApplicationRestoreTypePtr) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput)
+}
+
+func (in *applicationRestoreConfigurationApplicationRestoreTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRestoreConfigurationApplicationRestoreType] {
+	return pulumix.Output[*ApplicationRestoreConfigurationApplicationRestoreType]{
+		OutputState: in.ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
@@ -1899,6 +2098,12 @@ func (o ApplicationZeppelinMonitoringConfigurationLogLevelOutput) ToApplicationZ
 	}).(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput)
 }
 
+func (o ApplicationZeppelinMonitoringConfigurationLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationZeppelinMonitoringConfigurationLogLevel] {
+	return pulumix.Output[ApplicationZeppelinMonitoringConfigurationLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationZeppelinMonitoringConfigurationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1932,6 +2137,12 @@ func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) ToApplicati
 
 func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) ToApplicationZeppelinMonitoringConfigurationLogLevelPtrOutputWithContext(ctx context.Context) ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput {
 	return o
+}
+
+func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationZeppelinMonitoringConfigurationLogLevel] {
+	return pulumix.Output[*ApplicationZeppelinMonitoringConfigurationLogLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) Elem() ApplicationZeppelinMonitoringConfigurationLogLevelOutput {
@@ -1994,6 +2205,12 @@ func (in *applicationZeppelinMonitoringConfigurationLogLevelPtr) ToApplicationZe
 
 func (in *applicationZeppelinMonitoringConfigurationLogLevelPtr) ToApplicationZeppelinMonitoringConfigurationLogLevelPtrOutputWithContext(ctx context.Context) ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput)
+}
+
+func (in *applicationZeppelinMonitoringConfigurationLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationZeppelinMonitoringConfigurationLogLevel] {
+	return pulumix.Output[*ApplicationZeppelinMonitoringConfigurationLogLevel]{
+		OutputState: in.ToApplicationZeppelinMonitoringConfigurationLogLevelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

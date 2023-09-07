@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The availability status to be assigned to the CEV.
@@ -79,6 +80,12 @@ func (o CustomDbEngineVersionStatusOutput) ToCustomDbEngineVersionStatusPtrOutpu
 	}).(CustomDbEngineVersionStatusPtrOutput)
 }
 
+func (o CustomDbEngineVersionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CustomDbEngineVersionStatus] {
+	return pulumix.Output[CustomDbEngineVersionStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomDbEngineVersionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +119,12 @@ func (o CustomDbEngineVersionStatusPtrOutput) ToCustomDbEngineVersionStatusPtrOu
 
 func (o CustomDbEngineVersionStatusPtrOutput) ToCustomDbEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDbEngineVersionStatusPtrOutput {
 	return o
+}
+
+func (o CustomDbEngineVersionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomDbEngineVersionStatus] {
+	return pulumix.Output[*CustomDbEngineVersionStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomDbEngineVersionStatusPtrOutput) Elem() CustomDbEngineVersionStatusOutput {
@@ -174,6 +187,12 @@ func (in *customDbEngineVersionStatusPtr) ToCustomDbEngineVersionStatusPtrOutput
 
 func (in *customDbEngineVersionStatusPtr) ToCustomDbEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDbEngineVersionStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CustomDbEngineVersionStatusPtrOutput)
+}
+
+func (in *customDbEngineVersionStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*CustomDbEngineVersionStatus] {
+	return pulumix.Output[*CustomDbEngineVersionStatus]{
+		OutputState: in.ToCustomDbEngineVersionStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The name of the processor feature. Valid names are coreCount and threadsPerCore.
@@ -244,6 +263,12 @@ func (o DbInstanceProcessorFeatureNameOutput) ToDbInstanceProcessorFeatureNamePt
 	}).(DbInstanceProcessorFeatureNamePtrOutput)
 }
 
+func (o DbInstanceProcessorFeatureNameOutput) ToOutput(ctx context.Context) pulumix.Output[DbInstanceProcessorFeatureName] {
+	return pulumix.Output[DbInstanceProcessorFeatureName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DbInstanceProcessorFeatureNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o DbInstanceProcessorFeatureNamePtrOutput) ToDbInstanceProcessorFeatureNam
 
 func (o DbInstanceProcessorFeatureNamePtrOutput) ToDbInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureNamePtrOutput {
 	return o
+}
+
+func (o DbInstanceProcessorFeatureNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbInstanceProcessorFeatureName] {
+	return pulumix.Output[*DbInstanceProcessorFeatureName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DbInstanceProcessorFeatureNamePtrOutput) Elem() DbInstanceProcessorFeatureNameOutput {
@@ -339,6 +370,12 @@ func (in *dbInstanceProcessorFeatureNamePtr) ToDbInstanceProcessorFeatureNamePtr
 
 func (in *dbInstanceProcessorFeatureNamePtr) ToDbInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbInstanceProcessorFeatureNamePtrOutput)
+}
+
+func (in *dbInstanceProcessorFeatureNamePtr) ToOutput(ctx context.Context) pulumix.Output[*DbInstanceProcessorFeatureName] {
+	return pulumix.Output[*DbInstanceProcessorFeatureName]{
+		OutputState: in.ToDbInstanceProcessorFeatureNamePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of authentication that the proxy uses for connections from the proxy to the underlying database.
@@ -408,6 +445,12 @@ func (o DbProxyAuthFormatAuthSchemeOutput) ToDbProxyAuthFormatAuthSchemePtrOutpu
 	}).(DbProxyAuthFormatAuthSchemePtrOutput)
 }
 
+func (o DbProxyAuthFormatAuthSchemeOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyAuthFormatAuthScheme] {
+	return pulumix.Output[DbProxyAuthFormatAuthScheme]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DbProxyAuthFormatAuthSchemeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -441,6 +484,12 @@ func (o DbProxyAuthFormatAuthSchemePtrOutput) ToDbProxyAuthFormatAuthSchemePtrOu
 
 func (o DbProxyAuthFormatAuthSchemePtrOutput) ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatAuthSchemePtrOutput {
 	return o
+}
+
+func (o DbProxyAuthFormatAuthSchemePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatAuthScheme] {
+	return pulumix.Output[*DbProxyAuthFormatAuthScheme]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DbProxyAuthFormatAuthSchemePtrOutput) Elem() DbProxyAuthFormatAuthSchemeOutput {
@@ -503,6 +552,12 @@ func (in *dbProxyAuthFormatAuthSchemePtr) ToDbProxyAuthFormatAuthSchemePtrOutput
 
 func (in *dbProxyAuthFormatAuthSchemePtr) ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatAuthSchemePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyAuthFormatAuthSchemePtrOutput)
+}
+
+func (in *dbProxyAuthFormatAuthSchemePtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatAuthScheme] {
+	return pulumix.Output[*DbProxyAuthFormatAuthScheme]{
+		OutputState: in.ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of authentication the proxy uses for connections from clients.
@@ -575,6 +630,12 @@ func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToDbProxyAuthFormatClient
 	}).(DbProxyAuthFormatClientPasswordAuthTypePtrOutput)
 }
 
+func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyAuthFormatClientPasswordAuthType] {
+	return pulumix.Output[DbProxyAuthFormatClientPasswordAuthType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -608,6 +669,12 @@ func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ToDbProxyAuthFormatCli
 
 func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
 	return o
+}
+
+func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatClientPasswordAuthType] {
+	return pulumix.Output[*DbProxyAuthFormatClientPasswordAuthType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) Elem() DbProxyAuthFormatClientPasswordAuthTypeOutput {
@@ -670,6 +737,12 @@ func (in *dbProxyAuthFormatClientPasswordAuthTypePtr) ToDbProxyAuthFormatClientP
 
 func (in *dbProxyAuthFormatClientPasswordAuthTypePtr) ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyAuthFormatClientPasswordAuthTypePtrOutput)
+}
+
+func (in *dbProxyAuthFormatClientPasswordAuthTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatClientPasswordAuthType] {
+	return pulumix.Output[*DbProxyAuthFormatClientPasswordAuthType]{
+		OutputState: in.ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
@@ -741,6 +814,12 @@ func (o DbProxyAuthFormatIamAuthOutput) ToDbProxyAuthFormatIamAuthPtrOutputWithC
 	}).(DbProxyAuthFormatIamAuthPtrOutput)
 }
 
+func (o DbProxyAuthFormatIamAuthOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyAuthFormatIamAuth] {
+	return pulumix.Output[DbProxyAuthFormatIamAuth]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DbProxyAuthFormatIamAuthOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -774,6 +853,12 @@ func (o DbProxyAuthFormatIamAuthPtrOutput) ToDbProxyAuthFormatIamAuthPtrOutput()
 
 func (o DbProxyAuthFormatIamAuthPtrOutput) ToDbProxyAuthFormatIamAuthPtrOutputWithContext(ctx context.Context) DbProxyAuthFormatIamAuthPtrOutput {
 	return o
+}
+
+func (o DbProxyAuthFormatIamAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatIamAuth] {
+	return pulumix.Output[*DbProxyAuthFormatIamAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DbProxyAuthFormatIamAuthPtrOutput) Elem() DbProxyAuthFormatIamAuthOutput {
@@ -836,6 +921,12 @@ func (in *dbProxyAuthFormatIamAuthPtr) ToDbProxyAuthFormatIamAuthPtrOutput() DbP
 
 func (in *dbProxyAuthFormatIamAuthPtr) ToDbProxyAuthFormatIamAuthPtrOutputWithContext(ctx context.Context) DbProxyAuthFormatIamAuthPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyAuthFormatIamAuthPtrOutput)
+}
+
+func (in *dbProxyAuthFormatIamAuthPtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatIamAuth] {
+	return pulumix.Output[*DbProxyAuthFormatIamAuth]{
+		OutputState: in.ToDbProxyAuthFormatIamAuthPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
@@ -906,6 +997,12 @@ func (o DbProxyEndpointTargetRoleOutput) ToDbProxyEndpointTargetRolePtrOutputWit
 	}).(DbProxyEndpointTargetRolePtrOutput)
 }
 
+func (o DbProxyEndpointTargetRoleOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyEndpointTargetRole] {
+	return pulumix.Output[DbProxyEndpointTargetRole]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DbProxyEndpointTargetRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -939,6 +1036,12 @@ func (o DbProxyEndpointTargetRolePtrOutput) ToDbProxyEndpointTargetRolePtrOutput
 
 func (o DbProxyEndpointTargetRolePtrOutput) ToDbProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DbProxyEndpointTargetRolePtrOutput {
 	return o
+}
+
+func (o DbProxyEndpointTargetRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyEndpointTargetRole] {
+	return pulumix.Output[*DbProxyEndpointTargetRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DbProxyEndpointTargetRolePtrOutput) Elem() DbProxyEndpointTargetRoleOutput {
@@ -1001,6 +1104,12 @@ func (in *dbProxyEndpointTargetRolePtr) ToDbProxyEndpointTargetRolePtrOutput() D
 
 func (in *dbProxyEndpointTargetRolePtr) ToDbProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DbProxyEndpointTargetRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyEndpointTargetRolePtrOutput)
+}
+
+func (in *dbProxyEndpointTargetRolePtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyEndpointTargetRole] {
+	return pulumix.Output[*DbProxyEndpointTargetRole]{
+		OutputState: in.ToDbProxyEndpointTargetRolePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The kinds of databases that the proxy can connect to.
@@ -1072,6 +1181,12 @@ func (o DbProxyEngineFamilyOutput) ToDbProxyEngineFamilyPtrOutputWithContext(ctx
 	}).(DbProxyEngineFamilyPtrOutput)
 }
 
+func (o DbProxyEngineFamilyOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyEngineFamily] {
+	return pulumix.Output[DbProxyEngineFamily]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DbProxyEngineFamilyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1105,6 +1220,12 @@ func (o DbProxyEngineFamilyPtrOutput) ToDbProxyEngineFamilyPtrOutput() DbProxyEn
 
 func (o DbProxyEngineFamilyPtrOutput) ToDbProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DbProxyEngineFamilyPtrOutput {
 	return o
+}
+
+func (o DbProxyEngineFamilyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyEngineFamily] {
+	return pulumix.Output[*DbProxyEngineFamily]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DbProxyEngineFamilyPtrOutput) Elem() DbProxyEngineFamilyOutput {
@@ -1167,6 +1288,12 @@ func (in *dbProxyEngineFamilyPtr) ToDbProxyEngineFamilyPtrOutput() DbProxyEngine
 
 func (in *dbProxyEngineFamilyPtr) ToDbProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DbProxyEngineFamilyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyEngineFamilyPtrOutput)
+}
+
+func (in *dbProxyEngineFamilyPtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyEngineFamily] {
+	return pulumix.Output[*DbProxyEngineFamily]{
+		OutputState: in.ToDbProxyEngineFamilyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The identifier for the DBProxyTargetGroup
@@ -1236,6 +1363,12 @@ func (o DbProxyTargetGroupTargetGroupNameOutput) ToDbProxyTargetGroupTargetGroup
 	}).(DbProxyTargetGroupTargetGroupNamePtrOutput)
 }
 
+func (o DbProxyTargetGroupTargetGroupNameOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyTargetGroupTargetGroupName] {
+	return pulumix.Output[DbProxyTargetGroupTargetGroupName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DbProxyTargetGroupTargetGroupNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1269,6 +1402,12 @@ func (o DbProxyTargetGroupTargetGroupNamePtrOutput) ToDbProxyTargetGroupTargetGr
 
 func (o DbProxyTargetGroupTargetGroupNamePtrOutput) ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx context.Context) DbProxyTargetGroupTargetGroupNamePtrOutput {
 	return o
+}
+
+func (o DbProxyTargetGroupTargetGroupNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyTargetGroupTargetGroupName] {
+	return pulumix.Output[*DbProxyTargetGroupTargetGroupName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DbProxyTargetGroupTargetGroupNamePtrOutput) Elem() DbProxyTargetGroupTargetGroupNameOutput {
@@ -1331,6 +1470,12 @@ func (in *dbProxyTargetGroupTargetGroupNamePtr) ToDbProxyTargetGroupTargetGroupN
 
 func (in *dbProxyTargetGroupTargetGroupNamePtr) ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx context.Context) DbProxyTargetGroupTargetGroupNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyTargetGroupTargetGroupNamePtrOutput)
+}
+
+func (in *dbProxyTargetGroupTargetGroupNamePtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyTargetGroupTargetGroupName] {
+	return pulumix.Output[*DbProxyTargetGroupTargetGroupName]{
+		OutputState: in.ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
@@ -1403,6 +1548,12 @@ func (o GlobalClusterEngineOutput) ToGlobalClusterEnginePtrOutputWithContext(ctx
 	}).(GlobalClusterEnginePtrOutput)
 }
 
+func (o GlobalClusterEngineOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalClusterEngine] {
+	return pulumix.Output[GlobalClusterEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GlobalClusterEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1436,6 +1587,12 @@ func (o GlobalClusterEnginePtrOutput) ToGlobalClusterEnginePtrOutput() GlobalClu
 
 func (o GlobalClusterEnginePtrOutput) ToGlobalClusterEnginePtrOutputWithContext(ctx context.Context) GlobalClusterEnginePtrOutput {
 	return o
+}
+
+func (o GlobalClusterEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalClusterEngine] {
+	return pulumix.Output[*GlobalClusterEngine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GlobalClusterEnginePtrOutput) Elem() GlobalClusterEngineOutput {
@@ -1498,6 +1655,12 @@ func (in *globalClusterEnginePtr) ToGlobalClusterEnginePtrOutput() GlobalCluster
 
 func (in *globalClusterEnginePtr) ToGlobalClusterEnginePtrOutputWithContext(ctx context.Context) GlobalClusterEnginePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalClusterEnginePtrOutput)
+}
+
+func (in *globalClusterEnginePtr) ToOutput(ctx context.Context) pulumix.Output[*GlobalClusterEngine] {
+	return pulumix.Output[*GlobalClusterEngine]{
+		OutputState: in.ToGlobalClusterEnginePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

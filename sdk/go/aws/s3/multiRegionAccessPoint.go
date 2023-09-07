@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
@@ -118,6 +119,12 @@ func (i *MultiRegionAccessPoint) ToMultiRegionAccessPointOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointOutput)
 }
 
+func (i *MultiRegionAccessPoint) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPoint] {
+	return pulumix.Output[*MultiRegionAccessPoint]{
+		OutputState: i.ToMultiRegionAccessPointOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MultiRegionAccessPointOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o MultiRegionAccessPointOutput) ToMultiRegionAccessPointOutput() MultiRegi
 
 func (o MultiRegionAccessPointOutput) ToMultiRegionAccessPointOutputWithContext(ctx context.Context) MultiRegionAccessPointOutput {
 	return o
+}
+
+func (o MultiRegionAccessPointOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPoint] {
+	return pulumix.Output[*MultiRegionAccessPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The alias is a unique identifier to, and is part of the public DNS name for this Multi Region Access Point

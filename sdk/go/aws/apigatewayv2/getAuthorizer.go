@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::Authorizer
@@ -75,6 +76,12 @@ func (o LookupAuthorizerResultOutput) ToLookupAuthorizerResultOutput() LookupAut
 
 func (o LookupAuthorizerResultOutput) ToLookupAuthorizerResultOutputWithContext(ctx context.Context) LookupAuthorizerResultOutput {
 	return o
+}
+
+func (o LookupAuthorizerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAuthorizerResult] {
+	return pulumix.Output[LookupAuthorizerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAuthorizerResultOutput) AuthorizerCredentialsArn() pulumi.StringPtrOutput {

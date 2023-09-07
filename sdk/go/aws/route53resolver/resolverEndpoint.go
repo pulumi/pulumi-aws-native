@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Route53Resolver::ResolverEndpoint
@@ -133,6 +134,12 @@ func (i *ResolverEndpoint) ToResolverEndpointOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointOutput)
 }
 
+func (i *ResolverEndpoint) ToOutput(ctx context.Context) pulumix.Output[*ResolverEndpoint] {
+	return pulumix.Output[*ResolverEndpoint]{
+		OutputState: i.ToResolverEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverEndpointOutput struct{ *pulumi.OutputState }
 
 func (ResolverEndpointOutput) ElementType() reflect.Type {
@@ -145,6 +152,12 @@ func (o ResolverEndpointOutput) ToResolverEndpointOutput() ResolverEndpointOutpu
 
 func (o ResolverEndpointOutput) ToResolverEndpointOutputWithContext(ctx context.Context) ResolverEndpointOutput {
 	return o
+}
+
+func (o ResolverEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverEndpoint] {
+	return pulumix.Output[*ResolverEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverEndpointOutput) Arn() pulumi.StringOutput {

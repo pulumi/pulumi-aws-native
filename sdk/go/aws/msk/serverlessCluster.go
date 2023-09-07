@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MSK::ServerlessCluster
@@ -119,6 +120,12 @@ func (i *ServerlessCluster) ToServerlessClusterOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterOutput)
 }
 
+func (i *ServerlessCluster) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCluster] {
+	return pulumix.Output[*ServerlessCluster]{
+		OutputState: i.ToServerlessClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerlessClusterOutput struct{ *pulumi.OutputState }
 
 func (ServerlessClusterOutput) ElementType() reflect.Type {
@@ -131,6 +138,12 @@ func (o ServerlessClusterOutput) ToServerlessClusterOutput() ServerlessClusterOu
 
 func (o ServerlessClusterOutput) ToServerlessClusterOutputWithContext(ctx context.Context) ServerlessClusterOutput {
 	return o
+}
+
+func (o ServerlessClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCluster] {
+	return pulumix.Output[*ServerlessCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerlessClusterOutput) Arn() pulumi.StringOutput {

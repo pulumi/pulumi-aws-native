@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
@@ -172,6 +173,12 @@ func (i *ConfigurationTemplate) ToConfigurationTemplateOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateOutput)
 }
 
+func (i *ConfigurationTemplate) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationTemplate] {
+	return pulumix.Output[*ConfigurationTemplate]{
+		OutputState: i.ToConfigurationTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationTemplateOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationTemplateOutput) ElementType() reflect.Type {
@@ -184,6 +191,12 @@ func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutput() Configurati
 
 func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutputWithContext(ctx context.Context) ConfigurationTemplateOutput {
 	return o
+}
+
+func (o ConfigurationTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationTemplate] {
+	return pulumix.Output[*ConfigurationTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Elastic Beanstalk application to associate with this configuration template.

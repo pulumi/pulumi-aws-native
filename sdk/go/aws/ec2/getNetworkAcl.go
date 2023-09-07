@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::NetworkAcl
@@ -65,6 +66,12 @@ func (o LookupNetworkAclResultOutput) ToLookupNetworkAclResultOutput() LookupNet
 
 func (o LookupNetworkAclResultOutput) ToLookupNetworkAclResultOutputWithContext(ctx context.Context) LookupNetworkAclResultOutput {
 	return o
+}
+
+func (o LookupNetworkAclResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkAclResult] {
+	return pulumix.Output[LookupNetworkAclResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupNetworkAclResultOutput) Id() pulumi.StringPtrOutput {

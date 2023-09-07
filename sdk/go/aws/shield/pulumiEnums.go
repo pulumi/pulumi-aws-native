@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // If `ENABLED`, the Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
@@ -79,6 +80,12 @@ func (o ProactiveEngagementStatusOutput) ToProactiveEngagementStatusPtrOutputWit
 	}).(ProactiveEngagementStatusPtrOutput)
 }
 
+func (o ProactiveEngagementStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ProactiveEngagementStatus] {
+	return pulumix.Output[ProactiveEngagementStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProactiveEngagementStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +119,12 @@ func (o ProactiveEngagementStatusPtrOutput) ToProactiveEngagementStatusPtrOutput
 
 func (o ProactiveEngagementStatusPtrOutput) ToProactiveEngagementStatusPtrOutputWithContext(ctx context.Context) ProactiveEngagementStatusPtrOutput {
 	return o
+}
+
+func (o ProactiveEngagementStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProactiveEngagementStatus] {
+	return pulumix.Output[*ProactiveEngagementStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProactiveEngagementStatusPtrOutput) Elem() ProactiveEngagementStatusOutput {
@@ -174,6 +187,12 @@ func (in *proactiveEngagementStatusPtr) ToProactiveEngagementStatusPtrOutput() P
 
 func (in *proactiveEngagementStatusPtr) ToProactiveEngagementStatusPtrOutputWithContext(ctx context.Context) ProactiveEngagementStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProactiveEngagementStatusPtrOutput)
+}
+
+func (in *proactiveEngagementStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*ProactiveEngagementStatus] {
+	return pulumix.Output[*ProactiveEngagementStatus]{
+		OutputState: in.ToProactiveEngagementStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
@@ -244,6 +263,12 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) To
 	}).(ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
 }
 
+func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfigurationStatus] {
+	return pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfigurationStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
 
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput) ToProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutputWithContext(ctx context.Context) ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput {
 	return o
+}
+
+func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus] {
+	return pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput) Elem() ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput {
@@ -339,6 +370,12 @@ func (in *protectionApplicationLayerAutomaticResponseConfigurationStatusPtr) ToP
 
 func (in *protectionApplicationLayerAutomaticResponseConfigurationStatusPtr) ToProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutputWithContext(ctx context.Context) ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
+}
+
+func (in *protectionApplicationLayerAutomaticResponseConfigurationStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus] {
+	return pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus]{
+		OutputState: in.ToProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
@@ -413,6 +450,12 @@ func (o ProtectionGroupAggregationOutput) ToProtectionGroupAggregationPtrOutputW
 	}).(ProtectionGroupAggregationPtrOutput)
 }
 
+func (o ProtectionGroupAggregationOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupAggregation] {
+	return pulumix.Output[ProtectionGroupAggregation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProtectionGroupAggregationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -446,6 +489,12 @@ func (o ProtectionGroupAggregationPtrOutput) ToProtectionGroupAggregationPtrOutp
 
 func (o ProtectionGroupAggregationPtrOutput) ToProtectionGroupAggregationPtrOutputWithContext(ctx context.Context) ProtectionGroupAggregationPtrOutput {
 	return o
+}
+
+func (o ProtectionGroupAggregationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupAggregation] {
+	return pulumix.Output[*ProtectionGroupAggregation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProtectionGroupAggregationPtrOutput) Elem() ProtectionGroupAggregationOutput {
@@ -508,6 +557,12 @@ func (in *protectionGroupAggregationPtr) ToProtectionGroupAggregationPtrOutput()
 
 func (in *protectionGroupAggregationPtr) ToProtectionGroupAggregationPtrOutputWithContext(ctx context.Context) ProtectionGroupAggregationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectionGroupAggregationPtrOutput)
+}
+
+func (in *protectionGroupAggregationPtr) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupAggregation] {
+	return pulumix.Output[*ProtectionGroupAggregation]{
+		OutputState: in.ToProtectionGroupAggregationPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.
@@ -579,6 +634,12 @@ func (o ProtectionGroupPatternOutput) ToProtectionGroupPatternPtrOutputWithConte
 	}).(ProtectionGroupPatternPtrOutput)
 }
 
+func (o ProtectionGroupPatternOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupPattern] {
+	return pulumix.Output[ProtectionGroupPattern]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProtectionGroupPatternOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -612,6 +673,12 @@ func (o ProtectionGroupPatternPtrOutput) ToProtectionGroupPatternPtrOutput() Pro
 
 func (o ProtectionGroupPatternPtrOutput) ToProtectionGroupPatternPtrOutputWithContext(ctx context.Context) ProtectionGroupPatternPtrOutput {
 	return o
+}
+
+func (o ProtectionGroupPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupPattern] {
+	return pulumix.Output[*ProtectionGroupPattern]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProtectionGroupPatternPtrOutput) Elem() ProtectionGroupPatternOutput {
@@ -674,6 +741,12 @@ func (in *protectionGroupPatternPtr) ToProtectionGroupPatternPtrOutput() Protect
 
 func (in *protectionGroupPatternPtr) ToProtectionGroupPatternPtrOutputWithContext(ctx context.Context) ProtectionGroupPatternPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectionGroupPatternPtrOutput)
+}
+
+func (in *protectionGroupPatternPtr) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupPattern] {
+	return pulumix.Output[*ProtectionGroupPattern]{
+		OutputState: in.ToProtectionGroupPatternPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set `Pattern` to `BY_RESOURCE_TYPE` and you must not set it for any other `Pattern` setting.
@@ -748,6 +821,12 @@ func (o ProtectionGroupResourceTypeOutput) ToProtectionGroupResourceTypePtrOutpu
 	}).(ProtectionGroupResourceTypePtrOutput)
 }
 
+func (o ProtectionGroupResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupResourceType] {
+	return pulumix.Output[ProtectionGroupResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProtectionGroupResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -781,6 +860,12 @@ func (o ProtectionGroupResourceTypePtrOutput) ToProtectionGroupResourceTypePtrOu
 
 func (o ProtectionGroupResourceTypePtrOutput) ToProtectionGroupResourceTypePtrOutputWithContext(ctx context.Context) ProtectionGroupResourceTypePtrOutput {
 	return o
+}
+
+func (o ProtectionGroupResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupResourceType] {
+	return pulumix.Output[*ProtectionGroupResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProtectionGroupResourceTypePtrOutput) Elem() ProtectionGroupResourceTypeOutput {
@@ -843,6 +928,12 @@ func (in *protectionGroupResourceTypePtr) ToProtectionGroupResourceTypePtrOutput
 
 func (in *protectionGroupResourceTypePtr) ToProtectionGroupResourceTypePtrOutputWithContext(ctx context.Context) ProtectionGroupResourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectionGroupResourceTypePtrOutput)
+}
+
+func (in *protectionGroupResourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupResourceType] {
+	return pulumix.Output[*ProtectionGroupResourceType]{
+		OutputState: in.ToProtectionGroupResourceTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

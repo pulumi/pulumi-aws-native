@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
@@ -144,6 +145,12 @@ func (i *SiteToSiteVpnAttachment) ToSiteToSiteVpnAttachmentOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentOutput)
 }
 
+func (i *SiteToSiteVpnAttachment) ToOutput(ctx context.Context) pulumix.Output[*SiteToSiteVpnAttachment] {
+	return pulumix.Output[*SiteToSiteVpnAttachment]{
+		OutputState: i.ToSiteToSiteVpnAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SiteToSiteVpnAttachmentOutput struct{ *pulumi.OutputState }
 
 func (SiteToSiteVpnAttachmentOutput) ElementType() reflect.Type {
@@ -156,6 +163,12 @@ func (o SiteToSiteVpnAttachmentOutput) ToSiteToSiteVpnAttachmentOutput() SiteToS
 
 func (o SiteToSiteVpnAttachmentOutput) ToSiteToSiteVpnAttachmentOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentOutput {
 	return o
+}
+
+func (o SiteToSiteVpnAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*SiteToSiteVpnAttachment] {
+	return pulumix.Output[*SiteToSiteVpnAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the attachment.
