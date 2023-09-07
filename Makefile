@@ -92,7 +92,7 @@ build_python::
 	cd sdk/python/ && \
         cp ../../README.md . && \
         rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-        sed -i.bak -e 's/^version = .*/version = "$(PYPI_VERSION)"/g' ./bin/pyproject.toml && \
+        sed -i.bak -e 's/^  version = .*/  version = "$(PYPI_VERSION)"/g' ./bin/pyproject.toml && \
         rm ./bin/pyproject.toml.bak && \
 	python3 -m venv venv && \
 	./venv/bin/python -m pip install build && \
