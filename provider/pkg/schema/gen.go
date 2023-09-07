@@ -413,6 +413,9 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		"requires": map[string]string{
 			"pulumi": ">=3.0.0,<4.0.0",
 		},
+		"pyproject": map[string]bool{
+			"enabled": true,
+		},
 	})
 
 	metadata := CloudAPIMetadata{
