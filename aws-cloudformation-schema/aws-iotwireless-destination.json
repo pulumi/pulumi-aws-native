@@ -34,7 +34,7 @@
     "ExpressionType" : {
       "description" : "Must be RuleName",
       "type" : "string",
-      "enum" : [ "RuleName", "MqttTopic" ]
+      "enum" : [ "RuleName", "MqttTopic", "SnsTopic" ]
     },
     "Description" : {
       "description" : "Destination description",
@@ -63,20 +63,20 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "Name", "Expression", "ExpressionType", "RoleArn" ],
+  "required" : [ "Name", "Expression", "ExpressionType" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "taggable" : true,
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotwireless:CreateDestination", "iotwireless:TagResource", "iotwireless:ListTagsForResource" ]
+      "permissions" : [ "iam:PassRole", "iotwireless:CreateDestination", "iotwireless:TagResource", "iotwireless:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "iotwireless:GetDestination", "iotwireless:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iotwireless:UpdateDestination", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
+      "permissions" : [ "iam:PassRole", "iotwireless:UpdateDestination", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "iotwireless:DeleteDestination" ]

@@ -122,7 +122,7 @@
       "permissions" : [ "iotwireless:GetFuotaTask", "iotwireless:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iotwireless:UpdateFuotaTask", "iotwireless:UntagResource", "iotwireless:ListTagsForResource", "iotwireless:AssociateMulticastGroupWithFuotaTask", "iotwireless:DisassociateMulticastGroupFromFuotaTask", "iotwireless:AssociateWirelessDeviceWithFuotaTask", "iotwireless:DisassociateWirelessDeviceFromFuotaTask" ]
+      "permissions" : [ "iam:PassRole", "iotwireless:UpdateFuotaTask", "iotwireless:UntagResource", "iotwireless:ListTagsForResource", "iotwireless:AssociateMulticastGroupWithFuotaTask", "iotwireless:DisassociateMulticastGroupFromFuotaTask", "iotwireless:AssociateWirelessDeviceWithFuotaTask", "iotwireless:DisassociateWirelessDeviceFromFuotaTask" ]
     },
     "delete" : {
       "permissions" : [ "iotwireless:DeleteFuotaTask" ]
