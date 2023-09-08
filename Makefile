@@ -80,17 +80,24 @@ build_nodejs::
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 generate_python::
+	# Delete files not tracked in Git
+	cd sdk/python/ && git clean -fxd
+
 	$(WORKING_DIR)/bin/$(CODEGEN) python $(CFN_SCHEMA_DIR) ${VERSION}
 
 build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
 build_python::
+	# Delete files not tracked in Git
+	cd sdk/python/ && git clean -fxd
 	cd sdk/python/ && \
         cp ../../README.md . && \
-        python3 setup.py clean --all 2>/dev/null && \
         rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-        sed -i.bak -e 's/^VERSION = .*/VERSION = "$(PYPI_VERSION)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
-        rm ./bin/setup.py.bak && \
-        cd ./bin && python3 setup.py build sdist
+        sed -i.bak -e 's/^  version = .*/  version = "$(PYPI_VERSION)"/g' ./bin/pyproject.toml && \
+        rm ./bin/pyproject.toml.bak && \
+	python3 -m venv venv && \
+	./venv/bin/python -m pip install build && \
+        cd ./bin && \
+        ../venv/bin/python -m build .
 
 generate_dotnet::
 	$(WORKING_DIR)/bin/$(CODEGEN) dotnet $(CFN_SCHEMA_DIR) ${VERSION}
