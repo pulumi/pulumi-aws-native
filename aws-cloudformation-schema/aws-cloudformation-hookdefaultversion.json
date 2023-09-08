@@ -51,7 +51,14 @@
       "permissions" : [ ]
     },
     "list" : {
-      "permissions" : [ "cloudformation:ListTypeVersions" ]
+      "handlerSchema" : {
+        "properties" : {
+          "TypeName" : {
+            "$ref" : "resource-schema.json#/properties/TypeName"
+          }
+        }
+      },
+      "permissions" : [ "cloudformation:ListTypes" ]
     }
   },
   "additionalProperties" : false
