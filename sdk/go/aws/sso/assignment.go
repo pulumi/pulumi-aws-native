@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for SSO assignmet
@@ -150,6 +151,12 @@ func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) Assignme
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
 }
 
+func (i *Assignment) ToOutput(ctx context.Context) pulumix.Output[*Assignment] {
+	return pulumix.Output[*Assignment]{
+		OutputState: i.ToAssignmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssignmentOutput struct{ *pulumi.OutputState }
 
 func (AssignmentOutput) ElementType() reflect.Type {
@@ -162,6 +169,12 @@ func (o AssignmentOutput) ToAssignmentOutput() AssignmentOutput {
 
 func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
 	return o
+}
+
+func (o AssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Assignment] {
+	return pulumix.Output[*Assignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The sso instance that the permission set is owned.

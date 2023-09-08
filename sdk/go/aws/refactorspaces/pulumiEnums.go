@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ApplicationApiGatewayEndpointType string
@@ -77,6 +78,12 @@ func (o ApplicationApiGatewayEndpointTypeOutput) ToApplicationApiGatewayEndpoint
 	}).(ApplicationApiGatewayEndpointTypePtrOutput)
 }
 
+func (o ApplicationApiGatewayEndpointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApiGatewayEndpointType] {
+	return pulumix.Output[ApplicationApiGatewayEndpointType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationApiGatewayEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o ApplicationApiGatewayEndpointTypePtrOutput) ToApplicationApiGatewayEndpo
 
 func (o ApplicationApiGatewayEndpointTypePtrOutput) ToApplicationApiGatewayEndpointTypePtrOutputWithContext(ctx context.Context) ApplicationApiGatewayEndpointTypePtrOutput {
 	return o
+}
+
+func (o ApplicationApiGatewayEndpointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApiGatewayEndpointType] {
+	return pulumix.Output[*ApplicationApiGatewayEndpointType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApiGatewayEndpointTypePtrOutput) Elem() ApplicationApiGatewayEndpointTypeOutput {
@@ -172,6 +185,12 @@ func (in *applicationApiGatewayEndpointTypePtr) ToApplicationApiGatewayEndpointT
 
 func (in *applicationApiGatewayEndpointTypePtr) ToApplicationApiGatewayEndpointTypePtrOutputWithContext(ctx context.Context) ApplicationApiGatewayEndpointTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationApiGatewayEndpointTypePtrOutput)
+}
+
+func (in *applicationApiGatewayEndpointTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApiGatewayEndpointType] {
+	return pulumix.Output[*ApplicationApiGatewayEndpointType]{
+		OutputState: in.ToApplicationApiGatewayEndpointTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ApplicationProxyType string
@@ -240,6 +259,12 @@ func (o ApplicationProxyTypeOutput) ToApplicationProxyTypePtrOutputWithContext(c
 	}).(ApplicationProxyTypePtrOutput)
 }
 
+func (o ApplicationProxyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationProxyType] {
+	return pulumix.Output[ApplicationProxyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationProxyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -273,6 +298,12 @@ func (o ApplicationProxyTypePtrOutput) ToApplicationProxyTypePtrOutput() Applica
 
 func (o ApplicationProxyTypePtrOutput) ToApplicationProxyTypePtrOutputWithContext(ctx context.Context) ApplicationProxyTypePtrOutput {
 	return o
+}
+
+func (o ApplicationProxyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationProxyType] {
+	return pulumix.Output[*ApplicationProxyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationProxyTypePtrOutput) Elem() ApplicationProxyTypeOutput {
@@ -335,6 +366,12 @@ func (in *applicationProxyTypePtr) ToApplicationProxyTypePtrOutput() Application
 
 func (in *applicationProxyTypePtr) ToApplicationProxyTypePtrOutputWithContext(ctx context.Context) ApplicationProxyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationProxyTypePtrOutput)
+}
+
+func (in *applicationProxyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationProxyType] {
+	return pulumix.Output[*ApplicationProxyType]{
+		OutputState: in.ToApplicationProxyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EnvironmentNetworkFabricType string
@@ -404,6 +441,12 @@ func (o EnvironmentNetworkFabricTypeOutput) ToEnvironmentNetworkFabricTypePtrOut
 	}).(EnvironmentNetworkFabricTypePtrOutput)
 }
 
+func (o EnvironmentNetworkFabricTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentNetworkFabricType] {
+	return pulumix.Output[EnvironmentNetworkFabricType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentNetworkFabricTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -437,6 +480,12 @@ func (o EnvironmentNetworkFabricTypePtrOutput) ToEnvironmentNetworkFabricTypePtr
 
 func (o EnvironmentNetworkFabricTypePtrOutput) ToEnvironmentNetworkFabricTypePtrOutputWithContext(ctx context.Context) EnvironmentNetworkFabricTypePtrOutput {
 	return o
+}
+
+func (o EnvironmentNetworkFabricTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentNetworkFabricType] {
+	return pulumix.Output[*EnvironmentNetworkFabricType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentNetworkFabricTypePtrOutput) Elem() EnvironmentNetworkFabricTypeOutput {
@@ -499,6 +548,12 @@ func (in *environmentNetworkFabricTypePtr) ToEnvironmentNetworkFabricTypePtrOutp
 
 func (in *environmentNetworkFabricTypePtr) ToEnvironmentNetworkFabricTypePtrOutputWithContext(ctx context.Context) EnvironmentNetworkFabricTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentNetworkFabricTypePtrOutput)
+}
+
+func (in *environmentNetworkFabricTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentNetworkFabricType] {
+	return pulumix.Output[*EnvironmentNetworkFabricType]{
+		OutputState: in.ToEnvironmentNetworkFabricTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type RouteActivationState string
@@ -568,6 +623,12 @@ func (o RouteActivationStateOutput) ToRouteActivationStatePtrOutputWithContext(c
 	}).(RouteActivationStatePtrOutput)
 }
 
+func (o RouteActivationStateOutput) ToOutput(ctx context.Context) pulumix.Output[RouteActivationState] {
+	return pulumix.Output[RouteActivationState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteActivationStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -601,6 +662,12 @@ func (o RouteActivationStatePtrOutput) ToRouteActivationStatePtrOutput() RouteAc
 
 func (o RouteActivationStatePtrOutput) ToRouteActivationStatePtrOutputWithContext(ctx context.Context) RouteActivationStatePtrOutput {
 	return o
+}
+
+func (o RouteActivationStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteActivationState] {
+	return pulumix.Output[*RouteActivationState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteActivationStatePtrOutput) Elem() RouteActivationStateOutput {
@@ -663,6 +730,12 @@ func (in *routeActivationStatePtr) ToRouteActivationStatePtrOutput() RouteActiva
 
 func (in *routeActivationStatePtr) ToRouteActivationStatePtrOutputWithContext(ctx context.Context) RouteActivationStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RouteActivationStatePtrOutput)
+}
+
+func (in *routeActivationStatePtr) ToOutput(ctx context.Context) pulumix.Output[*RouteActivationState] {
+	return pulumix.Output[*RouteActivationState]{
+		OutputState: in.ToRouteActivationStatePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type RouteMethod string
@@ -737,6 +810,12 @@ func (o RouteMethodOutput) ToRouteMethodPtrOutputWithContext(ctx context.Context
 	}).(RouteMethodPtrOutput)
 }
 
+func (o RouteMethodOutput) ToOutput(ctx context.Context) pulumix.Output[RouteMethod] {
+	return pulumix.Output[RouteMethod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -770,6 +849,12 @@ func (o RouteMethodPtrOutput) ToRouteMethodPtrOutput() RouteMethodPtrOutput {
 
 func (o RouteMethodPtrOutput) ToRouteMethodPtrOutputWithContext(ctx context.Context) RouteMethodPtrOutput {
 	return o
+}
+
+func (o RouteMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteMethod] {
+	return pulumix.Output[*RouteMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteMethodPtrOutput) Elem() RouteMethodOutput {
@@ -834,6 +919,12 @@ func (in *routeMethodPtr) ToRouteMethodPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(RouteMethodPtrOutput)
 }
 
+func (in *routeMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*RouteMethod] {
+	return pulumix.Output[*RouteMethod]{
+		OutputState: in.ToRouteMethodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteMethodArrayInput is an input type that accepts RouteMethodArray and RouteMethodArrayOutput values.
 // You can construct a concrete instance of `RouteMethodArrayInput` via:
 //
@@ -859,6 +950,12 @@ func (i RouteMethodArray) ToRouteMethodArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMethodArrayOutput)
 }
 
+func (i RouteMethodArray) ToOutput(ctx context.Context) pulumix.Output[[]RouteMethod] {
+	return pulumix.Output[[]RouteMethod]{
+		OutputState: i.ToRouteMethodArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteMethodArrayOutput struct{ *pulumi.OutputState }
 
 func (RouteMethodArrayOutput) ElementType() reflect.Type {
@@ -871,6 +968,12 @@ func (o RouteMethodArrayOutput) ToRouteMethodArrayOutput() RouteMethodArrayOutpu
 
 func (o RouteMethodArrayOutput) ToRouteMethodArrayOutputWithContext(ctx context.Context) RouteMethodArrayOutput {
 	return o
+}
+
+func (o RouteMethodArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RouteMethod] {
+	return pulumix.Output[[]RouteMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteMethodArrayOutput) Index(i pulumi.IntInput) RouteMethodOutput {
@@ -946,6 +1049,12 @@ func (o RouteTypeOutput) ToRouteTypePtrOutputWithContext(ctx context.Context) Ro
 	}).(RouteTypePtrOutput)
 }
 
+func (o RouteTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RouteType] {
+	return pulumix.Output[RouteType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -979,6 +1088,12 @@ func (o RouteTypePtrOutput) ToRouteTypePtrOutput() RouteTypePtrOutput {
 
 func (o RouteTypePtrOutput) ToRouteTypePtrOutputWithContext(ctx context.Context) RouteTypePtrOutput {
 	return o
+}
+
+func (o RouteTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteType] {
+	return pulumix.Output[*RouteType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTypePtrOutput) Elem() RouteTypeOutput {
@@ -1041,6 +1156,12 @@ func (in *routeTypePtr) ToRouteTypePtrOutput() RouteTypePtrOutput {
 
 func (in *routeTypePtr) ToRouteTypePtrOutputWithContext(ctx context.Context) RouteTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RouteTypePtrOutput)
+}
+
+func (in *routeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RouteType] {
+	return pulumix.Output[*RouteType]{
+		OutputState: in.ToRouteTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ServiceEndpointType string
@@ -1110,6 +1231,12 @@ func (o ServiceEndpointTypeOutput) ToServiceEndpointTypePtrOutputWithContext(ctx
 	}).(ServiceEndpointTypePtrOutput)
 }
 
+func (o ServiceEndpointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEndpointType] {
+	return pulumix.Output[ServiceEndpointType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1143,6 +1270,12 @@ func (o ServiceEndpointTypePtrOutput) ToServiceEndpointTypePtrOutput() ServiceEn
 
 func (o ServiceEndpointTypePtrOutput) ToServiceEndpointTypePtrOutputWithContext(ctx context.Context) ServiceEndpointTypePtrOutput {
 	return o
+}
+
+func (o ServiceEndpointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointType] {
+	return pulumix.Output[*ServiceEndpointType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointTypePtrOutput) Elem() ServiceEndpointTypeOutput {
@@ -1205,6 +1338,12 @@ func (in *serviceEndpointTypePtr) ToServiceEndpointTypePtrOutput() ServiceEndpoi
 
 func (in *serviceEndpointTypePtr) ToServiceEndpointTypePtrOutputWithContext(ctx context.Context) ServiceEndpointTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceEndpointTypePtrOutput)
+}
+
+func (in *serviceEndpointTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointType] {
+	return pulumix.Output[*ServiceEndpointType]{
+		OutputState: in.ToServiceEndpointTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

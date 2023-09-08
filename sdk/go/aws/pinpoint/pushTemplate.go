@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::PushTemplate
@@ -124,6 +125,12 @@ func (i *PushTemplate) ToPushTemplateOutputWithContext(ctx context.Context) Push
 	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateOutput)
 }
 
+func (i *PushTemplate) ToOutput(ctx context.Context) pulumix.Output[*PushTemplate] {
+	return pulumix.Output[*PushTemplate]{
+		OutputState: i.ToPushTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PushTemplateOutput struct{ *pulumi.OutputState }
 
 func (PushTemplateOutput) ElementType() reflect.Type {
@@ -136,6 +143,12 @@ func (o PushTemplateOutput) ToPushTemplateOutput() PushTemplateOutput {
 
 func (o PushTemplateOutput) ToPushTemplateOutputWithContext(ctx context.Context) PushTemplateOutput {
 	return o
+}
+
+func (o PushTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*PushTemplate] {
+	return pulumix.Output[*PushTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PushTemplateOutput) Adm() PushTemplateAndroidPushNotificationTemplatePtrOutput {

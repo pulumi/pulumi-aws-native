@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EMR::Step
@@ -63,6 +64,12 @@ func (o LookupStepResultOutput) ToLookupStepResultOutput() LookupStepResultOutpu
 
 func (o LookupStepResultOutput) ToLookupStepResultOutputWithContext(ctx context.Context) LookupStepResultOutput {
 	return o
+}
+
+func (o LookupStepResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStepResult] {
+	return pulumix.Output[LookupStepResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupStepResultOutput) Id() pulumi.StringPtrOutput {

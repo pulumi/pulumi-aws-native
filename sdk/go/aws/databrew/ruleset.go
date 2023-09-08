@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataBrew::Ruleset.
@@ -125,6 +126,12 @@ func (i *Ruleset) ToRulesetOutputWithContext(ctx context.Context) RulesetOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetOutput)
 }
 
+func (i *Ruleset) ToOutput(ctx context.Context) pulumix.Output[*Ruleset] {
+	return pulumix.Output[*Ruleset]{
+		OutputState: i.ToRulesetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetOutput struct{ *pulumi.OutputState }
 
 func (RulesetOutput) ElementType() reflect.Type {
@@ -137,6 +144,12 @@ func (o RulesetOutput) ToRulesetOutput() RulesetOutput {
 
 func (o RulesetOutput) ToRulesetOutputWithContext(ctx context.Context) RulesetOutput {
 	return o
+}
+
+func (o RulesetOutput) ToOutput(ctx context.Context) pulumix.Output[*Ruleset] {
+	return pulumix.Output[*Ruleset]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the Ruleset

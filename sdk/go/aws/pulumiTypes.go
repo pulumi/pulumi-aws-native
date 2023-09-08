@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -76,6 +77,12 @@ func (i ProviderAssumeRoleArgs) ToProviderAssumeRoleOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRoleOutput)
 }
 
+func (i ProviderAssumeRoleArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderAssumeRole] {
+	return pulumix.Output[ProviderAssumeRole]{
+		OutputState: i.ToProviderAssumeRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderAssumeRoleArgs) ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput {
 	return i.ToProviderAssumeRolePtrOutputWithContext(context.Background())
 }
@@ -117,6 +124,12 @@ func (i *providerAssumeRolePtrType) ToProviderAssumeRolePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRolePtrOutput)
 }
 
+func (i *providerAssumeRolePtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderAssumeRole] {
+	return pulumix.Output[*ProviderAssumeRole]{
+		OutputState: i.ToProviderAssumeRolePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration for a Provider to assume a role.
 type ProviderAssumeRoleOutput struct{ *pulumi.OutputState }
 
@@ -140,6 +153,12 @@ func (o ProviderAssumeRoleOutput) ToProviderAssumeRolePtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderAssumeRole) *ProviderAssumeRole {
 		return &v
 	}).(ProviderAssumeRolePtrOutput)
+}
+
+func (o ProviderAssumeRoleOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderAssumeRole] {
+	return pulumix.Output[ProviderAssumeRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of seconds to restrict the assume role session duration.
@@ -194,6 +213,12 @@ func (o ProviderAssumeRolePtrOutput) ToProviderAssumeRolePtrOutput() ProviderAss
 
 func (o ProviderAssumeRolePtrOutput) ToProviderAssumeRolePtrOutputWithContext(ctx context.Context) ProviderAssumeRolePtrOutput {
 	return o
+}
+
+func (o ProviderAssumeRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderAssumeRole] {
+	return pulumix.Output[*ProviderAssumeRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderAssumeRolePtrOutput) Elem() ProviderAssumeRoleOutput {
@@ -321,6 +346,12 @@ func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsOutput)
 }
 
+func (i ProviderDefaultTagsArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderDefaultTags] {
+	return pulumix.Output[ProviderDefaultTags]{
+		OutputState: i.ToProviderDefaultTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
 	return i.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
 }
@@ -362,6 +393,12 @@ func (i *providerDefaultTagsPtrType) ToProviderDefaultTagsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsPtrOutput)
 }
 
+func (i *providerDefaultTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderDefaultTags] {
+	return pulumix.Output[*ProviderDefaultTags]{
+		OutputState: i.ToProviderDefaultTagsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
 type ProviderDefaultTagsOutput struct{ *pulumi.OutputState }
 
@@ -387,6 +424,12 @@ func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx
 	}).(ProviderDefaultTagsPtrOutput)
 }
 
+func (o ProviderDefaultTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderDefaultTags] {
+	return pulumix.Output[ProviderDefaultTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A group of tags to set across all resources.
 func (o ProviderDefaultTagsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ProviderDefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -404,6 +447,12 @@ func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutput() ProviderD
 
 func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
 	return o
+}
+
+func (o ProviderDefaultTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderDefaultTags] {
+	return pulumix.Output[*ProviderDefaultTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderDefaultTagsPtrOutput) Elem() ProviderDefaultTagsOutput {
@@ -1093,6 +1142,12 @@ func (i ProviderEndpointArgs) ToProviderEndpointOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderEndpointOutput)
 }
 
+func (i ProviderEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderEndpoint] {
+	return pulumix.Output[ProviderEndpoint]{
+		OutputState: i.ToProviderEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProviderEndpointArrayInput is an input type that accepts ProviderEndpointArray and ProviderEndpointArrayOutput values.
 // You can construct a concrete instance of `ProviderEndpointArrayInput` via:
 //
@@ -1118,6 +1173,12 @@ func (i ProviderEndpointArray) ToProviderEndpointArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderEndpointArrayOutput)
 }
 
+func (i ProviderEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]ProviderEndpoint] {
+	return pulumix.Output[[]ProviderEndpoint]{
+		OutputState: i.ToProviderEndpointArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration for for customizing service endpoints.
 type ProviderEndpointOutput struct{ *pulumi.OutputState }
 
@@ -1131,6 +1192,12 @@ func (o ProviderEndpointOutput) ToProviderEndpointOutput() ProviderEndpointOutpu
 
 func (o ProviderEndpointOutput) ToProviderEndpointOutputWithContext(ctx context.Context) ProviderEndpointOutput {
 	return o
+}
+
+func (o ProviderEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderEndpoint] {
+	return pulumix.Output[ProviderEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Override the default endpoint for AWS Access Analyzer
@@ -1942,6 +2009,12 @@ func (o ProviderEndpointArrayOutput) ToProviderEndpointArrayOutputWithContext(ct
 	return o
 }
 
+func (o ProviderEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProviderEndpoint] {
+	return pulumix.Output[[]ProviderEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderEndpointArrayOutput) Index(i pulumi.IntInput) ProviderEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProviderEndpoint {
 		return vs[0].([]ProviderEndpoint)[vs[1].(int)]
@@ -1987,6 +2060,12 @@ func (i ProviderIgnoreTagsArgs) ToProviderIgnoreTagsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderIgnoreTagsOutput)
 }
 
+func (i ProviderIgnoreTagsArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderIgnoreTags] {
+	return pulumix.Output[ProviderIgnoreTags]{
+		OutputState: i.ToProviderIgnoreTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderIgnoreTagsArgs) ToProviderIgnoreTagsPtrOutput() ProviderIgnoreTagsPtrOutput {
 	return i.ToProviderIgnoreTagsPtrOutputWithContext(context.Background())
 }
@@ -2028,6 +2107,12 @@ func (i *providerIgnoreTagsPtrType) ToProviderIgnoreTagsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderIgnoreTagsPtrOutput)
 }
 
+func (i *providerIgnoreTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderIgnoreTags] {
+	return pulumix.Output[*ProviderIgnoreTags]{
+		OutputState: i.ToProviderIgnoreTagsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
 type ProviderIgnoreTagsOutput struct{ *pulumi.OutputState }
 
@@ -2053,6 +2138,12 @@ func (o ProviderIgnoreTagsOutput) ToProviderIgnoreTagsPtrOutputWithContext(ctx c
 	}).(ProviderIgnoreTagsPtrOutput)
 }
 
+func (o ProviderIgnoreTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderIgnoreTags] {
+	return pulumix.Output[ProviderIgnoreTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 // List of exact resource tag keys to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning the tag in any `tags` attributes and displaying any configuration difference for the tag value. If any resource configuration still has this tag key configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
 func (o ProviderIgnoreTagsOutput) KeyPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProviderIgnoreTags) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
@@ -2075,6 +2166,12 @@ func (o ProviderIgnoreTagsPtrOutput) ToProviderIgnoreTagsPtrOutput() ProviderIgn
 
 func (o ProviderIgnoreTagsPtrOutput) ToProviderIgnoreTagsPtrOutputWithContext(ctx context.Context) ProviderIgnoreTagsPtrOutput {
 	return o
+}
+
+func (o ProviderIgnoreTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderIgnoreTags] {
+	return pulumix.Output[*ProviderIgnoreTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderIgnoreTagsPtrOutput) Elem() ProviderIgnoreTagsOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Logs::LogGroup
@@ -140,6 +141,12 @@ func (i *LogGroup) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LogGroupOutput)
 }
 
+func (i *LogGroup) ToOutput(ctx context.Context) pulumix.Output[*LogGroup] {
+	return pulumix.Output[*LogGroup]{
+		OutputState: i.ToLogGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogGroupOutput struct{ *pulumi.OutputState }
 
 func (LogGroupOutput) ElementType() reflect.Type {
@@ -152,6 +159,12 @@ func (o LogGroupOutput) ToLogGroupOutput() LogGroupOutput {
 
 func (o LogGroupOutput) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutput {
 	return o
+}
+
+func (o LogGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*LogGroup] {
+	return pulumix.Output[*LogGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The CloudWatch log group ARN.

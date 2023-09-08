@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i MatchingWorkflowInputSourceArgs) ToMatchingWorkflowInputSourceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowInputSourceOutput)
 }
 
+func (i MatchingWorkflowInputSourceArgs) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowInputSource] {
+	return pulumix.Output[MatchingWorkflowInputSource]{
+		OutputState: i.ToMatchingWorkflowInputSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MatchingWorkflowInputSourceArrayInput is an input type that accepts MatchingWorkflowInputSourceArray and MatchingWorkflowInputSourceArrayOutput values.
 // You can construct a concrete instance of `MatchingWorkflowInputSourceArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i MatchingWorkflowInputSourceArray) ToMatchingWorkflowInputSourceArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowInputSourceArrayOutput)
 }
 
+func (i MatchingWorkflowInputSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]MatchingWorkflowInputSource] {
+	return pulumix.Output[[]MatchingWorkflowInputSource]{
+		OutputState: i.ToMatchingWorkflowInputSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MatchingWorkflowInputSourceOutput struct{ *pulumi.OutputState }
 
 func (MatchingWorkflowInputSourceOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o MatchingWorkflowInputSourceOutput) ToMatchingWorkflowInputSourceOutput()
 
 func (o MatchingWorkflowInputSourceOutput) ToMatchingWorkflowInputSourceOutputWithContext(ctx context.Context) MatchingWorkflowInputSourceOutput {
 	return o
+}
+
+func (o MatchingWorkflowInputSourceOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowInputSource] {
+	return pulumix.Output[MatchingWorkflowInputSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowInputSourceOutput) ApplyNormalization() pulumi.BoolPtrOutput {
@@ -114,6 +133,12 @@ func (o MatchingWorkflowInputSourceArrayOutput) ToMatchingWorkflowInputSourceArr
 
 func (o MatchingWorkflowInputSourceArrayOutput) ToMatchingWorkflowInputSourceArrayOutputWithContext(ctx context.Context) MatchingWorkflowInputSourceArrayOutput {
 	return o
+}
+
+func (o MatchingWorkflowInputSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MatchingWorkflowInputSource] {
+	return pulumix.Output[[]MatchingWorkflowInputSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowInputSourceArrayOutput) Index(i pulumi.IntInput) MatchingWorkflowInputSourceOutput {
@@ -155,6 +180,12 @@ func (i MatchingWorkflowOutputAttributeArgs) ToMatchingWorkflowOutputAttributeOu
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowOutputAttributeOutput)
 }
 
+func (i MatchingWorkflowOutputAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowOutputAttribute] {
+	return pulumix.Output[MatchingWorkflowOutputAttribute]{
+		OutputState: i.ToMatchingWorkflowOutputAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MatchingWorkflowOutputAttributeArrayInput is an input type that accepts MatchingWorkflowOutputAttributeArray and MatchingWorkflowOutputAttributeArrayOutput values.
 // You can construct a concrete instance of `MatchingWorkflowOutputAttributeArrayInput` via:
 //
@@ -180,6 +211,12 @@ func (i MatchingWorkflowOutputAttributeArray) ToMatchingWorkflowOutputAttributeA
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowOutputAttributeArrayOutput)
 }
 
+func (i MatchingWorkflowOutputAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]MatchingWorkflowOutputAttribute] {
+	return pulumix.Output[[]MatchingWorkflowOutputAttribute]{
+		OutputState: i.ToMatchingWorkflowOutputAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MatchingWorkflowOutputAttributeOutput struct{ *pulumi.OutputState }
 
 func (MatchingWorkflowOutputAttributeOutput) ElementType() reflect.Type {
@@ -192,6 +229,12 @@ func (o MatchingWorkflowOutputAttributeOutput) ToMatchingWorkflowOutputAttribute
 
 func (o MatchingWorkflowOutputAttributeOutput) ToMatchingWorkflowOutputAttributeOutputWithContext(ctx context.Context) MatchingWorkflowOutputAttributeOutput {
 	return o
+}
+
+func (o MatchingWorkflowOutputAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowOutputAttribute] {
+	return pulumix.Output[MatchingWorkflowOutputAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowOutputAttributeOutput) Hashed() pulumi.BoolPtrOutput {
@@ -214,6 +257,12 @@ func (o MatchingWorkflowOutputAttributeArrayOutput) ToMatchingWorkflowOutputAttr
 
 func (o MatchingWorkflowOutputAttributeArrayOutput) ToMatchingWorkflowOutputAttributeArrayOutputWithContext(ctx context.Context) MatchingWorkflowOutputAttributeArrayOutput {
 	return o
+}
+
+func (o MatchingWorkflowOutputAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MatchingWorkflowOutputAttribute] {
+	return pulumix.Output[[]MatchingWorkflowOutputAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowOutputAttributeArrayOutput) Index(i pulumi.IntInput) MatchingWorkflowOutputAttributeOutput {
@@ -261,6 +310,12 @@ func (i MatchingWorkflowOutputSourceArgs) ToMatchingWorkflowOutputSourceOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowOutputSourceOutput)
 }
 
+func (i MatchingWorkflowOutputSourceArgs) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowOutputSource] {
+	return pulumix.Output[MatchingWorkflowOutputSource]{
+		OutputState: i.ToMatchingWorkflowOutputSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MatchingWorkflowOutputSourceArrayInput is an input type that accepts MatchingWorkflowOutputSourceArray and MatchingWorkflowOutputSourceArrayOutput values.
 // You can construct a concrete instance of `MatchingWorkflowOutputSourceArrayInput` via:
 //
@@ -286,6 +341,12 @@ func (i MatchingWorkflowOutputSourceArray) ToMatchingWorkflowOutputSourceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowOutputSourceArrayOutput)
 }
 
+func (i MatchingWorkflowOutputSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]MatchingWorkflowOutputSource] {
+	return pulumix.Output[[]MatchingWorkflowOutputSource]{
+		OutputState: i.ToMatchingWorkflowOutputSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MatchingWorkflowOutputSourceOutput struct{ *pulumi.OutputState }
 
 func (MatchingWorkflowOutputSourceOutput) ElementType() reflect.Type {
@@ -298,6 +359,12 @@ func (o MatchingWorkflowOutputSourceOutput) ToMatchingWorkflowOutputSourceOutput
 
 func (o MatchingWorkflowOutputSourceOutput) ToMatchingWorkflowOutputSourceOutputWithContext(ctx context.Context) MatchingWorkflowOutputSourceOutput {
 	return o
+}
+
+func (o MatchingWorkflowOutputSourceOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowOutputSource] {
+	return pulumix.Output[MatchingWorkflowOutputSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowOutputSourceOutput) ApplyNormalization() pulumi.BoolPtrOutput {
@@ -329,6 +396,12 @@ func (o MatchingWorkflowOutputSourceArrayOutput) ToMatchingWorkflowOutputSourceA
 
 func (o MatchingWorkflowOutputSourceArrayOutput) ToMatchingWorkflowOutputSourceArrayOutputWithContext(ctx context.Context) MatchingWorkflowOutputSourceArrayOutput {
 	return o
+}
+
+func (o MatchingWorkflowOutputSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MatchingWorkflowOutputSource] {
+	return pulumix.Output[[]MatchingWorkflowOutputSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowOutputSourceArrayOutput) Index(i pulumi.IntInput) MatchingWorkflowOutputSourceOutput {
@@ -370,6 +443,12 @@ func (i MatchingWorkflowResolutionTechniquesArgs) ToMatchingWorkflowResolutionTe
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowResolutionTechniquesOutput)
 }
 
+func (i MatchingWorkflowResolutionTechniquesArgs) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowResolutionTechniques] {
+	return pulumix.Output[MatchingWorkflowResolutionTechniques]{
+		OutputState: i.ToMatchingWorkflowResolutionTechniquesOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MatchingWorkflowResolutionTechniquesOutput struct{ *pulumi.OutputState }
 
 func (MatchingWorkflowResolutionTechniquesOutput) ElementType() reflect.Type {
@@ -382,6 +461,12 @@ func (o MatchingWorkflowResolutionTechniquesOutput) ToMatchingWorkflowResolution
 
 func (o MatchingWorkflowResolutionTechniquesOutput) ToMatchingWorkflowResolutionTechniquesOutputWithContext(ctx context.Context) MatchingWorkflowResolutionTechniquesOutput {
 	return o
+}
+
+func (o MatchingWorkflowResolutionTechniquesOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowResolutionTechniques] {
+	return pulumix.Output[MatchingWorkflowResolutionTechniques]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowResolutionTechniquesOutput) ResolutionType() MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput {
@@ -408,6 +493,12 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) ToMatchingWorkflowResolut
 
 func (o MatchingWorkflowResolutionTechniquesPtrOutput) ToMatchingWorkflowResolutionTechniquesPtrOutputWithContext(ctx context.Context) MatchingWorkflowResolutionTechniquesPtrOutput {
 	return o
+}
+
+func (o MatchingWorkflowResolutionTechniquesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflowResolutionTechniques] {
+	return pulumix.Output[*MatchingWorkflowResolutionTechniques]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowResolutionTechniquesPtrOutput) Elem() MatchingWorkflowResolutionTechniquesOutput {
@@ -471,6 +562,12 @@ func (i MatchingWorkflowRuleArgs) ToMatchingWorkflowRuleOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleOutput)
 }
 
+func (i MatchingWorkflowRuleArgs) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowRule] {
+	return pulumix.Output[MatchingWorkflowRule]{
+		OutputState: i.ToMatchingWorkflowRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MatchingWorkflowRuleArrayInput is an input type that accepts MatchingWorkflowRuleArray and MatchingWorkflowRuleArrayOutput values.
 // You can construct a concrete instance of `MatchingWorkflowRuleArrayInput` via:
 //
@@ -496,6 +593,12 @@ func (i MatchingWorkflowRuleArray) ToMatchingWorkflowRuleArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleArrayOutput)
 }
 
+func (i MatchingWorkflowRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]MatchingWorkflowRule] {
+	return pulumix.Output[[]MatchingWorkflowRule]{
+		OutputState: i.ToMatchingWorkflowRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MatchingWorkflowRuleOutput struct{ *pulumi.OutputState }
 
 func (MatchingWorkflowRuleOutput) ElementType() reflect.Type {
@@ -508,6 +611,12 @@ func (o MatchingWorkflowRuleOutput) ToMatchingWorkflowRuleOutput() MatchingWorkf
 
 func (o MatchingWorkflowRuleOutput) ToMatchingWorkflowRuleOutputWithContext(ctx context.Context) MatchingWorkflowRuleOutput {
 	return o
+}
+
+func (o MatchingWorkflowRuleOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowRule] {
+	return pulumix.Output[MatchingWorkflowRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowRuleOutput) MatchingKeys() pulumi.StringArrayOutput {
@@ -530,6 +639,12 @@ func (o MatchingWorkflowRuleArrayOutput) ToMatchingWorkflowRuleArrayOutput() Mat
 
 func (o MatchingWorkflowRuleArrayOutput) ToMatchingWorkflowRuleArrayOutputWithContext(ctx context.Context) MatchingWorkflowRuleArrayOutput {
 	return o
+}
+
+func (o MatchingWorkflowRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MatchingWorkflowRule] {
+	return pulumix.Output[[]MatchingWorkflowRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowRuleArrayOutput) Index(i pulumi.IntInput) MatchingWorkflowRuleOutput {
@@ -569,6 +684,12 @@ func (i MatchingWorkflowRuleBasedPropertiesArgs) ToMatchingWorkflowRuleBasedProp
 
 func (i MatchingWorkflowRuleBasedPropertiesArgs) ToMatchingWorkflowRuleBasedPropertiesOutputWithContext(ctx context.Context) MatchingWorkflowRuleBasedPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleBasedPropertiesOutput)
+}
+
+func (i MatchingWorkflowRuleBasedPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowRuleBasedProperties] {
+	return pulumix.Output[MatchingWorkflowRuleBasedProperties]{
+		OutputState: i.ToMatchingWorkflowRuleBasedPropertiesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i MatchingWorkflowRuleBasedPropertiesArgs) ToMatchingWorkflowRuleBasedPropertiesPtrOutput() MatchingWorkflowRuleBasedPropertiesPtrOutput {
@@ -612,6 +733,12 @@ func (i *matchingWorkflowRuleBasedPropertiesPtrType) ToMatchingWorkflowRuleBased
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleBasedPropertiesPtrOutput)
 }
 
+func (i *matchingWorkflowRuleBasedPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflowRuleBasedProperties] {
+	return pulumix.Output[*MatchingWorkflowRuleBasedProperties]{
+		OutputState: i.ToMatchingWorkflowRuleBasedPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MatchingWorkflowRuleBasedPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MatchingWorkflowRuleBasedPropertiesOutput) ElementType() reflect.Type {
@@ -636,6 +763,12 @@ func (o MatchingWorkflowRuleBasedPropertiesOutput) ToMatchingWorkflowRuleBasedPr
 	}).(MatchingWorkflowRuleBasedPropertiesPtrOutput)
 }
 
+func (o MatchingWorkflowRuleBasedPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowRuleBasedProperties] {
+	return pulumix.Output[MatchingWorkflowRuleBasedProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MatchingWorkflowRuleBasedPropertiesOutput) AttributeMatchingModel() MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput {
 	return o.ApplyT(func(v MatchingWorkflowRuleBasedProperties) MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel {
 		return v.AttributeMatchingModel
@@ -658,6 +791,12 @@ func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) ToMatchingWorkflowRuleBase
 
 func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) ToMatchingWorkflowRuleBasedPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowRuleBasedPropertiesPtrOutput {
 	return o
+}
+
+func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflowRuleBasedProperties] {
+	return pulumix.Output[*MatchingWorkflowRuleBasedProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) Elem() MatchingWorkflowRuleBasedPropertiesOutput {
@@ -727,6 +866,12 @@ func (i MatchingWorkflowTagArgs) ToMatchingWorkflowTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowTagOutput)
 }
 
+func (i MatchingWorkflowTagArgs) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowTag] {
+	return pulumix.Output[MatchingWorkflowTag]{
+		OutputState: i.ToMatchingWorkflowTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MatchingWorkflowTagArrayInput is an input type that accepts MatchingWorkflowTagArray and MatchingWorkflowTagArrayOutput values.
 // You can construct a concrete instance of `MatchingWorkflowTagArrayInput` via:
 //
@@ -752,6 +897,12 @@ func (i MatchingWorkflowTagArray) ToMatchingWorkflowTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowTagArrayOutput)
 }
 
+func (i MatchingWorkflowTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MatchingWorkflowTag] {
+	return pulumix.Output[[]MatchingWorkflowTag]{
+		OutputState: i.ToMatchingWorkflowTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource
 type MatchingWorkflowTagOutput struct{ *pulumi.OutputState }
 
@@ -765,6 +916,12 @@ func (o MatchingWorkflowTagOutput) ToMatchingWorkflowTagOutput() MatchingWorkflo
 
 func (o MatchingWorkflowTagOutput) ToMatchingWorkflowTagOutputWithContext(ctx context.Context) MatchingWorkflowTagOutput {
 	return o
+}
+
+func (o MatchingWorkflowTagOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowTag] {
+	return pulumix.Output[MatchingWorkflowTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -789,6 +946,12 @@ func (o MatchingWorkflowTagArrayOutput) ToMatchingWorkflowTagArrayOutput() Match
 
 func (o MatchingWorkflowTagArrayOutput) ToMatchingWorkflowTagArrayOutputWithContext(ctx context.Context) MatchingWorkflowTagArrayOutput {
 	return o
+}
+
+func (o MatchingWorkflowTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MatchingWorkflowTag] {
+	return pulumix.Output[[]MatchingWorkflowTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MatchingWorkflowTagArrayOutput) Index(i pulumi.IntInput) MatchingWorkflowTagOutput {
@@ -834,6 +997,12 @@ func (i SchemaMappingSchemaInputAttributeArgs) ToSchemaMappingSchemaInputAttribu
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaMappingSchemaInputAttributeOutput)
 }
 
+func (i SchemaMappingSchemaInputAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaMappingSchemaInputAttribute] {
+	return pulumix.Output[SchemaMappingSchemaInputAttribute]{
+		OutputState: i.ToSchemaMappingSchemaInputAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SchemaMappingSchemaInputAttributeArrayInput is an input type that accepts SchemaMappingSchemaInputAttributeArray and SchemaMappingSchemaInputAttributeArrayOutput values.
 // You can construct a concrete instance of `SchemaMappingSchemaInputAttributeArrayInput` via:
 //
@@ -859,6 +1028,12 @@ func (i SchemaMappingSchemaInputAttributeArray) ToSchemaMappingSchemaInputAttrib
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaMappingSchemaInputAttributeArrayOutput)
 }
 
+func (i SchemaMappingSchemaInputAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]SchemaMappingSchemaInputAttribute] {
+	return pulumix.Output[[]SchemaMappingSchemaInputAttribute]{
+		OutputState: i.ToSchemaMappingSchemaInputAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaMappingSchemaInputAttributeOutput struct{ *pulumi.OutputState }
 
 func (SchemaMappingSchemaInputAttributeOutput) ElementType() reflect.Type {
@@ -871,6 +1046,12 @@ func (o SchemaMappingSchemaInputAttributeOutput) ToSchemaMappingSchemaInputAttri
 
 func (o SchemaMappingSchemaInputAttributeOutput) ToSchemaMappingSchemaInputAttributeOutputWithContext(ctx context.Context) SchemaMappingSchemaInputAttributeOutput {
 	return o
+}
+
+func (o SchemaMappingSchemaInputAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaMappingSchemaInputAttribute] {
+	return pulumix.Output[SchemaMappingSchemaInputAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaMappingSchemaInputAttributeOutput) FieldName() pulumi.StringOutput {
@@ -901,6 +1082,12 @@ func (o SchemaMappingSchemaInputAttributeArrayOutput) ToSchemaMappingSchemaInput
 
 func (o SchemaMappingSchemaInputAttributeArrayOutput) ToSchemaMappingSchemaInputAttributeArrayOutputWithContext(ctx context.Context) SchemaMappingSchemaInputAttributeArrayOutput {
 	return o
+}
+
+func (o SchemaMappingSchemaInputAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SchemaMappingSchemaInputAttribute] {
+	return pulumix.Output[[]SchemaMappingSchemaInputAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaMappingSchemaInputAttributeArrayOutput) Index(i pulumi.IntInput) SchemaMappingSchemaInputAttributeOutput {
@@ -948,6 +1135,12 @@ func (i SchemaMappingTagArgs) ToSchemaMappingTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaMappingTagOutput)
 }
 
+func (i SchemaMappingTagArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaMappingTag] {
+	return pulumix.Output[SchemaMappingTag]{
+		OutputState: i.ToSchemaMappingTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SchemaMappingTagArrayInput is an input type that accepts SchemaMappingTagArray and SchemaMappingTagArrayOutput values.
 // You can construct a concrete instance of `SchemaMappingTagArrayInput` via:
 //
@@ -973,6 +1166,12 @@ func (i SchemaMappingTagArray) ToSchemaMappingTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaMappingTagArrayOutput)
 }
 
+func (i SchemaMappingTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SchemaMappingTag] {
+	return pulumix.Output[[]SchemaMappingTag]{
+		OutputState: i.ToSchemaMappingTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource
 type SchemaMappingTagOutput struct{ *pulumi.OutputState }
 
@@ -986,6 +1185,12 @@ func (o SchemaMappingTagOutput) ToSchemaMappingTagOutput() SchemaMappingTagOutpu
 
 func (o SchemaMappingTagOutput) ToSchemaMappingTagOutputWithContext(ctx context.Context) SchemaMappingTagOutput {
 	return o
+}
+
+func (o SchemaMappingTagOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaMappingTag] {
+	return pulumix.Output[SchemaMappingTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1010,6 +1215,12 @@ func (o SchemaMappingTagArrayOutput) ToSchemaMappingTagArrayOutput() SchemaMappi
 
 func (o SchemaMappingTagArrayOutput) ToSchemaMappingTagArrayOutputWithContext(ctx context.Context) SchemaMappingTagArrayOutput {
 	return o
+}
+
+func (o SchemaMappingTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SchemaMappingTag] {
+	return pulumix.Output[[]SchemaMappingTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaMappingTagArrayOutput) Index(i pulumi.IntInput) SchemaMappingTagOutput {

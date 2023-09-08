@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
@@ -128,6 +129,12 @@ func (i *UserSettings) ToUserSettingsOutputWithContext(ctx context.Context) User
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsOutput)
 }
 
+func (i *UserSettings) ToOutput(ctx context.Context) pulumix.Output[*UserSettings] {
+	return pulumix.Output[*UserSettings]{
+		OutputState: i.ToUserSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserSettingsOutput struct{ *pulumi.OutputState }
 
 func (UserSettingsOutput) ElementType() reflect.Type {
@@ -140,6 +147,12 @@ func (o UserSettingsOutput) ToUserSettingsOutput() UserSettingsOutput {
 
 func (o UserSettingsOutput) ToUserSettingsOutputWithContext(ctx context.Context) UserSettingsOutput {
 	return o
+}
+
+func (o UserSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*UserSettings] {
+	return pulumix.Output[*UserSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {

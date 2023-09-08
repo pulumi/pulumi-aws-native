@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to determine whether a message signals an ad.  Choosing "NONE" means no SCTE-35 messages become ads.  Choosing "RESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that contain delivery restrictions will be treated as ads.  Choosing "UNRESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that do not contain delivery restrictions will be treated as ads.  Choosing "BOTH" means all SCTE-35 messages of the types specified in AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags and are always treated as ads if specified in AdTriggers.
@@ -80,6 +81,12 @@ func (o OriginEndpointAdsOnDeliveryRestrictionsOutput) ToOriginEndpointAdsOnDeli
 	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
+func (o OriginEndpointAdsOnDeliveryRestrictionsOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointAdsOnDeliveryRestrictions] {
+	return pulumix.Output[OriginEndpointAdsOnDeliveryRestrictions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointAdsOnDeliveryRestrictionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +120,12 @@ func (o OriginEndpointAdsOnDeliveryRestrictionsPtrOutput) ToOriginEndpointAdsOnD
 
 func (o OriginEndpointAdsOnDeliveryRestrictionsPtrOutput) ToOriginEndpointAdsOnDeliveryRestrictionsPtrOutputWithContext(ctx context.Context) OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
 	return o
+}
+
+func (o OriginEndpointAdsOnDeliveryRestrictionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointAdsOnDeliveryRestrictions] {
+	return pulumix.Output[*OriginEndpointAdsOnDeliveryRestrictions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointAdsOnDeliveryRestrictionsPtrOutput) Elem() OriginEndpointAdsOnDeliveryRestrictionsOutput {
@@ -175,6 +188,12 @@ func (in *originEndpointAdsOnDeliveryRestrictionsPtr) ToOriginEndpointAdsOnDeliv
 
 func (in *originEndpointAdsOnDeliveryRestrictionsPtr) ToOriginEndpointAdsOnDeliveryRestrictionsPtrOutputWithContext(ctx context.Context) OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
+}
+
+func (in *originEndpointAdsOnDeliveryRestrictionsPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointAdsOnDeliveryRestrictions] {
+	return pulumix.Output[*OriginEndpointAdsOnDeliveryRestrictions]{
+		OutputState: in.ToOriginEndpointAdsOnDeliveryRestrictionsPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The encryption method used
@@ -245,6 +264,12 @@ func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToOriginEndpointCmaf
 	}).(OriginEndpointCmafEncryptionEncryptionMethodPtrOutput)
 }
 
+func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointCmafEncryptionEncryptionMethod] {
+	return pulumix.Output[OriginEndpointCmafEncryptionEncryptionMethod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -278,6 +303,12 @@ func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) ToOriginEndpointC
 
 func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
 	return o
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointCmafEncryptionEncryptionMethod] {
+	return pulumix.Output[*OriginEndpointCmafEncryptionEncryptionMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) Elem() OriginEndpointCmafEncryptionEncryptionMethodOutput {
@@ -340,6 +371,12 @@ func (in *originEndpointCmafEncryptionEncryptionMethodPtr) ToOriginEndpointCmafE
 
 func (in *originEndpointCmafEncryptionEncryptionMethodPtr) ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointCmafEncryptionEncryptionMethodPtrOutput)
+}
+
+func (in *originEndpointCmafEncryptionEncryptionMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointCmafEncryptionEncryptionMethod] {
+	return pulumix.Output[*OriginEndpointCmafEncryptionEncryptionMethod]{
+		OutputState: in.ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type OriginEndpointDashPackageAdTriggersItem string
@@ -415,6 +452,12 @@ func (o OriginEndpointDashPackageAdTriggersItemOutput) ToOriginEndpointDashPacka
 	}).(OriginEndpointDashPackageAdTriggersItemPtrOutput)
 }
 
+func (o OriginEndpointDashPackageAdTriggersItemOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackageAdTriggersItem] {
+	return pulumix.Output[OriginEndpointDashPackageAdTriggersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointDashPackageAdTriggersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -448,6 +491,12 @@ func (o OriginEndpointDashPackageAdTriggersItemPtrOutput) ToOriginEndpointDashPa
 
 func (o OriginEndpointDashPackageAdTriggersItemPtrOutput) ToOriginEndpointDashPackageAdTriggersItemPtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageAdTriggersItemPtrOutput {
 	return o
+}
+
+func (o OriginEndpointDashPackageAdTriggersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageAdTriggersItem] {
+	return pulumix.Output[*OriginEndpointDashPackageAdTriggersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointDashPackageAdTriggersItemPtrOutput) Elem() OriginEndpointDashPackageAdTriggersItemOutput {
@@ -512,6 +561,12 @@ func (in *originEndpointDashPackageAdTriggersItemPtr) ToOriginEndpointDashPackag
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackageAdTriggersItemPtrOutput)
 }
 
+func (in *originEndpointDashPackageAdTriggersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageAdTriggersItem] {
+	return pulumix.Output[*OriginEndpointDashPackageAdTriggersItem]{
+		OutputState: in.ToOriginEndpointDashPackageAdTriggersItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OriginEndpointDashPackageAdTriggersItemArrayInput is an input type that accepts OriginEndpointDashPackageAdTriggersItemArray and OriginEndpointDashPackageAdTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackageAdTriggersItemArrayInput` via:
 //
@@ -537,6 +592,12 @@ func (i OriginEndpointDashPackageAdTriggersItemArray) ToOriginEndpointDashPackag
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashPackageAdTriggersItemArrayOutput)
 }
 
+func (i OriginEndpointDashPackageAdTriggersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDashPackageAdTriggersItem] {
+	return pulumix.Output[[]OriginEndpointDashPackageAdTriggersItem]{
+		OutputState: i.ToOriginEndpointDashPackageAdTriggersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginEndpointDashPackageAdTriggersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointDashPackageAdTriggersItemArrayOutput) ElementType() reflect.Type {
@@ -549,6 +610,12 @@ func (o OriginEndpointDashPackageAdTriggersItemArrayOutput) ToOriginEndpointDash
 
 func (o OriginEndpointDashPackageAdTriggersItemArrayOutput) ToOriginEndpointDashPackageAdTriggersItemArrayOutputWithContext(ctx context.Context) OriginEndpointDashPackageAdTriggersItemArrayOutput {
 	return o
+}
+
+func (o OriginEndpointDashPackageAdTriggersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDashPackageAdTriggersItem] {
+	return pulumix.Output[[]OriginEndpointDashPackageAdTriggersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointDashPackageAdTriggersItemArrayOutput) Index(i pulumi.IntInput) OriginEndpointDashPackageAdTriggersItemOutput {
@@ -625,6 +692,12 @@ func (o OriginEndpointDashPackageManifestLayoutOutput) ToOriginEndpointDashPacka
 	}).(OriginEndpointDashPackageManifestLayoutPtrOutput)
 }
 
+func (o OriginEndpointDashPackageManifestLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackageManifestLayout] {
+	return pulumix.Output[OriginEndpointDashPackageManifestLayout]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointDashPackageManifestLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -658,6 +731,12 @@ func (o OriginEndpointDashPackageManifestLayoutPtrOutput) ToOriginEndpointDashPa
 
 func (o OriginEndpointDashPackageManifestLayoutPtrOutput) ToOriginEndpointDashPackageManifestLayoutPtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageManifestLayoutPtrOutput {
 	return o
+}
+
+func (o OriginEndpointDashPackageManifestLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageManifestLayout] {
+	return pulumix.Output[*OriginEndpointDashPackageManifestLayout]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointDashPackageManifestLayoutPtrOutput) Elem() OriginEndpointDashPackageManifestLayoutOutput {
@@ -720,6 +799,12 @@ func (in *originEndpointDashPackageManifestLayoutPtr) ToOriginEndpointDashPackag
 
 func (in *originEndpointDashPackageManifestLayoutPtr) ToOriginEndpointDashPackageManifestLayoutPtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageManifestLayoutPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackageManifestLayoutPtrOutput)
+}
+
+func (in *originEndpointDashPackageManifestLayoutPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageManifestLayout] {
+	return pulumix.Output[*OriginEndpointDashPackageManifestLayout]{
+		OutputState: in.ToOriginEndpointDashPackageManifestLayoutPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type OriginEndpointDashPackagePeriodTriggersItem string
@@ -788,6 +873,12 @@ func (o OriginEndpointDashPackagePeriodTriggersItemOutput) ToOriginEndpointDashP
 	}).(OriginEndpointDashPackagePeriodTriggersItemPtrOutput)
 }
 
+func (o OriginEndpointDashPackagePeriodTriggersItemOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackagePeriodTriggersItem] {
+	return pulumix.Output[OriginEndpointDashPackagePeriodTriggersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointDashPackagePeriodTriggersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -821,6 +912,12 @@ func (o OriginEndpointDashPackagePeriodTriggersItemPtrOutput) ToOriginEndpointDa
 
 func (o OriginEndpointDashPackagePeriodTriggersItemPtrOutput) ToOriginEndpointDashPackagePeriodTriggersItemPtrOutputWithContext(ctx context.Context) OriginEndpointDashPackagePeriodTriggersItemPtrOutput {
 	return o
+}
+
+func (o OriginEndpointDashPackagePeriodTriggersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackagePeriodTriggersItem] {
+	return pulumix.Output[*OriginEndpointDashPackagePeriodTriggersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointDashPackagePeriodTriggersItemPtrOutput) Elem() OriginEndpointDashPackagePeriodTriggersItemOutput {
@@ -885,6 +982,12 @@ func (in *originEndpointDashPackagePeriodTriggersItemPtr) ToOriginEndpointDashPa
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackagePeriodTriggersItemPtrOutput)
 }
 
+func (in *originEndpointDashPackagePeriodTriggersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackagePeriodTriggersItem] {
+	return pulumix.Output[*OriginEndpointDashPackagePeriodTriggersItem]{
+		OutputState: in.ToOriginEndpointDashPackagePeriodTriggersItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OriginEndpointDashPackagePeriodTriggersItemArrayInput is an input type that accepts OriginEndpointDashPackagePeriodTriggersItemArray and OriginEndpointDashPackagePeriodTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackagePeriodTriggersItemArrayInput` via:
 //
@@ -910,6 +1013,12 @@ func (i OriginEndpointDashPackagePeriodTriggersItemArray) ToOriginEndpointDashPa
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashPackagePeriodTriggersItemArrayOutput)
 }
 
+func (i OriginEndpointDashPackagePeriodTriggersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDashPackagePeriodTriggersItem] {
+	return pulumix.Output[[]OriginEndpointDashPackagePeriodTriggersItem]{
+		OutputState: i.ToOriginEndpointDashPackagePeriodTriggersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginEndpointDashPackagePeriodTriggersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointDashPackagePeriodTriggersItemArrayOutput) ElementType() reflect.Type {
@@ -922,6 +1031,12 @@ func (o OriginEndpointDashPackagePeriodTriggersItemArrayOutput) ToOriginEndpoint
 
 func (o OriginEndpointDashPackagePeriodTriggersItemArrayOutput) ToOriginEndpointDashPackagePeriodTriggersItemArrayOutputWithContext(ctx context.Context) OriginEndpointDashPackagePeriodTriggersItemArrayOutput {
 	return o
+}
+
+func (o OriginEndpointDashPackagePeriodTriggersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDashPackagePeriodTriggersItem] {
+	return pulumix.Output[[]OriginEndpointDashPackagePeriodTriggersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointDashPackagePeriodTriggersItemArrayOutput) Index(i pulumi.IntInput) OriginEndpointDashPackagePeriodTriggersItemOutput {
@@ -1000,6 +1115,12 @@ func (o OriginEndpointDashPackageProfileOutput) ToOriginEndpointDashPackageProfi
 	}).(OriginEndpointDashPackageProfilePtrOutput)
 }
 
+func (o OriginEndpointDashPackageProfileOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackageProfile] {
+	return pulumix.Output[OriginEndpointDashPackageProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointDashPackageProfileOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1033,6 +1154,12 @@ func (o OriginEndpointDashPackageProfilePtrOutput) ToOriginEndpointDashPackagePr
 
 func (o OriginEndpointDashPackageProfilePtrOutput) ToOriginEndpointDashPackageProfilePtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageProfilePtrOutput {
 	return o
+}
+
+func (o OriginEndpointDashPackageProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageProfile] {
+	return pulumix.Output[*OriginEndpointDashPackageProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointDashPackageProfilePtrOutput) Elem() OriginEndpointDashPackageProfileOutput {
@@ -1095,6 +1222,12 @@ func (in *originEndpointDashPackageProfilePtr) ToOriginEndpointDashPackageProfil
 
 func (in *originEndpointDashPackageProfilePtr) ToOriginEndpointDashPackageProfilePtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageProfilePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackageProfilePtrOutput)
+}
+
+func (in *originEndpointDashPackageProfilePtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageProfile] {
+	return pulumix.Output[*OriginEndpointDashPackageProfile]{
+		OutputState: in.ToOriginEndpointDashPackageProfilePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
@@ -1166,6 +1299,12 @@ func (o OriginEndpointDashPackageSegmentTemplateFormatOutput) ToOriginEndpointDa
 	}).(OriginEndpointDashPackageSegmentTemplateFormatPtrOutput)
 }
 
+func (o OriginEndpointDashPackageSegmentTemplateFormatOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackageSegmentTemplateFormat] {
+	return pulumix.Output[OriginEndpointDashPackageSegmentTemplateFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointDashPackageSegmentTemplateFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1199,6 +1338,12 @@ func (o OriginEndpointDashPackageSegmentTemplateFormatPtrOutput) ToOriginEndpoin
 
 func (o OriginEndpointDashPackageSegmentTemplateFormatPtrOutput) ToOriginEndpointDashPackageSegmentTemplateFormatPtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageSegmentTemplateFormatPtrOutput {
 	return o
+}
+
+func (o OriginEndpointDashPackageSegmentTemplateFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageSegmentTemplateFormat] {
+	return pulumix.Output[*OriginEndpointDashPackageSegmentTemplateFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointDashPackageSegmentTemplateFormatPtrOutput) Elem() OriginEndpointDashPackageSegmentTemplateFormatOutput {
@@ -1261,6 +1406,12 @@ func (in *originEndpointDashPackageSegmentTemplateFormatPtr) ToOriginEndpointDas
 
 func (in *originEndpointDashPackageSegmentTemplateFormatPtr) ToOriginEndpointDashPackageSegmentTemplateFormatPtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageSegmentTemplateFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackageSegmentTemplateFormatPtrOutput)
+}
+
+func (in *originEndpointDashPackageSegmentTemplateFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageSegmentTemplateFormat] {
+	return pulumix.Output[*OriginEndpointDashPackageSegmentTemplateFormat]{
+		OutputState: in.ToOriginEndpointDashPackageSegmentTemplateFormatPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Determines the type of UTCTiming included in the Media Presentation Description (MPD)
@@ -1333,6 +1484,12 @@ func (o OriginEndpointDashPackageUtcTimingOutput) ToOriginEndpointDashPackageUtc
 	}).(OriginEndpointDashPackageUtcTimingPtrOutput)
 }
 
+func (o OriginEndpointDashPackageUtcTimingOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackageUtcTiming] {
+	return pulumix.Output[OriginEndpointDashPackageUtcTiming]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointDashPackageUtcTimingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1366,6 +1523,12 @@ func (o OriginEndpointDashPackageUtcTimingPtrOutput) ToOriginEndpointDashPackage
 
 func (o OriginEndpointDashPackageUtcTimingPtrOutput) ToOriginEndpointDashPackageUtcTimingPtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageUtcTimingPtrOutput {
 	return o
+}
+
+func (o OriginEndpointDashPackageUtcTimingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageUtcTiming] {
+	return pulumix.Output[*OriginEndpointDashPackageUtcTiming]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointDashPackageUtcTimingPtrOutput) Elem() OriginEndpointDashPackageUtcTimingOutput {
@@ -1428,6 +1591,12 @@ func (in *originEndpointDashPackageUtcTimingPtr) ToOriginEndpointDashPackageUtcT
 
 func (in *originEndpointDashPackageUtcTimingPtr) ToOriginEndpointDashPackageUtcTimingPtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageUtcTimingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackageUtcTimingPtrOutput)
+}
+
+func (in *originEndpointDashPackageUtcTimingPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageUtcTiming] {
+	return pulumix.Output[*OriginEndpointDashPackageUtcTiming]{
+		OutputState: in.ToOriginEndpointDashPackageUtcTimingPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A collection of audio encryption presets.
@@ -1501,6 +1670,12 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput) T
 	}).(OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
 }
 
+func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio] {
+	return pulumix.Output[OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1534,6 +1709,12 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput
 
 func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) ToOriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
 	return o
+}
+
+func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio] {
+	return pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) Elem() OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput {
@@ -1596,6 +1777,12 @@ func (in *originEndpointEncryptionContractConfigurationPresetSpeke20AudioPtr) To
 
 func (in *originEndpointEncryptionContractConfigurationPresetSpeke20AudioPtr) ToOriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
+}
+
+func (in *originEndpointEncryptionContractConfigurationPresetSpeke20AudioPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio] {
+	return pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio]{
+		OutputState: in.ToOriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A collection of video encryption presets.
@@ -1674,6 +1861,12 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput) T
 	}).(OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
 }
 
+func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryptionContractConfigurationPresetSpeke20Video] {
+	return pulumix.Output[OriginEndpointEncryptionContractConfigurationPresetSpeke20Video]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1707,6 +1900,12 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput
 
 func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) ToOriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
 	return o
+}
+
+func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Video] {
+	return pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Video]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) Elem() OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput {
@@ -1769,6 +1968,12 @@ func (in *originEndpointEncryptionContractConfigurationPresetSpeke20VideoPtr) To
 
 func (in *originEndpointEncryptionContractConfigurationPresetSpeke20VideoPtr) ToOriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
+}
+
+func (in *originEndpointEncryptionContractConfigurationPresetSpeke20VideoPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Video] {
+	return pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Video]{
+		OutputState: in.ToOriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The encryption method to use.
@@ -1839,6 +2044,12 @@ func (o OriginEndpointHlsEncryptionEncryptionMethodOutput) ToOriginEndpointHlsEn
 	}).(OriginEndpointHlsEncryptionEncryptionMethodPtrOutput)
 }
 
+func (o OriginEndpointHlsEncryptionEncryptionMethodOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsEncryptionEncryptionMethod] {
+	return pulumix.Output[OriginEndpointHlsEncryptionEncryptionMethod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointHlsEncryptionEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1872,6 +2083,12 @@ func (o OriginEndpointHlsEncryptionEncryptionMethodPtrOutput) ToOriginEndpointHl
 
 func (o OriginEndpointHlsEncryptionEncryptionMethodPtrOutput) ToOriginEndpointHlsEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointHlsEncryptionEncryptionMethodPtrOutput {
 	return o
+}
+
+func (o OriginEndpointHlsEncryptionEncryptionMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsEncryptionEncryptionMethod] {
+	return pulumix.Output[*OriginEndpointHlsEncryptionEncryptionMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointHlsEncryptionEncryptionMethodPtrOutput) Elem() OriginEndpointHlsEncryptionEncryptionMethodOutput {
@@ -1934,6 +2151,12 @@ func (in *originEndpointHlsEncryptionEncryptionMethodPtr) ToOriginEndpointHlsEnc
 
 func (in *originEndpointHlsEncryptionEncryptionMethodPtr) ToOriginEndpointHlsEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointHlsEncryptionEncryptionMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsEncryptionEncryptionMethodPtrOutput)
+}
+
+func (in *originEndpointHlsEncryptionEncryptionMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsEncryptionEncryptionMethod] {
+	return pulumix.Output[*OriginEndpointHlsEncryptionEncryptionMethod]{
+		OutputState: in.ToOriginEndpointHlsEncryptionEncryptionMethodPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
@@ -2006,6 +2229,12 @@ func (o OriginEndpointHlsManifestAdMarkersOutput) ToOriginEndpointHlsManifestAdM
 	}).(OriginEndpointHlsManifestAdMarkersPtrOutput)
 }
 
+func (o OriginEndpointHlsManifestAdMarkersOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsManifestAdMarkers] {
+	return pulumix.Output[OriginEndpointHlsManifestAdMarkers]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointHlsManifestAdMarkersOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2039,6 +2268,12 @@ func (o OriginEndpointHlsManifestAdMarkersPtrOutput) ToOriginEndpointHlsManifest
 
 func (o OriginEndpointHlsManifestAdMarkersPtrOutput) ToOriginEndpointHlsManifestAdMarkersPtrOutputWithContext(ctx context.Context) OriginEndpointHlsManifestAdMarkersPtrOutput {
 	return o
+}
+
+func (o OriginEndpointHlsManifestAdMarkersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestAdMarkers] {
+	return pulumix.Output[*OriginEndpointHlsManifestAdMarkers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointHlsManifestAdMarkersPtrOutput) Elem() OriginEndpointHlsManifestAdMarkersOutput {
@@ -2101,6 +2336,12 @@ func (in *originEndpointHlsManifestAdMarkersPtr) ToOriginEndpointHlsManifestAdMa
 
 func (in *originEndpointHlsManifestAdMarkersPtr) ToOriginEndpointHlsManifestAdMarkersPtrOutputWithContext(ctx context.Context) OriginEndpointHlsManifestAdMarkersPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsManifestAdMarkersPtrOutput)
+}
+
+func (in *originEndpointHlsManifestAdMarkersPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestAdMarkers] {
+	return pulumix.Output[*OriginEndpointHlsManifestAdMarkers]{
+		OutputState: in.ToOriginEndpointHlsManifestAdMarkersPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type OriginEndpointHlsManifestAdTriggersItem string
@@ -2176,6 +2417,12 @@ func (o OriginEndpointHlsManifestAdTriggersItemOutput) ToOriginEndpointHlsManife
 	}).(OriginEndpointHlsManifestAdTriggersItemPtrOutput)
 }
 
+func (o OriginEndpointHlsManifestAdTriggersItemOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsManifestAdTriggersItem] {
+	return pulumix.Output[OriginEndpointHlsManifestAdTriggersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointHlsManifestAdTriggersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2209,6 +2456,12 @@ func (o OriginEndpointHlsManifestAdTriggersItemPtrOutput) ToOriginEndpointHlsMan
 
 func (o OriginEndpointHlsManifestAdTriggersItemPtrOutput) ToOriginEndpointHlsManifestAdTriggersItemPtrOutputWithContext(ctx context.Context) OriginEndpointHlsManifestAdTriggersItemPtrOutput {
 	return o
+}
+
+func (o OriginEndpointHlsManifestAdTriggersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestAdTriggersItem] {
+	return pulumix.Output[*OriginEndpointHlsManifestAdTriggersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointHlsManifestAdTriggersItemPtrOutput) Elem() OriginEndpointHlsManifestAdTriggersItemOutput {
@@ -2273,6 +2526,12 @@ func (in *originEndpointHlsManifestAdTriggersItemPtr) ToOriginEndpointHlsManifes
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsManifestAdTriggersItemPtrOutput)
 }
 
+func (in *originEndpointHlsManifestAdTriggersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestAdTriggersItem] {
+	return pulumix.Output[*OriginEndpointHlsManifestAdTriggersItem]{
+		OutputState: in.ToOriginEndpointHlsManifestAdTriggersItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OriginEndpointHlsManifestAdTriggersItemArrayInput is an input type that accepts OriginEndpointHlsManifestAdTriggersItemArray and OriginEndpointHlsManifestAdTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsManifestAdTriggersItemArrayInput` via:
 //
@@ -2298,6 +2557,12 @@ func (i OriginEndpointHlsManifestAdTriggersItemArray) ToOriginEndpointHlsManifes
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsManifestAdTriggersItemArrayOutput)
 }
 
+func (i OriginEndpointHlsManifestAdTriggersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsManifestAdTriggersItem] {
+	return pulumix.Output[[]OriginEndpointHlsManifestAdTriggersItem]{
+		OutputState: i.ToOriginEndpointHlsManifestAdTriggersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginEndpointHlsManifestAdTriggersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointHlsManifestAdTriggersItemArrayOutput) ElementType() reflect.Type {
@@ -2310,6 +2575,12 @@ func (o OriginEndpointHlsManifestAdTriggersItemArrayOutput) ToOriginEndpointHlsM
 
 func (o OriginEndpointHlsManifestAdTriggersItemArrayOutput) ToOriginEndpointHlsManifestAdTriggersItemArrayOutputWithContext(ctx context.Context) OriginEndpointHlsManifestAdTriggersItemArrayOutput {
 	return o
+}
+
+func (o OriginEndpointHlsManifestAdTriggersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsManifestAdTriggersItem] {
+	return pulumix.Output[[]OriginEndpointHlsManifestAdTriggersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointHlsManifestAdTriggersItemArrayOutput) Index(i pulumi.IntInput) OriginEndpointHlsManifestAdTriggersItemOutput {
@@ -2387,6 +2658,12 @@ func (o OriginEndpointHlsManifestPlaylistTypeOutput) ToOriginEndpointHlsManifest
 	}).(OriginEndpointHlsManifestPlaylistTypePtrOutput)
 }
 
+func (o OriginEndpointHlsManifestPlaylistTypeOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsManifestPlaylistType] {
+	return pulumix.Output[OriginEndpointHlsManifestPlaylistType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointHlsManifestPlaylistTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2420,6 +2697,12 @@ func (o OriginEndpointHlsManifestPlaylistTypePtrOutput) ToOriginEndpointHlsManif
 
 func (o OriginEndpointHlsManifestPlaylistTypePtrOutput) ToOriginEndpointHlsManifestPlaylistTypePtrOutputWithContext(ctx context.Context) OriginEndpointHlsManifestPlaylistTypePtrOutput {
 	return o
+}
+
+func (o OriginEndpointHlsManifestPlaylistTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestPlaylistType] {
+	return pulumix.Output[*OriginEndpointHlsManifestPlaylistType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointHlsManifestPlaylistTypePtrOutput) Elem() OriginEndpointHlsManifestPlaylistTypeOutput {
@@ -2482,6 +2765,12 @@ func (in *originEndpointHlsManifestPlaylistTypePtr) ToOriginEndpointHlsManifestP
 
 func (in *originEndpointHlsManifestPlaylistTypePtr) ToOriginEndpointHlsManifestPlaylistTypePtrOutputWithContext(ctx context.Context) OriginEndpointHlsManifestPlaylistTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsManifestPlaylistTypePtrOutput)
+}
+
+func (in *originEndpointHlsManifestPlaylistTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestPlaylistType] {
+	return pulumix.Output[*OriginEndpointHlsManifestPlaylistType]{
+		OutputState: in.ToOriginEndpointHlsManifestPlaylistTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
@@ -2554,6 +2843,12 @@ func (o OriginEndpointHlsPackageAdMarkersOutput) ToOriginEndpointHlsPackageAdMar
 	}).(OriginEndpointHlsPackageAdMarkersPtrOutput)
 }
 
+func (o OriginEndpointHlsPackageAdMarkersOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsPackageAdMarkers] {
+	return pulumix.Output[OriginEndpointHlsPackageAdMarkers]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointHlsPackageAdMarkersOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2587,6 +2882,12 @@ func (o OriginEndpointHlsPackageAdMarkersPtrOutput) ToOriginEndpointHlsPackageAd
 
 func (o OriginEndpointHlsPackageAdMarkersPtrOutput) ToOriginEndpointHlsPackageAdMarkersPtrOutputWithContext(ctx context.Context) OriginEndpointHlsPackageAdMarkersPtrOutput {
 	return o
+}
+
+func (o OriginEndpointHlsPackageAdMarkersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackageAdMarkers] {
+	return pulumix.Output[*OriginEndpointHlsPackageAdMarkers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointHlsPackageAdMarkersPtrOutput) Elem() OriginEndpointHlsPackageAdMarkersOutput {
@@ -2649,6 +2950,12 @@ func (in *originEndpointHlsPackageAdMarkersPtr) ToOriginEndpointHlsPackageAdMark
 
 func (in *originEndpointHlsPackageAdMarkersPtr) ToOriginEndpointHlsPackageAdMarkersPtrOutputWithContext(ctx context.Context) OriginEndpointHlsPackageAdMarkersPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsPackageAdMarkersPtrOutput)
+}
+
+func (in *originEndpointHlsPackageAdMarkersPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackageAdMarkers] {
+	return pulumix.Output[*OriginEndpointHlsPackageAdMarkers]{
+		OutputState: in.ToOriginEndpointHlsPackageAdMarkersPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type OriginEndpointHlsPackageAdTriggersItem string
@@ -2724,6 +3031,12 @@ func (o OriginEndpointHlsPackageAdTriggersItemOutput) ToOriginEndpointHlsPackage
 	}).(OriginEndpointHlsPackageAdTriggersItemPtrOutput)
 }
 
+func (o OriginEndpointHlsPackageAdTriggersItemOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsPackageAdTriggersItem] {
+	return pulumix.Output[OriginEndpointHlsPackageAdTriggersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointHlsPackageAdTriggersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2757,6 +3070,12 @@ func (o OriginEndpointHlsPackageAdTriggersItemPtrOutput) ToOriginEndpointHlsPack
 
 func (o OriginEndpointHlsPackageAdTriggersItemPtrOutput) ToOriginEndpointHlsPackageAdTriggersItemPtrOutputWithContext(ctx context.Context) OriginEndpointHlsPackageAdTriggersItemPtrOutput {
 	return o
+}
+
+func (o OriginEndpointHlsPackageAdTriggersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackageAdTriggersItem] {
+	return pulumix.Output[*OriginEndpointHlsPackageAdTriggersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointHlsPackageAdTriggersItemPtrOutput) Elem() OriginEndpointHlsPackageAdTriggersItemOutput {
@@ -2821,6 +3140,12 @@ func (in *originEndpointHlsPackageAdTriggersItemPtr) ToOriginEndpointHlsPackageA
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsPackageAdTriggersItemPtrOutput)
 }
 
+func (in *originEndpointHlsPackageAdTriggersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackageAdTriggersItem] {
+	return pulumix.Output[*OriginEndpointHlsPackageAdTriggersItem]{
+		OutputState: in.ToOriginEndpointHlsPackageAdTriggersItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OriginEndpointHlsPackageAdTriggersItemArrayInput is an input type that accepts OriginEndpointHlsPackageAdTriggersItemArray and OriginEndpointHlsPackageAdTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsPackageAdTriggersItemArrayInput` via:
 //
@@ -2846,6 +3171,12 @@ func (i OriginEndpointHlsPackageAdTriggersItemArray) ToOriginEndpointHlsPackageA
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsPackageAdTriggersItemArrayOutput)
 }
 
+func (i OriginEndpointHlsPackageAdTriggersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsPackageAdTriggersItem] {
+	return pulumix.Output[[]OriginEndpointHlsPackageAdTriggersItem]{
+		OutputState: i.ToOriginEndpointHlsPackageAdTriggersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginEndpointHlsPackageAdTriggersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointHlsPackageAdTriggersItemArrayOutput) ElementType() reflect.Type {
@@ -2858,6 +3189,12 @@ func (o OriginEndpointHlsPackageAdTriggersItemArrayOutput) ToOriginEndpointHlsPa
 
 func (o OriginEndpointHlsPackageAdTriggersItemArrayOutput) ToOriginEndpointHlsPackageAdTriggersItemArrayOutputWithContext(ctx context.Context) OriginEndpointHlsPackageAdTriggersItemArrayOutput {
 	return o
+}
+
+func (o OriginEndpointHlsPackageAdTriggersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsPackageAdTriggersItem] {
+	return pulumix.Output[[]OriginEndpointHlsPackageAdTriggersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointHlsPackageAdTriggersItemArrayOutput) Index(i pulumi.IntInput) OriginEndpointHlsPackageAdTriggersItemOutput {
@@ -2935,6 +3272,12 @@ func (o OriginEndpointHlsPackagePlaylistTypeOutput) ToOriginEndpointHlsPackagePl
 	}).(OriginEndpointHlsPackagePlaylistTypePtrOutput)
 }
 
+func (o OriginEndpointHlsPackagePlaylistTypeOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsPackagePlaylistType] {
+	return pulumix.Output[OriginEndpointHlsPackagePlaylistType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointHlsPackagePlaylistTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2968,6 +3311,12 @@ func (o OriginEndpointHlsPackagePlaylistTypePtrOutput) ToOriginEndpointHlsPackag
 
 func (o OriginEndpointHlsPackagePlaylistTypePtrOutput) ToOriginEndpointHlsPackagePlaylistTypePtrOutputWithContext(ctx context.Context) OriginEndpointHlsPackagePlaylistTypePtrOutput {
 	return o
+}
+
+func (o OriginEndpointHlsPackagePlaylistTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackagePlaylistType] {
+	return pulumix.Output[*OriginEndpointHlsPackagePlaylistType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointHlsPackagePlaylistTypePtrOutput) Elem() OriginEndpointHlsPackagePlaylistTypeOutput {
@@ -3030,6 +3379,12 @@ func (in *originEndpointHlsPackagePlaylistTypePtr) ToOriginEndpointHlsPackagePla
 
 func (in *originEndpointHlsPackagePlaylistTypePtr) ToOriginEndpointHlsPackagePlaylistTypePtrOutputWithContext(ctx context.Context) OriginEndpointHlsPackagePlaylistTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsPackagePlaylistTypePtrOutput)
+}
+
+func (in *originEndpointHlsPackagePlaylistTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackagePlaylistType] {
+	return pulumix.Output[*OriginEndpointHlsPackagePlaylistType]{
+		OutputState: in.ToOriginEndpointHlsPackagePlaylistTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
@@ -3100,6 +3455,12 @@ func (o OriginEndpointOriginationOutput) ToOriginEndpointOriginationPtrOutputWit
 	}).(OriginEndpointOriginationPtrOutput)
 }
 
+func (o OriginEndpointOriginationOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointOrigination] {
+	return pulumix.Output[OriginEndpointOrigination]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointOriginationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3133,6 +3494,12 @@ func (o OriginEndpointOriginationPtrOutput) ToOriginEndpointOriginationPtrOutput
 
 func (o OriginEndpointOriginationPtrOutput) ToOriginEndpointOriginationPtrOutputWithContext(ctx context.Context) OriginEndpointOriginationPtrOutput {
 	return o
+}
+
+func (o OriginEndpointOriginationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointOrigination] {
+	return pulumix.Output[*OriginEndpointOrigination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointOriginationPtrOutput) Elem() OriginEndpointOriginationOutput {
@@ -3195,6 +3562,12 @@ func (in *originEndpointOriginationPtr) ToOriginEndpointOriginationPtrOutput() O
 
 func (in *originEndpointOriginationPtr) ToOriginEndpointOriginationPtrOutputWithContext(ctx context.Context) OriginEndpointOriginationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointOriginationPtrOutput)
+}
+
+func (in *originEndpointOriginationPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointOrigination] {
+	return pulumix.Output[*OriginEndpointOrigination]{
+		OutputState: in.ToOriginEndpointOriginationPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A directive that determines the order of streams in the output.
@@ -3266,6 +3639,12 @@ func (o OriginEndpointStreamSelectionStreamOrderOutput) ToOriginEndpointStreamSe
 	}).(OriginEndpointStreamSelectionStreamOrderPtrOutput)
 }
 
+func (o OriginEndpointStreamSelectionStreamOrderOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointStreamSelectionStreamOrder] {
+	return pulumix.Output[OriginEndpointStreamSelectionStreamOrder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginEndpointStreamSelectionStreamOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3299,6 +3678,12 @@ func (o OriginEndpointStreamSelectionStreamOrderPtrOutput) ToOriginEndpointStrea
 
 func (o OriginEndpointStreamSelectionStreamOrderPtrOutput) ToOriginEndpointStreamSelectionStreamOrderPtrOutputWithContext(ctx context.Context) OriginEndpointStreamSelectionStreamOrderPtrOutput {
 	return o
+}
+
+func (o OriginEndpointStreamSelectionStreamOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointStreamSelectionStreamOrder] {
+	return pulumix.Output[*OriginEndpointStreamSelectionStreamOrder]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointStreamSelectionStreamOrderPtrOutput) Elem() OriginEndpointStreamSelectionStreamOrderOutput {
@@ -3361,6 +3746,12 @@ func (in *originEndpointStreamSelectionStreamOrderPtr) ToOriginEndpointStreamSel
 
 func (in *originEndpointStreamSelectionStreamOrderPtr) ToOriginEndpointStreamSelectionStreamOrderPtrOutputWithContext(ctx context.Context) OriginEndpointStreamSelectionStreamOrderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointStreamSelectionStreamOrderPtrOutput)
+}
+
+func (in *originEndpointStreamSelectionStreamOrderPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointStreamSelectionStreamOrder] {
+	return pulumix.Output[*OriginEndpointStreamSelectionStreamOrder]{
+		OutputState: in.ToOriginEndpointStreamSelectionStreamOrderPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
@@ -3431,6 +3822,12 @@ func (o PackagingConfigurationDashManifestManifestLayoutOutput) ToPackagingConfi
 	}).(PackagingConfigurationDashManifestManifestLayoutPtrOutput)
 }
 
+func (o PackagingConfigurationDashManifestManifestLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashManifestManifestLayout] {
+	return pulumix.Output[PackagingConfigurationDashManifestManifestLayout]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PackagingConfigurationDashManifestManifestLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3464,6 +3861,12 @@ func (o PackagingConfigurationDashManifestManifestLayoutPtrOutput) ToPackagingCo
 
 func (o PackagingConfigurationDashManifestManifestLayoutPtrOutput) ToPackagingConfigurationDashManifestManifestLayoutPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestManifestLayoutPtrOutput {
 	return o
+}
+
+func (o PackagingConfigurationDashManifestManifestLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestManifestLayout] {
+	return pulumix.Output[*PackagingConfigurationDashManifestManifestLayout]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackagingConfigurationDashManifestManifestLayoutPtrOutput) Elem() PackagingConfigurationDashManifestManifestLayoutOutput {
@@ -3526,6 +3929,12 @@ func (in *packagingConfigurationDashManifestManifestLayoutPtr) ToPackagingConfig
 
 func (in *packagingConfigurationDashManifestManifestLayoutPtr) ToPackagingConfigurationDashManifestManifestLayoutPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestManifestLayoutPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashManifestManifestLayoutPtrOutput)
+}
+
+func (in *packagingConfigurationDashManifestManifestLayoutPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestManifestLayout] {
+	return pulumix.Output[*PackagingConfigurationDashManifestManifestLayout]{
+		OutputState: in.ToPackagingConfigurationDashManifestManifestLayoutPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
@@ -3596,6 +4005,12 @@ func (o PackagingConfigurationDashManifestProfileOutput) ToPackagingConfiguratio
 	}).(PackagingConfigurationDashManifestProfilePtrOutput)
 }
 
+func (o PackagingConfigurationDashManifestProfileOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashManifestProfile] {
+	return pulumix.Output[PackagingConfigurationDashManifestProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PackagingConfigurationDashManifestProfileOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3629,6 +4044,12 @@ func (o PackagingConfigurationDashManifestProfilePtrOutput) ToPackagingConfigura
 
 func (o PackagingConfigurationDashManifestProfilePtrOutput) ToPackagingConfigurationDashManifestProfilePtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestProfilePtrOutput {
 	return o
+}
+
+func (o PackagingConfigurationDashManifestProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestProfile] {
+	return pulumix.Output[*PackagingConfigurationDashManifestProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackagingConfigurationDashManifestProfilePtrOutput) Elem() PackagingConfigurationDashManifestProfileOutput {
@@ -3691,6 +4112,12 @@ func (in *packagingConfigurationDashManifestProfilePtr) ToPackagingConfiguration
 
 func (in *packagingConfigurationDashManifestProfilePtr) ToPackagingConfigurationDashManifestProfilePtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestProfilePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashManifestProfilePtrOutput)
+}
+
+func (in *packagingConfigurationDashManifestProfilePtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestProfile] {
+	return pulumix.Output[*PackagingConfigurationDashManifestProfile]{
+		OutputState: in.ToPackagingConfigurationDashManifestProfilePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
@@ -3761,6 +4188,12 @@ func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToPackagingCo
 	}).(PackagingConfigurationDashManifestScteMarkersSourcePtrOutput)
 }
 
+func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashManifestScteMarkersSource] {
+	return pulumix.Output[PackagingConfigurationDashManifestScteMarkersSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3794,6 +4227,12 @@ func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ToPackagin
 
 func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
 	return o
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestScteMarkersSource] {
+	return pulumix.Output[*PackagingConfigurationDashManifestScteMarkersSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) Elem() PackagingConfigurationDashManifestScteMarkersSourceOutput {
@@ -3856,6 +4295,12 @@ func (in *packagingConfigurationDashManifestScteMarkersSourcePtr) ToPackagingCon
 
 func (in *packagingConfigurationDashManifestScteMarkersSourcePtr) ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashManifestScteMarkersSourcePtrOutput)
+}
+
+func (in *packagingConfigurationDashManifestScteMarkersSourcePtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestScteMarkersSource] {
+	return pulumix.Output[*PackagingConfigurationDashManifestScteMarkersSource]{
+		OutputState: in.ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type PackagingConfigurationDashPackagePeriodTriggersItem string
@@ -3924,6 +4369,12 @@ func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToPackagingCo
 	}).(PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput)
 }
 
+func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashPackagePeriodTriggersItem] {
+	return pulumix.Output[PackagingConfigurationDashPackagePeriodTriggersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3957,6 +4408,12 @@ func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ToPackagin
 
 func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput {
 	return o
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashPackagePeriodTriggersItem] {
+	return pulumix.Output[*PackagingConfigurationDashPackagePeriodTriggersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) Elem() PackagingConfigurationDashPackagePeriodTriggersItemOutput {
@@ -4021,6 +4478,12 @@ func (in *packagingConfigurationDashPackagePeriodTriggersItemPtr) ToPackagingCon
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput)
 }
 
+func (in *packagingConfigurationDashPackagePeriodTriggersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashPackagePeriodTriggersItem] {
+	return pulumix.Output[*PackagingConfigurationDashPackagePeriodTriggersItem]{
+		OutputState: in.ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PackagingConfigurationDashPackagePeriodTriggersItemArrayInput is an input type that accepts PackagingConfigurationDashPackagePeriodTriggersItemArray and PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashPackagePeriodTriggersItemArrayInput` via:
 //
@@ -4046,6 +4509,12 @@ func (i PackagingConfigurationDashPackagePeriodTriggersItemArray) ToPackagingCon
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput)
 }
 
+func (i PackagingConfigurationDashPackagePeriodTriggersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationDashPackagePeriodTriggersItem] {
+	return pulumix.Output[[]PackagingConfigurationDashPackagePeriodTriggersItem]{
+		OutputState: i.ToPackagingConfigurationDashPackagePeriodTriggersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) ElementType() reflect.Type {
@@ -4058,6 +4527,12 @@ func (o PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) ToPackag
 
 func (o PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) ToPackagingConfigurationDashPackagePeriodTriggersItemArrayOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput {
 	return o
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationDashPackagePeriodTriggersItem] {
+	return pulumix.Output[[]PackagingConfigurationDashPackagePeriodTriggersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) Index(i pulumi.IntInput) PackagingConfigurationDashPackagePeriodTriggersItemOutput {
@@ -4135,6 +4610,12 @@ func (o PackagingConfigurationDashPackageSegmentTemplateFormatOutput) ToPackagin
 	}).(PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput)
 }
 
+func (o PackagingConfigurationDashPackageSegmentTemplateFormatOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashPackageSegmentTemplateFormat] {
+	return pulumix.Output[PackagingConfigurationDashPackageSegmentTemplateFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PackagingConfigurationDashPackageSegmentTemplateFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4168,6 +4649,12 @@ func (o PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput) ToPacka
 
 func (o PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput) ToPackagingConfigurationDashPackageSegmentTemplateFormatPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput {
 	return o
+}
+
+func (o PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashPackageSegmentTemplateFormat] {
+	return pulumix.Output[*PackagingConfigurationDashPackageSegmentTemplateFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput) Elem() PackagingConfigurationDashPackageSegmentTemplateFormatOutput {
@@ -4230,6 +4717,12 @@ func (in *packagingConfigurationDashPackageSegmentTemplateFormatPtr) ToPackaging
 
 func (in *packagingConfigurationDashPackageSegmentTemplateFormatPtr) ToPackagingConfigurationDashPackageSegmentTemplateFormatPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput)
+}
+
+func (in *packagingConfigurationDashPackageSegmentTemplateFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashPackageSegmentTemplateFormat] {
+	return pulumix.Output[*PackagingConfigurationDashPackageSegmentTemplateFormat]{
+		OutputState: in.ToPackagingConfigurationDashPackageSegmentTemplateFormatPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A collection of audio encryption presets.
@@ -4303,6 +4796,12 @@ func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioO
 	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
 }
 
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio] {
+	return pulumix.Output[PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4336,6 +4835,12 @@ func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioP
 
 func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
 	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio] {
+	return pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) Elem() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput {
@@ -4398,6 +4903,12 @@ func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20Audi
 
 func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtr) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
+}
+
+func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio] {
+	return pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio]{
+		OutputState: in.ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A collection of video encryption presets.
@@ -4476,6 +4987,12 @@ func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoO
 	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
 }
 
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video] {
+	return pulumix.Output[PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4509,6 +5026,12 @@ func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoP
 
 func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
 	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video] {
+	return pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) Elem() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput {
@@ -4571,6 +5094,12 @@ func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20Vide
 
 func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtr) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
+}
+
+func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video] {
+	return pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video]{
+		OutputState: in.ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The encryption method to use.
@@ -4641,6 +5170,12 @@ func (o PackagingConfigurationHlsEncryptionEncryptionMethodOutput) ToPackagingCo
 	}).(PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput)
 }
 
+func (o PackagingConfigurationHlsEncryptionEncryptionMethodOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationHlsEncryptionEncryptionMethod] {
+	return pulumix.Output[PackagingConfigurationHlsEncryptionEncryptionMethod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PackagingConfigurationHlsEncryptionEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4674,6 +5209,12 @@ func (o PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput) ToPackagin
 
 func (o PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput) ToPackagingConfigurationHlsEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput {
 	return o
+}
+
+func (o PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsEncryptionEncryptionMethod] {
+	return pulumix.Output[*PackagingConfigurationHlsEncryptionEncryptionMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput) Elem() PackagingConfigurationHlsEncryptionEncryptionMethodOutput {
@@ -4736,6 +5277,12 @@ func (in *packagingConfigurationHlsEncryptionEncryptionMethodPtr) ToPackagingCon
 
 func (in *packagingConfigurationHlsEncryptionEncryptionMethodPtr) ToPackagingConfigurationHlsEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput)
+}
+
+func (in *packagingConfigurationHlsEncryptionEncryptionMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsEncryptionEncryptionMethod] {
+	return pulumix.Output[*PackagingConfigurationHlsEncryptionEncryptionMethod]{
+		OutputState: in.ToPackagingConfigurationHlsEncryptionEncryptionMethodPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
@@ -4807,6 +5354,12 @@ func (o PackagingConfigurationHlsManifestAdMarkersOutput) ToPackagingConfigurati
 	}).(PackagingConfigurationHlsManifestAdMarkersPtrOutput)
 }
 
+func (o PackagingConfigurationHlsManifestAdMarkersOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationHlsManifestAdMarkers] {
+	return pulumix.Output[PackagingConfigurationHlsManifestAdMarkers]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PackagingConfigurationHlsManifestAdMarkersOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4840,6 +5393,12 @@ func (o PackagingConfigurationHlsManifestAdMarkersPtrOutput) ToPackagingConfigur
 
 func (o PackagingConfigurationHlsManifestAdMarkersPtrOutput) ToPackagingConfigurationHlsManifestAdMarkersPtrOutputWithContext(ctx context.Context) PackagingConfigurationHlsManifestAdMarkersPtrOutput {
 	return o
+}
+
+func (o PackagingConfigurationHlsManifestAdMarkersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsManifestAdMarkers] {
+	return pulumix.Output[*PackagingConfigurationHlsManifestAdMarkers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackagingConfigurationHlsManifestAdMarkersPtrOutput) Elem() PackagingConfigurationHlsManifestAdMarkersOutput {
@@ -4902,6 +5461,12 @@ func (in *packagingConfigurationHlsManifestAdMarkersPtr) ToPackagingConfiguratio
 
 func (in *packagingConfigurationHlsManifestAdMarkersPtr) ToPackagingConfigurationHlsManifestAdMarkersPtrOutputWithContext(ctx context.Context) PackagingConfigurationHlsManifestAdMarkersPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationHlsManifestAdMarkersPtrOutput)
+}
+
+func (in *packagingConfigurationHlsManifestAdMarkersPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsManifestAdMarkers] {
+	return pulumix.Output[*PackagingConfigurationHlsManifestAdMarkers]{
+		OutputState: in.ToPackagingConfigurationHlsManifestAdMarkersPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A directive that determines the order of streams in the output.
@@ -4973,6 +5538,12 @@ func (o PackagingConfigurationStreamSelectionStreamOrderOutput) ToPackagingConfi
 	}).(PackagingConfigurationStreamSelectionStreamOrderPtrOutput)
 }
 
+func (o PackagingConfigurationStreamSelectionStreamOrderOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationStreamSelectionStreamOrder] {
+	return pulumix.Output[PackagingConfigurationStreamSelectionStreamOrder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PackagingConfigurationStreamSelectionStreamOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5006,6 +5577,12 @@ func (o PackagingConfigurationStreamSelectionStreamOrderPtrOutput) ToPackagingCo
 
 func (o PackagingConfigurationStreamSelectionStreamOrderPtrOutput) ToPackagingConfigurationStreamSelectionStreamOrderPtrOutputWithContext(ctx context.Context) PackagingConfigurationStreamSelectionStreamOrderPtrOutput {
 	return o
+}
+
+func (o PackagingConfigurationStreamSelectionStreamOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationStreamSelectionStreamOrder] {
+	return pulumix.Output[*PackagingConfigurationStreamSelectionStreamOrder]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackagingConfigurationStreamSelectionStreamOrderPtrOutput) Elem() PackagingConfigurationStreamSelectionStreamOrderOutput {
@@ -5068,6 +5645,12 @@ func (in *packagingConfigurationStreamSelectionStreamOrderPtr) ToPackagingConfig
 
 func (in *packagingConfigurationStreamSelectionStreamOrderPtr) ToPackagingConfigurationStreamSelectionStreamOrderPtrOutputWithContext(ctx context.Context) PackagingConfigurationStreamSelectionStreamOrderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationStreamSelectionStreamOrderPtrOutput)
+}
+
+func (in *packagingConfigurationStreamSelectionStreamOrderPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationStreamSelectionStreamOrder] {
+	return pulumix.Output[*PackagingConfigurationStreamSelectionStreamOrder]{
+		OutputState: in.ToPackagingConfigurationStreamSelectionStreamOrderPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

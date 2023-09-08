@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
@@ -159,6 +160,12 @@ func (i *ModelExplainabilityJobDefinition) ToModelExplainabilityJobDefinitionOut
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionOutput)
 }
 
+func (i *ModelExplainabilityJobDefinition) ToOutput(ctx context.Context) pulumix.Output[*ModelExplainabilityJobDefinition] {
+	return pulumix.Output[*ModelExplainabilityJobDefinition]{
+		OutputState: i.ToModelExplainabilityJobDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ModelExplainabilityJobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionOutput) ElementType() reflect.Type {
@@ -171,6 +178,12 @@ func (o ModelExplainabilityJobDefinitionOutput) ToModelExplainabilityJobDefiniti
 
 func (o ModelExplainabilityJobDefinitionOutput) ToModelExplainabilityJobDefinitionOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionOutput {
 	return o
+}
+
+func (o ModelExplainabilityJobDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelExplainabilityJobDefinition] {
+	return pulumix.Output[*ModelExplainabilityJobDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The time at which the job definition was created.

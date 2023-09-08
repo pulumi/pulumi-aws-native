@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::TrafficDistributionGroup
@@ -74,6 +75,12 @@ func (o LookupTrafficDistributionGroupResultOutput) ToLookupTrafficDistributionG
 
 func (o LookupTrafficDistributionGroupResultOutput) ToLookupTrafficDistributionGroupResultOutputWithContext(ctx context.Context) LookupTrafficDistributionGroupResultOutput {
 	return o
+}
+
+func (o LookupTrafficDistributionGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTrafficDistributionGroupResult] {
+	return pulumix.Output[LookupTrafficDistributionGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of the Amazon Connect instance that has been replicated.

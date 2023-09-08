@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
@@ -68,6 +69,12 @@ func (o LookupModelBiasJobDefinitionResultOutput) ToLookupModelBiasJobDefinition
 
 func (o LookupModelBiasJobDefinitionResultOutput) ToLookupModelBiasJobDefinitionResultOutputWithContext(ctx context.Context) LookupModelBiasJobDefinitionResultOutput {
 	return o
+}
+
+func (o LookupModelBiasJobDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupModelBiasJobDefinitionResult] {
+	return pulumix.Output[LookupModelBiasJobDefinitionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The time at which the job definition was created.

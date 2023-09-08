@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::TransitGatewayRoute
@@ -111,6 +112,12 @@ func (i *TransitGatewayRoute) ToTransitGatewayRouteOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteOutput)
 }
 
+func (i *TransitGatewayRoute) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRoute] {
+	return pulumix.Output[*TransitGatewayRoute]{
+		OutputState: i.ToTransitGatewayRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayRouteOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRouteOutput) ElementType() reflect.Type {
@@ -123,6 +130,12 @@ func (o TransitGatewayRouteOutput) ToTransitGatewayRouteOutput() TransitGatewayR
 
 func (o TransitGatewayRouteOutput) ToTransitGatewayRouteOutputWithContext(ctx context.Context) TransitGatewayRouteOutput {
 	return o
+}
+
+func (o TransitGatewayRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRoute] {
+	return pulumix.Output[*TransitGatewayRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayRouteOutput) Blackhole() pulumi.BoolPtrOutput {

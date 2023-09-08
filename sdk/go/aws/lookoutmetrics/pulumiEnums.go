@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AnomalyDetectorCsvFormatDescriptorFileCompression string
@@ -77,6 +78,12 @@ func (o AnomalyDetectorCsvFormatDescriptorFileCompressionOutput) ToAnomalyDetect
 	}).(AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput)
 }
 
+func (o AnomalyDetectorCsvFormatDescriptorFileCompressionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorCsvFormatDescriptorFileCompression] {
+	return pulumix.Output[AnomalyDetectorCsvFormatDescriptorFileCompression]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorCsvFormatDescriptorFileCompressionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput) ToAnomalyDet
 
 func (o AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput) ToAnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutputWithContext(ctx context.Context) AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorCsvFormatDescriptorFileCompression] {
+	return pulumix.Output[*AnomalyDetectorCsvFormatDescriptorFileCompression]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput) Elem() AnomalyDetectorCsvFormatDescriptorFileCompressionOutput {
@@ -172,6 +185,12 @@ func (in *anomalyDetectorCsvFormatDescriptorFileCompressionPtr) ToAnomalyDetecto
 
 func (in *anomalyDetectorCsvFormatDescriptorFileCompressionPtr) ToAnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutputWithContext(ctx context.Context) AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput)
+}
+
+func (in *anomalyDetectorCsvFormatDescriptorFileCompressionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorCsvFormatDescriptorFileCompression] {
+	return pulumix.Output[*AnomalyDetectorCsvFormatDescriptorFileCompression]{
+		OutputState: in.ToAnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Frequency of anomaly detection
@@ -244,6 +263,12 @@ func (o AnomalyDetectorFrequencyOutput) ToAnomalyDetectorFrequencyPtrOutputWithC
 	}).(AnomalyDetectorFrequencyPtrOutput)
 }
 
+func (o AnomalyDetectorFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorFrequency] {
+	return pulumix.Output[AnomalyDetectorFrequency]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorFrequencyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o AnomalyDetectorFrequencyPtrOutput) ToAnomalyDetectorFrequencyPtrOutput()
 
 func (o AnomalyDetectorFrequencyPtrOutput) ToAnomalyDetectorFrequencyPtrOutputWithContext(ctx context.Context) AnomalyDetectorFrequencyPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorFrequency] {
+	return pulumix.Output[*AnomalyDetectorFrequency]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorFrequencyPtrOutput) Elem() AnomalyDetectorFrequencyOutput {
@@ -339,6 +370,12 @@ func (in *anomalyDetectorFrequencyPtr) ToAnomalyDetectorFrequencyPtrOutput() Ano
 
 func (in *anomalyDetectorFrequencyPtr) ToAnomalyDetectorFrequencyPtrOutputWithContext(ctx context.Context) AnomalyDetectorFrequencyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnomalyDetectorFrequencyPtrOutput)
+}
+
+func (in *anomalyDetectorFrequencyPtr) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorFrequency] {
+	return pulumix.Output[*AnomalyDetectorFrequency]{
+		OutputState: in.ToAnomalyDetectorFrequencyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type AnomalyDetectorJsonFormatDescriptorFileCompression string
@@ -408,6 +445,12 @@ func (o AnomalyDetectorJsonFormatDescriptorFileCompressionOutput) ToAnomalyDetec
 	}).(AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput)
 }
 
+func (o AnomalyDetectorJsonFormatDescriptorFileCompressionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorJsonFormatDescriptorFileCompression] {
+	return pulumix.Output[AnomalyDetectorJsonFormatDescriptorFileCompression]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorJsonFormatDescriptorFileCompressionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -441,6 +484,12 @@ func (o AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput) ToAnomalyDe
 
 func (o AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput) ToAnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutputWithContext(ctx context.Context) AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorJsonFormatDescriptorFileCompression] {
+	return pulumix.Output[*AnomalyDetectorJsonFormatDescriptorFileCompression]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput) Elem() AnomalyDetectorJsonFormatDescriptorFileCompressionOutput {
@@ -503,6 +552,12 @@ func (in *anomalyDetectorJsonFormatDescriptorFileCompressionPtr) ToAnomalyDetect
 
 func (in *anomalyDetectorJsonFormatDescriptorFileCompressionPtr) ToAnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutputWithContext(ctx context.Context) AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput)
+}
+
+func (in *anomalyDetectorJsonFormatDescriptorFileCompressionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorJsonFormatDescriptorFileCompression] {
+	return pulumix.Output[*AnomalyDetectorJsonFormatDescriptorFileCompression]{
+		OutputState: in.ToAnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Operator used to aggregate metric values
@@ -573,6 +628,12 @@ func (o AnomalyDetectorMetricAggregationFunctionOutput) ToAnomalyDetectorMetricA
 	}).(AnomalyDetectorMetricAggregationFunctionPtrOutput)
 }
 
+func (o AnomalyDetectorMetricAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricAggregationFunction] {
+	return pulumix.Output[AnomalyDetectorMetricAggregationFunction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorMetricAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -606,6 +667,12 @@ func (o AnomalyDetectorMetricAggregationFunctionPtrOutput) ToAnomalyDetectorMetr
 
 func (o AnomalyDetectorMetricAggregationFunctionPtrOutput) ToAnomalyDetectorMetricAggregationFunctionPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricAggregationFunctionPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorMetricAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetricAggregationFunction] {
+	return pulumix.Output[*AnomalyDetectorMetricAggregationFunction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorMetricAggregationFunctionPtrOutput) Elem() AnomalyDetectorMetricAggregationFunctionOutput {
@@ -668,6 +735,12 @@ func (in *anomalyDetectorMetricAggregationFunctionPtr) ToAnomalyDetectorMetricAg
 
 func (in *anomalyDetectorMetricAggregationFunctionPtr) ToAnomalyDetectorMetricAggregationFunctionPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnomalyDetectorMetricAggregationFunctionPtrOutput)
+}
+
+func (in *anomalyDetectorMetricAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetricAggregationFunction] {
+	return pulumix.Output[*AnomalyDetectorMetricAggregationFunction]{
+		OutputState: in.ToAnomalyDetectorMetricAggregationFunctionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A frequency period to aggregate the data
@@ -740,6 +813,12 @@ func (o AnomalyDetectorMetricSetMetricSetFrequencyOutput) ToAnomalyDetectorMetri
 	}).(AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput)
 }
 
+func (o AnomalyDetectorMetricSetMetricSetFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricSetMetricSetFrequency] {
+	return pulumix.Output[AnomalyDetectorMetricSetMetricSetFrequency]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorMetricSetMetricSetFrequencyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -773,6 +852,12 @@ func (o AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput) ToAnomalyDetectorMe
 
 func (o AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput) ToAnomalyDetectorMetricSetMetricSetFrequencyPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput {
 	return o
+}
+
+func (o AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetricSetMetricSetFrequency] {
+	return pulumix.Output[*AnomalyDetectorMetricSetMetricSetFrequency]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput) Elem() AnomalyDetectorMetricSetMetricSetFrequencyOutput {
@@ -835,6 +920,12 @@ func (in *anomalyDetectorMetricSetMetricSetFrequencyPtr) ToAnomalyDetectorMetric
 
 func (in *anomalyDetectorMetricSetMetricSetFrequencyPtr) ToAnomalyDetectorMetricSetMetricSetFrequencyPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput)
+}
+
+func (in *anomalyDetectorMetricSetMetricSetFrequencyPtr) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetricSetMetricSetFrequency] {
+	return pulumix.Output[*AnomalyDetectorMetricSetMetricSetFrequency]{
+		OutputState: in.ToAnomalyDetectorMetricSetMetricSetFrequencyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

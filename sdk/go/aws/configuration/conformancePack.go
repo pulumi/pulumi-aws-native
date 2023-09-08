@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
@@ -132,6 +133,12 @@ func (i *ConformancePack) ToConformancePackOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackOutput)
 }
 
+func (i *ConformancePack) ToOutput(ctx context.Context) pulumix.Output[*ConformancePack] {
+	return pulumix.Output[*ConformancePack]{
+		OutputState: i.ToConformancePackOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConformancePackOutput struct{ *pulumi.OutputState }
 
 func (ConformancePackOutput) ElementType() reflect.Type {
@@ -144,6 +151,12 @@ func (o ConformancePackOutput) ToConformancePackOutput() ConformancePackOutput {
 
 func (o ConformancePackOutput) ToConformancePackOutputWithContext(ctx context.Context) ConformancePackOutput {
 	return o
+}
+
+func (o ConformancePackOutput) ToOutput(ctx context.Context) pulumix.Output[*ConformancePack] {
+	return pulumix.Output[*ConformancePack]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of ConformancePackInputParameter objects.

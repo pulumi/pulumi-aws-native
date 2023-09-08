@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGateway::Method
@@ -180,6 +181,12 @@ func (i *Method) ToMethodOutputWithContext(ctx context.Context) MethodOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MethodOutput)
 }
 
+func (i *Method) ToOutput(ctx context.Context) pulumix.Output[*Method] {
+	return pulumix.Output[*Method]{
+		OutputState: i.ToMethodOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MethodOutput struct{ *pulumi.OutputState }
 
 func (MethodOutput) ElementType() reflect.Type {
@@ -192,6 +199,12 @@ func (o MethodOutput) ToMethodOutput() MethodOutput {
 
 func (o MethodOutput) ToMethodOutputWithContext(ctx context.Context) MethodOutput {
 	return o
+}
+
+func (o MethodOutput) ToOutput(ctx context.Context) pulumix.Output[*Method] {
+	return pulumix.Output[*Method]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether the method requires clients to submit a valid API key.

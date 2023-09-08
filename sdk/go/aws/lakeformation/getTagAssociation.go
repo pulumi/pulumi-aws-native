@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
@@ -72,6 +73,12 @@ func (o LookupTagAssociationResultOutput) ToLookupTagAssociationResultOutput() L
 
 func (o LookupTagAssociationResultOutput) ToLookupTagAssociationResultOutputWithContext(ctx context.Context) LookupTagAssociationResultOutput {
 	return o
+}
+
+func (o LookupTagAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTagAssociationResult] {
+	return pulumix.Output[LookupTagAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Unique string identifying the resource. Used as primary identifier, which ideally should be a string

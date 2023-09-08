@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The encryption type to use. The only valid value is KMS.
@@ -77,6 +78,12 @@ func (o StreamEncryptionEncryptionTypeOutput) ToStreamEncryptionEncryptionTypePt
 	}).(StreamEncryptionEncryptionTypePtrOutput)
 }
 
+func (o StreamEncryptionEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StreamEncryptionEncryptionType] {
+	return pulumix.Output[StreamEncryptionEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StreamEncryptionEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o StreamEncryptionEncryptionTypePtrOutput) ToStreamEncryptionEncryptionTyp
 
 func (o StreamEncryptionEncryptionTypePtrOutput) ToStreamEncryptionEncryptionTypePtrOutputWithContext(ctx context.Context) StreamEncryptionEncryptionTypePtrOutput {
 	return o
+}
+
+func (o StreamEncryptionEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamEncryptionEncryptionType] {
+	return pulumix.Output[*StreamEncryptionEncryptionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamEncryptionEncryptionTypePtrOutput) Elem() StreamEncryptionEncryptionTypeOutput {
@@ -172,6 +185,12 @@ func (in *streamEncryptionEncryptionTypePtr) ToStreamEncryptionEncryptionTypePtr
 
 func (in *streamEncryptionEncryptionTypePtr) ToStreamEncryptionEncryptionTypePtrOutputWithContext(ctx context.Context) StreamEncryptionEncryptionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StreamEncryptionEncryptionTypePtrOutput)
+}
+
+func (in *streamEncryptionEncryptionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*StreamEncryptionEncryptionType] {
+	return pulumix.Output[*StreamEncryptionEncryptionType]{
+		OutputState: in.ToStreamEncryptionEncryptionTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The mode of the stream
@@ -242,6 +261,12 @@ func (o StreamModeDetailsStreamModeOutput) ToStreamModeDetailsStreamModePtrOutpu
 	}).(StreamModeDetailsStreamModePtrOutput)
 }
 
+func (o StreamModeDetailsStreamModeOutput) ToOutput(ctx context.Context) pulumix.Output[StreamModeDetailsStreamMode] {
+	return pulumix.Output[StreamModeDetailsStreamMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StreamModeDetailsStreamModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -275,6 +300,12 @@ func (o StreamModeDetailsStreamModePtrOutput) ToStreamModeDetailsStreamModePtrOu
 
 func (o StreamModeDetailsStreamModePtrOutput) ToStreamModeDetailsStreamModePtrOutputWithContext(ctx context.Context) StreamModeDetailsStreamModePtrOutput {
 	return o
+}
+
+func (o StreamModeDetailsStreamModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamModeDetailsStreamMode] {
+	return pulumix.Output[*StreamModeDetailsStreamMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamModeDetailsStreamModePtrOutput) Elem() StreamModeDetailsStreamModeOutput {
@@ -337,6 +368,12 @@ func (in *streamModeDetailsStreamModePtr) ToStreamModeDetailsStreamModePtrOutput
 
 func (in *streamModeDetailsStreamModePtr) ToStreamModeDetailsStreamModePtrOutputWithContext(ctx context.Context) StreamModeDetailsStreamModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StreamModeDetailsStreamModePtrOutput)
+}
+
+func (in *streamModeDetailsStreamModePtr) ToOutput(ctx context.Context) pulumix.Output[*StreamModeDetailsStreamMode] {
+	return pulumix.Output[*StreamModeDetailsStreamMode]{
+		OutputState: in.ToStreamModeDetailsStreamModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

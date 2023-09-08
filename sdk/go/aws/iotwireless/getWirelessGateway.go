@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create and manage wireless gateways, including LoRa gateways.
@@ -82,6 +83,12 @@ func (o LookupWirelessGatewayResultOutput) ToLookupWirelessGatewayResultOutput()
 
 func (o LookupWirelessGatewayResultOutput) ToLookupWirelessGatewayResultOutputWithContext(ctx context.Context) LookupWirelessGatewayResultOutput {
 	return o
+}
+
+func (o LookupWirelessGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWirelessGatewayResult] {
+	return pulumix.Output[LookupWirelessGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Arn for Wireless Gateway. Returned upon successful create.

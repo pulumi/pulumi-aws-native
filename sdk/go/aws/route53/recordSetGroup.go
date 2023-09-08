@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Route53::RecordSetGroup
@@ -105,6 +106,12 @@ func (i *RecordSetGroup) ToRecordSetGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupOutput)
 }
 
+func (i *RecordSetGroup) ToOutput(ctx context.Context) pulumix.Output[*RecordSetGroup] {
+	return pulumix.Output[*RecordSetGroup]{
+		OutputState: i.ToRecordSetGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecordSetGroupOutput struct{ *pulumi.OutputState }
 
 func (RecordSetGroupOutput) ElementType() reflect.Type {
@@ -117,6 +124,12 @@ func (o RecordSetGroupOutput) ToRecordSetGroupOutput() RecordSetGroupOutput {
 
 func (o RecordSetGroupOutput) ToRecordSetGroupOutputWithContext(ctx context.Context) RecordSetGroupOutput {
 	return o
+}
+
+func (o RecordSetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordSetGroup] {
+	return pulumix.Output[*RecordSetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordSetGroupOutput) Comment() pulumi.StringPtrOutput {

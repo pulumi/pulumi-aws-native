@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Macie AllowList resource schema
@@ -118,6 +119,12 @@ func (i *AllowList) ToAllowListOutputWithContext(ctx context.Context) AllowListO
 	return pulumi.ToOutputWithContext(ctx, i).(AllowListOutput)
 }
 
+func (i *AllowList) ToOutput(ctx context.Context) pulumix.Output[*AllowList] {
+	return pulumix.Output[*AllowList]{
+		OutputState: i.ToAllowListOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AllowListOutput struct{ *pulumi.OutputState }
 
 func (AllowListOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o AllowListOutput) ToAllowListOutput() AllowListOutput {
 
 func (o AllowListOutput) ToAllowListOutputWithContext(ctx context.Context) AllowListOutput {
 	return o
+}
+
+func (o AllowListOutput) ToOutput(ctx context.Context) pulumix.Output[*AllowList] {
+	return pulumix.Output[*AllowList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AllowList ARN.

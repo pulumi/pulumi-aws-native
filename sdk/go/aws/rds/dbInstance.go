@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
@@ -579,6 +580,12 @@ func (i *DbInstance) ToDbInstanceOutputWithContext(ctx context.Context) DbInstan
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceOutput)
 }
 
+func (i *DbInstance) ToOutput(ctx context.Context) pulumix.Output[*DbInstance] {
+	return pulumix.Output[*DbInstance]{
+		OutputState: i.ToDbInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DbInstanceOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceOutput) ElementType() reflect.Type {
@@ -591,6 +598,12 @@ func (o DbInstanceOutput) ToDbInstanceOutput() DbInstanceOutput {
 
 func (o DbInstanceOutput) ToDbInstanceOutputWithContext(ctx context.Context) DbInstanceOutput {
 	return o
+}
+
+func (o DbInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*DbInstance] {
+	return pulumix.Output[*DbInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The amount of storage (in gigabytes) to be initially allocated for the database instance.

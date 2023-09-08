@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create and manage Multicast groups.
@@ -82,6 +83,12 @@ func (o LookupMulticastGroupResultOutput) ToLookupMulticastGroupResultOutput() L
 
 func (o LookupMulticastGroupResultOutput) ToLookupMulticastGroupResultOutputWithContext(ctx context.Context) LookupMulticastGroupResultOutput {
 	return o
+}
+
+func (o LookupMulticastGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMulticastGroupResult] {
+	return pulumix.Output[LookupMulticastGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Multicast group arn. Returned after successful create.

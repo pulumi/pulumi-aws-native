@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::OpsWorks::Layer
@@ -169,6 +170,12 @@ func (i *Layer) ToLayerOutputWithContext(ctx context.Context) LayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LayerOutput)
 }
 
+func (i *Layer) ToOutput(ctx context.Context) pulumix.Output[*Layer] {
+	return pulumix.Output[*Layer]{
+		OutputState: i.ToLayerOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LayerOutput struct{ *pulumi.OutputState }
 
 func (LayerOutput) ElementType() reflect.Type {
@@ -181,6 +188,12 @@ func (o LayerOutput) ToLayerOutput() LayerOutput {
 
 func (o LayerOutput) ToLayerOutputWithContext(ctx context.Context) LayerOutput {
 	return o
+}
+
+func (o LayerOutput) ToOutput(ctx context.Context) pulumix.Output[*Layer] {
+	return pulumix.Output[*Layer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LayerOutput) Attributes() pulumi.AnyOutput {

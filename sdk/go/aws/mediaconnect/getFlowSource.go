@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::FlowSource
@@ -104,6 +105,12 @@ func (o LookupFlowSourceResultOutput) ToLookupFlowSourceResultOutput() LookupFlo
 
 func (o LookupFlowSourceResultOutput) ToLookupFlowSourceResultOutputWithContext(ctx context.Context) LookupFlowSourceResultOutput {
 	return o
+}
+
+func (o LookupFlowSourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFlowSourceResult] {
+	return pulumix.Output[LookupFlowSourceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of encryption that is used on the content ingested from this source.

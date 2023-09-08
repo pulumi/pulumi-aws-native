@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::NetworkAcl
@@ -106,6 +107,12 @@ func (i *NetworkAcl) ToNetworkAclOutputWithContext(ctx context.Context) NetworkA
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclOutput)
 }
 
+func (i *NetworkAcl) ToOutput(ctx context.Context) pulumix.Output[*NetworkAcl] {
+	return pulumix.Output[*NetworkAcl]{
+		OutputState: i.ToNetworkAclOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkAclOutput struct{ *pulumi.OutputState }
 
 func (NetworkAclOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o NetworkAclOutput) ToNetworkAclOutput() NetworkAclOutput {
 
 func (o NetworkAclOutput) ToNetworkAclOutputWithContext(ctx context.Context) NetworkAclOutput {
 	return o
+}
+
+func (o NetworkAclOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAcl] {
+	return pulumix.Output[*NetworkAcl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The tags to assign to the network ACL.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func ImportValue(ctx *pulumi.Context, args *ImportValueArgs, opts ...pulumi.InvokeOption) (*ImportValueResult, error) {
@@ -62,6 +63,12 @@ func (o ImportValueResultOutput) ToImportValueResultOutput() ImportValueResultOu
 
 func (o ImportValueResultOutput) ToImportValueResultOutputWithContext(ctx context.Context) ImportValueResultOutput {
 	return o
+}
+
+func (o ImportValueResultOutput) ToOutput(ctx context.Context) pulumix.Output[ImportValueResult] {
+	return pulumix.Output[ImportValueResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImportValueResultOutput) Value() pulumi.AnyOutput {

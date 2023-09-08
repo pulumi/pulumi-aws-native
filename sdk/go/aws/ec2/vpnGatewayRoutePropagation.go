@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
@@ -101,6 +102,12 @@ func (i *VpnGatewayRoutePropagation) ToVpnGatewayRoutePropagationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayRoutePropagationOutput)
 }
 
+func (i *VpnGatewayRoutePropagation) ToOutput(ctx context.Context) pulumix.Output[*VpnGatewayRoutePropagation] {
+	return pulumix.Output[*VpnGatewayRoutePropagation]{
+		OutputState: i.ToVpnGatewayRoutePropagationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpnGatewayRoutePropagationOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayRoutePropagationOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutput() V
 
 func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationOutput {
 	return o
+}
+
+func (o VpnGatewayRoutePropagationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnGatewayRoutePropagation] {
+	return pulumix.Output[*VpnGatewayRoutePropagation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpnGatewayRoutePropagationOutput) RouteTableIds() pulumi.StringArrayOutput {

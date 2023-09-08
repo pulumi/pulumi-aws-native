@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
@@ -112,6 +113,12 @@ func (i *VpcEndpointConnectionNotification) ToVpcEndpointConnectionNotificationO
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointConnectionNotificationOutput)
 }
 
+func (i *VpcEndpointConnectionNotification) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointConnectionNotification] {
+	return pulumix.Output[*VpcEndpointConnectionNotification]{
+		OutputState: i.ToVpcEndpointConnectionNotificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcEndpointConnectionNotificationOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointConnectionNotificationOutput) ElementType() reflect.Type {
@@ -124,6 +131,12 @@ func (o VpcEndpointConnectionNotificationOutput) ToVpcEndpointConnectionNotifica
 
 func (o VpcEndpointConnectionNotificationOutput) ToVpcEndpointConnectionNotificationOutputWithContext(ctx context.Context) VpcEndpointConnectionNotificationOutput {
 	return o
+}
+
+func (o VpcEndpointConnectionNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointConnectionNotification] {
+	return pulumix.Output[*VpcEndpointConnectionNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcEndpointConnectionNotificationOutput) ConnectionEvents() pulumi.StringArrayOutput {

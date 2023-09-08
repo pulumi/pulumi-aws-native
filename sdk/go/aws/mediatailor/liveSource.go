@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaTailor::LiveSource Resource Type
@@ -118,6 +119,12 @@ func (i *LiveSource) ToLiveSourceOutputWithContext(ctx context.Context) LiveSour
 	return pulumi.ToOutputWithContext(ctx, i).(LiveSourceOutput)
 }
 
+func (i *LiveSource) ToOutput(ctx context.Context) pulumix.Output[*LiveSource] {
+	return pulumix.Output[*LiveSource]{
+		OutputState: i.ToLiveSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LiveSourceOutput struct{ *pulumi.OutputState }
 
 func (LiveSourceOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o LiveSourceOutput) ToLiveSourceOutput() LiveSourceOutput {
 
 func (o LiveSourceOutput) ToLiveSourceOutputWithContext(ctx context.Context) LiveSourceOutput {
 	return o
+}
+
+func (o LiveSourceOutput) ToOutput(ctx context.Context) pulumix.Output[*LiveSource] {
+	return pulumix.Output[*LiveSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // <p>The ARN of the live source.</p>

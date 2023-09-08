@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::RouteResponse
@@ -120,6 +121,12 @@ func (i *RouteResponse) ToRouteResponseOutputWithContext(ctx context.Context) Ro
 	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseOutput)
 }
 
+func (i *RouteResponse) ToOutput(ctx context.Context) pulumix.Output[*RouteResponse] {
+	return pulumix.Output[*RouteResponse]{
+		OutputState: i.ToRouteResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteResponseOutput struct{ *pulumi.OutputState }
 
 func (RouteResponseOutput) ElementType() reflect.Type {
@@ -132,6 +139,12 @@ func (o RouteResponseOutput) ToRouteResponseOutput() RouteResponseOutput {
 
 func (o RouteResponseOutput) ToRouteResponseOutputWithContext(ctx context.Context) RouteResponseOutput {
 	return o
+}
+
+func (o RouteResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteResponse] {
+	return pulumix.Output[*RouteResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteResponseOutput) ApiId() pulumi.StringOutput {

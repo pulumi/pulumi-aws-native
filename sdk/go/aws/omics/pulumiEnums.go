@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AnnotationStoreAnnotationType string
@@ -82,6 +83,12 @@ func (o AnnotationStoreAnnotationTypeOutput) ToAnnotationStoreAnnotationTypePtrO
 	}).(AnnotationStoreAnnotationTypePtrOutput)
 }
 
+func (o AnnotationStoreAnnotationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreAnnotationType] {
+	return pulumix.Output[AnnotationStoreAnnotationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreAnnotationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -115,6 +122,12 @@ func (o AnnotationStoreAnnotationTypePtrOutput) ToAnnotationStoreAnnotationTypeP
 
 func (o AnnotationStoreAnnotationTypePtrOutput) ToAnnotationStoreAnnotationTypePtrOutputWithContext(ctx context.Context) AnnotationStoreAnnotationTypePtrOutput {
 	return o
+}
+
+func (o AnnotationStoreAnnotationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreAnnotationType] {
+	return pulumix.Output[*AnnotationStoreAnnotationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnnotationStoreAnnotationTypePtrOutput) Elem() AnnotationStoreAnnotationTypeOutput {
@@ -177,6 +190,12 @@ func (in *annotationStoreAnnotationTypePtr) ToAnnotationStoreAnnotationTypePtrOu
 
 func (in *annotationStoreAnnotationTypePtr) ToAnnotationStoreAnnotationTypePtrOutputWithContext(ctx context.Context) AnnotationStoreAnnotationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnnotationStoreAnnotationTypePtrOutput)
+}
+
+func (in *annotationStoreAnnotationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreAnnotationType] {
+	return pulumix.Output[*AnnotationStoreAnnotationType]{
+		OutputState: in.ToAnnotationStoreAnnotationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type AnnotationStoreEncryptionType string
@@ -245,6 +264,12 @@ func (o AnnotationStoreEncryptionTypeOutput) ToAnnotationStoreEncryptionTypePtrO
 	}).(AnnotationStoreEncryptionTypePtrOutput)
 }
 
+func (o AnnotationStoreEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreEncryptionType] {
+	return pulumix.Output[AnnotationStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -278,6 +303,12 @@ func (o AnnotationStoreEncryptionTypePtrOutput) ToAnnotationStoreEncryptionTypeP
 
 func (o AnnotationStoreEncryptionTypePtrOutput) ToAnnotationStoreEncryptionTypePtrOutputWithContext(ctx context.Context) AnnotationStoreEncryptionTypePtrOutput {
 	return o
+}
+
+func (o AnnotationStoreEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreEncryptionType] {
+	return pulumix.Output[*AnnotationStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnnotationStoreEncryptionTypePtrOutput) Elem() AnnotationStoreEncryptionTypeOutput {
@@ -340,6 +371,12 @@ func (in *annotationStoreEncryptionTypePtr) ToAnnotationStoreEncryptionTypePtrOu
 
 func (in *annotationStoreEncryptionTypePtr) ToAnnotationStoreEncryptionTypePtrOutputWithContext(ctx context.Context) AnnotationStoreEncryptionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnnotationStoreEncryptionTypePtrOutput)
+}
+
+func (in *annotationStoreEncryptionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreEncryptionType] {
+	return pulumix.Output[*AnnotationStoreEncryptionType]{
+		OutputState: in.ToAnnotationStoreEncryptionTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type AnnotationStoreStoreFormat string
@@ -410,6 +447,12 @@ func (o AnnotationStoreStoreFormatOutput) ToAnnotationStoreStoreFormatPtrOutputW
 	}).(AnnotationStoreStoreFormatPtrOutput)
 }
 
+func (o AnnotationStoreStoreFormatOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreStoreFormat] {
+	return pulumix.Output[AnnotationStoreStoreFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreStoreFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -443,6 +486,12 @@ func (o AnnotationStoreStoreFormatPtrOutput) ToAnnotationStoreStoreFormatPtrOutp
 
 func (o AnnotationStoreStoreFormatPtrOutput) ToAnnotationStoreStoreFormatPtrOutputWithContext(ctx context.Context) AnnotationStoreStoreFormatPtrOutput {
 	return o
+}
+
+func (o AnnotationStoreStoreFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreStoreFormat] {
+	return pulumix.Output[*AnnotationStoreStoreFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnnotationStoreStoreFormatPtrOutput) Elem() AnnotationStoreStoreFormatOutput {
@@ -507,6 +556,12 @@ func (in *annotationStoreStoreFormatPtr) ToAnnotationStoreStoreFormatPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(AnnotationStoreStoreFormatPtrOutput)
 }
 
+func (in *annotationStoreStoreFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreStoreFormat] {
+	return pulumix.Output[*AnnotationStoreStoreFormat]{
+		OutputState: in.ToAnnotationStoreStoreFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnnotationStoreStoreStatus string
 
 const (
@@ -539,6 +594,12 @@ func (o AnnotationStoreStoreStatusOutput) ToAnnotationStoreStoreStatusPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnnotationStoreStoreStatus) *AnnotationStoreStoreStatus {
 		return &v
 	}).(AnnotationStoreStoreStatusPtrOutput)
+}
+
+func (o AnnotationStoreStoreStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreStoreStatus] {
+	return pulumix.Output[AnnotationStoreStoreStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnnotationStoreStoreStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -574,6 +635,12 @@ func (o AnnotationStoreStoreStatusPtrOutput) ToAnnotationStoreStoreStatusPtrOutp
 
 func (o AnnotationStoreStoreStatusPtrOutput) ToAnnotationStoreStoreStatusPtrOutputWithContext(ctx context.Context) AnnotationStoreStoreStatusPtrOutput {
 	return o
+}
+
+func (o AnnotationStoreStoreStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreStoreStatus] {
+	return pulumix.Output[*AnnotationStoreStoreStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnnotationStoreStoreStatusPtrOutput) Elem() AnnotationStoreStoreStatusOutput {
@@ -666,6 +733,12 @@ func (o ReferenceStoreEncryptionTypeOutput) ToReferenceStoreEncryptionTypePtrOut
 	}).(ReferenceStoreEncryptionTypePtrOutput)
 }
 
+func (o ReferenceStoreEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReferenceStoreEncryptionType] {
+	return pulumix.Output[ReferenceStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReferenceStoreEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -699,6 +772,12 @@ func (o ReferenceStoreEncryptionTypePtrOutput) ToReferenceStoreEncryptionTypePtr
 
 func (o ReferenceStoreEncryptionTypePtrOutput) ToReferenceStoreEncryptionTypePtrOutputWithContext(ctx context.Context) ReferenceStoreEncryptionTypePtrOutput {
 	return o
+}
+
+func (o ReferenceStoreEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReferenceStoreEncryptionType] {
+	return pulumix.Output[*ReferenceStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReferenceStoreEncryptionTypePtrOutput) Elem() ReferenceStoreEncryptionTypeOutput {
@@ -761,6 +840,12 @@ func (in *referenceStoreEncryptionTypePtr) ToReferenceStoreEncryptionTypePtrOutp
 
 func (in *referenceStoreEncryptionTypePtr) ToReferenceStoreEncryptionTypePtrOutputWithContext(ctx context.Context) ReferenceStoreEncryptionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReferenceStoreEncryptionTypePtrOutput)
+}
+
+func (in *referenceStoreEncryptionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ReferenceStoreEncryptionType] {
+	return pulumix.Output[*ReferenceStoreEncryptionType]{
+		OutputState: in.ToReferenceStoreEncryptionTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SequenceStoreEncryptionType string
@@ -829,6 +914,12 @@ func (o SequenceStoreEncryptionTypeOutput) ToSequenceStoreEncryptionTypePtrOutpu
 	}).(SequenceStoreEncryptionTypePtrOutput)
 }
 
+func (o SequenceStoreEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SequenceStoreEncryptionType] {
+	return pulumix.Output[SequenceStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SequenceStoreEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -862,6 +953,12 @@ func (o SequenceStoreEncryptionTypePtrOutput) ToSequenceStoreEncryptionTypePtrOu
 
 func (o SequenceStoreEncryptionTypePtrOutput) ToSequenceStoreEncryptionTypePtrOutputWithContext(ctx context.Context) SequenceStoreEncryptionTypePtrOutput {
 	return o
+}
+
+func (o SequenceStoreEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SequenceStoreEncryptionType] {
+	return pulumix.Output[*SequenceStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SequenceStoreEncryptionTypePtrOutput) Elem() SequenceStoreEncryptionTypeOutput {
@@ -924,6 +1021,12 @@ func (in *sequenceStoreEncryptionTypePtr) ToSequenceStoreEncryptionTypePtrOutput
 
 func (in *sequenceStoreEncryptionTypePtr) ToSequenceStoreEncryptionTypePtrOutputWithContext(ctx context.Context) SequenceStoreEncryptionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SequenceStoreEncryptionTypePtrOutput)
+}
+
+func (in *sequenceStoreEncryptionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SequenceStoreEncryptionType] {
+	return pulumix.Output[*SequenceStoreEncryptionType]{
+		OutputState: in.ToSequenceStoreEncryptionTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type VariantStoreEncryptionType string
@@ -992,6 +1095,12 @@ func (o VariantStoreEncryptionTypeOutput) ToVariantStoreEncryptionTypePtrOutputW
 	}).(VariantStoreEncryptionTypePtrOutput)
 }
 
+func (o VariantStoreEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[VariantStoreEncryptionType] {
+	return pulumix.Output[VariantStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VariantStoreEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1025,6 +1134,12 @@ func (o VariantStoreEncryptionTypePtrOutput) ToVariantStoreEncryptionTypePtrOutp
 
 func (o VariantStoreEncryptionTypePtrOutput) ToVariantStoreEncryptionTypePtrOutputWithContext(ctx context.Context) VariantStoreEncryptionTypePtrOutput {
 	return o
+}
+
+func (o VariantStoreEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariantStoreEncryptionType] {
+	return pulumix.Output[*VariantStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VariantStoreEncryptionTypePtrOutput) Elem() VariantStoreEncryptionTypeOutput {
@@ -1089,6 +1204,12 @@ func (in *variantStoreEncryptionTypePtr) ToVariantStoreEncryptionTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(VariantStoreEncryptionTypePtrOutput)
 }
 
+func (in *variantStoreEncryptionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*VariantStoreEncryptionType] {
+	return pulumix.Output[*VariantStoreEncryptionType]{
+		OutputState: in.ToVariantStoreEncryptionTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VariantStoreStoreStatus string
 
 const (
@@ -1121,6 +1242,12 @@ func (o VariantStoreStoreStatusOutput) ToVariantStoreStoreStatusPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VariantStoreStoreStatus) *VariantStoreStoreStatus {
 		return &v
 	}).(VariantStoreStoreStatusPtrOutput)
+}
+
+func (o VariantStoreStoreStatusOutput) ToOutput(ctx context.Context) pulumix.Output[VariantStoreStoreStatus] {
+	return pulumix.Output[VariantStoreStoreStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VariantStoreStoreStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -1156,6 +1283,12 @@ func (o VariantStoreStoreStatusPtrOutput) ToVariantStoreStoreStatusPtrOutput() V
 
 func (o VariantStoreStoreStatusPtrOutput) ToVariantStoreStoreStatusPtrOutputWithContext(ctx context.Context) VariantStoreStoreStatusPtrOutput {
 	return o
+}
+
+func (o VariantStoreStoreStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariantStoreStoreStatus] {
+	return pulumix.Output[*VariantStoreStoreStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VariantStoreStoreStatusPtrOutput) Elem() VariantStoreStoreStatusOutput {
@@ -1248,6 +1381,12 @@ func (o WorkflowAcceleratorsOutput) ToWorkflowAcceleratorsPtrOutputWithContext(c
 	}).(WorkflowAcceleratorsPtrOutput)
 }
 
+func (o WorkflowAcceleratorsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccelerators] {
+	return pulumix.Output[WorkflowAccelerators]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowAcceleratorsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1281,6 +1420,12 @@ func (o WorkflowAcceleratorsPtrOutput) ToWorkflowAcceleratorsPtrOutput() Workflo
 
 func (o WorkflowAcceleratorsPtrOutput) ToWorkflowAcceleratorsPtrOutputWithContext(ctx context.Context) WorkflowAcceleratorsPtrOutput {
 	return o
+}
+
+func (o WorkflowAcceleratorsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccelerators] {
+	return pulumix.Output[*WorkflowAccelerators]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowAcceleratorsPtrOutput) Elem() WorkflowAcceleratorsOutput {
@@ -1343,6 +1488,12 @@ func (in *workflowAcceleratorsPtr) ToWorkflowAcceleratorsPtrOutput() WorkflowAcc
 
 func (in *workflowAcceleratorsPtr) ToWorkflowAcceleratorsPtrOutputWithContext(ctx context.Context) WorkflowAcceleratorsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkflowAcceleratorsPtrOutput)
+}
+
+func (in *workflowAcceleratorsPtr) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccelerators] {
+	return pulumix.Output[*WorkflowAccelerators]{
+		OutputState: in.ToWorkflowAcceleratorsPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type WorkflowEngine string
@@ -1413,6 +1564,12 @@ func (o WorkflowEngineOutput) ToWorkflowEnginePtrOutputWithContext(ctx context.C
 	}).(WorkflowEnginePtrOutput)
 }
 
+func (o WorkflowEngineOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowEngine] {
+	return pulumix.Output[WorkflowEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1446,6 +1603,12 @@ func (o WorkflowEnginePtrOutput) ToWorkflowEnginePtrOutput() WorkflowEnginePtrOu
 
 func (o WorkflowEnginePtrOutput) ToWorkflowEnginePtrOutputWithContext(ctx context.Context) WorkflowEnginePtrOutput {
 	return o
+}
+
+func (o WorkflowEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowEngine] {
+	return pulumix.Output[*WorkflowEngine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowEnginePtrOutput) Elem() WorkflowEngineOutput {
@@ -1510,6 +1673,12 @@ func (in *workflowEnginePtr) ToWorkflowEnginePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(WorkflowEnginePtrOutput)
 }
 
+func (in *workflowEnginePtr) ToOutput(ctx context.Context) pulumix.Output[*WorkflowEngine] {
+	return pulumix.Output[*WorkflowEngine]{
+		OutputState: in.ToWorkflowEnginePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStatus string
 
 const (
@@ -1542,6 +1711,12 @@ func (o WorkflowStatusOutput) ToWorkflowStatusPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStatus) *WorkflowStatus {
 		return &v
 	}).(WorkflowStatusPtrOutput)
+}
+
+func (o WorkflowStatusOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStatus] {
+	return pulumix.Output[WorkflowStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -1577,6 +1752,12 @@ func (o WorkflowStatusPtrOutput) ToWorkflowStatusPtrOutput() WorkflowStatusPtrOu
 
 func (o WorkflowStatusPtrOutput) ToWorkflowStatusPtrOutputWithContext(ctx context.Context) WorkflowStatusPtrOutput {
 	return o
+}
+
+func (o WorkflowStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStatus] {
+	return pulumix.Output[*WorkflowStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStatusPtrOutput) Elem() WorkflowStatusOutput {
@@ -1633,6 +1814,12 @@ func (o WorkflowTypeOutput) ToWorkflowTypePtrOutputWithContext(ctx context.Conte
 	}).(WorkflowTypePtrOutput)
 }
 
+func (o WorkflowTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowType] {
+	return pulumix.Output[WorkflowType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1666,6 +1853,12 @@ func (o WorkflowTypePtrOutput) ToWorkflowTypePtrOutput() WorkflowTypePtrOutput {
 
 func (o WorkflowTypePtrOutput) ToWorkflowTypePtrOutputWithContext(ctx context.Context) WorkflowTypePtrOutput {
 	return o
+}
+
+func (o WorkflowTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowType] {
+	return pulumix.Output[*WorkflowType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowTypePtrOutput) Elem() WorkflowTypeOutput {

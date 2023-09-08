@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A custom metric published by your devices to Device Defender.
@@ -70,6 +71,12 @@ func (o LookupCustomMetricResultOutput) ToLookupCustomMetricResultOutput() Looku
 
 func (o LookupCustomMetricResultOutput) ToLookupCustomMetricResultOutputWithContext(ctx context.Context) LookupCustomMetricResultOutput {
 	return o
+}
+
+func (o LookupCustomMetricResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCustomMetricResult] {
+	return pulumix.Output[LookupCustomMetricResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Field represents a friendly name in the console for the custom metric; it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated once defined.

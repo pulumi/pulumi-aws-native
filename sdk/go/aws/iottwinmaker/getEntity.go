@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::IoTTwinMaker::Entity
@@ -88,6 +89,12 @@ func (o LookupEntityResultOutput) ToLookupEntityResultOutput() LookupEntityResul
 
 func (o LookupEntityResultOutput) ToLookupEntityResultOutputWithContext(ctx context.Context) LookupEntityResultOutput {
 	return o
+}
+
+func (o LookupEntityResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEntityResult] {
+	return pulumix.Output[LookupEntityResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the entity.

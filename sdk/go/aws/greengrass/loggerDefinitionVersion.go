@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::LoggerDefinitionVersion
@@ -106,6 +107,12 @@ func (i *LoggerDefinitionVersion) ToLoggerDefinitionVersionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionVersionOutput)
 }
 
+func (i *LoggerDefinitionVersion) ToOutput(ctx context.Context) pulumix.Output[*LoggerDefinitionVersion] {
+	return pulumix.Output[*LoggerDefinitionVersion]{
+		OutputState: i.ToLoggerDefinitionVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoggerDefinitionVersionOutput struct{ *pulumi.OutputState }
 
 func (LoggerDefinitionVersionOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o LoggerDefinitionVersionOutput) ToLoggerDefinitionVersionOutput() LoggerD
 
 func (o LoggerDefinitionVersionOutput) ToLoggerDefinitionVersionOutputWithContext(ctx context.Context) LoggerDefinitionVersionOutput {
 	return o
+}
+
+func (o LoggerDefinitionVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggerDefinitionVersion] {
+	return pulumix.Output[*LoggerDefinitionVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggerDefinitionVersionOutput) LoggerDefinitionId() pulumi.StringOutput {

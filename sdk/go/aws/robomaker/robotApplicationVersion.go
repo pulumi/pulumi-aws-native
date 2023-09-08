@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
@@ -106,6 +107,12 @@ func (i *RobotApplicationVersion) ToRobotApplicationVersionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationVersionOutput)
 }
 
+func (i *RobotApplicationVersion) ToOutput(ctx context.Context) pulumix.Output[*RobotApplicationVersion] {
+	return pulumix.Output[*RobotApplicationVersion]{
+		OutputState: i.ToRobotApplicationVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RobotApplicationVersionOutput struct{ *pulumi.OutputState }
 
 func (RobotApplicationVersionOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o RobotApplicationVersionOutput) ToRobotApplicationVersionOutput() RobotAp
 
 func (o RobotApplicationVersionOutput) ToRobotApplicationVersionOutputWithContext(ctx context.Context) RobotApplicationVersionOutput {
 	return o
+}
+
+func (o RobotApplicationVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotApplicationVersion] {
+	return pulumix.Output[*RobotApplicationVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RobotApplicationVersionOutput) Application() pulumi.StringOutput {

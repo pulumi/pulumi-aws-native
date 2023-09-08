@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An label for fraud detector.
@@ -114,6 +115,12 @@ func (i *Label) ToLabelOutputWithContext(ctx context.Context) LabelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LabelOutput)
 }
 
+func (i *Label) ToOutput(ctx context.Context) pulumix.Output[*Label] {
+	return pulumix.Output[*Label]{
+		OutputState: i.ToLabelOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LabelOutput struct{ *pulumi.OutputState }
 
 func (LabelOutput) ElementType() reflect.Type {
@@ -126,6 +133,12 @@ func (o LabelOutput) ToLabelOutput() LabelOutput {
 
 func (o LabelOutput) ToLabelOutputWithContext(ctx context.Context) LabelOutput {
 	return o
+}
+
+func (o LabelOutput) ToOutput(ctx context.Context) pulumix.Output[*Label] {
+	return pulumix.Output[*Label]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The label ARN.

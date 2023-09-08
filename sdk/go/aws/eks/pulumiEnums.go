@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resolve parameter value conflicts
@@ -79,6 +80,12 @@ func (o AddonResolveConflictsOutput) ToAddonResolveConflictsPtrOutputWithContext
 	}).(AddonResolveConflictsPtrOutput)
 }
 
+func (o AddonResolveConflictsOutput) ToOutput(ctx context.Context) pulumix.Output[AddonResolveConflicts] {
+	return pulumix.Output[AddonResolveConflicts]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AddonResolveConflictsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +119,12 @@ func (o AddonResolveConflictsPtrOutput) ToAddonResolveConflictsPtrOutput() Addon
 
 func (o AddonResolveConflictsPtrOutput) ToAddonResolveConflictsPtrOutputWithContext(ctx context.Context) AddonResolveConflictsPtrOutput {
 	return o
+}
+
+func (o AddonResolveConflictsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AddonResolveConflicts] {
+	return pulumix.Output[*AddonResolveConflicts]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AddonResolveConflictsPtrOutput) Elem() AddonResolveConflictsOutput {
@@ -174,6 +187,12 @@ func (in *addonResolveConflictsPtr) ToAddonResolveConflictsPtrOutput() AddonReso
 
 func (in *addonResolveConflictsPtr) ToAddonResolveConflictsPtrOutputWithContext(ctx context.Context) AddonResolveConflictsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AddonResolveConflictsPtrOutput)
+}
+
+func (in *addonResolveConflictsPtr) ToOutput(ctx context.Context) pulumix.Output[*AddonResolveConflicts] {
+	return pulumix.Output[*AddonResolveConflicts]{
+		OutputState: in.ToAddonResolveConflictsPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
@@ -244,6 +263,12 @@ func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToClusterKubernetesNetwork
 	}).(ClusterKubernetesNetworkConfigIpFamilyPtrOutput)
 }
 
+func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterKubernetesNetworkConfigIpFamily] {
+	return pulumix.Output[ClusterKubernetesNetworkConfigIpFamily]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToClusterKubernetesNetw
 
 func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigIpFamilyPtrOutput {
 	return o
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterKubernetesNetworkConfigIpFamily] {
+	return pulumix.Output[*ClusterKubernetesNetworkConfigIpFamily]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) Elem() ClusterKubernetesNetworkConfigIpFamilyOutput {
@@ -339,6 +370,12 @@ func (in *clusterKubernetesNetworkConfigIpFamilyPtr) ToClusterKubernetesNetworkC
 
 func (in *clusterKubernetesNetworkConfigIpFamilyPtr) ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigIpFamilyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterKubernetesNetworkConfigIpFamilyPtrOutput)
+}
+
+func (in *clusterKubernetesNetworkConfigIpFamilyPtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterKubernetesNetworkConfigIpFamily] {
+	return pulumix.Output[*ClusterKubernetesNetworkConfigIpFamily]{
+		OutputState: in.ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // name of the log type
@@ -412,6 +449,12 @@ func (o ClusterLoggingTypeConfigTypeOutput) ToClusterLoggingTypeConfigTypePtrOut
 	}).(ClusterLoggingTypeConfigTypePtrOutput)
 }
 
+func (o ClusterLoggingTypeConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingTypeConfigType] {
+	return pulumix.Output[ClusterLoggingTypeConfigType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterLoggingTypeConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -445,6 +488,12 @@ func (o ClusterLoggingTypeConfigTypePtrOutput) ToClusterLoggingTypeConfigTypePtr
 
 func (o ClusterLoggingTypeConfigTypePtrOutput) ToClusterLoggingTypeConfigTypePtrOutputWithContext(ctx context.Context) ClusterLoggingTypeConfigTypePtrOutput {
 	return o
+}
+
+func (o ClusterLoggingTypeConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingTypeConfigType] {
+	return pulumix.Output[*ClusterLoggingTypeConfigType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLoggingTypeConfigTypePtrOutput) Elem() ClusterLoggingTypeConfigTypeOutput {
@@ -507,6 +556,12 @@ func (in *clusterLoggingTypeConfigTypePtr) ToClusterLoggingTypeConfigTypePtrOutp
 
 func (in *clusterLoggingTypeConfigTypePtr) ToClusterLoggingTypeConfigTypePtrOutputWithContext(ctx context.Context) ClusterLoggingTypeConfigTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterLoggingTypeConfigTypePtrOutput)
+}
+
+func (in *clusterLoggingTypeConfigTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingTypeConfigType] {
+	return pulumix.Output[*ClusterLoggingTypeConfigType]{
+		OutputState: in.ToClusterLoggingTypeConfigTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of the identity provider configuration.
@@ -576,6 +631,12 @@ func (o IdentityProviderConfigTypeOutput) ToIdentityProviderConfigTypePtrOutputW
 	}).(IdentityProviderConfigTypePtrOutput)
 }
 
+func (o IdentityProviderConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderConfigType] {
+	return pulumix.Output[IdentityProviderConfigType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IdentityProviderConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -609,6 +670,12 @@ func (o IdentityProviderConfigTypePtrOutput) ToIdentityProviderConfigTypePtrOutp
 
 func (o IdentityProviderConfigTypePtrOutput) ToIdentityProviderConfigTypePtrOutputWithContext(ctx context.Context) IdentityProviderConfigTypePtrOutput {
 	return o
+}
+
+func (o IdentityProviderConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderConfigType] {
+	return pulumix.Output[*IdentityProviderConfigType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityProviderConfigTypePtrOutput) Elem() IdentityProviderConfigTypeOutput {
@@ -671,6 +738,12 @@ func (in *identityProviderConfigTypePtr) ToIdentityProviderConfigTypePtrOutput()
 
 func (in *identityProviderConfigTypePtr) ToIdentityProviderConfigTypePtrOutputWithContext(ctx context.Context) IdentityProviderConfigTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityProviderConfigTypePtrOutput)
+}
+
+func (in *identityProviderConfigTypePtr) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderConfigType] {
+	return pulumix.Output[*IdentityProviderConfigType]{
+		OutputState: in.ToIdentityProviderConfigTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

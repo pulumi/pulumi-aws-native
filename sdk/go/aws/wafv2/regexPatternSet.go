@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
@@ -124,6 +125,12 @@ func (i *RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetOutput)
 }
 
+func (i *RegexPatternSet) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSet] {
+	return pulumix.Output[*RegexPatternSet]{
+		OutputState: i.ToRegexPatternSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegexPatternSetOutput struct{ *pulumi.OutputState }
 
 func (RegexPatternSetOutput) ElementType() reflect.Type {
@@ -136,6 +143,12 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutput() RegexPatternSetOutput {
 
 func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput {
 	return o
+}
+
+func (o RegexPatternSetOutput) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSet] {
+	return pulumix.Output[*RegexPatternSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the WAF entity.

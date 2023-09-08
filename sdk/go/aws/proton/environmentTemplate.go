@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Proton::EnvironmentTemplate Resource Type
@@ -130,6 +131,12 @@ func (i *EnvironmentTemplate) ToEnvironmentTemplateOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTemplateOutput)
 }
 
+func (i *EnvironmentTemplate) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentTemplate] {
+	return pulumix.Output[*EnvironmentTemplate]{
+		OutputState: i.ToEnvironmentTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentTemplateOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentTemplateOutput) ElementType() reflect.Type {
@@ -142,6 +149,12 @@ func (o EnvironmentTemplateOutput) ToEnvironmentTemplateOutput() EnvironmentTemp
 
 func (o EnvironmentTemplateOutput) ToEnvironmentTemplateOutputWithContext(ctx context.Context) EnvironmentTemplateOutput {
 	return o
+}
+
+func (o EnvironmentTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentTemplate] {
+	return pulumix.Output[*EnvironmentTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // <p>The Amazon Resource Name (ARN) of the environment template.</p>

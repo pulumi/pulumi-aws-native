@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i AgentTagArgs) ToAgentTagOutputWithContext(ctx context.Context) AgentTagO
 	return pulumi.ToOutputWithContext(ctx, i).(AgentTagOutput)
 }
 
+func (i AgentTagArgs) ToOutput(ctx context.Context) pulumix.Output[AgentTag] {
+	return pulumix.Output[AgentTag]{
+		OutputState: i.ToAgentTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AgentTagArrayInput is an input type that accepts AgentTagArray and AgentTagArrayOutput values.
 // You can construct a concrete instance of `AgentTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i AgentTagArray) ToAgentTagArrayOutputWithContext(ctx context.Context) Age
 	return pulumi.ToOutputWithContext(ctx, i).(AgentTagArrayOutput)
 }
 
+func (i AgentTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AgentTag] {
+	return pulumix.Output[[]AgentTag]{
+		OutputState: i.ToAgentTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type AgentTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o AgentTagOutput) ToAgentTagOutput() AgentTagOutput {
 
 func (o AgentTagOutput) ToAgentTagOutputWithContext(ctx context.Context) AgentTagOutput {
 	return o
+}
+
+func (o AgentTagOutput) ToOutput(ctx context.Context) pulumix.Output[AgentTag] {
+	return pulumix.Output[AgentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -114,6 +133,12 @@ func (o AgentTagArrayOutput) ToAgentTagArrayOutput() AgentTagArrayOutput {
 
 func (o AgentTagArrayOutput) ToAgentTagArrayOutputWithContext(ctx context.Context) AgentTagArrayOutput {
 	return o
+}
+
+func (o AgentTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AgentTag] {
+	return pulumix.Output[[]AgentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AgentTagArrayOutput) Index(i pulumi.IntInput) AgentTagOutput {
@@ -157,6 +182,12 @@ func (i LocationAzureBlobAzureBlobSasConfigurationArgs) ToLocationAzureBlobAzure
 	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobAzureBlobSasConfigurationOutput)
 }
 
+func (i LocationAzureBlobAzureBlobSasConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobAzureBlobSasConfiguration] {
+	return pulumix.Output[LocationAzureBlobAzureBlobSasConfiguration]{
+		OutputState: i.ToLocationAzureBlobAzureBlobSasConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LocationAzureBlobAzureBlobSasConfigurationArgs) ToLocationAzureBlobAzureBlobSasConfigurationPtrOutput() LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
 	return i.ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(context.Background())
 }
@@ -198,6 +229,12 @@ func (i *locationAzureBlobAzureBlobSasConfigurationPtrType) ToLocationAzureBlobA
 	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobAzureBlobSasConfigurationPtrOutput)
 }
 
+func (i *locationAzureBlobAzureBlobSasConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlobAzureBlobSasConfiguration] {
+	return pulumix.Output[*LocationAzureBlobAzureBlobSasConfiguration]{
+		OutputState: i.ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
 type LocationAzureBlobAzureBlobSasConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -223,6 +260,12 @@ func (o LocationAzureBlobAzureBlobSasConfigurationOutput) ToLocationAzureBlobAzu
 	}).(LocationAzureBlobAzureBlobSasConfigurationPtrOutput)
 }
 
+func (o LocationAzureBlobAzureBlobSasConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobAzureBlobSasConfiguration] {
+	return pulumix.Output[LocationAzureBlobAzureBlobSasConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
 func (o LocationAzureBlobAzureBlobSasConfigurationOutput) AzureBlobSasToken() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationAzureBlobAzureBlobSasConfiguration) string { return v.AzureBlobSasToken }).(pulumi.StringOutput)
@@ -240,6 +283,12 @@ func (o LocationAzureBlobAzureBlobSasConfigurationPtrOutput) ToLocationAzureBlob
 
 func (o LocationAzureBlobAzureBlobSasConfigurationPtrOutput) ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
 	return o
+}
+
+func (o LocationAzureBlobAzureBlobSasConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlobAzureBlobSasConfiguration] {
+	return pulumix.Output[*LocationAzureBlobAzureBlobSasConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationAzureBlobAzureBlobSasConfigurationPtrOutput) Elem() LocationAzureBlobAzureBlobSasConfigurationOutput {
@@ -301,6 +350,12 @@ func (i LocationAzureBlobTagArgs) ToLocationAzureBlobTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobTagOutput)
 }
 
+func (i LocationAzureBlobTagArgs) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobTag] {
+	return pulumix.Output[LocationAzureBlobTag]{
+		OutputState: i.ToLocationAzureBlobTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationAzureBlobTagArrayInput is an input type that accepts LocationAzureBlobTagArray and LocationAzureBlobTagArrayOutput values.
 // You can construct a concrete instance of `LocationAzureBlobTagArrayInput` via:
 //
@@ -326,6 +381,12 @@ func (i LocationAzureBlobTagArray) ToLocationAzureBlobTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobTagArrayOutput)
 }
 
+func (i LocationAzureBlobTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationAzureBlobTag] {
+	return pulumix.Output[[]LocationAzureBlobTag]{
+		OutputState: i.ToLocationAzureBlobTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LocationAzureBlobTagOutput struct{ *pulumi.OutputState }
 
@@ -339,6 +400,12 @@ func (o LocationAzureBlobTagOutput) ToLocationAzureBlobTagOutput() LocationAzure
 
 func (o LocationAzureBlobTagOutput) ToLocationAzureBlobTagOutputWithContext(ctx context.Context) LocationAzureBlobTagOutput {
 	return o
+}
+
+func (o LocationAzureBlobTagOutput) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobTag] {
+	return pulumix.Output[LocationAzureBlobTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -363,6 +430,12 @@ func (o LocationAzureBlobTagArrayOutput) ToLocationAzureBlobTagArrayOutput() Loc
 
 func (o LocationAzureBlobTagArrayOutput) ToLocationAzureBlobTagArrayOutputWithContext(ctx context.Context) LocationAzureBlobTagArrayOutput {
 	return o
+}
+
+func (o LocationAzureBlobTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationAzureBlobTag] {
+	return pulumix.Output[[]LocationAzureBlobTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationAzureBlobTagArrayOutput) Index(i pulumi.IntInput) LocationAzureBlobTagOutput {
@@ -410,6 +483,12 @@ func (i LocationEfsEc2ConfigArgs) ToLocationEfsEc2ConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocationEfsEc2ConfigOutput)
 }
 
+func (i LocationEfsEc2ConfigArgs) ToOutput(ctx context.Context) pulumix.Output[LocationEfsEc2Config] {
+	return pulumix.Output[LocationEfsEc2Config]{
+		OutputState: i.ToLocationEfsEc2ConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The subnet and security group that DataSync uses to access target EFS file system.
 type LocationEfsEc2ConfigOutput struct{ *pulumi.OutputState }
 
@@ -423,6 +502,12 @@ func (o LocationEfsEc2ConfigOutput) ToLocationEfsEc2ConfigOutput() LocationEfsEc
 
 func (o LocationEfsEc2ConfigOutput) ToLocationEfsEc2ConfigOutputWithContext(ctx context.Context) LocationEfsEc2ConfigOutput {
 	return o
+}
+
+func (o LocationEfsEc2ConfigOutput) ToOutput(ctx context.Context) pulumix.Output[LocationEfsEc2Config] {
+	return pulumix.Output[LocationEfsEc2Config]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
@@ -474,6 +559,12 @@ func (i LocationEfsTagArgs) ToLocationEfsTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationEfsTagOutput)
 }
 
+func (i LocationEfsTagArgs) ToOutput(ctx context.Context) pulumix.Output[LocationEfsTag] {
+	return pulumix.Output[LocationEfsTag]{
+		OutputState: i.ToLocationEfsTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationEfsTagArrayInput is an input type that accepts LocationEfsTagArray and LocationEfsTagArrayOutput values.
 // You can construct a concrete instance of `LocationEfsTagArrayInput` via:
 //
@@ -499,6 +590,12 @@ func (i LocationEfsTagArray) ToLocationEfsTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LocationEfsTagArrayOutput)
 }
 
+func (i LocationEfsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationEfsTag] {
+	return pulumix.Output[[]LocationEfsTag]{
+		OutputState: i.ToLocationEfsTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LocationEfsTagOutput struct{ *pulumi.OutputState }
 
@@ -512,6 +609,12 @@ func (o LocationEfsTagOutput) ToLocationEfsTagOutput() LocationEfsTagOutput {
 
 func (o LocationEfsTagOutput) ToLocationEfsTagOutputWithContext(ctx context.Context) LocationEfsTagOutput {
 	return o
+}
+
+func (o LocationEfsTagOutput) ToOutput(ctx context.Context) pulumix.Output[LocationEfsTag] {
+	return pulumix.Output[LocationEfsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -536,6 +639,12 @@ func (o LocationEfsTagArrayOutput) ToLocationEfsTagArrayOutput() LocationEfsTagA
 
 func (o LocationEfsTagArrayOutput) ToLocationEfsTagArrayOutputWithContext(ctx context.Context) LocationEfsTagArrayOutput {
 	return o
+}
+
+func (o LocationEfsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationEfsTag] {
+	return pulumix.Output[[]LocationEfsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationEfsTagArrayOutput) Index(i pulumi.IntInput) LocationEfsTagOutput {
@@ -583,6 +692,12 @@ func (i LocationFSxLustreTagArgs) ToLocationFSxLustreTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxLustreTagOutput)
 }
 
+func (i LocationFSxLustreTagArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxLustreTag] {
+	return pulumix.Output[LocationFSxLustreTag]{
+		OutputState: i.ToLocationFSxLustreTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationFSxLustreTagArrayInput is an input type that accepts LocationFSxLustreTagArray and LocationFSxLustreTagArrayOutput values.
 // You can construct a concrete instance of `LocationFSxLustreTagArrayInput` via:
 //
@@ -608,6 +723,12 @@ func (i LocationFSxLustreTagArray) ToLocationFSxLustreTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxLustreTagArrayOutput)
 }
 
+func (i LocationFSxLustreTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationFSxLustreTag] {
+	return pulumix.Output[[]LocationFSxLustreTag]{
+		OutputState: i.ToLocationFSxLustreTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LocationFSxLustreTagOutput struct{ *pulumi.OutputState }
 
@@ -621,6 +742,12 @@ func (o LocationFSxLustreTagOutput) ToLocationFSxLustreTagOutput() LocationFSxLu
 
 func (o LocationFSxLustreTagOutput) ToLocationFSxLustreTagOutputWithContext(ctx context.Context) LocationFSxLustreTagOutput {
 	return o
+}
+
+func (o LocationFSxLustreTagOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxLustreTag] {
+	return pulumix.Output[LocationFSxLustreTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -645,6 +772,12 @@ func (o LocationFSxLustreTagArrayOutput) ToLocationFSxLustreTagArrayOutput() Loc
 
 func (o LocationFSxLustreTagArrayOutput) ToLocationFSxLustreTagArrayOutputWithContext(ctx context.Context) LocationFSxLustreTagArrayOutput {
 	return o
+}
+
+func (o LocationFSxLustreTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationFSxLustreTag] {
+	return pulumix.Output[[]LocationFSxLustreTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxLustreTagArrayOutput) Index(i pulumi.IntInput) LocationFSxLustreTagOutput {
@@ -684,6 +817,12 @@ func (i LocationFSxOntapNfsArgs) ToLocationFSxOntapNfsOutput() LocationFSxOntapN
 
 func (i LocationFSxOntapNfsArgs) ToLocationFSxOntapNfsOutputWithContext(ctx context.Context) LocationFSxOntapNfsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapNfsOutput)
+}
+
+func (i LocationFSxOntapNfsArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapNfs] {
+	return pulumix.Output[LocationFSxOntapNfs]{
+		OutputState: i.ToLocationFSxOntapNfsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LocationFSxOntapNfsArgs) ToLocationFSxOntapNfsPtrOutput() LocationFSxOntapNfsPtrOutput {
@@ -727,6 +866,12 @@ func (i *locationFSxOntapNfsPtrType) ToLocationFSxOntapNfsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapNfsPtrOutput)
 }
 
+func (i *locationFSxOntapNfsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapNfs] {
+	return pulumix.Output[*LocationFSxOntapNfs]{
+		OutputState: i.ToLocationFSxOntapNfsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NFS protocol configuration for FSx ONTAP file system.
 type LocationFSxOntapNfsOutput struct{ *pulumi.OutputState }
 
@@ -752,6 +897,12 @@ func (o LocationFSxOntapNfsOutput) ToLocationFSxOntapNfsPtrOutputWithContext(ctx
 	}).(LocationFSxOntapNfsPtrOutput)
 }
 
+func (o LocationFSxOntapNfsOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapNfs] {
+	return pulumix.Output[LocationFSxOntapNfs]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxOntapNfsOutput) MountOptions() LocationFSxOntapNfsMountOptionsOutput {
 	return o.ApplyT(func(v LocationFSxOntapNfs) LocationFSxOntapNfsMountOptions { return v.MountOptions }).(LocationFSxOntapNfsMountOptionsOutput)
 }
@@ -768,6 +919,12 @@ func (o LocationFSxOntapNfsPtrOutput) ToLocationFSxOntapNfsPtrOutput() LocationF
 
 func (o LocationFSxOntapNfsPtrOutput) ToLocationFSxOntapNfsPtrOutputWithContext(ctx context.Context) LocationFSxOntapNfsPtrOutput {
 	return o
+}
+
+func (o LocationFSxOntapNfsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapNfs] {
+	return pulumix.Output[*LocationFSxOntapNfs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxOntapNfsPtrOutput) Elem() LocationFSxOntapNfsOutput {
@@ -824,6 +981,12 @@ func (i LocationFSxOntapNfsMountOptionsArgs) ToLocationFSxOntapNfsMountOptionsOu
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapNfsMountOptionsOutput)
 }
 
+func (i LocationFSxOntapNfsMountOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapNfsMountOptions] {
+	return pulumix.Output[LocationFSxOntapNfsMountOptions]{
+		OutputState: i.ToLocationFSxOntapNfsMountOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LocationFSxOntapNfsMountOptionsArgs) ToLocationFSxOntapNfsMountOptionsPtrOutput() LocationFSxOntapNfsMountOptionsPtrOutput {
 	return i.ToLocationFSxOntapNfsMountOptionsPtrOutputWithContext(context.Background())
 }
@@ -865,6 +1028,12 @@ func (i *locationFSxOntapNfsMountOptionsPtrType) ToLocationFSxOntapNfsMountOptio
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapNfsMountOptionsPtrOutput)
 }
 
+func (i *locationFSxOntapNfsMountOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapNfsMountOptions] {
+	return pulumix.Output[*LocationFSxOntapNfsMountOptions]{
+		OutputState: i.ToLocationFSxOntapNfsMountOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The NFS mount options that DataSync can use to mount your NFS share.
 type LocationFSxOntapNfsMountOptionsOutput struct{ *pulumi.OutputState }
 
@@ -890,6 +1059,12 @@ func (o LocationFSxOntapNfsMountOptionsOutput) ToLocationFSxOntapNfsMountOptions
 	}).(LocationFSxOntapNfsMountOptionsPtrOutput)
 }
 
+func (o LocationFSxOntapNfsMountOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapNfsMountOptions] {
+	return pulumix.Output[LocationFSxOntapNfsMountOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The specific NFS version that you want DataSync to use to mount your NFS share.
 func (o LocationFSxOntapNfsMountOptionsOutput) Version() LocationFSxOntapNfsMountOptionsVersionPtrOutput {
 	return o.ApplyT(func(v LocationFSxOntapNfsMountOptions) *LocationFSxOntapNfsMountOptionsVersion { return v.Version }).(LocationFSxOntapNfsMountOptionsVersionPtrOutput)
@@ -907,6 +1082,12 @@ func (o LocationFSxOntapNfsMountOptionsPtrOutput) ToLocationFSxOntapNfsMountOpti
 
 func (o LocationFSxOntapNfsMountOptionsPtrOutput) ToLocationFSxOntapNfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxOntapNfsMountOptionsPtrOutput {
 	return o
+}
+
+func (o LocationFSxOntapNfsMountOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapNfsMountOptions] {
+	return pulumix.Output[*LocationFSxOntapNfsMountOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxOntapNfsMountOptionsPtrOutput) Elem() LocationFSxOntapNfsMountOptionsOutput {
@@ -964,6 +1145,12 @@ func (i LocationFSxOntapProtocolArgs) ToLocationFSxOntapProtocolOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapProtocolOutput)
 }
 
+func (i LocationFSxOntapProtocolArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapProtocol] {
+	return pulumix.Output[LocationFSxOntapProtocol]{
+		OutputState: i.ToLocationFSxOntapProtocolOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LocationFSxOntapProtocolArgs) ToLocationFSxOntapProtocolPtrOutput() LocationFSxOntapProtocolPtrOutput {
 	return i.ToLocationFSxOntapProtocolPtrOutputWithContext(context.Background())
 }
@@ -1005,6 +1192,12 @@ func (i *locationFSxOntapProtocolPtrType) ToLocationFSxOntapProtocolPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapProtocolPtrOutput)
 }
 
+func (i *locationFSxOntapProtocolPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapProtocol] {
+	return pulumix.Output[*LocationFSxOntapProtocol]{
+		OutputState: i.ToLocationFSxOntapProtocolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration settings for NFS or SMB protocol.
 type LocationFSxOntapProtocolOutput struct{ *pulumi.OutputState }
 
@@ -1030,6 +1223,12 @@ func (o LocationFSxOntapProtocolOutput) ToLocationFSxOntapProtocolPtrOutputWithC
 	}).(LocationFSxOntapProtocolPtrOutput)
 }
 
+func (o LocationFSxOntapProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapProtocol] {
+	return pulumix.Output[LocationFSxOntapProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxOntapProtocolOutput) Nfs() LocationFSxOntapNfsPtrOutput {
 	return o.ApplyT(func(v LocationFSxOntapProtocol) *LocationFSxOntapNfs { return v.Nfs }).(LocationFSxOntapNfsPtrOutput)
 }
@@ -1050,6 +1249,12 @@ func (o LocationFSxOntapProtocolPtrOutput) ToLocationFSxOntapProtocolPtrOutput()
 
 func (o LocationFSxOntapProtocolPtrOutput) ToLocationFSxOntapProtocolPtrOutputWithContext(ctx context.Context) LocationFSxOntapProtocolPtrOutput {
 	return o
+}
+
+func (o LocationFSxOntapProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapProtocol] {
+	return pulumix.Output[*LocationFSxOntapProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxOntapProtocolPtrOutput) Elem() LocationFSxOntapProtocolOutput {
@@ -1125,6 +1330,12 @@ func (i LocationFSxOntapSmbArgs) ToLocationFSxOntapSmbOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapSmbOutput)
 }
 
+func (i LocationFSxOntapSmbArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapSmb] {
+	return pulumix.Output[LocationFSxOntapSmb]{
+		OutputState: i.ToLocationFSxOntapSmbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LocationFSxOntapSmbArgs) ToLocationFSxOntapSmbPtrOutput() LocationFSxOntapSmbPtrOutput {
 	return i.ToLocationFSxOntapSmbPtrOutputWithContext(context.Background())
 }
@@ -1166,6 +1377,12 @@ func (i *locationFSxOntapSmbPtrType) ToLocationFSxOntapSmbPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapSmbPtrOutput)
 }
 
+func (i *locationFSxOntapSmbPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapSmb] {
+	return pulumix.Output[*LocationFSxOntapSmb]{
+		OutputState: i.ToLocationFSxOntapSmbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SMB protocol configuration for FSx ONTAP file system.
 type LocationFSxOntapSmbOutput struct{ *pulumi.OutputState }
 
@@ -1189,6 +1406,12 @@ func (o LocationFSxOntapSmbOutput) ToLocationFSxOntapSmbPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxOntapSmb) *LocationFSxOntapSmb {
 		return &v
 	}).(LocationFSxOntapSmbPtrOutput)
+}
+
+func (o LocationFSxOntapSmbOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapSmb] {
+	return pulumix.Output[LocationFSxOntapSmb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Windows domain that the SMB server belongs to.
@@ -1222,6 +1445,12 @@ func (o LocationFSxOntapSmbPtrOutput) ToLocationFSxOntapSmbPtrOutput() LocationF
 
 func (o LocationFSxOntapSmbPtrOutput) ToLocationFSxOntapSmbPtrOutputWithContext(ctx context.Context) LocationFSxOntapSmbPtrOutput {
 	return o
+}
+
+func (o LocationFSxOntapSmbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapSmb] {
+	return pulumix.Output[*LocationFSxOntapSmb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxOntapSmbPtrOutput) Elem() LocationFSxOntapSmbOutput {
@@ -1308,6 +1537,12 @@ func (i LocationFSxOntapSmbMountOptionsArgs) ToLocationFSxOntapSmbMountOptionsOu
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapSmbMountOptionsOutput)
 }
 
+func (i LocationFSxOntapSmbMountOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapSmbMountOptions] {
+	return pulumix.Output[LocationFSxOntapSmbMountOptions]{
+		OutputState: i.ToLocationFSxOntapSmbMountOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LocationFSxOntapSmbMountOptionsArgs) ToLocationFSxOntapSmbMountOptionsPtrOutput() LocationFSxOntapSmbMountOptionsPtrOutput {
 	return i.ToLocationFSxOntapSmbMountOptionsPtrOutputWithContext(context.Background())
 }
@@ -1349,6 +1584,12 @@ func (i *locationFSxOntapSmbMountOptionsPtrType) ToLocationFSxOntapSmbMountOptio
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapSmbMountOptionsPtrOutput)
 }
 
+func (i *locationFSxOntapSmbMountOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapSmbMountOptions] {
+	return pulumix.Output[*LocationFSxOntapSmbMountOptions]{
+		OutputState: i.ToLocationFSxOntapSmbMountOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The mount options used by DataSync to access the SMB server.
 type LocationFSxOntapSmbMountOptionsOutput struct{ *pulumi.OutputState }
 
@@ -1374,6 +1615,12 @@ func (o LocationFSxOntapSmbMountOptionsOutput) ToLocationFSxOntapSmbMountOptions
 	}).(LocationFSxOntapSmbMountOptionsPtrOutput)
 }
 
+func (o LocationFSxOntapSmbMountOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapSmbMountOptions] {
+	return pulumix.Output[LocationFSxOntapSmbMountOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The specific SMB version that you want DataSync to use to mount your SMB share.
 func (o LocationFSxOntapSmbMountOptionsOutput) Version() LocationFSxOntapSmbMountOptionsVersionPtrOutput {
 	return o.ApplyT(func(v LocationFSxOntapSmbMountOptions) *LocationFSxOntapSmbMountOptionsVersion { return v.Version }).(LocationFSxOntapSmbMountOptionsVersionPtrOutput)
@@ -1391,6 +1638,12 @@ func (o LocationFSxOntapSmbMountOptionsPtrOutput) ToLocationFSxOntapSmbMountOpti
 
 func (o LocationFSxOntapSmbMountOptionsPtrOutput) ToLocationFSxOntapSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxOntapSmbMountOptionsPtrOutput {
 	return o
+}
+
+func (o LocationFSxOntapSmbMountOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapSmbMountOptions] {
+	return pulumix.Output[*LocationFSxOntapSmbMountOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxOntapSmbMountOptionsPtrOutput) Elem() LocationFSxOntapSmbMountOptionsOutput {
@@ -1452,6 +1705,12 @@ func (i LocationFSxOntapTagArgs) ToLocationFSxOntapTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapTagOutput)
 }
 
+func (i LocationFSxOntapTagArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapTag] {
+	return pulumix.Output[LocationFSxOntapTag]{
+		OutputState: i.ToLocationFSxOntapTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationFSxOntapTagArrayInput is an input type that accepts LocationFSxOntapTagArray and LocationFSxOntapTagArrayOutput values.
 // You can construct a concrete instance of `LocationFSxOntapTagArrayInput` via:
 //
@@ -1477,6 +1736,12 @@ func (i LocationFSxOntapTagArray) ToLocationFSxOntapTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapTagArrayOutput)
 }
 
+func (i LocationFSxOntapTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationFSxOntapTag] {
+	return pulumix.Output[[]LocationFSxOntapTag]{
+		OutputState: i.ToLocationFSxOntapTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LocationFSxOntapTagOutput struct{ *pulumi.OutputState }
 
@@ -1490,6 +1755,12 @@ func (o LocationFSxOntapTagOutput) ToLocationFSxOntapTagOutput() LocationFSxOnta
 
 func (o LocationFSxOntapTagOutput) ToLocationFSxOntapTagOutputWithContext(ctx context.Context) LocationFSxOntapTagOutput {
 	return o
+}
+
+func (o LocationFSxOntapTagOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapTag] {
+	return pulumix.Output[LocationFSxOntapTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -1514,6 +1785,12 @@ func (o LocationFSxOntapTagArrayOutput) ToLocationFSxOntapTagArrayOutput() Locat
 
 func (o LocationFSxOntapTagArrayOutput) ToLocationFSxOntapTagArrayOutputWithContext(ctx context.Context) LocationFSxOntapTagArrayOutput {
 	return o
+}
+
+func (o LocationFSxOntapTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationFSxOntapTag] {
+	return pulumix.Output[[]LocationFSxOntapTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxOntapTagArrayOutput) Index(i pulumi.IntInput) LocationFSxOntapTagOutput {
@@ -1557,6 +1834,12 @@ func (i LocationFSxOpenZfsMountOptionsArgs) ToLocationFSxOpenZfsMountOptionsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZfsMountOptionsOutput)
 }
 
+func (i LocationFSxOpenZfsMountOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOpenZfsMountOptions] {
+	return pulumix.Output[LocationFSxOpenZfsMountOptions]{
+		OutputState: i.ToLocationFSxOpenZfsMountOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LocationFSxOpenZfsMountOptionsArgs) ToLocationFSxOpenZfsMountOptionsPtrOutput() LocationFSxOpenZfsMountOptionsPtrOutput {
 	return i.ToLocationFSxOpenZfsMountOptionsPtrOutputWithContext(context.Background())
 }
@@ -1598,6 +1881,12 @@ func (i *locationFSxOpenZfsMountOptionsPtrType) ToLocationFSxOpenZfsMountOptions
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZfsMountOptionsPtrOutput)
 }
 
+func (i *locationFSxOpenZfsMountOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOpenZfsMountOptions] {
+	return pulumix.Output[*LocationFSxOpenZfsMountOptions]{
+		OutputState: i.ToLocationFSxOpenZfsMountOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The NFS mount options that DataSync can use to mount your NFS share.
 type LocationFSxOpenZfsMountOptionsOutput struct{ *pulumi.OutputState }
 
@@ -1623,6 +1912,12 @@ func (o LocationFSxOpenZfsMountOptionsOutput) ToLocationFSxOpenZfsMountOptionsPt
 	}).(LocationFSxOpenZfsMountOptionsPtrOutput)
 }
 
+func (o LocationFSxOpenZfsMountOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOpenZfsMountOptions] {
+	return pulumix.Output[LocationFSxOpenZfsMountOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The specific NFS version that you want DataSync to use to mount your NFS share.
 func (o LocationFSxOpenZfsMountOptionsOutput) Version() LocationFSxOpenZfsMountOptionsVersionPtrOutput {
 	return o.ApplyT(func(v LocationFSxOpenZfsMountOptions) *LocationFSxOpenZfsMountOptionsVersion { return v.Version }).(LocationFSxOpenZfsMountOptionsVersionPtrOutput)
@@ -1640,6 +1935,12 @@ func (o LocationFSxOpenZfsMountOptionsPtrOutput) ToLocationFSxOpenZfsMountOption
 
 func (o LocationFSxOpenZfsMountOptionsPtrOutput) ToLocationFSxOpenZfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxOpenZfsMountOptionsPtrOutput {
 	return o
+}
+
+func (o LocationFSxOpenZfsMountOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOpenZfsMountOptions] {
+	return pulumix.Output[*LocationFSxOpenZfsMountOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxOpenZfsMountOptionsPtrOutput) Elem() LocationFSxOpenZfsMountOptionsOutput {
@@ -1695,6 +1996,12 @@ func (i LocationFSxOpenZfsNfsArgs) ToLocationFSxOpenZfsNfsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZfsNfsOutput)
 }
 
+func (i LocationFSxOpenZfsNfsArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOpenZfsNfs] {
+	return pulumix.Output[LocationFSxOpenZfsNfs]{
+		OutputState: i.ToLocationFSxOpenZfsNfsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LocationFSxOpenZfsNfsArgs) ToLocationFSxOpenZfsNfsPtrOutput() LocationFSxOpenZfsNfsPtrOutput {
 	return i.ToLocationFSxOpenZfsNfsPtrOutputWithContext(context.Background())
 }
@@ -1736,6 +2043,12 @@ func (i *locationFSxOpenZfsNfsPtrType) ToLocationFSxOpenZfsNfsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZfsNfsPtrOutput)
 }
 
+func (i *locationFSxOpenZfsNfsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOpenZfsNfs] {
+	return pulumix.Output[*LocationFSxOpenZfsNfs]{
+		OutputState: i.ToLocationFSxOpenZfsNfsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FSx OpenZFS file system NFS protocol information
 type LocationFSxOpenZfsNfsOutput struct{ *pulumi.OutputState }
 
@@ -1761,6 +2074,12 @@ func (o LocationFSxOpenZfsNfsOutput) ToLocationFSxOpenZfsNfsPtrOutputWithContext
 	}).(LocationFSxOpenZfsNfsPtrOutput)
 }
 
+func (o LocationFSxOpenZfsNfsOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOpenZfsNfs] {
+	return pulumix.Output[LocationFSxOpenZfsNfs]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxOpenZfsNfsOutput) MountOptions() LocationFSxOpenZfsMountOptionsOutput {
 	return o.ApplyT(func(v LocationFSxOpenZfsNfs) LocationFSxOpenZfsMountOptions { return v.MountOptions }).(LocationFSxOpenZfsMountOptionsOutput)
 }
@@ -1777,6 +2096,12 @@ func (o LocationFSxOpenZfsNfsPtrOutput) ToLocationFSxOpenZfsNfsPtrOutput() Locat
 
 func (o LocationFSxOpenZfsNfsPtrOutput) ToLocationFSxOpenZfsNfsPtrOutputWithContext(ctx context.Context) LocationFSxOpenZfsNfsPtrOutput {
 	return o
+}
+
+func (o LocationFSxOpenZfsNfsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOpenZfsNfs] {
+	return pulumix.Output[*LocationFSxOpenZfsNfs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxOpenZfsNfsPtrOutput) Elem() LocationFSxOpenZfsNfsOutput {
@@ -1831,6 +2156,12 @@ func (i LocationFSxOpenZfsProtocolArgs) ToLocationFSxOpenZfsProtocolOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZfsProtocolOutput)
 }
 
+func (i LocationFSxOpenZfsProtocolArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOpenZfsProtocol] {
+	return pulumix.Output[LocationFSxOpenZfsProtocol]{
+		OutputState: i.ToLocationFSxOpenZfsProtocolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration settings for an NFS or SMB protocol, currently only support NFS
 type LocationFSxOpenZfsProtocolOutput struct{ *pulumi.OutputState }
 
@@ -1844,6 +2175,12 @@ func (o LocationFSxOpenZfsProtocolOutput) ToLocationFSxOpenZfsProtocolOutput() L
 
 func (o LocationFSxOpenZfsProtocolOutput) ToLocationFSxOpenZfsProtocolOutputWithContext(ctx context.Context) LocationFSxOpenZfsProtocolOutput {
 	return o
+}
+
+func (o LocationFSxOpenZfsProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOpenZfsProtocol] {
+	return pulumix.Output[LocationFSxOpenZfsProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxOpenZfsProtocolOutput) Nfs() LocationFSxOpenZfsNfsPtrOutput {
@@ -1889,6 +2226,12 @@ func (i LocationFSxOpenZfsTagArgs) ToLocationFSxOpenZfsTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZfsTagOutput)
 }
 
+func (i LocationFSxOpenZfsTagArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOpenZfsTag] {
+	return pulumix.Output[LocationFSxOpenZfsTag]{
+		OutputState: i.ToLocationFSxOpenZfsTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationFSxOpenZfsTagArrayInput is an input type that accepts LocationFSxOpenZfsTagArray and LocationFSxOpenZfsTagArrayOutput values.
 // You can construct a concrete instance of `LocationFSxOpenZfsTagArrayInput` via:
 //
@@ -1914,6 +2257,12 @@ func (i LocationFSxOpenZfsTagArray) ToLocationFSxOpenZfsTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZfsTagArrayOutput)
 }
 
+func (i LocationFSxOpenZfsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationFSxOpenZfsTag] {
+	return pulumix.Output[[]LocationFSxOpenZfsTag]{
+		OutputState: i.ToLocationFSxOpenZfsTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LocationFSxOpenZfsTagOutput struct{ *pulumi.OutputState }
 
@@ -1927,6 +2276,12 @@ func (o LocationFSxOpenZfsTagOutput) ToLocationFSxOpenZfsTagOutput() LocationFSx
 
 func (o LocationFSxOpenZfsTagOutput) ToLocationFSxOpenZfsTagOutputWithContext(ctx context.Context) LocationFSxOpenZfsTagOutput {
 	return o
+}
+
+func (o LocationFSxOpenZfsTagOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOpenZfsTag] {
+	return pulumix.Output[LocationFSxOpenZfsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -1951,6 +2306,12 @@ func (o LocationFSxOpenZfsTagArrayOutput) ToLocationFSxOpenZfsTagArrayOutput() L
 
 func (o LocationFSxOpenZfsTagArrayOutput) ToLocationFSxOpenZfsTagArrayOutputWithContext(ctx context.Context) LocationFSxOpenZfsTagArrayOutput {
 	return o
+}
+
+func (o LocationFSxOpenZfsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationFSxOpenZfsTag] {
+	return pulumix.Output[[]LocationFSxOpenZfsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxOpenZfsTagArrayOutput) Index(i pulumi.IntInput) LocationFSxOpenZfsTagOutput {
@@ -1998,6 +2359,12 @@ func (i LocationFSxWindowsTagArgs) ToLocationFSxWindowsTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxWindowsTagOutput)
 }
 
+func (i LocationFSxWindowsTagArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFSxWindowsTag] {
+	return pulumix.Output[LocationFSxWindowsTag]{
+		OutputState: i.ToLocationFSxWindowsTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationFSxWindowsTagArrayInput is an input type that accepts LocationFSxWindowsTagArray and LocationFSxWindowsTagArrayOutput values.
 // You can construct a concrete instance of `LocationFSxWindowsTagArrayInput` via:
 //
@@ -2023,6 +2390,12 @@ func (i LocationFSxWindowsTagArray) ToLocationFSxWindowsTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxWindowsTagArrayOutput)
 }
 
+func (i LocationFSxWindowsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationFSxWindowsTag] {
+	return pulumix.Output[[]LocationFSxWindowsTag]{
+		OutputState: i.ToLocationFSxWindowsTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LocationFSxWindowsTagOutput struct{ *pulumi.OutputState }
 
@@ -2036,6 +2409,12 @@ func (o LocationFSxWindowsTagOutput) ToLocationFSxWindowsTagOutput() LocationFSx
 
 func (o LocationFSxWindowsTagOutput) ToLocationFSxWindowsTagOutputWithContext(ctx context.Context) LocationFSxWindowsTagOutput {
 	return o
+}
+
+func (o LocationFSxWindowsTagOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxWindowsTag] {
+	return pulumix.Output[LocationFSxWindowsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -2060,6 +2439,12 @@ func (o LocationFSxWindowsTagArrayOutput) ToLocationFSxWindowsTagArrayOutput() L
 
 func (o LocationFSxWindowsTagArrayOutput) ToLocationFSxWindowsTagArrayOutputWithContext(ctx context.Context) LocationFSxWindowsTagArrayOutput {
 	return o
+}
+
+func (o LocationFSxWindowsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationFSxWindowsTag] {
+	return pulumix.Output[[]LocationFSxWindowsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxWindowsTagArrayOutput) Index(i pulumi.IntInput) LocationFSxWindowsTagOutput {
@@ -2107,6 +2492,12 @@ func (i LocationHdfsNameNodeArgs) ToLocationHdfsNameNodeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsNameNodeOutput)
 }
 
+func (i LocationHdfsNameNodeArgs) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsNameNode] {
+	return pulumix.Output[LocationHdfsNameNode]{
+		OutputState: i.ToLocationHdfsNameNodeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationHdfsNameNodeArrayInput is an input type that accepts LocationHdfsNameNodeArray and LocationHdfsNameNodeArrayOutput values.
 // You can construct a concrete instance of `LocationHdfsNameNodeArrayInput` via:
 //
@@ -2132,6 +2523,12 @@ func (i LocationHdfsNameNodeArray) ToLocationHdfsNameNodeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsNameNodeArrayOutput)
 }
 
+func (i LocationHdfsNameNodeArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationHdfsNameNode] {
+	return pulumix.Output[[]LocationHdfsNameNode]{
+		OutputState: i.ToLocationHdfsNameNodeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HDFS Name Node IP and port information.
 type LocationHdfsNameNodeOutput struct{ *pulumi.OutputState }
 
@@ -2145,6 +2542,12 @@ func (o LocationHdfsNameNodeOutput) ToLocationHdfsNameNodeOutput() LocationHdfsN
 
 func (o LocationHdfsNameNodeOutput) ToLocationHdfsNameNodeOutputWithContext(ctx context.Context) LocationHdfsNameNodeOutput {
 	return o
+}
+
+func (o LocationHdfsNameNodeOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsNameNode] {
+	return pulumix.Output[LocationHdfsNameNode]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The DNS name or IP address of the Name Node in the customer's on premises HDFS cluster.
@@ -2169,6 +2572,12 @@ func (o LocationHdfsNameNodeArrayOutput) ToLocationHdfsNameNodeArrayOutput() Loc
 
 func (o LocationHdfsNameNodeArrayOutput) ToLocationHdfsNameNodeArrayOutputWithContext(ctx context.Context) LocationHdfsNameNodeArrayOutput {
 	return o
+}
+
+func (o LocationHdfsNameNodeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationHdfsNameNode] {
+	return pulumix.Output[[]LocationHdfsNameNode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationHdfsNameNodeArrayOutput) Index(i pulumi.IntInput) LocationHdfsNameNodeOutput {
@@ -2216,6 +2625,12 @@ func (i LocationHdfsQopConfigurationArgs) ToLocationHdfsQopConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsQopConfigurationOutput)
 }
 
+func (i LocationHdfsQopConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsQopConfiguration] {
+	return pulumix.Output[LocationHdfsQopConfiguration]{
+		OutputState: i.ToLocationHdfsQopConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LocationHdfsQopConfigurationArgs) ToLocationHdfsQopConfigurationPtrOutput() LocationHdfsQopConfigurationPtrOutput {
 	return i.ToLocationHdfsQopConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2257,6 +2672,12 @@ func (i *locationHdfsQopConfigurationPtrType) ToLocationHdfsQopConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsQopConfigurationPtrOutput)
 }
 
+func (i *locationHdfsQopConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfsQopConfiguration] {
+	return pulumix.Output[*LocationHdfsQopConfiguration]{
+		OutputState: i.ToLocationHdfsQopConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.
 type LocationHdfsQopConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2280,6 +2701,12 @@ func (o LocationHdfsQopConfigurationOutput) ToLocationHdfsQopConfigurationPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHdfsQopConfiguration) *LocationHdfsQopConfiguration {
 		return &v
 	}).(LocationHdfsQopConfigurationPtrOutput)
+}
+
+func (o LocationHdfsQopConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsQopConfiguration] {
+	return pulumix.Output[LocationHdfsQopConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration for Data Transfer Protection.
@@ -2308,6 +2735,12 @@ func (o LocationHdfsQopConfigurationPtrOutput) ToLocationHdfsQopConfigurationPtr
 
 func (o LocationHdfsQopConfigurationPtrOutput) ToLocationHdfsQopConfigurationPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationPtrOutput {
 	return o
+}
+
+func (o LocationHdfsQopConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfsQopConfiguration] {
+	return pulumix.Output[*LocationHdfsQopConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationHdfsQopConfigurationPtrOutput) Elem() LocationHdfsQopConfigurationOutput {
@@ -2379,6 +2812,12 @@ func (i LocationHdfsTagArgs) ToLocationHdfsTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsTagOutput)
 }
 
+func (i LocationHdfsTagArgs) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsTag] {
+	return pulumix.Output[LocationHdfsTag]{
+		OutputState: i.ToLocationHdfsTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationHdfsTagArrayInput is an input type that accepts LocationHdfsTagArray and LocationHdfsTagArrayOutput values.
 // You can construct a concrete instance of `LocationHdfsTagArrayInput` via:
 //
@@ -2404,6 +2843,12 @@ func (i LocationHdfsTagArray) ToLocationHdfsTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsTagArrayOutput)
 }
 
+func (i LocationHdfsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationHdfsTag] {
+	return pulumix.Output[[]LocationHdfsTag]{
+		OutputState: i.ToLocationHdfsTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LocationHdfsTagOutput struct{ *pulumi.OutputState }
 
@@ -2417,6 +2862,12 @@ func (o LocationHdfsTagOutput) ToLocationHdfsTagOutput() LocationHdfsTagOutput {
 
 func (o LocationHdfsTagOutput) ToLocationHdfsTagOutputWithContext(ctx context.Context) LocationHdfsTagOutput {
 	return o
+}
+
+func (o LocationHdfsTagOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsTag] {
+	return pulumix.Output[LocationHdfsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2441,6 +2892,12 @@ func (o LocationHdfsTagArrayOutput) ToLocationHdfsTagArrayOutput() LocationHdfsT
 
 func (o LocationHdfsTagArrayOutput) ToLocationHdfsTagArrayOutputWithContext(ctx context.Context) LocationHdfsTagArrayOutput {
 	return o
+}
+
+func (o LocationHdfsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationHdfsTag] {
+	return pulumix.Output[[]LocationHdfsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationHdfsTagArrayOutput) Index(i pulumi.IntInput) LocationHdfsTagOutput {
@@ -2484,6 +2941,12 @@ func (i LocationNfsMountOptionsArgs) ToLocationNfsMountOptionsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocationNfsMountOptionsOutput)
 }
 
+func (i LocationNfsMountOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[LocationNfsMountOptions] {
+	return pulumix.Output[LocationNfsMountOptions]{
+		OutputState: i.ToLocationNfsMountOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LocationNfsMountOptionsArgs) ToLocationNfsMountOptionsPtrOutput() LocationNfsMountOptionsPtrOutput {
 	return i.ToLocationNfsMountOptionsPtrOutputWithContext(context.Background())
 }
@@ -2525,6 +2988,12 @@ func (i *locationNfsMountOptionsPtrType) ToLocationNfsMountOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LocationNfsMountOptionsPtrOutput)
 }
 
+func (i *locationNfsMountOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationNfsMountOptions] {
+	return pulumix.Output[*LocationNfsMountOptions]{
+		OutputState: i.ToLocationNfsMountOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The NFS mount options that DataSync can use to mount your NFS share.
 type LocationNfsMountOptionsOutput struct{ *pulumi.OutputState }
 
@@ -2550,6 +3019,12 @@ func (o LocationNfsMountOptionsOutput) ToLocationNfsMountOptionsPtrOutputWithCon
 	}).(LocationNfsMountOptionsPtrOutput)
 }
 
+func (o LocationNfsMountOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[LocationNfsMountOptions] {
+	return pulumix.Output[LocationNfsMountOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The specific NFS version that you want DataSync to use to mount your NFS share.
 func (o LocationNfsMountOptionsOutput) Version() LocationNfsMountOptionsVersionPtrOutput {
 	return o.ApplyT(func(v LocationNfsMountOptions) *LocationNfsMountOptionsVersion { return v.Version }).(LocationNfsMountOptionsVersionPtrOutput)
@@ -2567,6 +3042,12 @@ func (o LocationNfsMountOptionsPtrOutput) ToLocationNfsMountOptionsPtrOutput() L
 
 func (o LocationNfsMountOptionsPtrOutput) ToLocationNfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationNfsMountOptionsPtrOutput {
 	return o
+}
+
+func (o LocationNfsMountOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationNfsMountOptions] {
+	return pulumix.Output[*LocationNfsMountOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationNfsMountOptionsPtrOutput) Elem() LocationNfsMountOptionsOutput {
@@ -2624,6 +3105,12 @@ func (i LocationNfsOnPremConfigArgs) ToLocationNfsOnPremConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocationNfsOnPremConfigOutput)
 }
 
+func (i LocationNfsOnPremConfigArgs) ToOutput(ctx context.Context) pulumix.Output[LocationNfsOnPremConfig] {
+	return pulumix.Output[LocationNfsOnPremConfig]{
+		OutputState: i.ToLocationNfsOnPremConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
 type LocationNfsOnPremConfigOutput struct{ *pulumi.OutputState }
 
@@ -2637,6 +3124,12 @@ func (o LocationNfsOnPremConfigOutput) ToLocationNfsOnPremConfigOutput() Locatio
 
 func (o LocationNfsOnPremConfigOutput) ToLocationNfsOnPremConfigOutputWithContext(ctx context.Context) LocationNfsOnPremConfigOutput {
 	return o
+}
+
+func (o LocationNfsOnPremConfigOutput) ToOutput(ctx context.Context) pulumix.Output[LocationNfsOnPremConfig] {
+	return pulumix.Output[LocationNfsOnPremConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN(s) of the agent(s) to use for an NFS location.
@@ -2656,6 +3149,12 @@ func (o LocationNfsOnPremConfigPtrOutput) ToLocationNfsOnPremConfigPtrOutput() L
 
 func (o LocationNfsOnPremConfigPtrOutput) ToLocationNfsOnPremConfigPtrOutputWithContext(ctx context.Context) LocationNfsOnPremConfigPtrOutput {
 	return o
+}
+
+func (o LocationNfsOnPremConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationNfsOnPremConfig] {
+	return pulumix.Output[*LocationNfsOnPremConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationNfsOnPremConfigPtrOutput) Elem() LocationNfsOnPremConfigOutput {
@@ -2717,6 +3216,12 @@ func (i LocationNfsTagArgs) ToLocationNfsTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationNfsTagOutput)
 }
 
+func (i LocationNfsTagArgs) ToOutput(ctx context.Context) pulumix.Output[LocationNfsTag] {
+	return pulumix.Output[LocationNfsTag]{
+		OutputState: i.ToLocationNfsTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationNfsTagArrayInput is an input type that accepts LocationNfsTagArray and LocationNfsTagArrayOutput values.
 // You can construct a concrete instance of `LocationNfsTagArrayInput` via:
 //
@@ -2742,6 +3247,12 @@ func (i LocationNfsTagArray) ToLocationNfsTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LocationNfsTagArrayOutput)
 }
 
+func (i LocationNfsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationNfsTag] {
+	return pulumix.Output[[]LocationNfsTag]{
+		OutputState: i.ToLocationNfsTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LocationNfsTagOutput struct{ *pulumi.OutputState }
 
@@ -2755,6 +3266,12 @@ func (o LocationNfsTagOutput) ToLocationNfsTagOutput() LocationNfsTagOutput {
 
 func (o LocationNfsTagOutput) ToLocationNfsTagOutputWithContext(ctx context.Context) LocationNfsTagOutput {
 	return o
+}
+
+func (o LocationNfsTagOutput) ToOutput(ctx context.Context) pulumix.Output[LocationNfsTag] {
+	return pulumix.Output[LocationNfsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -2779,6 +3296,12 @@ func (o LocationNfsTagArrayOutput) ToLocationNfsTagArrayOutput() LocationNfsTagA
 
 func (o LocationNfsTagArrayOutput) ToLocationNfsTagArrayOutputWithContext(ctx context.Context) LocationNfsTagArrayOutput {
 	return o
+}
+
+func (o LocationNfsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationNfsTag] {
+	return pulumix.Output[[]LocationNfsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationNfsTagArrayOutput) Index(i pulumi.IntInput) LocationNfsTagOutput {
@@ -2826,6 +3349,12 @@ func (i LocationObjectStorageTagArgs) ToLocationObjectStorageTagOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageTagOutput)
 }
 
+func (i LocationObjectStorageTagArgs) ToOutput(ctx context.Context) pulumix.Output[LocationObjectStorageTag] {
+	return pulumix.Output[LocationObjectStorageTag]{
+		OutputState: i.ToLocationObjectStorageTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationObjectStorageTagArrayInput is an input type that accepts LocationObjectStorageTagArray and LocationObjectStorageTagArrayOutput values.
 // You can construct a concrete instance of `LocationObjectStorageTagArrayInput` via:
 //
@@ -2851,6 +3380,12 @@ func (i LocationObjectStorageTagArray) ToLocationObjectStorageTagArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageTagArrayOutput)
 }
 
+func (i LocationObjectStorageTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationObjectStorageTag] {
+	return pulumix.Output[[]LocationObjectStorageTag]{
+		OutputState: i.ToLocationObjectStorageTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LocationObjectStorageTagOutput struct{ *pulumi.OutputState }
 
@@ -2864,6 +3399,12 @@ func (o LocationObjectStorageTagOutput) ToLocationObjectStorageTagOutput() Locat
 
 func (o LocationObjectStorageTagOutput) ToLocationObjectStorageTagOutputWithContext(ctx context.Context) LocationObjectStorageTagOutput {
 	return o
+}
+
+func (o LocationObjectStorageTagOutput) ToOutput(ctx context.Context) pulumix.Output[LocationObjectStorageTag] {
+	return pulumix.Output[LocationObjectStorageTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -2888,6 +3429,12 @@ func (o LocationObjectStorageTagArrayOutput) ToLocationObjectStorageTagArrayOutp
 
 func (o LocationObjectStorageTagArrayOutput) ToLocationObjectStorageTagArrayOutputWithContext(ctx context.Context) LocationObjectStorageTagArrayOutput {
 	return o
+}
+
+func (o LocationObjectStorageTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationObjectStorageTag] {
+	return pulumix.Output[[]LocationObjectStorageTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationObjectStorageTagArrayOutput) Index(i pulumi.IntInput) LocationObjectStorageTagOutput {
@@ -2935,6 +3482,12 @@ func (i LocationS3TagArgs) ToLocationS3TagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LocationS3TagOutput)
 }
 
+func (i LocationS3TagArgs) ToOutput(ctx context.Context) pulumix.Output[LocationS3Tag] {
+	return pulumix.Output[LocationS3Tag]{
+		OutputState: i.ToLocationS3TagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationS3TagArrayInput is an input type that accepts LocationS3TagArray and LocationS3TagArrayOutput values.
 // You can construct a concrete instance of `LocationS3TagArrayInput` via:
 //
@@ -2960,6 +3513,12 @@ func (i LocationS3TagArray) ToLocationS3TagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(LocationS3TagArrayOutput)
 }
 
+func (i LocationS3TagArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationS3Tag] {
+	return pulumix.Output[[]LocationS3Tag]{
+		OutputState: i.ToLocationS3TagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LocationS3TagOutput struct{ *pulumi.OutputState }
 
@@ -2973,6 +3532,12 @@ func (o LocationS3TagOutput) ToLocationS3TagOutput() LocationS3TagOutput {
 
 func (o LocationS3TagOutput) ToLocationS3TagOutputWithContext(ctx context.Context) LocationS3TagOutput {
 	return o
+}
+
+func (o LocationS3TagOutput) ToOutput(ctx context.Context) pulumix.Output[LocationS3Tag] {
+	return pulumix.Output[LocationS3Tag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -2997,6 +3562,12 @@ func (o LocationS3TagArrayOutput) ToLocationS3TagArrayOutput() LocationS3TagArra
 
 func (o LocationS3TagArrayOutput) ToLocationS3TagArrayOutputWithContext(ctx context.Context) LocationS3TagArrayOutput {
 	return o
+}
+
+func (o LocationS3TagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationS3Tag] {
+	return pulumix.Output[[]LocationS3Tag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationS3TagArrayOutput) Index(i pulumi.IntInput) LocationS3TagOutput {
@@ -3040,6 +3611,12 @@ func (i LocationS3s3ConfigArgs) ToLocationS3s3ConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationS3s3ConfigOutput)
 }
 
+func (i LocationS3s3ConfigArgs) ToOutput(ctx context.Context) pulumix.Output[LocationS3s3Config] {
+	return pulumix.Output[LocationS3s3Config]{
+		OutputState: i.ToLocationS3s3ConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
 type LocationS3s3ConfigOutput struct{ *pulumi.OutputState }
 
@@ -3053,6 +3630,12 @@ func (o LocationS3s3ConfigOutput) ToLocationS3s3ConfigOutput() LocationS3s3Confi
 
 func (o LocationS3s3ConfigOutput) ToLocationS3s3ConfigOutputWithContext(ctx context.Context) LocationS3s3ConfigOutput {
 	return o
+}
+
+func (o LocationS3s3ConfigOutput) ToOutput(ctx context.Context) pulumix.Output[LocationS3s3Config] {
+	return pulumix.Output[LocationS3s3Config]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the IAM role of the Amazon S3 bucket.
@@ -3093,6 +3676,12 @@ func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsOutput() LocationS
 
 func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsOutputWithContext(ctx context.Context) LocationSmbMountOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbMountOptionsOutput)
+}
+
+func (i LocationSmbMountOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[LocationSmbMountOptions] {
+	return pulumix.Output[LocationSmbMountOptions]{
+		OutputState: i.ToLocationSmbMountOptionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsPtrOutput() LocationSmbMountOptionsPtrOutput {
@@ -3136,6 +3725,12 @@ func (i *locationSmbMountOptionsPtrType) ToLocationSmbMountOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbMountOptionsPtrOutput)
 }
 
+func (i *locationSmbMountOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationSmbMountOptions] {
+	return pulumix.Output[*LocationSmbMountOptions]{
+		OutputState: i.ToLocationSmbMountOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The mount options used by DataSync to access the SMB server.
 type LocationSmbMountOptionsOutput struct{ *pulumi.OutputState }
 
@@ -3161,6 +3756,12 @@ func (o LocationSmbMountOptionsOutput) ToLocationSmbMountOptionsPtrOutputWithCon
 	}).(LocationSmbMountOptionsPtrOutput)
 }
 
+func (o LocationSmbMountOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[LocationSmbMountOptions] {
+	return pulumix.Output[LocationSmbMountOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The specific SMB version that you want DataSync to use to mount your SMB share.
 func (o LocationSmbMountOptionsOutput) Version() LocationSmbMountOptionsVersionPtrOutput {
 	return o.ApplyT(func(v LocationSmbMountOptions) *LocationSmbMountOptionsVersion { return v.Version }).(LocationSmbMountOptionsVersionPtrOutput)
@@ -3178,6 +3779,12 @@ func (o LocationSmbMountOptionsPtrOutput) ToLocationSmbMountOptionsPtrOutput() L
 
 func (o LocationSmbMountOptionsPtrOutput) ToLocationSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsPtrOutput {
 	return o
+}
+
+func (o LocationSmbMountOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationSmbMountOptions] {
+	return pulumix.Output[*LocationSmbMountOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationSmbMountOptionsPtrOutput) Elem() LocationSmbMountOptionsOutput {
@@ -3239,6 +3846,12 @@ func (i LocationSmbTagArgs) ToLocationSmbTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbTagOutput)
 }
 
+func (i LocationSmbTagArgs) ToOutput(ctx context.Context) pulumix.Output[LocationSmbTag] {
+	return pulumix.Output[LocationSmbTag]{
+		OutputState: i.ToLocationSmbTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationSmbTagArrayInput is an input type that accepts LocationSmbTagArray and LocationSmbTagArrayOutput values.
 // You can construct a concrete instance of `LocationSmbTagArrayInput` via:
 //
@@ -3264,6 +3877,12 @@ func (i LocationSmbTagArray) ToLocationSmbTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbTagArrayOutput)
 }
 
+func (i LocationSmbTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationSmbTag] {
+	return pulumix.Output[[]LocationSmbTag]{
+		OutputState: i.ToLocationSmbTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LocationSmbTagOutput struct{ *pulumi.OutputState }
 
@@ -3277,6 +3896,12 @@ func (o LocationSmbTagOutput) ToLocationSmbTagOutput() LocationSmbTagOutput {
 
 func (o LocationSmbTagOutput) ToLocationSmbTagOutputWithContext(ctx context.Context) LocationSmbTagOutput {
 	return o
+}
+
+func (o LocationSmbTagOutput) ToOutput(ctx context.Context) pulumix.Output[LocationSmbTag] {
+	return pulumix.Output[LocationSmbTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -3301,6 +3926,12 @@ func (o LocationSmbTagArrayOutput) ToLocationSmbTagArrayOutput() LocationSmbTagA
 
 func (o LocationSmbTagArrayOutput) ToLocationSmbTagArrayOutputWithContext(ctx context.Context) LocationSmbTagArrayOutput {
 	return o
+}
+
+func (o LocationSmbTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationSmbTag] {
+	return pulumix.Output[[]LocationSmbTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationSmbTagArrayOutput) Index(i pulumi.IntInput) LocationSmbTagOutput {
@@ -3348,6 +3979,12 @@ func (i StorageSystemServerConfigurationArgs) ToStorageSystemServerConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemServerConfigurationOutput)
 }
 
+func (i StorageSystemServerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StorageSystemServerConfiguration] {
+	return pulumix.Output[StorageSystemServerConfiguration]{
+		OutputState: i.ToStorageSystemServerConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The server name and network port required to connect with the management interface of the on-premises storage system.
 type StorageSystemServerConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3361,6 +3998,12 @@ func (o StorageSystemServerConfigurationOutput) ToStorageSystemServerConfigurati
 
 func (o StorageSystemServerConfigurationOutput) ToStorageSystemServerConfigurationOutputWithContext(ctx context.Context) StorageSystemServerConfigurationOutput {
 	return o
+}
+
+func (o StorageSystemServerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StorageSystemServerConfiguration] {
+	return pulumix.Output[StorageSystemServerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The domain name or IP address of the storage system's management interface.
@@ -3385,6 +4028,12 @@ func (o StorageSystemServerConfigurationPtrOutput) ToStorageSystemServerConfigur
 
 func (o StorageSystemServerConfigurationPtrOutput) ToStorageSystemServerConfigurationPtrOutputWithContext(ctx context.Context) StorageSystemServerConfigurationPtrOutput {
 	return o
+}
+
+func (o StorageSystemServerConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageSystemServerConfiguration] {
+	return pulumix.Output[*StorageSystemServerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StorageSystemServerConfigurationPtrOutput) Elem() StorageSystemServerConfigurationOutput {
@@ -3456,6 +4105,12 @@ func (i StorageSystemServerCredentialsArgs) ToStorageSystemServerCredentialsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemServerCredentialsOutput)
 }
 
+func (i StorageSystemServerCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageSystemServerCredentials] {
+	return pulumix.Output[StorageSystemServerCredentials]{
+		OutputState: i.ToStorageSystemServerCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StorageSystemServerCredentialsArgs) ToStorageSystemServerCredentialsPtrOutput() StorageSystemServerCredentialsPtrOutput {
 	return i.ToStorageSystemServerCredentialsPtrOutputWithContext(context.Background())
 }
@@ -3497,6 +4152,12 @@ func (i *storageSystemServerCredentialsPtrType) ToStorageSystemServerCredentials
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemServerCredentialsPtrOutput)
 }
 
+func (i *storageSystemServerCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageSystemServerCredentials] {
+	return pulumix.Output[*StorageSystemServerCredentials]{
+		OutputState: i.ToStorageSystemServerCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The username and password for accessing your on-premises storage system's management interface.
 type StorageSystemServerCredentialsOutput struct{ *pulumi.OutputState }
 
@@ -3522,6 +4183,12 @@ func (o StorageSystemServerCredentialsOutput) ToStorageSystemServerCredentialsPt
 	}).(StorageSystemServerCredentialsPtrOutput)
 }
 
+func (o StorageSystemServerCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageSystemServerCredentials] {
+	return pulumix.Output[StorageSystemServerCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The password for your storage system's management interface
 func (o StorageSystemServerCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageSystemServerCredentials) string { return v.Password }).(pulumi.StringOutput)
@@ -3544,6 +4211,12 @@ func (o StorageSystemServerCredentialsPtrOutput) ToStorageSystemServerCredential
 
 func (o StorageSystemServerCredentialsPtrOutput) ToStorageSystemServerCredentialsPtrOutputWithContext(ctx context.Context) StorageSystemServerCredentialsPtrOutput {
 	return o
+}
+
+func (o StorageSystemServerCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageSystemServerCredentials] {
+	return pulumix.Output[*StorageSystemServerCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StorageSystemServerCredentialsPtrOutput) Elem() StorageSystemServerCredentialsOutput {
@@ -3615,6 +4288,12 @@ func (i StorageSystemTagArgs) ToStorageSystemTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemTagOutput)
 }
 
+func (i StorageSystemTagArgs) ToOutput(ctx context.Context) pulumix.Output[StorageSystemTag] {
+	return pulumix.Output[StorageSystemTag]{
+		OutputState: i.ToStorageSystemTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StorageSystemTagArrayInput is an input type that accepts StorageSystemTagArray and StorageSystemTagArrayOutput values.
 // You can construct a concrete instance of `StorageSystemTagArrayInput` via:
 //
@@ -3640,6 +4319,12 @@ func (i StorageSystemTagArray) ToStorageSystemTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemTagArrayOutput)
 }
 
+func (i StorageSystemTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StorageSystemTag] {
+	return pulumix.Output[[]StorageSystemTag]{
+		OutputState: i.ToStorageSystemTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type StorageSystemTagOutput struct{ *pulumi.OutputState }
 
@@ -3653,6 +4338,12 @@ func (o StorageSystemTagOutput) ToStorageSystemTagOutput() StorageSystemTagOutpu
 
 func (o StorageSystemTagOutput) ToStorageSystemTagOutputWithContext(ctx context.Context) StorageSystemTagOutput {
 	return o
+}
+
+func (o StorageSystemTagOutput) ToOutput(ctx context.Context) pulumix.Output[StorageSystemTag] {
+	return pulumix.Output[StorageSystemTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -3677,6 +4368,12 @@ func (o StorageSystemTagArrayOutput) ToStorageSystemTagArrayOutput() StorageSyst
 
 func (o StorageSystemTagArrayOutput) ToStorageSystemTagArrayOutputWithContext(ctx context.Context) StorageSystemTagArrayOutput {
 	return o
+}
+
+func (o StorageSystemTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StorageSystemTag] {
+	return pulumix.Output[[]StorageSystemTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StorageSystemTagArrayOutput) Index(i pulumi.IntInput) StorageSystemTagOutput {
@@ -3724,6 +4421,12 @@ func (i TaskFilterRuleArgs) ToTaskFilterRuleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TaskFilterRuleOutput)
 }
 
+func (i TaskFilterRuleArgs) ToOutput(ctx context.Context) pulumix.Output[TaskFilterRule] {
+	return pulumix.Output[TaskFilterRule]{
+		OutputState: i.ToTaskFilterRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TaskFilterRuleArrayInput is an input type that accepts TaskFilterRuleArray and TaskFilterRuleArrayOutput values.
 // You can construct a concrete instance of `TaskFilterRuleArrayInput` via:
 //
@@ -3749,6 +4452,12 @@ func (i TaskFilterRuleArray) ToTaskFilterRuleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TaskFilterRuleArrayOutput)
 }
 
+func (i TaskFilterRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]TaskFilterRule] {
+	return pulumix.Output[[]TaskFilterRule]{
+		OutputState: i.ToTaskFilterRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies which files folders and objects to include or exclude when transferring files from source to destination.
 type TaskFilterRuleOutput struct{ *pulumi.OutputState }
 
@@ -3762,6 +4471,12 @@ func (o TaskFilterRuleOutput) ToTaskFilterRuleOutput() TaskFilterRuleOutput {
 
 func (o TaskFilterRuleOutput) ToTaskFilterRuleOutputWithContext(ctx context.Context) TaskFilterRuleOutput {
 	return o
+}
+
+func (o TaskFilterRuleOutput) ToOutput(ctx context.Context) pulumix.Output[TaskFilterRule] {
+	return pulumix.Output[TaskFilterRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
@@ -3786,6 +4501,12 @@ func (o TaskFilterRuleArrayOutput) ToTaskFilterRuleArrayOutput() TaskFilterRuleA
 
 func (o TaskFilterRuleArrayOutput) ToTaskFilterRuleArrayOutputWithContext(ctx context.Context) TaskFilterRuleArrayOutput {
 	return o
+}
+
+func (o TaskFilterRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TaskFilterRule] {
+	return pulumix.Output[[]TaskFilterRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskFilterRuleArrayOutput) Index(i pulumi.IntInput) TaskFilterRuleOutput {
@@ -3885,6 +4606,12 @@ func (i TaskOptionsArgs) ToTaskOptionsOutputWithContext(ctx context.Context) Tas
 	return pulumi.ToOutputWithContext(ctx, i).(TaskOptionsOutput)
 }
 
+func (i TaskOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[TaskOptions] {
+	return pulumix.Output[TaskOptions]{
+		OutputState: i.ToTaskOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TaskOptionsArgs) ToTaskOptionsPtrOutput() TaskOptionsPtrOutput {
 	return i.ToTaskOptionsPtrOutputWithContext(context.Background())
 }
@@ -3926,6 +4653,12 @@ func (i *taskOptionsPtrType) ToTaskOptionsPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(TaskOptionsPtrOutput)
 }
 
+func (i *taskOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TaskOptions] {
+	return pulumix.Output[*TaskOptions]{
+		OutputState: i.ToTaskOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Represents the options that are available to control the behavior of a StartTaskExecution operation.
 type TaskOptionsOutput struct{ *pulumi.OutputState }
 
@@ -3949,6 +4682,12 @@ func (o TaskOptionsOutput) ToTaskOptionsPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskOptions) *TaskOptions {
 		return &v
 	}).(TaskOptionsPtrOutput)
+}
+
+func (o TaskOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptions] {
+	return pulumix.Output[TaskOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
@@ -4038,6 +4777,12 @@ func (o TaskOptionsPtrOutput) ToTaskOptionsPtrOutput() TaskOptionsPtrOutput {
 
 func (o TaskOptionsPtrOutput) ToTaskOptionsPtrOutputWithContext(ctx context.Context) TaskOptionsPtrOutput {
 	return o
+}
+
+func (o TaskOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptions] {
+	return pulumix.Output[*TaskOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsPtrOutput) Elem() TaskOptionsOutput {
@@ -4235,6 +4980,12 @@ func (i TaskScheduleArgs) ToTaskScheduleOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TaskScheduleOutput)
 }
 
+func (i TaskScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[TaskSchedule] {
+	return pulumix.Output[TaskSchedule]{
+		OutputState: i.ToTaskScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TaskScheduleArgs) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
 	return i.ToTaskSchedulePtrOutputWithContext(context.Background())
 }
@@ -4276,6 +5027,12 @@ func (i *taskSchedulePtrType) ToTaskSchedulePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSchedulePtrOutput)
 }
 
+func (i *taskSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*TaskSchedule] {
+	return pulumix.Output[*TaskSchedule]{
+		OutputState: i.ToTaskSchedulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies the schedule you want your task to use for repeated executions.
 type TaskScheduleOutput struct{ *pulumi.OutputState }
 
@@ -4301,6 +5058,12 @@ func (o TaskScheduleOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Conte
 	}).(TaskSchedulePtrOutput)
 }
 
+func (o TaskScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[TaskSchedule] {
+	return pulumix.Output[TaskSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
 func (o TaskScheduleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
@@ -4318,6 +5081,12 @@ func (o TaskSchedulePtrOutput) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
 
 func (o TaskSchedulePtrOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
 	return o
+}
+
+func (o TaskSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskSchedule] {
+	return pulumix.Output[*TaskSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskSchedulePtrOutput) Elem() TaskScheduleOutput {
@@ -4379,6 +5148,12 @@ func (i TaskTagArgs) ToTaskTagOutputWithContext(ctx context.Context) TaskTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TaskTagOutput)
 }
 
+func (i TaskTagArgs) ToOutput(ctx context.Context) pulumix.Output[TaskTag] {
+	return pulumix.Output[TaskTag]{
+		OutputState: i.ToTaskTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TaskTagArrayInput is an input type that accepts TaskTagArray and TaskTagArrayOutput values.
 // You can construct a concrete instance of `TaskTagArrayInput` via:
 //
@@ -4404,6 +5179,12 @@ func (i TaskTagArray) ToTaskTagArrayOutputWithContext(ctx context.Context) TaskT
 	return pulumi.ToOutputWithContext(ctx, i).(TaskTagArrayOutput)
 }
 
+func (i TaskTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TaskTag] {
+	return pulumix.Output[[]TaskTag]{
+		OutputState: i.ToTaskTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type TaskTagOutput struct{ *pulumi.OutputState }
 
@@ -4417,6 +5198,12 @@ func (o TaskTagOutput) ToTaskTagOutput() TaskTagOutput {
 
 func (o TaskTagOutput) ToTaskTagOutputWithContext(ctx context.Context) TaskTagOutput {
 	return o
+}
+
+func (o TaskTagOutput) ToOutput(ctx context.Context) pulumix.Output[TaskTag] {
+	return pulumix.Output[TaskTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for an AWS resource tag.
@@ -4441,6 +5228,12 @@ func (o TaskTagArrayOutput) ToTaskTagArrayOutput() TaskTagArrayOutput {
 
 func (o TaskTagArrayOutput) ToTaskTagArrayOutputWithContext(ctx context.Context) TaskTagArrayOutput {
 	return o
+}
+
+func (o TaskTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TaskTag] {
+	return pulumix.Output[[]TaskTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskTagArrayOutput) Index(i pulumi.IntInput) TaskTagOutput {

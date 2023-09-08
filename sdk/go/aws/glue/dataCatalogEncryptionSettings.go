@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
@@ -105,6 +106,12 @@ func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsOutput)
 }
 
+func (i *DataCatalogEncryptionSettings) ToOutput(ctx context.Context) pulumix.Output[*DataCatalogEncryptionSettings] {
+	return pulumix.Output[*DataCatalogEncryptionSettings]{
+		OutputState: i.ToDataCatalogEncryptionSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataCatalogEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogEncryptionSettingsOutput) ElementType() reflect.Type {
@@ -117,6 +124,12 @@ func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutp
 
 func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsOutput {
 	return o
+}
+
+func (o DataCatalogEncryptionSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCatalogEncryptionSettings] {
+	return pulumix.Output[*DataCatalogEncryptionSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataCatalogEncryptionSettingsOutput) CatalogId() pulumi.StringOutput {

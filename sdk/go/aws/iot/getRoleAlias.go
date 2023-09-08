@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
@@ -66,6 +67,12 @@ func (o LookupRoleAliasResultOutput) ToLookupRoleAliasResultOutput() LookupRoleA
 
 func (o LookupRoleAliasResultOutput) ToLookupRoleAliasResultOutputWithContext(ctx context.Context) LookupRoleAliasResultOutput {
 	return o
+}
+
+func (o LookupRoleAliasResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRoleAliasResult] {
+	return pulumix.Output[LookupRoleAliasResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRoleAliasResultOutput) CredentialDurationSeconds() pulumi.IntPtrOutput {

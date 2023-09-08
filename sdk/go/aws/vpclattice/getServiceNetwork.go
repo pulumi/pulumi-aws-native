@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
@@ -68,6 +69,12 @@ func (o LookupServiceNetworkResultOutput) ToLookupServiceNetworkResultOutput() L
 
 func (o LookupServiceNetworkResultOutput) ToLookupServiceNetworkResultOutputWithContext(ctx context.Context) LookupServiceNetworkResultOutput {
 	return o
+}
+
+func (o LookupServiceNetworkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceNetworkResult] {
+	return pulumix.Output[LookupServiceNetworkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupServiceNetworkResultOutput) Arn() pulumi.StringPtrOutput {

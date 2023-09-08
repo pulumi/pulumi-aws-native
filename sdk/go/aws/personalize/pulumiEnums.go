@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The domain of a Domain dataset group.
@@ -78,6 +79,12 @@ func (o DatasetGroupDomainOutput) ToDatasetGroupDomainPtrOutputWithContext(ctx c
 	}).(DatasetGroupDomainPtrOutput)
 }
 
+func (o DatasetGroupDomainOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetGroupDomain] {
+	return pulumix.Output[DatasetGroupDomain]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetGroupDomainOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o DatasetGroupDomainPtrOutput) ToDatasetGroupDomainPtrOutput() DatasetGrou
 
 func (o DatasetGroupDomainPtrOutput) ToDatasetGroupDomainPtrOutputWithContext(ctx context.Context) DatasetGroupDomainPtrOutput {
 	return o
+}
+
+func (o DatasetGroupDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetGroupDomain] {
+	return pulumix.Output[*DatasetGroupDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetGroupDomainPtrOutput) Elem() DatasetGroupDomainOutput {
@@ -173,6 +186,12 @@ func (in *datasetGroupDomainPtr) ToDatasetGroupDomainPtrOutput() DatasetGroupDom
 
 func (in *datasetGroupDomainPtr) ToDatasetGroupDomainPtrOutputWithContext(ctx context.Context) DatasetGroupDomainPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatasetGroupDomainPtrOutput)
+}
+
+func (in *datasetGroupDomainPtr) ToOutput(ctx context.Context) pulumix.Output[*DatasetGroupDomain] {
+	return pulumix.Output[*DatasetGroupDomain]{
+		OutputState: in.ToDatasetGroupDomainPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of dataset
@@ -244,6 +263,12 @@ func (o DatasetTypeOutput) ToDatasetTypePtrOutputWithContext(ctx context.Context
 	}).(DatasetTypePtrOutput)
 }
 
+func (o DatasetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetType] {
+	return pulumix.Output[DatasetType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o DatasetTypePtrOutput) ToDatasetTypePtrOutput() DatasetTypePtrOutput {
 
 func (o DatasetTypePtrOutput) ToDatasetTypePtrOutputWithContext(ctx context.Context) DatasetTypePtrOutput {
 	return o
+}
+
+func (o DatasetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetType] {
+	return pulumix.Output[*DatasetType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetTypePtrOutput) Elem() DatasetTypeOutput {
@@ -339,6 +370,12 @@ func (in *datasetTypePtr) ToDatasetTypePtrOutput() DatasetTypePtrOutput {
 
 func (in *datasetTypePtr) ToDatasetTypePtrOutputWithContext(ctx context.Context) DatasetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatasetTypePtrOutput)
+}
+
+func (in *datasetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DatasetType] {
+	return pulumix.Output[*DatasetType]{
+		OutputState: in.ToDatasetTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The domain of a Domain dataset group.
@@ -409,6 +446,12 @@ func (o SchemaDomainOutput) ToSchemaDomainPtrOutputWithContext(ctx context.Conte
 	}).(SchemaDomainPtrOutput)
 }
 
+func (o SchemaDomainOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaDomain] {
+	return pulumix.Output[SchemaDomain]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SchemaDomainOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -442,6 +485,12 @@ func (o SchemaDomainPtrOutput) ToSchemaDomainPtrOutput() SchemaDomainPtrOutput {
 
 func (o SchemaDomainPtrOutput) ToSchemaDomainPtrOutputWithContext(ctx context.Context) SchemaDomainPtrOutput {
 	return o
+}
+
+func (o SchemaDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaDomain] {
+	return pulumix.Output[*SchemaDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaDomainPtrOutput) Elem() SchemaDomainOutput {
@@ -504,6 +553,12 @@ func (in *schemaDomainPtr) ToSchemaDomainPtrOutput() SchemaDomainPtrOutput {
 
 func (in *schemaDomainPtr) ToSchemaDomainPtrOutputWithContext(ctx context.Context) SchemaDomainPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaDomainPtrOutput)
+}
+
+func (in *schemaDomainPtr) ToOutput(ctx context.Context) pulumix.Output[*SchemaDomain] {
+	return pulumix.Output[*SchemaDomain]{
+		OutputState: in.ToSchemaDomainPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of the metric. Valid values are Maximize and Minimize.
@@ -574,6 +629,12 @@ func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput) ToSol
 	}).(SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput)
 }
 
+func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType] {
+	return pulumix.Output[SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -607,6 +668,12 @@ func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) To
 
 func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) ToSolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutputWithContext(ctx context.Context) SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput {
 	return o
+}
+
+func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType] {
+	return pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) Elem() SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput {
@@ -669,6 +736,12 @@ func (in *solutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtr) ToSolu
 
 func (in *solutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtr) ToSolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutputWithContext(ctx context.Context) SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput)
+}
+
+func (in *solutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType] {
+	return pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType]{
+		OutputState: in.ToSolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAF::ByteMatchSet
@@ -64,6 +65,12 @@ func (o LookupByteMatchSetResultOutput) ToLookupByteMatchSetResultOutput() Looku
 
 func (o LookupByteMatchSetResultOutput) ToLookupByteMatchSetResultOutputWithContext(ctx context.Context) LookupByteMatchSetResultOutput {
 	return o
+}
+
+func (o LookupByteMatchSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupByteMatchSetResult] {
+	return pulumix.Output[LookupByteMatchSetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupByteMatchSetResultOutput) ByteMatchTuples() ByteMatchSetByteMatchTupleArrayOutput {

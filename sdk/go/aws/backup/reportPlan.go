@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Contains detailed information about a report plan in AWS Backup Audit Manager.
@@ -129,6 +130,12 @@ func (i *ReportPlan) ToReportPlanOutputWithContext(ctx context.Context) ReportPl
 	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanOutput)
 }
 
+func (i *ReportPlan) ToOutput(ctx context.Context) pulumix.Output[*ReportPlan] {
+	return pulumix.Output[*ReportPlan]{
+		OutputState: i.ToReportPlanOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReportPlanOutput struct{ *pulumi.OutputState }
 
 func (ReportPlanOutput) ElementType() reflect.Type {
@@ -141,6 +148,12 @@ func (o ReportPlanOutput) ToReportPlanOutput() ReportPlanOutput {
 
 func (o ReportPlanOutput) ToReportPlanOutputWithContext(ctx context.Context) ReportPlanOutput {
 	return o
+}
+
+func (o ReportPlanOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportPlan] {
+	return pulumix.Output[*ReportPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.

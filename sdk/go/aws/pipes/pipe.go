@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Pipes::Pipe Resource Type
@@ -148,6 +149,12 @@ func (i *Pipe) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipeOutput)
 }
 
+func (i *Pipe) ToOutput(ctx context.Context) pulumix.Output[*Pipe] {
+	return pulumix.Output[*Pipe]{
+		OutputState: i.ToPipeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipeOutput struct{ *pulumi.OutputState }
 
 func (PipeOutput) ElementType() reflect.Type {
@@ -160,6 +167,12 @@ func (o PipeOutput) ToPipeOutput() PipeOutput {
 
 func (o PipeOutput) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return o
+}
+
+func (o PipeOutput) ToOutput(ctx context.Context) pulumix.Output[*Pipe] {
+	return pulumix.Output[*Pipe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipeOutput) Arn() pulumi.StringOutput {

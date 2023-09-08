@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Indicates the degree of outage when the alarm goes off.
@@ -79,6 +80,12 @@ func (o ApplicationAlarmSeverityOutput) ToApplicationAlarmSeverityPtrOutputWithC
 	}).(ApplicationAlarmSeverityPtrOutput)
 }
 
+func (o ApplicationAlarmSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationAlarmSeverity] {
+	return pulumix.Output[ApplicationAlarmSeverity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationAlarmSeverityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +119,12 @@ func (o ApplicationAlarmSeverityPtrOutput) ToApplicationAlarmSeverityPtrOutput()
 
 func (o ApplicationAlarmSeverityPtrOutput) ToApplicationAlarmSeverityPtrOutputWithContext(ctx context.Context) ApplicationAlarmSeverityPtrOutput {
 	return o
+}
+
+func (o ApplicationAlarmSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationAlarmSeverity] {
+	return pulumix.Output[*ApplicationAlarmSeverity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationAlarmSeverityPtrOutput) Elem() ApplicationAlarmSeverityOutput {
@@ -174,6 +187,12 @@ func (in *applicationAlarmSeverityPtr) ToApplicationAlarmSeverityPtrOutput() App
 
 func (in *applicationAlarmSeverityPtr) ToApplicationAlarmSeverityPtrOutputWithContext(ctx context.Context) ApplicationAlarmSeverityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationAlarmSeverityPtrOutput)
+}
+
+func (in *applicationAlarmSeverityPtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationAlarmSeverity] {
+	return pulumix.Output[*ApplicationAlarmSeverity]{
+		OutputState: in.ToApplicationAlarmSeverityPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The component monitoring configuration mode.
@@ -245,6 +264,12 @@ func (o ApplicationComponentMonitoringSettingComponentConfigurationModeOutput) T
 	}).(ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput)
 }
 
+func (o ApplicationComponentMonitoringSettingComponentConfigurationModeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationComponentMonitoringSettingComponentConfigurationMode] {
+	return pulumix.Output[ApplicationComponentMonitoringSettingComponentConfigurationMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationComponentMonitoringSettingComponentConfigurationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -278,6 +303,12 @@ func (o ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput
 
 func (o ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput) ToApplicationComponentMonitoringSettingComponentConfigurationModePtrOutputWithContext(ctx context.Context) ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput {
 	return o
+}
+
+func (o ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationComponentMonitoringSettingComponentConfigurationMode] {
+	return pulumix.Output[*ApplicationComponentMonitoringSettingComponentConfigurationMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput) Elem() ApplicationComponentMonitoringSettingComponentConfigurationModeOutput {
@@ -340,6 +371,12 @@ func (in *applicationComponentMonitoringSettingComponentConfigurationModePtr) To
 
 func (in *applicationComponentMonitoringSettingComponentConfigurationModePtr) ToApplicationComponentMonitoringSettingComponentConfigurationModePtrOutputWithContext(ctx context.Context) ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput)
+}
+
+func (in *applicationComponentMonitoringSettingComponentConfigurationModePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationComponentMonitoringSettingComponentConfigurationMode] {
+	return pulumix.Output[*ApplicationComponentMonitoringSettingComponentConfigurationMode]{
+		OutputState: in.ToApplicationComponentMonitoringSettingComponentConfigurationModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The level of event to log.
@@ -413,6 +450,12 @@ func (o ApplicationEventLevelOutput) ToApplicationEventLevelPtrOutputWithContext
 	}).(ApplicationEventLevelPtrOutput)
 }
 
+func (o ApplicationEventLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationEventLevel] {
+	return pulumix.Output[ApplicationEventLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationEventLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -446,6 +489,12 @@ func (o ApplicationEventLevelPtrOutput) ToApplicationEventLevelPtrOutput() Appli
 
 func (o ApplicationEventLevelPtrOutput) ToApplicationEventLevelPtrOutputWithContext(ctx context.Context) ApplicationEventLevelPtrOutput {
 	return o
+}
+
+func (o ApplicationEventLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationEventLevel] {
+	return pulumix.Output[*ApplicationEventLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationEventLevelPtrOutput) Elem() ApplicationEventLevelOutput {
@@ -510,6 +559,12 @@ func (in *applicationEventLevelPtr) ToApplicationEventLevelPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationEventLevelPtrOutput)
 }
 
+func (in *applicationEventLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationEventLevel] {
+	return pulumix.Output[*ApplicationEventLevel]{
+		OutputState: in.ToApplicationEventLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationEventLevelArrayInput is an input type that accepts ApplicationEventLevelArray and ApplicationEventLevelArrayOutput values.
 // You can construct a concrete instance of `ApplicationEventLevelArrayInput` via:
 //
@@ -535,6 +590,12 @@ func (i ApplicationEventLevelArray) ToApplicationEventLevelArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEventLevelArrayOutput)
 }
 
+func (i ApplicationEventLevelArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationEventLevel] {
+	return pulumix.Output[[]ApplicationEventLevel]{
+		OutputState: i.ToApplicationEventLevelArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationEventLevelArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationEventLevelArrayOutput) ElementType() reflect.Type {
@@ -547,6 +608,12 @@ func (o ApplicationEventLevelArrayOutput) ToApplicationEventLevelArrayOutput() A
 
 func (o ApplicationEventLevelArrayOutput) ToApplicationEventLevelArrayOutputWithContext(ctx context.Context) ApplicationEventLevelArrayOutput {
 	return o
+}
+
+func (o ApplicationEventLevelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationEventLevel] {
+	return pulumix.Output[[]ApplicationEventLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationEventLevelArrayOutput) Index(i pulumi.IntInput) ApplicationEventLevelOutput {
@@ -622,6 +689,12 @@ func (o ApplicationGroupingTypeOutput) ToApplicationGroupingTypePtrOutputWithCon
 	}).(ApplicationGroupingTypePtrOutput)
 }
 
+func (o ApplicationGroupingTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationGroupingType] {
+	return pulumix.Output[ApplicationGroupingType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationGroupingTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -655,6 +728,12 @@ func (o ApplicationGroupingTypePtrOutput) ToApplicationGroupingTypePtrOutput() A
 
 func (o ApplicationGroupingTypePtrOutput) ToApplicationGroupingTypePtrOutputWithContext(ctx context.Context) ApplicationGroupingTypePtrOutput {
 	return o
+}
+
+func (o ApplicationGroupingTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationGroupingType] {
+	return pulumix.Output[*ApplicationGroupingType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationGroupingTypePtrOutput) Elem() ApplicationGroupingTypeOutput {
@@ -717,6 +796,12 @@ func (in *applicationGroupingTypePtr) ToApplicationGroupingTypePtrOutput() Appli
 
 func (in *applicationGroupingTypePtr) ToApplicationGroupingTypePtrOutputWithContext(ctx context.Context) ApplicationGroupingTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGroupingTypePtrOutput)
+}
+
+func (in *applicationGroupingTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationGroupingType] {
+	return pulumix.Output[*ApplicationGroupingType]{
+		OutputState: in.ToApplicationGroupingTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of encoding of the logs to be monitored.
@@ -788,6 +873,12 @@ func (o ApplicationLogEncodingOutput) ToApplicationLogEncodingPtrOutputWithConte
 	}).(ApplicationLogEncodingPtrOutput)
 }
 
+func (o ApplicationLogEncodingOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationLogEncoding] {
+	return pulumix.Output[ApplicationLogEncoding]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationLogEncodingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -821,6 +912,12 @@ func (o ApplicationLogEncodingPtrOutput) ToApplicationLogEncodingPtrOutput() App
 
 func (o ApplicationLogEncodingPtrOutput) ToApplicationLogEncodingPtrOutputWithContext(ctx context.Context) ApplicationLogEncodingPtrOutput {
 	return o
+}
+
+func (o ApplicationLogEncodingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationLogEncoding] {
+	return pulumix.Output[*ApplicationLogEncoding]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationLogEncodingPtrOutput) Elem() ApplicationLogEncodingOutput {
@@ -883,6 +980,12 @@ func (in *applicationLogEncodingPtr) ToApplicationLogEncodingPtrOutput() Applica
 
 func (in *applicationLogEncodingPtr) ToApplicationLogEncodingPtrOutputWithContext(ctx context.Context) ApplicationLogEncodingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationLogEncodingPtrOutput)
+}
+
+func (in *applicationLogEncodingPtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationLogEncoding] {
+	return pulumix.Output[*ApplicationLogEncoding]{
+		OutputState: in.ToApplicationLogEncodingPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The sub component type.
@@ -953,6 +1056,12 @@ func (o ApplicationSubComponentTypeConfigurationSubComponentTypeOutput) ToApplic
 	}).(ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput)
 }
 
+func (o ApplicationSubComponentTypeConfigurationSubComponentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationSubComponentTypeConfigurationSubComponentType] {
+	return pulumix.Output[ApplicationSubComponentTypeConfigurationSubComponentType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationSubComponentTypeConfigurationSubComponentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -986,6 +1095,12 @@ func (o ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput) ToApp
 
 func (o ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput) ToApplicationSubComponentTypeConfigurationSubComponentTypePtrOutputWithContext(ctx context.Context) ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput {
 	return o
+}
+
+func (o ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSubComponentTypeConfigurationSubComponentType] {
+	return pulumix.Output[*ApplicationSubComponentTypeConfigurationSubComponentType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput) Elem() ApplicationSubComponentTypeConfigurationSubComponentTypeOutput {
@@ -1048,6 +1163,12 @@ func (in *applicationSubComponentTypeConfigurationSubComponentTypePtr) ToApplica
 
 func (in *applicationSubComponentTypeConfigurationSubComponentTypePtr) ToApplicationSubComponentTypeConfigurationSubComponentTypePtrOutputWithContext(ctx context.Context) ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput)
+}
+
+func (in *applicationSubComponentTypeConfigurationSubComponentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSubComponentTypeConfigurationSubComponentType] {
+	return pulumix.Output[*ApplicationSubComponentTypeConfigurationSubComponentType]{
+		OutputState: in.ToApplicationSubComponentTypeConfigurationSubComponentTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

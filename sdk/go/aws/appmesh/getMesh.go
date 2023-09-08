@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppMesh::Mesh
@@ -69,6 +70,12 @@ func (o LookupMeshResultOutput) ToLookupMeshResultOutput() LookupMeshResultOutpu
 
 func (o LookupMeshResultOutput) ToLookupMeshResultOutputWithContext(ctx context.Context) LookupMeshResultOutput {
 	return o
+}
+
+func (o LookupMeshResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMeshResult] {
+	return pulumix.Output[LookupMeshResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupMeshResultOutput) Arn() pulumi.StringPtrOutput {

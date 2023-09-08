@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i GroupPolicyTypeArgs) ToGroupPolicyTypeOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyTypeOutput)
 }
 
+func (i GroupPolicyTypeArgs) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyType] {
+	return pulumix.Output[GroupPolicyType]{
+		OutputState: i.ToGroupPolicyTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupPolicyTypeArrayInput is an input type that accepts GroupPolicyTypeArray and GroupPolicyTypeArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyTypeArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i GroupPolicyTypeArray) ToGroupPolicyTypeArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyTypeArrayOutput)
 }
 
+func (i GroupPolicyTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyType] {
+	return pulumix.Output[[]GroupPolicyType]{
+		OutputState: i.ToGroupPolicyTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupPolicyTypeOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyTypeOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o GroupPolicyTypeOutput) ToGroupPolicyTypeOutput() GroupPolicyTypeOutput {
 
 func (o GroupPolicyTypeOutput) ToGroupPolicyTypeOutputWithContext(ctx context.Context) GroupPolicyTypeOutput {
 	return o
+}
+
+func (o GroupPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyType] {
+	return pulumix.Output[GroupPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupPolicyTypeOutput) PolicyDocument() pulumi.AnyOutput {
@@ -105,6 +124,12 @@ func (o GroupPolicyTypeArrayOutput) ToGroupPolicyTypeArrayOutput() GroupPolicyTy
 
 func (o GroupPolicyTypeArrayOutput) ToGroupPolicyTypeArrayOutputWithContext(ctx context.Context) GroupPolicyTypeArrayOutput {
 	return o
+}
+
+func (o GroupPolicyTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyType] {
+	return pulumix.Output[[]GroupPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupPolicyTypeArrayOutput) Index(i pulumi.IntInput) GroupPolicyTypeOutput {
@@ -152,6 +177,12 @@ func (i OidcProviderTagArgs) ToOidcProviderTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(OidcProviderTagOutput)
 }
 
+func (i OidcProviderTagArgs) ToOutput(ctx context.Context) pulumix.Output[OidcProviderTag] {
+	return pulumix.Output[OidcProviderTag]{
+		OutputState: i.ToOidcProviderTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OidcProviderTagArrayInput is an input type that accepts OidcProviderTagArray and OidcProviderTagArrayOutput values.
 // You can construct a concrete instance of `OidcProviderTagArrayInput` via:
 //
@@ -177,6 +208,12 @@ func (i OidcProviderTagArray) ToOidcProviderTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(OidcProviderTagArrayOutput)
 }
 
+func (i OidcProviderTagArray) ToOutput(ctx context.Context) pulumix.Output[[]OidcProviderTag] {
+	return pulumix.Output[[]OidcProviderTag]{
+		OutputState: i.ToOidcProviderTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type OidcProviderTagOutput struct{ *pulumi.OutputState }
 
@@ -190,6 +227,12 @@ func (o OidcProviderTagOutput) ToOidcProviderTagOutput() OidcProviderTagOutput {
 
 func (o OidcProviderTagOutput) ToOidcProviderTagOutputWithContext(ctx context.Context) OidcProviderTagOutput {
 	return o
+}
+
+func (o OidcProviderTagOutput) ToOutput(ctx context.Context) pulumix.Output[OidcProviderTag] {
+	return pulumix.Output[OidcProviderTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -214,6 +257,12 @@ func (o OidcProviderTagArrayOutput) ToOidcProviderTagArrayOutput() OidcProviderT
 
 func (o OidcProviderTagArrayOutput) ToOidcProviderTagArrayOutputWithContext(ctx context.Context) OidcProviderTagArrayOutput {
 	return o
+}
+
+func (o OidcProviderTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OidcProviderTag] {
+	return pulumix.Output[[]OidcProviderTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OidcProviderTagArrayOutput) Index(i pulumi.IntInput) OidcProviderTagOutput {
@@ -261,6 +310,12 @@ func (i RolePolicyTypeArgs) ToRolePolicyTypeOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyTypeOutput)
 }
 
+func (i RolePolicyTypeArgs) ToOutput(ctx context.Context) pulumix.Output[RolePolicyType] {
+	return pulumix.Output[RolePolicyType]{
+		OutputState: i.ToRolePolicyTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RolePolicyTypeArrayInput is an input type that accepts RolePolicyTypeArray and RolePolicyTypeArrayOutput values.
 // You can construct a concrete instance of `RolePolicyTypeArrayInput` via:
 //
@@ -286,6 +341,12 @@ func (i RolePolicyTypeArray) ToRolePolicyTypeArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyTypeArrayOutput)
 }
 
+func (i RolePolicyTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]RolePolicyType] {
+	return pulumix.Output[[]RolePolicyType]{
+		OutputState: i.ToRolePolicyTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The inline policy document that is embedded in the specified IAM role.
 type RolePolicyTypeOutput struct{ *pulumi.OutputState }
 
@@ -299,6 +360,12 @@ func (o RolePolicyTypeOutput) ToRolePolicyTypeOutput() RolePolicyTypeOutput {
 
 func (o RolePolicyTypeOutput) ToRolePolicyTypeOutputWithContext(ctx context.Context) RolePolicyTypeOutput {
 	return o
+}
+
+func (o RolePolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RolePolicyType] {
+	return pulumix.Output[RolePolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The policy document.
@@ -323,6 +390,12 @@ func (o RolePolicyTypeArrayOutput) ToRolePolicyTypeArrayOutput() RolePolicyTypeA
 
 func (o RolePolicyTypeArrayOutput) ToRolePolicyTypeArrayOutputWithContext(ctx context.Context) RolePolicyTypeArrayOutput {
 	return o
+}
+
+func (o RolePolicyTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RolePolicyType] {
+	return pulumix.Output[[]RolePolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RolePolicyTypeArrayOutput) Index(i pulumi.IntInput) RolePolicyTypeOutput {
@@ -370,6 +443,12 @@ func (i RoleTagArgs) ToRoleTagOutputWithContext(ctx context.Context) RoleTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RoleTagOutput)
 }
 
+func (i RoleTagArgs) ToOutput(ctx context.Context) pulumix.Output[RoleTag] {
+	return pulumix.Output[RoleTag]{
+		OutputState: i.ToRoleTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RoleTagArrayInput is an input type that accepts RoleTagArray and RoleTagArrayOutput values.
 // You can construct a concrete instance of `RoleTagArrayInput` via:
 //
@@ -395,6 +474,12 @@ func (i RoleTagArray) ToRoleTagArrayOutputWithContext(ctx context.Context) RoleT
 	return pulumi.ToOutputWithContext(ctx, i).(RoleTagArrayOutput)
 }
 
+func (i RoleTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RoleTag] {
+	return pulumix.Output[[]RoleTag]{
+		OutputState: i.ToRoleTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type RoleTagOutput struct{ *pulumi.OutputState }
 
@@ -408,6 +493,12 @@ func (o RoleTagOutput) ToRoleTagOutput() RoleTagOutput {
 
 func (o RoleTagOutput) ToRoleTagOutputWithContext(ctx context.Context) RoleTagOutput {
 	return o
+}
+
+func (o RoleTagOutput) ToOutput(ctx context.Context) pulumix.Output[RoleTag] {
+	return pulumix.Output[RoleTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -432,6 +523,12 @@ func (o RoleTagArrayOutput) ToRoleTagArrayOutput() RoleTagArrayOutput {
 
 func (o RoleTagArrayOutput) ToRoleTagArrayOutputWithContext(ctx context.Context) RoleTagArrayOutput {
 	return o
+}
+
+func (o RoleTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RoleTag] {
+	return pulumix.Output[[]RoleTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoleTagArrayOutput) Index(i pulumi.IntInput) RoleTagOutput {
@@ -479,6 +576,12 @@ func (i SamlProviderTagArgs) ToSamlProviderTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderTagOutput)
 }
 
+func (i SamlProviderTagArgs) ToOutput(ctx context.Context) pulumix.Output[SamlProviderTag] {
+	return pulumix.Output[SamlProviderTag]{
+		OutputState: i.ToSamlProviderTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SamlProviderTagArrayInput is an input type that accepts SamlProviderTagArray and SamlProviderTagArrayOutput values.
 // You can construct a concrete instance of `SamlProviderTagArrayInput` via:
 //
@@ -504,6 +607,12 @@ func (i SamlProviderTagArray) ToSamlProviderTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderTagArrayOutput)
 }
 
+func (i SamlProviderTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SamlProviderTag] {
+	return pulumix.Output[[]SamlProviderTag]{
+		OutputState: i.ToSamlProviderTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type SamlProviderTagOutput struct{ *pulumi.OutputState }
 
@@ -517,6 +626,12 @@ func (o SamlProviderTagOutput) ToSamlProviderTagOutput() SamlProviderTagOutput {
 
 func (o SamlProviderTagOutput) ToSamlProviderTagOutputWithContext(ctx context.Context) SamlProviderTagOutput {
 	return o
+}
+
+func (o SamlProviderTagOutput) ToOutput(ctx context.Context) pulumix.Output[SamlProviderTag] {
+	return pulumix.Output[SamlProviderTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -541,6 +656,12 @@ func (o SamlProviderTagArrayOutput) ToSamlProviderTagArrayOutput() SamlProviderT
 
 func (o SamlProviderTagArrayOutput) ToSamlProviderTagArrayOutputWithContext(ctx context.Context) SamlProviderTagArrayOutput {
 	return o
+}
+
+func (o SamlProviderTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SamlProviderTag] {
+	return pulumix.Output[[]SamlProviderTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SamlProviderTagArrayOutput) Index(i pulumi.IntInput) SamlProviderTagOutput {
@@ -588,6 +709,12 @@ func (i ServerCertificateTagArgs) ToServerCertificateTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateTagOutput)
 }
 
+func (i ServerCertificateTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServerCertificateTag] {
+	return pulumix.Output[ServerCertificateTag]{
+		OutputState: i.ToServerCertificateTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerCertificateTagArrayInput is an input type that accepts ServerCertificateTagArray and ServerCertificateTagArrayOutput values.
 // You can construct a concrete instance of `ServerCertificateTagArrayInput` via:
 //
@@ -613,6 +740,12 @@ func (i ServerCertificateTagArray) ToServerCertificateTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateTagArrayOutput)
 }
 
+func (i ServerCertificateTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerCertificateTag] {
+	return pulumix.Output[[]ServerCertificateTag]{
+		OutputState: i.ToServerCertificateTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ServerCertificateTagOutput struct{ *pulumi.OutputState }
 
@@ -626,6 +759,12 @@ func (o ServerCertificateTagOutput) ToServerCertificateTagOutput() ServerCertifi
 
 func (o ServerCertificateTagOutput) ToServerCertificateTagOutputWithContext(ctx context.Context) ServerCertificateTagOutput {
 	return o
+}
+
+func (o ServerCertificateTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServerCertificateTag] {
+	return pulumix.Output[ServerCertificateTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -650,6 +789,12 @@ func (o ServerCertificateTagArrayOutput) ToServerCertificateTagArrayOutput() Ser
 
 func (o ServerCertificateTagArrayOutput) ToServerCertificateTagArrayOutputWithContext(ctx context.Context) ServerCertificateTagArrayOutput {
 	return o
+}
+
+func (o ServerCertificateTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerCertificateTag] {
+	return pulumix.Output[[]ServerCertificateTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerCertificateTagArrayOutput) Index(i pulumi.IntInput) ServerCertificateTagOutput {
@@ -689,6 +834,12 @@ func (i UserLoginProfileArgs) ToUserLoginProfileOutput() UserLoginProfileOutput 
 
 func (i UserLoginProfileArgs) ToUserLoginProfileOutputWithContext(ctx context.Context) UserLoginProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserLoginProfileOutput)
+}
+
+func (i UserLoginProfileArgs) ToOutput(ctx context.Context) pulumix.Output[UserLoginProfile] {
+	return pulumix.Output[UserLoginProfile]{
+		OutputState: i.ToUserLoginProfileOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i UserLoginProfileArgs) ToUserLoginProfilePtrOutput() UserLoginProfilePtrOutput {
@@ -732,6 +883,12 @@ func (i *userLoginProfilePtrType) ToUserLoginProfilePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(UserLoginProfilePtrOutput)
 }
 
+func (i *userLoginProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserLoginProfile] {
+	return pulumix.Output[*UserLoginProfile]{
+		OutputState: i.ToUserLoginProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserLoginProfileOutput struct{ *pulumi.OutputState }
 
 func (UserLoginProfileOutput) ElementType() reflect.Type {
@@ -756,6 +913,12 @@ func (o UserLoginProfileOutput) ToUserLoginProfilePtrOutputWithContext(ctx conte
 	}).(UserLoginProfilePtrOutput)
 }
 
+func (o UserLoginProfileOutput) ToOutput(ctx context.Context) pulumix.Output[UserLoginProfile] {
+	return pulumix.Output[UserLoginProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserLoginProfileOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v UserLoginProfile) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -776,6 +939,12 @@ func (o UserLoginProfilePtrOutput) ToUserLoginProfilePtrOutput() UserLoginProfil
 
 func (o UserLoginProfilePtrOutput) ToUserLoginProfilePtrOutputWithContext(ctx context.Context) UserLoginProfilePtrOutput {
 	return o
+}
+
+func (o UserLoginProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserLoginProfile] {
+	return pulumix.Output[*UserLoginProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserLoginProfilePtrOutput) Elem() UserLoginProfileOutput {
@@ -839,6 +1008,12 @@ func (i UserPolicyTypeArgs) ToUserPolicyTypeOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyTypeOutput)
 }
 
+func (i UserPolicyTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPolicyType] {
+	return pulumix.Output[UserPolicyType]{
+		OutputState: i.ToUserPolicyTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserPolicyTypeArrayInput is an input type that accepts UserPolicyTypeArray and UserPolicyTypeArrayOutput values.
 // You can construct a concrete instance of `UserPolicyTypeArrayInput` via:
 //
@@ -864,6 +1039,12 @@ func (i UserPolicyTypeArray) ToUserPolicyTypeArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyTypeArrayOutput)
 }
 
+func (i UserPolicyTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]UserPolicyType] {
+	return pulumix.Output[[]UserPolicyType]{
+		OutputState: i.ToUserPolicyTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserPolicyTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPolicyTypeOutput) ElementType() reflect.Type {
@@ -876,6 +1057,12 @@ func (o UserPolicyTypeOutput) ToUserPolicyTypeOutput() UserPolicyTypeOutput {
 
 func (o UserPolicyTypeOutput) ToUserPolicyTypeOutputWithContext(ctx context.Context) UserPolicyTypeOutput {
 	return o
+}
+
+func (o UserPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPolicyType] {
+	return pulumix.Output[UserPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPolicyTypeOutput) PolicyDocument() pulumi.AnyOutput {
@@ -898,6 +1085,12 @@ func (o UserPolicyTypeArrayOutput) ToUserPolicyTypeArrayOutput() UserPolicyTypeA
 
 func (o UserPolicyTypeArrayOutput) ToUserPolicyTypeArrayOutputWithContext(ctx context.Context) UserPolicyTypeArrayOutput {
 	return o
+}
+
+func (o UserPolicyTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserPolicyType] {
+	return pulumix.Output[[]UserPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPolicyTypeArrayOutput) Index(i pulumi.IntInput) UserPolicyTypeOutput {
@@ -939,6 +1132,12 @@ func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(UserTagOutput)
 }
 
+func (i UserTagArgs) ToOutput(ctx context.Context) pulumix.Output[UserTag] {
+	return pulumix.Output[UserTag]{
+		OutputState: i.ToUserTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
 // You can construct a concrete instance of `UserTagArrayInput` via:
 //
@@ -964,6 +1163,12 @@ func (i UserTagArray) ToUserTagArrayOutputWithContext(ctx context.Context) UserT
 	return pulumi.ToOutputWithContext(ctx, i).(UserTagArrayOutput)
 }
 
+func (i UserTagArray) ToOutput(ctx context.Context) pulumix.Output[[]UserTag] {
+	return pulumix.Output[[]UserTag]{
+		OutputState: i.ToUserTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserTagOutput struct{ *pulumi.OutputState }
 
 func (UserTagOutput) ElementType() reflect.Type {
@@ -976,6 +1181,12 @@ func (o UserTagOutput) ToUserTagOutput() UserTagOutput {
 
 func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
 	return o
+}
+
+func (o UserTagOutput) ToOutput(ctx context.Context) pulumix.Output[UserTag] {
+	return pulumix.Output[UserTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserTagOutput) Key() pulumi.StringOutput {
@@ -998,6 +1209,12 @@ func (o UserTagArrayOutput) ToUserTagArrayOutput() UserTagArrayOutput {
 
 func (o UserTagArrayOutput) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
 	return o
+}
+
+func (o UserTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserTag] {
+	return pulumix.Output[[]UserTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
@@ -1045,6 +1262,12 @@ func (i VirtualMfaDeviceTagArgs) ToVirtualMfaDeviceTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMfaDeviceTagOutput)
 }
 
+func (i VirtualMfaDeviceTagArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMfaDeviceTag] {
+	return pulumix.Output[VirtualMfaDeviceTag]{
+		OutputState: i.ToVirtualMfaDeviceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualMfaDeviceTagArrayInput is an input type that accepts VirtualMfaDeviceTagArray and VirtualMfaDeviceTagArrayOutput values.
 // You can construct a concrete instance of `VirtualMfaDeviceTagArrayInput` via:
 //
@@ -1070,6 +1293,12 @@ func (i VirtualMfaDeviceTagArray) ToVirtualMfaDeviceTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMfaDeviceTagArrayOutput)
 }
 
+func (i VirtualMfaDeviceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualMfaDeviceTag] {
+	return pulumix.Output[[]VirtualMfaDeviceTag]{
+		OutputState: i.ToVirtualMfaDeviceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type VirtualMfaDeviceTagOutput struct{ *pulumi.OutputState }
 
@@ -1083,6 +1312,12 @@ func (o VirtualMfaDeviceTagOutput) ToVirtualMfaDeviceTagOutput() VirtualMfaDevic
 
 func (o VirtualMfaDeviceTagOutput) ToVirtualMfaDeviceTagOutputWithContext(ctx context.Context) VirtualMfaDeviceTagOutput {
 	return o
+}
+
+func (o VirtualMfaDeviceTagOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMfaDeviceTag] {
+	return pulumix.Output[VirtualMfaDeviceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1107,6 +1342,12 @@ func (o VirtualMfaDeviceTagArrayOutput) ToVirtualMfaDeviceTagArrayOutput() Virtu
 
 func (o VirtualMfaDeviceTagArrayOutput) ToVirtualMfaDeviceTagArrayOutputWithContext(ctx context.Context) VirtualMfaDeviceTagArrayOutput {
 	return o
+}
+
+func (o VirtualMfaDeviceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualMfaDeviceTag] {
+	return pulumix.Output[[]VirtualMfaDeviceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualMfaDeviceTagArrayOutput) Index(i pulumi.IntInput) VirtualMfaDeviceTagOutput {

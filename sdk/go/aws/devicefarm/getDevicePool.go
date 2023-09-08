@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
@@ -68,6 +69,12 @@ func (o LookupDevicePoolResultOutput) ToLookupDevicePoolResultOutput() LookupDev
 
 func (o LookupDevicePoolResultOutput) ToLookupDevicePoolResultOutputWithContext(ctx context.Context) LookupDevicePoolResultOutput {
 	return o
+}
+
+func (o LookupDevicePoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDevicePoolResult] {
+	return pulumix.Output[LookupDevicePoolResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDevicePoolResultOutput) Arn() pulumi.StringPtrOutput {

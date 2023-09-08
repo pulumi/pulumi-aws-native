@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The resource schema for creating an Amazon Connect Customer Profiles Integration.
@@ -78,6 +79,12 @@ func (o LookupIntegrationResultOutput) ToLookupIntegrationResultOutput() LookupI
 
 func (o LookupIntegrationResultOutput) ToLookupIntegrationResultOutputWithContext(ctx context.Context) LookupIntegrationResultOutput {
 	return o
+}
+
+func (o LookupIntegrationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIntegrationResult] {
+	return pulumix.Output[LookupIntegrationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The time of this integration got created

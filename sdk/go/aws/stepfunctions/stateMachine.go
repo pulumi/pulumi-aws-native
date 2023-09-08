@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for StateMachine
@@ -128,6 +129,12 @@ func (i *StateMachine) ToStateMachineOutputWithContext(ctx context.Context) Stat
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineOutput)
 }
 
+func (i *StateMachine) ToOutput(ctx context.Context) pulumix.Output[*StateMachine] {
+	return pulumix.Output[*StateMachine]{
+		OutputState: i.ToStateMachineOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineOutput struct{ *pulumi.OutputState }
 
 func (StateMachineOutput) ElementType() reflect.Type {
@@ -140,6 +147,12 @@ func (o StateMachineOutput) ToStateMachineOutput() StateMachineOutput {
 
 func (o StateMachineOutput) ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput {
 	return o
+}
+
+func (o StateMachineOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachine] {
+	return pulumix.Output[*StateMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineOutput) Arn() pulumi.StringOutput {

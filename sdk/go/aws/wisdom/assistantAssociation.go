@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Wisdom::AssistantAssociation Resource Type
@@ -118,6 +119,12 @@ func (i *AssistantAssociation) ToAssistantAssociationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationOutput)
 }
 
+func (i *AssistantAssociation) ToOutput(ctx context.Context) pulumix.Output[*AssistantAssociation] {
+	return pulumix.Output[*AssistantAssociation]{
+		OutputState: i.ToAssistantAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssistantAssociationOutput struct{ *pulumi.OutputState }
 
 func (AssistantAssociationOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o AssistantAssociationOutput) ToAssistantAssociationOutput() AssistantAsso
 
 func (o AssistantAssociationOutput) ToAssistantAssociationOutputWithContext(ctx context.Context) AssistantAssociationOutput {
 	return o
+}
+
+func (o AssistantAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*AssistantAssociation] {
+	return pulumix.Output[*AssistantAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssistantAssociationOutput) AssistantArn() pulumi.StringOutput {

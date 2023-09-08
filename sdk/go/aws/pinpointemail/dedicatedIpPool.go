@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::PinpointEmail::DedicatedIpPool
@@ -98,6 +99,12 @@ func (i *DedicatedIpPool) ToDedicatedIpPoolOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpPoolOutput)
 }
 
+func (i *DedicatedIpPool) ToOutput(ctx context.Context) pulumix.Output[*DedicatedIpPool] {
+	return pulumix.Output[*DedicatedIpPool]{
+		OutputState: i.ToDedicatedIpPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DedicatedIpPoolOutput struct{ *pulumi.OutputState }
 
 func (DedicatedIpPoolOutput) ElementType() reflect.Type {
@@ -110,6 +117,12 @@ func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutput() DedicatedIpPoolOutput {
 
 func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutputWithContext(ctx context.Context) DedicatedIpPoolOutput {
 	return o
+}
+
+func (o DedicatedIpPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*DedicatedIpPool] {
+	return pulumix.Output[*DedicatedIpPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DedicatedIpPoolOutput) PoolName() pulumi.StringPtrOutput {

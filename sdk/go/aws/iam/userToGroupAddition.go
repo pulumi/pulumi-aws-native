@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::UserToGroupAddition
@@ -101,6 +102,12 @@ func (i *UserToGroupAddition) ToUserToGroupAdditionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(UserToGroupAdditionOutput)
 }
 
+func (i *UserToGroupAddition) ToOutput(ctx context.Context) pulumix.Output[*UserToGroupAddition] {
+	return pulumix.Output[*UserToGroupAddition]{
+		OutputState: i.ToUserToGroupAdditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserToGroupAdditionOutput struct{ *pulumi.OutputState }
 
 func (UserToGroupAdditionOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o UserToGroupAdditionOutput) ToUserToGroupAdditionOutput() UserToGroupAddi
 
 func (o UserToGroupAdditionOutput) ToUserToGroupAdditionOutputWithContext(ctx context.Context) UserToGroupAdditionOutput {
 	return o
+}
+
+func (o UserToGroupAdditionOutput) ToOutput(ctx context.Context) pulumix.Output[*UserToGroupAddition] {
+	return pulumix.Output[*UserToGroupAddition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserToGroupAdditionOutput) GroupName() pulumi.StringOutput {

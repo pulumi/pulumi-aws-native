@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Omics::ReferenceStore Resource Type
@@ -67,6 +68,12 @@ func (o LookupReferenceStoreResultOutput) ToLookupReferenceStoreResultOutput() L
 
 func (o LookupReferenceStoreResultOutput) ToLookupReferenceStoreResultOutputWithContext(ctx context.Context) LookupReferenceStoreResultOutput {
 	return o
+}
+
+func (o LookupReferenceStoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReferenceStoreResult] {
+	return pulumix.Output[LookupReferenceStoreResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The store's ARN.

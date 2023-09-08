@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EMR::InstanceFleetConfig
@@ -124,6 +125,12 @@ func (i *InstanceFleetConfig) ToInstanceFleetConfigOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOutput)
 }
 
+func (i *InstanceFleetConfig) ToOutput(ctx context.Context) pulumix.Output[*InstanceFleetConfig] {
+	return pulumix.Output[*InstanceFleetConfig]{
+		OutputState: i.ToInstanceFleetConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceFleetConfigOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetConfigOutput) ElementType() reflect.Type {
@@ -136,6 +143,12 @@ func (o InstanceFleetConfigOutput) ToInstanceFleetConfigOutput() InstanceFleetCo
 
 func (o InstanceFleetConfigOutput) ToInstanceFleetConfigOutputWithContext(ctx context.Context) InstanceFleetConfigOutput {
 	return o
+}
+
+func (o InstanceFleetConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceFleetConfig] {
+	return pulumix.Output[*InstanceFleetConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceFleetConfigOutput) ClusterId() pulumi.StringOutput {

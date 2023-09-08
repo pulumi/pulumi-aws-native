@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Location::TrackerConsumer Resource Type
@@ -104,6 +105,12 @@ func (i *TrackerConsumer) ToTrackerConsumerOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TrackerConsumerOutput)
 }
 
+func (i *TrackerConsumer) ToOutput(ctx context.Context) pulumix.Output[*TrackerConsumer] {
+	return pulumix.Output[*TrackerConsumer]{
+		OutputState: i.ToTrackerConsumerOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrackerConsumerOutput struct{ *pulumi.OutputState }
 
 func (TrackerConsumerOutput) ElementType() reflect.Type {
@@ -116,6 +123,12 @@ func (o TrackerConsumerOutput) ToTrackerConsumerOutput() TrackerConsumerOutput {
 
 func (o TrackerConsumerOutput) ToTrackerConsumerOutputWithContext(ctx context.Context) TrackerConsumerOutput {
 	return o
+}
+
+func (o TrackerConsumerOutput) ToOutput(ctx context.Context) pulumix.Output[*TrackerConsumer] {
+	return pulumix.Output[*TrackerConsumer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrackerConsumerOutput) ConsumerArn() pulumi.StringOutput {

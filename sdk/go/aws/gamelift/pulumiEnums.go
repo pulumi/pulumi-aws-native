@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
@@ -78,6 +79,12 @@ func (o AliasRoutingStrategyTypeOutput) ToAliasRoutingStrategyTypePtrOutputWithC
 	}).(AliasRoutingStrategyTypePtrOutput)
 }
 
+func (o AliasRoutingStrategyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AliasRoutingStrategyType] {
+	return pulumix.Output[AliasRoutingStrategyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AliasRoutingStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o AliasRoutingStrategyTypePtrOutput) ToAliasRoutingStrategyTypePtrOutput()
 
 func (o AliasRoutingStrategyTypePtrOutput) ToAliasRoutingStrategyTypePtrOutputWithContext(ctx context.Context) AliasRoutingStrategyTypePtrOutput {
 	return o
+}
+
+func (o AliasRoutingStrategyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AliasRoutingStrategyType] {
+	return pulumix.Output[*AliasRoutingStrategyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AliasRoutingStrategyTypePtrOutput) Elem() AliasRoutingStrategyTypeOutput {
@@ -173,6 +186,12 @@ func (in *aliasRoutingStrategyTypePtr) ToAliasRoutingStrategyTypePtrOutput() Ali
 
 func (in *aliasRoutingStrategyTypePtr) ToAliasRoutingStrategyTypePtrOutputWithContext(ctx context.Context) AliasRoutingStrategyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AliasRoutingStrategyTypePtrOutput)
+}
+
+func (in *aliasRoutingStrategyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AliasRoutingStrategyType] {
+	return pulumix.Output[*AliasRoutingStrategyType]{
+		OutputState: in.ToAliasRoutingStrategyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
@@ -246,6 +265,12 @@ func (o BuildOperatingSystemOutput) ToBuildOperatingSystemPtrOutputWithContext(c
 	}).(BuildOperatingSystemPtrOutput)
 }
 
+func (o BuildOperatingSystemOutput) ToOutput(ctx context.Context) pulumix.Output[BuildOperatingSystem] {
+	return pulumix.Output[BuildOperatingSystem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BuildOperatingSystemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -279,6 +304,12 @@ func (o BuildOperatingSystemPtrOutput) ToBuildOperatingSystemPtrOutput() BuildOp
 
 func (o BuildOperatingSystemPtrOutput) ToBuildOperatingSystemPtrOutputWithContext(ctx context.Context) BuildOperatingSystemPtrOutput {
 	return o
+}
+
+func (o BuildOperatingSystemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildOperatingSystem] {
+	return pulumix.Output[*BuildOperatingSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BuildOperatingSystemPtrOutput) Elem() BuildOperatingSystemOutput {
@@ -341,6 +372,12 @@ func (in *buildOperatingSystemPtr) ToBuildOperatingSystemPtrOutput() BuildOperat
 
 func (in *buildOperatingSystemPtr) ToBuildOperatingSystemPtrOutputWithContext(ctx context.Context) BuildOperatingSystemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BuildOperatingSystemPtrOutput)
+}
+
+func (in *buildOperatingSystemPtr) ToOutput(ctx context.Context) pulumix.Output[*BuildOperatingSystem] {
+	return pulumix.Output[*BuildOperatingSystem]{
+		OutputState: in.ToBuildOperatingSystemPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FleetCertificateConfigurationCertificateType string
@@ -410,6 +447,12 @@ func (o FleetCertificateConfigurationCertificateTypeOutput) ToFleetCertificateCo
 	}).(FleetCertificateConfigurationCertificateTypePtrOutput)
 }
 
+func (o FleetCertificateConfigurationCertificateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetCertificateConfigurationCertificateType] {
+	return pulumix.Output[FleetCertificateConfigurationCertificateType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FleetCertificateConfigurationCertificateTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -443,6 +486,12 @@ func (o FleetCertificateConfigurationCertificateTypePtrOutput) ToFleetCertificat
 
 func (o FleetCertificateConfigurationCertificateTypePtrOutput) ToFleetCertificateConfigurationCertificateTypePtrOutputWithContext(ctx context.Context) FleetCertificateConfigurationCertificateTypePtrOutput {
 	return o
+}
+
+func (o FleetCertificateConfigurationCertificateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetCertificateConfigurationCertificateType] {
+	return pulumix.Output[*FleetCertificateConfigurationCertificateType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetCertificateConfigurationCertificateTypePtrOutput) Elem() FleetCertificateConfigurationCertificateTypeOutput {
@@ -505,6 +554,12 @@ func (in *fleetCertificateConfigurationCertificateTypePtr) ToFleetCertificateCon
 
 func (in *fleetCertificateConfigurationCertificateTypePtr) ToFleetCertificateConfigurationCertificateTypePtrOutputWithContext(ctx context.Context) FleetCertificateConfigurationCertificateTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FleetCertificateConfigurationCertificateTypePtrOutput)
+}
+
+func (in *fleetCertificateConfigurationCertificateTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FleetCertificateConfigurationCertificateType] {
+	return pulumix.Output[*FleetCertificateConfigurationCertificateType]{
+		OutputState: in.ToFleetCertificateConfigurationCertificateTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
@@ -575,6 +630,12 @@ func (o FleetComputeTypeOutput) ToFleetComputeTypePtrOutputWithContext(ctx conte
 	}).(FleetComputeTypePtrOutput)
 }
 
+func (o FleetComputeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetComputeType] {
+	return pulumix.Output[FleetComputeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FleetComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -608,6 +669,12 @@ func (o FleetComputeTypePtrOutput) ToFleetComputeTypePtrOutput() FleetComputeTyp
 
 func (o FleetComputeTypePtrOutput) ToFleetComputeTypePtrOutputWithContext(ctx context.Context) FleetComputeTypePtrOutput {
 	return o
+}
+
+func (o FleetComputeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetComputeType] {
+	return pulumix.Output[*FleetComputeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetComputeTypePtrOutput) Elem() FleetComputeTypeOutput {
@@ -670,6 +737,12 @@ func (in *fleetComputeTypePtr) ToFleetComputeTypePtrOutput() FleetComputeTypePtr
 
 func (in *fleetComputeTypePtr) ToFleetComputeTypePtrOutputWithContext(ctx context.Context) FleetComputeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FleetComputeTypePtrOutput)
+}
+
+func (in *fleetComputeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FleetComputeType] {
+	return pulumix.Output[*FleetComputeType]{
+		OutputState: in.ToFleetComputeTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The network communication protocol used by the fleet.
@@ -740,6 +813,12 @@ func (o FleetIpPermissionProtocolOutput) ToFleetIpPermissionProtocolPtrOutputWit
 	}).(FleetIpPermissionProtocolPtrOutput)
 }
 
+func (o FleetIpPermissionProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[FleetIpPermissionProtocol] {
+	return pulumix.Output[FleetIpPermissionProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FleetIpPermissionProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -773,6 +852,12 @@ func (o FleetIpPermissionProtocolPtrOutput) ToFleetIpPermissionProtocolPtrOutput
 
 func (o FleetIpPermissionProtocolPtrOutput) ToFleetIpPermissionProtocolPtrOutputWithContext(ctx context.Context) FleetIpPermissionProtocolPtrOutput {
 	return o
+}
+
+func (o FleetIpPermissionProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetIpPermissionProtocol] {
+	return pulumix.Output[*FleetIpPermissionProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetIpPermissionProtocolPtrOutput) Elem() FleetIpPermissionProtocolOutput {
@@ -835,6 +920,12 @@ func (in *fleetIpPermissionProtocolPtr) ToFleetIpPermissionProtocolPtrOutput() F
 
 func (in *fleetIpPermissionProtocolPtr) ToFleetIpPermissionProtocolPtrOutputWithContext(ctx context.Context) FleetIpPermissionProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FleetIpPermissionProtocolPtrOutput)
+}
+
+func (in *fleetIpPermissionProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*FleetIpPermissionProtocol] {
+	return pulumix.Output[*FleetIpPermissionProtocol]{
+		OutputState: in.ToFleetIpPermissionProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
@@ -905,6 +996,12 @@ func (o FleetNewGameSessionProtectionPolicyOutput) ToFleetNewGameSessionProtecti
 	}).(FleetNewGameSessionProtectionPolicyPtrOutput)
 }
 
+func (o FleetNewGameSessionProtectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FleetNewGameSessionProtectionPolicy] {
+	return pulumix.Output[FleetNewGameSessionProtectionPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FleetNewGameSessionProtectionPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -938,6 +1035,12 @@ func (o FleetNewGameSessionProtectionPolicyPtrOutput) ToFleetNewGameSessionProte
 
 func (o FleetNewGameSessionProtectionPolicyPtrOutput) ToFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx context.Context) FleetNewGameSessionProtectionPolicyPtrOutput {
 	return o
+}
+
+func (o FleetNewGameSessionProtectionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetNewGameSessionProtectionPolicy] {
+	return pulumix.Output[*FleetNewGameSessionProtectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetNewGameSessionProtectionPolicyPtrOutput) Elem() FleetNewGameSessionProtectionPolicyOutput {
@@ -1000,6 +1103,12 @@ func (in *fleetNewGameSessionProtectionPolicyPtr) ToFleetNewGameSessionProtectio
 
 func (in *fleetNewGameSessionProtectionPolicyPtr) ToFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx context.Context) FleetNewGameSessionProtectionPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FleetNewGameSessionProtectionPolicyPtrOutput)
+}
+
+func (in *fleetNewGameSessionProtectionPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*FleetNewGameSessionProtectionPolicy] {
+	return pulumix.Output[*FleetNewGameSessionProtectionPolicy]{
+		OutputState: in.ToFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
@@ -1070,6 +1179,12 @@ func (o FleetTypeOutput) ToFleetTypePtrOutputWithContext(ctx context.Context) Fl
 	}).(FleetTypePtrOutput)
 }
 
+func (o FleetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetType] {
+	return pulumix.Output[FleetType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FleetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1103,6 +1218,12 @@ func (o FleetTypePtrOutput) ToFleetTypePtrOutput() FleetTypePtrOutput {
 
 func (o FleetTypePtrOutput) ToFleetTypePtrOutputWithContext(ctx context.Context) FleetTypePtrOutput {
 	return o
+}
+
+func (o FleetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetType] {
+	return pulumix.Output[*FleetType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetTypePtrOutput) Elem() FleetTypeOutput {
@@ -1165,6 +1286,12 @@ func (in *fleetTypePtr) ToFleetTypePtrOutput() FleetTypePtrOutput {
 
 func (in *fleetTypePtr) ToFleetTypePtrOutputWithContext(ctx context.Context) FleetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FleetTypePtrOutput)
+}
+
+func (in *fleetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FleetType] {
+	return pulumix.Output[*FleetType]{
+		OutputState: in.ToFleetTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
@@ -1236,6 +1363,12 @@ func (o GameServerGroupBalancingStrategyOutput) ToGameServerGroupBalancingStrate
 	}).(GameServerGroupBalancingStrategyPtrOutput)
 }
 
+func (o GameServerGroupBalancingStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupBalancingStrategy] {
+	return pulumix.Output[GameServerGroupBalancingStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GameServerGroupBalancingStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1269,6 +1402,12 @@ func (o GameServerGroupBalancingStrategyPtrOutput) ToGameServerGroupBalancingStr
 
 func (o GameServerGroupBalancingStrategyPtrOutput) ToGameServerGroupBalancingStrategyPtrOutputWithContext(ctx context.Context) GameServerGroupBalancingStrategyPtrOutput {
 	return o
+}
+
+func (o GameServerGroupBalancingStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupBalancingStrategy] {
+	return pulumix.Output[*GameServerGroupBalancingStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GameServerGroupBalancingStrategyPtrOutput) Elem() GameServerGroupBalancingStrategyOutput {
@@ -1331,6 +1470,12 @@ func (in *gameServerGroupBalancingStrategyPtr) ToGameServerGroupBalancingStrateg
 
 func (in *gameServerGroupBalancingStrategyPtr) ToGameServerGroupBalancingStrategyPtrOutputWithContext(ctx context.Context) GameServerGroupBalancingStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GameServerGroupBalancingStrategyPtrOutput)
+}
+
+func (in *gameServerGroupBalancingStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupBalancingStrategy] {
+	return pulumix.Output[*GameServerGroupBalancingStrategy]{
+		OutputState: in.ToGameServerGroupBalancingStrategyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of delete to perform.
@@ -1402,6 +1547,12 @@ func (o GameServerGroupDeleteOptionOutput) ToGameServerGroupDeleteOptionPtrOutpu
 	}).(GameServerGroupDeleteOptionPtrOutput)
 }
 
+func (o GameServerGroupDeleteOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupDeleteOption] {
+	return pulumix.Output[GameServerGroupDeleteOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GameServerGroupDeleteOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1435,6 +1586,12 @@ func (o GameServerGroupDeleteOptionPtrOutput) ToGameServerGroupDeleteOptionPtrOu
 
 func (o GameServerGroupDeleteOptionPtrOutput) ToGameServerGroupDeleteOptionPtrOutputWithContext(ctx context.Context) GameServerGroupDeleteOptionPtrOutput {
 	return o
+}
+
+func (o GameServerGroupDeleteOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupDeleteOption] {
+	return pulumix.Output[*GameServerGroupDeleteOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GameServerGroupDeleteOptionPtrOutput) Elem() GameServerGroupDeleteOptionOutput {
@@ -1497,6 +1654,12 @@ func (in *gameServerGroupDeleteOptionPtr) ToGameServerGroupDeleteOptionPtrOutput
 
 func (in *gameServerGroupDeleteOptionPtr) ToGameServerGroupDeleteOptionPtrOutputWithContext(ctx context.Context) GameServerGroupDeleteOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GameServerGroupDeleteOptionPtrOutput)
+}
+
+func (in *gameServerGroupDeleteOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupDeleteOption] {
+	return pulumix.Output[*GameServerGroupDeleteOption]{
+		OutputState: in.ToGameServerGroupDeleteOptionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A flag that indicates whether instances in the game server group are protected from early termination.
@@ -1567,6 +1730,12 @@ func (o GameServerGroupGameServerProtectionPolicyOutput) ToGameServerGroupGameSe
 	}).(GameServerGroupGameServerProtectionPolicyPtrOutput)
 }
 
+func (o GameServerGroupGameServerProtectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupGameServerProtectionPolicy] {
+	return pulumix.Output[GameServerGroupGameServerProtectionPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GameServerGroupGameServerProtectionPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1600,6 +1769,12 @@ func (o GameServerGroupGameServerProtectionPolicyPtrOutput) ToGameServerGroupGam
 
 func (o GameServerGroupGameServerProtectionPolicyPtrOutput) ToGameServerGroupGameServerProtectionPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupGameServerProtectionPolicyPtrOutput {
 	return o
+}
+
+func (o GameServerGroupGameServerProtectionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupGameServerProtectionPolicy] {
+	return pulumix.Output[*GameServerGroupGameServerProtectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GameServerGroupGameServerProtectionPolicyPtrOutput) Elem() GameServerGroupGameServerProtectionPolicyOutput {
@@ -1662,6 +1837,12 @@ func (in *gameServerGroupGameServerProtectionPolicyPtr) ToGameServerGroupGameSer
 
 func (in *gameServerGroupGameServerProtectionPolicyPtr) ToGameServerGroupGameServerProtectionPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupGameServerProtectionPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GameServerGroupGameServerProtectionPolicyPtrOutput)
+}
+
+func (in *gameServerGroupGameServerProtectionPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupGameServerProtectionPolicy] {
+	return pulumix.Output[*GameServerGroupGameServerProtectionPolicy]{
+		OutputState: in.ToGameServerGroupGameServerProtectionPolicyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

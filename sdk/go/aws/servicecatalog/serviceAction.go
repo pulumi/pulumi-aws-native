@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::ServiceCatalog::ServiceAction
@@ -108,6 +109,12 @@ func (i *ServiceAction) ToServiceActionOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionOutput)
 }
 
+func (i *ServiceAction) ToOutput(ctx context.Context) pulumix.Output[*ServiceAction] {
+	return pulumix.Output[*ServiceAction]{
+		OutputState: i.ToServiceActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceActionOutput struct{ *pulumi.OutputState }
 
 func (ServiceActionOutput) ElementType() reflect.Type {
@@ -120,6 +127,12 @@ func (o ServiceActionOutput) ToServiceActionOutput() ServiceActionOutput {
 
 func (o ServiceActionOutput) ToServiceActionOutputWithContext(ctx context.Context) ServiceActionOutput {
 	return o
+}
+
+func (o ServiceActionOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAction] {
+	return pulumix.Output[*ServiceAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceActionOutput) AcceptLanguage() ServiceActionAcceptLanguagePtrOutput {

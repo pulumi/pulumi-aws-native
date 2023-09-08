@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
@@ -120,6 +121,12 @@ func (i *SafetyRule) ToSafetyRuleOutputWithContext(ctx context.Context) SafetyRu
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleOutput)
 }
 
+func (i *SafetyRule) ToOutput(ctx context.Context) pulumix.Output[*SafetyRule] {
+	return pulumix.Output[*SafetyRule]{
+		OutputState: i.ToSafetyRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SafetyRuleOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleOutput) ElementType() reflect.Type {
@@ -132,6 +139,12 @@ func (o SafetyRuleOutput) ToSafetyRuleOutput() SafetyRuleOutput {
 
 func (o SafetyRuleOutput) ToSafetyRuleOutputWithContext(ctx context.Context) SafetyRuleOutput {
 	return o
+}
+
+func (o SafetyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SafetyRule] {
+	return pulumix.Output[*SafetyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SafetyRuleOutput) AssertionRule() SafetyRuleAssertionRulePtrOutput {

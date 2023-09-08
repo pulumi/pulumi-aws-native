@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -60,6 +61,12 @@ func (i ProjectArtifactsArgs) ToProjectArtifactsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectArtifactsOutput)
 }
 
+func (i ProjectArtifactsArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectArtifacts] {
+	return pulumix.Output[ProjectArtifacts]{
+		OutputState: i.ToProjectArtifactsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProjectArtifactsArrayInput is an input type that accepts ProjectArtifactsArray and ProjectArtifactsArrayOutput values.
 // You can construct a concrete instance of `ProjectArtifactsArrayInput` via:
 //
@@ -85,6 +92,12 @@ func (i ProjectArtifactsArray) ToProjectArtifactsArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectArtifactsArrayOutput)
 }
 
+func (i ProjectArtifactsArray) ToOutput(ctx context.Context) pulumix.Output[[]ProjectArtifacts] {
+	return pulumix.Output[[]ProjectArtifacts]{
+		OutputState: i.ToProjectArtifactsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectArtifactsOutput struct{ *pulumi.OutputState }
 
 func (ProjectArtifactsOutput) ElementType() reflect.Type {
@@ -97,6 +110,12 @@ func (o ProjectArtifactsOutput) ToProjectArtifactsOutput() ProjectArtifactsOutpu
 
 func (o ProjectArtifactsOutput) ToProjectArtifactsOutputWithContext(ctx context.Context) ProjectArtifactsOutput {
 	return o
+}
+
+func (o ProjectArtifactsOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectArtifacts] {
+	return pulumix.Output[ProjectArtifacts]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectArtifactsOutput) ArtifactIdentifier() pulumi.StringPtrOutput {
@@ -147,6 +166,12 @@ func (o ProjectArtifactsPtrOutput) ToProjectArtifactsPtrOutput() ProjectArtifact
 
 func (o ProjectArtifactsPtrOutput) ToProjectArtifactsPtrOutputWithContext(ctx context.Context) ProjectArtifactsPtrOutput {
 	return o
+}
+
+func (o ProjectArtifactsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectArtifacts] {
+	return pulumix.Output[*ProjectArtifacts]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectArtifactsPtrOutput) Elem() ProjectArtifactsOutput {
@@ -254,6 +279,12 @@ func (o ProjectArtifactsArrayOutput) ToProjectArtifactsArrayOutputWithContext(ct
 	return o
 }
 
+func (o ProjectArtifactsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProjectArtifacts] {
+	return pulumix.Output[[]ProjectArtifacts]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProjectArtifactsArrayOutput) Index(i pulumi.IntInput) ProjectArtifactsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectArtifacts {
 		return vs[0].([]ProjectArtifacts)[vs[1].(int)]
@@ -291,6 +322,12 @@ func (i ProjectBatchRestrictionsArgs) ToProjectBatchRestrictionsOutput() Project
 
 func (i ProjectBatchRestrictionsArgs) ToProjectBatchRestrictionsOutputWithContext(ctx context.Context) ProjectBatchRestrictionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectBatchRestrictionsOutput)
+}
+
+func (i ProjectBatchRestrictionsArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectBatchRestrictions] {
+	return pulumix.Output[ProjectBatchRestrictions]{
+		OutputState: i.ToProjectBatchRestrictionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ProjectBatchRestrictionsArgs) ToProjectBatchRestrictionsPtrOutput() ProjectBatchRestrictionsPtrOutput {
@@ -334,6 +371,12 @@ func (i *projectBatchRestrictionsPtrType) ToProjectBatchRestrictionsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectBatchRestrictionsPtrOutput)
 }
 
+func (i *projectBatchRestrictionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectBatchRestrictions] {
+	return pulumix.Output[*ProjectBatchRestrictions]{
+		OutputState: i.ToProjectBatchRestrictionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectBatchRestrictionsOutput struct{ *pulumi.OutputState }
 
 func (ProjectBatchRestrictionsOutput) ElementType() reflect.Type {
@@ -358,6 +401,12 @@ func (o ProjectBatchRestrictionsOutput) ToProjectBatchRestrictionsPtrOutputWithC
 	}).(ProjectBatchRestrictionsPtrOutput)
 }
 
+func (o ProjectBatchRestrictionsOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectBatchRestrictions] {
+	return pulumix.Output[ProjectBatchRestrictions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProjectBatchRestrictionsOutput) ComputeTypesAllowed() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProjectBatchRestrictions) []string { return v.ComputeTypesAllowed }).(pulumi.StringArrayOutput)
 }
@@ -378,6 +427,12 @@ func (o ProjectBatchRestrictionsPtrOutput) ToProjectBatchRestrictionsPtrOutput()
 
 func (o ProjectBatchRestrictionsPtrOutput) ToProjectBatchRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBatchRestrictionsPtrOutput {
 	return o
+}
+
+func (o ProjectBatchRestrictionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectBatchRestrictions] {
+	return pulumix.Output[*ProjectBatchRestrictions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectBatchRestrictionsPtrOutput) Elem() ProjectBatchRestrictionsOutput {
@@ -447,6 +502,12 @@ func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigOutput)
 }
 
+func (i ProjectBuildBatchConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectBuildBatchConfig] {
+	return pulumix.Output[ProjectBuildBatchConfig]{
+		OutputState: i.ToProjectBuildBatchConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
 	return i.ToProjectBuildBatchConfigPtrOutputWithContext(context.Background())
 }
@@ -488,6 +549,12 @@ func (i *projectBuildBatchConfigPtrType) ToProjectBuildBatchConfigPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigPtrOutput)
 }
 
+func (i *projectBuildBatchConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectBuildBatchConfig] {
+	return pulumix.Output[*ProjectBuildBatchConfig]{
+		OutputState: i.ToProjectBuildBatchConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectBuildBatchConfigOutput struct{ *pulumi.OutputState }
 
 func (ProjectBuildBatchConfigOutput) ElementType() reflect.Type {
@@ -510,6 +577,12 @@ func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectBuildBatchConfig) *ProjectBuildBatchConfig {
 		return &v
 	}).(ProjectBuildBatchConfigPtrOutput)
+}
+
+func (o ProjectBuildBatchConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectBuildBatchConfig] {
+	return pulumix.Output[ProjectBuildBatchConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectBuildBatchConfigOutput) BatchReportMode() pulumi.StringPtrOutput {
@@ -544,6 +617,12 @@ func (o ProjectBuildBatchConfigPtrOutput) ToProjectBuildBatchConfigPtrOutput() P
 
 func (o ProjectBuildBatchConfigPtrOutput) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
 	return o
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectBuildBatchConfig] {
+	return pulumix.Output[*ProjectBuildBatchConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectBuildBatchConfigPtrOutput) Elem() ProjectBuildBatchConfigOutput {
@@ -634,6 +713,12 @@ func (i ProjectBuildStatusConfigArgs) ToProjectBuildStatusConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildStatusConfigOutput)
 }
 
+func (i ProjectBuildStatusConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectBuildStatusConfig] {
+	return pulumix.Output[ProjectBuildStatusConfig]{
+		OutputState: i.ToProjectBuildStatusConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProjectBuildStatusConfigArgs) ToProjectBuildStatusConfigPtrOutput() ProjectBuildStatusConfigPtrOutput {
 	return i.ToProjectBuildStatusConfigPtrOutputWithContext(context.Background())
 }
@@ -675,6 +760,12 @@ func (i *projectBuildStatusConfigPtrType) ToProjectBuildStatusConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildStatusConfigPtrOutput)
 }
 
+func (i *projectBuildStatusConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectBuildStatusConfig] {
+	return pulumix.Output[*ProjectBuildStatusConfig]{
+		OutputState: i.ToProjectBuildStatusConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectBuildStatusConfigOutput struct{ *pulumi.OutputState }
 
 func (ProjectBuildStatusConfigOutput) ElementType() reflect.Type {
@@ -699,6 +790,12 @@ func (o ProjectBuildStatusConfigOutput) ToProjectBuildStatusConfigPtrOutputWithC
 	}).(ProjectBuildStatusConfigPtrOutput)
 }
 
+func (o ProjectBuildStatusConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectBuildStatusConfig] {
+	return pulumix.Output[ProjectBuildStatusConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProjectBuildStatusConfigOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectBuildStatusConfig) *string { return v.Context }).(pulumi.StringPtrOutput)
 }
@@ -719,6 +816,12 @@ func (o ProjectBuildStatusConfigPtrOutput) ToProjectBuildStatusConfigPtrOutput()
 
 func (o ProjectBuildStatusConfigPtrOutput) ToProjectBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectBuildStatusConfigPtrOutput {
 	return o
+}
+
+func (o ProjectBuildStatusConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectBuildStatusConfig] {
+	return pulumix.Output[*ProjectBuildStatusConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectBuildStatusConfigPtrOutput) Elem() ProjectBuildStatusConfigOutput {
@@ -784,6 +887,12 @@ func (i ProjectCacheArgs) ToProjectCacheOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectCacheOutput)
 }
 
+func (i ProjectCacheArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectCache] {
+	return pulumix.Output[ProjectCache]{
+		OutputState: i.ToProjectCacheOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProjectCacheArgs) ToProjectCachePtrOutput() ProjectCachePtrOutput {
 	return i.ToProjectCachePtrOutputWithContext(context.Background())
 }
@@ -825,6 +934,12 @@ func (i *projectCachePtrType) ToProjectCachePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectCachePtrOutput)
 }
 
+func (i *projectCachePtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectCache] {
+	return pulumix.Output[*ProjectCache]{
+		OutputState: i.ToProjectCachePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectCacheOutput struct{ *pulumi.OutputState }
 
 func (ProjectCacheOutput) ElementType() reflect.Type {
@@ -847,6 +962,12 @@ func (o ProjectCacheOutput) ToProjectCachePtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectCache) *ProjectCache {
 		return &v
 	}).(ProjectCachePtrOutput)
+}
+
+func (o ProjectCacheOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectCache] {
+	return pulumix.Output[ProjectCache]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectCacheOutput) Location() pulumi.StringPtrOutput {
@@ -873,6 +994,12 @@ func (o ProjectCachePtrOutput) ToProjectCachePtrOutput() ProjectCachePtrOutput {
 
 func (o ProjectCachePtrOutput) ToProjectCachePtrOutputWithContext(ctx context.Context) ProjectCachePtrOutput {
 	return o
+}
+
+func (o ProjectCachePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectCache] {
+	return pulumix.Output[*ProjectCache]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectCachePtrOutput) Elem() ProjectCacheOutput {
@@ -947,6 +1074,12 @@ func (i ProjectCloudWatchLogsConfigArgs) ToProjectCloudWatchLogsConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectCloudWatchLogsConfigOutput)
 }
 
+func (i ProjectCloudWatchLogsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectCloudWatchLogsConfig] {
+	return pulumix.Output[ProjectCloudWatchLogsConfig]{
+		OutputState: i.ToProjectCloudWatchLogsConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProjectCloudWatchLogsConfigArgs) ToProjectCloudWatchLogsConfigPtrOutput() ProjectCloudWatchLogsConfigPtrOutput {
 	return i.ToProjectCloudWatchLogsConfigPtrOutputWithContext(context.Background())
 }
@@ -988,6 +1121,12 @@ func (i *projectCloudWatchLogsConfigPtrType) ToProjectCloudWatchLogsConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectCloudWatchLogsConfigPtrOutput)
 }
 
+func (i *projectCloudWatchLogsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectCloudWatchLogsConfig] {
+	return pulumix.Output[*ProjectCloudWatchLogsConfig]{
+		OutputState: i.ToProjectCloudWatchLogsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectCloudWatchLogsConfigOutput struct{ *pulumi.OutputState }
 
 func (ProjectCloudWatchLogsConfigOutput) ElementType() reflect.Type {
@@ -1010,6 +1149,12 @@ func (o ProjectCloudWatchLogsConfigOutput) ToProjectCloudWatchLogsConfigPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectCloudWatchLogsConfig) *ProjectCloudWatchLogsConfig {
 		return &v
 	}).(ProjectCloudWatchLogsConfigPtrOutput)
+}
+
+func (o ProjectCloudWatchLogsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectCloudWatchLogsConfig] {
+	return pulumix.Output[ProjectCloudWatchLogsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectCloudWatchLogsConfigOutput) GroupName() pulumi.StringPtrOutput {
@@ -1036,6 +1181,12 @@ func (o ProjectCloudWatchLogsConfigPtrOutput) ToProjectCloudWatchLogsConfigPtrOu
 
 func (o ProjectCloudWatchLogsConfigPtrOutput) ToProjectCloudWatchLogsConfigPtrOutputWithContext(ctx context.Context) ProjectCloudWatchLogsConfigPtrOutput {
 	return o
+}
+
+func (o ProjectCloudWatchLogsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectCloudWatchLogsConfig] {
+	return pulumix.Output[*ProjectCloudWatchLogsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectCloudWatchLogsConfigPtrOutput) Elem() ProjectCloudWatchLogsConfigOutput {
@@ -1120,6 +1271,12 @@ func (i ProjectEnvironmentArgs) ToProjectEnvironmentOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentOutput)
 }
 
+func (i ProjectEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectEnvironment] {
+	return pulumix.Output[ProjectEnvironment]{
+		OutputState: i.ToProjectEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ProjectEnvironmentOutput) ElementType() reflect.Type {
@@ -1132,6 +1289,12 @@ func (o ProjectEnvironmentOutput) ToProjectEnvironmentOutput() ProjectEnvironmen
 
 func (o ProjectEnvironmentOutput) ToProjectEnvironmentOutputWithContext(ctx context.Context) ProjectEnvironmentOutput {
 	return o
+}
+
+func (o ProjectEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectEnvironment] {
+	return pulumix.Output[ProjectEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectEnvironmentOutput) Certificate() pulumi.StringPtrOutput {
@@ -1178,6 +1341,12 @@ func (o ProjectEnvironmentPtrOutput) ToProjectEnvironmentPtrOutput() ProjectEnvi
 
 func (o ProjectEnvironmentPtrOutput) ToProjectEnvironmentPtrOutputWithContext(ctx context.Context) ProjectEnvironmentPtrOutput {
 	return o
+}
+
+func (o ProjectEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectEnvironment] {
+	return pulumix.Output[*ProjectEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectEnvironmentPtrOutput) Elem() ProjectEnvironmentOutput {
@@ -1297,6 +1466,12 @@ func (i ProjectEnvironmentVariableArgs) ToProjectEnvironmentVariableOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentVariableOutput)
 }
 
+func (i ProjectEnvironmentVariableArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectEnvironmentVariable] {
+	return pulumix.Output[ProjectEnvironmentVariable]{
+		OutputState: i.ToProjectEnvironmentVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProjectEnvironmentVariableArrayInput is an input type that accepts ProjectEnvironmentVariableArray and ProjectEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `ProjectEnvironmentVariableArrayInput` via:
 //
@@ -1322,6 +1497,12 @@ func (i ProjectEnvironmentVariableArray) ToProjectEnvironmentVariableArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentVariableArrayOutput)
 }
 
+func (i ProjectEnvironmentVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]ProjectEnvironmentVariable] {
+	return pulumix.Output[[]ProjectEnvironmentVariable]{
+		OutputState: i.ToProjectEnvironmentVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectEnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (ProjectEnvironmentVariableOutput) ElementType() reflect.Type {
@@ -1334,6 +1515,12 @@ func (o ProjectEnvironmentVariableOutput) ToProjectEnvironmentVariableOutput() P
 
 func (o ProjectEnvironmentVariableOutput) ToProjectEnvironmentVariableOutputWithContext(ctx context.Context) ProjectEnvironmentVariableOutput {
 	return o
+}
+
+func (o ProjectEnvironmentVariableOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectEnvironmentVariable] {
+	return pulumix.Output[ProjectEnvironmentVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectEnvironmentVariableOutput) Name() pulumi.StringOutput {
@@ -1360,6 +1547,12 @@ func (o ProjectEnvironmentVariableArrayOutput) ToProjectEnvironmentVariableArray
 
 func (o ProjectEnvironmentVariableArrayOutput) ToProjectEnvironmentVariableArrayOutputWithContext(ctx context.Context) ProjectEnvironmentVariableArrayOutput {
 	return o
+}
+
+func (o ProjectEnvironmentVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProjectEnvironmentVariable] {
+	return pulumix.Output[[]ProjectEnvironmentVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ProjectEnvironmentVariableOutput {
@@ -1407,6 +1600,12 @@ func (i ProjectFileSystemLocationArgs) ToProjectFileSystemLocationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectFileSystemLocationOutput)
 }
 
+func (i ProjectFileSystemLocationArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectFileSystemLocation] {
+	return pulumix.Output[ProjectFileSystemLocation]{
+		OutputState: i.ToProjectFileSystemLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProjectFileSystemLocationArrayInput is an input type that accepts ProjectFileSystemLocationArray and ProjectFileSystemLocationArrayOutput values.
 // You can construct a concrete instance of `ProjectFileSystemLocationArrayInput` via:
 //
@@ -1432,6 +1631,12 @@ func (i ProjectFileSystemLocationArray) ToProjectFileSystemLocationArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectFileSystemLocationArrayOutput)
 }
 
+func (i ProjectFileSystemLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]ProjectFileSystemLocation] {
+	return pulumix.Output[[]ProjectFileSystemLocation]{
+		OutputState: i.ToProjectFileSystemLocationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectFileSystemLocationOutput struct{ *pulumi.OutputState }
 
 func (ProjectFileSystemLocationOutput) ElementType() reflect.Type {
@@ -1444,6 +1649,12 @@ func (o ProjectFileSystemLocationOutput) ToProjectFileSystemLocationOutput() Pro
 
 func (o ProjectFileSystemLocationOutput) ToProjectFileSystemLocationOutputWithContext(ctx context.Context) ProjectFileSystemLocationOutput {
 	return o
+}
+
+func (o ProjectFileSystemLocationOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectFileSystemLocation] {
+	return pulumix.Output[ProjectFileSystemLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectFileSystemLocationOutput) Identifier() pulumi.StringOutput {
@@ -1478,6 +1689,12 @@ func (o ProjectFileSystemLocationArrayOutput) ToProjectFileSystemLocationArrayOu
 
 func (o ProjectFileSystemLocationArrayOutput) ToProjectFileSystemLocationArrayOutputWithContext(ctx context.Context) ProjectFileSystemLocationArrayOutput {
 	return o
+}
+
+func (o ProjectFileSystemLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProjectFileSystemLocation] {
+	return pulumix.Output[[]ProjectFileSystemLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectFileSystemLocationArrayOutput) Index(i pulumi.IntInput) ProjectFileSystemLocationOutput {
@@ -1515,6 +1732,12 @@ func (i ProjectFilterGroupArgs) ToProjectFilterGroupOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectFilterGroupOutput)
 }
 
+func (i ProjectFilterGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectFilterGroup] {
+	return pulumix.Output[ProjectFilterGroup]{
+		OutputState: i.ToProjectFilterGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProjectFilterGroupArrayInput is an input type that accepts ProjectFilterGroupArray and ProjectFilterGroupArrayOutput values.
 // You can construct a concrete instance of `ProjectFilterGroupArrayInput` via:
 //
@@ -1540,6 +1763,12 @@ func (i ProjectFilterGroupArray) ToProjectFilterGroupArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectFilterGroupArrayOutput)
 }
 
+func (i ProjectFilterGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]ProjectFilterGroup] {
+	return pulumix.Output[[]ProjectFilterGroup]{
+		OutputState: i.ToProjectFilterGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectFilterGroupOutput struct{ *pulumi.OutputState }
 
 func (ProjectFilterGroupOutput) ElementType() reflect.Type {
@@ -1554,6 +1783,12 @@ func (o ProjectFilterGroupOutput) ToProjectFilterGroupOutputWithContext(ctx cont
 	return o
 }
 
+func (o ProjectFilterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectFilterGroup] {
+	return pulumix.Output[ProjectFilterGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ProjectFilterGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ProjectFilterGroupArrayOutput) ElementType() reflect.Type {
@@ -1566,6 +1801,12 @@ func (o ProjectFilterGroupArrayOutput) ToProjectFilterGroupArrayOutput() Project
 
 func (o ProjectFilterGroupArrayOutput) ToProjectFilterGroupArrayOutputWithContext(ctx context.Context) ProjectFilterGroupArrayOutput {
 	return o
+}
+
+func (o ProjectFilterGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProjectFilterGroup] {
+	return pulumix.Output[[]ProjectFilterGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectFilterGroupArrayOutput) Index(i pulumi.IntInput) ProjectFilterGroupOutput {
@@ -1603,6 +1844,12 @@ func (i ProjectGitSubmodulesConfigArgs) ToProjectGitSubmodulesConfigOutput() Pro
 
 func (i ProjectGitSubmodulesConfigArgs) ToProjectGitSubmodulesConfigOutputWithContext(ctx context.Context) ProjectGitSubmodulesConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectGitSubmodulesConfigOutput)
+}
+
+func (i ProjectGitSubmodulesConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectGitSubmodulesConfig] {
+	return pulumix.Output[ProjectGitSubmodulesConfig]{
+		OutputState: i.ToProjectGitSubmodulesConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ProjectGitSubmodulesConfigArgs) ToProjectGitSubmodulesConfigPtrOutput() ProjectGitSubmodulesConfigPtrOutput {
@@ -1646,6 +1893,12 @@ func (i *projectGitSubmodulesConfigPtrType) ToProjectGitSubmodulesConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectGitSubmodulesConfigPtrOutput)
 }
 
+func (i *projectGitSubmodulesConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectGitSubmodulesConfig] {
+	return pulumix.Output[*ProjectGitSubmodulesConfig]{
+		OutputState: i.ToProjectGitSubmodulesConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectGitSubmodulesConfigOutput struct{ *pulumi.OutputState }
 
 func (ProjectGitSubmodulesConfigOutput) ElementType() reflect.Type {
@@ -1670,6 +1923,12 @@ func (o ProjectGitSubmodulesConfigOutput) ToProjectGitSubmodulesConfigPtrOutputW
 	}).(ProjectGitSubmodulesConfigPtrOutput)
 }
 
+func (o ProjectGitSubmodulesConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectGitSubmodulesConfig] {
+	return pulumix.Output[ProjectGitSubmodulesConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProjectGitSubmodulesConfigOutput) FetchSubmodules() pulumi.BoolOutput {
 	return o.ApplyT(func(v ProjectGitSubmodulesConfig) bool { return v.FetchSubmodules }).(pulumi.BoolOutput)
 }
@@ -1686,6 +1945,12 @@ func (o ProjectGitSubmodulesConfigPtrOutput) ToProjectGitSubmodulesConfigPtrOutp
 
 func (o ProjectGitSubmodulesConfigPtrOutput) ToProjectGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectGitSubmodulesConfigPtrOutput {
 	return o
+}
+
+func (o ProjectGitSubmodulesConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectGitSubmodulesConfig] {
+	return pulumix.Output[*ProjectGitSubmodulesConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectGitSubmodulesConfigPtrOutput) Elem() ProjectGitSubmodulesConfigOutput {
@@ -1740,6 +2005,12 @@ func (i ProjectLogsConfigArgs) ToProjectLogsConfigOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectLogsConfigOutput)
 }
 
+func (i ProjectLogsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectLogsConfig] {
+	return pulumix.Output[ProjectLogsConfig]{
+		OutputState: i.ToProjectLogsConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProjectLogsConfigArgs) ToProjectLogsConfigPtrOutput() ProjectLogsConfigPtrOutput {
 	return i.ToProjectLogsConfigPtrOutputWithContext(context.Background())
 }
@@ -1781,6 +2052,12 @@ func (i *projectLogsConfigPtrType) ToProjectLogsConfigPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectLogsConfigPtrOutput)
 }
 
+func (i *projectLogsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectLogsConfig] {
+	return pulumix.Output[*ProjectLogsConfig]{
+		OutputState: i.ToProjectLogsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectLogsConfigOutput struct{ *pulumi.OutputState }
 
 func (ProjectLogsConfigOutput) ElementType() reflect.Type {
@@ -1805,6 +2082,12 @@ func (o ProjectLogsConfigOutput) ToProjectLogsConfigPtrOutputWithContext(ctx con
 	}).(ProjectLogsConfigPtrOutput)
 }
 
+func (o ProjectLogsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectLogsConfig] {
+	return pulumix.Output[ProjectLogsConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProjectLogsConfigOutput) CloudWatchLogs() ProjectCloudWatchLogsConfigPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfig) *ProjectCloudWatchLogsConfig { return v.CloudWatchLogs }).(ProjectCloudWatchLogsConfigPtrOutput)
 }
@@ -1825,6 +2108,12 @@ func (o ProjectLogsConfigPtrOutput) ToProjectLogsConfigPtrOutput() ProjectLogsCo
 
 func (o ProjectLogsConfigPtrOutput) ToProjectLogsConfigPtrOutputWithContext(ctx context.Context) ProjectLogsConfigPtrOutput {
 	return o
+}
+
+func (o ProjectLogsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectLogsConfig] {
+	return pulumix.Output[*ProjectLogsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectLogsConfigPtrOutput) Elem() ProjectLogsConfigOutput {
@@ -1888,6 +2177,12 @@ func (i ProjectRegistryCredentialArgs) ToProjectRegistryCredentialOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectRegistryCredentialOutput)
 }
 
+func (i ProjectRegistryCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectRegistryCredential] {
+	return pulumix.Output[ProjectRegistryCredential]{
+		OutputState: i.ToProjectRegistryCredentialOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProjectRegistryCredentialArgs) ToProjectRegistryCredentialPtrOutput() ProjectRegistryCredentialPtrOutput {
 	return i.ToProjectRegistryCredentialPtrOutputWithContext(context.Background())
 }
@@ -1929,6 +2224,12 @@ func (i *projectRegistryCredentialPtrType) ToProjectRegistryCredentialPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectRegistryCredentialPtrOutput)
 }
 
+func (i *projectRegistryCredentialPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectRegistryCredential] {
+	return pulumix.Output[*ProjectRegistryCredential]{
+		OutputState: i.ToProjectRegistryCredentialPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectRegistryCredentialOutput struct{ *pulumi.OutputState }
 
 func (ProjectRegistryCredentialOutput) ElementType() reflect.Type {
@@ -1953,6 +2254,12 @@ func (o ProjectRegistryCredentialOutput) ToProjectRegistryCredentialPtrOutputWit
 	}).(ProjectRegistryCredentialPtrOutput)
 }
 
+func (o ProjectRegistryCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectRegistryCredential] {
+	return pulumix.Output[ProjectRegistryCredential]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProjectRegistryCredentialOutput) Credential() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectRegistryCredential) string { return v.Credential }).(pulumi.StringOutput)
 }
@@ -1973,6 +2280,12 @@ func (o ProjectRegistryCredentialPtrOutput) ToProjectRegistryCredentialPtrOutput
 
 func (o ProjectRegistryCredentialPtrOutput) ToProjectRegistryCredentialPtrOutputWithContext(ctx context.Context) ProjectRegistryCredentialPtrOutput {
 	return o
+}
+
+func (o ProjectRegistryCredentialPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectRegistryCredential] {
+	return pulumix.Output[*ProjectRegistryCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectRegistryCredentialPtrOutput) Elem() ProjectRegistryCredentialOutput {
@@ -2038,6 +2351,12 @@ func (i ProjectS3LogsConfigArgs) ToProjectS3LogsConfigOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectS3LogsConfigOutput)
 }
 
+func (i ProjectS3LogsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectS3LogsConfig] {
+	return pulumix.Output[ProjectS3LogsConfig]{
+		OutputState: i.ToProjectS3LogsConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProjectS3LogsConfigArgs) ToProjectS3LogsConfigPtrOutput() ProjectS3LogsConfigPtrOutput {
 	return i.ToProjectS3LogsConfigPtrOutputWithContext(context.Background())
 }
@@ -2079,6 +2398,12 @@ func (i *projectS3LogsConfigPtrType) ToProjectS3LogsConfigPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectS3LogsConfigPtrOutput)
 }
 
+func (i *projectS3LogsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectS3LogsConfig] {
+	return pulumix.Output[*ProjectS3LogsConfig]{
+		OutputState: i.ToProjectS3LogsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectS3LogsConfigOutput struct{ *pulumi.OutputState }
 
 func (ProjectS3LogsConfigOutput) ElementType() reflect.Type {
@@ -2101,6 +2426,12 @@ func (o ProjectS3LogsConfigOutput) ToProjectS3LogsConfigPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectS3LogsConfig) *ProjectS3LogsConfig {
 		return &v
 	}).(ProjectS3LogsConfigPtrOutput)
+}
+
+func (o ProjectS3LogsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectS3LogsConfig] {
+	return pulumix.Output[ProjectS3LogsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectS3LogsConfigOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
@@ -2127,6 +2458,12 @@ func (o ProjectS3LogsConfigPtrOutput) ToProjectS3LogsConfigPtrOutput() ProjectS3
 
 func (o ProjectS3LogsConfigPtrOutput) ToProjectS3LogsConfigPtrOutputWithContext(ctx context.Context) ProjectS3LogsConfigPtrOutput {
 	return o
+}
+
+func (o ProjectS3LogsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectS3LogsConfig] {
+	return pulumix.Output[*ProjectS3LogsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectS3LogsConfigPtrOutput) Elem() ProjectS3LogsConfigOutput {
@@ -2215,6 +2552,12 @@ func (i ProjectSourceArgs) ToProjectSourceOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceOutput)
 }
 
+func (i ProjectSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectSource] {
+	return pulumix.Output[ProjectSource]{
+		OutputState: i.ToProjectSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProjectSourceArrayInput is an input type that accepts ProjectSourceArray and ProjectSourceArrayOutput values.
 // You can construct a concrete instance of `ProjectSourceArrayInput` via:
 //
@@ -2240,6 +2583,12 @@ func (i ProjectSourceArray) ToProjectSourceArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceArrayOutput)
 }
 
+func (i ProjectSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]ProjectSource] {
+	return pulumix.Output[[]ProjectSource]{
+		OutputState: i.ToProjectSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectSourceOutput struct{ *pulumi.OutputState }
 
 func (ProjectSourceOutput) ElementType() reflect.Type {
@@ -2252,6 +2601,12 @@ func (o ProjectSourceOutput) ToProjectSourceOutput() ProjectSourceOutput {
 
 func (o ProjectSourceOutput) ToProjectSourceOutputWithContext(ctx context.Context) ProjectSourceOutput {
 	return o
+}
+
+func (o ProjectSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectSource] {
+	return pulumix.Output[ProjectSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectSourceOutput) Auth() ProjectSourceAuthPtrOutput {
@@ -2306,6 +2661,12 @@ func (o ProjectSourcePtrOutput) ToProjectSourcePtrOutput() ProjectSourcePtrOutpu
 
 func (o ProjectSourcePtrOutput) ToProjectSourcePtrOutputWithContext(ctx context.Context) ProjectSourcePtrOutput {
 	return o
+}
+
+func (o ProjectSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectSource] {
+	return pulumix.Output[*ProjectSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectSourcePtrOutput) Elem() ProjectSourceOutput {
@@ -2422,6 +2783,12 @@ func (o ProjectSourceArrayOutput) ToProjectSourceArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ProjectSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProjectSource] {
+	return pulumix.Output[[]ProjectSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProjectSourceArrayOutput) Index(i pulumi.IntInput) ProjectSourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSource {
 		return vs[0].([]ProjectSource)[vs[1].(int)]
@@ -2459,6 +2826,12 @@ func (i ProjectSourceAuthArgs) ToProjectSourceAuthOutput() ProjectSourceAuthOutp
 
 func (i ProjectSourceAuthArgs) ToProjectSourceAuthOutputWithContext(ctx context.Context) ProjectSourceAuthOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceAuthOutput)
+}
+
+func (i ProjectSourceAuthArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectSourceAuth] {
+	return pulumix.Output[ProjectSourceAuth]{
+		OutputState: i.ToProjectSourceAuthOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ProjectSourceAuthArgs) ToProjectSourceAuthPtrOutput() ProjectSourceAuthPtrOutput {
@@ -2502,6 +2875,12 @@ func (i *projectSourceAuthPtrType) ToProjectSourceAuthPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceAuthPtrOutput)
 }
 
+func (i *projectSourceAuthPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectSourceAuth] {
+	return pulumix.Output[*ProjectSourceAuth]{
+		OutputState: i.ToProjectSourceAuthPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectSourceAuthOutput struct{ *pulumi.OutputState }
 
 func (ProjectSourceAuthOutput) ElementType() reflect.Type {
@@ -2526,6 +2905,12 @@ func (o ProjectSourceAuthOutput) ToProjectSourceAuthPtrOutputWithContext(ctx con
 	}).(ProjectSourceAuthPtrOutput)
 }
 
+func (o ProjectSourceAuthOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectSourceAuth] {
+	return pulumix.Output[ProjectSourceAuth]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProjectSourceAuthOutput) Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSourceAuth) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
@@ -2546,6 +2931,12 @@ func (o ProjectSourceAuthPtrOutput) ToProjectSourceAuthPtrOutput() ProjectSource
 
 func (o ProjectSourceAuthPtrOutput) ToProjectSourceAuthPtrOutputWithContext(ctx context.Context) ProjectSourceAuthPtrOutput {
 	return o
+}
+
+func (o ProjectSourceAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectSourceAuth] {
+	return pulumix.Output[*ProjectSourceAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectSourceAuthPtrOutput) Elem() ProjectSourceAuthOutput {
@@ -2609,6 +3000,12 @@ func (i ProjectSourceVersionArgs) ToProjectSourceVersionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceVersionOutput)
 }
 
+func (i ProjectSourceVersionArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectSourceVersion] {
+	return pulumix.Output[ProjectSourceVersion]{
+		OutputState: i.ToProjectSourceVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProjectSourceVersionArrayInput is an input type that accepts ProjectSourceVersionArray and ProjectSourceVersionArrayOutput values.
 // You can construct a concrete instance of `ProjectSourceVersionArrayInput` via:
 //
@@ -2634,6 +3031,12 @@ func (i ProjectSourceVersionArray) ToProjectSourceVersionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceVersionArrayOutput)
 }
 
+func (i ProjectSourceVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]ProjectSourceVersion] {
+	return pulumix.Output[[]ProjectSourceVersion]{
+		OutputState: i.ToProjectSourceVersionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectSourceVersionOutput struct{ *pulumi.OutputState }
 
 func (ProjectSourceVersionOutput) ElementType() reflect.Type {
@@ -2646,6 +3049,12 @@ func (o ProjectSourceVersionOutput) ToProjectSourceVersionOutput() ProjectSource
 
 func (o ProjectSourceVersionOutput) ToProjectSourceVersionOutputWithContext(ctx context.Context) ProjectSourceVersionOutput {
 	return o
+}
+
+func (o ProjectSourceVersionOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectSourceVersion] {
+	return pulumix.Output[ProjectSourceVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectSourceVersionOutput) SourceIdentifier() pulumi.StringOutput {
@@ -2668,6 +3077,12 @@ func (o ProjectSourceVersionArrayOutput) ToProjectSourceVersionArrayOutput() Pro
 
 func (o ProjectSourceVersionArrayOutput) ToProjectSourceVersionArrayOutputWithContext(ctx context.Context) ProjectSourceVersionArrayOutput {
 	return o
+}
+
+func (o ProjectSourceVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProjectSourceVersion] {
+	return pulumix.Output[[]ProjectSourceVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectSourceVersionArrayOutput) Index(i pulumi.IntInput) ProjectSourceVersionOutput {
@@ -2709,6 +3124,12 @@ func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) Proje
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagOutput)
 }
 
+func (i ProjectTagArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectTag] {
+	return pulumix.Output[ProjectTag]{
+		OutputState: i.ToProjectTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
 // You can construct a concrete instance of `ProjectTagArrayInput` via:
 //
@@ -2734,6 +3155,12 @@ func (i ProjectTagArray) ToProjectTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagArrayOutput)
 }
 
+func (i ProjectTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ProjectTag] {
+	return pulumix.Output[[]ProjectTag]{
+		OutputState: i.ToProjectTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectTagOutput struct{ *pulumi.OutputState }
 
 func (ProjectTagOutput) ElementType() reflect.Type {
@@ -2746,6 +3173,12 @@ func (o ProjectTagOutput) ToProjectTagOutput() ProjectTagOutput {
 
 func (o ProjectTagOutput) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
 	return o
+}
+
+func (o ProjectTagOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectTag] {
+	return pulumix.Output[ProjectTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectTagOutput) Key() pulumi.StringOutput {
@@ -2768,6 +3201,12 @@ func (o ProjectTagArrayOutput) ToProjectTagArrayOutput() ProjectTagArrayOutput {
 
 func (o ProjectTagArrayOutput) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
 	return o
+}
+
+func (o ProjectTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProjectTag] {
+	return pulumix.Output[[]ProjectTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
@@ -2811,6 +3250,12 @@ func (i ProjectTriggersArgs) ToProjectTriggersOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectTriggersOutput)
 }
 
+func (i ProjectTriggersArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectTriggers] {
+	return pulumix.Output[ProjectTriggers]{
+		OutputState: i.ToProjectTriggersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProjectTriggersArgs) ToProjectTriggersPtrOutput() ProjectTriggersPtrOutput {
 	return i.ToProjectTriggersPtrOutputWithContext(context.Background())
 }
@@ -2852,6 +3297,12 @@ func (i *projectTriggersPtrType) ToProjectTriggersPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectTriggersPtrOutput)
 }
 
+func (i *projectTriggersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectTriggers] {
+	return pulumix.Output[*ProjectTriggers]{
+		OutputState: i.ToProjectTriggersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectTriggersOutput struct{ *pulumi.OutputState }
 
 func (ProjectTriggersOutput) ElementType() reflect.Type {
@@ -2874,6 +3325,12 @@ func (o ProjectTriggersOutput) ToProjectTriggersPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectTriggers) *ProjectTriggers {
 		return &v
 	}).(ProjectTriggersPtrOutput)
+}
+
+func (o ProjectTriggersOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectTriggers] {
+	return pulumix.Output[ProjectTriggers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectTriggersOutput) BuildType() pulumi.StringPtrOutput {
@@ -2900,6 +3357,12 @@ func (o ProjectTriggersPtrOutput) ToProjectTriggersPtrOutput() ProjectTriggersPt
 
 func (o ProjectTriggersPtrOutput) ToProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectTriggersPtrOutput {
 	return o
+}
+
+func (o ProjectTriggersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectTriggers] {
+	return pulumix.Output[*ProjectTriggers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectTriggersPtrOutput) Elem() ProjectTriggersOutput {
@@ -2974,6 +3437,12 @@ func (i ProjectVpcConfigArgs) ToProjectVpcConfigOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectVpcConfigOutput)
 }
 
+func (i ProjectVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectVpcConfig] {
+	return pulumix.Output[ProjectVpcConfig]{
+		OutputState: i.ToProjectVpcConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProjectVpcConfigArgs) ToProjectVpcConfigPtrOutput() ProjectVpcConfigPtrOutput {
 	return i.ToProjectVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -3015,6 +3484,12 @@ func (i *projectVpcConfigPtrType) ToProjectVpcConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectVpcConfigPtrOutput)
 }
 
+func (i *projectVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectVpcConfig] {
+	return pulumix.Output[*ProjectVpcConfig]{
+		OutputState: i.ToProjectVpcConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (ProjectVpcConfigOutput) ElementType() reflect.Type {
@@ -3037,6 +3512,12 @@ func (o ProjectVpcConfigOutput) ToProjectVpcConfigPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectVpcConfig) *ProjectVpcConfig {
 		return &v
 	}).(ProjectVpcConfigPtrOutput)
+}
+
+func (o ProjectVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectVpcConfig] {
+	return pulumix.Output[ProjectVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
@@ -3063,6 +3544,12 @@ func (o ProjectVpcConfigPtrOutput) ToProjectVpcConfigPtrOutput() ProjectVpcConfi
 
 func (o ProjectVpcConfigPtrOutput) ToProjectVpcConfigPtrOutputWithContext(ctx context.Context) ProjectVpcConfigPtrOutput {
 	return o
+}
+
+func (o ProjectVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectVpcConfig] {
+	return pulumix.Output[*ProjectVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectVpcConfigPtrOutput) Elem() ProjectVpcConfigOutput {
@@ -3135,6 +3622,12 @@ func (i ReportGroupReportExportConfigArgs) ToReportGroupReportExportConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupReportExportConfigOutput)
 }
 
+func (i ReportGroupReportExportConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ReportGroupReportExportConfig] {
+	return pulumix.Output[ReportGroupReportExportConfig]{
+		OutputState: i.ToReportGroupReportExportConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReportGroupReportExportConfigOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupReportExportConfigOutput) ElementType() reflect.Type {
@@ -3147,6 +3640,12 @@ func (o ReportGroupReportExportConfigOutput) ToReportGroupReportExportConfigOutp
 
 func (o ReportGroupReportExportConfigOutput) ToReportGroupReportExportConfigOutputWithContext(ctx context.Context) ReportGroupReportExportConfigOutput {
 	return o
+}
+
+func (o ReportGroupReportExportConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ReportGroupReportExportConfig] {
+	return pulumix.Output[ReportGroupReportExportConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportGroupReportExportConfigOutput) ExportConfigType() pulumi.StringOutput {
@@ -3169,6 +3668,12 @@ func (o ReportGroupReportExportConfigPtrOutput) ToReportGroupReportExportConfigP
 
 func (o ReportGroupReportExportConfigPtrOutput) ToReportGroupReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupReportExportConfigPtrOutput {
 	return o
+}
+
+func (o ReportGroupReportExportConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportGroupReportExportConfig] {
+	return pulumix.Output[*ReportGroupReportExportConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportGroupReportExportConfigPtrOutput) Elem() ReportGroupReportExportConfigOutput {
@@ -3240,6 +3745,12 @@ func (i ReportGroupS3ReportExportConfigArgs) ToReportGroupS3ReportExportConfigOu
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupS3ReportExportConfigOutput)
 }
 
+func (i ReportGroupS3ReportExportConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ReportGroupS3ReportExportConfig] {
+	return pulumix.Output[ReportGroupS3ReportExportConfig]{
+		OutputState: i.ToReportGroupS3ReportExportConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ReportGroupS3ReportExportConfigArgs) ToReportGroupS3ReportExportConfigPtrOutput() ReportGroupS3ReportExportConfigPtrOutput {
 	return i.ToReportGroupS3ReportExportConfigPtrOutputWithContext(context.Background())
 }
@@ -3281,6 +3792,12 @@ func (i *reportGroupS3ReportExportConfigPtrType) ToReportGroupS3ReportExportConf
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupS3ReportExportConfigPtrOutput)
 }
 
+func (i *reportGroupS3ReportExportConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReportGroupS3ReportExportConfig] {
+	return pulumix.Output[*ReportGroupS3ReportExportConfig]{
+		OutputState: i.ToReportGroupS3ReportExportConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReportGroupS3ReportExportConfigOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupS3ReportExportConfigOutput) ElementType() reflect.Type {
@@ -3303,6 +3820,12 @@ func (o ReportGroupS3ReportExportConfigOutput) ToReportGroupS3ReportExportConfig
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGroupS3ReportExportConfig) *ReportGroupS3ReportExportConfig {
 		return &v
 	}).(ReportGroupS3ReportExportConfigPtrOutput)
+}
+
+func (o ReportGroupS3ReportExportConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ReportGroupS3ReportExportConfig] {
+	return pulumix.Output[ReportGroupS3ReportExportConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportGroupS3ReportExportConfigOutput) Bucket() pulumi.StringOutput {
@@ -3341,6 +3864,12 @@ func (o ReportGroupS3ReportExportConfigPtrOutput) ToReportGroupS3ReportExportCon
 
 func (o ReportGroupS3ReportExportConfigPtrOutput) ToReportGroupS3ReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigPtrOutput {
 	return o
+}
+
+func (o ReportGroupS3ReportExportConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportGroupS3ReportExportConfig] {
+	return pulumix.Output[*ReportGroupS3ReportExportConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportGroupS3ReportExportConfigPtrOutput) Elem() ReportGroupS3ReportExportConfigOutput {
@@ -3440,6 +3969,12 @@ func (i ReportGroupTagArgs) ToReportGroupTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupTagOutput)
 }
 
+func (i ReportGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReportGroupTag] {
+	return pulumix.Output[ReportGroupTag]{
+		OutputState: i.ToReportGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReportGroupTagArrayInput is an input type that accepts ReportGroupTagArray and ReportGroupTagArrayOutput values.
 // You can construct a concrete instance of `ReportGroupTagArrayInput` via:
 //
@@ -3465,6 +4000,12 @@ func (i ReportGroupTagArray) ToReportGroupTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupTagArrayOutput)
 }
 
+func (i ReportGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReportGroupTag] {
+	return pulumix.Output[[]ReportGroupTag]{
+		OutputState: i.ToReportGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReportGroupTagOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupTagOutput) ElementType() reflect.Type {
@@ -3477,6 +4018,12 @@ func (o ReportGroupTagOutput) ToReportGroupTagOutput() ReportGroupTagOutput {
 
 func (o ReportGroupTagOutput) ToReportGroupTagOutputWithContext(ctx context.Context) ReportGroupTagOutput {
 	return o
+}
+
+func (o ReportGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReportGroupTag] {
+	return pulumix.Output[ReportGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportGroupTagOutput) Key() pulumi.StringOutput {
@@ -3499,6 +4046,12 @@ func (o ReportGroupTagArrayOutput) ToReportGroupTagArrayOutput() ReportGroupTagA
 
 func (o ReportGroupTagArrayOutput) ToReportGroupTagArrayOutputWithContext(ctx context.Context) ReportGroupTagArrayOutput {
 	return o
+}
+
+func (o ReportGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReportGroupTag] {
+	return pulumix.Output[[]ReportGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportGroupTagArrayOutput) Index(i pulumi.IntInput) ReportGroupTagOutput {

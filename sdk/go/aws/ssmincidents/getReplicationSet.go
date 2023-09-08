@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::SSMIncidents::ReplicationSet
@@ -71,6 +72,12 @@ func (o LookupReplicationSetResultOutput) ToLookupReplicationSetResultOutput() L
 
 func (o LookupReplicationSetResultOutput) ToLookupReplicationSetResultOutputWithContext(ctx context.Context) LookupReplicationSetResultOutput {
 	return o
+}
+
+func (o LookupReplicationSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationSetResult] {
+	return pulumix.Output[LookupReplicationSetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the ReplicationSet.

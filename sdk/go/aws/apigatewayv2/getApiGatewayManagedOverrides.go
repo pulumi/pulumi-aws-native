@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::ApiGatewayManagedOverrides
@@ -66,6 +67,12 @@ func (o LookupApiGatewayManagedOverridesResultOutput) ToLookupApiGatewayManagedO
 
 func (o LookupApiGatewayManagedOverridesResultOutput) ToLookupApiGatewayManagedOverridesResultOutputWithContext(ctx context.Context) LookupApiGatewayManagedOverridesResultOutput {
 	return o
+}
+
+func (o LookupApiGatewayManagedOverridesResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApiGatewayManagedOverridesResult] {
+	return pulumix.Output[LookupApiGatewayManagedOverridesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupApiGatewayManagedOverridesResultOutput) Id() pulumi.StringPtrOutput {

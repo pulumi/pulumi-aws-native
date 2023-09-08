@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Document Classifier enables training document classifier models.
@@ -146,6 +147,12 @@ func (i *DocumentClassifier) ToDocumentClassifierOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierOutput)
 }
 
+func (i *DocumentClassifier) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifier] {
+	return pulumix.Output[*DocumentClassifier]{
+		OutputState: i.ToDocumentClassifierOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DocumentClassifierOutput struct{ *pulumi.OutputState }
 
 func (DocumentClassifierOutput) ElementType() reflect.Type {
@@ -158,6 +165,12 @@ func (o DocumentClassifierOutput) ToDocumentClassifierOutput() DocumentClassifie
 
 func (o DocumentClassifierOutput) ToDocumentClassifierOutputWithContext(ctx context.Context) DocumentClassifierOutput {
 	return o
+}
+
+func (o DocumentClassifierOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifier] {
+	return pulumix.Output[*DocumentClassifier]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DocumentClassifierOutput) Arn() pulumi.StringOutput {

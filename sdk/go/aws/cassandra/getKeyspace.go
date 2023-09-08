@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Cassandra::Keyspace
@@ -65,6 +66,12 @@ func (o LookupKeyspaceResultOutput) ToLookupKeyspaceResultOutput() LookupKeyspac
 
 func (o LookupKeyspaceResultOutput) ToLookupKeyspaceResultOutputWithContext(ctx context.Context) LookupKeyspaceResultOutput {
 	return o
+}
+
+func (o LookupKeyspaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKeyspaceResult] {
+	return pulumix.Output[LookupKeyspaceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupKeyspaceResultOutput) Tags() KeyspaceTagArrayOutput {

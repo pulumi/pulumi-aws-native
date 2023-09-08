@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type CapacityReservationStatus string
@@ -45,6 +46,12 @@ func (o CapacityReservationStatusOutput) ToCapacityReservationStatusPtrOutputWit
 	}).(CapacityReservationStatusPtrOutput)
 }
 
+func (o CapacityReservationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationStatus] {
+	return pulumix.Output[CapacityReservationStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapacityReservationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -78,6 +85,12 @@ func (o CapacityReservationStatusPtrOutput) ToCapacityReservationStatusPtrOutput
 
 func (o CapacityReservationStatusPtrOutput) ToCapacityReservationStatusPtrOutputWithContext(ctx context.Context) CapacityReservationStatusPtrOutput {
 	return o
+}
+
+func (o CapacityReservationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationStatus] {
+	return pulumix.Output[*CapacityReservationStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityReservationStatusPtrOutput) Elem() CapacityReservationStatusOutput {
@@ -173,6 +186,12 @@ func (o DataCatalogTypeOutput) ToDataCatalogTypePtrOutputWithContext(ctx context
 	}).(DataCatalogTypePtrOutput)
 }
 
+func (o DataCatalogTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataCatalogType] {
+	return pulumix.Output[DataCatalogType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataCatalogTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -206,6 +225,12 @@ func (o DataCatalogTypePtrOutput) ToDataCatalogTypePtrOutput() DataCatalogTypePt
 
 func (o DataCatalogTypePtrOutput) ToDataCatalogTypePtrOutputWithContext(ctx context.Context) DataCatalogTypePtrOutput {
 	return o
+}
+
+func (o DataCatalogTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCatalogType] {
+	return pulumix.Output[*DataCatalogType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataCatalogTypePtrOutput) Elem() DataCatalogTypeOutput {
@@ -268,6 +293,12 @@ func (in *dataCatalogTypePtr) ToDataCatalogTypePtrOutput() DataCatalogTypePtrOut
 
 func (in *dataCatalogTypePtr) ToDataCatalogTypePtrOutputWithContext(ctx context.Context) DataCatalogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataCatalogTypePtrOutput)
+}
+
+func (in *dataCatalogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataCatalogType] {
+	return pulumix.Output[*DataCatalogType]{
+		OutputState: in.ToDataCatalogTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used.
@@ -339,6 +370,12 @@ func (o WorkGroupEncryptionOptionOutput) ToWorkGroupEncryptionOptionPtrOutputWit
 	}).(WorkGroupEncryptionOptionPtrOutput)
 }
 
+func (o WorkGroupEncryptionOptionOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupEncryptionOption] {
+	return pulumix.Output[WorkGroupEncryptionOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkGroupEncryptionOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -372,6 +409,12 @@ func (o WorkGroupEncryptionOptionPtrOutput) ToWorkGroupEncryptionOptionPtrOutput
 
 func (o WorkGroupEncryptionOptionPtrOutput) ToWorkGroupEncryptionOptionPtrOutputWithContext(ctx context.Context) WorkGroupEncryptionOptionPtrOutput {
 	return o
+}
+
+func (o WorkGroupEncryptionOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupEncryptionOption] {
+	return pulumix.Output[*WorkGroupEncryptionOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupEncryptionOptionPtrOutput) Elem() WorkGroupEncryptionOptionOutput {
@@ -434,6 +477,12 @@ func (in *workGroupEncryptionOptionPtr) ToWorkGroupEncryptionOptionPtrOutput() W
 
 func (in *workGroupEncryptionOptionPtr) ToWorkGroupEncryptionOptionPtrOutputWithContext(ctx context.Context) WorkGroupEncryptionOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkGroupEncryptionOptionPtrOutput)
+}
+
+func (in *workGroupEncryptionOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupEncryptionOption] {
+	return pulumix.Output[*WorkGroupEncryptionOption]{
+		OutputState: in.ToWorkGroupEncryptionOptionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The Amazon S3 canned ACL that Athena should specify when storing query results. Currently the only supported canned ACL is BUCKET_OWNER_FULL_CONTROL
@@ -503,6 +552,12 @@ func (o WorkGroupS3AclOptionOutput) ToWorkGroupS3AclOptionPtrOutputWithContext(c
 	}).(WorkGroupS3AclOptionPtrOutput)
 }
 
+func (o WorkGroupS3AclOptionOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupS3AclOption] {
+	return pulumix.Output[WorkGroupS3AclOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkGroupS3AclOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -536,6 +591,12 @@ func (o WorkGroupS3AclOptionPtrOutput) ToWorkGroupS3AclOptionPtrOutput() WorkGro
 
 func (o WorkGroupS3AclOptionPtrOutput) ToWorkGroupS3AclOptionPtrOutputWithContext(ctx context.Context) WorkGroupS3AclOptionPtrOutput {
 	return o
+}
+
+func (o WorkGroupS3AclOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupS3AclOption] {
+	return pulumix.Output[*WorkGroupS3AclOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupS3AclOptionPtrOutput) Elem() WorkGroupS3AclOptionOutput {
@@ -598,6 +659,12 @@ func (in *workGroupS3AclOptionPtr) ToWorkGroupS3AclOptionPtrOutput() WorkGroupS3
 
 func (in *workGroupS3AclOptionPtr) ToWorkGroupS3AclOptionPtrOutputWithContext(ctx context.Context) WorkGroupS3AclOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkGroupS3AclOptionPtrOutput)
+}
+
+func (in *workGroupS3AclOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupS3AclOption] {
+	return pulumix.Output[*WorkGroupS3AclOption]{
+		OutputState: in.ToWorkGroupS3AclOptionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The state of the workgroup: ENABLED or DISABLED.
@@ -668,6 +735,12 @@ func (o WorkGroupStateEnumOutput) ToWorkGroupStateEnumPtrOutputWithContext(ctx c
 	}).(WorkGroupStateEnumPtrOutput)
 }
 
+func (o WorkGroupStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupStateEnum] {
+	return pulumix.Output[WorkGroupStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkGroupStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -701,6 +774,12 @@ func (o WorkGroupStateEnumPtrOutput) ToWorkGroupStateEnumPtrOutput() WorkGroupSt
 
 func (o WorkGroupStateEnumPtrOutput) ToWorkGroupStateEnumPtrOutputWithContext(ctx context.Context) WorkGroupStateEnumPtrOutput {
 	return o
+}
+
+func (o WorkGroupStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupStateEnum] {
+	return pulumix.Output[*WorkGroupStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupStateEnumPtrOutput) Elem() WorkGroupStateEnumOutput {
@@ -763,6 +842,12 @@ func (in *workGroupStateEnumPtr) ToWorkGroupStateEnumPtrOutput() WorkGroupStateE
 
 func (in *workGroupStateEnumPtr) ToWorkGroupStateEnumPtrOutputWithContext(ctx context.Context) WorkGroupStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkGroupStateEnumPtrOutput)
+}
+
+func (in *workGroupStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupStateEnum] {
+	return pulumix.Output[*WorkGroupStateEnum]{
+		OutputState: in.ToWorkGroupStateEnumPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

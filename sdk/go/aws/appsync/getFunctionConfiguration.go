@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::FunctionConfiguration
@@ -78,6 +79,12 @@ func (o LookupFunctionConfigurationResultOutput) ToLookupFunctionConfigurationRe
 
 func (o LookupFunctionConfigurationResultOutput) ToLookupFunctionConfigurationResultOutputWithContext(ctx context.Context) LookupFunctionConfigurationResultOutput {
 	return o
+}
+
+func (o LookupFunctionConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFunctionConfigurationResult] {
+	return pulumix.Output[LookupFunctionConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFunctionConfigurationResultOutput) Code() pulumi.StringPtrOutput {

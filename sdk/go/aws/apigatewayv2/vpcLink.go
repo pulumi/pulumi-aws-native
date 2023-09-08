@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::VpcLink
@@ -111,6 +112,12 @@ func (i *VpcLink) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkOutput)
 }
 
+func (i *VpcLink) ToOutput(ctx context.Context) pulumix.Output[*VpcLink] {
+	return pulumix.Output[*VpcLink]{
+		OutputState: i.ToVpcLinkOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcLinkOutput struct{ *pulumi.OutputState }
 
 func (VpcLinkOutput) ElementType() reflect.Type {
@@ -123,6 +130,12 @@ func (o VpcLinkOutput) ToVpcLinkOutput() VpcLinkOutput {
 
 func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOutput {
 	return o
+}
+
+func (o VpcLinkOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcLink] {
+	return pulumix.Output[*VpcLink]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcLinkOutput) Name() pulumi.StringOutput {

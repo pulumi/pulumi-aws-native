@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AppRunner::VpcConnector resource specifies an App Runner VpcConnector.
@@ -125,6 +126,12 @@ func (i *VpcConnector) ToVpcConnectorOutputWithContext(ctx context.Context) VpcC
 	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectorOutput)
 }
 
+func (i *VpcConnector) ToOutput(ctx context.Context) pulumix.Output[*VpcConnector] {
+	return pulumix.Output[*VpcConnector]{
+		OutputState: i.ToVpcConnectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcConnectorOutput struct{ *pulumi.OutputState }
 
 func (VpcConnectorOutput) ElementType() reflect.Type {
@@ -137,6 +144,12 @@ func (o VpcConnectorOutput) ToVpcConnectorOutput() VpcConnectorOutput {
 
 func (o VpcConnectorOutput) ToVpcConnectorOutputWithContext(ctx context.Context) VpcConnectorOutput {
 	return o
+}
+
+func (o VpcConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnector] {
+	return pulumix.Output[*VpcConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.

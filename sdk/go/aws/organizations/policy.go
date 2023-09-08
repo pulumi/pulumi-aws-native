@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Policies in AWS Organizations enable you to manage different features of the AWS accounts in your organization.  You can use policies when all features are enabled in your organization.
@@ -137,6 +138,12 @@ func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyOutput)
 }
 
+func (i *Policy) ToOutput(ctx context.Context) pulumix.Output[*Policy] {
+	return pulumix.Output[*Policy]{
+		OutputState: i.ToPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicyOutput) ElementType() reflect.Type {
@@ -149,6 +156,12 @@ func (o PolicyOutput) ToPolicyOutput() PolicyOutput {
 
 func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return o
+}
+
+func (o PolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*Policy] {
+	return pulumix.Output[*Policy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Policy

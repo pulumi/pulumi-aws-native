@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::KeyPair creates an SSH key pair
@@ -132,6 +133,12 @@ func (i *KeyPair) ToKeyPairOutputWithContext(ctx context.Context) KeyPairOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPairOutput)
 }
 
+func (i *KeyPair) ToOutput(ctx context.Context) pulumix.Output[*KeyPair] {
+	return pulumix.Output[*KeyPair]{
+		OutputState: i.ToKeyPairOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KeyPairOutput struct{ *pulumi.OutputState }
 
 func (KeyPairOutput) ElementType() reflect.Type {
@@ -144,6 +151,12 @@ func (o KeyPairOutput) ToKeyPairOutput() KeyPairOutput {
 
 func (o KeyPairOutput) ToKeyPairOutputWithContext(ctx context.Context) KeyPairOutput {
 	return o
+}
+
+func (o KeyPairOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyPair] {
+	return pulumix.Output[*KeyPair]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A short sequence of bytes used for public key verification

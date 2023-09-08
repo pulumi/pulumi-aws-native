@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::NetworkFirewall::FirewallPolicy
@@ -108,6 +109,12 @@ func (i *FirewallPolicy) ToFirewallPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyOutput)
 }
 
+func (i *FirewallPolicy) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicy] {
+	return pulumix.Output[*FirewallPolicy]{
+		OutputState: i.ToFirewallPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyOutput) ElementType() reflect.Type {
@@ -120,6 +127,12 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutput() FirewallPolicyOutput {
 
 func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyOutput {
 	return o
+}
+
+func (o FirewallPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicy] {
+	return pulumix.Output[*FirewallPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyOutput) Description() pulumi.StringPtrOutput {

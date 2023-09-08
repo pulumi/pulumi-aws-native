@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS Ground Station DataflowEndpointGroup schema for CloudFormation
@@ -70,6 +71,12 @@ func (o LookupDataflowEndpointGroupResultOutput) ToLookupDataflowEndpointGroupRe
 
 func (o LookupDataflowEndpointGroupResultOutput) ToLookupDataflowEndpointGroupResultOutputWithContext(ctx context.Context) LookupDataflowEndpointGroupResultOutput {
 	return o
+}
+
+func (o LookupDataflowEndpointGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataflowEndpointGroupResult] {
+	return pulumix.Output[LookupDataflowEndpointGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDataflowEndpointGroupResultOutput) Arn() pulumi.StringPtrOutput {

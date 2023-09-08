@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Used to install the certificate authority certificate and update the certificate authority status.
@@ -123,6 +124,12 @@ func (i *CertificateAuthorityActivation) ToCertificateAuthorityActivationOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityActivationOutput)
 }
 
+func (i *CertificateAuthorityActivation) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityActivation] {
+	return pulumix.Output[*CertificateAuthorityActivation]{
+		OutputState: i.ToCertificateAuthorityActivationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CertificateAuthorityActivationOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityActivationOutput) ElementType() reflect.Type {
@@ -135,6 +142,12 @@ func (o CertificateAuthorityActivationOutput) ToCertificateAuthorityActivationOu
 
 func (o CertificateAuthorityActivationOutput) ToCertificateAuthorityActivationOutputWithContext(ctx context.Context) CertificateAuthorityActivationOutput {
 	return o
+}
+
+func (o CertificateAuthorityActivationOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityActivation] {
+	return pulumix.Output[*CertificateAuthorityActivation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Certificate Authority certificate that will be installed in the Certificate Authority.

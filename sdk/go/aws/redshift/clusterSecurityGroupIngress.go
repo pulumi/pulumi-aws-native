@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Redshift::ClusterSecurityGroupIngress
@@ -111,6 +112,12 @@ func (i *ClusterSecurityGroupIngress) ToClusterSecurityGroupIngressOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSecurityGroupIngressOutput)
 }
 
+func (i *ClusterSecurityGroupIngress) ToOutput(ctx context.Context) pulumix.Output[*ClusterSecurityGroupIngress] {
+	return pulumix.Output[*ClusterSecurityGroupIngress]{
+		OutputState: i.ToClusterSecurityGroupIngressOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterSecurityGroupIngressOutput struct{ *pulumi.OutputState }
 
 func (ClusterSecurityGroupIngressOutput) ElementType() reflect.Type {
@@ -123,6 +130,12 @@ func (o ClusterSecurityGroupIngressOutput) ToClusterSecurityGroupIngressOutput()
 
 func (o ClusterSecurityGroupIngressOutput) ToClusterSecurityGroupIngressOutputWithContext(ctx context.Context) ClusterSecurityGroupIngressOutput {
 	return o
+}
+
+func (o ClusterSecurityGroupIngressOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterSecurityGroupIngress] {
+	return pulumix.Output[*ClusterSecurityGroupIngress]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterSecurityGroupIngressOutput) Cidrip() pulumi.StringPtrOutput {

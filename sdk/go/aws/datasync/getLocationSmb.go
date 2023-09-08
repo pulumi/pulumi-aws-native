@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationSMB.
@@ -77,6 +78,12 @@ func (o LookupLocationSmbResultOutput) ToLookupLocationSmbResultOutput() LookupL
 
 func (o LookupLocationSmbResultOutput) ToLookupLocationSmbResultOutputWithContext(ctx context.Context) LookupLocationSmbResultOutput {
 	return o
+}
+
+func (o LookupLocationSmbResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocationSmbResult] {
+	return pulumix.Output[LookupLocationSmbResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.

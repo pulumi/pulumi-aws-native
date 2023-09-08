@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppConfig::ConfigurationProfile
@@ -68,6 +69,12 @@ func (o LookupConfigurationProfileResultOutput) ToLookupConfigurationProfileResu
 
 func (o LookupConfigurationProfileResultOutput) ToLookupConfigurationProfileResultOutputWithContext(ctx context.Context) LookupConfigurationProfileResultOutput {
 	return o
+}
+
+func (o LookupConfigurationProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationProfileResult] {
+	return pulumix.Output[LookupConfigurationProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupConfigurationProfileResultOutput) Description() pulumi.StringPtrOutput {

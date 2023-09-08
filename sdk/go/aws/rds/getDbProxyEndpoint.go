@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::RDS::DBProxyEndpoint.
@@ -78,6 +79,12 @@ func (o LookupDbProxyEndpointResultOutput) ToLookupDbProxyEndpointResultOutput()
 
 func (o LookupDbProxyEndpointResultOutput) ToLookupDbProxyEndpointResultOutputWithContext(ctx context.Context) LookupDbProxyEndpointResultOutput {
 	return o
+}
+
+func (o LookupDbProxyEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDbProxyEndpointResult] {
+	return pulumix.Output[LookupDbProxyEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) for the DB proxy endpoint.

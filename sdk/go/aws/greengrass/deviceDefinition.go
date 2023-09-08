@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::DeviceDefinition
@@ -103,6 +104,12 @@ func (i *DeviceDefinition) ToDeviceDefinitionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionOutput)
 }
 
+func (i *DeviceDefinition) ToOutput(ctx context.Context) pulumix.Output[*DeviceDefinition] {
+	return pulumix.Output[*DeviceDefinition]{
+		OutputState: i.ToDeviceDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeviceDefinitionOutput struct{ *pulumi.OutputState }
 
 func (DeviceDefinitionOutput) ElementType() reflect.Type {
@@ -115,6 +122,12 @@ func (o DeviceDefinitionOutput) ToDeviceDefinitionOutput() DeviceDefinitionOutpu
 
 func (o DeviceDefinitionOutput) ToDeviceDefinitionOutputWithContext(ctx context.Context) DeviceDefinitionOutput {
 	return o
+}
+
+func (o DeviceDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceDefinition] {
+	return pulumix.Output[*DeviceDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeviceDefinitionOutput) Arn() pulumi.StringOutput {

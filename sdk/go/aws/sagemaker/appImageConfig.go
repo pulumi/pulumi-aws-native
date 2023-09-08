@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::AppImageConfig
@@ -111,6 +112,12 @@ func (i *AppImageConfig) ToAppImageConfigOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigOutput)
 }
 
+func (i *AppImageConfig) ToOutput(ctx context.Context) pulumix.Output[*AppImageConfig] {
+	return pulumix.Output[*AppImageConfig]{
+		OutputState: i.ToAppImageConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppImageConfigOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigOutput) ElementType() reflect.Type {
@@ -123,6 +130,12 @@ func (o AppImageConfigOutput) ToAppImageConfigOutput() AppImageConfigOutput {
 
 func (o AppImageConfigOutput) ToAppImageConfigOutputWithContext(ctx context.Context) AppImageConfigOutput {
 	return o
+}
+
+func (o AppImageConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*AppImageConfig] {
+	return pulumix.Output[*AppImageConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the AppImageConfig.

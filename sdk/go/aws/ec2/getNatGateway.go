@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::NatGateway
@@ -67,6 +68,12 @@ func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutput() LookupNat
 
 func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(ctx context.Context) LookupNatGatewayResultOutput {
 	return o
+}
+
+func (o LookupNatGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNatGatewayResult] {
+	return pulumix.Output[LookupNatGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupNatGatewayResultOutput) NatGatewayId() pulumi.StringPtrOutput {

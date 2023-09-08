@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGateway::UsagePlanKey
@@ -120,6 +121,12 @@ func (i *UsagePlanKey) ToUsagePlanKeyOutputWithContext(ctx context.Context) Usag
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanKeyOutput)
 }
 
+func (i *UsagePlanKey) ToOutput(ctx context.Context) pulumix.Output[*UsagePlanKey] {
+	return pulumix.Output[*UsagePlanKey]{
+		OutputState: i.ToUsagePlanKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UsagePlanKeyOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanKeyOutput) ElementType() reflect.Type {
@@ -132,6 +139,12 @@ func (o UsagePlanKeyOutput) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
 
 func (o UsagePlanKeyOutput) ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput {
 	return o
+}
+
+func (o UsagePlanKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*UsagePlanKey] {
+	return pulumix.Output[*UsagePlanKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the usage plan key.

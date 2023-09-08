@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A markup/discount that is defined for a specific set of services that can later be associated with a pricing plan.
@@ -83,6 +84,12 @@ func (o LookupPricingRuleResultOutput) ToLookupPricingRuleResultOutput() LookupP
 
 func (o LookupPricingRuleResultOutput) ToLookupPricingRuleResultOutputWithContext(ctx context.Context) LookupPricingRuleResultOutput {
 	return o
+}
+
+func (o LookupPricingRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPricingRuleResult] {
+	return pulumix.Output[LookupPricingRuleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Pricing rule ARN

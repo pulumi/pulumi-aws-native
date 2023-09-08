@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationObjectStorage.
@@ -159,6 +160,12 @@ func (i *LocationObjectStorage) ToLocationObjectStorageOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageOutput)
 }
 
+func (i *LocationObjectStorage) ToOutput(ctx context.Context) pulumix.Output[*LocationObjectStorage] {
+	return pulumix.Output[*LocationObjectStorage]{
+		OutputState: i.ToLocationObjectStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocationObjectStorageOutput struct{ *pulumi.OutputState }
 
 func (LocationObjectStorageOutput) ElementType() reflect.Type {
@@ -171,6 +178,12 @@ func (o LocationObjectStorageOutput) ToLocationObjectStorageOutput() LocationObj
 
 func (o LocationObjectStorageOutput) ToLocationObjectStorageOutputWithContext(ctx context.Context) LocationObjectStorageOutput {
 	return o
+}
+
+func (o LocationObjectStorageOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationObjectStorage] {
+	return pulumix.Output[*LocationObjectStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Optional. The access key is used if credentials are required to access the self-managed object storage server.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lambda::LayerVersion
@@ -136,6 +137,12 @@ func (i *LayerVersion) ToLayerVersionOutputWithContext(ctx context.Context) Laye
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionOutput)
 }
 
+func (i *LayerVersion) ToOutput(ctx context.Context) pulumix.Output[*LayerVersion] {
+	return pulumix.Output[*LayerVersion]{
+		OutputState: i.ToLayerVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LayerVersionOutput struct{ *pulumi.OutputState }
 
 func (LayerVersionOutput) ElementType() reflect.Type {
@@ -148,6 +155,12 @@ func (o LayerVersionOutput) ToLayerVersionOutput() LayerVersionOutput {
 
 func (o LayerVersionOutput) ToLayerVersionOutputWithContext(ctx context.Context) LayerVersionOutput {
 	return o
+}
+
+func (o LayerVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*LayerVersion] {
+	return pulumix.Output[*LayerVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of compatible instruction set architectures.

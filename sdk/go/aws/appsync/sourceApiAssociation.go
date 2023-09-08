@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::SourceApiAssociation
@@ -133,6 +134,12 @@ func (i *SourceApiAssociation) ToSourceApiAssociationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SourceApiAssociationOutput)
 }
 
+func (i *SourceApiAssociation) ToOutput(ctx context.Context) pulumix.Output[*SourceApiAssociation] {
+	return pulumix.Output[*SourceApiAssociation]{
+		OutputState: i.ToSourceApiAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SourceApiAssociationOutput struct{ *pulumi.OutputState }
 
 func (SourceApiAssociationOutput) ElementType() reflect.Type {
@@ -145,6 +152,12 @@ func (o SourceApiAssociationOutput) ToSourceApiAssociationOutput() SourceApiAsso
 
 func (o SourceApiAssociationOutput) ToSourceApiAssociationOutputWithContext(ctx context.Context) SourceApiAssociationOutput {
 	return o
+}
+
+func (o SourceApiAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceApiAssociation] {
+	return pulumix.Output[*SourceApiAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the SourceApiAssociation.

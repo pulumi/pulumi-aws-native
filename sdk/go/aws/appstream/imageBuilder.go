@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::ImageBuilder
@@ -130,6 +131,12 @@ func (i *ImageBuilder) ToImageBuilderOutputWithContext(ctx context.Context) Imag
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderOutput)
 }
 
+func (i *ImageBuilder) ToOutput(ctx context.Context) pulumix.Output[*ImageBuilder] {
+	return pulumix.Output[*ImageBuilder]{
+		OutputState: i.ToImageBuilderOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageBuilderOutput struct{ *pulumi.OutputState }
 
 func (ImageBuilderOutput) ElementType() reflect.Type {
@@ -142,6 +149,12 @@ func (o ImageBuilderOutput) ToImageBuilderOutput() ImageBuilderOutput {
 
 func (o ImageBuilderOutput) ToImageBuilderOutputWithContext(ctx context.Context) ImageBuilderOutput {
 	return o
+}
+
+func (o ImageBuilderOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageBuilder] {
+	return pulumix.Output[*ImageBuilder]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageBuilderOutput) AccessEndpoints() ImageBuilderAccessEndpointArrayOutput {

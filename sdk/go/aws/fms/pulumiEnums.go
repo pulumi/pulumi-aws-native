@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Firewall deployment mode.
@@ -78,6 +79,12 @@ func (o PolicyFirewallDeploymentModelOutput) ToPolicyFirewallDeploymentModelPtrO
 	}).(PolicyFirewallDeploymentModelPtrOutput)
 }
 
+func (o PolicyFirewallDeploymentModelOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyFirewallDeploymentModel] {
+	return pulumix.Output[PolicyFirewallDeploymentModel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyFirewallDeploymentModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o PolicyFirewallDeploymentModelPtrOutput) ToPolicyFirewallDeploymentModelP
 
 func (o PolicyFirewallDeploymentModelPtrOutput) ToPolicyFirewallDeploymentModelPtrOutputWithContext(ctx context.Context) PolicyFirewallDeploymentModelPtrOutput {
 	return o
+}
+
+func (o PolicyFirewallDeploymentModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyFirewallDeploymentModel] {
+	return pulumix.Output[*PolicyFirewallDeploymentModel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyFirewallDeploymentModelPtrOutput) Elem() PolicyFirewallDeploymentModelOutput {
@@ -173,6 +186,12 @@ func (in *policyFirewallDeploymentModelPtr) ToPolicyFirewallDeploymentModelPtrOu
 
 func (in *policyFirewallDeploymentModelPtr) ToPolicyFirewallDeploymentModelPtrOutputWithContext(ctx context.Context) PolicyFirewallDeploymentModelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyFirewallDeploymentModelPtrOutput)
+}
+
+func (in *policyFirewallDeploymentModelPtr) ToOutput(ctx context.Context) pulumix.Output[*PolicyFirewallDeploymentModel] {
+	return pulumix.Output[*PolicyFirewallDeploymentModel]{
+		OutputState: in.ToPolicyFirewallDeploymentModelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Firewall policy type.
@@ -251,6 +270,12 @@ func (o PolicyTypeOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) 
 	}).(PolicyTypePtrOutput)
 }
 
+func (o PolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyType] {
+	return pulumix.Output[PolicyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -284,6 +309,12 @@ func (o PolicyTypePtrOutput) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
 
 func (o PolicyTypePtrOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
 	return o
+}
+
+func (o PolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyType] {
+	return pulumix.Output[*PolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTypePtrOutput) Elem() PolicyTypeOutput {
@@ -346,6 +377,12 @@ func (in *policyTypePtr) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
 
 func (in *policyTypePtr) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyTypePtrOutput)
+}
+
+func (in *policyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PolicyType] {
+	return pulumix.Output[*PolicyType]{
+		OutputState: in.ToPolicyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

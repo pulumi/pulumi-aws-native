@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationNFS
@@ -122,6 +123,12 @@ func (i *LocationNfs) ToLocationNfsOutputWithContext(ctx context.Context) Locati
 	return pulumi.ToOutputWithContext(ctx, i).(LocationNfsOutput)
 }
 
+func (i *LocationNfs) ToOutput(ctx context.Context) pulumix.Output[*LocationNfs] {
+	return pulumix.Output[*LocationNfs]{
+		OutputState: i.ToLocationNfsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocationNfsOutput struct{ *pulumi.OutputState }
 
 func (LocationNfsOutput) ElementType() reflect.Type {
@@ -134,6 +141,12 @@ func (o LocationNfsOutput) ToLocationNfsOutput() LocationNfsOutput {
 
 func (o LocationNfsOutput) ToLocationNfsOutputWithContext(ctx context.Context) LocationNfsOutput {
 	return o
+}
+
+func (o LocationNfsOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationNfs] {
+	return pulumix.Output[*LocationNfs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the NFS location.

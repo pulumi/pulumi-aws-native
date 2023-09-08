@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
@@ -110,6 +111,12 @@ func (i *TransitGatewayRegistration) ToTransitGatewayRegistrationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRegistrationOutput)
 }
 
+func (i *TransitGatewayRegistration) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRegistration] {
+	return pulumix.Output[*TransitGatewayRegistration]{
+		OutputState: i.ToTransitGatewayRegistrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayRegistrationOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRegistrationOutput) ElementType() reflect.Type {
@@ -122,6 +129,12 @@ func (o TransitGatewayRegistrationOutput) ToTransitGatewayRegistrationOutput() T
 
 func (o TransitGatewayRegistrationOutput) ToTransitGatewayRegistrationOutputWithContext(ctx context.Context) TransitGatewayRegistrationOutput {
 	return o
+}
+
+func (o TransitGatewayRegistrationOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRegistration] {
+	return pulumix.Output[*TransitGatewayRegistration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the global network.

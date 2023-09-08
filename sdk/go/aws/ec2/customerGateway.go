@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::CustomerGateway
@@ -135,6 +136,12 @@ func (i *CustomerGateway) ToCustomerGatewayOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayOutput)
 }
 
+func (i *CustomerGateway) ToOutput(ctx context.Context) pulumix.Output[*CustomerGateway] {
+	return pulumix.Output[*CustomerGateway]{
+		OutputState: i.ToCustomerGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomerGatewayOutput struct{ *pulumi.OutputState }
 
 func (CustomerGatewayOutput) ElementType() reflect.Type {
@@ -147,6 +154,12 @@ func (o CustomerGatewayOutput) ToCustomerGatewayOutput() CustomerGatewayOutput {
 
 func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Context) CustomerGatewayOutput {
 	return o
+}
+
+func (o CustomerGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomerGateway] {
+	return pulumix.Output[*CustomerGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // For devices that support BGP, the customer gateway's BGP ASN.

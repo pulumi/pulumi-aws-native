@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i AllowListCriteriaArgs) ToAllowListCriteriaOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AllowListCriteriaOutput)
 }
 
+func (i AllowListCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[AllowListCriteria] {
+	return pulumix.Output[AllowListCriteria]{
+		OutputState: i.ToAllowListCriteriaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The regex or s3 object to use for the AllowList.
 type AllowListCriteriaOutput struct{ *pulumi.OutputState }
 
@@ -59,6 +66,12 @@ func (o AllowListCriteriaOutput) ToAllowListCriteriaOutputWithContext(ctx contex
 	return o
 }
 
+func (o AllowListCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[AllowListCriteria] {
+	return pulumix.Output[AllowListCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
 type AllowListCriteriaPtrOutput struct{ *pulumi.OutputState }
 
 func (AllowListCriteriaPtrOutput) ElementType() reflect.Type {
@@ -71,6 +84,12 @@ func (o AllowListCriteriaPtrOutput) ToAllowListCriteriaPtrOutput() AllowListCrit
 
 func (o AllowListCriteriaPtrOutput) ToAllowListCriteriaPtrOutputWithContext(ctx context.Context) AllowListCriteriaPtrOutput {
 	return o
+}
+
+func (o AllowListCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AllowListCriteria] {
+	return pulumix.Output[*AllowListCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AllowListCriteriaPtrOutput) Elem() AllowListCriteriaOutput {
@@ -122,6 +141,12 @@ func (i AllowListTagArgs) ToAllowListTagOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AllowListTagOutput)
 }
 
+func (i AllowListTagArgs) ToOutput(ctx context.Context) pulumix.Output[AllowListTag] {
+	return pulumix.Output[AllowListTag]{
+		OutputState: i.ToAllowListTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AllowListTagArrayInput is an input type that accepts AllowListTagArray and AllowListTagArrayOutput values.
 // You can construct a concrete instance of `AllowListTagArrayInput` via:
 //
@@ -147,6 +172,12 @@ func (i AllowListTagArray) ToAllowListTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AllowListTagArrayOutput)
 }
 
+func (i AllowListTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AllowListTag] {
+	return pulumix.Output[[]AllowListTag]{
+		OutputState: i.ToAllowListTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type AllowListTagOutput struct{ *pulumi.OutputState }
 
@@ -160,6 +191,12 @@ func (o AllowListTagOutput) ToAllowListTagOutput() AllowListTagOutput {
 
 func (o AllowListTagOutput) ToAllowListTagOutputWithContext(ctx context.Context) AllowListTagOutput {
 	return o
+}
+
+func (o AllowListTagOutput) ToOutput(ctx context.Context) pulumix.Output[AllowListTag] {
+	return pulumix.Output[AllowListTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The tag's key.
@@ -184,6 +221,12 @@ func (o AllowListTagArrayOutput) ToAllowListTagArrayOutput() AllowListTagArrayOu
 
 func (o AllowListTagArrayOutput) ToAllowListTagArrayOutputWithContext(ctx context.Context) AllowListTagArrayOutput {
 	return o
+}
+
+func (o AllowListTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AllowListTag] {
+	return pulumix.Output[[]AllowListTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AllowListTagArrayOutput) Index(i pulumi.IntInput) AllowListTagOutput {
@@ -221,6 +264,12 @@ func (i FindingsFilterCriterionArgs) ToFindingsFilterCriterionOutput() FindingsF
 
 func (i FindingsFilterCriterionArgs) ToFindingsFilterCriterionOutputWithContext(ctx context.Context) FindingsFilterCriterionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterCriterionOutput)
+}
+
+func (i FindingsFilterCriterionArgs) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterCriterion] {
+	return pulumix.Output[FindingsFilterCriterion]{
+		OutputState: i.ToFindingsFilterCriterionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FindingsFilterCriterionArgs) ToFindingsFilterCriterionPtrOutput() FindingsFilterCriterionPtrOutput {
@@ -264,6 +313,12 @@ func (i *findingsFilterCriterionPtrType) ToFindingsFilterCriterionPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterCriterionPtrOutput)
 }
 
+func (i *findingsFilterCriterionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilterCriterion] {
+	return pulumix.Output[*FindingsFilterCriterion]{
+		OutputState: i.ToFindingsFilterCriterionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Map of filter criteria.
 type FindingsFilterCriterionOutput struct{ *pulumi.OutputState }
 
@@ -289,6 +344,12 @@ func (o FindingsFilterCriterionOutput) ToFindingsFilterCriterionPtrOutputWithCon
 	}).(FindingsFilterCriterionPtrOutput)
 }
 
+func (o FindingsFilterCriterionOutput) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterCriterion] {
+	return pulumix.Output[FindingsFilterCriterion]{
+		OutputState: o.OutputState,
+	}
+}
+
 type FindingsFilterCriterionPtrOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterCriterionPtrOutput) ElementType() reflect.Type {
@@ -301,6 +362,12 @@ func (o FindingsFilterCriterionPtrOutput) ToFindingsFilterCriterionPtrOutput() F
 
 func (o FindingsFilterCriterionPtrOutput) ToFindingsFilterCriterionPtrOutputWithContext(ctx context.Context) FindingsFilterCriterionPtrOutput {
 	return o
+}
+
+func (o FindingsFilterCriterionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilterCriterion] {
+	return pulumix.Output[*FindingsFilterCriterion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FindingsFilterCriterionPtrOutput) Elem() FindingsFilterCriterionOutput {
@@ -344,6 +411,12 @@ func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaOutput)
 }
 
+func (i FindingsFilterFindingCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingCriteria] {
+	return pulumix.Output[FindingsFilterFindingCriteria]{
+		OutputState: i.ToFindingsFilterFindingCriteriaOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FindingsFilterFindingCriteriaOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterFindingCriteriaOutput) ElementType() reflect.Type {
@@ -356,6 +429,12 @@ func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaOutp
 
 func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaOutput {
 	return o
+}
+
+func (o FindingsFilterFindingCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingCriteria] {
+	return pulumix.Output[FindingsFilterFindingCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FindingsFilterFindingCriteriaOutput) Criterion() FindingsFilterCriterionPtrOutput {
@@ -374,6 +453,12 @@ func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaP
 
 func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
 	return o
+}
+
+func (o FindingsFilterFindingCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilterFindingCriteria] {
+	return pulumix.Output[*FindingsFilterFindingCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FindingsFilterFindingCriteriaPtrOutput) Elem() FindingsFilterFindingCriteriaOutput {
@@ -434,6 +519,12 @@ func (i FindingsFilterTagArgs) ToFindingsFilterTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterTagOutput)
 }
 
+func (i FindingsFilterTagArgs) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterTag] {
+	return pulumix.Output[FindingsFilterTag]{
+		OutputState: i.ToFindingsFilterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FindingsFilterTagArrayInput is an input type that accepts FindingsFilterTagArray and FindingsFilterTagArrayOutput values.
 // You can construct a concrete instance of `FindingsFilterTagArrayInput` via:
 //
@@ -459,6 +550,12 @@ func (i FindingsFilterTagArray) ToFindingsFilterTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterTagArrayOutput)
 }
 
+func (i FindingsFilterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FindingsFilterTag] {
+	return pulumix.Output[[]FindingsFilterTag]{
+		OutputState: i.ToFindingsFilterTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type FindingsFilterTagOutput struct{ *pulumi.OutputState }
 
@@ -472,6 +569,12 @@ func (o FindingsFilterTagOutput) ToFindingsFilterTagOutput() FindingsFilterTagOu
 
 func (o FindingsFilterTagOutput) ToFindingsFilterTagOutputWithContext(ctx context.Context) FindingsFilterTagOutput {
 	return o
+}
+
+func (o FindingsFilterTagOutput) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterTag] {
+	return pulumix.Output[FindingsFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The tag's key.
@@ -496,6 +599,12 @@ func (o FindingsFilterTagArrayOutput) ToFindingsFilterTagArrayOutput() FindingsF
 
 func (o FindingsFilterTagArrayOutput) ToFindingsFilterTagArrayOutputWithContext(ctx context.Context) FindingsFilterTagArrayOutput {
 	return o
+}
+
+func (o FindingsFilterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FindingsFilterTag] {
+	return pulumix.Output[[]FindingsFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FindingsFilterTagArrayOutput) Index(i pulumi.IntInput) FindingsFilterTagOutput {

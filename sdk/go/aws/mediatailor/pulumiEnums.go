@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ChannelLogType string
@@ -76,6 +77,12 @@ func (o ChannelLogTypeOutput) ToChannelLogTypePtrOutputWithContext(ctx context.C
 	}).(ChannelLogTypePtrOutput)
 }
 
+func (o ChannelLogTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelLogType] {
+	return pulumix.Output[ChannelLogType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelLogTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -109,6 +116,12 @@ func (o ChannelLogTypePtrOutput) ToChannelLogTypePtrOutput() ChannelLogTypePtrOu
 
 func (o ChannelLogTypePtrOutput) ToChannelLogTypePtrOutputWithContext(ctx context.Context) ChannelLogTypePtrOutput {
 	return o
+}
+
+func (o ChannelLogTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelLogType] {
+	return pulumix.Output[*ChannelLogType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelLogTypePtrOutput) Elem() ChannelLogTypeOutput {
@@ -173,6 +186,12 @@ func (in *channelLogTypePtr) ToChannelLogTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelLogTypePtrOutput)
 }
 
+func (in *channelLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ChannelLogType] {
+	return pulumix.Output[*ChannelLogType]{
+		OutputState: in.ToChannelLogTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChannelLogTypeArrayInput is an input type that accepts ChannelLogTypeArray and ChannelLogTypeArrayOutput values.
 // You can construct a concrete instance of `ChannelLogTypeArrayInput` via:
 //
@@ -198,6 +217,12 @@ func (i ChannelLogTypeArray) ToChannelLogTypeArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogTypeArrayOutput)
 }
 
+func (i ChannelLogTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelLogType] {
+	return pulumix.Output[[]ChannelLogType]{
+		OutputState: i.ToChannelLogTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelLogTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelLogTypeArrayOutput) ElementType() reflect.Type {
@@ -210,6 +235,12 @@ func (o ChannelLogTypeArrayOutput) ToChannelLogTypeArrayOutput() ChannelLogTypeA
 
 func (o ChannelLogTypeArrayOutput) ToChannelLogTypeArrayOutputWithContext(ctx context.Context) ChannelLogTypeArrayOutput {
 	return o
+}
+
+func (o ChannelLogTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelLogType] {
+	return pulumix.Output[[]ChannelLogType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelLogTypeArrayOutput) Index(i pulumi.IntInput) ChannelLogTypeOutput {
@@ -285,6 +316,12 @@ func (o ChannelPlaybackModeOutput) ToChannelPlaybackModePtrOutputWithContext(ctx
 	}).(ChannelPlaybackModePtrOutput)
 }
 
+func (o ChannelPlaybackModeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelPlaybackMode] {
+	return pulumix.Output[ChannelPlaybackMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelPlaybackModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -318,6 +355,12 @@ func (o ChannelPlaybackModePtrOutput) ToChannelPlaybackModePtrOutput() ChannelPl
 
 func (o ChannelPlaybackModePtrOutput) ToChannelPlaybackModePtrOutputWithContext(ctx context.Context) ChannelPlaybackModePtrOutput {
 	return o
+}
+
+func (o ChannelPlaybackModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelPlaybackMode] {
+	return pulumix.Output[*ChannelPlaybackMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelPlaybackModePtrOutput) Elem() ChannelPlaybackModeOutput {
@@ -380,6 +423,12 @@ func (in *channelPlaybackModePtr) ToChannelPlaybackModePtrOutput() ChannelPlayba
 
 func (in *channelPlaybackModePtr) ToChannelPlaybackModePtrOutputWithContext(ctx context.Context) ChannelPlaybackModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelPlaybackModePtrOutput)
+}
+
+func (in *channelPlaybackModePtr) ToOutput(ctx context.Context) pulumix.Output[*ChannelPlaybackMode] {
+	return pulumix.Output[*ChannelPlaybackMode]{
+		OutputState: in.ToChannelPlaybackModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ChannelTier string
@@ -449,6 +498,12 @@ func (o ChannelTierOutput) ToChannelTierPtrOutputWithContext(ctx context.Context
 	}).(ChannelTierPtrOutput)
 }
 
+func (o ChannelTierOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTier] {
+	return pulumix.Output[ChannelTier]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -482,6 +537,12 @@ func (o ChannelTierPtrOutput) ToChannelTierPtrOutput() ChannelTierPtrOutput {
 
 func (o ChannelTierPtrOutput) ToChannelTierPtrOutputWithContext(ctx context.Context) ChannelTierPtrOutput {
 	return o
+}
+
+func (o ChannelTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelTier] {
+	return pulumix.Output[*ChannelTier]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelTierPtrOutput) Elem() ChannelTierOutput {
@@ -544,6 +605,12 @@ func (in *channelTierPtr) ToChannelTierPtrOutput() ChannelTierPtrOutput {
 
 func (in *channelTierPtr) ToChannelTierPtrOutputWithContext(ctx context.Context) ChannelTierPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelTierPtrOutput)
+}
+
+func (in *channelTierPtr) ToOutput(ctx context.Context) pulumix.Output[*ChannelTier] {
+	return pulumix.Output[*ChannelTier]{
+		OutputState: in.ToChannelTierPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type LiveSourceType string
@@ -613,6 +680,12 @@ func (o LiveSourceTypeOutput) ToLiveSourceTypePtrOutputWithContext(ctx context.C
 	}).(LiveSourceTypePtrOutput)
 }
 
+func (o LiveSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LiveSourceType] {
+	return pulumix.Output[LiveSourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LiveSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -646,6 +719,12 @@ func (o LiveSourceTypePtrOutput) ToLiveSourceTypePtrOutput() LiveSourceTypePtrOu
 
 func (o LiveSourceTypePtrOutput) ToLiveSourceTypePtrOutputWithContext(ctx context.Context) LiveSourceTypePtrOutput {
 	return o
+}
+
+func (o LiveSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LiveSourceType] {
+	return pulumix.Output[*LiveSourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LiveSourceTypePtrOutput) Elem() LiveSourceTypeOutput {
@@ -708,6 +787,12 @@ func (in *liveSourceTypePtr) ToLiveSourceTypePtrOutput() LiveSourceTypePtrOutput
 
 func (in *liveSourceTypePtr) ToLiveSourceTypePtrOutputWithContext(ctx context.Context) LiveSourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LiveSourceTypePtrOutput)
+}
+
+func (in *liveSourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*LiveSourceType] {
+	return pulumix.Output[*LiveSourceType]{
+		OutputState: in.ToLiveSourceTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
@@ -778,6 +863,12 @@ func (o PlaybackConfigurationAvailSuppressionModeOutput) ToPlaybackConfiguration
 	}).(PlaybackConfigurationAvailSuppressionModePtrOutput)
 }
 
+func (o PlaybackConfigurationAvailSuppressionModeOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationAvailSuppressionMode] {
+	return pulumix.Output[PlaybackConfigurationAvailSuppressionMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaybackConfigurationAvailSuppressionModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -811,6 +902,12 @@ func (o PlaybackConfigurationAvailSuppressionModePtrOutput) ToPlaybackConfigurat
 
 func (o PlaybackConfigurationAvailSuppressionModePtrOutput) ToPlaybackConfigurationAvailSuppressionModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionModePtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationAvailSuppressionModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAvailSuppressionMode] {
+	return pulumix.Output[*PlaybackConfigurationAvailSuppressionMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationAvailSuppressionModePtrOutput) Elem() PlaybackConfigurationAvailSuppressionModeOutput {
@@ -873,6 +970,12 @@ func (in *playbackConfigurationAvailSuppressionModePtr) ToPlaybackConfigurationA
 
 func (in *playbackConfigurationAvailSuppressionModePtr) ToPlaybackConfigurationAvailSuppressionModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationAvailSuppressionModePtrOutput)
+}
+
+func (in *playbackConfigurationAvailSuppressionModePtr) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAvailSuppressionMode] {
+	return pulumix.Output[*PlaybackConfigurationAvailSuppressionMode]{
+		OutputState: in.ToPlaybackConfigurationAvailSuppressionModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
@@ -943,6 +1046,12 @@ func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToPlayba
 	}).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
 }
 
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationDashConfigurationOriginManifestType] {
+	return pulumix.Output[PlaybackConfigurationDashConfigurationOriginManifestType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -976,6 +1085,12 @@ func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToPla
 
 func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationDashConfigurationOriginManifestType] {
+	return pulumix.Output[*PlaybackConfigurationDashConfigurationOriginManifestType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) Elem() PlaybackConfigurationDashConfigurationOriginManifestTypeOutput {
@@ -1038,6 +1153,12 @@ func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToPlaybac
 
 func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
+}
+
+func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationDashConfigurationOriginManifestType] {
+	return pulumix.Output[*PlaybackConfigurationDashConfigurationOriginManifestType]{
+		OutputState: in.ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SourceLocationAccessType string
@@ -1107,6 +1228,12 @@ func (o SourceLocationAccessTypeOutput) ToSourceLocationAccessTypePtrOutputWithC
 	}).(SourceLocationAccessTypePtrOutput)
 }
 
+func (o SourceLocationAccessTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SourceLocationAccessType] {
+	return pulumix.Output[SourceLocationAccessType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SourceLocationAccessTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1140,6 +1267,12 @@ func (o SourceLocationAccessTypePtrOutput) ToSourceLocationAccessTypePtrOutput()
 
 func (o SourceLocationAccessTypePtrOutput) ToSourceLocationAccessTypePtrOutputWithContext(ctx context.Context) SourceLocationAccessTypePtrOutput {
 	return o
+}
+
+func (o SourceLocationAccessTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceLocationAccessType] {
+	return pulumix.Output[*SourceLocationAccessType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SourceLocationAccessTypePtrOutput) Elem() SourceLocationAccessTypeOutput {
@@ -1202,6 +1335,12 @@ func (in *sourceLocationAccessTypePtr) ToSourceLocationAccessTypePtrOutput() Sou
 
 func (in *sourceLocationAccessTypePtr) ToSourceLocationAccessTypePtrOutputWithContext(ctx context.Context) SourceLocationAccessTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SourceLocationAccessTypePtrOutput)
+}
+
+func (in *sourceLocationAccessTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SourceLocationAccessType] {
+	return pulumix.Output[*SourceLocationAccessType]{
+		OutputState: in.ToSourceLocationAccessTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type VodSourceType string
@@ -1271,6 +1410,12 @@ func (o VodSourceTypeOutput) ToVodSourceTypePtrOutputWithContext(ctx context.Con
 	}).(VodSourceTypePtrOutput)
 }
 
+func (o VodSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[VodSourceType] {
+	return pulumix.Output[VodSourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VodSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1304,6 +1449,12 @@ func (o VodSourceTypePtrOutput) ToVodSourceTypePtrOutput() VodSourceTypePtrOutpu
 
 func (o VodSourceTypePtrOutput) ToVodSourceTypePtrOutputWithContext(ctx context.Context) VodSourceTypePtrOutput {
 	return o
+}
+
+func (o VodSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VodSourceType] {
+	return pulumix.Output[*VodSourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VodSourceTypePtrOutput) Elem() VodSourceTypeOutput {
@@ -1366,6 +1517,12 @@ func (in *vodSourceTypePtr) ToVodSourceTypePtrOutput() VodSourceTypePtrOutput {
 
 func (in *vodSourceTypePtr) ToVodSourceTypePtrOutputWithContext(ctx context.Context) VodSourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VodSourceTypePtrOutput)
+}
+
+func (in *vodSourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*VodSourceType] {
+	return pulumix.Output[*VodSourceType]{
+		OutputState: in.ToVodSourceTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::TrafficDistributionGroup
@@ -125,6 +126,12 @@ func (i *TrafficDistributionGroup) ToTrafficDistributionGroupOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficDistributionGroupOutput)
 }
 
+func (i *TrafficDistributionGroup) ToOutput(ctx context.Context) pulumix.Output[*TrafficDistributionGroup] {
+	return pulumix.Output[*TrafficDistributionGroup]{
+		OutputState: i.ToTrafficDistributionGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrafficDistributionGroupOutput struct{ *pulumi.OutputState }
 
 func (TrafficDistributionGroupOutput) ElementType() reflect.Type {
@@ -137,6 +144,12 @@ func (o TrafficDistributionGroupOutput) ToTrafficDistributionGroupOutput() Traff
 
 func (o TrafficDistributionGroupOutput) ToTrafficDistributionGroupOutputWithContext(ctx context.Context) TrafficDistributionGroupOutput {
 	return o
+}
+
+func (o TrafficDistributionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficDistributionGroup] {
+	return pulumix.Output[*TrafficDistributionGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description for the traffic distribution group.

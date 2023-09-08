@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::NetworkAclEntry
@@ -134,6 +135,12 @@ func (i *NetworkAclEntry) ToNetworkAclEntryOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryOutput)
 }
 
+func (i *NetworkAclEntry) ToOutput(ctx context.Context) pulumix.Output[*NetworkAclEntry] {
+	return pulumix.Output[*NetworkAclEntry]{
+		OutputState: i.ToNetworkAclEntryOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkAclEntryOutput struct{ *pulumi.OutputState }
 
 func (NetworkAclEntryOutput) ElementType() reflect.Type {
@@ -146,6 +153,12 @@ func (o NetworkAclEntryOutput) ToNetworkAclEntryOutput() NetworkAclEntryOutput {
 
 func (o NetworkAclEntryOutput) ToNetworkAclEntryOutputWithContext(ctx context.Context) NetworkAclEntryOutput {
 	return o
+}
+
+func (o NetworkAclEntryOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAclEntry] {
+	return pulumix.Output[*NetworkAclEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkAclEntryOutput) CidrBlock() pulumi.StringPtrOutput {

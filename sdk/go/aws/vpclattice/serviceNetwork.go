@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
@@ -102,6 +103,12 @@ func (i *ServiceNetwork) ToServiceNetworkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkOutput)
 }
 
+func (i *ServiceNetwork) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetwork] {
+	return pulumix.Output[*ServiceNetwork]{
+		OutputState: i.ToServiceNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceNetworkOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkOutput) ElementType() reflect.Type {
@@ -114,6 +121,12 @@ func (o ServiceNetworkOutput) ToServiceNetworkOutput() ServiceNetworkOutput {
 
 func (o ServiceNetworkOutput) ToServiceNetworkOutputWithContext(ctx context.Context) ServiceNetworkOutput {
 	return o
+}
+
+func (o ServiceNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetwork] {
+	return pulumix.Output[*ServiceNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkOutput) Arn() pulumi.StringOutput {

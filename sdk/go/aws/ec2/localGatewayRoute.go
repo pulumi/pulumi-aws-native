@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Describes a route for a local gateway route table.
@@ -119,6 +120,12 @@ func (i *LocalGatewayRoute) ToLocalGatewayRouteOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteOutput)
 }
 
+func (i *LocalGatewayRoute) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRoute] {
+	return pulumix.Output[*LocalGatewayRoute]{
+		OutputState: i.ToLocalGatewayRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalGatewayRouteOutput struct{ *pulumi.OutputState }
 
 func (LocalGatewayRouteOutput) ElementType() reflect.Type {
@@ -131,6 +138,12 @@ func (o LocalGatewayRouteOutput) ToLocalGatewayRouteOutput() LocalGatewayRouteOu
 
 func (o LocalGatewayRouteOutput) ToLocalGatewayRouteOutputWithContext(ctx context.Context) LocalGatewayRouteOutput {
 	return o
+}
+
+func (o LocalGatewayRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRoute] {
+	return pulumix.Output[*LocalGatewayRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The CIDR block used for destination matches.

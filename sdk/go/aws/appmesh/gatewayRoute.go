@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppMesh::GatewayRoute
@@ -126,6 +127,12 @@ func (i *GatewayRoute) ToGatewayRouteOutputWithContext(ctx context.Context) Gate
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteOutput)
 }
 
+func (i *GatewayRoute) ToOutput(ctx context.Context) pulumix.Output[*GatewayRoute] {
+	return pulumix.Output[*GatewayRoute]{
+		OutputState: i.ToGatewayRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteOutput) ElementType() reflect.Type {
@@ -138,6 +145,12 @@ func (o GatewayRouteOutput) ToGatewayRouteOutput() GatewayRouteOutput {
 
 func (o GatewayRouteOutput) ToGatewayRouteOutputWithContext(ctx context.Context) GatewayRouteOutput {
 	return o
+}
+
+func (o GatewayRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRoute] {
+	return pulumix.Output[*GatewayRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteOutput) Arn() pulumi.StringOutput {

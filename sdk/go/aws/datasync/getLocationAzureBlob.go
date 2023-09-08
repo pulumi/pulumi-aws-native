@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationAzureBlob.
@@ -78,6 +79,12 @@ func (o LookupLocationAzureBlobResultOutput) ToLookupLocationAzureBlobResultOutp
 
 func (o LookupLocationAzureBlobResultOutput) ToLookupLocationAzureBlobResultOutputWithContext(ctx context.Context) LookupLocationAzureBlobResultOutput {
 	return o
+}
+
+func (o LookupLocationAzureBlobResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocationAzureBlobResult] {
+	return pulumix.Output[LookupLocationAzureBlobResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.

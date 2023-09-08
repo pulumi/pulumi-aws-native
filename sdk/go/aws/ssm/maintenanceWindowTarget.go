@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSM::MaintenanceWindowTarget
@@ -120,6 +121,12 @@ func (i *MaintenanceWindowTarget) ToMaintenanceWindowTargetOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTargetOutput)
 }
 
+func (i *MaintenanceWindowTarget) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTarget] {
+	return pulumix.Output[*MaintenanceWindowTarget]{
+		OutputState: i.ToMaintenanceWindowTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MaintenanceWindowTargetOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTargetOutput) ElementType() reflect.Type {
@@ -132,6 +139,12 @@ func (o MaintenanceWindowTargetOutput) ToMaintenanceWindowTargetOutput() Mainten
 
 func (o MaintenanceWindowTargetOutput) ToMaintenanceWindowTargetOutputWithContext(ctx context.Context) MaintenanceWindowTargetOutput {
 	return o
+}
+
+func (o MaintenanceWindowTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTarget] {
+	return pulumix.Output[*MaintenanceWindowTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MaintenanceWindowTargetOutput) Description() pulumi.StringPtrOutput {

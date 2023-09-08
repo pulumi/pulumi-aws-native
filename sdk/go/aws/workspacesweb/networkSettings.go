@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::NetworkSettings Resource Type
@@ -110,6 +111,12 @@ func (i *NetworkSettings) ToNetworkSettingsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsOutput)
 }
 
+func (i *NetworkSettings) ToOutput(ctx context.Context) pulumix.Output[*NetworkSettings] {
+	return pulumix.Output[*NetworkSettings]{
+		OutputState: i.ToNetworkSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkSettingsOutput struct{ *pulumi.OutputState }
 
 func (NetworkSettingsOutput) ElementType() reflect.Type {
@@ -122,6 +129,12 @@ func (o NetworkSettingsOutput) ToNetworkSettingsOutput() NetworkSettingsOutput {
 
 func (o NetworkSettingsOutput) ToNetworkSettingsOutputWithContext(ctx context.Context) NetworkSettingsOutput {
 	return o
+}
+
+func (o NetworkSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSettings] {
+	return pulumix.Output[*NetworkSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {

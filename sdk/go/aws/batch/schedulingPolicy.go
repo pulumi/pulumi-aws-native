@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type schema for AWS::Batch::SchedulingPolicy
@@ -107,6 +108,12 @@ func (i *SchedulingPolicy) ToSchedulingPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyOutput)
 }
 
+func (i *SchedulingPolicy) ToOutput(ctx context.Context) pulumix.Output[*SchedulingPolicy] {
+	return pulumix.Output[*SchedulingPolicy]{
+		OutputState: i.ToSchedulingPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchedulingPolicyOutput struct{ *pulumi.OutputState }
 
 func (SchedulingPolicyOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o SchedulingPolicyOutput) ToSchedulingPolicyOutput() SchedulingPolicyOutpu
 
 func (o SchedulingPolicyOutput) ToSchedulingPolicyOutputWithContext(ctx context.Context) SchedulingPolicyOutput {
 	return o
+}
+
+func (o SchedulingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulingPolicy] {
+	return pulumix.Output[*SchedulingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchedulingPolicyOutput) Arn() pulumi.StringOutput {

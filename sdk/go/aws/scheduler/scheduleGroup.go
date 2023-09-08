@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Scheduler::ScheduleGroup Resource Type
@@ -106,6 +107,12 @@ func (i *ScheduleGroup) ToScheduleGroupOutputWithContext(ctx context.Context) Sc
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleGroupOutput)
 }
 
+func (i *ScheduleGroup) ToOutput(ctx context.Context) pulumix.Output[*ScheduleGroup] {
+	return pulumix.Output[*ScheduleGroup]{
+		OutputState: i.ToScheduleGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduleGroupOutput struct{ *pulumi.OutputState }
 
 func (ScheduleGroupOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o ScheduleGroupOutput) ToScheduleGroupOutput() ScheduleGroupOutput {
 
 func (o ScheduleGroupOutput) ToScheduleGroupOutputWithContext(ctx context.Context) ScheduleGroupOutput {
 	return o
+}
+
+func (o ScheduleGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleGroup] {
+	return pulumix.Output[*ScheduleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the schedule group.

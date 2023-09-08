@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::SSMIncidents::ResponsePlan
@@ -138,6 +139,12 @@ func (i *ResponsePlan) ToResponsePlanOutputWithContext(ctx context.Context) Resp
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanOutput)
 }
 
+func (i *ResponsePlan) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlan] {
+	return pulumix.Output[*ResponsePlan]{
+		OutputState: i.ToResponsePlanOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResponsePlanOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanOutput) ElementType() reflect.Type {
@@ -150,6 +157,12 @@ func (o ResponsePlanOutput) ToResponsePlanOutput() ResponsePlanOutput {
 
 func (o ResponsePlanOutput) ToResponsePlanOutputWithContext(ctx context.Context) ResponsePlanOutput {
 	return o
+}
+
+func (o ResponsePlanOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlan] {
+	return pulumix.Output[*ResponsePlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of actions.

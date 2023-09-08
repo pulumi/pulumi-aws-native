@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
@@ -110,6 +111,12 @@ func (i *IdentityPoolPrincipalTag) ToIdentityPoolPrincipalTagOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolPrincipalTagOutput)
 }
 
+func (i *IdentityPoolPrincipalTag) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolPrincipalTag] {
+	return pulumix.Output[*IdentityPoolPrincipalTag]{
+		OutputState: i.ToIdentityPoolPrincipalTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentityPoolPrincipalTagOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolPrincipalTagOutput) ElementType() reflect.Type {
@@ -122,6 +129,12 @@ func (o IdentityPoolPrincipalTagOutput) ToIdentityPoolPrincipalTagOutput() Ident
 
 func (o IdentityPoolPrincipalTagOutput) ToIdentityPoolPrincipalTagOutputWithContext(ctx context.Context) IdentityPoolPrincipalTagOutput {
 	return o
+}
+
+func (o IdentityPoolPrincipalTagOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolPrincipalTag] {
+	return pulumix.Output[*IdentityPoolPrincipalTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityPoolPrincipalTagOutput) IdentityPoolId() pulumi.StringOutput {

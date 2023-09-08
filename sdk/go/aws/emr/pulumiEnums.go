@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
@@ -78,6 +79,12 @@ func (o StudioAuthModeOutput) ToStudioAuthModePtrOutputWithContext(ctx context.C
 	}).(StudioAuthModePtrOutput)
 }
 
+func (o StudioAuthModeOutput) ToOutput(ctx context.Context) pulumix.Output[StudioAuthMode] {
+	return pulumix.Output[StudioAuthMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StudioAuthModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o StudioAuthModePtrOutput) ToStudioAuthModePtrOutput() StudioAuthModePtrOu
 
 func (o StudioAuthModePtrOutput) ToStudioAuthModePtrOutputWithContext(ctx context.Context) StudioAuthModePtrOutput {
 	return o
+}
+
+func (o StudioAuthModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioAuthMode] {
+	return pulumix.Output[*StudioAuthMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StudioAuthModePtrOutput) Elem() StudioAuthModeOutput {
@@ -173,6 +186,12 @@ func (in *studioAuthModePtr) ToStudioAuthModePtrOutput() StudioAuthModePtrOutput
 
 func (in *studioAuthModePtr) ToStudioAuthModePtrOutputWithContext(ctx context.Context) StudioAuthModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StudioAuthModePtrOutput)
+}
+
+func (in *studioAuthModePtr) ToOutput(ctx context.Context) pulumix.Output[*StudioAuthMode] {
+	return pulumix.Output[*StudioAuthMode]{
+		OutputState: in.ToStudioAuthModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies whether the identity to map to the Studio is a user or a group.
@@ -243,6 +262,12 @@ func (o StudioSessionMappingIdentityTypeOutput) ToStudioSessionMappingIdentityTy
 	}).(StudioSessionMappingIdentityTypePtrOutput)
 }
 
+func (o StudioSessionMappingIdentityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StudioSessionMappingIdentityType] {
+	return pulumix.Output[StudioSessionMappingIdentityType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StudioSessionMappingIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -276,6 +301,12 @@ func (o StudioSessionMappingIdentityTypePtrOutput) ToStudioSessionMappingIdentit
 
 func (o StudioSessionMappingIdentityTypePtrOutput) ToStudioSessionMappingIdentityTypePtrOutputWithContext(ctx context.Context) StudioSessionMappingIdentityTypePtrOutput {
 	return o
+}
+
+func (o StudioSessionMappingIdentityTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioSessionMappingIdentityType] {
+	return pulumix.Output[*StudioSessionMappingIdentityType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StudioSessionMappingIdentityTypePtrOutput) Elem() StudioSessionMappingIdentityTypeOutput {
@@ -338,6 +369,12 @@ func (in *studioSessionMappingIdentityTypePtr) ToStudioSessionMappingIdentityTyp
 
 func (in *studioSessionMappingIdentityTypePtr) ToStudioSessionMappingIdentityTypePtrOutputWithContext(ctx context.Context) StudioSessionMappingIdentityTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StudioSessionMappingIdentityTypePtrOutput)
+}
+
+func (in *studioSessionMappingIdentityTypePtr) ToOutput(ctx context.Context) pulumix.Output[*StudioSessionMappingIdentityType] {
+	return pulumix.Output[*StudioSessionMappingIdentityType]{
+		OutputState: in.ToStudioSessionMappingIdentityTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

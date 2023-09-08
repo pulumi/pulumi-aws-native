@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::Host
@@ -72,6 +73,12 @@ func (o LookupHostResultOutput) ToLookupHostResultOutput() LookupHostResultOutpu
 
 func (o LookupHostResultOutput) ToLookupHostResultOutputWithContext(ctx context.Context) LookupHostResultOutput {
 	return o
+}
+
+func (o LookupHostResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHostResult] {
+	return pulumix.Output[LookupHostResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.

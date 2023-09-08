@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::ApprovedOrigin
@@ -104,6 +105,12 @@ func (i *ApprovedOrigin) ToApprovedOriginOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ApprovedOriginOutput)
 }
 
+func (i *ApprovedOrigin) ToOutput(ctx context.Context) pulumix.Output[*ApprovedOrigin] {
+	return pulumix.Output[*ApprovedOrigin]{
+		OutputState: i.ToApprovedOriginOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApprovedOriginOutput struct{ *pulumi.OutputState }
 
 func (ApprovedOriginOutput) ElementType() reflect.Type {
@@ -116,6 +123,12 @@ func (o ApprovedOriginOutput) ToApprovedOriginOutput() ApprovedOriginOutput {
 
 func (o ApprovedOriginOutput) ToApprovedOriginOutputWithContext(ctx context.Context) ApprovedOriginOutput {
 	return o
+}
+
+func (o ApprovedOriginOutput) ToOutput(ctx context.Context) pulumix.Output[*ApprovedOrigin] {
+	return pulumix.Output[*ApprovedOrigin]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApprovedOriginOutput) InstanceId() pulumi.StringOutput {

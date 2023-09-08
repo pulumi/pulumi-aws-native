@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::DevEndpoint
@@ -141,6 +142,12 @@ func (i *DevEndpoint) ToDevEndpointOutputWithContext(ctx context.Context) DevEnd
 	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointOutput)
 }
 
+func (i *DevEndpoint) ToOutput(ctx context.Context) pulumix.Output[*DevEndpoint] {
+	return pulumix.Output[*DevEndpoint]{
+		OutputState: i.ToDevEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DevEndpointOutput struct{ *pulumi.OutputState }
 
 func (DevEndpointOutput) ElementType() reflect.Type {
@@ -153,6 +160,12 @@ func (o DevEndpointOutput) ToDevEndpointOutput() DevEndpointOutput {
 
 func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) DevEndpointOutput {
 	return o
+}
+
+func (o DevEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*DevEndpoint] {
+	return pulumix.Output[*DevEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DevEndpointOutput) Arguments() pulumi.AnyOutput {

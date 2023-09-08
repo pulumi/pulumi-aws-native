@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
@@ -112,6 +113,12 @@ func (i *ProactiveEngagement) ToProactiveEngagementOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ProactiveEngagementOutput)
 }
 
+func (i *ProactiveEngagement) ToOutput(ctx context.Context) pulumix.Output[*ProactiveEngagement] {
+	return pulumix.Output[*ProactiveEngagement]{
+		OutputState: i.ToProactiveEngagementOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProactiveEngagementOutput struct{ *pulumi.OutputState }
 
 func (ProactiveEngagementOutput) ElementType() reflect.Type {
@@ -124,6 +131,12 @@ func (o ProactiveEngagementOutput) ToProactiveEngagementOutput() ProactiveEngage
 
 func (o ProactiveEngagementOutput) ToProactiveEngagementOutputWithContext(ctx context.Context) ProactiveEngagementOutput {
 	return o
+}
+
+func (o ProactiveEngagementOutput) ToOutput(ctx context.Context) pulumix.Output[*ProactiveEngagement] {
+	return pulumix.Output[*ProactiveEngagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProactiveEngagementOutput) AccountId() pulumi.StringOutput {

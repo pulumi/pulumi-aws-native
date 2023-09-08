@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaPackage::OriginEndpoint
@@ -89,6 +90,12 @@ func (o LookupOriginEndpointResultOutput) ToLookupOriginEndpointResultOutput() L
 
 func (o LookupOriginEndpointResultOutput) ToLookupOriginEndpointResultOutputWithContext(ctx context.Context) LookupOriginEndpointResultOutput {
 	return o
+}
+
+func (o LookupOriginEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOriginEndpointResult] {
+	return pulumix.Output[LookupOriginEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned to the OriginEndpoint.

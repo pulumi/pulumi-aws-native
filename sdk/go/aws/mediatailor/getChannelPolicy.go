@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaTailor::ChannelPolicy Resource Type
@@ -64,6 +65,12 @@ func (o LookupChannelPolicyResultOutput) ToLookupChannelPolicyResultOutput() Loo
 
 func (o LookupChannelPolicyResultOutput) ToLookupChannelPolicyResultOutputWithContext(ctx context.Context) LookupChannelPolicyResultOutput {
 	return o
+}
+
+func (o LookupChannelPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupChannelPolicyResult] {
+	return pulumix.Output[LookupChannelPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>

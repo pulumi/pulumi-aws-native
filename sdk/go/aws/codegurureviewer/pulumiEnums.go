@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The type of repository to be associated.
@@ -80,6 +81,12 @@ func (o RepositoryAssociationTypeOutput) ToRepositoryAssociationTypePtrOutputWit
 	}).(RepositoryAssociationTypePtrOutput)
 }
 
+func (o RepositoryAssociationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationType] {
+	return pulumix.Output[RepositoryAssociationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryAssociationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +120,12 @@ func (o RepositoryAssociationTypePtrOutput) ToRepositoryAssociationTypePtrOutput
 
 func (o RepositoryAssociationTypePtrOutput) ToRepositoryAssociationTypePtrOutputWithContext(ctx context.Context) RepositoryAssociationTypePtrOutput {
 	return o
+}
+
+func (o RepositoryAssociationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationType] {
+	return pulumix.Output[*RepositoryAssociationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryAssociationTypePtrOutput) Elem() RepositoryAssociationTypeOutput {
@@ -175,6 +188,12 @@ func (in *repositoryAssociationTypePtr) ToRepositoryAssociationTypePtrOutput() R
 
 func (in *repositoryAssociationTypePtr) ToRepositoryAssociationTypePtrOutputWithContext(ctx context.Context) RepositoryAssociationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RepositoryAssociationTypePtrOutput)
+}
+
+func (in *repositoryAssociationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationType] {
+	return pulumix.Output[*RepositoryAssociationType]{
+		OutputState: in.ToRepositoryAssociationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

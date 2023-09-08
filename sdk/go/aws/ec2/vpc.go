@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPC
@@ -162,6 +163,12 @@ func (i *Vpc) ToVpcOutputWithContext(ctx context.Context) VpcOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcOutput)
 }
 
+func (i *Vpc) ToOutput(ctx context.Context) pulumix.Output[*Vpc] {
+	return pulumix.Output[*Vpc]{
+		OutputState: i.ToVpcOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcOutput struct{ *pulumi.OutputState }
 
 func (VpcOutput) ElementType() reflect.Type {
@@ -174,6 +181,12 @@ func (o VpcOutput) ToVpcOutput() VpcOutput {
 
 func (o VpcOutput) ToVpcOutputWithContext(ctx context.Context) VpcOutput {
 	return o
+}
+
+func (o VpcOutput) ToOutput(ctx context.Context) pulumix.Output[*Vpc] {
+	return pulumix.Output[*Vpc]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The primary IPv4 CIDR block for the VPC.

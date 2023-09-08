@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
@@ -156,6 +157,12 @@ func (i *CompositeAlarm) ToCompositeAlarmOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmOutput)
 }
 
+func (i *CompositeAlarm) ToOutput(ctx context.Context) pulumix.Output[*CompositeAlarm] {
+	return pulumix.Output[*CompositeAlarm]{
+		OutputState: i.ToCompositeAlarmOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CompositeAlarmOutput struct{ *pulumi.OutputState }
 
 func (CompositeAlarmOutput) ElementType() reflect.Type {
@@ -168,6 +175,12 @@ func (o CompositeAlarmOutput) ToCompositeAlarmOutput() CompositeAlarmOutput {
 
 func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Context) CompositeAlarmOutput {
 	return o
+}
+
+func (o CompositeAlarmOutput) ToOutput(ctx context.Context) pulumix.Output[*CompositeAlarm] {
+	return pulumix.Output[*CompositeAlarm]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.

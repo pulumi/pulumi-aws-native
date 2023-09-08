@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Indicates the role of the member, primary or secondary.
@@ -78,6 +79,12 @@ func (o GlobalReplicationGroupMemberRoleOutput) ToGlobalReplicationGroupMemberRo
 	}).(GlobalReplicationGroupMemberRolePtrOutput)
 }
 
+func (o GlobalReplicationGroupMemberRoleOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalReplicationGroupMemberRole] {
+	return pulumix.Output[GlobalReplicationGroupMemberRole]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GlobalReplicationGroupMemberRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o GlobalReplicationGroupMemberRolePtrOutput) ToGlobalReplicationGroupMembe
 
 func (o GlobalReplicationGroupMemberRolePtrOutput) ToGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberRolePtrOutput {
 	return o
+}
+
+func (o GlobalReplicationGroupMemberRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalReplicationGroupMemberRole] {
+	return pulumix.Output[*GlobalReplicationGroupMemberRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GlobalReplicationGroupMemberRolePtrOutput) Elem() GlobalReplicationGroupMemberRoleOutput {
@@ -173,6 +186,12 @@ func (in *globalReplicationGroupMemberRolePtr) ToGlobalReplicationGroupMemberRol
 
 func (in *globalReplicationGroupMemberRolePtr) ToGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalReplicationGroupMemberRolePtrOutput)
+}
+
+func (in *globalReplicationGroupMemberRolePtr) ToOutput(ctx context.Context) pulumix.Output[*GlobalReplicationGroupMemberRole] {
+	return pulumix.Output[*GlobalReplicationGroupMemberRole]{
+		OutputState: in.ToGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Authentication Type
@@ -244,6 +263,12 @@ func (o UserAuthenticationModePropertiesTypeOutput) ToUserAuthenticationModeProp
 	}).(UserAuthenticationModePropertiesTypePtrOutput)
 }
 
+func (o UserAuthenticationModePropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserAuthenticationModePropertiesType] {
+	return pulumix.Output[UserAuthenticationModePropertiesType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserAuthenticationModePropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o UserAuthenticationModePropertiesTypePtrOutput) ToUserAuthenticationModeP
 
 func (o UserAuthenticationModePropertiesTypePtrOutput) ToUserAuthenticationModePropertiesTypePtrOutputWithContext(ctx context.Context) UserAuthenticationModePropertiesTypePtrOutput {
 	return o
+}
+
+func (o UserAuthenticationModePropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserAuthenticationModePropertiesType] {
+	return pulumix.Output[*UserAuthenticationModePropertiesType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserAuthenticationModePropertiesTypePtrOutput) Elem() UserAuthenticationModePropertiesTypeOutput {
@@ -339,6 +370,12 @@ func (in *userAuthenticationModePropertiesTypePtr) ToUserAuthenticationModePrope
 
 func (in *userAuthenticationModePropertiesTypePtr) ToUserAuthenticationModePropertiesTypePtrOutputWithContext(ctx context.Context) UserAuthenticationModePropertiesTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserAuthenticationModePropertiesTypePtrOutput)
+}
+
+func (in *userAuthenticationModePropertiesTypePtr) ToOutput(ctx context.Context) pulumix.Output[*UserAuthenticationModePropertiesType] {
+	return pulumix.Output[*UserAuthenticationModePropertiesType]{
+		OutputState: in.ToUserAuthenticationModePropertiesTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Must be redis.
@@ -408,6 +445,12 @@ func (o UserEngineOutput) ToUserEnginePtrOutputWithContext(ctx context.Context) 
 	}).(UserEnginePtrOutput)
 }
 
+func (o UserEngineOutput) ToOutput(ctx context.Context) pulumix.Output[UserEngine] {
+	return pulumix.Output[UserEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -441,6 +484,12 @@ func (o UserEnginePtrOutput) ToUserEnginePtrOutput() UserEnginePtrOutput {
 
 func (o UserEnginePtrOutput) ToUserEnginePtrOutputWithContext(ctx context.Context) UserEnginePtrOutput {
 	return o
+}
+
+func (o UserEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserEngine] {
+	return pulumix.Output[*UserEngine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserEnginePtrOutput) Elem() UserEngineOutput {
@@ -503,6 +552,12 @@ func (in *userEnginePtr) ToUserEnginePtrOutput() UserEnginePtrOutput {
 
 func (in *userEnginePtr) ToUserEnginePtrOutputWithContext(ctx context.Context) UserEnginePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserEnginePtrOutput)
+}
+
+func (in *userEnginePtr) ToOutput(ctx context.Context) pulumix.Output[*UserEngine] {
+	return pulumix.Output[*UserEngine]{
+		OutputState: in.ToUserEnginePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Must be redis.
@@ -572,6 +627,12 @@ func (o UserGroupEngineOutput) ToUserGroupEnginePtrOutputWithContext(ctx context
 	}).(UserGroupEnginePtrOutput)
 }
 
+func (o UserGroupEngineOutput) ToOutput(ctx context.Context) pulumix.Output[UserGroupEngine] {
+	return pulumix.Output[UserGroupEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserGroupEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -605,6 +666,12 @@ func (o UserGroupEnginePtrOutput) ToUserGroupEnginePtrOutput() UserGroupEnginePt
 
 func (o UserGroupEnginePtrOutput) ToUserGroupEnginePtrOutputWithContext(ctx context.Context) UserGroupEnginePtrOutput {
 	return o
+}
+
+func (o UserGroupEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserGroupEngine] {
+	return pulumix.Output[*UserGroupEngine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserGroupEnginePtrOutput) Elem() UserGroupEngineOutput {
@@ -667,6 +734,12 @@ func (in *userGroupEnginePtr) ToUserGroupEnginePtrOutput() UserGroupEnginePtrOut
 
 func (in *userGroupEnginePtr) ToUserGroupEnginePtrOutputWithContext(ctx context.Context) UserGroupEnginePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserGroupEnginePtrOutput)
+}
+
+func (in *userGroupEnginePtr) ToOutput(ctx context.Context) pulumix.Output[*UserGroupEngine] {
+	return pulumix.Output[*UserGroupEngine]{
+		OutputState: in.ToUserGroupEnginePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

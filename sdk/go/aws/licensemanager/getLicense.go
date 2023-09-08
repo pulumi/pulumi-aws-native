@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::LicenseManager::License
@@ -83,6 +84,12 @@ func (o LookupLicenseResultOutput) ToLookupLicenseResultOutput() LookupLicenseRe
 
 func (o LookupLicenseResultOutput) ToLookupLicenseResultOutputWithContext(ctx context.Context) LookupLicenseResultOutput {
 	return o
+}
+
+func (o LookupLicenseResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLicenseResult] {
+	return pulumix.Output[LookupLicenseResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Beneficiary of the license.

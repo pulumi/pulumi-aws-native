@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // RuleGroupsNamespace schema for cloudformation.
@@ -123,6 +124,12 @@ func (i *RuleGroupsNamespace) ToRuleGroupsNamespaceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupsNamespaceOutput)
 }
 
+func (i *RuleGroupsNamespace) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupsNamespace] {
+	return pulumix.Output[*RuleGroupsNamespace]{
+		OutputState: i.ToRuleGroupsNamespaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupsNamespaceOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupsNamespaceOutput) ElementType() reflect.Type {
@@ -135,6 +142,12 @@ func (o RuleGroupsNamespaceOutput) ToRuleGroupsNamespaceOutput() RuleGroupsNames
 
 func (o RuleGroupsNamespaceOutput) ToRuleGroupsNamespaceOutputWithContext(ctx context.Context) RuleGroupsNamespaceOutput {
 	return o
+}
+
+func (o RuleGroupsNamespaceOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupsNamespace] {
+	return pulumix.Output[*RuleGroupsNamespace]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The RuleGroupsNamespace ARN.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type IdentityProviderType string
@@ -81,6 +82,12 @@ func (o IdentityProviderTypeOutput) ToIdentityProviderTypePtrOutputWithContext(c
 	}).(IdentityProviderTypePtrOutput)
 }
 
+func (o IdentityProviderTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderType] {
+	return pulumix.Output[IdentityProviderType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IdentityProviderTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -114,6 +121,12 @@ func (o IdentityProviderTypePtrOutput) ToIdentityProviderTypePtrOutput() Identit
 
 func (o IdentityProviderTypePtrOutput) ToIdentityProviderTypePtrOutputWithContext(ctx context.Context) IdentityProviderTypePtrOutput {
 	return o
+}
+
+func (o IdentityProviderTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderType] {
+	return pulumix.Output[*IdentityProviderType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityProviderTypePtrOutput) Elem() IdentityProviderTypeOutput {
@@ -176,6 +189,12 @@ func (in *identityProviderTypePtr) ToIdentityProviderTypePtrOutput() IdentityPro
 
 func (in *identityProviderTypePtr) ToIdentityProviderTypePtrOutputWithContext(ctx context.Context) IdentityProviderTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityProviderTypePtrOutput)
+}
+
+func (in *identityProviderTypePtr) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderType] {
+	return pulumix.Output[*IdentityProviderType]{
+		OutputState: in.ToIdentityProviderTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type PortalAuthenticationType string
@@ -245,6 +264,12 @@ func (o PortalAuthenticationTypeOutput) ToPortalAuthenticationTypePtrOutputWithC
 	}).(PortalAuthenticationTypePtrOutput)
 }
 
+func (o PortalAuthenticationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PortalAuthenticationType] {
+	return pulumix.Output[PortalAuthenticationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PortalAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -278,6 +303,12 @@ func (o PortalAuthenticationTypePtrOutput) ToPortalAuthenticationTypePtrOutput()
 
 func (o PortalAuthenticationTypePtrOutput) ToPortalAuthenticationTypePtrOutputWithContext(ctx context.Context) PortalAuthenticationTypePtrOutput {
 	return o
+}
+
+func (o PortalAuthenticationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PortalAuthenticationType] {
+	return pulumix.Output[*PortalAuthenticationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortalAuthenticationTypePtrOutput) Elem() PortalAuthenticationTypeOutput {
@@ -342,6 +373,12 @@ func (in *portalAuthenticationTypePtr) ToPortalAuthenticationTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(PortalAuthenticationTypePtrOutput)
 }
 
+func (in *portalAuthenticationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PortalAuthenticationType] {
+	return pulumix.Output[*PortalAuthenticationType]{
+		OutputState: in.ToPortalAuthenticationTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PortalBrowserType string
 
 const (
@@ -370,6 +407,12 @@ func (o PortalBrowserTypeOutput) ToPortalBrowserTypePtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PortalBrowserType) *PortalBrowserType {
 		return &v
 	}).(PortalBrowserTypePtrOutput)
+}
+
+func (o PortalBrowserTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PortalBrowserType] {
+	return pulumix.Output[PortalBrowserType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortalBrowserTypeOutput) ToStringOutput() pulumi.StringOutput {
@@ -405,6 +448,12 @@ func (o PortalBrowserTypePtrOutput) ToPortalBrowserTypePtrOutput() PortalBrowser
 
 func (o PortalBrowserTypePtrOutput) ToPortalBrowserTypePtrOutputWithContext(ctx context.Context) PortalBrowserTypePtrOutput {
 	return o
+}
+
+func (o PortalBrowserTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PortalBrowserType] {
+	return pulumix.Output[*PortalBrowserType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortalBrowserTypePtrOutput) Elem() PortalBrowserTypeOutput {
@@ -461,6 +510,12 @@ func (o PortalRendererTypeOutput) ToPortalRendererTypePtrOutputWithContext(ctx c
 	}).(PortalRendererTypePtrOutput)
 }
 
+func (o PortalRendererTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PortalRendererType] {
+	return pulumix.Output[PortalRendererType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PortalRendererTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -494,6 +549,12 @@ func (o PortalRendererTypePtrOutput) ToPortalRendererTypePtrOutput() PortalRende
 
 func (o PortalRendererTypePtrOutput) ToPortalRendererTypePtrOutputWithContext(ctx context.Context) PortalRendererTypePtrOutput {
 	return o
+}
+
+func (o PortalRendererTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PortalRendererType] {
+	return pulumix.Output[*PortalRendererType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortalRendererTypePtrOutput) Elem() PortalRendererTypeOutput {
@@ -552,6 +613,12 @@ func (o PortalStatusOutput) ToPortalStatusPtrOutputWithContext(ctx context.Conte
 	}).(PortalStatusPtrOutput)
 }
 
+func (o PortalStatusOutput) ToOutput(ctx context.Context) pulumix.Output[PortalStatus] {
+	return pulumix.Output[PortalStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PortalStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -585,6 +652,12 @@ func (o PortalStatusPtrOutput) ToPortalStatusPtrOutput() PortalStatusPtrOutput {
 
 func (o PortalStatusPtrOutput) ToPortalStatusPtrOutputWithContext(ctx context.Context) PortalStatusPtrOutput {
 	return o
+}
+
+func (o PortalStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PortalStatus] {
+	return pulumix.Output[*PortalStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortalStatusPtrOutput) Elem() PortalStatusOutput {
@@ -678,6 +751,12 @@ func (o UserSettingsEnabledTypeOutput) ToUserSettingsEnabledTypePtrOutputWithCon
 	}).(UserSettingsEnabledTypePtrOutput)
 }
 
+func (o UserSettingsEnabledTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserSettingsEnabledType] {
+	return pulumix.Output[UserSettingsEnabledType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserSettingsEnabledTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -711,6 +790,12 @@ func (o UserSettingsEnabledTypePtrOutput) ToUserSettingsEnabledTypePtrOutput() U
 
 func (o UserSettingsEnabledTypePtrOutput) ToUserSettingsEnabledTypePtrOutputWithContext(ctx context.Context) UserSettingsEnabledTypePtrOutput {
 	return o
+}
+
+func (o UserSettingsEnabledTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserSettingsEnabledType] {
+	return pulumix.Output[*UserSettingsEnabledType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserSettingsEnabledTypePtrOutput) Elem() UserSettingsEnabledTypeOutput {
@@ -773,6 +858,12 @@ func (in *userSettingsEnabledTypePtr) ToUserSettingsEnabledTypePtrOutput() UserS
 
 func (in *userSettingsEnabledTypePtr) ToUserSettingsEnabledTypePtrOutputWithContext(ctx context.Context) UserSettingsEnabledTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserSettingsEnabledTypePtrOutput)
+}
+
+func (in *userSettingsEnabledTypePtr) ToOutput(ctx context.Context) pulumix.Output[*UserSettingsEnabledType] {
+	return pulumix.Output[*UserSettingsEnabledType]{
+		OutputState: in.ToUserSettingsEnabledTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

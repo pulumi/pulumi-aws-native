@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EFS::FileSystem
@@ -131,6 +132,12 @@ func (i *FileSystem) ToFileSystemOutputWithContext(ctx context.Context) FileSyst
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOutput)
 }
 
+func (i *FileSystem) ToOutput(ctx context.Context) pulumix.Output[*FileSystem] {
+	return pulumix.Output[*FileSystem]{
+		OutputState: i.ToFileSystemOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FileSystemOutput struct{ *pulumi.OutputState }
 
 func (FileSystemOutput) ElementType() reflect.Type {
@@ -143,6 +150,12 @@ func (o FileSystemOutput) ToFileSystemOutput() FileSystemOutput {
 
 func (o FileSystemOutput) ToFileSystemOutputWithContext(ctx context.Context) FileSystemOutput {
 	return o
+}
+
+func (o FileSystemOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystem] {
+	return pulumix.Output[*FileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FileSystemOutput) Arn() pulumi.StringOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Detective::MemberInvitation
@@ -70,6 +71,12 @@ func (o LookupMemberInvitationResultOutput) ToLookupMemberInvitationResultOutput
 
 func (o LookupMemberInvitationResultOutput) ToLookupMemberInvitationResultOutputWithContext(ctx context.Context) LookupMemberInvitationResultOutput {
 	return o
+}
+
+func (o LookupMemberInvitationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMemberInvitationResult] {
+	return pulumix.Output[LookupMemberInvitationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The root email address for the account to be invited, for validation. Updating this field has no effect.

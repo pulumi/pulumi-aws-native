@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::IoTTwinMaker::SyncJob
@@ -135,6 +136,12 @@ func (i *SyncJob) ToSyncJobOutputWithContext(ctx context.Context) SyncJobOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SyncJobOutput)
 }
 
+func (i *SyncJob) ToOutput(ctx context.Context) pulumix.Output[*SyncJob] {
+	return pulumix.Output[*SyncJob]{
+		OutputState: i.ToSyncJobOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SyncJobOutput struct{ *pulumi.OutputState }
 
 func (SyncJobOutput) ElementType() reflect.Type {
@@ -147,6 +154,12 @@ func (o SyncJobOutput) ToSyncJobOutput() SyncJobOutput {
 
 func (o SyncJobOutput) ToSyncJobOutputWithContext(ctx context.Context) SyncJobOutput {
 	return o
+}
+
+func (o SyncJobOutput) ToOutput(ctx context.Context) pulumix.Output[*SyncJob] {
+	return pulumix.Output[*SyncJob]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the SyncJob.

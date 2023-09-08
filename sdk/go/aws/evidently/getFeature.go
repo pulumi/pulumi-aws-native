@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Evidently::Feature.
@@ -70,6 +71,12 @@ func (o LookupFeatureResultOutput) ToLookupFeatureResultOutput() LookupFeatureRe
 
 func (o LookupFeatureResultOutput) ToLookupFeatureResultOutputWithContext(ctx context.Context) LookupFeatureResultOutput {
 	return o
+}
+
+func (o LookupFeatureResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFeatureResult] {
+	return pulumix.Output[LookupFeatureResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFeatureResultOutput) Arn() pulumi.StringPtrOutput {

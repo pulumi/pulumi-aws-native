@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ECS::CapacityProvider.
@@ -64,6 +65,12 @@ func (o LookupCapacityProviderResultOutput) ToLookupCapacityProviderResultOutput
 
 func (o LookupCapacityProviderResultOutput) ToLookupCapacityProviderResultOutputWithContext(ctx context.Context) LookupCapacityProviderResultOutput {
 	return o
+}
+
+func (o LookupCapacityProviderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCapacityProviderResult] {
+	return pulumix.Output[LookupCapacityProviderResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupCapacityProviderResultOutput) AutoScalingGroupProvider() CapacityProviderAutoScalingGroupProviderPtrOutput {

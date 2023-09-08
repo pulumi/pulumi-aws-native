@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GuardDuty::Filter
@@ -130,6 +131,12 @@ func (i *Filter) ToFilterOutputWithContext(ctx context.Context) FilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FilterOutput)
 }
 
+func (i *Filter) ToOutput(ctx context.Context) pulumix.Output[*Filter] {
+	return pulumix.Output[*Filter]{
+		OutputState: i.ToFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FilterOutput struct{ *pulumi.OutputState }
 
 func (FilterOutput) ElementType() reflect.Type {
@@ -142,6 +149,12 @@ func (o FilterOutput) ToFilterOutput() FilterOutput {
 
 func (o FilterOutput) ToFilterOutputWithContext(ctx context.Context) FilterOutput {
 	return o
+}
+
+func (o FilterOutput) ToOutput(ctx context.Context) pulumix.Output[*Filter] {
+	return pulumix.Output[*Filter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FilterOutput) Action() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MSK::ClusterPolicy
@@ -111,6 +112,12 @@ func (i *ClusterPolicy) ToClusterPolicyOutputWithContext(ctx context.Context) Cl
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPolicyOutput)
 }
 
+func (i *ClusterPolicy) ToOutput(ctx context.Context) pulumix.Output[*ClusterPolicy] {
+	return pulumix.Output[*ClusterPolicy]{
+		OutputState: i.ToClusterPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterPolicyOutput struct{ *pulumi.OutputState }
 
 func (ClusterPolicyOutput) ElementType() reflect.Type {
@@ -123,6 +130,12 @@ func (o ClusterPolicyOutput) ToClusterPolicyOutput() ClusterPolicyOutput {
 
 func (o ClusterPolicyOutput) ToClusterPolicyOutputWithContext(ctx context.Context) ClusterPolicyOutput {
 	return o
+}
+
+func (o ClusterPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterPolicy] {
+	return pulumix.Output[*ClusterPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The arn of the cluster for the resource policy.

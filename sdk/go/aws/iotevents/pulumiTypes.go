@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i AlarmModelAcknowledgeFlowArgs) ToAlarmModelAcknowledgeFlowOutput() Alarm
 
 func (i AlarmModelAcknowledgeFlowArgs) ToAlarmModelAcknowledgeFlowOutputWithContext(ctx context.Context) AlarmModelAcknowledgeFlowOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAcknowledgeFlowOutput)
+}
+
+func (i AlarmModelAcknowledgeFlowArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAcknowledgeFlow] {
+	return pulumix.Output[AlarmModelAcknowledgeFlow]{
+		OutputState: i.ToAlarmModelAcknowledgeFlowOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AlarmModelAcknowledgeFlowArgs) ToAlarmModelAcknowledgeFlowPtrOutput() AlarmModelAcknowledgeFlowPtrOutput {
@@ -89,6 +96,12 @@ func (i *alarmModelAcknowledgeFlowPtrType) ToAlarmModelAcknowledgeFlowPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAcknowledgeFlowPtrOutput)
 }
 
+func (i *alarmModelAcknowledgeFlowPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAcknowledgeFlow] {
+	return pulumix.Output[*AlarmModelAcknowledgeFlow]{
+		OutputState: i.ToAlarmModelAcknowledgeFlowPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies whether to get notified for alarm state changes.
 type AlarmModelAcknowledgeFlowOutput struct{ *pulumi.OutputState }
 
@@ -114,6 +127,12 @@ func (o AlarmModelAcknowledgeFlowOutput) ToAlarmModelAcknowledgeFlowPtrOutputWit
 	}).(AlarmModelAcknowledgeFlowPtrOutput)
 }
 
+func (o AlarmModelAcknowledgeFlowOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAcknowledgeFlow] {
+	return pulumix.Output[AlarmModelAcknowledgeFlow]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
 func (o AlarmModelAcknowledgeFlowOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AlarmModelAcknowledgeFlow) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -131,6 +150,12 @@ func (o AlarmModelAcknowledgeFlowPtrOutput) ToAlarmModelAcknowledgeFlowPtrOutput
 
 func (o AlarmModelAcknowledgeFlowPtrOutput) ToAlarmModelAcknowledgeFlowPtrOutputWithContext(ctx context.Context) AlarmModelAcknowledgeFlowPtrOutput {
 	return o
+}
+
+func (o AlarmModelAcknowledgeFlowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAcknowledgeFlow] {
+	return pulumix.Output[*AlarmModelAcknowledgeFlow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelAcknowledgeFlowPtrOutput) Elem() AlarmModelAcknowledgeFlowOutput {
@@ -202,6 +227,12 @@ func (i AlarmModelAlarmActionArgs) ToAlarmModelAlarmActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAlarmActionOutput)
 }
 
+func (i AlarmModelAlarmActionArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAlarmAction] {
+	return pulumix.Output[AlarmModelAlarmAction]{
+		OutputState: i.ToAlarmModelAlarmActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlarmModelAlarmActionArrayInput is an input type that accepts AlarmModelAlarmActionArray and AlarmModelAlarmActionArrayOutput values.
 // You can construct a concrete instance of `AlarmModelAlarmActionArrayInput` via:
 //
@@ -227,6 +258,12 @@ func (i AlarmModelAlarmActionArray) ToAlarmModelAlarmActionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAlarmActionArrayOutput)
 }
 
+func (i AlarmModelAlarmActionArray) ToOutput(ctx context.Context) pulumix.Output[[]AlarmModelAlarmAction] {
+	return pulumix.Output[[]AlarmModelAlarmAction]{
+		OutputState: i.ToAlarmModelAlarmActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The actions to be performed.
 type AlarmModelAlarmActionOutput struct{ *pulumi.OutputState }
 
@@ -240,6 +277,12 @@ func (o AlarmModelAlarmActionOutput) ToAlarmModelAlarmActionOutput() AlarmModelA
 
 func (o AlarmModelAlarmActionOutput) ToAlarmModelAlarmActionOutputWithContext(ctx context.Context) AlarmModelAlarmActionOutput {
 	return o
+}
+
+func (o AlarmModelAlarmActionOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAlarmAction] {
+	return pulumix.Output[AlarmModelAlarmAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelAlarmActionOutput) DynamoDBv2() AlarmModelDynamoDBv2PtrOutput {
@@ -292,6 +335,12 @@ func (o AlarmModelAlarmActionArrayOutput) ToAlarmModelAlarmActionArrayOutputWith
 	return o
 }
 
+func (o AlarmModelAlarmActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlarmModelAlarmAction] {
+	return pulumix.Output[[]AlarmModelAlarmAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlarmModelAlarmActionArrayOutput) Index(i pulumi.IntInput) AlarmModelAlarmActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlarmModelAlarmAction {
 		return vs[0].([]AlarmModelAlarmAction)[vs[1].(int)]
@@ -331,6 +380,12 @@ func (i AlarmModelAlarmCapabilitiesArgs) ToAlarmModelAlarmCapabilitiesOutput() A
 
 func (i AlarmModelAlarmCapabilitiesArgs) ToAlarmModelAlarmCapabilitiesOutputWithContext(ctx context.Context) AlarmModelAlarmCapabilitiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAlarmCapabilitiesOutput)
+}
+
+func (i AlarmModelAlarmCapabilitiesArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAlarmCapabilities] {
+	return pulumix.Output[AlarmModelAlarmCapabilities]{
+		OutputState: i.ToAlarmModelAlarmCapabilitiesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AlarmModelAlarmCapabilitiesArgs) ToAlarmModelAlarmCapabilitiesPtrOutput() AlarmModelAlarmCapabilitiesPtrOutput {
@@ -374,6 +429,12 @@ func (i *alarmModelAlarmCapabilitiesPtrType) ToAlarmModelAlarmCapabilitiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAlarmCapabilitiesPtrOutput)
 }
 
+func (i *alarmModelAlarmCapabilitiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAlarmCapabilities] {
+	return pulumix.Output[*AlarmModelAlarmCapabilities]{
+		OutputState: i.ToAlarmModelAlarmCapabilitiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Contains the configuration information of alarm state changes
 type AlarmModelAlarmCapabilitiesOutput struct{ *pulumi.OutputState }
 
@@ -399,6 +460,12 @@ func (o AlarmModelAlarmCapabilitiesOutput) ToAlarmModelAlarmCapabilitiesPtrOutpu
 	}).(AlarmModelAlarmCapabilitiesPtrOutput)
 }
 
+func (o AlarmModelAlarmCapabilitiesOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAlarmCapabilities] {
+	return pulumix.Output[AlarmModelAlarmCapabilities]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlarmModelAlarmCapabilitiesOutput) AcknowledgeFlow() AlarmModelAcknowledgeFlowPtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmCapabilities) *AlarmModelAcknowledgeFlow { return v.AcknowledgeFlow }).(AlarmModelAcknowledgeFlowPtrOutput)
 }
@@ -421,6 +488,12 @@ func (o AlarmModelAlarmCapabilitiesPtrOutput) ToAlarmModelAlarmCapabilitiesPtrOu
 
 func (o AlarmModelAlarmCapabilitiesPtrOutput) ToAlarmModelAlarmCapabilitiesPtrOutputWithContext(ctx context.Context) AlarmModelAlarmCapabilitiesPtrOutput {
 	return o
+}
+
+func (o AlarmModelAlarmCapabilitiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAlarmCapabilities] {
+	return pulumix.Output[*AlarmModelAlarmCapabilities]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelAlarmCapabilitiesPtrOutput) Elem() AlarmModelAlarmCapabilitiesOutput {
@@ -484,6 +557,12 @@ func (i AlarmModelAlarmEventActionsArgs) ToAlarmModelAlarmEventActionsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAlarmEventActionsOutput)
 }
 
+func (i AlarmModelAlarmEventActionsArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAlarmEventActions] {
+	return pulumix.Output[AlarmModelAlarmEventActions]{
+		OutputState: i.ToAlarmModelAlarmEventActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelAlarmEventActionsArgs) ToAlarmModelAlarmEventActionsPtrOutput() AlarmModelAlarmEventActionsPtrOutput {
 	return i.ToAlarmModelAlarmEventActionsPtrOutputWithContext(context.Background())
 }
@@ -525,6 +604,12 @@ func (i *alarmModelAlarmEventActionsPtrType) ToAlarmModelAlarmEventActionsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAlarmEventActionsPtrOutput)
 }
 
+func (i *alarmModelAlarmEventActionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAlarmEventActions] {
+	return pulumix.Output[*AlarmModelAlarmEventActions]{
+		OutputState: i.ToAlarmModelAlarmEventActionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Contains information about one or more alarm actions.
 type AlarmModelAlarmEventActionsOutput struct{ *pulumi.OutputState }
 
@@ -550,6 +635,12 @@ func (o AlarmModelAlarmEventActionsOutput) ToAlarmModelAlarmEventActionsPtrOutpu
 	}).(AlarmModelAlarmEventActionsPtrOutput)
 }
 
+func (o AlarmModelAlarmEventActionsOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAlarmEventActions] {
+	return pulumix.Output[AlarmModelAlarmEventActions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlarmModelAlarmEventActionsOutput) AlarmActions() AlarmModelAlarmActionArrayOutput {
 	return o.ApplyT(func(v AlarmModelAlarmEventActions) []AlarmModelAlarmAction { return v.AlarmActions }).(AlarmModelAlarmActionArrayOutput)
 }
@@ -566,6 +657,12 @@ func (o AlarmModelAlarmEventActionsPtrOutput) ToAlarmModelAlarmEventActionsPtrOu
 
 func (o AlarmModelAlarmEventActionsPtrOutput) ToAlarmModelAlarmEventActionsPtrOutputWithContext(ctx context.Context) AlarmModelAlarmEventActionsPtrOutput {
 	return o
+}
+
+func (o AlarmModelAlarmEventActionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAlarmEventActions] {
+	return pulumix.Output[*AlarmModelAlarmEventActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelAlarmEventActionsPtrOutput) Elem() AlarmModelAlarmEventActionsOutput {
@@ -620,6 +717,12 @@ func (i AlarmModelAlarmRuleArgs) ToAlarmModelAlarmRuleOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAlarmRuleOutput)
 }
 
+func (i AlarmModelAlarmRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAlarmRule] {
+	return pulumix.Output[AlarmModelAlarmRule]{
+		OutputState: i.ToAlarmModelAlarmRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Defines when your alarm is invoked.
 type AlarmModelAlarmRuleOutput struct{ *pulumi.OutputState }
 
@@ -633,6 +736,12 @@ func (o AlarmModelAlarmRuleOutput) ToAlarmModelAlarmRuleOutput() AlarmModelAlarm
 
 func (o AlarmModelAlarmRuleOutput) ToAlarmModelAlarmRuleOutputWithContext(ctx context.Context) AlarmModelAlarmRuleOutput {
 	return o
+}
+
+func (o AlarmModelAlarmRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAlarmRule] {
+	return pulumix.Output[AlarmModelAlarmRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelAlarmRuleOutput) SimpleRule() AlarmModelSimpleRulePtrOutput {
@@ -651,6 +760,12 @@ func (o AlarmModelAlarmRulePtrOutput) ToAlarmModelAlarmRulePtrOutput() AlarmMode
 
 func (o AlarmModelAlarmRulePtrOutput) ToAlarmModelAlarmRulePtrOutputWithContext(ctx context.Context) AlarmModelAlarmRulePtrOutput {
 	return o
+}
+
+func (o AlarmModelAlarmRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAlarmRule] {
+	return pulumix.Output[*AlarmModelAlarmRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelAlarmRulePtrOutput) Elem() AlarmModelAlarmRuleOutput {
@@ -711,6 +826,12 @@ func (i AlarmModelAssetPropertyTimestampArgs) ToAlarmModelAssetPropertyTimestamp
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAssetPropertyTimestampOutput)
 }
 
+func (i AlarmModelAssetPropertyTimestampArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAssetPropertyTimestamp] {
+	return pulumix.Output[AlarmModelAssetPropertyTimestamp]{
+		OutputState: i.ToAlarmModelAssetPropertyTimestampOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelAssetPropertyTimestampArgs) ToAlarmModelAssetPropertyTimestampPtrOutput() AlarmModelAssetPropertyTimestampPtrOutput {
 	return i.ToAlarmModelAssetPropertyTimestampPtrOutputWithContext(context.Background())
 }
@@ -752,6 +873,12 @@ func (i *alarmModelAssetPropertyTimestampPtrType) ToAlarmModelAssetPropertyTimes
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAssetPropertyTimestampPtrOutput)
 }
 
+func (i *alarmModelAssetPropertyTimestampPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAssetPropertyTimestamp] {
+	return pulumix.Output[*AlarmModelAssetPropertyTimestamp]{
+		OutputState: i.ToAlarmModelAssetPropertyTimestampPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
 type AlarmModelAssetPropertyTimestampOutput struct{ *pulumi.OutputState }
 
@@ -777,6 +904,12 @@ func (o AlarmModelAssetPropertyTimestampOutput) ToAlarmModelAssetPropertyTimesta
 	}).(AlarmModelAssetPropertyTimestampPtrOutput)
 }
 
+func (o AlarmModelAssetPropertyTimestampOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAssetPropertyTimestamp] {
+	return pulumix.Output[AlarmModelAssetPropertyTimestamp]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
 func (o AlarmModelAssetPropertyTimestampOutput) OffsetInNanos() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelAssetPropertyTimestamp) *string { return v.OffsetInNanos }).(pulumi.StringPtrOutput)
@@ -799,6 +932,12 @@ func (o AlarmModelAssetPropertyTimestampPtrOutput) ToAlarmModelAssetPropertyTime
 
 func (o AlarmModelAssetPropertyTimestampPtrOutput) ToAlarmModelAssetPropertyTimestampPtrOutputWithContext(ctx context.Context) AlarmModelAssetPropertyTimestampPtrOutput {
 	return o
+}
+
+func (o AlarmModelAssetPropertyTimestampPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAssetPropertyTimestamp] {
+	return pulumix.Output[*AlarmModelAssetPropertyTimestamp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelAssetPropertyTimestampPtrOutput) Elem() AlarmModelAssetPropertyTimestampOutput {
@@ -870,6 +1009,12 @@ func (i AlarmModelAssetPropertyValueArgs) ToAlarmModelAssetPropertyValueOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAssetPropertyValueOutput)
 }
 
+func (i AlarmModelAssetPropertyValueArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAssetPropertyValue] {
+	return pulumix.Output[AlarmModelAssetPropertyValue]{
+		OutputState: i.ToAlarmModelAssetPropertyValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelAssetPropertyValueArgs) ToAlarmModelAssetPropertyValuePtrOutput() AlarmModelAssetPropertyValuePtrOutput {
 	return i.ToAlarmModelAssetPropertyValuePtrOutputWithContext(context.Background())
 }
@@ -911,6 +1056,12 @@ func (i *alarmModelAssetPropertyValuePtrType) ToAlarmModelAssetPropertyValuePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAssetPropertyValuePtrOutput)
 }
 
+func (i *alarmModelAssetPropertyValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAssetPropertyValue] {
+	return pulumix.Output[*AlarmModelAssetPropertyValue]{
+		OutputState: i.ToAlarmModelAssetPropertyValuePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
 type AlarmModelAssetPropertyValueOutput struct{ *pulumi.OutputState }
 
@@ -934,6 +1085,12 @@ func (o AlarmModelAssetPropertyValueOutput) ToAlarmModelAssetPropertyValuePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmModelAssetPropertyValue) *AlarmModelAssetPropertyValue {
 		return &v
 	}).(AlarmModelAssetPropertyValuePtrOutput)
+}
+
+func (o AlarmModelAssetPropertyValueOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAssetPropertyValue] {
+	return pulumix.Output[AlarmModelAssetPropertyValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
@@ -961,6 +1118,12 @@ func (o AlarmModelAssetPropertyValuePtrOutput) ToAlarmModelAssetPropertyValuePtr
 
 func (o AlarmModelAssetPropertyValuePtrOutput) ToAlarmModelAssetPropertyValuePtrOutputWithContext(ctx context.Context) AlarmModelAssetPropertyValuePtrOutput {
 	return o
+}
+
+func (o AlarmModelAssetPropertyValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAssetPropertyValue] {
+	return pulumix.Output[*AlarmModelAssetPropertyValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelAssetPropertyValuePtrOutput) Elem() AlarmModelAssetPropertyValueOutput {
@@ -1048,6 +1211,12 @@ func (i AlarmModelAssetPropertyVariantArgs) ToAlarmModelAssetPropertyVariantOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAssetPropertyVariantOutput)
 }
 
+func (i AlarmModelAssetPropertyVariantArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAssetPropertyVariant] {
+	return pulumix.Output[AlarmModelAssetPropertyVariant]{
+		OutputState: i.ToAlarmModelAssetPropertyVariantOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelAssetPropertyVariantArgs) ToAlarmModelAssetPropertyVariantPtrOutput() AlarmModelAssetPropertyVariantPtrOutput {
 	return i.ToAlarmModelAssetPropertyVariantPtrOutputWithContext(context.Background())
 }
@@ -1089,6 +1258,12 @@ func (i *alarmModelAssetPropertyVariantPtrType) ToAlarmModelAssetPropertyVariant
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAssetPropertyVariantPtrOutput)
 }
 
+func (i *alarmModelAssetPropertyVariantPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAssetPropertyVariant] {
+	return pulumix.Output[*AlarmModelAssetPropertyVariant]{
+		OutputState: i.ToAlarmModelAssetPropertyVariantPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
 type AlarmModelAssetPropertyVariantOutput struct{ *pulumi.OutputState }
 
@@ -1112,6 +1287,12 @@ func (o AlarmModelAssetPropertyVariantOutput) ToAlarmModelAssetPropertyVariantPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmModelAssetPropertyVariant) *AlarmModelAssetPropertyVariant {
 		return &v
 	}).(AlarmModelAssetPropertyVariantPtrOutput)
+}
+
+func (o AlarmModelAssetPropertyVariantOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelAssetPropertyVariant] {
+	return pulumix.Output[AlarmModelAssetPropertyVariant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
@@ -1146,6 +1327,12 @@ func (o AlarmModelAssetPropertyVariantPtrOutput) ToAlarmModelAssetPropertyVarian
 
 func (o AlarmModelAssetPropertyVariantPtrOutput) ToAlarmModelAssetPropertyVariantPtrOutputWithContext(ctx context.Context) AlarmModelAssetPropertyVariantPtrOutput {
 	return o
+}
+
+func (o AlarmModelAssetPropertyVariantPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelAssetPropertyVariant] {
+	return pulumix.Output[*AlarmModelAssetPropertyVariant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelAssetPropertyVariantPtrOutput) Elem() AlarmModelAssetPropertyVariantOutput {
@@ -1239,6 +1426,12 @@ func (i AlarmModelDynamoDBv2Args) ToAlarmModelDynamoDBv2OutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDBv2Output)
 }
 
+func (i AlarmModelDynamoDBv2Args) ToOutput(ctx context.Context) pulumix.Output[AlarmModelDynamoDBv2] {
+	return pulumix.Output[AlarmModelDynamoDBv2]{
+		OutputState: i.ToAlarmModelDynamoDBv2OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelDynamoDBv2Args) ToAlarmModelDynamoDBv2PtrOutput() AlarmModelDynamoDBv2PtrOutput {
 	return i.ToAlarmModelDynamoDBv2PtrOutputWithContext(context.Background())
 }
@@ -1280,6 +1473,12 @@ func (i *alarmModelDynamoDBv2PtrType) ToAlarmModelDynamoDBv2PtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDBv2PtrOutput)
 }
 
+func (i *alarmModelDynamoDBv2PtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelDynamoDBv2] {
+	return pulumix.Output[*AlarmModelDynamoDBv2]{
+		OutputState: i.ToAlarmModelDynamoDBv2PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
 //
 // You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
@@ -1307,6 +1506,12 @@ func (o AlarmModelDynamoDBv2Output) ToAlarmModelDynamoDBv2PtrOutputWithContext(c
 	}).(AlarmModelDynamoDBv2PtrOutput)
 }
 
+func (o AlarmModelDynamoDBv2Output) ToOutput(ctx context.Context) pulumix.Output[AlarmModelDynamoDBv2] {
+	return pulumix.Output[AlarmModelDynamoDBv2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlarmModelDynamoDBv2Output) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v AlarmModelDynamoDBv2) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
 }
@@ -1328,6 +1533,12 @@ func (o AlarmModelDynamoDBv2PtrOutput) ToAlarmModelDynamoDBv2PtrOutput() AlarmMo
 
 func (o AlarmModelDynamoDBv2PtrOutput) ToAlarmModelDynamoDBv2PtrOutputWithContext(ctx context.Context) AlarmModelDynamoDBv2PtrOutput {
 	return o
+}
+
+func (o AlarmModelDynamoDBv2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelDynamoDBv2] {
+	return pulumix.Output[*AlarmModelDynamoDBv2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelDynamoDBv2PtrOutput) Elem() AlarmModelDynamoDBv2Output {
@@ -1472,6 +1683,12 @@ func (i AlarmModelDynamoDbArgs) ToAlarmModelDynamoDbOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDbOutput)
 }
 
+func (i AlarmModelDynamoDbArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelDynamoDb] {
+	return pulumix.Output[AlarmModelDynamoDb]{
+		OutputState: i.ToAlarmModelDynamoDbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelDynamoDbArgs) ToAlarmModelDynamoDbPtrOutput() AlarmModelDynamoDbPtrOutput {
 	return i.ToAlarmModelDynamoDbPtrOutputWithContext(context.Background())
 }
@@ -1513,6 +1730,12 @@ func (i *alarmModelDynamoDbPtrType) ToAlarmModelDynamoDbPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDbPtrOutput)
 }
 
+func (i *alarmModelDynamoDbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelDynamoDb] {
+	return pulumix.Output[*AlarmModelDynamoDb]{
+		OutputState: i.ToAlarmModelDynamoDbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
 type AlarmModelDynamoDbOutput struct{ *pulumi.OutputState }
 
@@ -1536,6 +1759,12 @@ func (o AlarmModelDynamoDbOutput) ToAlarmModelDynamoDbPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmModelDynamoDb) *AlarmModelDynamoDb {
 		return &v
 	}).(AlarmModelDynamoDbPtrOutput)
+}
+
+func (o AlarmModelDynamoDbOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelDynamoDb] {
+	return pulumix.Output[AlarmModelDynamoDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the hash key (also called the partition key).
@@ -1621,6 +1850,12 @@ func (o AlarmModelDynamoDbPtrOutput) ToAlarmModelDynamoDbPtrOutput() AlarmModelD
 
 func (o AlarmModelDynamoDbPtrOutput) ToAlarmModelDynamoDbPtrOutputWithContext(ctx context.Context) AlarmModelDynamoDbPtrOutput {
 	return o
+}
+
+func (o AlarmModelDynamoDbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelDynamoDb] {
+	return pulumix.Output[*AlarmModelDynamoDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelDynamoDbPtrOutput) Elem() AlarmModelDynamoDbOutput {
@@ -1795,6 +2030,12 @@ func (i AlarmModelFirehoseArgs) ToAlarmModelFirehoseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelFirehoseOutput)
 }
 
+func (i AlarmModelFirehoseArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelFirehose] {
+	return pulumix.Output[AlarmModelFirehose]{
+		OutputState: i.ToAlarmModelFirehoseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelFirehoseArgs) ToAlarmModelFirehosePtrOutput() AlarmModelFirehosePtrOutput {
 	return i.ToAlarmModelFirehosePtrOutputWithContext(context.Background())
 }
@@ -1836,6 +2077,12 @@ func (i *alarmModelFirehosePtrType) ToAlarmModelFirehosePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelFirehosePtrOutput)
 }
 
+func (i *alarmModelFirehosePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelFirehose] {
+	return pulumix.Output[*AlarmModelFirehose]{
+		OutputState: i.ToAlarmModelFirehosePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 type AlarmModelFirehoseOutput struct{ *pulumi.OutputState }
 
@@ -1859,6 +2106,12 @@ func (o AlarmModelFirehoseOutput) ToAlarmModelFirehosePtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmModelFirehose) *AlarmModelFirehose {
 		return &v
 	}).(AlarmModelFirehosePtrOutput)
+}
+
+func (o AlarmModelFirehoseOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelFirehose] {
+	return pulumix.Output[AlarmModelFirehose]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Kinesis Data Firehose delivery stream where the data is written.
@@ -1887,6 +2140,12 @@ func (o AlarmModelFirehosePtrOutput) ToAlarmModelFirehosePtrOutput() AlarmModelF
 
 func (o AlarmModelFirehosePtrOutput) ToAlarmModelFirehosePtrOutputWithContext(ctx context.Context) AlarmModelFirehosePtrOutput {
 	return o
+}
+
+func (o AlarmModelFirehosePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelFirehose] {
+	return pulumix.Output[*AlarmModelFirehose]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelFirehosePtrOutput) Elem() AlarmModelFirehoseOutput {
@@ -1963,6 +2222,12 @@ func (i AlarmModelInitializationConfigurationArgs) ToAlarmModelInitializationCon
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelInitializationConfigurationOutput)
 }
 
+func (i AlarmModelInitializationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelInitializationConfiguration] {
+	return pulumix.Output[AlarmModelInitializationConfiguration]{
+		OutputState: i.ToAlarmModelInitializationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelInitializationConfigurationArgs) ToAlarmModelInitializationConfigurationPtrOutput() AlarmModelInitializationConfigurationPtrOutput {
 	return i.ToAlarmModelInitializationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2004,6 +2269,12 @@ func (i *alarmModelInitializationConfigurationPtrType) ToAlarmModelInitializatio
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelInitializationConfigurationPtrOutput)
 }
 
+func (i *alarmModelInitializationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelInitializationConfiguration] {
+	return pulumix.Output[*AlarmModelInitializationConfiguration]{
+		OutputState: i.ToAlarmModelInitializationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
 type AlarmModelInitializationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2029,6 +2300,12 @@ func (o AlarmModelInitializationConfigurationOutput) ToAlarmModelInitializationC
 	}).(AlarmModelInitializationConfigurationPtrOutput)
 }
 
+func (o AlarmModelInitializationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelInitializationConfiguration] {
+	return pulumix.Output[AlarmModelInitializationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
 func (o AlarmModelInitializationConfigurationOutput) DisabledOnInitialization() pulumi.BoolOutput {
 	return o.ApplyT(func(v AlarmModelInitializationConfiguration) bool { return v.DisabledOnInitialization }).(pulumi.BoolOutput)
@@ -2046,6 +2323,12 @@ func (o AlarmModelInitializationConfigurationPtrOutput) ToAlarmModelInitializati
 
 func (o AlarmModelInitializationConfigurationPtrOutput) ToAlarmModelInitializationConfigurationPtrOutputWithContext(ctx context.Context) AlarmModelInitializationConfigurationPtrOutput {
 	return o
+}
+
+func (o AlarmModelInitializationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelInitializationConfiguration] {
+	return pulumix.Output[*AlarmModelInitializationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelInitializationConfigurationPtrOutput) Elem() AlarmModelInitializationConfigurationOutput {
@@ -2105,6 +2388,12 @@ func (i AlarmModelIotEventsArgs) ToAlarmModelIotEventsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelIotEventsOutput)
 }
 
+func (i AlarmModelIotEventsArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelIotEvents] {
+	return pulumix.Output[AlarmModelIotEvents]{
+		OutputState: i.ToAlarmModelIotEventsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelIotEventsArgs) ToAlarmModelIotEventsPtrOutput() AlarmModelIotEventsPtrOutput {
 	return i.ToAlarmModelIotEventsPtrOutputWithContext(context.Background())
 }
@@ -2146,6 +2435,12 @@ func (i *alarmModelIotEventsPtrType) ToAlarmModelIotEventsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelIotEventsPtrOutput)
 }
 
+func (i *alarmModelIotEventsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelIotEvents] {
+	return pulumix.Output[*AlarmModelIotEvents]{
+		OutputState: i.ToAlarmModelIotEventsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Sends an AWS IoT Events input, passing in information about the alarm model instance and the event that triggered the action.
 type AlarmModelIotEventsOutput struct{ *pulumi.OutputState }
 
@@ -2171,6 +2466,12 @@ func (o AlarmModelIotEventsOutput) ToAlarmModelIotEventsPtrOutputWithContext(ctx
 	}).(AlarmModelIotEventsPtrOutput)
 }
 
+func (o AlarmModelIotEventsOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelIotEvents] {
+	return pulumix.Output[AlarmModelIotEvents]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the AWS IoT Events input where the data is sent.
 func (o AlarmModelIotEventsOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelIotEvents) string { return v.InputName }).(pulumi.StringOutput)
@@ -2192,6 +2493,12 @@ func (o AlarmModelIotEventsPtrOutput) ToAlarmModelIotEventsPtrOutput() AlarmMode
 
 func (o AlarmModelIotEventsPtrOutput) ToAlarmModelIotEventsPtrOutputWithContext(ctx context.Context) AlarmModelIotEventsPtrOutput {
 	return o
+}
+
+func (o AlarmModelIotEventsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelIotEvents] {
+	return pulumix.Output[*AlarmModelIotEvents]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelIotEventsPtrOutput) Elem() AlarmModelIotEventsOutput {
@@ -2272,6 +2579,12 @@ func (i AlarmModelIotSiteWiseArgs) ToAlarmModelIotSiteWiseOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelIotSiteWiseOutput)
 }
 
+func (i AlarmModelIotSiteWiseArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelIotSiteWise] {
+	return pulumix.Output[AlarmModelIotSiteWise]{
+		OutputState: i.ToAlarmModelIotSiteWiseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelIotSiteWiseArgs) ToAlarmModelIotSiteWisePtrOutput() AlarmModelIotSiteWisePtrOutput {
 	return i.ToAlarmModelIotSiteWisePtrOutputWithContext(context.Background())
 }
@@ -2313,6 +2626,12 @@ func (i *alarmModelIotSiteWisePtrType) ToAlarmModelIotSiteWisePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelIotSiteWisePtrOutput)
 }
 
+func (i *alarmModelIotSiteWisePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelIotSiteWise] {
+	return pulumix.Output[*AlarmModelIotSiteWise]{
+		OutputState: i.ToAlarmModelIotSiteWisePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Sends information about the alarm model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
 type AlarmModelIotSiteWiseOutput struct{ *pulumi.OutputState }
 
@@ -2336,6 +2655,12 @@ func (o AlarmModelIotSiteWiseOutput) ToAlarmModelIotSiteWisePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmModelIotSiteWise) *AlarmModelIotSiteWise {
 		return &v
 	}).(AlarmModelIotSiteWisePtrOutput)
+}
+
+func (o AlarmModelIotSiteWiseOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelIotSiteWise] {
+	return pulumix.Output[AlarmModelIotSiteWise]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the asset that has the specified property. You can specify an expression.
@@ -2374,6 +2699,12 @@ func (o AlarmModelIotSiteWisePtrOutput) ToAlarmModelIotSiteWisePtrOutput() Alarm
 
 func (o AlarmModelIotSiteWisePtrOutput) ToAlarmModelIotSiteWisePtrOutputWithContext(ctx context.Context) AlarmModelIotSiteWisePtrOutput {
 	return o
+}
+
+func (o AlarmModelIotSiteWisePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelIotSiteWise] {
+	return pulumix.Output[*AlarmModelIotSiteWise]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelIotSiteWisePtrOutput) Elem() AlarmModelIotSiteWiseOutput {
@@ -2472,6 +2803,12 @@ func (i AlarmModelIotTopicPublishArgs) ToAlarmModelIotTopicPublishOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelIotTopicPublishOutput)
 }
 
+func (i AlarmModelIotTopicPublishArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelIotTopicPublish] {
+	return pulumix.Output[AlarmModelIotTopicPublish]{
+		OutputState: i.ToAlarmModelIotTopicPublishOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelIotTopicPublishArgs) ToAlarmModelIotTopicPublishPtrOutput() AlarmModelIotTopicPublishPtrOutput {
 	return i.ToAlarmModelIotTopicPublishPtrOutputWithContext(context.Background())
 }
@@ -2513,6 +2850,12 @@ func (i *alarmModelIotTopicPublishPtrType) ToAlarmModelIotTopicPublishPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelIotTopicPublishPtrOutput)
 }
 
+func (i *alarmModelIotTopicPublishPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelIotTopicPublish] {
+	return pulumix.Output[*AlarmModelIotTopicPublish]{
+		OutputState: i.ToAlarmModelIotTopicPublishPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information required to publish the MQTT message through the AWS IoT message broker.
 type AlarmModelIotTopicPublishOutput struct{ *pulumi.OutputState }
 
@@ -2538,6 +2881,12 @@ func (o AlarmModelIotTopicPublishOutput) ToAlarmModelIotTopicPublishPtrOutputWit
 	}).(AlarmModelIotTopicPublishPtrOutput)
 }
 
+func (o AlarmModelIotTopicPublishOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelIotTopicPublish] {
+	return pulumix.Output[AlarmModelIotTopicPublish]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
 func (o AlarmModelIotTopicPublishOutput) MqttTopic() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelIotTopicPublish) string { return v.MqttTopic }).(pulumi.StringOutput)
@@ -2559,6 +2908,12 @@ func (o AlarmModelIotTopicPublishPtrOutput) ToAlarmModelIotTopicPublishPtrOutput
 
 func (o AlarmModelIotTopicPublishPtrOutput) ToAlarmModelIotTopicPublishPtrOutputWithContext(ctx context.Context) AlarmModelIotTopicPublishPtrOutput {
 	return o
+}
+
+func (o AlarmModelIotTopicPublishPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelIotTopicPublish] {
+	return pulumix.Output[*AlarmModelIotTopicPublish]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelIotTopicPublishPtrOutput) Elem() AlarmModelIotTopicPublishOutput {
@@ -2625,6 +2980,12 @@ func (i AlarmModelLambdaArgs) ToAlarmModelLambdaOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelLambdaOutput)
 }
 
+func (i AlarmModelLambdaArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelLambda] {
+	return pulumix.Output[AlarmModelLambda]{
+		OutputState: i.ToAlarmModelLambdaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelLambdaArgs) ToAlarmModelLambdaPtrOutput() AlarmModelLambdaPtrOutput {
 	return i.ToAlarmModelLambdaPtrOutputWithContext(context.Background())
 }
@@ -2666,6 +3027,12 @@ func (i *alarmModelLambdaPtrType) ToAlarmModelLambdaPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelLambdaPtrOutput)
 }
 
+func (i *alarmModelLambdaPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelLambda] {
+	return pulumix.Output[*AlarmModelLambda]{
+		OutputState: i.ToAlarmModelLambdaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlarmModelLambdaOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelLambdaOutput) ElementType() reflect.Type {
@@ -2690,6 +3057,12 @@ func (o AlarmModelLambdaOutput) ToAlarmModelLambdaPtrOutputWithContext(ctx conte
 	}).(AlarmModelLambdaPtrOutput)
 }
 
+func (o AlarmModelLambdaOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelLambda] {
+	return pulumix.Output[AlarmModelLambda]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Lambda function that is executed.
 func (o AlarmModelLambdaOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelLambda) string { return v.FunctionArn }).(pulumi.StringOutput)
@@ -2711,6 +3084,12 @@ func (o AlarmModelLambdaPtrOutput) ToAlarmModelLambdaPtrOutput() AlarmModelLambd
 
 func (o AlarmModelLambdaPtrOutput) ToAlarmModelLambdaPtrOutputWithContext(ctx context.Context) AlarmModelLambdaPtrOutput {
 	return o
+}
+
+func (o AlarmModelLambdaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelLambda] {
+	return pulumix.Output[*AlarmModelLambda]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelLambdaPtrOutput) Elem() AlarmModelLambdaOutput {
@@ -2785,6 +3164,12 @@ func (i AlarmModelPayloadArgs) ToAlarmModelPayloadOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelPayloadOutput)
 }
 
+func (i AlarmModelPayloadArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelPayload] {
+	return pulumix.Output[AlarmModelPayload]{
+		OutputState: i.ToAlarmModelPayloadOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelPayloadArgs) ToAlarmModelPayloadPtrOutput() AlarmModelPayloadPtrOutput {
 	return i.ToAlarmModelPayloadPtrOutputWithContext(context.Background())
 }
@@ -2826,6 +3211,12 @@ func (i *alarmModelPayloadPtrType) ToAlarmModelPayloadPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelPayloadPtrOutput)
 }
 
+func (i *alarmModelPayloadPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelPayload] {
+	return pulumix.Output[*AlarmModelPayload]{
+		OutputState: i.ToAlarmModelPayloadPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information needed to configure the payload.
 //
 // By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the alarm model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
@@ -2853,6 +3244,12 @@ func (o AlarmModelPayloadOutput) ToAlarmModelPayloadPtrOutputWithContext(ctx con
 	}).(AlarmModelPayloadPtrOutput)
 }
 
+func (o AlarmModelPayloadOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelPayload] {
+	return pulumix.Output[AlarmModelPayload]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
 func (o AlarmModelPayloadOutput) ContentExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelPayload) string { return v.ContentExpression }).(pulumi.StringOutput)
@@ -2875,6 +3272,12 @@ func (o AlarmModelPayloadPtrOutput) ToAlarmModelPayloadPtrOutput() AlarmModelPay
 
 func (o AlarmModelPayloadPtrOutput) ToAlarmModelPayloadPtrOutputWithContext(ctx context.Context) AlarmModelPayloadPtrOutput {
 	return o
+}
+
+func (o AlarmModelPayloadPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelPayload] {
+	return pulumix.Output[*AlarmModelPayload]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelPayloadPtrOutput) Elem() AlarmModelPayloadOutput {
@@ -2950,6 +3353,12 @@ func (i AlarmModelSimpleRuleArgs) ToAlarmModelSimpleRuleOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelSimpleRuleOutput)
 }
 
+func (i AlarmModelSimpleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelSimpleRule] {
+	return pulumix.Output[AlarmModelSimpleRule]{
+		OutputState: i.ToAlarmModelSimpleRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelSimpleRuleArgs) ToAlarmModelSimpleRulePtrOutput() AlarmModelSimpleRulePtrOutput {
 	return i.ToAlarmModelSimpleRulePtrOutputWithContext(context.Background())
 }
@@ -2991,6 +3400,12 @@ func (i *alarmModelSimpleRulePtrType) ToAlarmModelSimpleRulePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelSimpleRulePtrOutput)
 }
 
+func (i *alarmModelSimpleRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelSimpleRule] {
+	return pulumix.Output[*AlarmModelSimpleRule]{
+		OutputState: i.ToAlarmModelSimpleRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A rule that compares an input property value to a threshold value with a comparison operator.
 type AlarmModelSimpleRuleOutput struct{ *pulumi.OutputState }
 
@@ -3014,6 +3429,12 @@ func (o AlarmModelSimpleRuleOutput) ToAlarmModelSimpleRulePtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmModelSimpleRule) *AlarmModelSimpleRule {
 		return &v
 	}).(AlarmModelSimpleRulePtrOutput)
+}
+
+func (o AlarmModelSimpleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelSimpleRule] {
+	return pulumix.Output[AlarmModelSimpleRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The comparison operator.
@@ -3043,6 +3464,12 @@ func (o AlarmModelSimpleRulePtrOutput) ToAlarmModelSimpleRulePtrOutput() AlarmMo
 
 func (o AlarmModelSimpleRulePtrOutput) ToAlarmModelSimpleRulePtrOutputWithContext(ctx context.Context) AlarmModelSimpleRulePtrOutput {
 	return o
+}
+
+func (o AlarmModelSimpleRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelSimpleRule] {
+	return pulumix.Output[*AlarmModelSimpleRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelSimpleRulePtrOutput) Elem() AlarmModelSimpleRuleOutput {
@@ -3122,6 +3549,12 @@ func (i AlarmModelSnsArgs) ToAlarmModelSnsOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelSnsOutput)
 }
 
+func (i AlarmModelSnsArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelSns] {
+	return pulumix.Output[AlarmModelSns]{
+		OutputState: i.ToAlarmModelSnsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelSnsArgs) ToAlarmModelSnsPtrOutput() AlarmModelSnsPtrOutput {
 	return i.ToAlarmModelSnsPtrOutputWithContext(context.Background())
 }
@@ -3163,6 +3596,12 @@ func (i *alarmModelSnsPtrType) ToAlarmModelSnsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelSnsPtrOutput)
 }
 
+func (i *alarmModelSnsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelSns] {
+	return pulumix.Output[*AlarmModelSns]{
+		OutputState: i.ToAlarmModelSnsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information required to publish the Amazon SNS message.
 type AlarmModelSnsOutput struct{ *pulumi.OutputState }
 
@@ -3188,6 +3627,12 @@ func (o AlarmModelSnsOutput) ToAlarmModelSnsPtrOutputWithContext(ctx context.Con
 	}).(AlarmModelSnsPtrOutput)
 }
 
+func (o AlarmModelSnsOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelSns] {
+	return pulumix.Output[AlarmModelSns]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlarmModelSnsOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v AlarmModelSns) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
 }
@@ -3209,6 +3654,12 @@ func (o AlarmModelSnsPtrOutput) ToAlarmModelSnsPtrOutput() AlarmModelSnsPtrOutpu
 
 func (o AlarmModelSnsPtrOutput) ToAlarmModelSnsPtrOutputWithContext(ctx context.Context) AlarmModelSnsPtrOutput {
 	return o
+}
+
+func (o AlarmModelSnsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelSns] {
+	return pulumix.Output[*AlarmModelSns]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelSnsPtrOutput) Elem() AlarmModelSnsOutput {
@@ -3279,6 +3730,12 @@ func (i AlarmModelSqsArgs) ToAlarmModelSqsOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelSqsOutput)
 }
 
+func (i AlarmModelSqsArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelSqs] {
+	return pulumix.Output[AlarmModelSqs]{
+		OutputState: i.ToAlarmModelSqsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlarmModelSqsArgs) ToAlarmModelSqsPtrOutput() AlarmModelSqsPtrOutput {
 	return i.ToAlarmModelSqsPtrOutputWithContext(context.Background())
 }
@@ -3320,6 +3777,12 @@ func (i *alarmModelSqsPtrType) ToAlarmModelSqsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelSqsPtrOutput)
 }
 
+func (i *alarmModelSqsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelSqs] {
+	return pulumix.Output[*AlarmModelSqs]{
+		OutputState: i.ToAlarmModelSqsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlarmModelSqsOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelSqsOutput) ElementType() reflect.Type {
@@ -3342,6 +3805,12 @@ func (o AlarmModelSqsOutput) ToAlarmModelSqsPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmModelSqs) *AlarmModelSqs {
 		return &v
 	}).(AlarmModelSqsPtrOutput)
+}
+
+func (o AlarmModelSqsOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelSqs] {
+	return pulumix.Output[AlarmModelSqs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelSqsOutput) Payload() AlarmModelPayloadPtrOutput {
@@ -3370,6 +3839,12 @@ func (o AlarmModelSqsPtrOutput) ToAlarmModelSqsPtrOutput() AlarmModelSqsPtrOutpu
 
 func (o AlarmModelSqsPtrOutput) ToAlarmModelSqsPtrOutputWithContext(ctx context.Context) AlarmModelSqsPtrOutput {
 	return o
+}
+
+func (o AlarmModelSqsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelSqs] {
+	return pulumix.Output[*AlarmModelSqs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelSqsPtrOutput) Elem() AlarmModelSqsOutput {
@@ -3450,6 +3925,12 @@ func (i AlarmModelTagArgs) ToAlarmModelTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelTagOutput)
 }
 
+func (i AlarmModelTagArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmModelTag] {
+	return pulumix.Output[AlarmModelTag]{
+		OutputState: i.ToAlarmModelTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlarmModelTagArrayInput is an input type that accepts AlarmModelTagArray and AlarmModelTagArrayOutput values.
 // You can construct a concrete instance of `AlarmModelTagArrayInput` via:
 //
@@ -3475,6 +3956,12 @@ func (i AlarmModelTagArray) ToAlarmModelTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelTagArrayOutput)
 }
 
+func (i AlarmModelTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AlarmModelTag] {
+	return pulumix.Output[[]AlarmModelTag]{
+		OutputState: i.ToAlarmModelTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Tags to be applied to Input.
 type AlarmModelTagOutput struct{ *pulumi.OutputState }
 
@@ -3488,6 +3975,12 @@ func (o AlarmModelTagOutput) ToAlarmModelTagOutput() AlarmModelTagOutput {
 
 func (o AlarmModelTagOutput) ToAlarmModelTagOutputWithContext(ctx context.Context) AlarmModelTagOutput {
 	return o
+}
+
+func (o AlarmModelTagOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelTag] {
+	return pulumix.Output[AlarmModelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key of the Tag.
@@ -3512,6 +4005,12 @@ func (o AlarmModelTagArrayOutput) ToAlarmModelTagArrayOutput() AlarmModelTagArra
 
 func (o AlarmModelTagArrayOutput) ToAlarmModelTagArrayOutputWithContext(ctx context.Context) AlarmModelTagArrayOutput {
 	return o
+}
+
+func (o AlarmModelTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlarmModelTag] {
+	return pulumix.Output[[]AlarmModelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelTagArrayOutput) Index(i pulumi.IntInput) AlarmModelTagOutput {
@@ -3577,6 +4076,12 @@ func (i DetectorModelActionArgs) ToDetectorModelActionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelActionOutput)
 }
 
+func (i DetectorModelActionArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelAction] {
+	return pulumix.Output[DetectorModelAction]{
+		OutputState: i.ToDetectorModelActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorModelActionArrayInput is an input type that accepts DetectorModelActionArray and DetectorModelActionArrayOutput values.
 // You can construct a concrete instance of `DetectorModelActionArrayInput` via:
 //
@@ -3602,6 +4107,12 @@ func (i DetectorModelActionArray) ToDetectorModelActionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelActionArrayOutput)
 }
 
+func (i DetectorModelActionArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModelAction] {
+	return pulumix.Output[[]DetectorModelAction]{
+		OutputState: i.ToDetectorModelActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The actions to be performed.
 type DetectorModelActionOutput struct{ *pulumi.OutputState }
 
@@ -3615,6 +4126,12 @@ func (o DetectorModelActionOutput) ToDetectorModelActionOutput() DetectorModelAc
 
 func (o DetectorModelActionOutput) ToDetectorModelActionOutputWithContext(ctx context.Context) DetectorModelActionOutput {
 	return o
+}
+
+func (o DetectorModelActionOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelAction] {
+	return pulumix.Output[DetectorModelAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelActionOutput) ClearTimer() DetectorModelClearTimerPtrOutput {
@@ -3683,6 +4200,12 @@ func (o DetectorModelActionArrayOutput) ToDetectorModelActionArrayOutputWithCont
 	return o
 }
 
+func (o DetectorModelActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModelAction] {
+	return pulumix.Output[[]DetectorModelAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DetectorModelActionArrayOutput) Index(i pulumi.IntInput) DetectorModelActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorModelAction {
 		return vs[0].([]DetectorModelAction)[vs[1].(int)]
@@ -3728,6 +4251,12 @@ func (i DetectorModelAssetPropertyTimestampArgs) ToDetectorModelAssetPropertyTim
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyTimestampOutput)
 }
 
+func (i DetectorModelAssetPropertyTimestampArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelAssetPropertyTimestamp] {
+	return pulumix.Output[DetectorModelAssetPropertyTimestamp]{
+		OutputState: i.ToDetectorModelAssetPropertyTimestampOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelAssetPropertyTimestampArgs) ToDetectorModelAssetPropertyTimestampPtrOutput() DetectorModelAssetPropertyTimestampPtrOutput {
 	return i.ToDetectorModelAssetPropertyTimestampPtrOutputWithContext(context.Background())
 }
@@ -3769,6 +4298,12 @@ func (i *detectorModelAssetPropertyTimestampPtrType) ToDetectorModelAssetPropert
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyTimestampPtrOutput)
 }
 
+func (i *detectorModelAssetPropertyTimestampPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelAssetPropertyTimestamp] {
+	return pulumix.Output[*DetectorModelAssetPropertyTimestamp]{
+		OutputState: i.ToDetectorModelAssetPropertyTimestampPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyTimestampOutput struct{ *pulumi.OutputState }
 
@@ -3794,6 +4329,12 @@ func (o DetectorModelAssetPropertyTimestampOutput) ToDetectorModelAssetPropertyT
 	}).(DetectorModelAssetPropertyTimestampPtrOutput)
 }
 
+func (o DetectorModelAssetPropertyTimestampOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelAssetPropertyTimestamp] {
+	return pulumix.Output[DetectorModelAssetPropertyTimestamp]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
 func (o DetectorModelAssetPropertyTimestampOutput) OffsetInNanos() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyTimestamp) *string { return v.OffsetInNanos }).(pulumi.StringPtrOutput)
@@ -3816,6 +4357,12 @@ func (o DetectorModelAssetPropertyTimestampPtrOutput) ToDetectorModelAssetProper
 
 func (o DetectorModelAssetPropertyTimestampPtrOutput) ToDetectorModelAssetPropertyTimestampPtrOutputWithContext(ctx context.Context) DetectorModelAssetPropertyTimestampPtrOutput {
 	return o
+}
+
+func (o DetectorModelAssetPropertyTimestampPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelAssetPropertyTimestamp] {
+	return pulumix.Output[*DetectorModelAssetPropertyTimestamp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelAssetPropertyTimestampPtrOutput) Elem() DetectorModelAssetPropertyTimestampOutput {
@@ -3887,6 +4434,12 @@ func (i DetectorModelAssetPropertyValueArgs) ToDetectorModelAssetPropertyValueOu
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyValueOutput)
 }
 
+func (i DetectorModelAssetPropertyValueArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelAssetPropertyValue] {
+	return pulumix.Output[DetectorModelAssetPropertyValue]{
+		OutputState: i.ToDetectorModelAssetPropertyValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelAssetPropertyValueArgs) ToDetectorModelAssetPropertyValuePtrOutput() DetectorModelAssetPropertyValuePtrOutput {
 	return i.ToDetectorModelAssetPropertyValuePtrOutputWithContext(context.Background())
 }
@@ -3928,6 +4481,12 @@ func (i *detectorModelAssetPropertyValuePtrType) ToDetectorModelAssetPropertyVal
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyValuePtrOutput)
 }
 
+func (i *detectorModelAssetPropertyValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelAssetPropertyValue] {
+	return pulumix.Output[*DetectorModelAssetPropertyValue]{
+		OutputState: i.ToDetectorModelAssetPropertyValuePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyValueOutput struct{ *pulumi.OutputState }
 
@@ -3951,6 +4510,12 @@ func (o DetectorModelAssetPropertyValueOutput) ToDetectorModelAssetPropertyValue
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelAssetPropertyValue) *DetectorModelAssetPropertyValue {
 		return &v
 	}).(DetectorModelAssetPropertyValuePtrOutput)
+}
+
+func (o DetectorModelAssetPropertyValueOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelAssetPropertyValue] {
+	return pulumix.Output[DetectorModelAssetPropertyValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
@@ -3978,6 +4543,12 @@ func (o DetectorModelAssetPropertyValuePtrOutput) ToDetectorModelAssetPropertyVa
 
 func (o DetectorModelAssetPropertyValuePtrOutput) ToDetectorModelAssetPropertyValuePtrOutputWithContext(ctx context.Context) DetectorModelAssetPropertyValuePtrOutput {
 	return o
+}
+
+func (o DetectorModelAssetPropertyValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelAssetPropertyValue] {
+	return pulumix.Output[*DetectorModelAssetPropertyValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelAssetPropertyValuePtrOutput) Elem() DetectorModelAssetPropertyValueOutput {
@@ -4065,6 +4636,12 @@ func (i DetectorModelAssetPropertyVariantArgs) ToDetectorModelAssetPropertyVaria
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyVariantOutput)
 }
 
+func (i DetectorModelAssetPropertyVariantArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelAssetPropertyVariant] {
+	return pulumix.Output[DetectorModelAssetPropertyVariant]{
+		OutputState: i.ToDetectorModelAssetPropertyVariantOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelAssetPropertyVariantArgs) ToDetectorModelAssetPropertyVariantPtrOutput() DetectorModelAssetPropertyVariantPtrOutput {
 	return i.ToDetectorModelAssetPropertyVariantPtrOutputWithContext(context.Background())
 }
@@ -4106,6 +4683,12 @@ func (i *detectorModelAssetPropertyVariantPtrType) ToDetectorModelAssetPropertyV
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyVariantPtrOutput)
 }
 
+func (i *detectorModelAssetPropertyVariantPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelAssetPropertyVariant] {
+	return pulumix.Output[*DetectorModelAssetPropertyVariant]{
+		OutputState: i.ToDetectorModelAssetPropertyVariantPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyVariantOutput struct{ *pulumi.OutputState }
 
@@ -4129,6 +4712,12 @@ func (o DetectorModelAssetPropertyVariantOutput) ToDetectorModelAssetPropertyVar
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelAssetPropertyVariant) *DetectorModelAssetPropertyVariant {
 		return &v
 	}).(DetectorModelAssetPropertyVariantPtrOutput)
+}
+
+func (o DetectorModelAssetPropertyVariantOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelAssetPropertyVariant] {
+	return pulumix.Output[DetectorModelAssetPropertyVariant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
@@ -4163,6 +4752,12 @@ func (o DetectorModelAssetPropertyVariantPtrOutput) ToDetectorModelAssetProperty
 
 func (o DetectorModelAssetPropertyVariantPtrOutput) ToDetectorModelAssetPropertyVariantPtrOutputWithContext(ctx context.Context) DetectorModelAssetPropertyVariantPtrOutput {
 	return o
+}
+
+func (o DetectorModelAssetPropertyVariantPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelAssetPropertyVariant] {
+	return pulumix.Output[*DetectorModelAssetPropertyVariant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelAssetPropertyVariantPtrOutput) Elem() DetectorModelAssetPropertyVariantOutput {
@@ -4248,6 +4843,12 @@ func (i DetectorModelClearTimerArgs) ToDetectorModelClearTimerOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelClearTimerOutput)
 }
 
+func (i DetectorModelClearTimerArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelClearTimer] {
+	return pulumix.Output[DetectorModelClearTimer]{
+		OutputState: i.ToDetectorModelClearTimerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelClearTimerArgs) ToDetectorModelClearTimerPtrOutput() DetectorModelClearTimerPtrOutput {
 	return i.ToDetectorModelClearTimerPtrOutputWithContext(context.Background())
 }
@@ -4289,6 +4890,12 @@ func (i *detectorModelClearTimerPtrType) ToDetectorModelClearTimerPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelClearTimerPtrOutput)
 }
 
+func (i *detectorModelClearTimerPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelClearTimer] {
+	return pulumix.Output[*DetectorModelClearTimer]{
+		OutputState: i.ToDetectorModelClearTimerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information needed to clear the timer.
 type DetectorModelClearTimerOutput struct{ *pulumi.OutputState }
 
@@ -4314,6 +4921,12 @@ func (o DetectorModelClearTimerOutput) ToDetectorModelClearTimerPtrOutputWithCon
 	}).(DetectorModelClearTimerPtrOutput)
 }
 
+func (o DetectorModelClearTimerOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelClearTimer] {
+	return pulumix.Output[DetectorModelClearTimer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DetectorModelClearTimerOutput) TimerName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelClearTimer) string { return v.TimerName }).(pulumi.StringOutput)
 }
@@ -4330,6 +4943,12 @@ func (o DetectorModelClearTimerPtrOutput) ToDetectorModelClearTimerPtrOutput() D
 
 func (o DetectorModelClearTimerPtrOutput) ToDetectorModelClearTimerPtrOutputWithContext(ctx context.Context) DetectorModelClearTimerPtrOutput {
 	return o
+}
+
+func (o DetectorModelClearTimerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelClearTimer] {
+	return pulumix.Output[*DetectorModelClearTimer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelClearTimerPtrOutput) Elem() DetectorModelClearTimerOutput {
@@ -4390,6 +5009,12 @@ func (i DetectorModelDefinitionArgs) ToDetectorModelDefinitionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDefinitionOutput)
 }
 
+func (i DetectorModelDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelDefinition] {
+	return pulumix.Output[DetectorModelDefinition]{
+		OutputState: i.ToDetectorModelDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information that defines how a detector operates.
 type DetectorModelDefinitionOutput struct{ *pulumi.OutputState }
 
@@ -4403,6 +5028,12 @@ func (o DetectorModelDefinitionOutput) ToDetectorModelDefinitionOutput() Detecto
 
 func (o DetectorModelDefinitionOutput) ToDetectorModelDefinitionOutputWithContext(ctx context.Context) DetectorModelDefinitionOutput {
 	return o
+}
+
+func (o DetectorModelDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelDefinition] {
+	return pulumix.Output[DetectorModelDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The state that is entered at the creation of each detector (instance).
@@ -4427,6 +5058,12 @@ func (o DetectorModelDefinitionPtrOutput) ToDetectorModelDefinitionPtrOutput() D
 
 func (o DetectorModelDefinitionPtrOutput) ToDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDefinitionPtrOutput {
 	return o
+}
+
+func (o DetectorModelDefinitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelDefinition] {
+	return pulumix.Output[*DetectorModelDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelDefinitionPtrOutput) Elem() DetectorModelDefinitionOutput {
@@ -4500,6 +5137,12 @@ func (i DetectorModelDynamoDBv2Args) ToDetectorModelDynamoDBv2OutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDBv2Output)
 }
 
+func (i DetectorModelDynamoDBv2Args) ToOutput(ctx context.Context) pulumix.Output[DetectorModelDynamoDBv2] {
+	return pulumix.Output[DetectorModelDynamoDBv2]{
+		OutputState: i.ToDetectorModelDynamoDBv2OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelDynamoDBv2Args) ToDetectorModelDynamoDBv2PtrOutput() DetectorModelDynamoDBv2PtrOutput {
 	return i.ToDetectorModelDynamoDBv2PtrOutputWithContext(context.Background())
 }
@@ -4541,6 +5184,12 @@ func (i *detectorModelDynamoDBv2PtrType) ToDetectorModelDynamoDBv2PtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDBv2PtrOutput)
 }
 
+func (i *detectorModelDynamoDBv2PtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelDynamoDBv2] {
+	return pulumix.Output[*DetectorModelDynamoDBv2]{
+		OutputState: i.ToDetectorModelDynamoDBv2PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
 //
 // You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
@@ -4568,6 +5217,12 @@ func (o DetectorModelDynamoDBv2Output) ToDetectorModelDynamoDBv2PtrOutputWithCon
 	}).(DetectorModelDynamoDBv2PtrOutput)
 }
 
+func (o DetectorModelDynamoDBv2Output) ToOutput(ctx context.Context) pulumix.Output[DetectorModelDynamoDBv2] {
+	return pulumix.Output[DetectorModelDynamoDBv2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DetectorModelDynamoDBv2Output) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDBv2) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -4589,6 +5244,12 @@ func (o DetectorModelDynamoDBv2PtrOutput) ToDetectorModelDynamoDBv2PtrOutput() D
 
 func (o DetectorModelDynamoDBv2PtrOutput) ToDetectorModelDynamoDBv2PtrOutputWithContext(ctx context.Context) DetectorModelDynamoDBv2PtrOutput {
 	return o
+}
+
+func (o DetectorModelDynamoDBv2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelDynamoDBv2] {
+	return pulumix.Output[*DetectorModelDynamoDBv2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelDynamoDBv2PtrOutput) Elem() DetectorModelDynamoDBv2Output {
@@ -4733,6 +5394,12 @@ func (i DetectorModelDynamoDbArgs) ToDetectorModelDynamoDbOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDbOutput)
 }
 
+func (i DetectorModelDynamoDbArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelDynamoDb] {
+	return pulumix.Output[DetectorModelDynamoDb]{
+		OutputState: i.ToDetectorModelDynamoDbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelDynamoDbArgs) ToDetectorModelDynamoDbPtrOutput() DetectorModelDynamoDbPtrOutput {
 	return i.ToDetectorModelDynamoDbPtrOutputWithContext(context.Background())
 }
@@ -4774,6 +5441,12 @@ func (i *detectorModelDynamoDbPtrType) ToDetectorModelDynamoDbPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDbPtrOutput)
 }
 
+func (i *detectorModelDynamoDbPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelDynamoDb] {
+	return pulumix.Output[*DetectorModelDynamoDb]{
+		OutputState: i.ToDetectorModelDynamoDbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
 type DetectorModelDynamoDbOutput struct{ *pulumi.OutputState }
 
@@ -4797,6 +5470,12 @@ func (o DetectorModelDynamoDbOutput) ToDetectorModelDynamoDbPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelDynamoDb) *DetectorModelDynamoDb {
 		return &v
 	}).(DetectorModelDynamoDbPtrOutput)
+}
+
+func (o DetectorModelDynamoDbOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelDynamoDb] {
+	return pulumix.Output[DetectorModelDynamoDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the hash key (also called the partition key).
@@ -4882,6 +5561,12 @@ func (o DetectorModelDynamoDbPtrOutput) ToDetectorModelDynamoDbPtrOutput() Detec
 
 func (o DetectorModelDynamoDbPtrOutput) ToDetectorModelDynamoDbPtrOutputWithContext(ctx context.Context) DetectorModelDynamoDbPtrOutput {
 	return o
+}
+
+func (o DetectorModelDynamoDbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelDynamoDb] {
+	return pulumix.Output[*DetectorModelDynamoDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelDynamoDbPtrOutput) Elem() DetectorModelDynamoDbOutput {
@@ -5058,6 +5743,12 @@ func (i DetectorModelEventArgs) ToDetectorModelEventOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelEventOutput)
 }
 
+func (i DetectorModelEventArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelEvent] {
+	return pulumix.Output[DetectorModelEvent]{
+		OutputState: i.ToDetectorModelEventOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorModelEventArrayInput is an input type that accepts DetectorModelEventArray and DetectorModelEventArrayOutput values.
 // You can construct a concrete instance of `DetectorModelEventArrayInput` via:
 //
@@ -5083,6 +5774,12 @@ func (i DetectorModelEventArray) ToDetectorModelEventArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelEventArrayOutput)
 }
 
+func (i DetectorModelEventArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModelEvent] {
+	return pulumix.Output[[]DetectorModelEvent]{
+		OutputState: i.ToDetectorModelEventArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies the `actions` to be performed when the `condition` evaluates to `TRUE`.
 type DetectorModelEventOutput struct{ *pulumi.OutputState }
 
@@ -5096,6 +5793,12 @@ func (o DetectorModelEventOutput) ToDetectorModelEventOutput() DetectorModelEven
 
 func (o DetectorModelEventOutput) ToDetectorModelEventOutputWithContext(ctx context.Context) DetectorModelEventOutput {
 	return o
+}
+
+func (o DetectorModelEventOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelEvent] {
+	return pulumix.Output[DetectorModelEvent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The actions to be performed.
@@ -5125,6 +5828,12 @@ func (o DetectorModelEventArrayOutput) ToDetectorModelEventArrayOutput() Detecto
 
 func (o DetectorModelEventArrayOutput) ToDetectorModelEventArrayOutputWithContext(ctx context.Context) DetectorModelEventArrayOutput {
 	return o
+}
+
+func (o DetectorModelEventArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModelEvent] {
+	return pulumix.Output[[]DetectorModelEvent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelEventArrayOutput) Index(i pulumi.IntInput) DetectorModelEventOutput {
@@ -5174,6 +5883,12 @@ func (i DetectorModelFirehoseArgs) ToDetectorModelFirehoseOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelFirehoseOutput)
 }
 
+func (i DetectorModelFirehoseArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelFirehose] {
+	return pulumix.Output[DetectorModelFirehose]{
+		OutputState: i.ToDetectorModelFirehoseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelFirehoseArgs) ToDetectorModelFirehosePtrOutput() DetectorModelFirehosePtrOutput {
 	return i.ToDetectorModelFirehosePtrOutputWithContext(context.Background())
 }
@@ -5215,6 +5930,12 @@ func (i *detectorModelFirehosePtrType) ToDetectorModelFirehosePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelFirehosePtrOutput)
 }
 
+func (i *detectorModelFirehosePtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelFirehose] {
+	return pulumix.Output[*DetectorModelFirehose]{
+		OutputState: i.ToDetectorModelFirehosePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 type DetectorModelFirehoseOutput struct{ *pulumi.OutputState }
 
@@ -5238,6 +5959,12 @@ func (o DetectorModelFirehoseOutput) ToDetectorModelFirehosePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelFirehose) *DetectorModelFirehose {
 		return &v
 	}).(DetectorModelFirehosePtrOutput)
+}
+
+func (o DetectorModelFirehoseOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelFirehose] {
+	return pulumix.Output[DetectorModelFirehose]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Kinesis Data Firehose delivery stream where the data is written.
@@ -5266,6 +5993,12 @@ func (o DetectorModelFirehosePtrOutput) ToDetectorModelFirehosePtrOutput() Detec
 
 func (o DetectorModelFirehosePtrOutput) ToDetectorModelFirehosePtrOutputWithContext(ctx context.Context) DetectorModelFirehosePtrOutput {
 	return o
+}
+
+func (o DetectorModelFirehosePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelFirehose] {
+	return pulumix.Output[*DetectorModelFirehose]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelFirehosePtrOutput) Elem() DetectorModelFirehoseOutput {
@@ -5344,6 +6077,12 @@ func (i DetectorModelIotEventsArgs) ToDetectorModelIotEventsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotEventsOutput)
 }
 
+func (i DetectorModelIotEventsArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelIotEvents] {
+	return pulumix.Output[DetectorModelIotEvents]{
+		OutputState: i.ToDetectorModelIotEventsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelIotEventsArgs) ToDetectorModelIotEventsPtrOutput() DetectorModelIotEventsPtrOutput {
 	return i.ToDetectorModelIotEventsPtrOutputWithContext(context.Background())
 }
@@ -5385,6 +6124,12 @@ func (i *detectorModelIotEventsPtrType) ToDetectorModelIotEventsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotEventsPtrOutput)
 }
 
+func (i *detectorModelIotEventsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelIotEvents] {
+	return pulumix.Output[*DetectorModelIotEvents]{
+		OutputState: i.ToDetectorModelIotEventsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelIotEventsOutput struct{ *pulumi.OutputState }
 
@@ -5410,6 +6155,12 @@ func (o DetectorModelIotEventsOutput) ToDetectorModelIotEventsPtrOutputWithConte
 	}).(DetectorModelIotEventsPtrOutput)
 }
 
+func (o DetectorModelIotEventsOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelIotEvents] {
+	return pulumix.Output[DetectorModelIotEvents]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the AWS IoT Events input where the data is sent.
 func (o DetectorModelIotEventsOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelIotEvents) string { return v.InputName }).(pulumi.StringOutput)
@@ -5431,6 +6182,12 @@ func (o DetectorModelIotEventsPtrOutput) ToDetectorModelIotEventsPtrOutput() Det
 
 func (o DetectorModelIotEventsPtrOutput) ToDetectorModelIotEventsPtrOutputWithContext(ctx context.Context) DetectorModelIotEventsPtrOutput {
 	return o
+}
+
+func (o DetectorModelIotEventsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelIotEvents] {
+	return pulumix.Output[*DetectorModelIotEvents]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelIotEventsPtrOutput) Elem() DetectorModelIotEventsOutput {
@@ -5511,6 +6268,12 @@ func (i DetectorModelIotSiteWiseArgs) ToDetectorModelIotSiteWiseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotSiteWiseOutput)
 }
 
+func (i DetectorModelIotSiteWiseArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelIotSiteWise] {
+	return pulumix.Output[DetectorModelIotSiteWise]{
+		OutputState: i.ToDetectorModelIotSiteWiseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelIotSiteWiseArgs) ToDetectorModelIotSiteWisePtrOutput() DetectorModelIotSiteWisePtrOutput {
 	return i.ToDetectorModelIotSiteWisePtrOutputWithContext(context.Background())
 }
@@ -5552,6 +6315,12 @@ func (i *detectorModelIotSiteWisePtrType) ToDetectorModelIotSiteWisePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotSiteWisePtrOutput)
 }
 
+func (i *detectorModelIotSiteWisePtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelIotSiteWise] {
+	return pulumix.Output[*DetectorModelIotSiteWise]{
+		OutputState: i.ToDetectorModelIotSiteWisePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
 type DetectorModelIotSiteWiseOutput struct{ *pulumi.OutputState }
 
@@ -5575,6 +6344,12 @@ func (o DetectorModelIotSiteWiseOutput) ToDetectorModelIotSiteWisePtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelIotSiteWise) *DetectorModelIotSiteWise {
 		return &v
 	}).(DetectorModelIotSiteWisePtrOutput)
+}
+
+func (o DetectorModelIotSiteWiseOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelIotSiteWise] {
+	return pulumix.Output[DetectorModelIotSiteWise]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the asset that has the specified property. You can specify an expression.
@@ -5613,6 +6388,12 @@ func (o DetectorModelIotSiteWisePtrOutput) ToDetectorModelIotSiteWisePtrOutput()
 
 func (o DetectorModelIotSiteWisePtrOutput) ToDetectorModelIotSiteWisePtrOutputWithContext(ctx context.Context) DetectorModelIotSiteWisePtrOutput {
 	return o
+}
+
+func (o DetectorModelIotSiteWisePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelIotSiteWise] {
+	return pulumix.Output[*DetectorModelIotSiteWise]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelIotSiteWisePtrOutput) Elem() DetectorModelIotSiteWiseOutput {
@@ -5711,6 +6492,12 @@ func (i DetectorModelIotTopicPublishArgs) ToDetectorModelIotTopicPublishOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotTopicPublishOutput)
 }
 
+func (i DetectorModelIotTopicPublishArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelIotTopicPublish] {
+	return pulumix.Output[DetectorModelIotTopicPublish]{
+		OutputState: i.ToDetectorModelIotTopicPublishOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelIotTopicPublishArgs) ToDetectorModelIotTopicPublishPtrOutput() DetectorModelIotTopicPublishPtrOutput {
 	return i.ToDetectorModelIotTopicPublishPtrOutputWithContext(context.Background())
 }
@@ -5752,6 +6539,12 @@ func (i *detectorModelIotTopicPublishPtrType) ToDetectorModelIotTopicPublishPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotTopicPublishPtrOutput)
 }
 
+func (i *detectorModelIotTopicPublishPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelIotTopicPublish] {
+	return pulumix.Output[*DetectorModelIotTopicPublish]{
+		OutputState: i.ToDetectorModelIotTopicPublishPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information required to publish the MQTT message through the AWS IoT message broker.
 type DetectorModelIotTopicPublishOutput struct{ *pulumi.OutputState }
 
@@ -5777,6 +6570,12 @@ func (o DetectorModelIotTopicPublishOutput) ToDetectorModelIotTopicPublishPtrOut
 	}).(DetectorModelIotTopicPublishPtrOutput)
 }
 
+func (o DetectorModelIotTopicPublishOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelIotTopicPublish] {
+	return pulumix.Output[DetectorModelIotTopicPublish]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
 func (o DetectorModelIotTopicPublishOutput) MqttTopic() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelIotTopicPublish) string { return v.MqttTopic }).(pulumi.StringOutput)
@@ -5798,6 +6597,12 @@ func (o DetectorModelIotTopicPublishPtrOutput) ToDetectorModelIotTopicPublishPtr
 
 func (o DetectorModelIotTopicPublishPtrOutput) ToDetectorModelIotTopicPublishPtrOutputWithContext(ctx context.Context) DetectorModelIotTopicPublishPtrOutput {
 	return o
+}
+
+func (o DetectorModelIotTopicPublishPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelIotTopicPublish] {
+	return pulumix.Output[*DetectorModelIotTopicPublish]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelIotTopicPublishPtrOutput) Elem() DetectorModelIotTopicPublishOutput {
@@ -5864,6 +6669,12 @@ func (i DetectorModelLambdaArgs) ToDetectorModelLambdaOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelLambdaOutput)
 }
 
+func (i DetectorModelLambdaArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelLambda] {
+	return pulumix.Output[DetectorModelLambda]{
+		OutputState: i.ToDetectorModelLambdaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelLambdaArgs) ToDetectorModelLambdaPtrOutput() DetectorModelLambdaPtrOutput {
 	return i.ToDetectorModelLambdaPtrOutputWithContext(context.Background())
 }
@@ -5905,6 +6716,12 @@ func (i *detectorModelLambdaPtrType) ToDetectorModelLambdaPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelLambdaPtrOutput)
 }
 
+func (i *detectorModelLambdaPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelLambda] {
+	return pulumix.Output[*DetectorModelLambda]{
+		OutputState: i.ToDetectorModelLambdaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorModelLambdaOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelLambdaOutput) ElementType() reflect.Type {
@@ -5929,6 +6746,12 @@ func (o DetectorModelLambdaOutput) ToDetectorModelLambdaPtrOutputWithContext(ctx
 	}).(DetectorModelLambdaPtrOutput)
 }
 
+func (o DetectorModelLambdaOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelLambda] {
+	return pulumix.Output[DetectorModelLambda]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Lambda function that is executed.
 func (o DetectorModelLambdaOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelLambda) string { return v.FunctionArn }).(pulumi.StringOutput)
@@ -5950,6 +6773,12 @@ func (o DetectorModelLambdaPtrOutput) ToDetectorModelLambdaPtrOutput() DetectorM
 
 func (o DetectorModelLambdaPtrOutput) ToDetectorModelLambdaPtrOutputWithContext(ctx context.Context) DetectorModelLambdaPtrOutput {
 	return o
+}
+
+func (o DetectorModelLambdaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelLambda] {
+	return pulumix.Output[*DetectorModelLambda]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelLambdaPtrOutput) Elem() DetectorModelLambdaOutput {
@@ -6016,6 +6845,12 @@ func (i DetectorModelOnEnterArgs) ToDetectorModelOnEnterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnEnterOutput)
 }
 
+func (i DetectorModelOnEnterArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelOnEnter] {
+	return pulumix.Output[DetectorModelOnEnter]{
+		OutputState: i.ToDetectorModelOnEnterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelOnEnterArgs) ToDetectorModelOnEnterPtrOutput() DetectorModelOnEnterPtrOutput {
 	return i.ToDetectorModelOnEnterPtrOutputWithContext(context.Background())
 }
@@ -6057,6 +6892,12 @@ func (i *detectorModelOnEnterPtrType) ToDetectorModelOnEnterPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnEnterPtrOutput)
 }
 
+func (i *detectorModelOnEnterPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelOnEnter] {
+	return pulumix.Output[*DetectorModelOnEnter]{
+		OutputState: i.ToDetectorModelOnEnterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // When entering this state, perform these `actions` if the `condition` is `TRUE`.
 type DetectorModelOnEnterOutput struct{ *pulumi.OutputState }
 
@@ -6082,6 +6923,12 @@ func (o DetectorModelOnEnterOutput) ToDetectorModelOnEnterPtrOutputWithContext(c
 	}).(DetectorModelOnEnterPtrOutput)
 }
 
+func (o DetectorModelOnEnterOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelOnEnter] {
+	return pulumix.Output[DetectorModelOnEnter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
 func (o DetectorModelOnEnterOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v DetectorModelOnEnter) []DetectorModelEvent { return v.Events }).(DetectorModelEventArrayOutput)
@@ -6099,6 +6946,12 @@ func (o DetectorModelOnEnterPtrOutput) ToDetectorModelOnEnterPtrOutput() Detecto
 
 func (o DetectorModelOnEnterPtrOutput) ToDetectorModelOnEnterPtrOutputWithContext(ctx context.Context) DetectorModelOnEnterPtrOutput {
 	return o
+}
+
+func (o DetectorModelOnEnterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelOnEnter] {
+	return pulumix.Output[*DetectorModelOnEnter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelOnEnterPtrOutput) Elem() DetectorModelOnEnterOutput {
@@ -6156,6 +7009,12 @@ func (i DetectorModelOnExitArgs) ToDetectorModelOnExitOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnExitOutput)
 }
 
+func (i DetectorModelOnExitArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelOnExit] {
+	return pulumix.Output[DetectorModelOnExit]{
+		OutputState: i.ToDetectorModelOnExitOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelOnExitArgs) ToDetectorModelOnExitPtrOutput() DetectorModelOnExitPtrOutput {
 	return i.ToDetectorModelOnExitPtrOutputWithContext(context.Background())
 }
@@ -6197,6 +7056,12 @@ func (i *detectorModelOnExitPtrType) ToDetectorModelOnExitPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnExitPtrOutput)
 }
 
+func (i *detectorModelOnExitPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelOnExit] {
+	return pulumix.Output[*DetectorModelOnExit]{
+		OutputState: i.ToDetectorModelOnExitPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // When exiting this state, perform these `actions` if the specified `condition` is `TRUE`.
 type DetectorModelOnExitOutput struct{ *pulumi.OutputState }
 
@@ -6222,6 +7087,12 @@ func (o DetectorModelOnExitOutput) ToDetectorModelOnExitPtrOutputWithContext(ctx
 	}).(DetectorModelOnExitPtrOutput)
 }
 
+func (o DetectorModelOnExitOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelOnExit] {
+	return pulumix.Output[DetectorModelOnExit]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
 func (o DetectorModelOnExitOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v DetectorModelOnExit) []DetectorModelEvent { return v.Events }).(DetectorModelEventArrayOutput)
@@ -6239,6 +7110,12 @@ func (o DetectorModelOnExitPtrOutput) ToDetectorModelOnExitPtrOutput() DetectorM
 
 func (o DetectorModelOnExitPtrOutput) ToDetectorModelOnExitPtrOutputWithContext(ctx context.Context) DetectorModelOnExitPtrOutput {
 	return o
+}
+
+func (o DetectorModelOnExitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelOnExit] {
+	return pulumix.Output[*DetectorModelOnExit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelOnExitPtrOutput) Elem() DetectorModelOnExitOutput {
@@ -6300,6 +7177,12 @@ func (i DetectorModelOnInputArgs) ToDetectorModelOnInputOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnInputOutput)
 }
 
+func (i DetectorModelOnInputArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelOnInput] {
+	return pulumix.Output[DetectorModelOnInput]{
+		OutputState: i.ToDetectorModelOnInputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelOnInputArgs) ToDetectorModelOnInputPtrOutput() DetectorModelOnInputPtrOutput {
 	return i.ToDetectorModelOnInputPtrOutputWithContext(context.Background())
 }
@@ -6341,6 +7224,12 @@ func (i *detectorModelOnInputPtrType) ToDetectorModelOnInputPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnInputPtrOutput)
 }
 
+func (i *detectorModelOnInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelOnInput] {
+	return pulumix.Output[*DetectorModelOnInput]{
+		OutputState: i.ToDetectorModelOnInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // When an input is received and the `condition` is `TRUE`, perform the specified `actions`.
 type DetectorModelOnInputOutput struct{ *pulumi.OutputState }
 
@@ -6366,6 +7255,12 @@ func (o DetectorModelOnInputOutput) ToDetectorModelOnInputPtrOutputWithContext(c
 	}).(DetectorModelOnInputPtrOutput)
 }
 
+func (o DetectorModelOnInputOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelOnInput] {
+	return pulumix.Output[DetectorModelOnInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
 func (o DetectorModelOnInputOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v DetectorModelOnInput) []DetectorModelEvent { return v.Events }).(DetectorModelEventArrayOutput)
@@ -6388,6 +7283,12 @@ func (o DetectorModelOnInputPtrOutput) ToDetectorModelOnInputPtrOutput() Detecto
 
 func (o DetectorModelOnInputPtrOutput) ToDetectorModelOnInputPtrOutputWithContext(ctx context.Context) DetectorModelOnInputPtrOutput {
 	return o
+}
+
+func (o DetectorModelOnInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelOnInput] {
+	return pulumix.Output[*DetectorModelOnInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelOnInputPtrOutput) Elem() DetectorModelOnInputOutput {
@@ -6463,6 +7364,12 @@ func (i DetectorModelPayloadArgs) ToDetectorModelPayloadOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelPayloadOutput)
 }
 
+func (i DetectorModelPayloadArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelPayload] {
+	return pulumix.Output[DetectorModelPayload]{
+		OutputState: i.ToDetectorModelPayloadOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelPayloadArgs) ToDetectorModelPayloadPtrOutput() DetectorModelPayloadPtrOutput {
 	return i.ToDetectorModelPayloadPtrOutputWithContext(context.Background())
 }
@@ -6504,6 +7411,12 @@ func (i *detectorModelPayloadPtrType) ToDetectorModelPayloadPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelPayloadPtrOutput)
 }
 
+func (i *detectorModelPayloadPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelPayload] {
+	return pulumix.Output[*DetectorModelPayload]{
+		OutputState: i.ToDetectorModelPayloadPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information needed to configure the payload.
 //
 // By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
@@ -6531,6 +7444,12 @@ func (o DetectorModelPayloadOutput) ToDetectorModelPayloadPtrOutputWithContext(c
 	}).(DetectorModelPayloadPtrOutput)
 }
 
+func (o DetectorModelPayloadOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelPayload] {
+	return pulumix.Output[DetectorModelPayload]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
 func (o DetectorModelPayloadOutput) ContentExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelPayload) string { return v.ContentExpression }).(pulumi.StringOutput)
@@ -6553,6 +7472,12 @@ func (o DetectorModelPayloadPtrOutput) ToDetectorModelPayloadPtrOutput() Detecto
 
 func (o DetectorModelPayloadPtrOutput) ToDetectorModelPayloadPtrOutputWithContext(ctx context.Context) DetectorModelPayloadPtrOutput {
 	return o
+}
+
+func (o DetectorModelPayloadPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelPayload] {
+	return pulumix.Output[*DetectorModelPayload]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelPayloadPtrOutput) Elem() DetectorModelPayloadOutput {
@@ -6620,6 +7545,12 @@ func (i DetectorModelResetTimerArgs) ToDetectorModelResetTimerOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelResetTimerOutput)
 }
 
+func (i DetectorModelResetTimerArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelResetTimer] {
+	return pulumix.Output[DetectorModelResetTimer]{
+		OutputState: i.ToDetectorModelResetTimerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelResetTimerArgs) ToDetectorModelResetTimerPtrOutput() DetectorModelResetTimerPtrOutput {
 	return i.ToDetectorModelResetTimerPtrOutputWithContext(context.Background())
 }
@@ -6661,6 +7592,12 @@ func (i *detectorModelResetTimerPtrType) ToDetectorModelResetTimerPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelResetTimerPtrOutput)
 }
 
+func (i *detectorModelResetTimerPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelResetTimer] {
+	return pulumix.Output[*DetectorModelResetTimer]{
+		OutputState: i.ToDetectorModelResetTimerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information required to reset the timer. The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.
 type DetectorModelResetTimerOutput struct{ *pulumi.OutputState }
 
@@ -6686,6 +7623,12 @@ func (o DetectorModelResetTimerOutput) ToDetectorModelResetTimerPtrOutputWithCon
 	}).(DetectorModelResetTimerPtrOutput)
 }
 
+func (o DetectorModelResetTimerOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelResetTimer] {
+	return pulumix.Output[DetectorModelResetTimer]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the timer to reset.
 func (o DetectorModelResetTimerOutput) TimerName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelResetTimer) string { return v.TimerName }).(pulumi.StringOutput)
@@ -6703,6 +7646,12 @@ func (o DetectorModelResetTimerPtrOutput) ToDetectorModelResetTimerPtrOutput() D
 
 func (o DetectorModelResetTimerPtrOutput) ToDetectorModelResetTimerPtrOutputWithContext(ctx context.Context) DetectorModelResetTimerPtrOutput {
 	return o
+}
+
+func (o DetectorModelResetTimerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelResetTimer] {
+	return pulumix.Output[*DetectorModelResetTimer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelResetTimerPtrOutput) Elem() DetectorModelResetTimerOutput {
@@ -6768,6 +7717,12 @@ func (i DetectorModelSetTimerArgs) ToDetectorModelSetTimerOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSetTimerOutput)
 }
 
+func (i DetectorModelSetTimerArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelSetTimer] {
+	return pulumix.Output[DetectorModelSetTimer]{
+		OutputState: i.ToDetectorModelSetTimerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelSetTimerArgs) ToDetectorModelSetTimerPtrOutput() DetectorModelSetTimerPtrOutput {
 	return i.ToDetectorModelSetTimerPtrOutputWithContext(context.Background())
 }
@@ -6809,6 +7764,12 @@ func (i *detectorModelSetTimerPtrType) ToDetectorModelSetTimerPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSetTimerPtrOutput)
 }
 
+func (i *detectorModelSetTimerPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelSetTimer] {
+	return pulumix.Output[*DetectorModelSetTimer]{
+		OutputState: i.ToDetectorModelSetTimerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information needed to set the timer.
 type DetectorModelSetTimerOutput struct{ *pulumi.OutputState }
 
@@ -6832,6 +7793,12 @@ func (o DetectorModelSetTimerOutput) ToDetectorModelSetTimerPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelSetTimer) *DetectorModelSetTimer {
 		return &v
 	}).(DetectorModelSetTimerPtrOutput)
+}
+
+func (o DetectorModelSetTimerOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelSetTimer] {
+	return pulumix.Output[DetectorModelSetTimer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
@@ -6861,6 +7828,12 @@ func (o DetectorModelSetTimerPtrOutput) ToDetectorModelSetTimerPtrOutput() Detec
 
 func (o DetectorModelSetTimerPtrOutput) ToDetectorModelSetTimerPtrOutputWithContext(ctx context.Context) DetectorModelSetTimerPtrOutput {
 	return o
+}
+
+func (o DetectorModelSetTimerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelSetTimer] {
+	return pulumix.Output[*DetectorModelSetTimer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelSetTimerPtrOutput) Elem() DetectorModelSetTimerOutput {
@@ -6942,6 +7915,12 @@ func (i DetectorModelSetVariableArgs) ToDetectorModelSetVariableOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSetVariableOutput)
 }
 
+func (i DetectorModelSetVariableArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelSetVariable] {
+	return pulumix.Output[DetectorModelSetVariable]{
+		OutputState: i.ToDetectorModelSetVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelSetVariableArgs) ToDetectorModelSetVariablePtrOutput() DetectorModelSetVariablePtrOutput {
 	return i.ToDetectorModelSetVariablePtrOutputWithContext(context.Background())
 }
@@ -6983,6 +7962,12 @@ func (i *detectorModelSetVariablePtrType) ToDetectorModelSetVariablePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSetVariablePtrOutput)
 }
 
+func (i *detectorModelSetVariablePtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelSetVariable] {
+	return pulumix.Output[*DetectorModelSetVariable]{
+		OutputState: i.ToDetectorModelSetVariablePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about the variable and its new value.
 type DetectorModelSetVariableOutput struct{ *pulumi.OutputState }
 
@@ -7008,6 +7993,12 @@ func (o DetectorModelSetVariableOutput) ToDetectorModelSetVariablePtrOutputWithC
 	}).(DetectorModelSetVariablePtrOutput)
 }
 
+func (o DetectorModelSetVariableOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelSetVariable] {
+	return pulumix.Output[DetectorModelSetVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The new value of the variable.
 func (o DetectorModelSetVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelSetVariable) string { return v.Value }).(pulumi.StringOutput)
@@ -7030,6 +8021,12 @@ func (o DetectorModelSetVariablePtrOutput) ToDetectorModelSetVariablePtrOutput()
 
 func (o DetectorModelSetVariablePtrOutput) ToDetectorModelSetVariablePtrOutputWithContext(ctx context.Context) DetectorModelSetVariablePtrOutput {
 	return o
+}
+
+func (o DetectorModelSetVariablePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelSetVariable] {
+	return pulumix.Output[*DetectorModelSetVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelSetVariablePtrOutput) Elem() DetectorModelSetVariableOutput {
@@ -7099,6 +8096,12 @@ func (i DetectorModelSnsArgs) ToDetectorModelSnsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSnsOutput)
 }
 
+func (i DetectorModelSnsArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelSns] {
+	return pulumix.Output[DetectorModelSns]{
+		OutputState: i.ToDetectorModelSnsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelSnsArgs) ToDetectorModelSnsPtrOutput() DetectorModelSnsPtrOutput {
 	return i.ToDetectorModelSnsPtrOutputWithContext(context.Background())
 }
@@ -7140,6 +8143,12 @@ func (i *detectorModelSnsPtrType) ToDetectorModelSnsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSnsPtrOutput)
 }
 
+func (i *detectorModelSnsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelSns] {
+	return pulumix.Output[*DetectorModelSns]{
+		OutputState: i.ToDetectorModelSnsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information required to publish the Amazon SNS message.
 type DetectorModelSnsOutput struct{ *pulumi.OutputState }
 
@@ -7165,6 +8174,12 @@ func (o DetectorModelSnsOutput) ToDetectorModelSnsPtrOutputWithContext(ctx conte
 	}).(DetectorModelSnsPtrOutput)
 }
 
+func (o DetectorModelSnsOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelSns] {
+	return pulumix.Output[DetectorModelSns]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DetectorModelSnsOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelSns) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -7186,6 +8201,12 @@ func (o DetectorModelSnsPtrOutput) ToDetectorModelSnsPtrOutput() DetectorModelSn
 
 func (o DetectorModelSnsPtrOutput) ToDetectorModelSnsPtrOutputWithContext(ctx context.Context) DetectorModelSnsPtrOutput {
 	return o
+}
+
+func (o DetectorModelSnsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelSns] {
+	return pulumix.Output[*DetectorModelSns]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelSnsPtrOutput) Elem() DetectorModelSnsOutput {
@@ -7256,6 +8277,12 @@ func (i DetectorModelSqsArgs) ToDetectorModelSqsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSqsOutput)
 }
 
+func (i DetectorModelSqsArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelSqs] {
+	return pulumix.Output[DetectorModelSqs]{
+		OutputState: i.ToDetectorModelSqsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorModelSqsArgs) ToDetectorModelSqsPtrOutput() DetectorModelSqsPtrOutput {
 	return i.ToDetectorModelSqsPtrOutputWithContext(context.Background())
 }
@@ -7297,6 +8324,12 @@ func (i *detectorModelSqsPtrType) ToDetectorModelSqsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSqsPtrOutput)
 }
 
+func (i *detectorModelSqsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelSqs] {
+	return pulumix.Output[*DetectorModelSqs]{
+		OutputState: i.ToDetectorModelSqsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorModelSqsOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelSqsOutput) ElementType() reflect.Type {
@@ -7319,6 +8352,12 @@ func (o DetectorModelSqsOutput) ToDetectorModelSqsPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelSqs) *DetectorModelSqs {
 		return &v
 	}).(DetectorModelSqsPtrOutput)
+}
+
+func (o DetectorModelSqsOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelSqs] {
+	return pulumix.Output[DetectorModelSqs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelSqsOutput) Payload() DetectorModelPayloadPtrOutput {
@@ -7347,6 +8386,12 @@ func (o DetectorModelSqsPtrOutput) ToDetectorModelSqsPtrOutput() DetectorModelSq
 
 func (o DetectorModelSqsPtrOutput) ToDetectorModelSqsPtrOutputWithContext(ctx context.Context) DetectorModelSqsPtrOutput {
 	return o
+}
+
+func (o DetectorModelSqsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelSqs] {
+	return pulumix.Output[*DetectorModelSqs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelSqsPtrOutput) Elem() DetectorModelSqsOutput {
@@ -7429,6 +8474,12 @@ func (i DetectorModelStateTypeArgs) ToDetectorModelStateTypeOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelStateTypeOutput)
 }
 
+func (i DetectorModelStateTypeArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelStateType] {
+	return pulumix.Output[DetectorModelStateType]{
+		OutputState: i.ToDetectorModelStateTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorModelStateTypeArrayInput is an input type that accepts DetectorModelStateTypeArray and DetectorModelStateTypeArrayOutput values.
 // You can construct a concrete instance of `DetectorModelStateTypeArrayInput` via:
 //
@@ -7454,6 +8505,12 @@ func (i DetectorModelStateTypeArray) ToDetectorModelStateTypeArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelStateTypeArrayOutput)
 }
 
+func (i DetectorModelStateTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModelStateType] {
+	return pulumix.Output[[]DetectorModelStateType]{
+		OutputState: i.ToDetectorModelStateTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information that defines a state of a detector.
 type DetectorModelStateTypeOutput struct{ *pulumi.OutputState }
 
@@ -7467,6 +8524,12 @@ func (o DetectorModelStateTypeOutput) ToDetectorModelStateTypeOutput() DetectorM
 
 func (o DetectorModelStateTypeOutput) ToDetectorModelStateTypeOutputWithContext(ctx context.Context) DetectorModelStateTypeOutput {
 	return o
+}
+
+func (o DetectorModelStateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelStateType] {
+	return pulumix.Output[DetectorModelStateType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelStateTypeOutput) OnEnter() DetectorModelOnEnterPtrOutput {
@@ -7498,6 +8561,12 @@ func (o DetectorModelStateTypeArrayOutput) ToDetectorModelStateTypeArrayOutput()
 
 func (o DetectorModelStateTypeArrayOutput) ToDetectorModelStateTypeArrayOutputWithContext(ctx context.Context) DetectorModelStateTypeArrayOutput {
 	return o
+}
+
+func (o DetectorModelStateTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModelStateType] {
+	return pulumix.Output[[]DetectorModelStateType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelStateTypeArrayOutput) Index(i pulumi.IntInput) DetectorModelStateTypeOutput {
@@ -7545,6 +8614,12 @@ func (i DetectorModelTagArgs) ToDetectorModelTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelTagOutput)
 }
 
+func (i DetectorModelTagArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelTag] {
+	return pulumix.Output[DetectorModelTag]{
+		OutputState: i.ToDetectorModelTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorModelTagArrayInput is an input type that accepts DetectorModelTagArray and DetectorModelTagArrayOutput values.
 // You can construct a concrete instance of `DetectorModelTagArrayInput` via:
 //
@@ -7570,6 +8645,12 @@ func (i DetectorModelTagArray) ToDetectorModelTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelTagArrayOutput)
 }
 
+func (i DetectorModelTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModelTag] {
+	return pulumix.Output[[]DetectorModelTag]{
+		OutputState: i.ToDetectorModelTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Tags to be applied to Input.
 type DetectorModelTagOutput struct{ *pulumi.OutputState }
 
@@ -7583,6 +8664,12 @@ func (o DetectorModelTagOutput) ToDetectorModelTagOutput() DetectorModelTagOutpu
 
 func (o DetectorModelTagOutput) ToDetectorModelTagOutputWithContext(ctx context.Context) DetectorModelTagOutput {
 	return o
+}
+
+func (o DetectorModelTagOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelTag] {
+	return pulumix.Output[DetectorModelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key of the Tag.
@@ -7607,6 +8694,12 @@ func (o DetectorModelTagArrayOutput) ToDetectorModelTagArrayOutput() DetectorMod
 
 func (o DetectorModelTagArrayOutput) ToDetectorModelTagArrayOutputWithContext(ctx context.Context) DetectorModelTagArrayOutput {
 	return o
+}
+
+func (o DetectorModelTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModelTag] {
+	return pulumix.Output[[]DetectorModelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelTagArrayOutput) Index(i pulumi.IntInput) DetectorModelTagOutput {
@@ -7662,6 +8755,12 @@ func (i DetectorModelTransitionEventArgs) ToDetectorModelTransitionEventOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelTransitionEventOutput)
 }
 
+func (i DetectorModelTransitionEventArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModelTransitionEvent] {
+	return pulumix.Output[DetectorModelTransitionEvent]{
+		OutputState: i.ToDetectorModelTransitionEventOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorModelTransitionEventArrayInput is an input type that accepts DetectorModelTransitionEventArray and DetectorModelTransitionEventArrayOutput values.
 // You can construct a concrete instance of `DetectorModelTransitionEventArrayInput` via:
 //
@@ -7687,6 +8786,12 @@ func (i DetectorModelTransitionEventArray) ToDetectorModelTransitionEventArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelTransitionEventArrayOutput)
 }
 
+func (i DetectorModelTransitionEventArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModelTransitionEvent] {
+	return pulumix.Output[[]DetectorModelTransitionEvent]{
+		OutputState: i.ToDetectorModelTransitionEventArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies the ` actions  `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
 type DetectorModelTransitionEventOutput struct{ *pulumi.OutputState }
 
@@ -7700,6 +8805,12 @@ func (o DetectorModelTransitionEventOutput) ToDetectorModelTransitionEventOutput
 
 func (o DetectorModelTransitionEventOutput) ToDetectorModelTransitionEventOutputWithContext(ctx context.Context) DetectorModelTransitionEventOutput {
 	return o
+}
+
+func (o DetectorModelTransitionEventOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelTransitionEvent] {
+	return pulumix.Output[DetectorModelTransitionEvent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The actions to be performed.
@@ -7734,6 +8845,12 @@ func (o DetectorModelTransitionEventArrayOutput) ToDetectorModelTransitionEventA
 
 func (o DetectorModelTransitionEventArrayOutput) ToDetectorModelTransitionEventArrayOutputWithContext(ctx context.Context) DetectorModelTransitionEventArrayOutput {
 	return o
+}
+
+func (o DetectorModelTransitionEventArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModelTransitionEvent] {
+	return pulumix.Output[[]DetectorModelTransitionEvent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelTransitionEventArrayOutput) Index(i pulumi.IntInput) DetectorModelTransitionEventOutput {
@@ -7781,6 +8898,12 @@ func (i InputAttributeArgs) ToInputAttributeOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(InputAttributeOutput)
 }
 
+func (i InputAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[InputAttribute] {
+	return pulumix.Output[InputAttribute]{
+		OutputState: i.ToInputAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InputAttributeArrayInput is an input type that accepts InputAttributeArray and InputAttributeArrayOutput values.
 // You can construct a concrete instance of `InputAttributeArrayInput` via:
 //
@@ -7806,6 +8929,12 @@ func (i InputAttributeArray) ToInputAttributeArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InputAttributeArrayOutput)
 }
 
+func (i InputAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]InputAttribute] {
+	return pulumix.Output[[]InputAttribute]{
+		OutputState: i.ToInputAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
 type InputAttributeOutput struct{ *pulumi.OutputState }
 
@@ -7819,6 +8948,12 @@ func (o InputAttributeOutput) ToInputAttributeOutput() InputAttributeOutput {
 
 func (o InputAttributeOutput) ToInputAttributeOutputWithContext(ctx context.Context) InputAttributeOutput {
 	return o
+}
+
+func (o InputAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[InputAttribute] {
+	return pulumix.Output[InputAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events (`BatchPutMessage`). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the `condition` expressions used by detectors.
@@ -7840,6 +8975,12 @@ func (o InputAttributeArrayOutput) ToInputAttributeArrayOutput() InputAttributeA
 
 func (o InputAttributeArrayOutput) ToInputAttributeArrayOutputWithContext(ctx context.Context) InputAttributeArrayOutput {
 	return o
+}
+
+func (o InputAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InputAttribute] {
+	return pulumix.Output[[]InputAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InputAttributeArrayOutput) Index(i pulumi.IntInput) InputAttributeOutput {
@@ -7883,6 +9024,12 @@ func (i InputDefinitionArgs) ToInputDefinitionOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(InputDefinitionOutput)
 }
 
+func (i InputDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[InputDefinition] {
+	return pulumix.Output[InputDefinition]{
+		OutputState: i.ToInputDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The definition of the input.
 type InputDefinitionOutput struct{ *pulumi.OutputState }
 
@@ -7896,6 +9043,12 @@ func (o InputDefinitionOutput) ToInputDefinitionOutput() InputDefinitionOutput {
 
 func (o InputDefinitionOutput) ToInputDefinitionOutputWithContext(ctx context.Context) InputDefinitionOutput {
 	return o
+}
+
+func (o InputDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[InputDefinition] {
+	return pulumix.Output[InputDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
@@ -7915,6 +9068,12 @@ func (o InputDefinitionPtrOutput) ToInputDefinitionPtrOutput() InputDefinitionPt
 
 func (o InputDefinitionPtrOutput) ToInputDefinitionPtrOutputWithContext(ctx context.Context) InputDefinitionPtrOutput {
 	return o
+}
+
+func (o InputDefinitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InputDefinition] {
+	return pulumix.Output[*InputDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InputDefinitionPtrOutput) Elem() InputDefinitionOutput {
@@ -7976,6 +9135,12 @@ func (i InputTagArgs) ToInputTagOutputWithContext(ctx context.Context) InputTagO
 	return pulumi.ToOutputWithContext(ctx, i).(InputTagOutput)
 }
 
+func (i InputTagArgs) ToOutput(ctx context.Context) pulumix.Output[InputTag] {
+	return pulumix.Output[InputTag]{
+		OutputState: i.ToInputTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InputTagArrayInput is an input type that accepts InputTagArray and InputTagArrayOutput values.
 // You can construct a concrete instance of `InputTagArrayInput` via:
 //
@@ -8001,6 +9166,12 @@ func (i InputTagArray) ToInputTagArrayOutputWithContext(ctx context.Context) Inp
 	return pulumi.ToOutputWithContext(ctx, i).(InputTagArrayOutput)
 }
 
+func (i InputTagArray) ToOutput(ctx context.Context) pulumix.Output[[]InputTag] {
+	return pulumix.Output[[]InputTag]{
+		OutputState: i.ToInputTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Tags to be applied to Input.
 type InputTagOutput struct{ *pulumi.OutputState }
 
@@ -8014,6 +9185,12 @@ func (o InputTagOutput) ToInputTagOutput() InputTagOutput {
 
 func (o InputTagOutput) ToInputTagOutputWithContext(ctx context.Context) InputTagOutput {
 	return o
+}
+
+func (o InputTagOutput) ToOutput(ctx context.Context) pulumix.Output[InputTag] {
+	return pulumix.Output[InputTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key of the Tag.
@@ -8038,6 +9215,12 @@ func (o InputTagArrayOutput) ToInputTagArrayOutput() InputTagArrayOutput {
 
 func (o InputTagArrayOutput) ToInputTagArrayOutputWithContext(ctx context.Context) InputTagArrayOutput {
 	return o
+}
+
+func (o InputTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InputTag] {
+	return pulumix.Output[[]InputTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InputTagArrayOutput) Index(i pulumi.IntInput) InputTagOutput {

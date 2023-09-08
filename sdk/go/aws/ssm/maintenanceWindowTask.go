@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSM::MaintenanceWindowTask
@@ -148,6 +149,12 @@ func (i *MaintenanceWindowTask) ToMaintenanceWindowTaskOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskOutput)
 }
 
+func (i *MaintenanceWindowTask) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTask] {
+	return pulumix.Output[*MaintenanceWindowTask]{
+		OutputState: i.ToMaintenanceWindowTaskOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MaintenanceWindowTaskOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskOutput) ElementType() reflect.Type {
@@ -160,6 +167,12 @@ func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutput() Maintenance
 
 func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutputWithContext(ctx context.Context) MaintenanceWindowTaskOutput {
 	return o
+}
+
+func (o MaintenanceWindowTaskOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTask] {
+	return pulumix.Output[*MaintenanceWindowTask]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MaintenanceWindowTaskOutput) CutoffBehavior() pulumi.StringPtrOutput {

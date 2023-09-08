@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EventSchemas::Discoverer
@@ -67,6 +68,12 @@ func (o LookupDiscovererResultOutput) ToLookupDiscovererResultOutput() LookupDis
 
 func (o LookupDiscovererResultOutput) ToLookupDiscovererResultOutputWithContext(ctx context.Context) LookupDiscovererResultOutput {
 	return o
+}
+
+func (o LookupDiscovererResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDiscovererResult] {
+	return pulumix.Output[LookupDiscovererResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDiscovererResultOutput) CrossAccount() pulumi.BoolPtrOutput {

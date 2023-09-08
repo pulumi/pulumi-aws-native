@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::Portal Resource Type
@@ -79,6 +80,12 @@ func (o LookupPortalResultOutput) ToLookupPortalResultOutput() LookupPortalResul
 
 func (o LookupPortalResultOutput) ToLookupPortalResultOutputWithContext(ctx context.Context) LookupPortalResultOutput {
 	return o
+}
+
+func (o LookupPortalResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPortalResult] {
+	return pulumix.Output[LookupPortalResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPortalResultOutput) AuthenticationType() PortalAuthenticationTypePtrOutput {

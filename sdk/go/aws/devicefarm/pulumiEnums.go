@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The rule's stringified attribute.
@@ -89,6 +90,12 @@ func (o DevicePoolRuleAttributeOutput) ToDevicePoolRuleAttributePtrOutputWithCon
 	}).(DevicePoolRuleAttributePtrOutput)
 }
 
+func (o DevicePoolRuleAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[DevicePoolRuleAttribute] {
+	return pulumix.Output[DevicePoolRuleAttribute]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DevicePoolRuleAttributeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -122,6 +129,12 @@ func (o DevicePoolRuleAttributePtrOutput) ToDevicePoolRuleAttributePtrOutput() D
 
 func (o DevicePoolRuleAttributePtrOutput) ToDevicePoolRuleAttributePtrOutputWithContext(ctx context.Context) DevicePoolRuleAttributePtrOutput {
 	return o
+}
+
+func (o DevicePoolRuleAttributePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DevicePoolRuleAttribute] {
+	return pulumix.Output[*DevicePoolRuleAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DevicePoolRuleAttributePtrOutput) Elem() DevicePoolRuleAttributeOutput {
@@ -184,6 +197,12 @@ func (in *devicePoolRuleAttributePtr) ToDevicePoolRuleAttributePtrOutput() Devic
 
 func (in *devicePoolRuleAttributePtr) ToDevicePoolRuleAttributePtrOutputWithContext(ctx context.Context) DevicePoolRuleAttributePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DevicePoolRuleAttributePtrOutput)
+}
+
+func (in *devicePoolRuleAttributePtr) ToOutput(ctx context.Context) pulumix.Output[*DevicePoolRuleAttribute] {
+	return pulumix.Output[*DevicePoolRuleAttribute]{
+		OutputState: in.ToDevicePoolRuleAttributePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies how Device Farm compares the rule's attribute to the value.
@@ -260,6 +279,12 @@ func (o DevicePoolRuleOperatorOutput) ToDevicePoolRuleOperatorPtrOutputWithConte
 	}).(DevicePoolRuleOperatorPtrOutput)
 }
 
+func (o DevicePoolRuleOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[DevicePoolRuleOperator] {
+	return pulumix.Output[DevicePoolRuleOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DevicePoolRuleOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -293,6 +318,12 @@ func (o DevicePoolRuleOperatorPtrOutput) ToDevicePoolRuleOperatorPtrOutput() Dev
 
 func (o DevicePoolRuleOperatorPtrOutput) ToDevicePoolRuleOperatorPtrOutputWithContext(ctx context.Context) DevicePoolRuleOperatorPtrOutput {
 	return o
+}
+
+func (o DevicePoolRuleOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DevicePoolRuleOperator] {
+	return pulumix.Output[*DevicePoolRuleOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DevicePoolRuleOperatorPtrOutput) Elem() DevicePoolRuleOperatorOutput {
@@ -355,6 +386,12 @@ func (in *devicePoolRuleOperatorPtr) ToDevicePoolRuleOperatorPtrOutput() DeviceP
 
 func (in *devicePoolRuleOperatorPtr) ToDevicePoolRuleOperatorPtrOutputWithContext(ctx context.Context) DevicePoolRuleOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DevicePoolRuleOperatorPtrOutput)
+}
+
+func (in *devicePoolRuleOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*DevicePoolRuleOperator] {
+	return pulumix.Output[*DevicePoolRuleOperator]{
+		OutputState: in.ToDevicePoolRuleOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

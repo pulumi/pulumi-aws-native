@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Describes an AWS App Runner automatic configuration resource that enables automatic scaling of instances used to process web requests. You can share an auto scaling configuration across multiple services.
@@ -130,6 +131,12 @@ func (i *AutoScalingConfiguration) ToAutoScalingConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingConfigurationOutput)
 }
 
+func (i *AutoScalingConfiguration) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingConfiguration] {
+	return pulumix.Output[*AutoScalingConfiguration]{
+		OutputState: i.ToAutoScalingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutoScalingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingConfigurationOutput) ElementType() reflect.Type {
@@ -142,6 +149,12 @@ func (o AutoScalingConfigurationOutput) ToAutoScalingConfigurationOutput() AutoS
 
 func (o AutoScalingConfigurationOutput) ToAutoScalingConfigurationOutputWithContext(ctx context.Context) AutoScalingConfigurationOutput {
 	return o
+}
+
+func (o AutoScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingConfiguration] {
+	return pulumix.Output[*AutoScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of this auto scaling configuration.

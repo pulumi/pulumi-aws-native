@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
@@ -174,6 +175,12 @@ func (i *InfrastructureConfiguration) ToInfrastructureConfigurationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationOutput)
 }
 
+func (i *InfrastructureConfiguration) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfiguration] {
+	return pulumix.Output[*InfrastructureConfiguration]{
+		OutputState: i.ToInfrastructureConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InfrastructureConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InfrastructureConfigurationOutput) ElementType() reflect.Type {
@@ -186,6 +193,12 @@ func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutput()
 
 func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutputWithContext(ctx context.Context) InfrastructureConfigurationOutput {
 	return o
+}
+
+func (o InfrastructureConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfiguration] {
+	return pulumix.Output[*InfrastructureConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the infrastructure configuration.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::Image
@@ -113,6 +114,12 @@ func (i *Image) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutput)
 }
 
+func (i *Image) ToOutput(ctx context.Context) pulumix.Output[*Image] {
+	return pulumix.Output[*Image]{
+		OutputState: i.ToImageOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageOutput struct{ *pulumi.OutputState }
 
 func (ImageOutput) ElementType() reflect.Type {
@@ -125,6 +132,12 @@ func (o ImageOutput) ToImageOutput() ImageOutput {
 
 func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
+}
+
+func (o ImageOutput) ToOutput(ctx context.Context) pulumix.Output[*Image] {
+	return pulumix.Output[*Image]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageOutput) ImageArn() pulumi.StringOutput {

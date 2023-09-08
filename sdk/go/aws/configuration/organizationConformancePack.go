@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Config::OrganizationConformancePack.
@@ -132,6 +133,12 @@ func (i *OrganizationConformancePack) ToOrganizationConformancePackOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConformancePackOutput)
 }
 
+func (i *OrganizationConformancePack) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConformancePack] {
+	return pulumix.Output[*OrganizationConformancePack]{
+		OutputState: i.ToOrganizationConformancePackOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConformancePackOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConformancePackOutput) ElementType() reflect.Type {
@@ -144,6 +151,12 @@ func (o OrganizationConformancePackOutput) ToOrganizationConformancePackOutput()
 
 func (o OrganizationConformancePackOutput) ToOrganizationConformancePackOutputWithContext(ctx context.Context) OrganizationConformancePackOutput {
 	return o
+}
+
+func (o OrganizationConformancePackOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConformancePack] {
+	return pulumix.Output[*OrganizationConformancePack]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of ConformancePackInputParameter objects.

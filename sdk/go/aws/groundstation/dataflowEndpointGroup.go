@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS Ground Station DataflowEndpointGroup schema for CloudFormation
@@ -109,6 +110,12 @@ func (i *DataflowEndpointGroup) ToDataflowEndpointGroupOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupOutput)
 }
 
+func (i *DataflowEndpointGroup) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroup] {
+	return pulumix.Output[*DataflowEndpointGroup]{
+		OutputState: i.ToDataflowEndpointGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataflowEndpointGroupOutput struct{ *pulumi.OutputState }
 
 func (DataflowEndpointGroupOutput) ElementType() reflect.Type {
@@ -121,6 +128,12 @@ func (o DataflowEndpointGroupOutput) ToDataflowEndpointGroupOutput() DataflowEnd
 
 func (o DataflowEndpointGroupOutput) ToDataflowEndpointGroupOutputWithContext(ctx context.Context) DataflowEndpointGroupOutput {
 	return o
+}
+
+func (o DataflowEndpointGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroup] {
+	return pulumix.Output[*DataflowEndpointGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataflowEndpointGroupOutput) Arn() pulumi.StringOutput {

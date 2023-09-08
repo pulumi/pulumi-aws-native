@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::DataQualityRuleset
@@ -106,6 +107,12 @@ func (i *DataQualityRuleset) ToDataQualityRulesetOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetOutput)
 }
 
+func (i *DataQualityRuleset) ToOutput(ctx context.Context) pulumix.Output[*DataQualityRuleset] {
+	return pulumix.Output[*DataQualityRuleset]{
+		OutputState: i.ToDataQualityRulesetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataQualityRulesetOutput struct{ *pulumi.OutputState }
 
 func (DataQualityRulesetOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o DataQualityRulesetOutput) ToDataQualityRulesetOutput() DataQualityRulese
 
 func (o DataQualityRulesetOutput) ToDataQualityRulesetOutputWithContext(ctx context.Context) DataQualityRulesetOutput {
 	return o
+}
+
+func (o DataQualityRulesetOutput) ToOutput(ctx context.Context) pulumix.Output[*DataQualityRuleset] {
+	return pulumix.Output[*DataQualityRuleset]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataQualityRulesetOutput) ClientToken() pulumi.StringPtrOutput {

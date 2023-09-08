@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a streaming session machine image that can be used to launch a streaming session
@@ -78,6 +79,12 @@ func (o LookupStreamingImageResultOutput) ToLookupStreamingImageResultOutput() L
 
 func (o LookupStreamingImageResultOutput) ToLookupStreamingImageResultOutputWithContext(ctx context.Context) LookupStreamingImageResultOutput {
 	return o
+}
+
+func (o LookupStreamingImageResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStreamingImageResult] {
+	return pulumix.Output[LookupStreamingImageResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // <p>A human-readable description of the streaming image.</p>

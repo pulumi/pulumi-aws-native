@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE.
@@ -78,6 +79,12 @@ func (o ScheduleAssignPublicIpOutput) ToScheduleAssignPublicIpPtrOutputWithConte
 	}).(ScheduleAssignPublicIpPtrOutput)
 }
 
+func (o ScheduleAssignPublicIpOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleAssignPublicIp] {
+	return pulumix.Output[ScheduleAssignPublicIp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScheduleAssignPublicIpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o ScheduleAssignPublicIpPtrOutput) ToScheduleAssignPublicIpPtrOutput() Sch
 
 func (o ScheduleAssignPublicIpPtrOutput) ToScheduleAssignPublicIpPtrOutputWithContext(ctx context.Context) ScheduleAssignPublicIpPtrOutput {
 	return o
+}
+
+func (o ScheduleAssignPublicIpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleAssignPublicIp] {
+	return pulumix.Output[*ScheduleAssignPublicIp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleAssignPublicIpPtrOutput) Elem() ScheduleAssignPublicIpOutput {
@@ -173,6 +186,12 @@ func (in *scheduleAssignPublicIpPtr) ToScheduleAssignPublicIpPtrOutput() Schedul
 
 func (in *scheduleAssignPublicIpPtr) ToScheduleAssignPublicIpPtrOutputWithContext(ctx context.Context) ScheduleAssignPublicIpPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduleAssignPublicIpPtrOutput)
+}
+
+func (in *scheduleAssignPublicIpPtr) ToOutput(ctx context.Context) pulumix.Output[*ScheduleAssignPublicIp] {
+	return pulumix.Output[*ScheduleAssignPublicIp]{
+		OutputState: in.ToScheduleAssignPublicIpPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Determines whether the schedule is executed within a flexible time window.
@@ -243,6 +262,12 @@ func (o ScheduleFlexibleTimeWindowModeOutput) ToScheduleFlexibleTimeWindowModePt
 	}).(ScheduleFlexibleTimeWindowModePtrOutput)
 }
 
+func (o ScheduleFlexibleTimeWindowModeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleFlexibleTimeWindowMode] {
+	return pulumix.Output[ScheduleFlexibleTimeWindowMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScheduleFlexibleTimeWindowModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -276,6 +301,12 @@ func (o ScheduleFlexibleTimeWindowModePtrOutput) ToScheduleFlexibleTimeWindowMod
 
 func (o ScheduleFlexibleTimeWindowModePtrOutput) ToScheduleFlexibleTimeWindowModePtrOutputWithContext(ctx context.Context) ScheduleFlexibleTimeWindowModePtrOutput {
 	return o
+}
+
+func (o ScheduleFlexibleTimeWindowModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleFlexibleTimeWindowMode] {
+	return pulumix.Output[*ScheduleFlexibleTimeWindowMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleFlexibleTimeWindowModePtrOutput) Elem() ScheduleFlexibleTimeWindowModeOutput {
@@ -340,6 +371,12 @@ func (in *scheduleFlexibleTimeWindowModePtr) ToScheduleFlexibleTimeWindowModePtr
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduleFlexibleTimeWindowModePtrOutput)
 }
 
+func (in *scheduleFlexibleTimeWindowModePtr) ToOutput(ctx context.Context) pulumix.Output[*ScheduleFlexibleTimeWindowMode] {
+	return pulumix.Output[*ScheduleFlexibleTimeWindowMode]{
+		OutputState: in.ToScheduleFlexibleTimeWindowModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies the state of the schedule group.
 type ScheduleGroupStateEnum string
 
@@ -370,6 +407,12 @@ func (o ScheduleGroupStateEnumOutput) ToScheduleGroupStateEnumPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleGroupStateEnum) *ScheduleGroupStateEnum {
 		return &v
 	}).(ScheduleGroupStateEnumPtrOutput)
+}
+
+func (o ScheduleGroupStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleGroupStateEnum] {
+	return pulumix.Output[ScheduleGroupStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleGroupStateEnumOutput) ToStringOutput() pulumi.StringOutput {
@@ -405,6 +448,12 @@ func (o ScheduleGroupStateEnumPtrOutput) ToScheduleGroupStateEnumPtrOutput() Sch
 
 func (o ScheduleGroupStateEnumPtrOutput) ToScheduleGroupStateEnumPtrOutputWithContext(ctx context.Context) ScheduleGroupStateEnumPtrOutput {
 	return o
+}
+
+func (o ScheduleGroupStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleGroupStateEnum] {
+	return pulumix.Output[*ScheduleGroupStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleGroupStateEnumPtrOutput) Elem() ScheduleGroupStateEnumOutput {
@@ -500,6 +549,12 @@ func (o ScheduleLaunchTypeOutput) ToScheduleLaunchTypePtrOutputWithContext(ctx c
 	}).(ScheduleLaunchTypePtrOutput)
 }
 
+func (o ScheduleLaunchTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleLaunchType] {
+	return pulumix.Output[ScheduleLaunchType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScheduleLaunchTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -533,6 +588,12 @@ func (o ScheduleLaunchTypePtrOutput) ToScheduleLaunchTypePtrOutput() ScheduleLau
 
 func (o ScheduleLaunchTypePtrOutput) ToScheduleLaunchTypePtrOutputWithContext(ctx context.Context) ScheduleLaunchTypePtrOutput {
 	return o
+}
+
+func (o ScheduleLaunchTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleLaunchType] {
+	return pulumix.Output[*ScheduleLaunchType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleLaunchTypePtrOutput) Elem() ScheduleLaunchTypeOutput {
@@ -595,6 +656,12 @@ func (in *scheduleLaunchTypePtr) ToScheduleLaunchTypePtrOutput() ScheduleLaunchT
 
 func (in *scheduleLaunchTypePtr) ToScheduleLaunchTypePtrOutputWithContext(ctx context.Context) ScheduleLaunchTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduleLaunchTypePtrOutput)
+}
+
+func (in *scheduleLaunchTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ScheduleLaunchType] {
+	return pulumix.Output[*ScheduleLaunchType]{
+		OutputState: in.ToScheduleLaunchTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates.
@@ -665,6 +732,12 @@ func (o SchedulePlacementConstraintTypeOutput) ToSchedulePlacementConstraintType
 	}).(SchedulePlacementConstraintTypePtrOutput)
 }
 
+func (o SchedulePlacementConstraintTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulePlacementConstraintType] {
+	return pulumix.Output[SchedulePlacementConstraintType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SchedulePlacementConstraintTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -698,6 +771,12 @@ func (o SchedulePlacementConstraintTypePtrOutput) ToSchedulePlacementConstraintT
 
 func (o SchedulePlacementConstraintTypePtrOutput) ToSchedulePlacementConstraintTypePtrOutputWithContext(ctx context.Context) SchedulePlacementConstraintTypePtrOutput {
 	return o
+}
+
+func (o SchedulePlacementConstraintTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulePlacementConstraintType] {
+	return pulumix.Output[*SchedulePlacementConstraintType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchedulePlacementConstraintTypePtrOutput) Elem() SchedulePlacementConstraintTypeOutput {
@@ -760,6 +839,12 @@ func (in *schedulePlacementConstraintTypePtr) ToSchedulePlacementConstraintTypeP
 
 func (in *schedulePlacementConstraintTypePtr) ToSchedulePlacementConstraintTypePtrOutputWithContext(ctx context.Context) SchedulePlacementConstraintTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SchedulePlacementConstraintTypePtrOutput)
+}
+
+func (in *schedulePlacementConstraintTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SchedulePlacementConstraintType] {
+	return pulumix.Output[*SchedulePlacementConstraintType]{
+		OutputState: in.ToSchedulePlacementConstraintTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
@@ -831,6 +916,12 @@ func (o SchedulePlacementStrategyTypeOutput) ToSchedulePlacementStrategyTypePtrO
 	}).(SchedulePlacementStrategyTypePtrOutput)
 }
 
+func (o SchedulePlacementStrategyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulePlacementStrategyType] {
+	return pulumix.Output[SchedulePlacementStrategyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SchedulePlacementStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -864,6 +955,12 @@ func (o SchedulePlacementStrategyTypePtrOutput) ToSchedulePlacementStrategyTypeP
 
 func (o SchedulePlacementStrategyTypePtrOutput) ToSchedulePlacementStrategyTypePtrOutputWithContext(ctx context.Context) SchedulePlacementStrategyTypePtrOutput {
 	return o
+}
+
+func (o SchedulePlacementStrategyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulePlacementStrategyType] {
+	return pulumix.Output[*SchedulePlacementStrategyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchedulePlacementStrategyTypePtrOutput) Elem() SchedulePlacementStrategyTypeOutput {
@@ -926,6 +1023,12 @@ func (in *schedulePlacementStrategyTypePtr) ToSchedulePlacementStrategyTypePtrOu
 
 func (in *schedulePlacementStrategyTypePtr) ToSchedulePlacementStrategyTypePtrOutputWithContext(ctx context.Context) SchedulePlacementStrategyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SchedulePlacementStrategyTypePtrOutput)
+}
+
+func (in *schedulePlacementStrategyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SchedulePlacementStrategyType] {
+	return pulumix.Output[*SchedulePlacementStrategyType]{
+		OutputState: in.ToSchedulePlacementStrategyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action.
@@ -995,6 +1098,12 @@ func (o SchedulePropagateTagsOutput) ToSchedulePropagateTagsPtrOutputWithContext
 	}).(SchedulePropagateTagsPtrOutput)
 }
 
+func (o SchedulePropagateTagsOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulePropagateTags] {
+	return pulumix.Output[SchedulePropagateTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SchedulePropagateTagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1028,6 +1137,12 @@ func (o SchedulePropagateTagsPtrOutput) ToSchedulePropagateTagsPtrOutput() Sched
 
 func (o SchedulePropagateTagsPtrOutput) ToSchedulePropagateTagsPtrOutputWithContext(ctx context.Context) SchedulePropagateTagsPtrOutput {
 	return o
+}
+
+func (o SchedulePropagateTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulePropagateTags] {
+	return pulumix.Output[*SchedulePropagateTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchedulePropagateTagsPtrOutput) Elem() SchedulePropagateTagsOutput {
@@ -1090,6 +1205,12 @@ func (in *schedulePropagateTagsPtr) ToSchedulePropagateTagsPtrOutput() ScheduleP
 
 func (in *schedulePropagateTagsPtr) ToSchedulePropagateTagsPtrOutputWithContext(ctx context.Context) SchedulePropagateTagsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SchedulePropagateTagsPtrOutput)
+}
+
+func (in *schedulePropagateTagsPtr) ToOutput(ctx context.Context) pulumix.Output[*SchedulePropagateTags] {
+	return pulumix.Output[*SchedulePropagateTags]{
+		OutputState: in.ToSchedulePropagateTagsPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies whether the schedule is enabled or disabled.
@@ -1160,6 +1281,12 @@ func (o ScheduleStateEnumOutput) ToScheduleStateEnumPtrOutputWithContext(ctx con
 	}).(ScheduleStateEnumPtrOutput)
 }
 
+func (o ScheduleStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleStateEnum] {
+	return pulumix.Output[ScheduleStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScheduleStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1193,6 +1320,12 @@ func (o ScheduleStateEnumPtrOutput) ToScheduleStateEnumPtrOutput() ScheduleState
 
 func (o ScheduleStateEnumPtrOutput) ToScheduleStateEnumPtrOutputWithContext(ctx context.Context) ScheduleStateEnumPtrOutput {
 	return o
+}
+
+func (o ScheduleStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleStateEnum] {
+	return pulumix.Output[*ScheduleStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleStateEnumPtrOutput) Elem() ScheduleStateEnumOutput {
@@ -1255,6 +1388,12 @@ func (in *scheduleStateEnumPtr) ToScheduleStateEnumPtrOutput() ScheduleStateEnum
 
 func (in *scheduleStateEnumPtr) ToScheduleStateEnumPtrOutputWithContext(ctx context.Context) ScheduleStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduleStateEnumPtrOutput)
+}
+
+func (in *scheduleStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*ScheduleStateEnum] {
+	return pulumix.Output[*ScheduleStateEnum]{
+		OutputState: in.ToScheduleStateEnumPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

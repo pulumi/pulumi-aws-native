@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SQS::QueuePolicy
@@ -107,6 +108,12 @@ func (i *QueuePolicy) ToQueuePolicyOutputWithContext(ctx context.Context) QueueP
 	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyOutput)
 }
 
+func (i *QueuePolicy) ToOutput(ctx context.Context) pulumix.Output[*QueuePolicy] {
+	return pulumix.Output[*QueuePolicy]{
+		OutputState: i.ToQueuePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type QueuePolicyOutput struct{ *pulumi.OutputState }
 
 func (QueuePolicyOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o QueuePolicyOutput) ToQueuePolicyOutput() QueuePolicyOutput {
 
 func (o QueuePolicyOutput) ToQueuePolicyOutputWithContext(ctx context.Context) QueuePolicyOutput {
 	return o
+}
+
+func (o QueuePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*QueuePolicy] {
+	return pulumix.Output[*QueuePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.

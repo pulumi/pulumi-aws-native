@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::MonitoringSubscription
@@ -103,6 +104,12 @@ func (i *MonitoringSubscription) ToMonitoringSubscriptionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionOutput)
 }
 
+func (i *MonitoringSubscription) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSubscription] {
+	return pulumix.Output[*MonitoringSubscription]{
+		OutputState: i.ToMonitoringSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MonitoringSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (MonitoringSubscriptionOutput) ElementType() reflect.Type {
@@ -115,6 +122,12 @@ func (o MonitoringSubscriptionOutput) ToMonitoringSubscriptionOutput() Monitorin
 
 func (o MonitoringSubscriptionOutput) ToMonitoringSubscriptionOutputWithContext(ctx context.Context) MonitoringSubscriptionOutput {
 	return o
+}
+
+func (o MonitoringSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSubscription] {
+	return pulumix.Output[*MonitoringSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitoringSubscriptionOutput) DistributionId() pulumi.StringOutput {

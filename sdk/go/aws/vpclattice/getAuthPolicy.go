@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates or updates the auth policy.
@@ -64,6 +65,12 @@ func (o LookupAuthPolicyResultOutput) ToLookupAuthPolicyResultOutput() LookupAut
 
 func (o LookupAuthPolicyResultOutput) ToLookupAuthPolicyResultOutputWithContext(ctx context.Context) LookupAuthPolicyResultOutput {
 	return o
+}
+
+func (o LookupAuthPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAuthPolicyResult] {
+	return pulumix.Output[LookupAuthPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAuthPolicyResultOutput) Policy() pulumi.AnyOutput {

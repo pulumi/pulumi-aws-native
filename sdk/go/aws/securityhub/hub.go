@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SecurityHub::Hub
@@ -100,6 +101,12 @@ func (i *Hub) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HubOutput)
 }
 
+func (i *Hub) ToOutput(ctx context.Context) pulumix.Output[*Hub] {
+	return pulumix.Output[*Hub]{
+		OutputState: i.ToHubOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HubOutput struct{ *pulumi.OutputState }
 
 func (HubOutput) ElementType() reflect.Type {
@@ -112,6 +119,12 @@ func (o HubOutput) ToHubOutput() HubOutput {
 
 func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return o
+}
+
+func (o HubOutput) ToOutput(ctx context.Context) pulumix.Output[*Hub] {
+	return pulumix.Output[*Hub]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HubOutput) AutoEnableControls() pulumi.BoolPtrOutput {

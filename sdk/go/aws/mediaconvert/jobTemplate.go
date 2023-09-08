@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MediaConvert::JobTemplate
@@ -127,6 +128,12 @@ func (i *JobTemplate) ToJobTemplateOutputWithContext(ctx context.Context) JobTem
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateOutput)
 }
 
+func (i *JobTemplate) ToOutput(ctx context.Context) pulumix.Output[*JobTemplate] {
+	return pulumix.Output[*JobTemplate]{
+		OutputState: i.ToJobTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JobTemplateOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o JobTemplateOutput) ToJobTemplateOutput() JobTemplateOutput {
 
 func (o JobTemplateOutput) ToJobTemplateOutputWithContext(ctx context.Context) JobTemplateOutput {
 	return o
+}
+
+func (o JobTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplate] {
+	return pulumix.Output[*JobTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JobTemplateOutput) AccelerationSettings() JobTemplateAccelerationSettingsPtrOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::TrafficMirrorSession
@@ -129,6 +130,12 @@ func (i *TrafficMirrorSession) ToTrafficMirrorSessionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorSessionOutput)
 }
 
+func (i *TrafficMirrorSession) ToOutput(ctx context.Context) pulumix.Output[*TrafficMirrorSession] {
+	return pulumix.Output[*TrafficMirrorSession]{
+		OutputState: i.ToTrafficMirrorSessionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrafficMirrorSessionOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorSessionOutput) ElementType() reflect.Type {
@@ -141,6 +148,12 @@ func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutput() TrafficMirror
 
 func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutputWithContext(ctx context.Context) TrafficMirrorSessionOutput {
 	return o
+}
+
+func (o TrafficMirrorSessionOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficMirrorSession] {
+	return pulumix.Output[*TrafficMirrorSession]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrafficMirrorSessionOutput) Description() pulumi.StringPtrOutput {

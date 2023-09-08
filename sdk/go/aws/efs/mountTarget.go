@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EFS::MountTarget
@@ -114,6 +115,12 @@ func (i *MountTarget) ToMountTargetOutputWithContext(ctx context.Context) MountT
 	return pulumi.ToOutputWithContext(ctx, i).(MountTargetOutput)
 }
 
+func (i *MountTarget) ToOutput(ctx context.Context) pulumix.Output[*MountTarget] {
+	return pulumix.Output[*MountTarget]{
+		OutputState: i.ToMountTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MountTargetOutput struct{ *pulumi.OutputState }
 
 func (MountTargetOutput) ElementType() reflect.Type {
@@ -126,6 +133,12 @@ func (o MountTargetOutput) ToMountTargetOutput() MountTargetOutput {
 
 func (o MountTargetOutput) ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput {
 	return o
+}
+
+func (o MountTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*MountTarget] {
+	return pulumix.Output[*MountTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MountTargetOutput) FileSystemId() pulumi.StringOutput {

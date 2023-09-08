@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::ECR::PullThroughCacheRule resource configures the upstream registry configuration details for an Amazon Elastic Container Registry (Amazon Private ECR) pull-through cache.
@@ -103,6 +104,12 @@ func (i *PullThroughCacheRule) ToPullThroughCacheRuleOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PullThroughCacheRuleOutput)
 }
 
+func (i *PullThroughCacheRule) ToOutput(ctx context.Context) pulumix.Output[*PullThroughCacheRule] {
+	return pulumix.Output[*PullThroughCacheRule]{
+		OutputState: i.ToPullThroughCacheRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PullThroughCacheRuleOutput struct{ *pulumi.OutputState }
 
 func (PullThroughCacheRuleOutput) ElementType() reflect.Type {
@@ -115,6 +122,12 @@ func (o PullThroughCacheRuleOutput) ToPullThroughCacheRuleOutput() PullThroughCa
 
 func (o PullThroughCacheRuleOutput) ToPullThroughCacheRuleOutputWithContext(ctx context.Context) PullThroughCacheRuleOutput {
 	return o
+}
+
+func (o PullThroughCacheRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*PullThroughCacheRule] {
+	return pulumix.Output[*PullThroughCacheRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ECRRepositoryPrefix is a custom alias for upstream registry url.

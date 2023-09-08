@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Location::RouteCalculator Resource Type
@@ -116,6 +117,12 @@ func (i *RouteCalculator) ToRouteCalculatorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RouteCalculatorOutput)
 }
 
+func (i *RouteCalculator) ToOutput(ctx context.Context) pulumix.Output[*RouteCalculator] {
+	return pulumix.Output[*RouteCalculator]{
+		OutputState: i.ToRouteCalculatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteCalculatorOutput struct{ *pulumi.OutputState }
 
 func (RouteCalculatorOutput) ElementType() reflect.Type {
@@ -128,6 +135,12 @@ func (o RouteCalculatorOutput) ToRouteCalculatorOutput() RouteCalculatorOutput {
 
 func (o RouteCalculatorOutput) ToRouteCalculatorOutputWithContext(ctx context.Context) RouteCalculatorOutput {
 	return o
+}
+
+func (o RouteCalculatorOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteCalculator] {
+	return pulumix.Output[*RouteCalculator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteCalculatorOutput) Arn() pulumi.StringOutput {

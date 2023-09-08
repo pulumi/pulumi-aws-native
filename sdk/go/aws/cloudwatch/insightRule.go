@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudWatch::InsightRule
@@ -115,6 +116,12 @@ func (i *InsightRule) ToInsightRuleOutputWithContext(ctx context.Context) Insigh
 	return pulumi.ToOutputWithContext(ctx, i).(InsightRuleOutput)
 }
 
+func (i *InsightRule) ToOutput(ctx context.Context) pulumix.Output[*InsightRule] {
+	return pulumix.Output[*InsightRule]{
+		OutputState: i.ToInsightRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InsightRuleOutput struct{ *pulumi.OutputState }
 
 func (InsightRuleOutput) ElementType() reflect.Type {
@@ -127,6 +134,12 @@ func (o InsightRuleOutput) ToInsightRuleOutput() InsightRuleOutput {
 
 func (o InsightRuleOutput) ToInsightRuleOutputWithContext(ctx context.Context) InsightRuleOutput {
 	return o
+}
+
+func (o InsightRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightRule] {
+	return pulumix.Output[*InsightRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InsightRuleOutput) Arn() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGateway::DocumentationPart
@@ -121,6 +122,12 @@ func (i *DocumentationPart) ToDocumentationPartOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartOutput)
 }
 
+func (i *DocumentationPart) ToOutput(ctx context.Context) pulumix.Output[*DocumentationPart] {
+	return pulumix.Output[*DocumentationPart]{
+		OutputState: i.ToDocumentationPartOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DocumentationPartOutput struct{ *pulumi.OutputState }
 
 func (DocumentationPartOutput) ElementType() reflect.Type {
@@ -133,6 +140,12 @@ func (o DocumentationPartOutput) ToDocumentationPartOutput() DocumentationPartOu
 
 func (o DocumentationPartOutput) ToDocumentationPartOutputWithContext(ctx context.Context) DocumentationPartOutput {
 	return o
+}
+
+func (o DocumentationPartOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentationPart] {
+	return pulumix.Output[*DocumentationPart]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of the documentation Part.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::NotebookInstance
@@ -73,6 +74,12 @@ func (o LookupNotebookInstanceResultOutput) ToLookupNotebookInstanceResultOutput
 
 func (o LookupNotebookInstanceResultOutput) ToLookupNotebookInstanceResultOutputWithContext(ctx context.Context) LookupNotebookInstanceResultOutput {
 	return o
+}
+
+func (o LookupNotebookInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNotebookInstanceResult] {
+	return pulumix.Output[LookupNotebookInstanceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupNotebookInstanceResultOutput) AcceleratorTypes() pulumi.StringArrayOutput {

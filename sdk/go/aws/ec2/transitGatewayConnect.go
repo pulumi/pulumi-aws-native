@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::TransitGatewayConnect type
@@ -124,6 +125,12 @@ func (i *TransitGatewayConnect) ToTransitGatewayConnectOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectOutput)
 }
 
+func (i *TransitGatewayConnect) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayConnect] {
+	return pulumix.Output[*TransitGatewayConnect]{
+		OutputState: i.ToTransitGatewayConnectOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayConnectOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayConnectOutput) ElementType() reflect.Type {
@@ -136,6 +143,12 @@ func (o TransitGatewayConnectOutput) ToTransitGatewayConnectOutput() TransitGate
 
 func (o TransitGatewayConnectOutput) ToTransitGatewayConnectOutputWithContext(ctx context.Context) TransitGatewayConnectOutput {
 	return o
+}
+
+func (o TransitGatewayConnectOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayConnect] {
+	return pulumix.Output[*TransitGatewayConnect]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The creation time.

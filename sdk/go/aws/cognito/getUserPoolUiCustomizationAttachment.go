@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
@@ -64,6 +65,12 @@ func (o LookupUserPoolUiCustomizationAttachmentResultOutput) ToLookupUserPoolUiC
 
 func (o LookupUserPoolUiCustomizationAttachmentResultOutput) ToLookupUserPoolUiCustomizationAttachmentResultOutputWithContext(ctx context.Context) LookupUserPoolUiCustomizationAttachmentResultOutput {
 	return o
+}
+
+func (o LookupUserPoolUiCustomizationAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserPoolUiCustomizationAttachmentResult] {
+	return pulumix.Output[LookupUserPoolUiCustomizationAttachmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupUserPoolUiCustomizationAttachmentResultOutput) Css() pulumi.StringPtrOutput {

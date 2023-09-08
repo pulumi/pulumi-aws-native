@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
@@ -100,6 +101,12 @@ func (i *ResolverDnssecConfig) ToResolverDnssecConfigOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverDnssecConfigOutput)
 }
 
+func (i *ResolverDnssecConfig) ToOutput(ctx context.Context) pulumix.Output[*ResolverDnssecConfig] {
+	return pulumix.Output[*ResolverDnssecConfig]{
+		OutputState: i.ToResolverDnssecConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverDnssecConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverDnssecConfigOutput) ElementType() reflect.Type {
@@ -112,6 +119,12 @@ func (o ResolverDnssecConfigOutput) ToResolverDnssecConfigOutput() ResolverDnsse
 
 func (o ResolverDnssecConfigOutput) ToResolverDnssecConfigOutputWithContext(ctx context.Context) ResolverDnssecConfigOutput {
 	return o
+}
+
+func (o ResolverDnssecConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverDnssecConfig] {
+	return pulumix.Output[*ResolverDnssecConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AccountId

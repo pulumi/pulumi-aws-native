@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::SystemsManagerSAP::Application
@@ -126,6 +127,12 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
+func (i *Application) ToOutput(ctx context.Context) pulumix.Output[*Application] {
+	return pulumix.Output[*Application]{
+		OutputState: i.ToApplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
@@ -138,6 +145,12 @@ func (o ApplicationOutput) ToApplicationOutput() ApplicationOutput {
 
 func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) ApplicationOutput {
 	return o
+}
+
+func (o ApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*Application] {
+	return pulumix.Output[*Application]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationOutput) ApplicationId() pulumi.StringOutput {

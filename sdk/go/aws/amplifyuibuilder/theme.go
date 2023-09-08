@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::AmplifyUIBuilder::Theme Resource Type
@@ -112,6 +113,12 @@ func (i *Theme) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeOutput)
 }
 
+func (i *Theme) ToOutput(ctx context.Context) pulumix.Output[*Theme] {
+	return pulumix.Output[*Theme]{
+		OutputState: i.ToThemeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThemeOutput struct{ *pulumi.OutputState }
 
 func (ThemeOutput) ElementType() reflect.Type {
@@ -124,6 +131,12 @@ func (o ThemeOutput) ToThemeOutput() ThemeOutput {
 
 func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 	return o
+}
+
+func (o ThemeOutput) ToOutput(ctx context.Context) pulumix.Output[*Theme] {
+	return pulumix.Output[*Theme]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThemeOutput) AppId() pulumi.StringPtrOutput {

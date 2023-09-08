@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CodeStarNotifications::NotificationRule
@@ -134,6 +135,12 @@ func (i *NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleOutput)
 }
 
+func (i *NotificationRule) ToOutput(ctx context.Context) pulumix.Output[*NotificationRule] {
+	return pulumix.Output[*NotificationRule]{
+		OutputState: i.ToNotificationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationRuleOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleOutput) ElementType() reflect.Type {
@@ -146,6 +153,12 @@ func (o NotificationRuleOutput) ToNotificationRuleOutput() NotificationRuleOutpu
 
 func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput {
 	return o
+}
+
+func (o NotificationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationRule] {
+	return pulumix.Output[*NotificationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationRuleOutput) Arn() pulumi.StringOutput {

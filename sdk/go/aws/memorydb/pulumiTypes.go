@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i AclTagArgs) ToAclTagOutputWithContext(ctx context.Context) AclTagOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AclTagOutput)
 }
 
+func (i AclTagArgs) ToOutput(ctx context.Context) pulumix.Output[AclTag] {
+	return pulumix.Output[AclTag]{
+		OutputState: i.ToAclTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AclTagArrayInput is an input type that accepts AclTagArray and AclTagArrayOutput values.
 // You can construct a concrete instance of `AclTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i AclTagArray) ToAclTagArrayOutputWithContext(ctx context.Context) AclTagA
 	return pulumi.ToOutputWithContext(ctx, i).(AclTagArrayOutput)
 }
 
+func (i AclTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AclTag] {
+	return pulumix.Output[[]AclTag]{
+		OutputState: i.ToAclTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type AclTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o AclTagOutput) ToAclTagOutput() AclTagOutput {
 
 func (o AclTagOutput) ToAclTagOutputWithContext(ctx context.Context) AclTagOutput {
 	return o
+}
+
+func (o AclTagOutput) ToOutput(ctx context.Context) pulumix.Output[AclTag] {
+	return pulumix.Output[AclTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -114,6 +133,12 @@ func (o AclTagArrayOutput) ToAclTagArrayOutput() AclTagArrayOutput {
 
 func (o AclTagArrayOutput) ToAclTagArrayOutputWithContext(ctx context.Context) AclTagArrayOutput {
 	return o
+}
+
+func (o AclTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AclTag] {
+	return pulumix.Output[[]AclTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AclTagArrayOutput) Index(i pulumi.IntInput) AclTagOutput {
@@ -159,6 +184,12 @@ func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesOutput)
 }
 
+func (i AuthenticationModePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[AuthenticationModeProperties] {
+	return pulumix.Output[AuthenticationModeProperties]{
+		OutputState: i.ToAuthenticationModePropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput {
 	return i.ToAuthenticationModePropertiesPtrOutputWithContext(context.Background())
 }
@@ -200,6 +231,12 @@ func (i *authenticationModePropertiesPtrType) ToAuthenticationModePropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesPtrOutput)
 }
 
+func (i *authenticationModePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AuthenticationModeProperties] {
+	return pulumix.Output[*AuthenticationModeProperties]{
+		OutputState: i.ToAuthenticationModePropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthenticationModePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationModePropertiesOutput) ElementType() reflect.Type {
@@ -224,6 +261,12 @@ func (o AuthenticationModePropertiesOutput) ToAuthenticationModePropertiesPtrOut
 	}).(AuthenticationModePropertiesPtrOutput)
 }
 
+func (o AuthenticationModePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[AuthenticationModeProperties] {
+	return pulumix.Output[AuthenticationModeProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Passwords used for this user account. You can create up to two passwords for each user.
 func (o AuthenticationModePropertiesOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthenticationModeProperties) []string { return v.Passwords }).(pulumi.StringArrayOutput)
@@ -246,6 +289,12 @@ func (o AuthenticationModePropertiesPtrOutput) ToAuthenticationModePropertiesPtr
 
 func (o AuthenticationModePropertiesPtrOutput) ToAuthenticationModePropertiesPtrOutputWithContext(ctx context.Context) AuthenticationModePropertiesPtrOutput {
 	return o
+}
+
+func (o AuthenticationModePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthenticationModeProperties] {
+	return pulumix.Output[*AuthenticationModeProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthenticationModePropertiesPtrOutput) Elem() AuthenticationModePropertiesOutput {
@@ -315,6 +364,12 @@ func (i ClusterEndpointArgs) ToClusterEndpointOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointOutput)
 }
 
+func (i ClusterEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterEndpoint] {
+	return pulumix.Output[ClusterEndpoint]{
+		OutputState: i.ToClusterEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterEndpointArgs) ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput {
 	return i.ToClusterEndpointPtrOutputWithContext(context.Background())
 }
@@ -356,6 +411,12 @@ func (i *clusterEndpointPtrType) ToClusterEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointPtrOutput)
 }
 
+func (i *clusterEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterEndpoint] {
+	return pulumix.Output[*ClusterEndpoint]{
+		OutputState: i.ToClusterEndpointPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterEndpointOutput struct{ *pulumi.OutputState }
 
 func (ClusterEndpointOutput) ElementType() reflect.Type {
@@ -380,6 +441,12 @@ func (o ClusterEndpointOutput) ToClusterEndpointPtrOutputWithContext(ctx context
 	}).(ClusterEndpointPtrOutput)
 }
 
+func (o ClusterEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEndpoint] {
+	return pulumix.Output[ClusterEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The DNS address of the primary read-write node.
 func (o ClusterEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
@@ -402,6 +469,12 @@ func (o ClusterEndpointPtrOutput) ToClusterEndpointPtrOutput() ClusterEndpointPt
 
 func (o ClusterEndpointPtrOutput) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
 	return o
+}
+
+func (o ClusterEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEndpoint] {
+	return pulumix.Output[*ClusterEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterEndpointPtrOutput) Elem() ClusterEndpointOutput {
@@ -473,6 +546,12 @@ func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) Clust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagOutput)
 }
 
+func (i ClusterTagArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterTag] {
+	return pulumix.Output[ClusterTag]{
+		OutputState: i.ToClusterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
 // You can construct a concrete instance of `ClusterTagArrayInput` via:
 //
@@ -498,6 +577,12 @@ func (i ClusterTagArray) ToClusterTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagArrayOutput)
 }
 
+func (i ClusterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterTag] {
+	return pulumix.Output[[]ClusterTag]{
+		OutputState: i.ToClusterTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ClusterTagOutput struct{ *pulumi.OutputState }
 
@@ -511,6 +596,12 @@ func (o ClusterTagOutput) ToClusterTagOutput() ClusterTagOutput {
 
 func (o ClusterTagOutput) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
 	return o
+}
+
+func (o ClusterTagOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterTag] {
+	return pulumix.Output[ClusterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for the tag. May not be null.
@@ -535,6 +626,12 @@ func (o ClusterTagArrayOutput) ToClusterTagArrayOutput() ClusterTagArrayOutput {
 
 func (o ClusterTagArrayOutput) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
 	return o
+}
+
+func (o ClusterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterTag] {
+	return pulumix.Output[[]ClusterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
@@ -582,6 +679,12 @@ func (i ParameterGroupTagArgs) ToParameterGroupTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupTagOutput)
 }
 
+func (i ParameterGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupTag] {
+	return pulumix.Output[ParameterGroupTag]{
+		OutputState: i.ToParameterGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ParameterGroupTagArrayInput is an input type that accepts ParameterGroupTagArray and ParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupTagArrayInput` via:
 //
@@ -607,6 +710,12 @@ func (i ParameterGroupTagArray) ToParameterGroupTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupTagArrayOutput)
 }
 
+func (i ParameterGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupTag] {
+	return pulumix.Output[[]ParameterGroupTag]{
+		OutputState: i.ToParameterGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ParameterGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -620,6 +729,12 @@ func (o ParameterGroupTagOutput) ToParameterGroupTagOutput() ParameterGroupTagOu
 
 func (o ParameterGroupTagOutput) ToParameterGroupTagOutputWithContext(ctx context.Context) ParameterGroupTagOutput {
 	return o
+}
+
+func (o ParameterGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupTag] {
+	return pulumix.Output[ParameterGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for the tag. May not be null.
@@ -644,6 +759,12 @@ func (o ParameterGroupTagArrayOutput) ToParameterGroupTagArrayOutput() Parameter
 
 func (o ParameterGroupTagArrayOutput) ToParameterGroupTagArrayOutputWithContext(ctx context.Context) ParameterGroupTagArrayOutput {
 	return o
+}
+
+func (o ParameterGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupTag] {
+	return pulumix.Output[[]ParameterGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ParameterGroupTagArrayOutput) Index(i pulumi.IntInput) ParameterGroupTagOutput {
@@ -691,6 +812,12 @@ func (i SubnetGroupTagArgs) ToSubnetGroupTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupTagOutput)
 }
 
+func (i SubnetGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[SubnetGroupTag] {
+	return pulumix.Output[SubnetGroupTag]{
+		OutputState: i.ToSubnetGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubnetGroupTagArrayInput is an input type that accepts SubnetGroupTagArray and SubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `SubnetGroupTagArrayInput` via:
 //
@@ -716,6 +843,12 @@ func (i SubnetGroupTagArray) ToSubnetGroupTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupTagArrayOutput)
 }
 
+func (i SubnetGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SubnetGroupTag] {
+	return pulumix.Output[[]SubnetGroupTag]{
+		OutputState: i.ToSubnetGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type SubnetGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -729,6 +862,12 @@ func (o SubnetGroupTagOutput) ToSubnetGroupTagOutput() SubnetGroupTagOutput {
 
 func (o SubnetGroupTagOutput) ToSubnetGroupTagOutputWithContext(ctx context.Context) SubnetGroupTagOutput {
 	return o
+}
+
+func (o SubnetGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[SubnetGroupTag] {
+	return pulumix.Output[SubnetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key for the tag. May not be null.
@@ -753,6 +892,12 @@ func (o SubnetGroupTagArrayOutput) ToSubnetGroupTagArrayOutput() SubnetGroupTagA
 
 func (o SubnetGroupTagArrayOutput) ToSubnetGroupTagArrayOutputWithContext(ctx context.Context) SubnetGroupTagArrayOutput {
 	return o
+}
+
+func (o SubnetGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubnetGroupTag] {
+	return pulumix.Output[[]SubnetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubnetGroupTagArrayOutput) Index(i pulumi.IntInput) SubnetGroupTagOutput {
@@ -800,6 +945,12 @@ func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(UserTagOutput)
 }
 
+func (i UserTagArgs) ToOutput(ctx context.Context) pulumix.Output[UserTag] {
+	return pulumix.Output[UserTag]{
+		OutputState: i.ToUserTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
 // You can construct a concrete instance of `UserTagArrayInput` via:
 //
@@ -825,6 +976,12 @@ func (i UserTagArray) ToUserTagArrayOutputWithContext(ctx context.Context) UserT
 	return pulumi.ToOutputWithContext(ctx, i).(UserTagArrayOutput)
 }
 
+func (i UserTagArray) ToOutput(ctx context.Context) pulumix.Output[[]UserTag] {
+	return pulumix.Output[[]UserTag]{
+		OutputState: i.ToUserTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type UserTagOutput struct{ *pulumi.OutputState }
 
@@ -838,6 +995,12 @@ func (o UserTagOutput) ToUserTagOutput() UserTagOutput {
 
 func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
 	return o
+}
+
+func (o UserTagOutput) ToOutput(ctx context.Context) pulumix.Output[UserTag] {
+	return pulumix.Output[UserTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -862,6 +1025,12 @@ func (o UserTagArrayOutput) ToUserTagArrayOutput() UserTagArrayOutput {
 
 func (o UserTagArrayOutput) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
 	return o
+}
+
+func (o UserTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserTag] {
+	return pulumix.Output[[]UserTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {

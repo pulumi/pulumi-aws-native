@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i CanaryArtifactConfigArgs) ToCanaryArtifactConfigOutput() CanaryArtifactC
 
 func (i CanaryArtifactConfigArgs) ToCanaryArtifactConfigOutputWithContext(ctx context.Context) CanaryArtifactConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryArtifactConfigOutput)
+}
+
+func (i CanaryArtifactConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CanaryArtifactConfig] {
+	return pulumix.Output[CanaryArtifactConfig]{
+		OutputState: i.ToCanaryArtifactConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i CanaryArtifactConfigArgs) ToCanaryArtifactConfigPtrOutput() CanaryArtifactConfigPtrOutput {
@@ -87,6 +94,12 @@ func (i *canaryArtifactConfigPtrType) ToCanaryArtifactConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryArtifactConfigPtrOutput)
 }
 
+func (i *canaryArtifactConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CanaryArtifactConfig] {
+	return pulumix.Output[*CanaryArtifactConfig]{
+		OutputState: i.ToCanaryArtifactConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CanaryArtifactConfigOutput struct{ *pulumi.OutputState }
 
 func (CanaryArtifactConfigOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o CanaryArtifactConfigOutput) ToCanaryArtifactConfigPtrOutputWithContext(c
 	}).(CanaryArtifactConfigPtrOutput)
 }
 
+func (o CanaryArtifactConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CanaryArtifactConfig] {
+	return pulumix.Output[CanaryArtifactConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Encryption configuration for uploading artifacts to S3
 func (o CanaryArtifactConfigOutput) S3Encryption() CanaryS3EncryptionPtrOutput {
 	return o.ApplyT(func(v CanaryArtifactConfig) *CanaryS3Encryption { return v.S3Encryption }).(CanaryS3EncryptionPtrOutput)
@@ -128,6 +147,12 @@ func (o CanaryArtifactConfigPtrOutput) ToCanaryArtifactConfigPtrOutput() CanaryA
 
 func (o CanaryArtifactConfigPtrOutput) ToCanaryArtifactConfigPtrOutputWithContext(ctx context.Context) CanaryArtifactConfigPtrOutput {
 	return o
+}
+
+func (o CanaryArtifactConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CanaryArtifactConfig] {
+	return pulumix.Output[*CanaryArtifactConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryArtifactConfigPtrOutput) Elem() CanaryArtifactConfigOutput {
@@ -187,6 +212,12 @@ func (i CanaryBaseScreenshotArgs) ToCanaryBaseScreenshotOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryBaseScreenshotOutput)
 }
 
+func (i CanaryBaseScreenshotArgs) ToOutput(ctx context.Context) pulumix.Output[CanaryBaseScreenshot] {
+	return pulumix.Output[CanaryBaseScreenshot]{
+		OutputState: i.ToCanaryBaseScreenshotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CanaryBaseScreenshotArrayInput is an input type that accepts CanaryBaseScreenshotArray and CanaryBaseScreenshotArrayOutput values.
 // You can construct a concrete instance of `CanaryBaseScreenshotArrayInput` via:
 //
@@ -212,6 +243,12 @@ func (i CanaryBaseScreenshotArray) ToCanaryBaseScreenshotArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryBaseScreenshotArrayOutput)
 }
 
+func (i CanaryBaseScreenshotArray) ToOutput(ctx context.Context) pulumix.Output[[]CanaryBaseScreenshot] {
+	return pulumix.Output[[]CanaryBaseScreenshot]{
+		OutputState: i.ToCanaryBaseScreenshotArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CanaryBaseScreenshotOutput struct{ *pulumi.OutputState }
 
 func (CanaryBaseScreenshotOutput) ElementType() reflect.Type {
@@ -224,6 +261,12 @@ func (o CanaryBaseScreenshotOutput) ToCanaryBaseScreenshotOutput() CanaryBaseScr
 
 func (o CanaryBaseScreenshotOutput) ToCanaryBaseScreenshotOutputWithContext(ctx context.Context) CanaryBaseScreenshotOutput {
 	return o
+}
+
+func (o CanaryBaseScreenshotOutput) ToOutput(ctx context.Context) pulumix.Output[CanaryBaseScreenshot] {
+	return pulumix.Output[CanaryBaseScreenshot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of coordinates of rectangles to be ignored during visual testing
@@ -248,6 +291,12 @@ func (o CanaryBaseScreenshotArrayOutput) ToCanaryBaseScreenshotArrayOutput() Can
 
 func (o CanaryBaseScreenshotArrayOutput) ToCanaryBaseScreenshotArrayOutputWithContext(ctx context.Context) CanaryBaseScreenshotArrayOutput {
 	return o
+}
+
+func (o CanaryBaseScreenshotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CanaryBaseScreenshot] {
+	return pulumix.Output[[]CanaryBaseScreenshot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryBaseScreenshotArrayOutput) Index(i pulumi.IntInput) CanaryBaseScreenshotOutput {
@@ -297,6 +346,12 @@ func (i CanaryCodeArgs) ToCanaryCodeOutputWithContext(ctx context.Context) Canar
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryCodeOutput)
 }
 
+func (i CanaryCodeArgs) ToOutput(ctx context.Context) pulumix.Output[CanaryCode] {
+	return pulumix.Output[CanaryCode]{
+		OutputState: i.ToCanaryCodeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CanaryCodeOutput struct{ *pulumi.OutputState }
 
 func (CanaryCodeOutput) ElementType() reflect.Type {
@@ -309,6 +364,12 @@ func (o CanaryCodeOutput) ToCanaryCodeOutput() CanaryCodeOutput {
 
 func (o CanaryCodeOutput) ToCanaryCodeOutputWithContext(ctx context.Context) CanaryCodeOutput {
 	return o
+}
+
+func (o CanaryCodeOutput) ToOutput(ctx context.Context) pulumix.Output[CanaryCode] {
+	return pulumix.Output[CanaryCode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryCodeOutput) Handler() pulumi.StringOutput {
@@ -347,6 +408,12 @@ func (o CanaryCodePtrOutput) ToCanaryCodePtrOutput() CanaryCodePtrOutput {
 
 func (o CanaryCodePtrOutput) ToCanaryCodePtrOutputWithContext(ctx context.Context) CanaryCodePtrOutput {
 	return o
+}
+
+func (o CanaryCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CanaryCode] {
+	return pulumix.Output[*CanaryCode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryCodePtrOutput) Elem() CanaryCodeOutput {
@@ -458,6 +525,12 @@ func (i CanaryRunConfigArgs) ToCanaryRunConfigOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryRunConfigOutput)
 }
 
+func (i CanaryRunConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CanaryRunConfig] {
+	return pulumix.Output[CanaryRunConfig]{
+		OutputState: i.ToCanaryRunConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CanaryRunConfigArgs) ToCanaryRunConfigPtrOutput() CanaryRunConfigPtrOutput {
 	return i.ToCanaryRunConfigPtrOutputWithContext(context.Background())
 }
@@ -499,6 +572,12 @@ func (i *canaryRunConfigPtrType) ToCanaryRunConfigPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryRunConfigPtrOutput)
 }
 
+func (i *canaryRunConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CanaryRunConfig] {
+	return pulumix.Output[*CanaryRunConfig]{
+		OutputState: i.ToCanaryRunConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CanaryRunConfigOutput struct{ *pulumi.OutputState }
 
 func (CanaryRunConfigOutput) ElementType() reflect.Type {
@@ -521,6 +600,12 @@ func (o CanaryRunConfigOutput) ToCanaryRunConfigPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryRunConfig) *CanaryRunConfig {
 		return &v
 	}).(CanaryRunConfigPtrOutput)
+}
+
+func (o CanaryRunConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CanaryRunConfig] {
+	return pulumix.Output[CanaryRunConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enable active tracing if set to true
@@ -555,6 +640,12 @@ func (o CanaryRunConfigPtrOutput) ToCanaryRunConfigPtrOutput() CanaryRunConfigPt
 
 func (o CanaryRunConfigPtrOutput) ToCanaryRunConfigPtrOutputWithContext(ctx context.Context) CanaryRunConfigPtrOutput {
 	return o
+}
+
+func (o CanaryRunConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CanaryRunConfig] {
+	return pulumix.Output[*CanaryRunConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryRunConfigPtrOutput) Elem() CanaryRunConfigOutput {
@@ -644,6 +735,12 @@ func (i CanaryS3EncryptionArgs) ToCanaryS3EncryptionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryS3EncryptionOutput)
 }
 
+func (i CanaryS3EncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[CanaryS3Encryption] {
+	return pulumix.Output[CanaryS3Encryption]{
+		OutputState: i.ToCanaryS3EncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CanaryS3EncryptionArgs) ToCanaryS3EncryptionPtrOutput() CanaryS3EncryptionPtrOutput {
 	return i.ToCanaryS3EncryptionPtrOutputWithContext(context.Background())
 }
@@ -685,6 +782,12 @@ func (i *canaryS3EncryptionPtrType) ToCanaryS3EncryptionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryS3EncryptionPtrOutput)
 }
 
+func (i *canaryS3EncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*CanaryS3Encryption] {
+	return pulumix.Output[*CanaryS3Encryption]{
+		OutputState: i.ToCanaryS3EncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CanaryS3EncryptionOutput struct{ *pulumi.OutputState }
 
 func (CanaryS3EncryptionOutput) ElementType() reflect.Type {
@@ -709,6 +812,12 @@ func (o CanaryS3EncryptionOutput) ToCanaryS3EncryptionPtrOutputWithContext(ctx c
 	}).(CanaryS3EncryptionPtrOutput)
 }
 
+func (o CanaryS3EncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[CanaryS3Encryption] {
+	return pulumix.Output[CanaryS3Encryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
 func (o CanaryS3EncryptionOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryS3Encryption) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
@@ -731,6 +840,12 @@ func (o CanaryS3EncryptionPtrOutput) ToCanaryS3EncryptionPtrOutput() CanaryS3Enc
 
 func (o CanaryS3EncryptionPtrOutput) ToCanaryS3EncryptionPtrOutputWithContext(ctx context.Context) CanaryS3EncryptionPtrOutput {
 	return o
+}
+
+func (o CanaryS3EncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CanaryS3Encryption] {
+	return pulumix.Output[*CanaryS3Encryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryS3EncryptionPtrOutput) Elem() CanaryS3EncryptionOutput {
@@ -796,6 +911,12 @@ func (i CanaryScheduleArgs) ToCanaryScheduleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryScheduleOutput)
 }
 
+func (i CanaryScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[CanarySchedule] {
+	return pulumix.Output[CanarySchedule]{
+		OutputState: i.ToCanaryScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CanaryScheduleOutput struct{ *pulumi.OutputState }
 
 func (CanaryScheduleOutput) ElementType() reflect.Type {
@@ -808,6 +929,12 @@ func (o CanaryScheduleOutput) ToCanaryScheduleOutput() CanaryScheduleOutput {
 
 func (o CanaryScheduleOutput) ToCanaryScheduleOutputWithContext(ctx context.Context) CanaryScheduleOutput {
 	return o
+}
+
+func (o CanaryScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[CanarySchedule] {
+	return pulumix.Output[CanarySchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryScheduleOutput) DurationInSeconds() pulumi.StringPtrOutput {
@@ -830,6 +957,12 @@ func (o CanarySchedulePtrOutput) ToCanarySchedulePtrOutput() CanarySchedulePtrOu
 
 func (o CanarySchedulePtrOutput) ToCanarySchedulePtrOutputWithContext(ctx context.Context) CanarySchedulePtrOutput {
 	return o
+}
+
+func (o CanarySchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CanarySchedule] {
+	return pulumix.Output[*CanarySchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanarySchedulePtrOutput) Elem() CanaryScheduleOutput {
@@ -899,6 +1032,12 @@ func (i CanaryTagArgs) ToCanaryTagOutputWithContext(ctx context.Context) CanaryT
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryTagOutput)
 }
 
+func (i CanaryTagArgs) ToOutput(ctx context.Context) pulumix.Output[CanaryTag] {
+	return pulumix.Output[CanaryTag]{
+		OutputState: i.ToCanaryTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CanaryTagArrayInput is an input type that accepts CanaryTagArray and CanaryTagArrayOutput values.
 // You can construct a concrete instance of `CanaryTagArrayInput` via:
 //
@@ -924,6 +1063,12 @@ func (i CanaryTagArray) ToCanaryTagArrayOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryTagArrayOutput)
 }
 
+func (i CanaryTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CanaryTag] {
+	return pulumix.Output[[]CanaryTag]{
+		OutputState: i.ToCanaryTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type CanaryTagOutput struct{ *pulumi.OutputState }
 
@@ -937,6 +1082,12 @@ func (o CanaryTagOutput) ToCanaryTagOutput() CanaryTagOutput {
 
 func (o CanaryTagOutput) ToCanaryTagOutputWithContext(ctx context.Context) CanaryTagOutput {
 	return o
+}
+
+func (o CanaryTagOutput) ToOutput(ctx context.Context) pulumix.Output[CanaryTag] {
+	return pulumix.Output[CanaryTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -961,6 +1112,12 @@ func (o CanaryTagArrayOutput) ToCanaryTagArrayOutput() CanaryTagArrayOutput {
 
 func (o CanaryTagArrayOutput) ToCanaryTagArrayOutputWithContext(ctx context.Context) CanaryTagArrayOutput {
 	return o
+}
+
+func (o CanaryTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CanaryTag] {
+	return pulumix.Output[[]CanaryTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryTagArrayOutput) Index(i pulumi.IntInput) CanaryTagOutput {
@@ -1006,6 +1163,12 @@ func (i CanaryVisualReferenceArgs) ToCanaryVisualReferenceOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryVisualReferenceOutput)
 }
 
+func (i CanaryVisualReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[CanaryVisualReference] {
+	return pulumix.Output[CanaryVisualReference]{
+		OutputState: i.ToCanaryVisualReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CanaryVisualReferenceArgs) ToCanaryVisualReferencePtrOutput() CanaryVisualReferencePtrOutput {
 	return i.ToCanaryVisualReferencePtrOutputWithContext(context.Background())
 }
@@ -1047,6 +1210,12 @@ func (i *canaryVisualReferencePtrType) ToCanaryVisualReferencePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryVisualReferencePtrOutput)
 }
 
+func (i *canaryVisualReferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*CanaryVisualReference] {
+	return pulumix.Output[*CanaryVisualReference]{
+		OutputState: i.ToCanaryVisualReferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CanaryVisualReferenceOutput struct{ *pulumi.OutputState }
 
 func (CanaryVisualReferenceOutput) ElementType() reflect.Type {
@@ -1071,6 +1240,12 @@ func (o CanaryVisualReferenceOutput) ToCanaryVisualReferencePtrOutputWithContext
 	}).(CanaryVisualReferencePtrOutput)
 }
 
+func (o CanaryVisualReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[CanaryVisualReference] {
+	return pulumix.Output[CanaryVisualReference]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Canary run id to be used as base reference for visual testing
 func (o CanaryVisualReferenceOutput) BaseCanaryRunId() pulumi.StringOutput {
 	return o.ApplyT(func(v CanaryVisualReference) string { return v.BaseCanaryRunId }).(pulumi.StringOutput)
@@ -1093,6 +1268,12 @@ func (o CanaryVisualReferencePtrOutput) ToCanaryVisualReferencePtrOutput() Canar
 
 func (o CanaryVisualReferencePtrOutput) ToCanaryVisualReferencePtrOutputWithContext(ctx context.Context) CanaryVisualReferencePtrOutput {
 	return o
+}
+
+func (o CanaryVisualReferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CanaryVisualReference] {
+	return pulumix.Output[*CanaryVisualReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryVisualReferencePtrOutput) Elem() CanaryVisualReferenceOutput {
@@ -1160,6 +1341,12 @@ func (i CanaryVpcConfigArgs) ToCanaryVpcConfigOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryVpcConfigOutput)
 }
 
+func (i CanaryVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CanaryVpcConfig] {
+	return pulumix.Output[CanaryVpcConfig]{
+		OutputState: i.ToCanaryVpcConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CanaryVpcConfigArgs) ToCanaryVpcConfigPtrOutput() CanaryVpcConfigPtrOutput {
 	return i.ToCanaryVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -1201,6 +1388,12 @@ func (i *canaryVpcConfigPtrType) ToCanaryVpcConfigPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryVpcConfigPtrOutput)
 }
 
+func (i *canaryVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CanaryVpcConfig] {
+	return pulumix.Output[*CanaryVpcConfig]{
+		OutputState: i.ToCanaryVpcConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CanaryVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (CanaryVpcConfigOutput) ElementType() reflect.Type {
@@ -1223,6 +1416,12 @@ func (o CanaryVpcConfigOutput) ToCanaryVpcConfigPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryVpcConfig) *CanaryVpcConfig {
 		return &v
 	}).(CanaryVpcConfigPtrOutput)
+}
+
+func (o CanaryVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CanaryVpcConfig] {
+	return pulumix.Output[CanaryVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
@@ -1249,6 +1448,12 @@ func (o CanaryVpcConfigPtrOutput) ToCanaryVpcConfigPtrOutput() CanaryVpcConfigPt
 
 func (o CanaryVpcConfigPtrOutput) ToCanaryVpcConfigPtrOutputWithContext(ctx context.Context) CanaryVpcConfigPtrOutput {
 	return o
+}
+
+func (o CanaryVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CanaryVpcConfig] {
+	return pulumix.Output[*CanaryVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryVpcConfigPtrOutput) Elem() CanaryVpcConfigOutput {
@@ -1327,6 +1532,12 @@ func (i GroupTagArgs) ToGroupTagOutputWithContext(ctx context.Context) GroupTagO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagOutput)
 }
 
+func (i GroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[GroupTag] {
+	return pulumix.Output[GroupTag]{
+		OutputState: i.ToGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupTagArrayInput is an input type that accepts GroupTagArray and GroupTagArrayOutput values.
 // You can construct a concrete instance of `GroupTagArrayInput` via:
 //
@@ -1352,6 +1563,12 @@ func (i GroupTagArray) ToGroupTagArrayOutputWithContext(ctx context.Context) Gro
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagArrayOutput)
 }
 
+func (i GroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupTag] {
+	return pulumix.Output[[]GroupTag]{
+		OutputState: i.ToGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type GroupTagOutput struct{ *pulumi.OutputState }
 
@@ -1365,6 +1582,12 @@ func (o GroupTagOutput) ToGroupTagOutput() GroupTagOutput {
 
 func (o GroupTagOutput) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
 	return o
+}
+
+func (o GroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[GroupTag] {
+	return pulumix.Output[GroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1389,6 +1612,12 @@ func (o GroupTagArrayOutput) ToGroupTagArrayOutput() GroupTagArrayOutput {
 
 func (o GroupTagArrayOutput) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
 	return o
+}
+
+func (o GroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupTag] {
+	return pulumix.Output[[]GroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {

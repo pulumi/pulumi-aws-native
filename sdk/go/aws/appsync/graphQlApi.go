@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::GraphQLApi
@@ -137,6 +138,12 @@ func (i *GraphQlApi) ToGraphQlApiOutputWithContext(ctx context.Context) GraphQlA
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQlApiOutput)
 }
 
+func (i *GraphQlApi) ToOutput(ctx context.Context) pulumix.Output[*GraphQlApi] {
+	return pulumix.Output[*GraphQlApi]{
+		OutputState: i.ToGraphQlApiOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GraphQlApiOutput struct{ *pulumi.OutputState }
 
 func (GraphQlApiOutput) ElementType() reflect.Type {
@@ -149,6 +156,12 @@ func (o GraphQlApiOutput) ToGraphQlApiOutput() GraphQlApiOutput {
 
 func (o GraphQlApiOutput) ToGraphQlApiOutputWithContext(ctx context.Context) GraphQlApiOutput {
 	return o
+}
+
+func (o GraphQlApiOutput) ToOutput(ctx context.Context) pulumix.Output[*GraphQlApi] {
+	return pulumix.Output[*GraphQlApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphQlApiOutput) AdditionalAuthenticationProviders() GraphQlApiAdditionalAuthenticationProviderArrayOutput {

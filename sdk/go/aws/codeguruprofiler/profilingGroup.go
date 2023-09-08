@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
@@ -123,6 +124,12 @@ func (i *ProfilingGroup) ToProfilingGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ProfilingGroupOutput)
 }
 
+func (i *ProfilingGroup) ToOutput(ctx context.Context) pulumix.Output[*ProfilingGroup] {
+	return pulumix.Output[*ProfilingGroup]{
+		OutputState: i.ToProfilingGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfilingGroupOutput struct{ *pulumi.OutputState }
 
 func (ProfilingGroupOutput) ElementType() reflect.Type {
@@ -135,6 +142,12 @@ func (o ProfilingGroupOutput) ToProfilingGroupOutput() ProfilingGroupOutput {
 
 func (o ProfilingGroupOutput) ToProfilingGroupOutputWithContext(ctx context.Context) ProfilingGroupOutput {
 	return o
+}
+
+func (o ProfilingGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfilingGroup] {
+	return pulumix.Output[*ProfilingGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The agent permissions attached to this profiling group.

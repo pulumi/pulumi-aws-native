@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
@@ -109,6 +110,12 @@ func (i *VpceConfiguration) ToVpceConfigurationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(VpceConfigurationOutput)
 }
 
+func (i *VpceConfiguration) ToOutput(ctx context.Context) pulumix.Output[*VpceConfiguration] {
+	return pulumix.Output[*VpceConfiguration]{
+		OutputState: i.ToVpceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VpceConfigurationOutput) ElementType() reflect.Type {
@@ -121,6 +128,12 @@ func (o VpceConfigurationOutput) ToVpceConfigurationOutput() VpceConfigurationOu
 
 func (o VpceConfigurationOutput) ToVpceConfigurationOutputWithContext(ctx context.Context) VpceConfigurationOutput {
 	return o
+}
+
+func (o VpceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpceConfiguration] {
+	return pulumix.Output[*VpceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpceConfigurationOutput) Arn() pulumi.StringOutput {

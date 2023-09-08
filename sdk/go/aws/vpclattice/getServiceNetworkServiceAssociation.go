@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a service with a service network.
@@ -74,6 +75,12 @@ func (o LookupServiceNetworkServiceAssociationResultOutput) ToLookupServiceNetwo
 
 func (o LookupServiceNetworkServiceAssociationResultOutput) ToLookupServiceNetworkServiceAssociationResultOutputWithContext(ctx context.Context) LookupServiceNetworkServiceAssociationResultOutput {
 	return o
+}
+
+func (o LookupServiceNetworkServiceAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceNetworkServiceAssociationResult] {
+	return pulumix.Output[LookupServiceNetworkServiceAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupServiceNetworkServiceAssociationResultOutput) Arn() pulumi.StringPtrOutput {

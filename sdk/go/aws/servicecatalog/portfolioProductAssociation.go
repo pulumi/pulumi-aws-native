@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::PortfolioProductAssociation
@@ -114,6 +115,12 @@ func (i *PortfolioProductAssociation) ToPortfolioProductAssociationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioProductAssociationOutput)
 }
 
+func (i *PortfolioProductAssociation) ToOutput(ctx context.Context) pulumix.Output[*PortfolioProductAssociation] {
+	return pulumix.Output[*PortfolioProductAssociation]{
+		OutputState: i.ToPortfolioProductAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PortfolioProductAssociationOutput struct{ *pulumi.OutputState }
 
 func (PortfolioProductAssociationOutput) ElementType() reflect.Type {
@@ -126,6 +133,12 @@ func (o PortfolioProductAssociationOutput) ToPortfolioProductAssociationOutput()
 
 func (o PortfolioProductAssociationOutput) ToPortfolioProductAssociationOutputWithContext(ctx context.Context) PortfolioProductAssociationOutput {
 	return o
+}
+
+func (o PortfolioProductAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*PortfolioProductAssociation] {
+	return pulumix.Output[*PortfolioProductAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortfolioProductAssociationOutput) AcceptLanguage() pulumi.StringPtrOutput {

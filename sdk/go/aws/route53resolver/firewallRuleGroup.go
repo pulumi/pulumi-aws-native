@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
@@ -126,6 +127,12 @@ func (i *FirewallRuleGroup) ToFirewallRuleGroupOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupOutput)
 }
 
+func (i *FirewallRuleGroup) ToOutput(ctx context.Context) pulumix.Output[*FirewallRuleGroup] {
+	return pulumix.Output[*FirewallRuleGroup]{
+		OutputState: i.ToFirewallRuleGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallRuleGroupOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleGroupOutput) ElementType() reflect.Type {
@@ -138,6 +145,12 @@ func (o FirewallRuleGroupOutput) ToFirewallRuleGroupOutput() FirewallRuleGroupOu
 
 func (o FirewallRuleGroupOutput) ToFirewallRuleGroupOutputWithContext(ctx context.Context) FirewallRuleGroupOutput {
 	return o
+}
+
+func (o FirewallRuleGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallRuleGroup] {
+	return pulumix.Output[*FirewallRuleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Arn

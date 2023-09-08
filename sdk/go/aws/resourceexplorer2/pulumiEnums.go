@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type IndexStateEnum string
@@ -44,6 +45,12 @@ func (o IndexStateEnumOutput) ToIndexStateEnumPtrOutputWithContext(ctx context.C
 	}).(IndexStateEnumPtrOutput)
 }
 
+func (o IndexStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[IndexStateEnum] {
+	return pulumix.Output[IndexStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -77,6 +84,12 @@ func (o IndexStateEnumPtrOutput) ToIndexStateEnumPtrOutput() IndexStateEnumPtrOu
 
 func (o IndexStateEnumPtrOutput) ToIndexStateEnumPtrOutputWithContext(ctx context.Context) IndexStateEnumPtrOutput {
 	return o
+}
+
+func (o IndexStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexStateEnum] {
+	return pulumix.Output[*IndexStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexStateEnumPtrOutput) Elem() IndexStateEnumOutput {
@@ -170,6 +183,12 @@ func (o IndexTypeOutput) ToIndexTypePtrOutputWithContext(ctx context.Context) In
 	}).(IndexTypePtrOutput)
 }
 
+func (o IndexTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IndexType] {
+	return pulumix.Output[IndexType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -203,6 +222,12 @@ func (o IndexTypePtrOutput) ToIndexTypePtrOutput() IndexTypePtrOutput {
 
 func (o IndexTypePtrOutput) ToIndexTypePtrOutputWithContext(ctx context.Context) IndexTypePtrOutput {
 	return o
+}
+
+func (o IndexTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexType] {
+	return pulumix.Output[*IndexType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexTypePtrOutput) Elem() IndexTypeOutput {
@@ -265,6 +290,12 @@ func (in *indexTypePtr) ToIndexTypePtrOutput() IndexTypePtrOutput {
 
 func (in *indexTypePtr) ToIndexTypePtrOutputWithContext(ctx context.Context) IndexTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IndexTypePtrOutput)
+}
+
+func (in *indexTypePtr) ToOutput(ctx context.Context) pulumix.Output[*IndexType] {
+	return pulumix.Output[*IndexType]{
+		OutputState: in.ToIndexTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

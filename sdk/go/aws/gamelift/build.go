@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GameLift::Build
@@ -124,6 +125,12 @@ func (i *Build) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildOutput)
 }
 
+func (i *Build) ToOutput(ctx context.Context) pulumix.Output[*Build] {
+	return pulumix.Output[*Build]{
+		OutputState: i.ToBuildOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BuildOutput struct{ *pulumi.OutputState }
 
 func (BuildOutput) ElementType() reflect.Type {
@@ -136,6 +143,12 @@ func (o BuildOutput) ToBuildOutput() BuildOutput {
 
 func (o BuildOutput) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return o
+}
+
+func (o BuildOutput) ToOutput(ctx context.Context) pulumix.Output[*Build] {
+	return pulumix.Output[*Build]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.

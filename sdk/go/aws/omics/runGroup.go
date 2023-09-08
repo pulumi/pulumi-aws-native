@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Omics::RunGroup Resource Type
@@ -106,6 +107,12 @@ func (i *RunGroup) ToRunGroupOutputWithContext(ctx context.Context) RunGroupOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RunGroupOutput)
 }
 
+func (i *RunGroup) ToOutput(ctx context.Context) pulumix.Output[*RunGroup] {
+	return pulumix.Output[*RunGroup]{
+		OutputState: i.ToRunGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RunGroupOutput struct{ *pulumi.OutputState }
 
 func (RunGroupOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o RunGroupOutput) ToRunGroupOutput() RunGroupOutput {
 
 func (o RunGroupOutput) ToRunGroupOutputWithContext(ctx context.Context) RunGroupOutput {
 	return o
+}
+
+func (o RunGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*RunGroup] {
+	return pulumix.Output[*RunGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RunGroupOutput) Arn() pulumi.StringOutput {

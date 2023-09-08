@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents an AWS account that is a part of a collaboration
@@ -69,6 +70,12 @@ func (o LookupMembershipResultOutput) ToLookupMembershipResultOutput() LookupMem
 
 func (o LookupMembershipResultOutput) ToLookupMembershipResultOutputWithContext(ctx context.Context) LookupMembershipResultOutput {
 	return o
+}
+
+func (o LookupMembershipResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMembershipResult] {
+	return pulumix.Output[LookupMembershipResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupMembershipResultOutput) Arn() pulumi.StringPtrOutput {

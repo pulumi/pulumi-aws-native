@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElastiCache::ReplicationGroup
@@ -255,6 +256,12 @@ func (i *ReplicationGroup) ToReplicationGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupOutput)
 }
 
+func (i *ReplicationGroup) ToOutput(ctx context.Context) pulumix.Output[*ReplicationGroup] {
+	return pulumix.Output[*ReplicationGroup]{
+		OutputState: i.ToReplicationGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupOutput) ElementType() reflect.Type {
@@ -267,6 +274,12 @@ func (o ReplicationGroupOutput) ToReplicationGroupOutput() ReplicationGroupOutpu
 
 func (o ReplicationGroupOutput) ToReplicationGroupOutputWithContext(ctx context.Context) ReplicationGroupOutput {
 	return o
+}
+
+func (o ReplicationGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationGroup] {
+	return pulumix.Output[*ReplicationGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationGroupOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::IoTEvents::AlarmModel resource creates a alarm model. AWS IoT Events alarms help you monitor your data for changes. The data can be metrics that you measure for your equipment and processes. You can create alarms that send notifications when a threshold is breached. Alarms help you detect issues, streamline maintenance, and optimize performance of your equipment and processes.
@@ -157,6 +158,12 @@ func (i *AlarmModel) ToAlarmModelOutputWithContext(ctx context.Context) AlarmMod
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelOutput)
 }
 
+func (i *AlarmModel) ToOutput(ctx context.Context) pulumix.Output[*AlarmModel] {
+	return pulumix.Output[*AlarmModel]{
+		OutputState: i.ToAlarmModelOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlarmModelOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelOutput) ElementType() reflect.Type {
@@ -169,6 +176,12 @@ func (o AlarmModelOutput) ToAlarmModelOutput() AlarmModelOutput {
 
 func (o AlarmModelOutput) ToAlarmModelOutputWithContext(ctx context.Context) AlarmModelOutput {
 	return o
+}
+
+func (o AlarmModelOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModel] {
+	return pulumix.Output[*AlarmModel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmModelOutput) AlarmCapabilities() AlarmModelAlarmCapabilitiesPtrOutput {

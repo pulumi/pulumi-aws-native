@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApplicationAutoScaling::ScalableTarget
@@ -156,6 +157,12 @@ func (i *ScalableTarget) ToScalableTargetOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetOutput)
 }
 
+func (i *ScalableTarget) ToOutput(ctx context.Context) pulumix.Output[*ScalableTarget] {
+	return pulumix.Output[*ScalableTarget]{
+		OutputState: i.ToScalableTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScalableTargetOutput struct{ *pulumi.OutputState }
 
 func (ScalableTargetOutput) ElementType() reflect.Type {
@@ -168,6 +175,12 @@ func (o ScalableTargetOutput) ToScalableTargetOutput() ScalableTargetOutput {
 
 func (o ScalableTargetOutput) ToScalableTargetOutputWithContext(ctx context.Context) ScalableTargetOutput {
 	return o
+}
+
+func (o ScalableTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalableTarget] {
+	return pulumix.Output[*ScalableTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand

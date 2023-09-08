@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AssetModelDataType string
@@ -80,6 +81,12 @@ func (o AssetModelDataTypeOutput) ToAssetModelDataTypePtrOutputWithContext(ctx c
 	}).(AssetModelDataTypePtrOutput)
 }
 
+func (o AssetModelDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelDataType] {
+	return pulumix.Output[AssetModelDataType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssetModelDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +120,12 @@ func (o AssetModelDataTypePtrOutput) ToAssetModelDataTypePtrOutput() AssetModelD
 
 func (o AssetModelDataTypePtrOutput) ToAssetModelDataTypePtrOutputWithContext(ctx context.Context) AssetModelDataTypePtrOutput {
 	return o
+}
+
+func (o AssetModelDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelDataType] {
+	return pulumix.Output[*AssetModelDataType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssetModelDataTypePtrOutput) Elem() AssetModelDataTypeOutput {
@@ -175,6 +188,12 @@ func (in *assetModelDataTypePtr) ToAssetModelDataTypePtrOutput() AssetModelDataT
 
 func (in *assetModelDataTypePtr) ToAssetModelDataTypePtrOutputWithContext(ctx context.Context) AssetModelDataTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssetModelDataTypePtrOutput)
+}
+
+func (in *assetModelDataTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AssetModelDataType] {
+	return pulumix.Output[*AssetModelDataType]{
+		OutputState: in.ToAssetModelDataTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type AssetModelDataTypeSpec string
@@ -243,6 +262,12 @@ func (o AssetModelDataTypeSpecOutput) ToAssetModelDataTypeSpecPtrOutputWithConte
 	}).(AssetModelDataTypeSpecPtrOutput)
 }
 
+func (o AssetModelDataTypeSpecOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelDataTypeSpec] {
+	return pulumix.Output[AssetModelDataTypeSpec]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssetModelDataTypeSpecOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -276,6 +301,12 @@ func (o AssetModelDataTypeSpecPtrOutput) ToAssetModelDataTypeSpecPtrOutput() Ass
 
 func (o AssetModelDataTypeSpecPtrOutput) ToAssetModelDataTypeSpecPtrOutputWithContext(ctx context.Context) AssetModelDataTypeSpecPtrOutput {
 	return o
+}
+
+func (o AssetModelDataTypeSpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelDataTypeSpec] {
+	return pulumix.Output[*AssetModelDataTypeSpec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssetModelDataTypeSpecPtrOutput) Elem() AssetModelDataTypeSpecOutput {
@@ -338,6 +369,12 @@ func (in *assetModelDataTypeSpecPtr) ToAssetModelDataTypeSpecPtrOutput() AssetMo
 
 func (in *assetModelDataTypeSpecPtr) ToAssetModelDataTypeSpecPtrOutputWithContext(ctx context.Context) AssetModelDataTypeSpecPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssetModelDataTypeSpecPtrOutput)
+}
+
+func (in *assetModelDataTypeSpecPtr) ToOutput(ctx context.Context) pulumix.Output[*AssetModelDataTypeSpec] {
+	return pulumix.Output[*AssetModelDataTypeSpec]{
+		OutputState: in.ToAssetModelDataTypeSpecPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type AssetModelTypeName string
@@ -409,6 +446,12 @@ func (o AssetModelTypeNameOutput) ToAssetModelTypeNamePtrOutputWithContext(ctx c
 	}).(AssetModelTypeNamePtrOutput)
 }
 
+func (o AssetModelTypeNameOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelTypeName] {
+	return pulumix.Output[AssetModelTypeName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssetModelTypeNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -442,6 +485,12 @@ func (o AssetModelTypeNamePtrOutput) ToAssetModelTypeNamePtrOutput() AssetModelT
 
 func (o AssetModelTypeNamePtrOutput) ToAssetModelTypeNamePtrOutputWithContext(ctx context.Context) AssetModelTypeNamePtrOutput {
 	return o
+}
+
+func (o AssetModelTypeNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelTypeName] {
+	return pulumix.Output[*AssetModelTypeName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssetModelTypeNamePtrOutput) Elem() AssetModelTypeNameOutput {
@@ -504,6 +553,12 @@ func (in *assetModelTypeNamePtr) ToAssetModelTypeNamePtrOutput() AssetModelTypeN
 
 func (in *assetModelTypeNamePtr) ToAssetModelTypeNamePtrOutputWithContext(ctx context.Context) AssetModelTypeNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssetModelTypeNamePtrOutput)
+}
+
+func (in *assetModelTypeNamePtr) ToOutput(ctx context.Context) pulumix.Output[*AssetModelTypeName] {
+	return pulumix.Output[*AssetModelTypeName]{
+		OutputState: in.ToAssetModelTypeNamePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The MQTT notification state (ENABLED or DISABLED) for this asset property.
@@ -574,6 +629,12 @@ func (o AssetPropertyNotificationStateOutput) ToAssetPropertyNotificationStatePt
 	}).(AssetPropertyNotificationStatePtrOutput)
 }
 
+func (o AssetPropertyNotificationStateOutput) ToOutput(ctx context.Context) pulumix.Output[AssetPropertyNotificationState] {
+	return pulumix.Output[AssetPropertyNotificationState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssetPropertyNotificationStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -607,6 +668,12 @@ func (o AssetPropertyNotificationStatePtrOutput) ToAssetPropertyNotificationStat
 
 func (o AssetPropertyNotificationStatePtrOutput) ToAssetPropertyNotificationStatePtrOutputWithContext(ctx context.Context) AssetPropertyNotificationStatePtrOutput {
 	return o
+}
+
+func (o AssetPropertyNotificationStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetPropertyNotificationState] {
+	return pulumix.Output[*AssetPropertyNotificationState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssetPropertyNotificationStatePtrOutput) Elem() AssetPropertyNotificationStateOutput {
@@ -669,6 +736,12 @@ func (in *assetPropertyNotificationStatePtr) ToAssetPropertyNotificationStatePtr
 
 func (in *assetPropertyNotificationStatePtr) ToAssetPropertyNotificationStatePtrOutputWithContext(ctx context.Context) AssetPropertyNotificationStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssetPropertyNotificationStatePtrOutput)
+}
+
+func (in *assetPropertyNotificationStatePtr) ToOutput(ctx context.Context) pulumix.Output[*AssetPropertyNotificationState] {
+	return pulumix.Output[*AssetPropertyNotificationState]{
+		OutputState: in.ToAssetPropertyNotificationStatePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

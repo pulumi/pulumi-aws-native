@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i SignalingChannelTagArgs) ToSignalingChannelTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SignalingChannelTagOutput)
 }
 
+func (i SignalingChannelTagArgs) ToOutput(ctx context.Context) pulumix.Output[SignalingChannelTag] {
+	return pulumix.Output[SignalingChannelTag]{
+		OutputState: i.ToSignalingChannelTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SignalingChannelTagArrayInput is an input type that accepts SignalingChannelTagArray and SignalingChannelTagArrayOutput values.
 // You can construct a concrete instance of `SignalingChannelTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i SignalingChannelTagArray) ToSignalingChannelTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SignalingChannelTagArrayOutput)
 }
 
+func (i SignalingChannelTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SignalingChannelTag] {
+	return pulumix.Output[[]SignalingChannelTag]{
+		OutputState: i.ToSignalingChannelTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type SignalingChannelTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o SignalingChannelTagOutput) ToSignalingChannelTagOutput() SignalingChanne
 
 func (o SignalingChannelTagOutput) ToSignalingChannelTagOutputWithContext(ctx context.Context) SignalingChannelTagOutput {
 	return o
+}
+
+func (o SignalingChannelTagOutput) ToOutput(ctx context.Context) pulumix.Output[SignalingChannelTag] {
+	return pulumix.Output[SignalingChannelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. Specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -114,6 +133,12 @@ func (o SignalingChannelTagArrayOutput) ToSignalingChannelTagArrayOutput() Signa
 
 func (o SignalingChannelTagArrayOutput) ToSignalingChannelTagArrayOutputWithContext(ctx context.Context) SignalingChannelTagArrayOutput {
 	return o
+}
+
+func (o SignalingChannelTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SignalingChannelTag] {
+	return pulumix.Output[[]SignalingChannelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SignalingChannelTagArrayOutput) Index(i pulumi.IntInput) SignalingChannelTagOutput {
@@ -161,6 +186,12 @@ func (i StreamTagArgs) ToStreamTagOutputWithContext(ctx context.Context) StreamT
 	return pulumi.ToOutputWithContext(ctx, i).(StreamTagOutput)
 }
 
+func (i StreamTagArgs) ToOutput(ctx context.Context) pulumix.Output[StreamTag] {
+	return pulumix.Output[StreamTag]{
+		OutputState: i.ToStreamTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StreamTagArrayInput is an input type that accepts StreamTagArray and StreamTagArrayOutput values.
 // You can construct a concrete instance of `StreamTagArrayInput` via:
 //
@@ -186,6 +217,12 @@ func (i StreamTagArray) ToStreamTagArrayOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(StreamTagArrayOutput)
 }
 
+func (i StreamTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamTag] {
+	return pulumix.Output[[]StreamTag]{
+		OutputState: i.ToStreamTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associated with the Kinesis Video Stream.
 type StreamTagOutput struct{ *pulumi.OutputState }
 
@@ -199,6 +236,12 @@ func (o StreamTagOutput) ToStreamTagOutput() StreamTagOutput {
 
 func (o StreamTagOutput) ToStreamTagOutputWithContext(ctx context.Context) StreamTagOutput {
 	return o
+}
+
+func (o StreamTagOutput) ToOutput(ctx context.Context) pulumix.Output[StreamTag] {
+	return pulumix.Output[StreamTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. Specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -223,6 +266,12 @@ func (o StreamTagArrayOutput) ToStreamTagArrayOutput() StreamTagArrayOutput {
 
 func (o StreamTagArrayOutput) ToStreamTagArrayOutputWithContext(ctx context.Context) StreamTagArrayOutput {
 	return o
+}
+
+func (o StreamTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamTag] {
+	return pulumix.Output[[]StreamTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamTagArrayOutput) Index(i pulumi.IntInput) StreamTagOutput {

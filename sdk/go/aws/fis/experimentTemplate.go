@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::FIS::ExperimentTemplate
@@ -127,6 +128,12 @@ func (i *ExperimentTemplate) ToExperimentTemplateOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateOutput)
 }
 
+func (i *ExperimentTemplate) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplate] {
+	return pulumix.Output[*ExperimentTemplate]{
+		OutputState: i.ToExperimentTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o ExperimentTemplateOutput) ToExperimentTemplateOutput() ExperimentTemplat
 
 func (o ExperimentTemplateOutput) ToExperimentTemplateOutputWithContext(ctx context.Context) ExperimentTemplateOutput {
 	return o
+}
+
+func (o ExperimentTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplate] {
+	return pulumix.Output[*ExperimentTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateOutput) Actions() ExperimentTemplateActionMapPtrOutput {

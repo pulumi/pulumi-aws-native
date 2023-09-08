@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::SpotFleet
@@ -115,6 +116,12 @@ func (i *SpotFleet) ToSpotFleetOutputWithContext(ctx context.Context) SpotFleetO
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetOutput)
 }
 
+func (i *SpotFleet) ToOutput(ctx context.Context) pulumix.Output[*SpotFleet] {
+	return pulumix.Output[*SpotFleet]{
+		OutputState: i.ToSpotFleetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetOutput) ElementType() reflect.Type {
@@ -127,6 +134,12 @@ func (o SpotFleetOutput) ToSpotFleetOutput() SpotFleetOutput {
 
 func (o SpotFleetOutput) ToSpotFleetOutputWithContext(ctx context.Context) SpotFleetOutput {
 	return o
+}
+
+func (o SpotFleetOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleet] {
+	return pulumix.Output[*SpotFleet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetOutput) SpotFleetRequestConfigData() SpotFleetRequestConfigDataOutput {

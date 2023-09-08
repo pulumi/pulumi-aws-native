@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lambda::EventSourceMapping
@@ -237,6 +238,12 @@ func (i *EventSourceMapping) ToEventSourceMappingOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingOutput)
 }
 
+func (i *EventSourceMapping) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMapping] {
+	return pulumix.Output[*EventSourceMapping]{
+		OutputState: i.ToEventSourceMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSourceMappingOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingOutput) ElementType() reflect.Type {
@@ -249,6 +256,12 @@ func (o EventSourceMappingOutput) ToEventSourceMappingOutput() EventSourceMappin
 
 func (o EventSourceMappingOutput) ToEventSourceMappingOutputWithContext(ctx context.Context) EventSourceMappingOutput {
 	return o
+}
+
+func (o EventSourceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMapping] {
+	return pulumix.Output[*EventSourceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specific configuration settings for an MSK event source.

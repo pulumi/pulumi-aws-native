@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Omics::SequenceStore Resource Type
@@ -123,6 +124,12 @@ func (i *SequenceStore) ToSequenceStoreOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceStoreOutput)
 }
 
+func (i *SequenceStore) ToOutput(ctx context.Context) pulumix.Output[*SequenceStore] {
+	return pulumix.Output[*SequenceStore]{
+		OutputState: i.ToSequenceStoreOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SequenceStoreOutput struct{ *pulumi.OutputState }
 
 func (SequenceStoreOutput) ElementType() reflect.Type {
@@ -135,6 +142,12 @@ func (o SequenceStoreOutput) ToSequenceStoreOutput() SequenceStoreOutput {
 
 func (o SequenceStoreOutput) ToSequenceStoreOutputWithContext(ctx context.Context) SequenceStoreOutput {
 	return o
+}
+
+func (o SequenceStoreOutput) ToOutput(ctx context.Context) pulumix.Output[*SequenceStore] {
+	return pulumix.Output[*SequenceStore]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The store's ARN.

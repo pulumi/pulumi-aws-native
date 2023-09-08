@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i ApplicationTagMapArgs) ToApplicationTagMapOutput() ApplicationTagMapOutp
 
 func (i ApplicationTagMapArgs) ToApplicationTagMapOutputWithContext(ctx context.Context) ApplicationTagMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagMapOutput)
+}
+
+func (i ApplicationTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationTagMap] {
+	return pulumix.Output[ApplicationTagMap]{
+		OutputState: i.ToApplicationTagMapOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ApplicationTagMapArgs) ToApplicationTagMapPtrOutput() ApplicationTagMapPtrOutput {
@@ -91,6 +98,12 @@ func (i *applicationTagMapPtrType) ToApplicationTagMapPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagMapPtrOutput)
 }
 
+func (i *applicationTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationTagMap] {
+	return pulumix.Output[*ApplicationTagMap]{
+		OutputState: i.ToApplicationTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationTagMapOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTagMapOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o ApplicationTagMapOutput) ToApplicationTagMapPtrOutputWithContext(ctx con
 	}).(ApplicationTagMapPtrOutput)
 }
 
+func (o ApplicationTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationTagMap] {
+	return pulumix.Output[ApplicationTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ApplicationTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTagMapPtrOutput) ElementType() reflect.Type {
@@ -127,6 +146,12 @@ func (o ApplicationTagMapPtrOutput) ToApplicationTagMapPtrOutput() ApplicationTa
 
 func (o ApplicationTagMapPtrOutput) ToApplicationTagMapPtrOutputWithContext(ctx context.Context) ApplicationTagMapPtrOutput {
 	return o
+}
+
+func (o ApplicationTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationTagMap] {
+	return pulumix.Output[*ApplicationTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationTagMapPtrOutput) Elem() ApplicationTagMapOutput {
@@ -172,6 +197,12 @@ func (i EnvironmentHighAvailabilityConfigArgs) ToEnvironmentHighAvailabilityConf
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentHighAvailabilityConfigOutput)
 }
 
+func (i EnvironmentHighAvailabilityConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentHighAvailabilityConfig] {
+	return pulumix.Output[EnvironmentHighAvailabilityConfig]{
+		OutputState: i.ToEnvironmentHighAvailabilityConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EnvironmentHighAvailabilityConfigArgs) ToEnvironmentHighAvailabilityConfigPtrOutput() EnvironmentHighAvailabilityConfigPtrOutput {
 	return i.ToEnvironmentHighAvailabilityConfigPtrOutputWithContext(context.Background())
 }
@@ -213,6 +244,12 @@ func (i *environmentHighAvailabilityConfigPtrType) ToEnvironmentHighAvailability
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentHighAvailabilityConfigPtrOutput)
 }
 
+func (i *environmentHighAvailabilityConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentHighAvailabilityConfig] {
+	return pulumix.Output[*EnvironmentHighAvailabilityConfig]{
+		OutputState: i.ToEnvironmentHighAvailabilityConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Defines the details of a high availability configuration.
 type EnvironmentHighAvailabilityConfigOutput struct{ *pulumi.OutputState }
 
@@ -238,6 +275,12 @@ func (o EnvironmentHighAvailabilityConfigOutput) ToEnvironmentHighAvailabilityCo
 	}).(EnvironmentHighAvailabilityConfigPtrOutput)
 }
 
+func (o EnvironmentHighAvailabilityConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentHighAvailabilityConfig] {
+	return pulumix.Output[EnvironmentHighAvailabilityConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentHighAvailabilityConfigOutput) DesiredCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v EnvironmentHighAvailabilityConfig) int { return v.DesiredCapacity }).(pulumi.IntOutput)
 }
@@ -254,6 +297,12 @@ func (o EnvironmentHighAvailabilityConfigPtrOutput) ToEnvironmentHighAvailabilit
 
 func (o EnvironmentHighAvailabilityConfigPtrOutput) ToEnvironmentHighAvailabilityConfigPtrOutputWithContext(ctx context.Context) EnvironmentHighAvailabilityConfigPtrOutput {
 	return o
+}
+
+func (o EnvironmentHighAvailabilityConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentHighAvailabilityConfig] {
+	return pulumix.Output[*EnvironmentHighAvailabilityConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentHighAvailabilityConfigPtrOutput) Elem() EnvironmentHighAvailabilityConfigOutput {
@@ -306,6 +355,12 @@ func (i EnvironmentStorageConfigurationArgs) ToEnvironmentStorageConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStorageConfigurationOutput)
 }
 
+func (i EnvironmentStorageConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentStorageConfiguration] {
+	return pulumix.Output[EnvironmentStorageConfiguration]{
+		OutputState: i.ToEnvironmentStorageConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentStorageConfigurationArrayInput is an input type that accepts EnvironmentStorageConfigurationArray and EnvironmentStorageConfigurationArrayOutput values.
 // You can construct a concrete instance of `EnvironmentStorageConfigurationArrayInput` via:
 //
@@ -331,6 +386,12 @@ func (i EnvironmentStorageConfigurationArray) ToEnvironmentStorageConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStorageConfigurationArrayOutput)
 }
 
+func (i EnvironmentStorageConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentStorageConfiguration] {
+	return pulumix.Output[[]EnvironmentStorageConfiguration]{
+		OutputState: i.ToEnvironmentStorageConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Defines the storage configuration for an environment.
 type EnvironmentStorageConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -346,6 +407,12 @@ func (o EnvironmentStorageConfigurationOutput) ToEnvironmentStorageConfiguration
 	return o
 }
 
+func (o EnvironmentStorageConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentStorageConfiguration] {
+	return pulumix.Output[EnvironmentStorageConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 type EnvironmentStorageConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentStorageConfigurationArrayOutput) ElementType() reflect.Type {
@@ -358,6 +425,12 @@ func (o EnvironmentStorageConfigurationArrayOutput) ToEnvironmentStorageConfigur
 
 func (o EnvironmentStorageConfigurationArrayOutput) ToEnvironmentStorageConfigurationArrayOutputWithContext(ctx context.Context) EnvironmentStorageConfigurationArrayOutput {
 	return o
+}
+
+func (o EnvironmentStorageConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentStorageConfiguration] {
+	return pulumix.Output[[]EnvironmentStorageConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentStorageConfigurationArrayOutput) Index(i pulumi.IntInput) EnvironmentStorageConfigurationOutput {
@@ -395,6 +468,12 @@ func (i EnvironmentTagMapArgs) ToEnvironmentTagMapOutput() EnvironmentTagMapOutp
 
 func (i EnvironmentTagMapArgs) ToEnvironmentTagMapOutputWithContext(ctx context.Context) EnvironmentTagMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagMapOutput)
+}
+
+func (i EnvironmentTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTagMap] {
+	return pulumix.Output[EnvironmentTagMap]{
+		OutputState: i.ToEnvironmentTagMapOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i EnvironmentTagMapArgs) ToEnvironmentTagMapPtrOutput() EnvironmentTagMapPtrOutput {
@@ -438,6 +517,12 @@ func (i *environmentTagMapPtrType) ToEnvironmentTagMapPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagMapPtrOutput)
 }
 
+func (i *environmentTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentTagMap] {
+	return pulumix.Output[*EnvironmentTagMap]{
+		OutputState: i.ToEnvironmentTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Defines tags associated to an environment.
 type EnvironmentTagMapOutput struct{ *pulumi.OutputState }
 
@@ -463,6 +548,12 @@ func (o EnvironmentTagMapOutput) ToEnvironmentTagMapPtrOutputWithContext(ctx con
 	}).(EnvironmentTagMapPtrOutput)
 }
 
+func (o EnvironmentTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTagMap] {
+	return pulumix.Output[EnvironmentTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type EnvironmentTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentTagMapPtrOutput) ElementType() reflect.Type {
@@ -475,6 +566,12 @@ func (o EnvironmentTagMapPtrOutput) ToEnvironmentTagMapPtrOutput() EnvironmentTa
 
 func (o EnvironmentTagMapPtrOutput) ToEnvironmentTagMapPtrOutputWithContext(ctx context.Context) EnvironmentTagMapPtrOutput {
 	return o
+}
+
+func (o EnvironmentTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentTagMap] {
+	return pulumix.Output[*EnvironmentTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentTagMapPtrOutput) Elem() EnvironmentTagMapOutput {

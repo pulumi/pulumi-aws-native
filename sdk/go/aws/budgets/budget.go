@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Budgets::Budget
@@ -102,6 +103,12 @@ func (i *Budget) ToBudgetOutputWithContext(ctx context.Context) BudgetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetOutput)
 }
 
+func (i *Budget) ToOutput(ctx context.Context) pulumix.Output[*Budget] {
+	return pulumix.Output[*Budget]{
+		OutputState: i.ToBudgetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetOutput struct{ *pulumi.OutputState }
 
 func (BudgetOutput) ElementType() reflect.Type {
@@ -114,6 +121,12 @@ func (o BudgetOutput) ToBudgetOutput() BudgetOutput {
 
 func (o BudgetOutput) ToBudgetOutputWithContext(ctx context.Context) BudgetOutput {
 	return o
+}
+
+func (o BudgetOutput) ToOutput(ctx context.Context) pulumix.Output[*Budget] {
+	return pulumix.Output[*Budget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetOutput) Budget() BudgetDataOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) Chann
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
 }
 
+func (i ChannelTagArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTag] {
+	return pulumix.Output[ChannelTag]{
+		OutputState: i.ToChannelTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
 // You can construct a concrete instance of `ChannelTagArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
 }
 
+func (i ChannelTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelTag] {
+	return pulumix.Output[[]ChannelTag]{
+		OutputState: i.ToChannelTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelTagOutput struct{ *pulumi.OutputState }
 
 func (ChannelTagOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
 
 func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
 	return o
+}
+
+func (o ChannelTagOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTag] {
+	return pulumix.Output[ChannelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelTagOutput) Key() pulumi.StringOutput {
@@ -105,6 +124,12 @@ func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
 
 func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
 	return o
+}
+
+func (o ChannelTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelTag] {
+	return pulumix.Output[[]ChannelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
@@ -146,6 +171,12 @@ func (i PlaybackKeyPairTagArgs) ToPlaybackKeyPairTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackKeyPairTagOutput)
 }
 
+func (i PlaybackKeyPairTagArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackKeyPairTag] {
+	return pulumix.Output[PlaybackKeyPairTag]{
+		OutputState: i.ToPlaybackKeyPairTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PlaybackKeyPairTagArrayInput is an input type that accepts PlaybackKeyPairTagArray and PlaybackKeyPairTagArrayOutput values.
 // You can construct a concrete instance of `PlaybackKeyPairTagArrayInput` via:
 //
@@ -171,6 +202,12 @@ func (i PlaybackKeyPairTagArray) ToPlaybackKeyPairTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackKeyPairTagArrayOutput)
 }
 
+func (i PlaybackKeyPairTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PlaybackKeyPairTag] {
+	return pulumix.Output[[]PlaybackKeyPairTag]{
+		OutputState: i.ToPlaybackKeyPairTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlaybackKeyPairTagOutput struct{ *pulumi.OutputState }
 
 func (PlaybackKeyPairTagOutput) ElementType() reflect.Type {
@@ -183,6 +220,12 @@ func (o PlaybackKeyPairTagOutput) ToPlaybackKeyPairTagOutput() PlaybackKeyPairTa
 
 func (o PlaybackKeyPairTagOutput) ToPlaybackKeyPairTagOutputWithContext(ctx context.Context) PlaybackKeyPairTagOutput {
 	return o
+}
+
+func (o PlaybackKeyPairTagOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackKeyPairTag] {
+	return pulumix.Output[PlaybackKeyPairTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackKeyPairTagOutput) Key() pulumi.StringOutput {
@@ -205,6 +248,12 @@ func (o PlaybackKeyPairTagArrayOutput) ToPlaybackKeyPairTagArrayOutput() Playbac
 
 func (o PlaybackKeyPairTagArrayOutput) ToPlaybackKeyPairTagArrayOutputWithContext(ctx context.Context) PlaybackKeyPairTagArrayOutput {
 	return o
+}
+
+func (o PlaybackKeyPairTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PlaybackKeyPairTag] {
+	return pulumix.Output[[]PlaybackKeyPairTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackKeyPairTagArrayOutput) Index(i pulumi.IntInput) PlaybackKeyPairTagOutput {
@@ -246,6 +295,12 @@ func (i RecordingConfigurationDestinationConfigurationArgs) ToRecordingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationDestinationConfigurationOutput)
 }
 
+func (i RecordingConfigurationDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationDestinationConfiguration] {
+	return pulumix.Output[RecordingConfigurationDestinationConfiguration]{
+		OutputState: i.ToRecordingConfigurationDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Recording Destination Configuration.
 type RecordingConfigurationDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -259,6 +314,12 @@ func (o RecordingConfigurationDestinationConfigurationOutput) ToRecordingConfigu
 
 func (o RecordingConfigurationDestinationConfigurationOutput) ToRecordingConfigurationDestinationConfigurationOutputWithContext(ctx context.Context) RecordingConfigurationDestinationConfigurationOutput {
 	return o
+}
+
+func (o RecordingConfigurationDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationDestinationConfiguration] {
+	return pulumix.Output[RecordingConfigurationDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordingConfigurationDestinationConfigurationOutput) S3() RecordingConfigurationS3DestinationConfigurationPtrOutput {
@@ -306,6 +367,12 @@ func (i RecordingConfigurationRenditionConfigurationArgs) ToRecordingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationRenditionConfigurationOutput)
 }
 
+func (i RecordingConfigurationRenditionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationRenditionConfiguration] {
+	return pulumix.Output[RecordingConfigurationRenditionConfiguration]{
+		OutputState: i.ToRecordingConfigurationRenditionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RecordingConfigurationRenditionConfigurationArgs) ToRecordingConfigurationRenditionConfigurationPtrOutput() RecordingConfigurationRenditionConfigurationPtrOutput {
 	return i.ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -347,6 +414,12 @@ func (i *recordingConfigurationRenditionConfigurationPtrType) ToRecordingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationRenditionConfigurationPtrOutput)
 }
 
+func (i *recordingConfigurationRenditionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationRenditionConfiguration] {
+	return pulumix.Output[*RecordingConfigurationRenditionConfiguration]{
+		OutputState: i.ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Rendition Configuration describes which renditions should be recorded for a stream.
 type RecordingConfigurationRenditionConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -370,6 +443,12 @@ func (o RecordingConfigurationRenditionConfigurationOutput) ToRecordingConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationRenditionConfiguration) *RecordingConfigurationRenditionConfiguration {
 		return &v
 	}).(RecordingConfigurationRenditionConfigurationPtrOutput)
+}
+
+func (o RecordingConfigurationRenditionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationRenditionConfiguration] {
+	return pulumix.Output[RecordingConfigurationRenditionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Resolution Selection indicates which set of renditions are recorded for a stream.
@@ -398,6 +477,12 @@ func (o RecordingConfigurationRenditionConfigurationPtrOutput) ToRecordingConfig
 
 func (o RecordingConfigurationRenditionConfigurationPtrOutput) ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationPtrOutput {
 	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationRenditionConfiguration] {
+	return pulumix.Output[*RecordingConfigurationRenditionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordingConfigurationRenditionConfigurationPtrOutput) Elem() RecordingConfigurationRenditionConfigurationOutput {
@@ -463,6 +548,12 @@ func (i RecordingConfigurationS3DestinationConfigurationArgs) ToRecordingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationS3DestinationConfigurationOutput)
 }
 
+func (i RecordingConfigurationS3DestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationS3DestinationConfiguration] {
+	return pulumix.Output[RecordingConfigurationS3DestinationConfiguration]{
+		OutputState: i.ToRecordingConfigurationS3DestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RecordingConfigurationS3DestinationConfigurationArgs) ToRecordingConfigurationS3DestinationConfigurationPtrOutput() RecordingConfigurationS3DestinationConfigurationPtrOutput {
 	return i.ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -504,6 +595,12 @@ func (i *recordingConfigurationS3DestinationConfigurationPtrType) ToRecordingCon
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
 }
 
+func (i *recordingConfigurationS3DestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationS3DestinationConfiguration] {
+	return pulumix.Output[*RecordingConfigurationS3DestinationConfiguration]{
+		OutputState: i.ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Recording S3 Destination Configuration.
 type RecordingConfigurationS3DestinationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -529,6 +626,12 @@ func (o RecordingConfigurationS3DestinationConfigurationOutput) ToRecordingConfi
 	}).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
 }
 
+func (o RecordingConfigurationS3DestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationS3DestinationConfiguration] {
+	return pulumix.Output[RecordingConfigurationS3DestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RecordingConfigurationS3DestinationConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordingConfigurationS3DestinationConfiguration) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -545,6 +648,12 @@ func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) ToRecordingCo
 
 func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationS3DestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationS3DestinationConfiguration] {
+	return pulumix.Output[*RecordingConfigurationS3DestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) Elem() RecordingConfigurationS3DestinationConfigurationOutput {
@@ -599,6 +708,12 @@ func (i RecordingConfigurationTagArgs) ToRecordingConfigurationTagOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationTagOutput)
 }
 
+func (i RecordingConfigurationTagArgs) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationTag] {
+	return pulumix.Output[RecordingConfigurationTag]{
+		OutputState: i.ToRecordingConfigurationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RecordingConfigurationTagArrayInput is an input type that accepts RecordingConfigurationTagArray and RecordingConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `RecordingConfigurationTagArrayInput` via:
 //
@@ -624,6 +739,12 @@ func (i RecordingConfigurationTagArray) ToRecordingConfigurationTagArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationTagArrayOutput)
 }
 
+func (i RecordingConfigurationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordingConfigurationTag] {
+	return pulumix.Output[[]RecordingConfigurationTag]{
+		OutputState: i.ToRecordingConfigurationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecordingConfigurationTagOutput struct{ *pulumi.OutputState }
 
 func (RecordingConfigurationTagOutput) ElementType() reflect.Type {
@@ -636,6 +757,12 @@ func (o RecordingConfigurationTagOutput) ToRecordingConfigurationTagOutput() Rec
 
 func (o RecordingConfigurationTagOutput) ToRecordingConfigurationTagOutputWithContext(ctx context.Context) RecordingConfigurationTagOutput {
 	return o
+}
+
+func (o RecordingConfigurationTagOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationTag] {
+	return pulumix.Output[RecordingConfigurationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordingConfigurationTagOutput) Key() pulumi.StringOutput {
@@ -658,6 +785,12 @@ func (o RecordingConfigurationTagArrayOutput) ToRecordingConfigurationTagArrayOu
 
 func (o RecordingConfigurationTagArrayOutput) ToRecordingConfigurationTagArrayOutputWithContext(ctx context.Context) RecordingConfigurationTagArrayOutput {
 	return o
+}
+
+func (o RecordingConfigurationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordingConfigurationTag] {
+	return pulumix.Output[[]RecordingConfigurationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordingConfigurationTagArrayOutput) Index(i pulumi.IntInput) RecordingConfigurationTagOutput {
@@ -713,6 +846,12 @@ func (i RecordingConfigurationThumbnailConfigurationArgs) ToRecordingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationThumbnailConfigurationOutput)
 }
 
+func (i RecordingConfigurationThumbnailConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationThumbnailConfiguration] {
+	return pulumix.Output[RecordingConfigurationThumbnailConfiguration]{
+		OutputState: i.ToRecordingConfigurationThumbnailConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RecordingConfigurationThumbnailConfigurationArgs) ToRecordingConfigurationThumbnailConfigurationPtrOutput() RecordingConfigurationThumbnailConfigurationPtrOutput {
 	return i.ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(context.Background())
 }
@@ -754,6 +893,12 @@ func (i *recordingConfigurationThumbnailConfigurationPtrType) ToRecordingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationThumbnailConfigurationPtrOutput)
 }
 
+func (i *recordingConfigurationThumbnailConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationThumbnailConfiguration] {
+	return pulumix.Output[*RecordingConfigurationThumbnailConfiguration]{
+		OutputState: i.ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Recording Thumbnail Configuration.
 type RecordingConfigurationThumbnailConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -777,6 +922,12 @@ func (o RecordingConfigurationThumbnailConfigurationOutput) ToRecordingConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationThumbnailConfiguration) *RecordingConfigurationThumbnailConfiguration {
 		return &v
 	}).(RecordingConfigurationThumbnailConfigurationPtrOutput)
+}
+
+func (o RecordingConfigurationThumbnailConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationThumbnailConfiguration] {
+	return pulumix.Output[RecordingConfigurationThumbnailConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
@@ -817,6 +968,12 @@ func (o RecordingConfigurationThumbnailConfigurationPtrOutput) ToRecordingConfig
 
 func (o RecordingConfigurationThumbnailConfigurationPtrOutput) ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationPtrOutput {
 	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationThumbnailConfiguration] {
+	return pulumix.Output[*RecordingConfigurationThumbnailConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordingConfigurationThumbnailConfigurationPtrOutput) Elem() RecordingConfigurationThumbnailConfigurationOutput {
@@ -902,6 +1059,12 @@ func (i StreamKeyTagArgs) ToStreamKeyTagOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(StreamKeyTagOutput)
 }
 
+func (i StreamKeyTagArgs) ToOutput(ctx context.Context) pulumix.Output[StreamKeyTag] {
+	return pulumix.Output[StreamKeyTag]{
+		OutputState: i.ToStreamKeyTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StreamKeyTagArrayInput is an input type that accepts StreamKeyTagArray and StreamKeyTagArrayOutput values.
 // You can construct a concrete instance of `StreamKeyTagArrayInput` via:
 //
@@ -927,6 +1090,12 @@ func (i StreamKeyTagArray) ToStreamKeyTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(StreamKeyTagArrayOutput)
 }
 
+func (i StreamKeyTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamKeyTag] {
+	return pulumix.Output[[]StreamKeyTag]{
+		OutputState: i.ToStreamKeyTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamKeyTagOutput struct{ *pulumi.OutputState }
 
 func (StreamKeyTagOutput) ElementType() reflect.Type {
@@ -939,6 +1108,12 @@ func (o StreamKeyTagOutput) ToStreamKeyTagOutput() StreamKeyTagOutput {
 
 func (o StreamKeyTagOutput) ToStreamKeyTagOutputWithContext(ctx context.Context) StreamKeyTagOutput {
 	return o
+}
+
+func (o StreamKeyTagOutput) ToOutput(ctx context.Context) pulumix.Output[StreamKeyTag] {
+	return pulumix.Output[StreamKeyTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamKeyTagOutput) Key() pulumi.StringOutput {
@@ -961,6 +1136,12 @@ func (o StreamKeyTagArrayOutput) ToStreamKeyTagArrayOutput() StreamKeyTagArrayOu
 
 func (o StreamKeyTagArrayOutput) ToStreamKeyTagArrayOutputWithContext(ctx context.Context) StreamKeyTagArrayOutput {
 	return o
+}
+
+func (o StreamKeyTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamKeyTag] {
+	return pulumix.Output[[]StreamKeyTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamKeyTagArrayOutput) Index(i pulumi.IntInput) StreamKeyTagOutput {

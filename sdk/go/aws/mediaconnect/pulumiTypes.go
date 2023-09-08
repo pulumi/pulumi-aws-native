@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i BridgeEgressGatewayBridgeArgs) ToBridgeEgressGatewayBridgeOutput() Bridg
 
 func (i BridgeEgressGatewayBridgeArgs) ToBridgeEgressGatewayBridgeOutputWithContext(ctx context.Context) BridgeEgressGatewayBridgeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeEgressGatewayBridgeOutput)
+}
+
+func (i BridgeEgressGatewayBridgeArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeEgressGatewayBridge] {
+	return pulumix.Output[BridgeEgressGatewayBridge]{
+		OutputState: i.ToBridgeEgressGatewayBridgeOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i BridgeEgressGatewayBridgeArgs) ToBridgeEgressGatewayBridgePtrOutput() BridgeEgressGatewayBridgePtrOutput {
@@ -87,6 +94,12 @@ func (i *bridgeEgressGatewayBridgePtrType) ToBridgeEgressGatewayBridgePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeEgressGatewayBridgePtrOutput)
 }
 
+func (i *bridgeEgressGatewayBridgePtrType) ToOutput(ctx context.Context) pulumix.Output[*BridgeEgressGatewayBridge] {
+	return pulumix.Output[*BridgeEgressGatewayBridge]{
+		OutputState: i.ToBridgeEgressGatewayBridgePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BridgeEgressGatewayBridgeOutput struct{ *pulumi.OutputState }
 
 func (BridgeEgressGatewayBridgeOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o BridgeEgressGatewayBridgeOutput) ToBridgeEgressGatewayBridgePtrOutputWit
 	}).(BridgeEgressGatewayBridgePtrOutput)
 }
 
+func (o BridgeEgressGatewayBridgeOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeEgressGatewayBridge] {
+	return pulumix.Output[BridgeEgressGatewayBridge]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The maximum expected bitrate of the egress bridge.
 func (o BridgeEgressGatewayBridgeOutput) MaxBitrate() pulumi.IntOutput {
 	return o.ApplyT(func(v BridgeEgressGatewayBridge) int { return v.MaxBitrate }).(pulumi.IntOutput)
@@ -128,6 +147,12 @@ func (o BridgeEgressGatewayBridgePtrOutput) ToBridgeEgressGatewayBridgePtrOutput
 
 func (o BridgeEgressGatewayBridgePtrOutput) ToBridgeEgressGatewayBridgePtrOutputWithContext(ctx context.Context) BridgeEgressGatewayBridgePtrOutput {
 	return o
+}
+
+func (o BridgeEgressGatewayBridgePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeEgressGatewayBridge] {
+	return pulumix.Output[*BridgeEgressGatewayBridge]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeEgressGatewayBridgePtrOutput) Elem() BridgeEgressGatewayBridgeOutput {
@@ -191,6 +216,12 @@ func (i BridgeFailoverConfigArgs) ToBridgeFailoverConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeFailoverConfigOutput)
 }
 
+func (i BridgeFailoverConfigArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeFailoverConfig] {
+	return pulumix.Output[BridgeFailoverConfig]{
+		OutputState: i.ToBridgeFailoverConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BridgeFailoverConfigArgs) ToBridgeFailoverConfigPtrOutput() BridgeFailoverConfigPtrOutput {
 	return i.ToBridgeFailoverConfigPtrOutputWithContext(context.Background())
 }
@@ -232,6 +263,12 @@ func (i *bridgeFailoverConfigPtrType) ToBridgeFailoverConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeFailoverConfigPtrOutput)
 }
 
+func (i *bridgeFailoverConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*BridgeFailoverConfig] {
+	return pulumix.Output[*BridgeFailoverConfig]{
+		OutputState: i.ToBridgeFailoverConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The settings for source failover.
 type BridgeFailoverConfigOutput struct{ *pulumi.OutputState }
 
@@ -255,6 +292,12 @@ func (o BridgeFailoverConfigOutput) ToBridgeFailoverConfigPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeFailoverConfig) *BridgeFailoverConfig {
 		return &v
 	}).(BridgeFailoverConfigPtrOutput)
+}
+
+func (o BridgeFailoverConfigOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeFailoverConfig] {
+	return pulumix.Output[BridgeFailoverConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of failover you choose for this flow. FAILOVER allows switching between different streams.
@@ -283,6 +326,12 @@ func (o BridgeFailoverConfigPtrOutput) ToBridgeFailoverConfigPtrOutput() BridgeF
 
 func (o BridgeFailoverConfigPtrOutput) ToBridgeFailoverConfigPtrOutputWithContext(ctx context.Context) BridgeFailoverConfigPtrOutput {
 	return o
+}
+
+func (o BridgeFailoverConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeFailoverConfig] {
+	return pulumix.Output[*BridgeFailoverConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeFailoverConfigPtrOutput) Elem() BridgeFailoverConfigOutput {
@@ -367,6 +416,12 @@ func (i BridgeFlowSourceArgs) ToBridgeFlowSourceOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeFlowSourceOutput)
 }
 
+func (i BridgeFlowSourceArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeFlowSource] {
+	return pulumix.Output[BridgeFlowSource]{
+		OutputState: i.ToBridgeFlowSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BridgeFlowSourceArgs) ToBridgeFlowSourcePtrOutput() BridgeFlowSourcePtrOutput {
 	return i.ToBridgeFlowSourcePtrOutputWithContext(context.Background())
 }
@@ -408,6 +463,12 @@ func (i *bridgeFlowSourcePtrType) ToBridgeFlowSourcePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeFlowSourcePtrOutput)
 }
 
+func (i *bridgeFlowSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*BridgeFlowSource] {
+	return pulumix.Output[*BridgeFlowSource]{
+		OutputState: i.ToBridgeFlowSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
 type BridgeFlowSourceOutput struct{ *pulumi.OutputState }
 
@@ -431,6 +492,12 @@ func (o BridgeFlowSourceOutput) ToBridgeFlowSourcePtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeFlowSource) *BridgeFlowSource {
 		return &v
 	}).(BridgeFlowSourcePtrOutput)
+}
+
+func (o BridgeFlowSourceOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeFlowSource] {
+	return pulumix.Output[BridgeFlowSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the cloud flow used as a source of this bridge.
@@ -460,6 +527,12 @@ func (o BridgeFlowSourcePtrOutput) ToBridgeFlowSourcePtrOutput() BridgeFlowSourc
 
 func (o BridgeFlowSourcePtrOutput) ToBridgeFlowSourcePtrOutputWithContext(ctx context.Context) BridgeFlowSourcePtrOutput {
 	return o
+}
+
+func (o BridgeFlowSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeFlowSource] {
+	return pulumix.Output[*BridgeFlowSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeFlowSourcePtrOutput) Elem() BridgeFlowSourceOutput {
@@ -539,6 +612,12 @@ func (i BridgeIngressGatewayBridgeArgs) ToBridgeIngressGatewayBridgeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeIngressGatewayBridgeOutput)
 }
 
+func (i BridgeIngressGatewayBridgeArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeIngressGatewayBridge] {
+	return pulumix.Output[BridgeIngressGatewayBridge]{
+		OutputState: i.ToBridgeIngressGatewayBridgeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BridgeIngressGatewayBridgeArgs) ToBridgeIngressGatewayBridgePtrOutput() BridgeIngressGatewayBridgePtrOutput {
 	return i.ToBridgeIngressGatewayBridgePtrOutputWithContext(context.Background())
 }
@@ -580,6 +659,12 @@ func (i *bridgeIngressGatewayBridgePtrType) ToBridgeIngressGatewayBridgePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeIngressGatewayBridgePtrOutput)
 }
 
+func (i *bridgeIngressGatewayBridgePtrType) ToOutput(ctx context.Context) pulumix.Output[*BridgeIngressGatewayBridge] {
+	return pulumix.Output[*BridgeIngressGatewayBridge]{
+		OutputState: i.ToBridgeIngressGatewayBridgePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BridgeIngressGatewayBridgeOutput struct{ *pulumi.OutputState }
 
 func (BridgeIngressGatewayBridgeOutput) ElementType() reflect.Type {
@@ -604,6 +689,12 @@ func (o BridgeIngressGatewayBridgeOutput) ToBridgeIngressGatewayBridgePtrOutputW
 	}).(BridgeIngressGatewayBridgePtrOutput)
 }
 
+func (o BridgeIngressGatewayBridgeOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeIngressGatewayBridge] {
+	return pulumix.Output[BridgeIngressGatewayBridge]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The maximum expected bitrate of the ingress bridge.
 func (o BridgeIngressGatewayBridgeOutput) MaxBitrate() pulumi.IntOutput {
 	return o.ApplyT(func(v BridgeIngressGatewayBridge) int { return v.MaxBitrate }).(pulumi.IntOutput)
@@ -626,6 +717,12 @@ func (o BridgeIngressGatewayBridgePtrOutput) ToBridgeIngressGatewayBridgePtrOutp
 
 func (o BridgeIngressGatewayBridgePtrOutput) ToBridgeIngressGatewayBridgePtrOutputWithContext(ctx context.Context) BridgeIngressGatewayBridgePtrOutput {
 	return o
+}
+
+func (o BridgeIngressGatewayBridgePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeIngressGatewayBridge] {
+	return pulumix.Output[*BridgeIngressGatewayBridge]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeIngressGatewayBridgePtrOutput) Elem() BridgeIngressGatewayBridgeOutput {
@@ -713,6 +810,12 @@ func (i BridgeNetworkOutputArgs) ToBridgeNetworkOutputOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeNetworkOutputOutput)
 }
 
+func (i BridgeNetworkOutputArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeNetworkOutput] {
+	return pulumix.Output[BridgeNetworkOutput]{
+		OutputState: i.ToBridgeNetworkOutputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BridgeNetworkOutputArgs) ToBridgeNetworkOutputPtrOutput() BridgeNetworkOutputPtrOutput {
 	return i.ToBridgeNetworkOutputPtrOutputWithContext(context.Background())
 }
@@ -754,6 +857,12 @@ func (i *bridgeNetworkOutputPtrType) ToBridgeNetworkOutputPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeNetworkOutputPtrOutput)
 }
 
+func (i *bridgeNetworkOutputPtrType) ToOutput(ctx context.Context) pulumix.Output[*BridgeNetworkOutput] {
+	return pulumix.Output[*BridgeNetworkOutput]{
+		OutputState: i.ToBridgeNetworkOutputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The output of the bridge. A network output is delivered to your premises.
 type BridgeNetworkOutputOutput struct{ *pulumi.OutputState }
 
@@ -777,6 +886,12 @@ func (o BridgeNetworkOutputOutput) ToBridgeNetworkOutputPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeNetworkOutput) *BridgeNetworkOutput {
 		return &v
 	}).(BridgeNetworkOutputPtrOutput)
+}
+
+func (o BridgeNetworkOutputOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeNetworkOutput] {
+	return pulumix.Output[BridgeNetworkOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The network output IP Address.
@@ -821,6 +936,12 @@ func (o BridgeNetworkOutputPtrOutput) ToBridgeNetworkOutputPtrOutput() BridgeNet
 
 func (o BridgeNetworkOutputPtrOutput) ToBridgeNetworkOutputPtrOutputWithContext(ctx context.Context) BridgeNetworkOutputPtrOutput {
 	return o
+}
+
+func (o BridgeNetworkOutputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeNetworkOutput] {
+	return pulumix.Output[*BridgeNetworkOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeNetworkOutputPtrOutput) Elem() BridgeNetworkOutputOutput {
@@ -944,6 +1065,12 @@ func (i BridgeNetworkSourceArgs) ToBridgeNetworkSourceOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeNetworkSourceOutput)
 }
 
+func (i BridgeNetworkSourceArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeNetworkSource] {
+	return pulumix.Output[BridgeNetworkSource]{
+		OutputState: i.ToBridgeNetworkSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BridgeNetworkSourceArgs) ToBridgeNetworkSourcePtrOutput() BridgeNetworkSourcePtrOutput {
 	return i.ToBridgeNetworkSourcePtrOutputWithContext(context.Background())
 }
@@ -985,6 +1112,12 @@ func (i *bridgeNetworkSourcePtrType) ToBridgeNetworkSourcePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeNetworkSourcePtrOutput)
 }
 
+func (i *bridgeNetworkSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*BridgeNetworkSource] {
+	return pulumix.Output[*BridgeNetworkSource]{
+		OutputState: i.ToBridgeNetworkSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The source of the bridge. A network source originates at your premises.
 type BridgeNetworkSourceOutput struct{ *pulumi.OutputState }
 
@@ -1008,6 +1141,12 @@ func (o BridgeNetworkSourceOutput) ToBridgeNetworkSourcePtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeNetworkSource) *BridgeNetworkSource {
 		return &v
 	}).(BridgeNetworkSourcePtrOutput)
+}
+
+func (o BridgeNetworkSourceOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeNetworkSource] {
+	return pulumix.Output[BridgeNetworkSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The network source multicast IP.
@@ -1047,6 +1186,12 @@ func (o BridgeNetworkSourcePtrOutput) ToBridgeNetworkSourcePtrOutput() BridgeNet
 
 func (o BridgeNetworkSourcePtrOutput) ToBridgeNetworkSourcePtrOutputWithContext(ctx context.Context) BridgeNetworkSourcePtrOutput {
 	return o
+}
+
+func (o BridgeNetworkSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeNetworkSource] {
+	return pulumix.Output[*BridgeNetworkSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeNetworkSourcePtrOutput) Elem() BridgeNetworkSourceOutput {
@@ -1142,6 +1287,12 @@ func (i BridgeOutputTypeArgs) ToBridgeOutputTypeOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeOutputTypeOutput)
 }
 
+func (i BridgeOutputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeOutputType] {
+	return pulumix.Output[BridgeOutputType]{
+		OutputState: i.ToBridgeOutputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BridgeOutputTypeArrayInput is an input type that accepts BridgeOutputTypeArray and BridgeOutputTypeArrayOutput values.
 // You can construct a concrete instance of `BridgeOutputTypeArrayInput` via:
 //
@@ -1167,6 +1318,12 @@ func (i BridgeOutputTypeArray) ToBridgeOutputTypeArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeOutputTypeArrayOutput)
 }
 
+func (i BridgeOutputTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]BridgeOutputType] {
+	return pulumix.Output[[]BridgeOutputType]{
+		OutputState: i.ToBridgeOutputTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The output of the bridge.
 type BridgeOutputTypeOutput struct{ *pulumi.OutputState }
 
@@ -1180,6 +1337,12 @@ func (o BridgeOutputTypeOutput) ToBridgeOutputTypeOutput() BridgeOutputTypeOutpu
 
 func (o BridgeOutputTypeOutput) ToBridgeOutputTypeOutputWithContext(ctx context.Context) BridgeOutputTypeOutput {
 	return o
+}
+
+func (o BridgeOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeOutputType] {
+	return pulumix.Output[BridgeOutputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeOutputTypeOutput) NetworkOutput() BridgeNetworkOutputPtrOutput {
@@ -1198,6 +1361,12 @@ func (o BridgeOutputTypeArrayOutput) ToBridgeOutputTypeArrayOutput() BridgeOutpu
 
 func (o BridgeOutputTypeArrayOutput) ToBridgeOutputTypeArrayOutputWithContext(ctx context.Context) BridgeOutputTypeArrayOutput {
 	return o
+}
+
+func (o BridgeOutputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BridgeOutputType] {
+	return pulumix.Output[[]BridgeOutputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeOutputTypeArrayOutput) Index(i pulumi.IntInput) BridgeOutputTypeOutput {
@@ -1257,6 +1426,12 @@ func (i BridgeOutputResourceBridgeNetworkOutputArgs) ToBridgeOutputResourceBridg
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeOutputResourceBridgeNetworkOutputOutput)
 }
 
+func (i BridgeOutputResourceBridgeNetworkOutputArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeOutputResourceBridgeNetworkOutput] {
+	return pulumix.Output[BridgeOutputResourceBridgeNetworkOutput]{
+		OutputState: i.ToBridgeOutputResourceBridgeNetworkOutputOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The output of the bridge. A network output is delivered to your premises.
 type BridgeOutputResourceBridgeNetworkOutputOutput struct{ *pulumi.OutputState }
 
@@ -1270,6 +1445,12 @@ func (o BridgeOutputResourceBridgeNetworkOutputOutput) ToBridgeOutputResourceBri
 
 func (o BridgeOutputResourceBridgeNetworkOutputOutput) ToBridgeOutputResourceBridgeNetworkOutputOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputOutput {
 	return o
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeOutputResourceBridgeNetworkOutput] {
+	return pulumix.Output[BridgeOutputResourceBridgeNetworkOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The network output IP Address.
@@ -1311,6 +1492,12 @@ func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) ToBridgeOutputResource
 
 func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) ToBridgeOutputResourceBridgeNetworkOutputPtrOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputPtrOutput {
 	return o
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeOutputResourceBridgeNetworkOutput] {
+	return pulumix.Output[*BridgeOutputResourceBridgeNetworkOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) Elem() BridgeOutputResourceBridgeNetworkOutputOutput {
@@ -1408,6 +1595,12 @@ func (i BridgeSourceTypeArgs) ToBridgeSourceTypeOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceTypeOutput)
 }
 
+func (i BridgeSourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeSourceType] {
+	return pulumix.Output[BridgeSourceType]{
+		OutputState: i.ToBridgeSourceTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BridgeSourceTypeArrayInput is an input type that accepts BridgeSourceTypeArray and BridgeSourceTypeArrayOutput values.
 // You can construct a concrete instance of `BridgeSourceTypeArrayInput` via:
 //
@@ -1433,6 +1626,12 @@ func (i BridgeSourceTypeArray) ToBridgeSourceTypeArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceTypeArrayOutput)
 }
 
+func (i BridgeSourceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]BridgeSourceType] {
+	return pulumix.Output[[]BridgeSourceType]{
+		OutputState: i.ToBridgeSourceTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The bridge's source.
 type BridgeSourceTypeOutput struct{ *pulumi.OutputState }
 
@@ -1446,6 +1645,12 @@ func (o BridgeSourceTypeOutput) ToBridgeSourceTypeOutput() BridgeSourceTypeOutpu
 
 func (o BridgeSourceTypeOutput) ToBridgeSourceTypeOutputWithContext(ctx context.Context) BridgeSourceTypeOutput {
 	return o
+}
+
+func (o BridgeSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeSourceType] {
+	return pulumix.Output[BridgeSourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeSourceTypeOutput) FlowSource() BridgeFlowSourcePtrOutput {
@@ -1468,6 +1673,12 @@ func (o BridgeSourceTypeArrayOutput) ToBridgeSourceTypeArrayOutput() BridgeSourc
 
 func (o BridgeSourceTypeArrayOutput) ToBridgeSourceTypeArrayOutputWithContext(ctx context.Context) BridgeSourceTypeArrayOutput {
 	return o
+}
+
+func (o BridgeSourceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BridgeSourceType] {
+	return pulumix.Output[[]BridgeSourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeSourceTypeArrayOutput) Index(i pulumi.IntInput) BridgeSourceTypeOutput {
@@ -1515,6 +1726,12 @@ func (i BridgeSourceBridgeFlowSourceArgs) ToBridgeSourceBridgeFlowSourceOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceBridgeFlowSourceOutput)
 }
 
+func (i BridgeSourceBridgeFlowSourceArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeSourceBridgeFlowSource] {
+	return pulumix.Output[BridgeSourceBridgeFlowSource]{
+		OutputState: i.ToBridgeSourceBridgeFlowSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BridgeSourceBridgeFlowSourceArgs) ToBridgeSourceBridgeFlowSourcePtrOutput() BridgeSourceBridgeFlowSourcePtrOutput {
 	return i.ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(context.Background())
 }
@@ -1556,6 +1773,12 @@ func (i *bridgeSourceBridgeFlowSourcePtrType) ToBridgeSourceBridgeFlowSourcePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceBridgeFlowSourcePtrOutput)
 }
 
+func (i *bridgeSourceBridgeFlowSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*BridgeSourceBridgeFlowSource] {
+	return pulumix.Output[*BridgeSourceBridgeFlowSource]{
+		OutputState: i.ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
 type BridgeSourceBridgeFlowSourceOutput struct{ *pulumi.OutputState }
 
@@ -1579,6 +1802,12 @@ func (o BridgeSourceBridgeFlowSourceOutput) ToBridgeSourceBridgeFlowSourcePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeSourceBridgeFlowSource) *BridgeSourceBridgeFlowSource {
 		return &v
 	}).(BridgeSourceBridgeFlowSourcePtrOutput)
+}
+
+func (o BridgeSourceBridgeFlowSourceOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeSourceBridgeFlowSource] {
+	return pulumix.Output[BridgeSourceBridgeFlowSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the cloud flow used as a source of this bridge.
@@ -1605,6 +1834,12 @@ func (o BridgeSourceBridgeFlowSourcePtrOutput) ToBridgeSourceBridgeFlowSourcePtr
 
 func (o BridgeSourceBridgeFlowSourcePtrOutput) ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(ctx context.Context) BridgeSourceBridgeFlowSourcePtrOutput {
 	return o
+}
+
+func (o BridgeSourceBridgeFlowSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeSourceBridgeFlowSource] {
+	return pulumix.Output[*BridgeSourceBridgeFlowSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeSourceBridgeFlowSourcePtrOutput) Elem() BridgeSourceBridgeFlowSourceOutput {
@@ -1684,6 +1919,12 @@ func (i BridgeSourceBridgeNetworkSourceArgs) ToBridgeSourceBridgeNetworkSourceOu
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceBridgeNetworkSourceOutput)
 }
 
+func (i BridgeSourceBridgeNetworkSourceArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeSourceBridgeNetworkSource] {
+	return pulumix.Output[BridgeSourceBridgeNetworkSource]{
+		OutputState: i.ToBridgeSourceBridgeNetworkSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BridgeSourceBridgeNetworkSourceArgs) ToBridgeSourceBridgeNetworkSourcePtrOutput() BridgeSourceBridgeNetworkSourcePtrOutput {
 	return i.ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(context.Background())
 }
@@ -1725,6 +1966,12 @@ func (i *bridgeSourceBridgeNetworkSourcePtrType) ToBridgeSourceBridgeNetworkSour
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceBridgeNetworkSourcePtrOutput)
 }
 
+func (i *bridgeSourceBridgeNetworkSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*BridgeSourceBridgeNetworkSource] {
+	return pulumix.Output[*BridgeSourceBridgeNetworkSource]{
+		OutputState: i.ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The source of the bridge. A network source originates at your premises.
 type BridgeSourceBridgeNetworkSourceOutput struct{ *pulumi.OutputState }
 
@@ -1748,6 +1995,12 @@ func (o BridgeSourceBridgeNetworkSourceOutput) ToBridgeSourceBridgeNetworkSource
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeSourceBridgeNetworkSource) *BridgeSourceBridgeNetworkSource {
 		return &v
 	}).(BridgeSourceBridgeNetworkSourcePtrOutput)
+}
+
+func (o BridgeSourceBridgeNetworkSourceOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeSourceBridgeNetworkSource] {
+	return pulumix.Output[BridgeSourceBridgeNetworkSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The network source multicast IP.
@@ -1782,6 +2035,12 @@ func (o BridgeSourceBridgeNetworkSourcePtrOutput) ToBridgeSourceBridgeNetworkSou
 
 func (o BridgeSourceBridgeNetworkSourcePtrOutput) ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(ctx context.Context) BridgeSourceBridgeNetworkSourcePtrOutput {
 	return o
+}
+
+func (o BridgeSourceBridgeNetworkSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeSourceBridgeNetworkSource] {
+	return pulumix.Output[*BridgeSourceBridgeNetworkSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeSourceBridgeNetworkSourcePtrOutput) Elem() BridgeSourceBridgeNetworkSourceOutput {
@@ -1869,6 +2128,12 @@ func (i BridgeSourcePriorityArgs) ToBridgeSourcePriorityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourcePriorityOutput)
 }
 
+func (i BridgeSourcePriorityArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeSourcePriority] {
+	return pulumix.Output[BridgeSourcePriority]{
+		OutputState: i.ToBridgeSourcePriorityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BridgeSourcePriorityArgs) ToBridgeSourcePriorityPtrOutput() BridgeSourcePriorityPtrOutput {
 	return i.ToBridgeSourcePriorityPtrOutputWithContext(context.Background())
 }
@@ -1910,6 +2175,12 @@ func (i *bridgeSourcePriorityPtrType) ToBridgeSourcePriorityPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourcePriorityPtrOutput)
 }
 
+func (i *bridgeSourcePriorityPtrType) ToOutput(ctx context.Context) pulumix.Output[*BridgeSourcePriority] {
+	return pulumix.Output[*BridgeSourcePriority]{
+		OutputState: i.ToBridgeSourcePriorityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
 type BridgeSourcePriorityOutput struct{ *pulumi.OutputState }
 
@@ -1935,6 +2206,12 @@ func (o BridgeSourcePriorityOutput) ToBridgeSourcePriorityPtrOutputWithContext(c
 	}).(BridgeSourcePriorityPtrOutput)
 }
 
+func (o BridgeSourcePriorityOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeSourcePriority] {
+	return pulumix.Output[BridgeSourcePriority]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the source you choose as the primary source for this flow.
 func (o BridgeSourcePriorityOutput) PrimarySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BridgeSourcePriority) *string { return v.PrimarySource }).(pulumi.StringPtrOutput)
@@ -1952,6 +2229,12 @@ func (o BridgeSourcePriorityPtrOutput) ToBridgeSourcePriorityPtrOutput() BridgeS
 
 func (o BridgeSourcePriorityPtrOutput) ToBridgeSourcePriorityPtrOutputWithContext(ctx context.Context) BridgeSourcePriorityPtrOutput {
 	return o
+}
+
+func (o BridgeSourcePriorityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeSourcePriority] {
+	return pulumix.Output[*BridgeSourcePriority]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeSourcePriorityPtrOutput) Elem() BridgeSourcePriorityOutput {
@@ -2009,6 +2292,12 @@ func (i BridgeSourceVpcInterfaceAttachmentArgs) ToBridgeSourceVpcInterfaceAttach
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceVpcInterfaceAttachmentOutput)
 }
 
+func (i BridgeSourceVpcInterfaceAttachmentArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeSourceVpcInterfaceAttachment] {
+	return pulumix.Output[BridgeSourceVpcInterfaceAttachment]{
+		OutputState: i.ToBridgeSourceVpcInterfaceAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BridgeSourceVpcInterfaceAttachmentArgs) ToBridgeSourceVpcInterfaceAttachmentPtrOutput() BridgeSourceVpcInterfaceAttachmentPtrOutput {
 	return i.ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
 }
@@ -2050,6 +2339,12 @@ func (i *bridgeSourceVpcInterfaceAttachmentPtrType) ToBridgeSourceVpcInterfaceAt
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceVpcInterfaceAttachmentPtrOutput)
 }
 
+func (i *bridgeSourceVpcInterfaceAttachmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*BridgeSourceVpcInterfaceAttachment] {
+	return pulumix.Output[*BridgeSourceVpcInterfaceAttachment]{
+		OutputState: i.ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The settings for attaching a VPC interface to an resource.
 type BridgeSourceVpcInterfaceAttachmentOutput struct{ *pulumi.OutputState }
 
@@ -2075,6 +2370,12 @@ func (o BridgeSourceVpcInterfaceAttachmentOutput) ToBridgeSourceVpcInterfaceAtta
 	}).(BridgeSourceVpcInterfaceAttachmentPtrOutput)
 }
 
+func (o BridgeSourceVpcInterfaceAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeSourceVpcInterfaceAttachment] {
+	return pulumix.Output[BridgeSourceVpcInterfaceAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the VPC interface to use for this resource.
 func (o BridgeSourceVpcInterfaceAttachmentOutput) VpcInterfaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BridgeSourceVpcInterfaceAttachment) *string { return v.VpcInterfaceName }).(pulumi.StringPtrOutput)
@@ -2092,6 +2393,12 @@ func (o BridgeSourceVpcInterfaceAttachmentPtrOutput) ToBridgeSourceVpcInterfaceA
 
 func (o BridgeSourceVpcInterfaceAttachmentPtrOutput) ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) BridgeSourceVpcInterfaceAttachmentPtrOutput {
 	return o
+}
+
+func (o BridgeSourceVpcInterfaceAttachmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeSourceVpcInterfaceAttachment] {
+	return pulumix.Output[*BridgeSourceVpcInterfaceAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeSourceVpcInterfaceAttachmentPtrOutput) Elem() BridgeSourceVpcInterfaceAttachmentOutput {
@@ -2149,6 +2456,12 @@ func (i BridgeVpcInterfaceAttachmentArgs) ToBridgeVpcInterfaceAttachmentOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeVpcInterfaceAttachmentOutput)
 }
 
+func (i BridgeVpcInterfaceAttachmentArgs) ToOutput(ctx context.Context) pulumix.Output[BridgeVpcInterfaceAttachment] {
+	return pulumix.Output[BridgeVpcInterfaceAttachment]{
+		OutputState: i.ToBridgeVpcInterfaceAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BridgeVpcInterfaceAttachmentArgs) ToBridgeVpcInterfaceAttachmentPtrOutput() BridgeVpcInterfaceAttachmentPtrOutput {
 	return i.ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
 }
@@ -2190,6 +2503,12 @@ func (i *bridgeVpcInterfaceAttachmentPtrType) ToBridgeVpcInterfaceAttachmentPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeVpcInterfaceAttachmentPtrOutput)
 }
 
+func (i *bridgeVpcInterfaceAttachmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*BridgeVpcInterfaceAttachment] {
+	return pulumix.Output[*BridgeVpcInterfaceAttachment]{
+		OutputState: i.ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The settings for attaching a VPC interface to an resource.
 type BridgeVpcInterfaceAttachmentOutput struct{ *pulumi.OutputState }
 
@@ -2215,6 +2534,12 @@ func (o BridgeVpcInterfaceAttachmentOutput) ToBridgeVpcInterfaceAttachmentPtrOut
 	}).(BridgeVpcInterfaceAttachmentPtrOutput)
 }
 
+func (o BridgeVpcInterfaceAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeVpcInterfaceAttachment] {
+	return pulumix.Output[BridgeVpcInterfaceAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the VPC interface to use for this resource.
 func (o BridgeVpcInterfaceAttachmentOutput) VpcInterfaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BridgeVpcInterfaceAttachment) *string { return v.VpcInterfaceName }).(pulumi.StringPtrOutput)
@@ -2232,6 +2557,12 @@ func (o BridgeVpcInterfaceAttachmentPtrOutput) ToBridgeVpcInterfaceAttachmentPtr
 
 func (o BridgeVpcInterfaceAttachmentPtrOutput) ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) BridgeVpcInterfaceAttachmentPtrOutput {
 	return o
+}
+
+func (o BridgeVpcInterfaceAttachmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeVpcInterfaceAttachment] {
+	return pulumix.Output[*BridgeVpcInterfaceAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeVpcInterfaceAttachmentPtrOutput) Elem() BridgeVpcInterfaceAttachmentOutput {
@@ -2321,6 +2652,12 @@ func (i FlowEncryptionArgs) ToFlowEncryptionOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FlowEncryptionOutput)
 }
 
+func (i FlowEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[FlowEncryption] {
+	return pulumix.Output[FlowEncryption]{
+		OutputState: i.ToFlowEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlowEncryptionArgs) ToFlowEncryptionPtrOutput() FlowEncryptionPtrOutput {
 	return i.ToFlowEncryptionPtrOutputWithContext(context.Background())
 }
@@ -2362,6 +2699,12 @@ func (i *flowEncryptionPtrType) ToFlowEncryptionPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(FlowEncryptionPtrOutput)
 }
 
+func (i *flowEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowEncryption] {
+	return pulumix.Output[*FlowEncryption]{
+		OutputState: i.ToFlowEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about the encryption of the flow.
 type FlowEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -2385,6 +2728,12 @@ func (o FlowEncryptionOutput) ToFlowEncryptionPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowEncryption) *FlowEncryption {
 		return &v
 	}).(FlowEncryptionPtrOutput)
+}
+
+func (o FlowEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEncryption] {
+	return pulumix.Output[FlowEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -2444,6 +2793,12 @@ func (o FlowEncryptionPtrOutput) ToFlowEncryptionPtrOutput() FlowEncryptionPtrOu
 
 func (o FlowEncryptionPtrOutput) ToFlowEncryptionPtrOutputWithContext(ctx context.Context) FlowEncryptionPtrOutput {
 	return o
+}
+
+func (o FlowEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEncryption] {
+	return pulumix.Output[*FlowEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowEncryptionPtrOutput) Elem() FlowEncryptionOutput {
@@ -2613,6 +2968,12 @@ func (i FlowEntitlementEncryptionArgs) ToFlowEntitlementEncryptionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FlowEntitlementEncryptionOutput)
 }
 
+func (i FlowEntitlementEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[FlowEntitlementEncryption] {
+	return pulumix.Output[FlowEntitlementEncryption]{
+		OutputState: i.ToFlowEntitlementEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlowEntitlementEncryptionArgs) ToFlowEntitlementEncryptionPtrOutput() FlowEntitlementEncryptionPtrOutput {
 	return i.ToFlowEntitlementEncryptionPtrOutputWithContext(context.Background())
 }
@@ -2654,6 +3015,12 @@ func (i *flowEntitlementEncryptionPtrType) ToFlowEntitlementEncryptionPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(FlowEntitlementEncryptionPtrOutput)
 }
 
+func (i *flowEntitlementEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlementEncryption] {
+	return pulumix.Output[*FlowEntitlementEncryption]{
+		OutputState: i.ToFlowEntitlementEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about the encryption of the flow.
 type FlowEntitlementEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -2677,6 +3044,12 @@ func (o FlowEntitlementEncryptionOutput) ToFlowEntitlementEncryptionPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowEntitlementEncryption) *FlowEntitlementEncryption {
 		return &v
 	}).(FlowEntitlementEncryptionPtrOutput)
+}
+
+func (o FlowEntitlementEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEntitlementEncryption] {
+	return pulumix.Output[FlowEntitlementEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -2736,6 +3109,12 @@ func (o FlowEntitlementEncryptionPtrOutput) ToFlowEntitlementEncryptionPtrOutput
 
 func (o FlowEntitlementEncryptionPtrOutput) ToFlowEntitlementEncryptionPtrOutputWithContext(ctx context.Context) FlowEntitlementEncryptionPtrOutput {
 	return o
+}
+
+func (o FlowEntitlementEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlementEncryption] {
+	return pulumix.Output[*FlowEntitlementEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowEntitlementEncryptionPtrOutput) Elem() FlowEntitlementEncryptionOutput {
@@ -2883,6 +3262,12 @@ func (i FlowFailoverConfigArgs) ToFlowFailoverConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FlowFailoverConfigOutput)
 }
 
+func (i FlowFailoverConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowFailoverConfig] {
+	return pulumix.Output[FlowFailoverConfig]{
+		OutputState: i.ToFlowFailoverConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlowFailoverConfigArgs) ToFlowFailoverConfigPtrOutput() FlowFailoverConfigPtrOutput {
 	return i.ToFlowFailoverConfigPtrOutputWithContext(context.Background())
 }
@@ -2924,6 +3309,12 @@ func (i *flowFailoverConfigPtrType) ToFlowFailoverConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FlowFailoverConfigPtrOutput)
 }
 
+func (i *flowFailoverConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowFailoverConfig] {
+	return pulumix.Output[*FlowFailoverConfig]{
+		OutputState: i.ToFlowFailoverConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The settings for source failover
 type FlowFailoverConfigOutput struct{ *pulumi.OutputState }
 
@@ -2947,6 +3338,12 @@ func (o FlowFailoverConfigOutput) ToFlowFailoverConfigPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowFailoverConfig) *FlowFailoverConfig {
 		return &v
 	}).(FlowFailoverConfigPtrOutput)
+}
+
+func (o FlowFailoverConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowFailoverConfig] {
+	return pulumix.Output[FlowFailoverConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
@@ -2980,6 +3377,12 @@ func (o FlowFailoverConfigPtrOutput) ToFlowFailoverConfigPtrOutput() FlowFailove
 
 func (o FlowFailoverConfigPtrOutput) ToFlowFailoverConfigPtrOutputWithContext(ctx context.Context) FlowFailoverConfigPtrOutput {
 	return o
+}
+
+func (o FlowFailoverConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowFailoverConfig] {
+	return pulumix.Output[*FlowFailoverConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowFailoverConfigPtrOutput) Elem() FlowFailoverConfigOutput {
@@ -3066,6 +3469,12 @@ func (i FlowFailoverConfigSourcePriorityPropertiesArgs) ToFlowFailoverConfigSour
 	return pulumi.ToOutputWithContext(ctx, i).(FlowFailoverConfigSourcePriorityPropertiesOutput)
 }
 
+func (i FlowFailoverConfigSourcePriorityPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[FlowFailoverConfigSourcePriorityProperties] {
+	return pulumix.Output[FlowFailoverConfigSourcePriorityProperties]{
+		OutputState: i.ToFlowFailoverConfigSourcePriorityPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlowFailoverConfigSourcePriorityPropertiesArgs) ToFlowFailoverConfigSourcePriorityPropertiesPtrOutput() FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
 	return i.ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(context.Background())
 }
@@ -3107,6 +3516,12 @@ func (i *flowFailoverConfigSourcePriorityPropertiesPtrType) ToFlowFailoverConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FlowFailoverConfigSourcePriorityPropertiesPtrOutput)
 }
 
+func (i *flowFailoverConfigSourcePriorityPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowFailoverConfigSourcePriorityProperties] {
+	return pulumix.Output[*FlowFailoverConfigSourcePriorityProperties]{
+		OutputState: i.ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
 type FlowFailoverConfigSourcePriorityPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -3132,6 +3547,12 @@ func (o FlowFailoverConfigSourcePriorityPropertiesOutput) ToFlowFailoverConfigSo
 	}).(FlowFailoverConfigSourcePriorityPropertiesPtrOutput)
 }
 
+func (o FlowFailoverConfigSourcePriorityPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[FlowFailoverConfigSourcePriorityProperties] {
+	return pulumix.Output[FlowFailoverConfigSourcePriorityProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the source you choose as the primary source for this flow.
 func (o FlowFailoverConfigSourcePriorityPropertiesOutput) PrimarySource() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowFailoverConfigSourcePriorityProperties) string { return v.PrimarySource }).(pulumi.StringOutput)
@@ -3149,6 +3570,12 @@ func (o FlowFailoverConfigSourcePriorityPropertiesPtrOutput) ToFlowFailoverConfi
 
 func (o FlowFailoverConfigSourcePriorityPropertiesPtrOutput) ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(ctx context.Context) FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
 	return o
+}
+
+func (o FlowFailoverConfigSourcePriorityPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowFailoverConfigSourcePriorityProperties] {
+	return pulumix.Output[*FlowFailoverConfigSourcePriorityProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowFailoverConfigSourcePriorityPropertiesPtrOutput) Elem() FlowFailoverConfigSourcePriorityPropertiesOutput {
@@ -3210,6 +3637,12 @@ func (i FlowGatewayBridgeSourceArgs) ToFlowGatewayBridgeSourceOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FlowGatewayBridgeSourceOutput)
 }
 
+func (i FlowGatewayBridgeSourceArgs) ToOutput(ctx context.Context) pulumix.Output[FlowGatewayBridgeSource] {
+	return pulumix.Output[FlowGatewayBridgeSource]{
+		OutputState: i.ToFlowGatewayBridgeSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlowGatewayBridgeSourceArgs) ToFlowGatewayBridgeSourcePtrOutput() FlowGatewayBridgeSourcePtrOutput {
 	return i.ToFlowGatewayBridgeSourcePtrOutputWithContext(context.Background())
 }
@@ -3251,6 +3684,12 @@ func (i *flowGatewayBridgeSourcePtrType) ToFlowGatewayBridgeSourcePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FlowGatewayBridgeSourcePtrOutput)
 }
 
+func (i *flowGatewayBridgeSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowGatewayBridgeSource] {
+	return pulumix.Output[*FlowGatewayBridgeSource]{
+		OutputState: i.ToFlowGatewayBridgeSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The source configuration for cloud flows receiving a stream from a bridge.
 type FlowGatewayBridgeSourceOutput struct{ *pulumi.OutputState }
 
@@ -3276,6 +3715,12 @@ func (o FlowGatewayBridgeSourceOutput) ToFlowGatewayBridgeSourcePtrOutputWithCon
 	}).(FlowGatewayBridgeSourcePtrOutput)
 }
 
+func (o FlowGatewayBridgeSourceOutput) ToOutput(ctx context.Context) pulumix.Output[FlowGatewayBridgeSource] {
+	return pulumix.Output[FlowGatewayBridgeSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the bridge feeding this flow.
 func (o FlowGatewayBridgeSourceOutput) BridgeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowGatewayBridgeSource) string { return v.BridgeArn }).(pulumi.StringOutput)
@@ -3298,6 +3743,12 @@ func (o FlowGatewayBridgeSourcePtrOutput) ToFlowGatewayBridgeSourcePtrOutput() F
 
 func (o FlowGatewayBridgeSourcePtrOutput) ToFlowGatewayBridgeSourcePtrOutputWithContext(ctx context.Context) FlowGatewayBridgeSourcePtrOutput {
 	return o
+}
+
+func (o FlowGatewayBridgeSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowGatewayBridgeSource] {
+	return pulumix.Output[*FlowGatewayBridgeSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowGatewayBridgeSourcePtrOutput) Elem() FlowGatewayBridgeSourceOutput {
@@ -3377,6 +3828,12 @@ func (i FlowOutputEncryptionArgs) ToFlowOutputEncryptionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputEncryptionOutput)
 }
 
+func (i FlowOutputEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[FlowOutputEncryption] {
+	return pulumix.Output[FlowOutputEncryption]{
+		OutputState: i.ToFlowOutputEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlowOutputEncryptionArgs) ToFlowOutputEncryptionPtrOutput() FlowOutputEncryptionPtrOutput {
 	return i.ToFlowOutputEncryptionPtrOutputWithContext(context.Background())
 }
@@ -3418,6 +3875,12 @@ func (i *flowOutputEncryptionPtrType) ToFlowOutputEncryptionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputEncryptionPtrOutput)
 }
 
+func (i *flowOutputEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputEncryption] {
+	return pulumix.Output[*FlowOutputEncryption]{
+		OutputState: i.ToFlowOutputEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about the encryption of the flow.
 type FlowOutputEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -3441,6 +3904,12 @@ func (o FlowOutputEncryptionOutput) ToFlowOutputEncryptionPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowOutputEncryption) *FlowOutputEncryption {
 		return &v
 	}).(FlowOutputEncryptionPtrOutput)
+}
+
+func (o FlowOutputEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[FlowOutputEncryption] {
+	return pulumix.Output[FlowOutputEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -3475,6 +3944,12 @@ func (o FlowOutputEncryptionPtrOutput) ToFlowOutputEncryptionPtrOutput() FlowOut
 
 func (o FlowOutputEncryptionPtrOutput) ToFlowOutputEncryptionPtrOutputWithContext(ctx context.Context) FlowOutputEncryptionPtrOutput {
 	return o
+}
+
+func (o FlowOutputEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputEncryption] {
+	return pulumix.Output[*FlowOutputEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowOutputEncryptionPtrOutput) Elem() FlowOutputEncryptionOutput {
@@ -3562,6 +4037,12 @@ func (i FlowOutputVpcInterfaceAttachmentArgs) ToFlowOutputVpcInterfaceAttachment
 	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputVpcInterfaceAttachmentOutput)
 }
 
+func (i FlowOutputVpcInterfaceAttachmentArgs) ToOutput(ctx context.Context) pulumix.Output[FlowOutputVpcInterfaceAttachment] {
+	return pulumix.Output[FlowOutputVpcInterfaceAttachment]{
+		OutputState: i.ToFlowOutputVpcInterfaceAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlowOutputVpcInterfaceAttachmentArgs) ToFlowOutputVpcInterfaceAttachmentPtrOutput() FlowOutputVpcInterfaceAttachmentPtrOutput {
 	return i.ToFlowOutputVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
 }
@@ -3603,6 +4084,12 @@ func (i *flowOutputVpcInterfaceAttachmentPtrType) ToFlowOutputVpcInterfaceAttach
 	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputVpcInterfaceAttachmentPtrOutput)
 }
 
+func (i *flowOutputVpcInterfaceAttachmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputVpcInterfaceAttachment] {
+	return pulumix.Output[*FlowOutputVpcInterfaceAttachment]{
+		OutputState: i.ToFlowOutputVpcInterfaceAttachmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The settings for attaching a VPC interface to an output.
 type FlowOutputVpcInterfaceAttachmentOutput struct{ *pulumi.OutputState }
 
@@ -3628,6 +4115,12 @@ func (o FlowOutputVpcInterfaceAttachmentOutput) ToFlowOutputVpcInterfaceAttachme
 	}).(FlowOutputVpcInterfaceAttachmentPtrOutput)
 }
 
+func (o FlowOutputVpcInterfaceAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[FlowOutputVpcInterfaceAttachment] {
+	return pulumix.Output[FlowOutputVpcInterfaceAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the VPC interface to use for this output.
 func (o FlowOutputVpcInterfaceAttachmentOutput) VpcInterfaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowOutputVpcInterfaceAttachment) *string { return v.VpcInterfaceName }).(pulumi.StringPtrOutput)
@@ -3645,6 +4138,12 @@ func (o FlowOutputVpcInterfaceAttachmentPtrOutput) ToFlowOutputVpcInterfaceAttac
 
 func (o FlowOutputVpcInterfaceAttachmentPtrOutput) ToFlowOutputVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) FlowOutputVpcInterfaceAttachmentPtrOutput {
 	return o
+}
+
+func (o FlowOutputVpcInterfaceAttachmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputVpcInterfaceAttachment] {
+	return pulumix.Output[*FlowOutputVpcInterfaceAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowOutputVpcInterfaceAttachmentPtrOutput) Elem() FlowOutputVpcInterfaceAttachmentOutput {
@@ -3778,6 +4277,12 @@ func (i FlowSourceTypeArgs) ToFlowSourceTypeOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceTypeOutput)
 }
 
+func (i FlowSourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceType] {
+	return pulumix.Output[FlowSourceType]{
+		OutputState: i.ToFlowSourceTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The settings for the source of the flow.
 type FlowSourceTypeOutput struct{ *pulumi.OutputState }
 
@@ -3791,6 +4296,12 @@ func (o FlowSourceTypeOutput) ToFlowSourceTypeOutput() FlowSourceTypeOutput {
 
 func (o FlowSourceTypeOutput) ToFlowSourceTypeOutputWithContext(ctx context.Context) FlowSourceTypeOutput {
 	return o
+}
+
+func (o FlowSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceType] {
+	return pulumix.Output[FlowSourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of decryption that is used on the content ingested from this source.
@@ -3905,6 +4416,12 @@ func (o FlowSourceTypePtrOutput) ToFlowSourceTypePtrOutput() FlowSourceTypePtrOu
 
 func (o FlowSourceTypePtrOutput) ToFlowSourceTypePtrOutputWithContext(ctx context.Context) FlowSourceTypePtrOutput {
 	return o
+}
+
+func (o FlowSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceType] {
+	return pulumix.Output[*FlowSourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowSourceTypePtrOutput) Elem() FlowSourceTypeOutput {
@@ -4184,6 +4701,12 @@ func (i FlowSourceEncryptionArgs) ToFlowSourceEncryptionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceEncryptionOutput)
 }
 
+func (i FlowSourceEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceEncryption] {
+	return pulumix.Output[FlowSourceEncryption]{
+		OutputState: i.ToFlowSourceEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlowSourceEncryptionArgs) ToFlowSourceEncryptionPtrOutput() FlowSourceEncryptionPtrOutput {
 	return i.ToFlowSourceEncryptionPtrOutputWithContext(context.Background())
 }
@@ -4225,6 +4748,12 @@ func (i *flowSourceEncryptionPtrType) ToFlowSourceEncryptionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceEncryptionPtrOutput)
 }
 
+func (i *flowSourceEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceEncryption] {
+	return pulumix.Output[*FlowSourceEncryption]{
+		OutputState: i.ToFlowSourceEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about the encryption of the flow.
 type FlowSourceEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -4248,6 +4777,12 @@ func (o FlowSourceEncryptionOutput) ToFlowSourceEncryptionPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceEncryption) *FlowSourceEncryption {
 		return &v
 	}).(FlowSourceEncryptionPtrOutput)
+}
+
+func (o FlowSourceEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceEncryption] {
+	return pulumix.Output[FlowSourceEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -4307,6 +4842,12 @@ func (o FlowSourceEncryptionPtrOutput) ToFlowSourceEncryptionPtrOutput() FlowSou
 
 func (o FlowSourceEncryptionPtrOutput) ToFlowSourceEncryptionPtrOutputWithContext(ctx context.Context) FlowSourceEncryptionPtrOutput {
 	return o
+}
+
+func (o FlowSourceEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceEncryption] {
+	return pulumix.Output[*FlowSourceEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowSourceEncryptionPtrOutput) Elem() FlowSourceEncryptionOutput {
@@ -4448,6 +4989,12 @@ func (i FlowSourceGatewayBridgeSourceArgs) ToFlowSourceGatewayBridgeSourceOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceGatewayBridgeSourceOutput)
 }
 
+func (i FlowSourceGatewayBridgeSourceArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceGatewayBridgeSource] {
+	return pulumix.Output[FlowSourceGatewayBridgeSource]{
+		OutputState: i.ToFlowSourceGatewayBridgeSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlowSourceGatewayBridgeSourceArgs) ToFlowSourceGatewayBridgeSourcePtrOutput() FlowSourceGatewayBridgeSourcePtrOutput {
 	return i.ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(context.Background())
 }
@@ -4489,6 +5036,12 @@ func (i *flowSourceGatewayBridgeSourcePtrType) ToFlowSourceGatewayBridgeSourcePt
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceGatewayBridgeSourcePtrOutput)
 }
 
+func (i *flowSourceGatewayBridgeSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceGatewayBridgeSource] {
+	return pulumix.Output[*FlowSourceGatewayBridgeSource]{
+		OutputState: i.ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The source configuration for cloud flows receiving a stream from a bridge.
 type FlowSourceGatewayBridgeSourceOutput struct{ *pulumi.OutputState }
 
@@ -4512,6 +5065,12 @@ func (o FlowSourceGatewayBridgeSourceOutput) ToFlowSourceGatewayBridgeSourcePtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceGatewayBridgeSource) *FlowSourceGatewayBridgeSource {
 		return &v
 	}).(FlowSourceGatewayBridgeSourcePtrOutput)
+}
+
+func (o FlowSourceGatewayBridgeSourceOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceGatewayBridgeSource] {
+	return pulumix.Output[FlowSourceGatewayBridgeSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the bridge feeding this flow.
@@ -4538,6 +5097,12 @@ func (o FlowSourceGatewayBridgeSourcePtrOutput) ToFlowSourceGatewayBridgeSourceP
 
 func (o FlowSourceGatewayBridgeSourcePtrOutput) ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(ctx context.Context) FlowSourceGatewayBridgeSourcePtrOutput {
 	return o
+}
+
+func (o FlowSourceGatewayBridgeSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceGatewayBridgeSource] {
+	return pulumix.Output[*FlowSourceGatewayBridgeSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowSourceGatewayBridgeSourcePtrOutput) Elem() FlowSourceGatewayBridgeSourceOutput {
@@ -4605,6 +5170,12 @@ func (i FlowSourceVpcInterfaceAttachmentArgs) ToFlowSourceVpcInterfaceAttachment
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceVpcInterfaceAttachmentOutput)
 }
 
+func (i FlowSourceVpcInterfaceAttachmentArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceVpcInterfaceAttachment] {
+	return pulumix.Output[FlowSourceVpcInterfaceAttachment]{
+		OutputState: i.ToFlowSourceVpcInterfaceAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlowSourceVpcInterfaceAttachmentArgs) ToFlowSourceVpcInterfaceAttachmentPtrOutput() FlowSourceVpcInterfaceAttachmentPtrOutput {
 	return i.ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
 }
@@ -4646,6 +5217,12 @@ func (i *flowSourceVpcInterfaceAttachmentPtrType) ToFlowSourceVpcInterfaceAttach
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceVpcInterfaceAttachmentPtrOutput)
 }
 
+func (i *flowSourceVpcInterfaceAttachmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceVpcInterfaceAttachment] {
+	return pulumix.Output[*FlowSourceVpcInterfaceAttachment]{
+		OutputState: i.ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The settings for attaching a VPC interface to an resource.
 type FlowSourceVpcInterfaceAttachmentOutput struct{ *pulumi.OutputState }
 
@@ -4671,6 +5248,12 @@ func (o FlowSourceVpcInterfaceAttachmentOutput) ToFlowSourceVpcInterfaceAttachme
 	}).(FlowSourceVpcInterfaceAttachmentPtrOutput)
 }
 
+func (o FlowSourceVpcInterfaceAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceVpcInterfaceAttachment] {
+	return pulumix.Output[FlowSourceVpcInterfaceAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the VPC interface to use for this resource.
 func (o FlowSourceVpcInterfaceAttachmentOutput) VpcInterfaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceVpcInterfaceAttachment) *string { return v.VpcInterfaceName }).(pulumi.StringPtrOutput)
@@ -4688,6 +5271,12 @@ func (o FlowSourceVpcInterfaceAttachmentPtrOutput) ToFlowSourceVpcInterfaceAttac
 
 func (o FlowSourceVpcInterfaceAttachmentPtrOutput) ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) FlowSourceVpcInterfaceAttachmentPtrOutput {
 	return o
+}
+
+func (o FlowSourceVpcInterfaceAttachmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceVpcInterfaceAttachment] {
+	return pulumix.Output[*FlowSourceVpcInterfaceAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowSourceVpcInterfaceAttachmentPtrOutput) Elem() FlowSourceVpcInterfaceAttachmentOutput {
@@ -4745,6 +5334,12 @@ func (i FlowVpcInterfaceAttachmentArgs) ToFlowVpcInterfaceAttachmentOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FlowVpcInterfaceAttachmentOutput)
 }
 
+func (i FlowVpcInterfaceAttachmentArgs) ToOutput(ctx context.Context) pulumix.Output[FlowVpcInterfaceAttachment] {
+	return pulumix.Output[FlowVpcInterfaceAttachment]{
+		OutputState: i.ToFlowVpcInterfaceAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlowVpcInterfaceAttachmentArgs) ToFlowVpcInterfaceAttachmentPtrOutput() FlowVpcInterfaceAttachmentPtrOutput {
 	return i.ToFlowVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
 }
@@ -4786,6 +5381,12 @@ func (i *flowVpcInterfaceAttachmentPtrType) ToFlowVpcInterfaceAttachmentPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(FlowVpcInterfaceAttachmentPtrOutput)
 }
 
+func (i *flowVpcInterfaceAttachmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowVpcInterfaceAttachment] {
+	return pulumix.Output[*FlowVpcInterfaceAttachment]{
+		OutputState: i.ToFlowVpcInterfaceAttachmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The settings for attaching a VPC interface to an resource.
 type FlowVpcInterfaceAttachmentOutput struct{ *pulumi.OutputState }
 
@@ -4811,6 +5412,12 @@ func (o FlowVpcInterfaceAttachmentOutput) ToFlowVpcInterfaceAttachmentPtrOutputW
 	}).(FlowVpcInterfaceAttachmentPtrOutput)
 }
 
+func (o FlowVpcInterfaceAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[FlowVpcInterfaceAttachment] {
+	return pulumix.Output[FlowVpcInterfaceAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the VPC interface to use for this resource.
 func (o FlowVpcInterfaceAttachmentOutput) VpcInterfaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowVpcInterfaceAttachment) *string { return v.VpcInterfaceName }).(pulumi.StringPtrOutput)
@@ -4828,6 +5435,12 @@ func (o FlowVpcInterfaceAttachmentPtrOutput) ToFlowVpcInterfaceAttachmentPtrOutp
 
 func (o FlowVpcInterfaceAttachmentPtrOutput) ToFlowVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) FlowVpcInterfaceAttachmentPtrOutput {
 	return o
+}
+
+func (o FlowVpcInterfaceAttachmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowVpcInterfaceAttachment] {
+	return pulumix.Output[*FlowVpcInterfaceAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowVpcInterfaceAttachmentPtrOutput) Elem() FlowVpcInterfaceAttachmentOutput {
@@ -4889,6 +5502,12 @@ func (i GatewayNetworkArgs) ToGatewayNetworkOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayNetworkOutput)
 }
 
+func (i GatewayNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayNetwork] {
+	return pulumix.Output[GatewayNetwork]{
+		OutputState: i.ToGatewayNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayNetworkArrayInput is an input type that accepts GatewayNetworkArray and GatewayNetworkArrayOutput values.
 // You can construct a concrete instance of `GatewayNetworkArrayInput` via:
 //
@@ -4914,6 +5533,12 @@ func (i GatewayNetworkArray) ToGatewayNetworkArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayNetworkArrayOutput)
 }
 
+func (i GatewayNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]GatewayNetwork] {
+	return pulumix.Output[[]GatewayNetwork]{
+		OutputState: i.ToGatewayNetworkArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The network settings for a gateway.
 type GatewayNetworkOutput struct{ *pulumi.OutputState }
 
@@ -4927,6 +5552,12 @@ func (o GatewayNetworkOutput) ToGatewayNetworkOutput() GatewayNetworkOutput {
 
 func (o GatewayNetworkOutput) ToGatewayNetworkOutputWithContext(ctx context.Context) GatewayNetworkOutput {
 	return o
+}
+
+func (o GatewayNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayNetwork] {
+	return pulumix.Output[GatewayNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -4951,6 +5582,12 @@ func (o GatewayNetworkArrayOutput) ToGatewayNetworkArrayOutput() GatewayNetworkA
 
 func (o GatewayNetworkArrayOutput) ToGatewayNetworkArrayOutputWithContext(ctx context.Context) GatewayNetworkArrayOutput {
 	return o
+}
+
+func (o GatewayNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GatewayNetwork] {
+	return pulumix.Output[[]GatewayNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayNetworkArrayOutput) Index(i pulumi.IntInput) GatewayNetworkOutput {

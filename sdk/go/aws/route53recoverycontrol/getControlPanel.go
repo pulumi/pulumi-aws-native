@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS Route53 Recovery Control Control Panel resource schema .
@@ -74,6 +75,12 @@ func (o LookupControlPanelResultOutput) ToLookupControlPanelResultOutput() Looku
 
 func (o LookupControlPanelResultOutput) ToLookupControlPanelResultOutputWithContext(ctx context.Context) LookupControlPanelResultOutput {
 	return o
+}
+
+func (o LookupControlPanelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupControlPanelResult] {
+	return pulumix.Output[LookupControlPanelResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the cluster.

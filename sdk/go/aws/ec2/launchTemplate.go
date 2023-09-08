@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::LaunchTemplate
@@ -121,6 +122,12 @@ func (i *LaunchTemplate) ToLaunchTemplateOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateOutput)
 }
 
+func (i *LaunchTemplate) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplate] {
+	return pulumix.Output[*LaunchTemplate]{
+		OutputState: i.ToLaunchTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateOutput) ElementType() reflect.Type {
@@ -133,6 +140,12 @@ func (o LaunchTemplateOutput) ToLaunchTemplateOutput() LaunchTemplateOutput {
 
 func (o LaunchTemplateOutput) ToLaunchTemplateOutputWithContext(ctx context.Context) LaunchTemplateOutput {
 	return o
+}
+
+func (o LaunchTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplate] {
+	return pulumix.Output[*LaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default version of the launch template

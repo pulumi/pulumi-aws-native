@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudTrail::ResourcePolicy
@@ -109,6 +110,12 @@ func (i *ResourcePolicy) ToResourcePolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyOutput)
 }
 
+func (i *ResourcePolicy) ToOutput(ctx context.Context) pulumix.Output[*ResourcePolicy] {
+	return pulumix.Output[*ResourcePolicy]{
+		OutputState: i.ToResourcePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourcePolicyOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyOutput) ElementType() reflect.Type {
@@ -121,6 +128,12 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutput() ResourcePolicyOutput {
 
 func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Context) ResourcePolicyOutput {
 	return o
+}
+
+func (o ResourcePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourcePolicy] {
+	return pulumix.Output[*ResourcePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the AWS CloudTrail resource to which the policy applies.

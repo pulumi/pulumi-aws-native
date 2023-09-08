@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i PublicRepositoryTagArgs) ToPublicRepositoryTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PublicRepositoryTagOutput)
 }
 
+func (i PublicRepositoryTagArgs) ToOutput(ctx context.Context) pulumix.Output[PublicRepositoryTag] {
+	return pulumix.Output[PublicRepositoryTag]{
+		OutputState: i.ToPublicRepositoryTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PublicRepositoryTagArrayInput is an input type that accepts PublicRepositoryTagArray and PublicRepositoryTagArrayOutput values.
 // You can construct a concrete instance of `PublicRepositoryTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i PublicRepositoryTagArray) ToPublicRepositoryTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PublicRepositoryTagArrayOutput)
 }
 
+func (i PublicRepositoryTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PublicRepositoryTag] {
+	return pulumix.Output[[]PublicRepositoryTag]{
+		OutputState: i.ToPublicRepositoryTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type PublicRepositoryTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o PublicRepositoryTagOutput) ToPublicRepositoryTagOutput() PublicRepositor
 
 func (o PublicRepositoryTagOutput) ToPublicRepositoryTagOutputWithContext(ctx context.Context) PublicRepositoryTagOutput {
 	return o
+}
+
+func (o PublicRepositoryTagOutput) ToOutput(ctx context.Context) pulumix.Output[PublicRepositoryTag] {
+	return pulumix.Output[PublicRepositoryTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -114,6 +133,12 @@ func (o PublicRepositoryTagArrayOutput) ToPublicRepositoryTagArrayOutput() Publi
 
 func (o PublicRepositoryTagArrayOutput) ToPublicRepositoryTagArrayOutputWithContext(ctx context.Context) PublicRepositoryTagArrayOutput {
 	return o
+}
+
+func (o PublicRepositoryTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PublicRepositoryTag] {
+	return pulumix.Output[[]PublicRepositoryTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PublicRepositoryTagArrayOutput) Index(i pulumi.IntInput) PublicRepositoryTagOutput {
@@ -157,6 +182,12 @@ func (i ReplicationConfigurationTypeArgs) ToReplicationConfigurationTypeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationTypeOutput)
 }
 
+func (i ReplicationConfigurationTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationType] {
+	return pulumix.Output[ReplicationConfigurationType]{
+		OutputState: i.ToReplicationConfigurationTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An object representing the replication configuration for a registry.
 type ReplicationConfigurationTypeOutput struct{ *pulumi.OutputState }
 
@@ -170,6 +201,12 @@ func (o ReplicationConfigurationTypeOutput) ToReplicationConfigurationTypeOutput
 
 func (o ReplicationConfigurationTypeOutput) ToReplicationConfigurationTypeOutputWithContext(ctx context.Context) ReplicationConfigurationTypeOutput {
 	return o
+}
+
+func (o ReplicationConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationType] {
+	return pulumix.Output[ReplicationConfigurationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
@@ -189,6 +226,12 @@ func (o ReplicationConfigurationTypePtrOutput) ToReplicationConfigurationTypePtr
 
 func (o ReplicationConfigurationTypePtrOutput) ToReplicationConfigurationTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationTypePtrOutput {
 	return o
+}
+
+func (o ReplicationConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigurationType] {
+	return pulumix.Output[*ReplicationConfigurationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigurationTypePtrOutput) Elem() ReplicationConfigurationTypeOutput {
@@ -246,6 +289,12 @@ func (i ReplicationConfigurationReplicationDestinationArgs) ToReplicationConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationDestinationOutput)
 }
 
+func (i ReplicationConfigurationReplicationDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationDestination] {
+	return pulumix.Output[ReplicationConfigurationReplicationDestination]{
+		OutputState: i.ToReplicationConfigurationReplicationDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicationConfigurationReplicationDestinationArrayInput is an input type that accepts ReplicationConfigurationReplicationDestinationArray and ReplicationConfigurationReplicationDestinationArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationDestinationArrayInput` via:
 //
@@ -271,6 +320,12 @@ func (i ReplicationConfigurationReplicationDestinationArray) ToReplicationConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationDestinationArrayOutput)
 }
 
+func (i ReplicationConfigurationReplicationDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationReplicationDestination] {
+	return pulumix.Output[[]ReplicationConfigurationReplicationDestination]{
+		OutputState: i.ToReplicationConfigurationReplicationDestinationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An array of objects representing the details of a replication destination.
 type ReplicationConfigurationReplicationDestinationOutput struct{ *pulumi.OutputState }
 
@@ -284,6 +339,12 @@ func (o ReplicationConfigurationReplicationDestinationOutput) ToReplicationConfi
 
 func (o ReplicationConfigurationReplicationDestinationOutput) ToReplicationConfigurationReplicationDestinationOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationDestinationOutput {
 	return o
+}
+
+func (o ReplicationConfigurationReplicationDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationDestination] {
+	return pulumix.Output[ReplicationConfigurationReplicationDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigurationReplicationDestinationOutput) Region() pulumi.StringOutput {
@@ -306,6 +367,12 @@ func (o ReplicationConfigurationReplicationDestinationArrayOutput) ToReplication
 
 func (o ReplicationConfigurationReplicationDestinationArrayOutput) ToReplicationConfigurationReplicationDestinationArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationDestinationArrayOutput {
 	return o
+}
+
+func (o ReplicationConfigurationReplicationDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationReplicationDestination] {
+	return pulumix.Output[[]ReplicationConfigurationReplicationDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigurationReplicationDestinationArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationReplicationDestinationOutput {
@@ -353,6 +420,12 @@ func (i ReplicationConfigurationReplicationRuleArgs) ToReplicationConfigurationR
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationRuleOutput)
 }
 
+func (i ReplicationConfigurationReplicationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationRule] {
+	return pulumix.Output[ReplicationConfigurationReplicationRule]{
+		OutputState: i.ToReplicationConfigurationReplicationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicationConfigurationReplicationRuleArrayInput is an input type that accepts ReplicationConfigurationReplicationRuleArray and ReplicationConfigurationReplicationRuleArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationRuleArrayInput` via:
 //
@@ -378,6 +451,12 @@ func (i ReplicationConfigurationReplicationRuleArray) ToReplicationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationRuleArrayOutput)
 }
 
+func (i ReplicationConfigurationReplicationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationReplicationRule] {
+	return pulumix.Output[[]ReplicationConfigurationReplicationRule]{
+		OutputState: i.ToReplicationConfigurationReplicationRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An array of objects representing the details of a replication destination.
 type ReplicationConfigurationReplicationRuleOutput struct{ *pulumi.OutputState }
 
@@ -391,6 +470,12 @@ func (o ReplicationConfigurationReplicationRuleOutput) ToReplicationConfiguratio
 
 func (o ReplicationConfigurationReplicationRuleOutput) ToReplicationConfigurationReplicationRuleOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationRuleOutput {
 	return o
+}
+
+func (o ReplicationConfigurationReplicationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationRule] {
+	return pulumix.Output[ReplicationConfigurationReplicationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An array of objects representing the details of a replication destination.
@@ -419,6 +504,12 @@ func (o ReplicationConfigurationReplicationRuleArrayOutput) ToReplicationConfigu
 
 func (o ReplicationConfigurationReplicationRuleArrayOutput) ToReplicationConfigurationReplicationRuleArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationRuleArrayOutput {
 	return o
+}
+
+func (o ReplicationConfigurationReplicationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationReplicationRule] {
+	return pulumix.Output[[]ReplicationConfigurationReplicationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigurationReplicationRuleArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationReplicationRuleOutput {
@@ -462,6 +553,12 @@ func (i ReplicationConfigurationRepositoryFilterArgs) ToReplicationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationRepositoryFilterOutput)
 }
 
+func (i ReplicationConfigurationRepositoryFilterArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationRepositoryFilter] {
+	return pulumix.Output[ReplicationConfigurationRepositoryFilter]{
+		OutputState: i.ToReplicationConfigurationRepositoryFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicationConfigurationRepositoryFilterArrayInput is an input type that accepts ReplicationConfigurationRepositoryFilterArray and ReplicationConfigurationRepositoryFilterArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationRepositoryFilterArrayInput` via:
 //
@@ -487,6 +584,12 @@ func (i ReplicationConfigurationRepositoryFilterArray) ToReplicationConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationRepositoryFilterArrayOutput)
 }
 
+func (i ReplicationConfigurationRepositoryFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationRepositoryFilter] {
+	return pulumix.Output[[]ReplicationConfigurationRepositoryFilter]{
+		OutputState: i.ToReplicationConfigurationRepositoryFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An array of objects representing the details of a repository filter.
 type ReplicationConfigurationRepositoryFilterOutput struct{ *pulumi.OutputState }
 
@@ -500,6 +603,12 @@ func (o ReplicationConfigurationRepositoryFilterOutput) ToReplicationConfigurati
 
 func (o ReplicationConfigurationRepositoryFilterOutput) ToReplicationConfigurationRepositoryFilterOutputWithContext(ctx context.Context) ReplicationConfigurationRepositoryFilterOutput {
 	return o
+}
+
+func (o ReplicationConfigurationRepositoryFilterOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationRepositoryFilter] {
+	return pulumix.Output[ReplicationConfigurationRepositoryFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigurationRepositoryFilterOutput) Filter() pulumi.StringOutput {
@@ -524,6 +633,12 @@ func (o ReplicationConfigurationRepositoryFilterArrayOutput) ToReplicationConfig
 
 func (o ReplicationConfigurationRepositoryFilterArrayOutput) ToReplicationConfigurationRepositoryFilterArrayOutputWithContext(ctx context.Context) ReplicationConfigurationRepositoryFilterArrayOutput {
 	return o
+}
+
+func (o ReplicationConfigurationRepositoryFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationRepositoryFilter] {
+	return pulumix.Output[[]ReplicationConfigurationRepositoryFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigurationRepositoryFilterArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationRepositoryFilterOutput {
@@ -573,6 +688,12 @@ func (i RepositoryCatalogDataPropertiesArgs) ToRepositoryCatalogDataPropertiesOu
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCatalogDataPropertiesOutput)
 }
 
+func (i RepositoryCatalogDataPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryCatalogDataProperties] {
+	return pulumix.Output[RepositoryCatalogDataProperties]{
+		OutputState: i.ToRepositoryCatalogDataPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RepositoryCatalogDataPropertiesArgs) ToRepositoryCatalogDataPropertiesPtrOutput() RepositoryCatalogDataPropertiesPtrOutput {
 	return i.ToRepositoryCatalogDataPropertiesPtrOutputWithContext(context.Background())
 }
@@ -614,6 +735,12 @@ func (i *repositoryCatalogDataPropertiesPtrType) ToRepositoryCatalogDataProperti
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCatalogDataPropertiesPtrOutput)
 }
 
+func (i *repositoryCatalogDataPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryCatalogDataProperties] {
+	return pulumix.Output[*RepositoryCatalogDataProperties]{
+		OutputState: i.ToRepositoryCatalogDataPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see <link>
 type RepositoryCatalogDataPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -637,6 +764,12 @@ func (o RepositoryCatalogDataPropertiesOutput) ToRepositoryCatalogDataProperties
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryCatalogDataProperties) *RepositoryCatalogDataProperties {
 		return &v
 	}).(RepositoryCatalogDataPropertiesPtrOutput)
+}
+
+func (o RepositoryCatalogDataPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryCatalogDataProperties] {
+	return pulumix.Output[RepositoryCatalogDataProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryCatalogDataPropertiesOutput) AboutText() pulumi.StringPtrOutput {
@@ -671,6 +804,12 @@ func (o RepositoryCatalogDataPropertiesPtrOutput) ToRepositoryCatalogDataPropert
 
 func (o RepositoryCatalogDataPropertiesPtrOutput) ToRepositoryCatalogDataPropertiesPtrOutputWithContext(ctx context.Context) RepositoryCatalogDataPropertiesPtrOutput {
 	return o
+}
+
+func (o RepositoryCatalogDataPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryCatalogDataProperties] {
+	return pulumix.Output[*RepositoryCatalogDataProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryCatalogDataPropertiesPtrOutput) Elem() RepositoryCatalogDataPropertiesOutput {
@@ -771,6 +910,12 @@ func (i RepositoryEncryptionConfigurationArgs) ToRepositoryEncryptionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEncryptionConfigurationOutput)
 }
 
+func (i RepositoryEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryEncryptionConfiguration] {
+	return pulumix.Output[RepositoryEncryptionConfiguration]{
+		OutputState: i.ToRepositoryEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RepositoryEncryptionConfigurationArgs) ToRepositoryEncryptionConfigurationPtrOutput() RepositoryEncryptionConfigurationPtrOutput {
 	return i.ToRepositoryEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -812,6 +957,12 @@ func (i *repositoryEncryptionConfigurationPtrType) ToRepositoryEncryptionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEncryptionConfigurationPtrOutput)
 }
 
+func (i *repositoryEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEncryptionConfiguration] {
+	return pulumix.Output[*RepositoryEncryptionConfiguration]{
+		OutputState: i.ToRepositoryEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 //
 // By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
@@ -841,6 +992,12 @@ func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigura
 	}).(RepositoryEncryptionConfigurationPtrOutput)
 }
 
+func (o RepositoryEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryEncryptionConfiguration] {
+	return pulumix.Output[RepositoryEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryEncryptionConfigurationOutput) EncryptionType() RepositoryEncryptionTypeOutput {
 	return o.ApplyT(func(v RepositoryEncryptionConfiguration) RepositoryEncryptionType { return v.EncryptionType }).(RepositoryEncryptionTypeOutput)
 }
@@ -861,6 +1018,12 @@ func (o RepositoryEncryptionConfigurationPtrOutput) ToRepositoryEncryptionConfig
 
 func (o RepositoryEncryptionConfigurationPtrOutput) ToRepositoryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RepositoryEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o RepositoryEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEncryptionConfiguration] {
+	return pulumix.Output[*RepositoryEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryEncryptionConfigurationPtrOutput) Elem() RepositoryEncryptionConfigurationOutput {
@@ -924,6 +1087,12 @@ func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfi
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryImageScanningConfigurationOutput)
 }
 
+func (i RepositoryImageScanningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryImageScanningConfiguration] {
+	return pulumix.Output[RepositoryImageScanningConfiguration]{
+		OutputState: i.ToRepositoryImageScanningConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfigurationPtrOutput() RepositoryImageScanningConfigurationPtrOutput {
 	return i.ToRepositoryImageScanningConfigurationPtrOutputWithContext(context.Background())
 }
@@ -965,6 +1134,12 @@ func (i *repositoryImageScanningConfigurationPtrType) ToRepositoryImageScanningC
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
+func (i *repositoryImageScanningConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryImageScanningConfiguration] {
+	return pulumix.Output[*RepositoryImageScanningConfiguration]{
+		OutputState: i.ToRepositoryImageScanningConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 type RepositoryImageScanningConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -990,6 +1165,12 @@ func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningCon
 	}).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
+func (o RepositoryImageScanningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryImageScanningConfiguration] {
+	return pulumix.Output[RepositoryImageScanningConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryImageScanningConfiguration) *bool { return v.ScanOnPush }).(pulumi.BoolPtrOutput)
 }
@@ -1006,6 +1187,12 @@ func (o RepositoryImageScanningConfigurationPtrOutput) ToRepositoryImageScanning
 
 func (o RepositoryImageScanningConfigurationPtrOutput) ToRepositoryImageScanningConfigurationPtrOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationPtrOutput {
 	return o
+}
+
+func (o RepositoryImageScanningConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryImageScanningConfiguration] {
+	return pulumix.Output[*RepositoryImageScanningConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryImageScanningConfigurationPtrOutput) Elem() RepositoryImageScanningConfigurationOutput {
@@ -1062,6 +1249,12 @@ func (i RepositoryLifecyclePolicyArgs) ToRepositoryLifecyclePolicyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLifecyclePolicyOutput)
 }
 
+func (i RepositoryLifecyclePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryLifecyclePolicy] {
+	return pulumix.Output[RepositoryLifecyclePolicy]{
+		OutputState: i.ToRepositoryLifecyclePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RepositoryLifecyclePolicyArgs) ToRepositoryLifecyclePolicyPtrOutput() RepositoryLifecyclePolicyPtrOutput {
 	return i.ToRepositoryLifecyclePolicyPtrOutputWithContext(context.Background())
 }
@@ -1103,6 +1296,12 @@ func (i *repositoryLifecyclePolicyPtrType) ToRepositoryLifecyclePolicyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLifecyclePolicyPtrOutput)
 }
 
+func (i *repositoryLifecyclePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryLifecyclePolicy] {
+	return pulumix.Output[*RepositoryLifecyclePolicy]{
+		OutputState: i.ToRepositoryLifecyclePolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
 type RepositoryLifecyclePolicyOutput struct{ *pulumi.OutputState }
 
@@ -1128,6 +1327,12 @@ func (o RepositoryLifecyclePolicyOutput) ToRepositoryLifecyclePolicyPtrOutputWit
 	}).(RepositoryLifecyclePolicyPtrOutput)
 }
 
+func (o RepositoryLifecyclePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryLifecyclePolicy] {
+	return pulumix.Output[RepositoryLifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryLifecyclePolicyOutput) LifecyclePolicyText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryLifecyclePolicy) *string { return v.LifecyclePolicyText }).(pulumi.StringPtrOutput)
 }
@@ -1148,6 +1353,12 @@ func (o RepositoryLifecyclePolicyPtrOutput) ToRepositoryLifecyclePolicyPtrOutput
 
 func (o RepositoryLifecyclePolicyPtrOutput) ToRepositoryLifecyclePolicyPtrOutputWithContext(ctx context.Context) RepositoryLifecyclePolicyPtrOutput {
 	return o
+}
+
+func (o RepositoryLifecyclePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryLifecyclePolicy] {
+	return pulumix.Output[*RepositoryLifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryLifecyclePolicyPtrOutput) Elem() RepositoryLifecyclePolicyOutput {
@@ -1217,6 +1428,12 @@ func (i RepositoryTagArgs) ToRepositoryTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagOutput)
 }
 
+func (i RepositoryTagArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryTag] {
+	return pulumix.Output[RepositoryTag]{
+		OutputState: i.ToRepositoryTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryTagArrayInput is an input type that accepts RepositoryTagArray and RepositoryTagArrayOutput values.
 // You can construct a concrete instance of `RepositoryTagArrayInput` via:
 //
@@ -1242,6 +1459,12 @@ func (i RepositoryTagArray) ToRepositoryTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagArrayOutput)
 }
 
+func (i RepositoryTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryTag] {
+	return pulumix.Output[[]RepositoryTag]{
+		OutputState: i.ToRepositoryTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type RepositoryTagOutput struct{ *pulumi.OutputState }
 
@@ -1255,6 +1478,12 @@ func (o RepositoryTagOutput) ToRepositoryTagOutput() RepositoryTagOutput {
 
 func (o RepositoryTagOutput) ToRepositoryTagOutputWithContext(ctx context.Context) RepositoryTagOutput {
 	return o
+}
+
+func (o RepositoryTagOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryTag] {
+	return pulumix.Output[RepositoryTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1279,6 +1508,12 @@ func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutput() RepositoryTagArra
 
 func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutputWithContext(ctx context.Context) RepositoryTagArrayOutput {
 	return o
+}
+
+func (o RepositoryTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryTag] {
+	return pulumix.Output[[]RepositoryTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryTagArrayOutput) Index(i pulumi.IntInput) RepositoryTagOutput {

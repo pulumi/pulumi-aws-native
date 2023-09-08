@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lambda::Permission
@@ -70,6 +71,12 @@ func (o LookupPermissionResultOutput) ToLookupPermissionResultOutput() LookupPer
 
 func (o LookupPermissionResultOutput) ToLookupPermissionResultOutputWithContext(ctx context.Context) LookupPermissionResultOutput {
 	return o
+}
+
+func (o LookupPermissionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPermissionResult] {
+	return pulumix.Output[LookupPermissionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A statement identifier that differentiates the statement from others in the same policy.

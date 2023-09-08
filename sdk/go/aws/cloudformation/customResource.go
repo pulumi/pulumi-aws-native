@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFormation::CustomResource
@@ -99,6 +100,12 @@ func (i *CustomResource) ToCustomResourceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomResourceOutput)
 }
 
+func (i *CustomResource) ToOutput(ctx context.Context) pulumix.Output[*CustomResource] {
+	return pulumix.Output[*CustomResource]{
+		OutputState: i.ToCustomResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomResourceOutput struct{ *pulumi.OutputState }
 
 func (CustomResourceOutput) ElementType() reflect.Type {
@@ -111,6 +118,12 @@ func (o CustomResourceOutput) ToCustomResourceOutput() CustomResourceOutput {
 
 func (o CustomResourceOutput) ToCustomResourceOutputWithContext(ctx context.Context) CustomResourceOutput {
 	return o
+}
+
+func (o CustomResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomResource] {
+	return pulumix.Output[*CustomResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomResourceOutput) ServiceToken() pulumi.StringOutput {

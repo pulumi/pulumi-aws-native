@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -64,6 +65,12 @@ func (i DatasetImportJobArgs) ToDatasetImportJobOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetImportJobOutput)
 }
 
+func (i DatasetImportJobArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetImportJob] {
+	return pulumix.Output[DatasetImportJob]{
+		OutputState: i.ToDatasetImportJobOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetImportJobArgs) ToDatasetImportJobPtrOutput() DatasetImportJobPtrOutput {
 	return i.ToDatasetImportJobPtrOutputWithContext(context.Background())
 }
@@ -105,6 +112,12 @@ func (i *datasetImportJobPtrType) ToDatasetImportJobPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetImportJobPtrOutput)
 }
 
+func (i *datasetImportJobPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetImportJob] {
+	return pulumix.Output[*DatasetImportJob]{
+		OutputState: i.ToDatasetImportJobPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Initial DatasetImportJob for the created dataset
 type DatasetImportJobOutput struct{ *pulumi.OutputState }
 
@@ -128,6 +141,12 @@ func (o DatasetImportJobOutput) ToDatasetImportJobPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetImportJob) *DatasetImportJob {
 		return &v
 	}).(DatasetImportJobPtrOutput)
+}
+
+func (o DatasetImportJobOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetImportJob] {
+	return pulumix.Output[DatasetImportJob]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon S3 bucket that contains the training data to import.
@@ -167,6 +186,12 @@ func (o DatasetImportJobPtrOutput) ToDatasetImportJobPtrOutput() DatasetImportJo
 
 func (o DatasetImportJobPtrOutput) ToDatasetImportJobPtrOutputWithContext(ctx context.Context) DatasetImportJobPtrOutput {
 	return o
+}
+
+func (o DatasetImportJobPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetImportJob] {
+	return pulumix.Output[*DatasetImportJob]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetImportJobPtrOutput) Elem() DatasetImportJobOutput {
@@ -264,6 +289,12 @@ func (i DatasetImportJobDataSourcePropertiesArgs) ToDatasetImportJobDataSourcePr
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetImportJobDataSourcePropertiesOutput)
 }
 
+func (i DatasetImportJobDataSourcePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetImportJobDataSourceProperties] {
+	return pulumix.Output[DatasetImportJobDataSourceProperties]{
+		OutputState: i.ToDatasetImportJobDataSourcePropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatasetImportJobDataSourcePropertiesArgs) ToDatasetImportJobDataSourcePropertiesPtrOutput() DatasetImportJobDataSourcePropertiesPtrOutput {
 	return i.ToDatasetImportJobDataSourcePropertiesPtrOutputWithContext(context.Background())
 }
@@ -305,6 +336,12 @@ func (i *datasetImportJobDataSourcePropertiesPtrType) ToDatasetImportJobDataSour
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetImportJobDataSourcePropertiesPtrOutput)
 }
 
+func (i *datasetImportJobDataSourcePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetImportJobDataSourceProperties] {
+	return pulumix.Output[*DatasetImportJobDataSourceProperties]{
+		OutputState: i.ToDatasetImportJobDataSourcePropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The Amazon S3 bucket that contains the training data to import.
 type DatasetImportJobDataSourcePropertiesOutput struct{ *pulumi.OutputState }
 
@@ -330,6 +367,12 @@ func (o DatasetImportJobDataSourcePropertiesOutput) ToDatasetImportJobDataSource
 	}).(DatasetImportJobDataSourcePropertiesPtrOutput)
 }
 
+func (o DatasetImportJobDataSourcePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetImportJobDataSourceProperties] {
+	return pulumix.Output[DatasetImportJobDataSourceProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
 func (o DatasetImportJobDataSourcePropertiesOutput) DataLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetImportJobDataSourceProperties) *string { return v.DataLocation }).(pulumi.StringPtrOutput)
@@ -347,6 +390,12 @@ func (o DatasetImportJobDataSourcePropertiesPtrOutput) ToDatasetImportJobDataSou
 
 func (o DatasetImportJobDataSourcePropertiesPtrOutput) ToDatasetImportJobDataSourcePropertiesPtrOutputWithContext(ctx context.Context) DatasetImportJobDataSourcePropertiesPtrOutput {
 	return o
+}
+
+func (o DatasetImportJobDataSourcePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetImportJobDataSourceProperties] {
+	return pulumix.Output[*DatasetImportJobDataSourceProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetImportJobDataSourcePropertiesPtrOutput) Elem() DatasetImportJobDataSourcePropertiesOutput {
@@ -408,6 +457,12 @@ func (i SolutionCategoricalHyperParameterRangeArgs) ToSolutionCategoricalHyperPa
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionCategoricalHyperParameterRangeOutput)
 }
 
+func (i SolutionCategoricalHyperParameterRangeArgs) ToOutput(ctx context.Context) pulumix.Output[SolutionCategoricalHyperParameterRange] {
+	return pulumix.Output[SolutionCategoricalHyperParameterRange]{
+		OutputState: i.ToSolutionCategoricalHyperParameterRangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SolutionCategoricalHyperParameterRangeArrayInput is an input type that accepts SolutionCategoricalHyperParameterRangeArray and SolutionCategoricalHyperParameterRangeArrayOutput values.
 // You can construct a concrete instance of `SolutionCategoricalHyperParameterRangeArrayInput` via:
 //
@@ -433,6 +488,12 @@ func (i SolutionCategoricalHyperParameterRangeArray) ToSolutionCategoricalHyperP
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionCategoricalHyperParameterRangeArrayOutput)
 }
 
+func (i SolutionCategoricalHyperParameterRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]SolutionCategoricalHyperParameterRange] {
+	return pulumix.Output[[]SolutionCategoricalHyperParameterRange]{
+		OutputState: i.ToSolutionCategoricalHyperParameterRangeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides the name and values of a Categorical hyperparameter.
 type SolutionCategoricalHyperParameterRangeOutput struct{ *pulumi.OutputState }
 
@@ -446,6 +507,12 @@ func (o SolutionCategoricalHyperParameterRangeOutput) ToSolutionCategoricalHyper
 
 func (o SolutionCategoricalHyperParameterRangeOutput) ToSolutionCategoricalHyperParameterRangeOutputWithContext(ctx context.Context) SolutionCategoricalHyperParameterRangeOutput {
 	return o
+}
+
+func (o SolutionCategoricalHyperParameterRangeOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionCategoricalHyperParameterRange] {
+	return pulumix.Output[SolutionCategoricalHyperParameterRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the hyperparameter.
@@ -470,6 +537,12 @@ func (o SolutionCategoricalHyperParameterRangeArrayOutput) ToSolutionCategorical
 
 func (o SolutionCategoricalHyperParameterRangeArrayOutput) ToSolutionCategoricalHyperParameterRangeArrayOutputWithContext(ctx context.Context) SolutionCategoricalHyperParameterRangeArrayOutput {
 	return o
+}
+
+func (o SolutionCategoricalHyperParameterRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SolutionCategoricalHyperParameterRange] {
+	return pulumix.Output[[]SolutionCategoricalHyperParameterRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SolutionCategoricalHyperParameterRangeArrayOutput) Index(i pulumi.IntInput) SolutionCategoricalHyperParameterRangeOutput {
@@ -529,6 +602,12 @@ func (i SolutionConfigArgs) ToSolutionConfigOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigOutput)
 }
 
+func (i SolutionConfigArgs) ToOutput(ctx context.Context) pulumix.Output[SolutionConfig] {
+	return pulumix.Output[SolutionConfig]{
+		OutputState: i.ToSolutionConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SolutionConfigArgs) ToSolutionConfigPtrOutput() SolutionConfigPtrOutput {
 	return i.ToSolutionConfigPtrOutputWithContext(context.Background())
 }
@@ -570,6 +649,12 @@ func (i *solutionConfigPtrType) ToSolutionConfigPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigPtrOutput)
 }
 
+func (i *solutionConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfig] {
+	return pulumix.Output[*SolutionConfig]{
+		OutputState: i.ToSolutionConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
 type SolutionConfigOutput struct{ *pulumi.OutputState }
 
@@ -593,6 +678,12 @@ func (o SolutionConfigOutput) ToSolutionConfigPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionConfig) *SolutionConfig {
 		return &v
 	}).(SolutionConfigPtrOutput)
+}
+
+func (o SolutionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionConfig] {
+	return pulumix.Output[SolutionConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Lists the hyperparameter names and ranges.
@@ -632,6 +723,12 @@ func (o SolutionConfigPtrOutput) ToSolutionConfigPtrOutput() SolutionConfigPtrOu
 
 func (o SolutionConfigPtrOutput) ToSolutionConfigPtrOutputWithContext(ctx context.Context) SolutionConfigPtrOutput {
 	return o
+}
+
+func (o SolutionConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfig] {
+	return pulumix.Output[*SolutionConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SolutionConfigPtrOutput) Elem() SolutionConfigOutput {
@@ -733,6 +830,12 @@ func (i SolutionConfigAutoMlConfigPropertiesArgs) ToSolutionConfigAutoMlConfigPr
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigAutoMlConfigPropertiesOutput)
 }
 
+func (i SolutionConfigAutoMlConfigPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigAutoMlConfigProperties] {
+	return pulumix.Output[SolutionConfigAutoMlConfigProperties]{
+		OutputState: i.ToSolutionConfigAutoMlConfigPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SolutionConfigAutoMlConfigPropertiesArgs) ToSolutionConfigAutoMlConfigPropertiesPtrOutput() SolutionConfigAutoMlConfigPropertiesPtrOutput {
 	return i.ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(context.Background())
 }
@@ -774,6 +877,12 @@ func (i *solutionConfigAutoMlConfigPropertiesPtrType) ToSolutionConfigAutoMlConf
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigAutoMlConfigPropertiesPtrOutput)
 }
 
+func (i *solutionConfigAutoMlConfigPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigAutoMlConfigProperties] {
+	return pulumix.Output[*SolutionConfigAutoMlConfigProperties]{
+		OutputState: i.ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
 type SolutionConfigAutoMlConfigPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -799,6 +908,12 @@ func (o SolutionConfigAutoMlConfigPropertiesOutput) ToSolutionConfigAutoMlConfig
 	}).(SolutionConfigAutoMlConfigPropertiesPtrOutput)
 }
 
+func (o SolutionConfigAutoMlConfigPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigAutoMlConfigProperties] {
+	return pulumix.Output[SolutionConfigAutoMlConfigProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The metric to optimize.
 func (o SolutionConfigAutoMlConfigPropertiesOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionConfigAutoMlConfigProperties) *string { return v.MetricName }).(pulumi.StringPtrOutput)
@@ -821,6 +936,12 @@ func (o SolutionConfigAutoMlConfigPropertiesPtrOutput) ToSolutionConfigAutoMlCon
 
 func (o SolutionConfigAutoMlConfigPropertiesPtrOutput) ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigAutoMlConfigPropertiesPtrOutput {
 	return o
+}
+
+func (o SolutionConfigAutoMlConfigPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigAutoMlConfigProperties] {
+	return pulumix.Output[*SolutionConfigAutoMlConfigProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SolutionConfigAutoMlConfigPropertiesPtrOutput) Elem() SolutionConfigAutoMlConfigPropertiesOutput {
@@ -896,6 +1017,12 @@ func (i SolutionConfigHpoConfigPropertiesArgs) ToSolutionConfigHpoConfigProperti
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigHpoConfigPropertiesOutput)
 }
 
+func (i SolutionConfigHpoConfigPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigHpoConfigProperties] {
+	return pulumix.Output[SolutionConfigHpoConfigProperties]{
+		OutputState: i.ToSolutionConfigHpoConfigPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SolutionConfigHpoConfigPropertiesArgs) ToSolutionConfigHpoConfigPropertiesPtrOutput() SolutionConfigHpoConfigPropertiesPtrOutput {
 	return i.ToSolutionConfigHpoConfigPropertiesPtrOutputWithContext(context.Background())
 }
@@ -937,6 +1064,12 @@ func (i *solutionConfigHpoConfigPropertiesPtrType) ToSolutionConfigHpoConfigProp
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigHpoConfigPropertiesPtrOutput)
 }
 
+func (i *solutionConfigHpoConfigPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigProperties] {
+	return pulumix.Output[*SolutionConfigHpoConfigProperties]{
+		OutputState: i.ToSolutionConfigHpoConfigPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes the properties for hyperparameter optimization (HPO)
 type SolutionConfigHpoConfigPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -960,6 +1093,12 @@ func (o SolutionConfigHpoConfigPropertiesOutput) ToSolutionConfigHpoConfigProper
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionConfigHpoConfigProperties) *SolutionConfigHpoConfigProperties {
 		return &v
 	}).(SolutionConfigHpoConfigPropertiesPtrOutput)
+}
+
+func (o SolutionConfigHpoConfigPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigHpoConfigProperties] {
+	return pulumix.Output[SolutionConfigHpoConfigProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The hyperparameters and their allowable ranges
@@ -995,6 +1134,12 @@ func (o SolutionConfigHpoConfigPropertiesPtrOutput) ToSolutionConfigHpoConfigPro
 
 func (o SolutionConfigHpoConfigPropertiesPtrOutput) ToSolutionConfigHpoConfigPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigHpoConfigPropertiesPtrOutput {
 	return o
+}
+
+func (o SolutionConfigHpoConfigPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigProperties] {
+	return pulumix.Output[*SolutionConfigHpoConfigProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SolutionConfigHpoConfigPropertiesPtrOutput) Elem() SolutionConfigHpoConfigPropertiesOutput {
@@ -1080,6 +1225,12 @@ func (i SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesOutput)
 }
 
+func (i SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties] {
+	return pulumix.Output[SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties]{
+		OutputState: i.ToSolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs) ToSolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutput() SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutput {
 	return i.ToSolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutputWithContext(context.Background())
 }
@@ -1121,6 +1272,12 @@ func (i *solutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertie
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutput)
 }
 
+func (i *solutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties] {
+	return pulumix.Output[*SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties]{
+		OutputState: i.ToSolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The hyperparameters and their allowable ranges
 type SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -1144,6 +1301,12 @@ func (o SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties) *SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties {
 		return &v
 	}).(SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutput)
+}
+
+func (o SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties] {
+	return pulumix.Output[SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The categorical hyperparameters and their ranges.
@@ -1179,6 +1342,12 @@ func (o SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties
 
 func (o SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutput) ToSolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutput {
 	return o
+}
+
+func (o SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties] {
+	return pulumix.Output[*SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutput) Elem() SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesOutput {
@@ -1264,6 +1433,12 @@ func (i SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs) ToSolutionC
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesOutput)
 }
 
+func (i SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigHpoConfigPropertiesHpoObjectiveProperties] {
+	return pulumix.Output[SolutionConfigHpoConfigPropertiesHpoObjectiveProperties]{
+		OutputState: i.ToSolutionConfigHpoConfigPropertiesHpoObjectivePropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs) ToSolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutput() SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutput {
 	return i.ToSolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutputWithContext(context.Background())
 }
@@ -1305,6 +1480,12 @@ func (i *solutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrType) ToSolut
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutput)
 }
 
+func (i *solutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectiveProperties] {
+	return pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectiveProperties]{
+		OutputState: i.ToSolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The metric to optimize during HPO.
 type SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesOutput struct{ *pulumi.OutputState }
 
@@ -1328,6 +1509,12 @@ func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesOutput) ToSolutio
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionConfigHpoConfigPropertiesHpoObjectiveProperties) *SolutionConfigHpoConfigPropertiesHpoObjectiveProperties {
 		return &v
 	}).(SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutput)
+}
+
+func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigHpoConfigPropertiesHpoObjectiveProperties] {
+	return pulumix.Output[SolutionConfigHpoConfigPropertiesHpoObjectiveProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the metric
@@ -1359,6 +1546,12 @@ func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutput) ToSolu
 
 func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutput) ToSolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutput {
 	return o
+}
+
+func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectiveProperties] {
+	return pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectiveProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutput) Elem() SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesOutput {
@@ -1440,6 +1633,12 @@ func (i SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs) ToSolu
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesOutput)
 }
 
+func (i SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties] {
+	return pulumix.Output[SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties]{
+		OutputState: i.ToSolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs) ToSolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutput() SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutput {
 	return i.ToSolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutputWithContext(context.Background())
 }
@@ -1481,6 +1680,12 @@ func (i *solutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutput)
 }
 
+func (i *solutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties] {
+	return pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties]{
+		OutputState: i.ToSolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes the resource configuration for hyperparameter optimization (HPO).
 type SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -1504,6 +1709,12 @@ func (o SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesOutput) ToSo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties) *SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties {
 		return &v
 	}).(SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutput)
+}
+
+func (o SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties] {
+	return pulumix.Output[SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The maximum number of training jobs when you create a solution version. The maximum value for maxNumberOfTrainingJobs is 40.
@@ -1532,6 +1743,12 @@ func (o SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutput) T
 
 func (o SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutput) ToSolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutput {
 	return o
+}
+
+func (o SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties] {
+	return pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutput) Elem() SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesOutput {
@@ -1607,6 +1824,12 @@ func (i SolutionContinuousHyperParameterRangeArgs) ToSolutionContinuousHyperPara
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionContinuousHyperParameterRangeOutput)
 }
 
+func (i SolutionContinuousHyperParameterRangeArgs) ToOutput(ctx context.Context) pulumix.Output[SolutionContinuousHyperParameterRange] {
+	return pulumix.Output[SolutionContinuousHyperParameterRange]{
+		OutputState: i.ToSolutionContinuousHyperParameterRangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SolutionContinuousHyperParameterRangeArrayInput is an input type that accepts SolutionContinuousHyperParameterRangeArray and SolutionContinuousHyperParameterRangeArrayOutput values.
 // You can construct a concrete instance of `SolutionContinuousHyperParameterRangeArrayInput` via:
 //
@@ -1632,6 +1855,12 @@ func (i SolutionContinuousHyperParameterRangeArray) ToSolutionContinuousHyperPar
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionContinuousHyperParameterRangeArrayOutput)
 }
 
+func (i SolutionContinuousHyperParameterRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]SolutionContinuousHyperParameterRange] {
+	return pulumix.Output[[]SolutionContinuousHyperParameterRange]{
+		OutputState: i.ToSolutionContinuousHyperParameterRangeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides the name and range of a continuous hyperparameter.
 type SolutionContinuousHyperParameterRangeOutput struct{ *pulumi.OutputState }
 
@@ -1645,6 +1874,12 @@ func (o SolutionContinuousHyperParameterRangeOutput) ToSolutionContinuousHyperPa
 
 func (o SolutionContinuousHyperParameterRangeOutput) ToSolutionContinuousHyperParameterRangeOutputWithContext(ctx context.Context) SolutionContinuousHyperParameterRangeOutput {
 	return o
+}
+
+func (o SolutionContinuousHyperParameterRangeOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionContinuousHyperParameterRange] {
+	return pulumix.Output[SolutionContinuousHyperParameterRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The maximum allowable value for the hyperparameter.
@@ -1674,6 +1909,12 @@ func (o SolutionContinuousHyperParameterRangeArrayOutput) ToSolutionContinuousHy
 
 func (o SolutionContinuousHyperParameterRangeArrayOutput) ToSolutionContinuousHyperParameterRangeArrayOutputWithContext(ctx context.Context) SolutionContinuousHyperParameterRangeArrayOutput {
 	return o
+}
+
+func (o SolutionContinuousHyperParameterRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SolutionContinuousHyperParameterRange] {
+	return pulumix.Output[[]SolutionContinuousHyperParameterRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SolutionContinuousHyperParameterRangeArrayOutput) Index(i pulumi.IntInput) SolutionContinuousHyperParameterRangeOutput {
@@ -1725,6 +1966,12 @@ func (i SolutionIntegerHyperParameterRangeArgs) ToSolutionIntegerHyperParameterR
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionIntegerHyperParameterRangeOutput)
 }
 
+func (i SolutionIntegerHyperParameterRangeArgs) ToOutput(ctx context.Context) pulumix.Output[SolutionIntegerHyperParameterRange] {
+	return pulumix.Output[SolutionIntegerHyperParameterRange]{
+		OutputState: i.ToSolutionIntegerHyperParameterRangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SolutionIntegerHyperParameterRangeArrayInput is an input type that accepts SolutionIntegerHyperParameterRangeArray and SolutionIntegerHyperParameterRangeArrayOutput values.
 // You can construct a concrete instance of `SolutionIntegerHyperParameterRangeArrayInput` via:
 //
@@ -1750,6 +1997,12 @@ func (i SolutionIntegerHyperParameterRangeArray) ToSolutionIntegerHyperParameter
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionIntegerHyperParameterRangeArrayOutput)
 }
 
+func (i SolutionIntegerHyperParameterRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]SolutionIntegerHyperParameterRange] {
+	return pulumix.Output[[]SolutionIntegerHyperParameterRange]{
+		OutputState: i.ToSolutionIntegerHyperParameterRangeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides the name and range of an integer-valued hyperparameter.
 type SolutionIntegerHyperParameterRangeOutput struct{ *pulumi.OutputState }
 
@@ -1763,6 +2016,12 @@ func (o SolutionIntegerHyperParameterRangeOutput) ToSolutionIntegerHyperParamete
 
 func (o SolutionIntegerHyperParameterRangeOutput) ToSolutionIntegerHyperParameterRangeOutputWithContext(ctx context.Context) SolutionIntegerHyperParameterRangeOutput {
 	return o
+}
+
+func (o SolutionIntegerHyperParameterRangeOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionIntegerHyperParameterRange] {
+	return pulumix.Output[SolutionIntegerHyperParameterRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The maximum allowable value for the hyperparameter.
@@ -1792,6 +2051,12 @@ func (o SolutionIntegerHyperParameterRangeArrayOutput) ToSolutionIntegerHyperPar
 
 func (o SolutionIntegerHyperParameterRangeArrayOutput) ToSolutionIntegerHyperParameterRangeArrayOutputWithContext(ctx context.Context) SolutionIntegerHyperParameterRangeArrayOutput {
 	return o
+}
+
+func (o SolutionIntegerHyperParameterRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SolutionIntegerHyperParameterRange] {
+	return pulumix.Output[[]SolutionIntegerHyperParameterRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SolutionIntegerHyperParameterRangeArrayOutput) Index(i pulumi.IntInput) SolutionIntegerHyperParameterRangeOutput {

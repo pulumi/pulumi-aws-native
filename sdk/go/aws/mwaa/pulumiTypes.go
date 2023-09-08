@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i EnvironmentLoggingConfigurationArgs) ToEnvironmentLoggingConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationOutput)
 }
 
+func (i EnvironmentLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfiguration] {
+	return pulumix.Output[EnvironmentLoggingConfiguration]{
+		OutputState: i.ToEnvironmentLoggingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EnvironmentLoggingConfigurationArgs) ToEnvironmentLoggingConfigurationPtrOutput() EnvironmentLoggingConfigurationPtrOutput {
 	return i.ToEnvironmentLoggingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -95,6 +102,12 @@ func (i *environmentLoggingConfigurationPtrType) ToEnvironmentLoggingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationPtrOutput)
 }
 
+func (i *environmentLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfiguration] {
+	return pulumix.Output[*EnvironmentLoggingConfiguration]{
+		OutputState: i.ToEnvironmentLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Logging configuration for the environment.
 type EnvironmentLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -118,6 +131,12 @@ func (o EnvironmentLoggingConfigurationOutput) ToEnvironmentLoggingConfiguration
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfiguration) *EnvironmentLoggingConfiguration {
 		return &v
 	}).(EnvironmentLoggingConfigurationPtrOutput)
+}
+
+func (o EnvironmentLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfiguration] {
+	return pulumix.Output[EnvironmentLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentLoggingConfigurationOutput) DagProcessingLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
@@ -154,6 +173,12 @@ func (o EnvironmentLoggingConfigurationPtrOutput) ToEnvironmentLoggingConfigurat
 
 func (o EnvironmentLoggingConfigurationPtrOutput) ToEnvironmentLoggingConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationPtrOutput {
 	return o
+}
+
+func (o EnvironmentLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfiguration] {
+	return pulumix.Output[*EnvironmentLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentLoggingConfigurationPtrOutput) Elem() EnvironmentLoggingConfigurationOutput {
@@ -248,6 +273,12 @@ func (i EnvironmentModuleLoggingConfigurationArgs) ToEnvironmentModuleLoggingCon
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentModuleLoggingConfigurationOutput)
 }
 
+func (i EnvironmentModuleLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentModuleLoggingConfiguration] {
+	return pulumix.Output[EnvironmentModuleLoggingConfiguration]{
+		OutputState: i.ToEnvironmentModuleLoggingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EnvironmentModuleLoggingConfigurationArgs) ToEnvironmentModuleLoggingConfigurationPtrOutput() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return i.ToEnvironmentModuleLoggingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -289,6 +320,12 @@ func (i *environmentModuleLoggingConfigurationPtrType) ToEnvironmentModuleLoggin
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
+func (i *environmentModuleLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentModuleLoggingConfiguration] {
+	return pulumix.Output[*EnvironmentModuleLoggingConfiguration]{
+		OutputState: i.ToEnvironmentModuleLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Logging configuration for a specific airflow component.
 type EnvironmentModuleLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -312,6 +349,12 @@ func (o EnvironmentModuleLoggingConfigurationOutput) ToEnvironmentModuleLoggingC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentModuleLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		return &v
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
+}
+
+func (o EnvironmentModuleLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentModuleLoggingConfiguration] {
+	return pulumix.Output[EnvironmentModuleLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentModuleLoggingConfigurationOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
@@ -338,6 +381,12 @@ func (o EnvironmentModuleLoggingConfigurationPtrOutput) ToEnvironmentModuleLoggi
 
 func (o EnvironmentModuleLoggingConfigurationPtrOutput) ToEnvironmentModuleLoggingConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o
+}
+
+func (o EnvironmentModuleLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentModuleLoggingConfiguration] {
+	return pulumix.Output[*EnvironmentModuleLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentModuleLoggingConfigurationPtrOutput) Elem() EnvironmentModuleLoggingConfigurationOutput {
@@ -416,6 +465,12 @@ func (i EnvironmentNetworkConfigurationArgs) ToEnvironmentNetworkConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentNetworkConfigurationOutput)
 }
 
+func (i EnvironmentNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentNetworkConfiguration] {
+	return pulumix.Output[EnvironmentNetworkConfiguration]{
+		OutputState: i.ToEnvironmentNetworkConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EnvironmentNetworkConfigurationArgs) ToEnvironmentNetworkConfigurationPtrOutput() EnvironmentNetworkConfigurationPtrOutput {
 	return i.ToEnvironmentNetworkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -457,6 +512,12 @@ func (i *environmentNetworkConfigurationPtrType) ToEnvironmentNetworkConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentNetworkConfigurationPtrOutput)
 }
 
+func (i *environmentNetworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentNetworkConfiguration] {
+	return pulumix.Output[*EnvironmentNetworkConfiguration]{
+		OutputState: i.ToEnvironmentNetworkConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configures the network resources of the environment.
 type EnvironmentNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -482,6 +543,12 @@ func (o EnvironmentNetworkConfigurationOutput) ToEnvironmentNetworkConfiguration
 	}).(EnvironmentNetworkConfigurationPtrOutput)
 }
 
+func (o EnvironmentNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentNetworkConfiguration] {
+	return pulumix.Output[EnvironmentNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A list of security groups to use for the environment.
 func (o EnvironmentNetworkConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EnvironmentNetworkConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -504,6 +571,12 @@ func (o EnvironmentNetworkConfigurationPtrOutput) ToEnvironmentNetworkConfigurat
 
 func (o EnvironmentNetworkConfigurationPtrOutput) ToEnvironmentNetworkConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentNetworkConfigurationPtrOutput {
 	return o
+}
+
+func (o EnvironmentNetworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentNetworkConfiguration] {
+	return pulumix.Output[*EnvironmentNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentNetworkConfigurationPtrOutput) Elem() EnvironmentNetworkConfigurationOutput {
