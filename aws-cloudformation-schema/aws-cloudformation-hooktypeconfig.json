@@ -59,7 +59,17 @@
       "permissions" : [ "cloudformation:SetTypeConfiguration" ]
     },
     "list" : {
-      "permissions" : [ "cloudformation:BatchDescribeTypeConfigurations" ]
+      "handlerSchema" : {
+        "properties" : {
+          "TypeName" : {
+            "$ref" : "resource-schema.json#/properties/TypeName"
+          },
+          "TypeArn" : {
+            "$ref" : "resource-schema.json#/properties/TypeArn"
+          }
+        }
+      },
+      "permissions" : [ "cloudformation:ListTypes", "cloudformation:BatchDescribeTypeConfigurations" ]
     }
   },
   "additionalProperties" : false

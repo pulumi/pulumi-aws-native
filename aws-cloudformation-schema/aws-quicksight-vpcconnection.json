@@ -193,16 +193,16 @@
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/VPCConnectionId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "quicksight:CreateVPCConnection", "quicksight:DescribeVPCConnection", "quicksight:ListTagsForResource", "iam:PassRole" ]
+      "permissions" : [ "quicksight:CreateVPCConnection", "quicksight:DescribeVPCConnection", "quicksight:ListTagsForResource", "quicksight:TagResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "quicksight:DescribeVPCConnection" ]
+      "permissions" : [ "quicksight:DescribeVPCConnection", "quicksight:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "quicksight:DescribeVPCConnection", "quicksight:UpdateVPCConnection", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "quicksight:DescribeVPCConnection", "quicksight:DeleteVPCConnection" ]
+      "permissions" : [ "quicksight:DescribeVPCConnection", "quicksight:DeleteVPCConnection", "quicksight:ListTagsForResource", "iam:PassRole" ]
     },
     "list" : {
       "permissions" : [ "quicksight:ListVPCConnections" ]
