@@ -115,7 +115,7 @@
   },
   "additionalProperties" : false,
   "required" : [ ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/LoRaWAN/UlRate", "/properties/LoRaWAN/UlBucketSize", "/properties/LoRaWAN/UlRatePolicy", "/properties/LoRaWAN/DlRate", "/properties/LoRaWAN/DlBucketSize", "/properties/LoRaWAN/DlRatePolicy", "/properties/LoRaWAN/DevStatusReqFreq", "/properties/LoRaWAN/ReportDevStatusBattery", "/properties/LoRaWAN/ReportDevStatusMargin", "/properties/LoRaWAN/DrMin", "/properties/LoRaWAN/DrMax", "/properties/LoRaWAN/ChannelMask", "/properties/LoRaWAN/PrAllowed", "/properties/LoRaWAN/HrAllowed", "/properties/LoRaWAN/RaAllowed", "/properties/LoRaWAN/NwkGeoLoc", "/properties/LoRaWAN/TargetPer", "/properties/LoRaWAN/MinGwDiversity" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/LoRaWAN/UlRate", "/properties/LoRaWAN/UlBucketSize", "/properties/LoRaWAN/UlRatePolicy", "/properties/LoRaWAN/DlRate", "/properties/LoRaWAN/DlBucketSize", "/properties/LoRaWAN/DlRatePolicy", "/properties/LoRaWAN/DevStatusReqFreq", "/properties/LoRaWAN/ReportDevStatusBattery", "/properties/LoRaWAN/ReportDevStatusMargin", "/properties/LoRaWAN/DrMin", "/properties/LoRaWAN/DrMax", "/properties/LoRaWAN/ChannelMask", "/properties/LoRaWAN/HrAllowed", "/properties/LoRaWAN/NwkGeoLoc", "/properties/LoRaWAN/TargetPer", "/properties/LoRaWAN/MinGwDiversity" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "taggable" : true,
   "handlers" : {
