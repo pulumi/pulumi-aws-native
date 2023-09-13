@@ -15,10 +15,11 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     {
         public readonly Outputs.TargetGroupHealthCheckConfig? HealthCheck;
         public readonly Pulumi.AwsNative.VpcLattice.TargetGroupConfigIpAddressType? IpAddressType;
-        public readonly int Port;
-        public readonly Pulumi.AwsNative.VpcLattice.TargetGroupConfigProtocol Protocol;
+        public readonly Pulumi.AwsNative.VpcLattice.TargetGroupConfigLambdaEventStructureVersion? LambdaEventStructureVersion;
+        public readonly int? Port;
+        public readonly Pulumi.AwsNative.VpcLattice.TargetGroupConfigProtocol? Protocol;
         public readonly Pulumi.AwsNative.VpcLattice.TargetGroupConfigProtocolVersion? ProtocolVersion;
-        public readonly string VpcIdentifier;
+        public readonly string? VpcIdentifier;
 
         [OutputConstructor]
         private TargetGroupConfig(
@@ -26,16 +27,19 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
 
             Pulumi.AwsNative.VpcLattice.TargetGroupConfigIpAddressType? ipAddressType,
 
-            int port,
+            Pulumi.AwsNative.VpcLattice.TargetGroupConfigLambdaEventStructureVersion? lambdaEventStructureVersion,
 
-            Pulumi.AwsNative.VpcLattice.TargetGroupConfigProtocol protocol,
+            int? port,
+
+            Pulumi.AwsNative.VpcLattice.TargetGroupConfigProtocol? protocol,
 
             Pulumi.AwsNative.VpcLattice.TargetGroupConfigProtocolVersion? protocolVersion,
 
-            string vpcIdentifier)
+            string? vpcIdentifier)
         {
             HealthCheck = healthCheck;
             IpAddressType = ipAddressType;
+            LambdaEventStructureVersion = lambdaEventStructureVersion;
             Port = port;
             Protocol = protocol;
             ProtocolVersion = protocolVersion;

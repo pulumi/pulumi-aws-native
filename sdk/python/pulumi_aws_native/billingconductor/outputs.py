@@ -18,6 +18,7 @@ __all__ = [
     'CustomLineItemBillingPeriodRange',
     'CustomLineItemChargeDetails',
     'CustomLineItemFlatChargeDetails',
+    'CustomLineItemLineItemFilter',
     'CustomLineItemPercentageChargeDetails',
     'CustomLineItemTag',
     'PricingPlanTag',
@@ -161,13 +162,33 @@ class CustomLineItemBillingPeriodRange(dict):
 
 @pulumi.output_type
 class CustomLineItemChargeDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lineItemFilters":
+            suggest = "line_item_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLineItemChargeDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLineItemChargeDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLineItemChargeDetails.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: 'CustomLineItemType',
                  flat: Optional['outputs.CustomLineItemFlatChargeDetails'] = None,
+                 line_item_filters: Optional[Sequence['outputs.CustomLineItemLineItemFilter']] = None,
                  percentage: Optional['outputs.CustomLineItemPercentageChargeDetails'] = None):
         pulumi.set(__self__, "type", type)
         if flat is not None:
             pulumi.set(__self__, "flat", flat)
+        if line_item_filters is not None:
+            pulumi.set(__self__, "line_item_filters", line_item_filters)
         if percentage is not None:
             pulumi.set(__self__, "percentage", percentage)
 
@@ -180,6 +201,11 @@ class CustomLineItemChargeDetails(dict):
     @pulumi.getter
     def flat(self) -> Optional['outputs.CustomLineItemFlatChargeDetails']:
         return pulumi.get(self, "flat")
+
+    @property
+    @pulumi.getter(name="lineItemFilters")
+    def line_item_filters(self) -> Optional[Sequence['outputs.CustomLineItemLineItemFilter']]:
+        return pulumi.get(self, "line_item_filters")
 
     @property
     @pulumi.getter
@@ -214,6 +240,49 @@ class CustomLineItemFlatChargeDetails(dict):
     @pulumi.getter(name="chargeValue")
     def charge_value(self) -> float:
         return pulumi.get(self, "charge_value")
+
+
+@pulumi.output_type
+class CustomLineItemLineItemFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOption":
+            suggest = "match_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLineItemLineItemFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLineItemLineItemFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLineItemLineItemFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute: 'CustomLineItemLineItemFilterAttribute',
+                 match_option: 'CustomLineItemLineItemFilterMatchOption',
+                 values: Sequence['CustomLineItemLineItemFilterValue']):
+        pulumi.set(__self__, "attribute", attribute)
+        pulumi.set(__self__, "match_option", match_option)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'CustomLineItemLineItemFilterAttribute':
+        return pulumi.get(self, "attribute")
+
+    @property
+    @pulumi.getter(name="matchOption")
+    def match_option(self) -> 'CustomLineItemLineItemFilterMatchOption':
+        return pulumi.get(self, "match_option")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence['CustomLineItemLineItemFilterValue']:
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type

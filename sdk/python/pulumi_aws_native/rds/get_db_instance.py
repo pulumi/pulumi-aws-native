@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, db_system_id=None, dbi_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, db_system_id=None, dbi_resource_id=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -72,9 +72,21 @@ class GetDbInstanceResult:
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
         pulumi.set(__self__, "domain", domain)
+        if domain_auth_secret_arn and not isinstance(domain_auth_secret_arn, str):
+            raise TypeError("Expected argument 'domain_auth_secret_arn' to be a str")
+        pulumi.set(__self__, "domain_auth_secret_arn", domain_auth_secret_arn)
+        if domain_dns_ips and not isinstance(domain_dns_ips, list):
+            raise TypeError("Expected argument 'domain_dns_ips' to be a list")
+        pulumi.set(__self__, "domain_dns_ips", domain_dns_ips)
+        if domain_fqdn and not isinstance(domain_fqdn, str):
+            raise TypeError("Expected argument 'domain_fqdn' to be a str")
+        pulumi.set(__self__, "domain_fqdn", domain_fqdn)
         if domain_iam_role_name and not isinstance(domain_iam_role_name, str):
             raise TypeError("Expected argument 'domain_iam_role_name' to be a str")
         pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
+        if domain_ou and not isinstance(domain_ou, str):
+            raise TypeError("Expected argument 'domain_ou' to be a str")
+        pulumi.set(__self__, "domain_ou", domain_ou)
         if enable_cloudwatch_logs_exports and not isinstance(enable_cloudwatch_logs_exports, list):
             raise TypeError("Expected argument 'enable_cloudwatch_logs_exports' to be a list")
         pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
@@ -311,12 +323,44 @@ class GetDbInstanceResult:
         return pulumi.get(self, "domain")
 
     @property
+    @pulumi.getter(name="domainAuthSecretArn")
+    def domain_auth_secret_arn(self) -> Optional[str]:
+        """
+        The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+        """
+        return pulumi.get(self, "domain_auth_secret_arn")
+
+    @property
+    @pulumi.getter(name="domainDnsIps")
+    def domain_dns_ips(self) -> Optional[Sequence[str]]:
+        """
+        The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+        """
+        return pulumi.get(self, "domain_dns_ips")
+
+    @property
+    @pulumi.getter(name="domainFqdn")
+    def domain_fqdn(self) -> Optional[str]:
+        """
+        The fully qualified domain name (FQDN) of an Active Directory domain.
+        """
+        return pulumi.get(self, "domain_fqdn")
+
+    @property
     @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> Optional[str]:
         """
         Specify the name of the IAM role to be used when making API calls to the Directory Service.
         """
         return pulumi.get(self, "domain_iam_role_name")
+
+    @property
+    @pulumi.getter(name="domainOu")
+    def domain_ou(self) -> Optional[str]:
+        """
+        The Active Directory organizational unit for your DB instance to join.
+        """
+        return pulumi.get(self, "domain_ou")
 
     @property
     @pulumi.getter(name="enableCloudwatchLogsExports")
@@ -582,7 +626,11 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             dbi_resource_id=self.dbi_resource_id,
             deletion_protection=self.deletion_protection,
             domain=self.domain,
+            domain_auth_secret_arn=self.domain_auth_secret_arn,
+            domain_dns_ips=self.domain_dns_ips,
+            domain_fqdn=self.domain_fqdn,
             domain_iam_role_name=self.domain_iam_role_name,
+            domain_ou=self.domain_ou,
             enable_cloudwatch_logs_exports=self.enable_cloudwatch_logs_exports,
             enable_iam_database_authentication=self.enable_iam_database_authentication,
             enable_performance_insights=self.enable_performance_insights,
@@ -646,7 +694,11 @@ def get_db_instance(db_instance_identifier: Optional[str] = None,
         dbi_resource_id=pulumi.get(__ret__, 'dbi_resource_id'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         domain=pulumi.get(__ret__, 'domain'),
+        domain_auth_secret_arn=pulumi.get(__ret__, 'domain_auth_secret_arn'),
+        domain_dns_ips=pulumi.get(__ret__, 'domain_dns_ips'),
+        domain_fqdn=pulumi.get(__ret__, 'domain_fqdn'),
         domain_iam_role_name=pulumi.get(__ret__, 'domain_iam_role_name'),
+        domain_ou=pulumi.get(__ret__, 'domain_ou'),
         enable_cloudwatch_logs_exports=pulumi.get(__ret__, 'enable_cloudwatch_logs_exports'),
         enable_iam_database_authentication=pulumi.get(__ret__, 'enable_iam_database_authentication'),
         enable_performance_insights=pulumi.get(__ret__, 'enable_performance_insights'),

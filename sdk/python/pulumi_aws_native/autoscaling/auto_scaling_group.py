@@ -355,12 +355,7 @@ class AutoScalingGroupArgs:
         pulumi.set(self, "vpc_zone_identifier", value)
 
 
-warnings.warn("""AutoScalingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class AutoScalingGroup(pulumi.CustomResource):
-    warnings.warn("""AutoScalingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -453,7 +448,6 @@ class AutoScalingGroup(pulumi.CustomResource):
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""AutoScalingGroup is deprecated: AutoScalingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

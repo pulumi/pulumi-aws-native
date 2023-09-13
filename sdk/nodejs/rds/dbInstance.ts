@@ -163,9 +163,25 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly domain!: pulumi.Output<string | undefined>;
     /**
+     * The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+     */
+    public readonly domainAuthSecretArn!: pulumi.Output<string | undefined>;
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+     */
+    public readonly domainDnsIps!: pulumi.Output<string[] | undefined>;
+    /**
+     * The fully qualified domain name (FQDN) of an Active Directory domain.
+     */
+    public readonly domainFqdn!: pulumi.Output<string | undefined>;
+    /**
      * Specify the name of the IAM role to be used when making API calls to the Directory Service.
      */
     public readonly domainIamRoleName!: pulumi.Output<string | undefined>;
+    /**
+     * The Active Directory organizational unit for your DB instance to join.
+     */
+    public readonly domainOu!: pulumi.Output<string | undefined>;
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
      */
@@ -382,7 +398,11 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domainAuthSecretArn"] = args ? args.domainAuthSecretArn : undefined;
+            resourceInputs["domainDnsIps"] = args ? args.domainDnsIps : undefined;
+            resourceInputs["domainFqdn"] = args ? args.domainFqdn : undefined;
             resourceInputs["domainIamRoleName"] = args ? args.domainIamRoleName : undefined;
+            resourceInputs["domainOu"] = args ? args.domainOu : undefined;
             resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
             resourceInputs["enableIamDatabaseAuthentication"] = args ? args.enableIamDatabaseAuthentication : undefined;
             resourceInputs["enablePerformanceInsights"] = args ? args.enablePerformanceInsights : undefined;
@@ -459,7 +479,11 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["deleteAutomatedBackups"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["domainAuthSecretArn"] = undefined /*out*/;
+            resourceInputs["domainDnsIps"] = undefined /*out*/;
+            resourceInputs["domainFqdn"] = undefined /*out*/;
             resourceInputs["domainIamRoleName"] = undefined /*out*/;
+            resourceInputs["domainOu"] = undefined /*out*/;
             resourceInputs["enableCloudwatchLogsExports"] = undefined /*out*/;
             resourceInputs["enableIamDatabaseAuthentication"] = undefined /*out*/;
             resourceInputs["enablePerformanceInsights"] = undefined /*out*/;
@@ -631,9 +655,25 @@ export interface DbInstanceArgs {
      */
     domain?: pulumi.Input<string>;
     /**
+     * The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+     */
+    domainAuthSecretArn?: pulumi.Input<string>;
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+     */
+    domainDnsIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The fully qualified domain name (FQDN) of an Active Directory domain.
+     */
+    domainFqdn?: pulumi.Input<string>;
+    /**
      * Specify the name of the IAM role to be used when making API calls to the Directory Service.
      */
     domainIamRoleName?: pulumi.Input<string>;
+    /**
+     * The Active Directory organizational unit for your DB instance to join.
+     */
+    domainOu?: pulumi.Input<string>;
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
      */

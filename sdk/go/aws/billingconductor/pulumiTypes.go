@@ -530,9 +530,10 @@ func (o CustomLineItemBillingPeriodRangePtrOutput) InclusiveStartBillingPeriod()
 }
 
 type CustomLineItemChargeDetails struct {
-	Flat       *CustomLineItemFlatChargeDetails       `pulumi:"flat"`
-	Percentage *CustomLineItemPercentageChargeDetails `pulumi:"percentage"`
-	Type       CustomLineItemType                     `pulumi:"type"`
+	Flat            *CustomLineItemFlatChargeDetails       `pulumi:"flat"`
+	LineItemFilters []CustomLineItemLineItemFilter         `pulumi:"lineItemFilters"`
+	Percentage      *CustomLineItemPercentageChargeDetails `pulumi:"percentage"`
+	Type            CustomLineItemType                     `pulumi:"type"`
 }
 
 // CustomLineItemChargeDetailsInput is an input type that accepts CustomLineItemChargeDetailsArgs and CustomLineItemChargeDetailsOutput values.
@@ -547,9 +548,10 @@ type CustomLineItemChargeDetailsInput interface {
 }
 
 type CustomLineItemChargeDetailsArgs struct {
-	Flat       CustomLineItemFlatChargeDetailsPtrInput       `pulumi:"flat"`
-	Percentage CustomLineItemPercentageChargeDetailsPtrInput `pulumi:"percentage"`
-	Type       CustomLineItemTypeInput                       `pulumi:"type"`
+	Flat            CustomLineItemFlatChargeDetailsPtrInput       `pulumi:"flat"`
+	LineItemFilters CustomLineItemLineItemFilterArrayInput        `pulumi:"lineItemFilters"`
+	Percentage      CustomLineItemPercentageChargeDetailsPtrInput `pulumi:"percentage"`
+	Type            CustomLineItemTypeInput                       `pulumi:"type"`
 }
 
 func (CustomLineItemChargeDetailsArgs) ElementType() reflect.Type {
@@ -651,6 +653,10 @@ func (o CustomLineItemChargeDetailsOutput) Flat() CustomLineItemFlatChargeDetail
 	return o.ApplyT(func(v CustomLineItemChargeDetails) *CustomLineItemFlatChargeDetails { return v.Flat }).(CustomLineItemFlatChargeDetailsPtrOutput)
 }
 
+func (o CustomLineItemChargeDetailsOutput) LineItemFilters() CustomLineItemLineItemFilterArrayOutput {
+	return o.ApplyT(func(v CustomLineItemChargeDetails) []CustomLineItemLineItemFilter { return v.LineItemFilters }).(CustomLineItemLineItemFilterArrayOutput)
+}
+
 func (o CustomLineItemChargeDetailsOutput) Percentage() CustomLineItemPercentageChargeDetailsPtrOutput {
 	return o.ApplyT(func(v CustomLineItemChargeDetails) *CustomLineItemPercentageChargeDetails { return v.Percentage }).(CustomLineItemPercentageChargeDetailsPtrOutput)
 }
@@ -696,6 +702,15 @@ func (o CustomLineItemChargeDetailsPtrOutput) Flat() CustomLineItemFlatChargeDet
 		}
 		return v.Flat
 	}).(CustomLineItemFlatChargeDetailsPtrOutput)
+}
+
+func (o CustomLineItemChargeDetailsPtrOutput) LineItemFilters() CustomLineItemLineItemFilterArrayOutput {
+	return o.ApplyT(func(v *CustomLineItemChargeDetails) []CustomLineItemLineItemFilter {
+		if v == nil {
+			return nil
+		}
+		return v.LineItemFilters
+	}).(CustomLineItemLineItemFilterArrayOutput)
 }
 
 func (o CustomLineItemChargeDetailsPtrOutput) Percentage() CustomLineItemPercentageChargeDetailsPtrOutput {
@@ -871,6 +886,136 @@ func (o CustomLineItemFlatChargeDetailsPtrOutput) ChargeValue() pulumi.Float64Pt
 		}
 		return &v.ChargeValue
 	}).(pulumi.Float64PtrOutput)
+}
+
+type CustomLineItemLineItemFilter struct {
+	Attribute   CustomLineItemLineItemFilterAttribute   `pulumi:"attribute"`
+	MatchOption CustomLineItemLineItemFilterMatchOption `pulumi:"matchOption"`
+	Values      []CustomLineItemLineItemFilterValue     `pulumi:"values"`
+}
+
+// CustomLineItemLineItemFilterInput is an input type that accepts CustomLineItemLineItemFilterArgs and CustomLineItemLineItemFilterOutput values.
+// You can construct a concrete instance of `CustomLineItemLineItemFilterInput` via:
+//
+//	CustomLineItemLineItemFilterArgs{...}
+type CustomLineItemLineItemFilterInput interface {
+	pulumi.Input
+
+	ToCustomLineItemLineItemFilterOutput() CustomLineItemLineItemFilterOutput
+	ToCustomLineItemLineItemFilterOutputWithContext(context.Context) CustomLineItemLineItemFilterOutput
+}
+
+type CustomLineItemLineItemFilterArgs struct {
+	Attribute   CustomLineItemLineItemFilterAttributeInput   `pulumi:"attribute"`
+	MatchOption CustomLineItemLineItemFilterMatchOptionInput `pulumi:"matchOption"`
+	Values      CustomLineItemLineItemFilterValueArrayInput  `pulumi:"values"`
+}
+
+func (CustomLineItemLineItemFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLineItemLineItemFilter)(nil)).Elem()
+}
+
+func (i CustomLineItemLineItemFilterArgs) ToCustomLineItemLineItemFilterOutput() CustomLineItemLineItemFilterOutput {
+	return i.ToCustomLineItemLineItemFilterOutputWithContext(context.Background())
+}
+
+func (i CustomLineItemLineItemFilterArgs) ToCustomLineItemLineItemFilterOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemLineItemFilterOutput)
+}
+
+func (i CustomLineItemLineItemFilterArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemLineItemFilter] {
+	return pulumix.Output[CustomLineItemLineItemFilter]{
+		OutputState: i.ToCustomLineItemLineItemFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// CustomLineItemLineItemFilterArrayInput is an input type that accepts CustomLineItemLineItemFilterArray and CustomLineItemLineItemFilterArrayOutput values.
+// You can construct a concrete instance of `CustomLineItemLineItemFilterArrayInput` via:
+//
+//	CustomLineItemLineItemFilterArray{ CustomLineItemLineItemFilterArgs{...} }
+type CustomLineItemLineItemFilterArrayInput interface {
+	pulumi.Input
+
+	ToCustomLineItemLineItemFilterArrayOutput() CustomLineItemLineItemFilterArrayOutput
+	ToCustomLineItemLineItemFilterArrayOutputWithContext(context.Context) CustomLineItemLineItemFilterArrayOutput
+}
+
+type CustomLineItemLineItemFilterArray []CustomLineItemLineItemFilterInput
+
+func (CustomLineItemLineItemFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomLineItemLineItemFilter)(nil)).Elem()
+}
+
+func (i CustomLineItemLineItemFilterArray) ToCustomLineItemLineItemFilterArrayOutput() CustomLineItemLineItemFilterArrayOutput {
+	return i.ToCustomLineItemLineItemFilterArrayOutputWithContext(context.Background())
+}
+
+func (i CustomLineItemLineItemFilterArray) ToCustomLineItemLineItemFilterArrayOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemLineItemFilterArrayOutput)
+}
+
+func (i CustomLineItemLineItemFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomLineItemLineItemFilter] {
+	return pulumix.Output[[]CustomLineItemLineItemFilter]{
+		OutputState: i.ToCustomLineItemLineItemFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CustomLineItemLineItemFilterOutput struct{ *pulumi.OutputState }
+
+func (CustomLineItemLineItemFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLineItemLineItemFilter)(nil)).Elem()
+}
+
+func (o CustomLineItemLineItemFilterOutput) ToCustomLineItemLineItemFilterOutput() CustomLineItemLineItemFilterOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterOutput) ToCustomLineItemLineItemFilterOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemLineItemFilter] {
+	return pulumix.Output[CustomLineItemLineItemFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomLineItemLineItemFilterOutput) Attribute() CustomLineItemLineItemFilterAttributeOutput {
+	return o.ApplyT(func(v CustomLineItemLineItemFilter) CustomLineItemLineItemFilterAttribute { return v.Attribute }).(CustomLineItemLineItemFilterAttributeOutput)
+}
+
+func (o CustomLineItemLineItemFilterOutput) MatchOption() CustomLineItemLineItemFilterMatchOptionOutput {
+	return o.ApplyT(func(v CustomLineItemLineItemFilter) CustomLineItemLineItemFilterMatchOption { return v.MatchOption }).(CustomLineItemLineItemFilterMatchOptionOutput)
+}
+
+func (o CustomLineItemLineItemFilterOutput) Values() CustomLineItemLineItemFilterValueArrayOutput {
+	return o.ApplyT(func(v CustomLineItemLineItemFilter) []CustomLineItemLineItemFilterValue { return v.Values }).(CustomLineItemLineItemFilterValueArrayOutput)
+}
+
+type CustomLineItemLineItemFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomLineItemLineItemFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomLineItemLineItemFilter)(nil)).Elem()
+}
+
+func (o CustomLineItemLineItemFilterArrayOutput) ToCustomLineItemLineItemFilterArrayOutput() CustomLineItemLineItemFilterArrayOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterArrayOutput) ToCustomLineItemLineItemFilterArrayOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterArrayOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomLineItemLineItemFilter] {
+	return pulumix.Output[[]CustomLineItemLineItemFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomLineItemLineItemFilterArrayOutput) Index(i pulumi.IntInput) CustomLineItemLineItemFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomLineItemLineItemFilter {
+		return vs[0].([]CustomLineItemLineItemFilter)[vs[1].(int)]
+	}).(CustomLineItemLineItemFilterOutput)
 }
 
 type CustomLineItemPercentageChargeDetails struct {
@@ -1748,6 +1893,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemChargeDetailsPtrInput)(nil)).Elem(), CustomLineItemChargeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemFlatChargeDetailsInput)(nil)).Elem(), CustomLineItemFlatChargeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemFlatChargeDetailsPtrInput)(nil)).Elem(), CustomLineItemFlatChargeDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemLineItemFilterInput)(nil)).Elem(), CustomLineItemLineItemFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemLineItemFilterArrayInput)(nil)).Elem(), CustomLineItemLineItemFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemPercentageChargeDetailsInput)(nil)).Elem(), CustomLineItemPercentageChargeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemPercentageChargeDetailsPtrInput)(nil)).Elem(), CustomLineItemPercentageChargeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemTagInput)(nil)).Elem(), CustomLineItemTagArgs{})
@@ -1772,6 +1919,8 @@ func init() {
 	pulumi.RegisterOutputType(CustomLineItemChargeDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CustomLineItemFlatChargeDetailsOutput{})
 	pulumi.RegisterOutputType(CustomLineItemFlatChargeDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CustomLineItemLineItemFilterOutput{})
+	pulumi.RegisterOutputType(CustomLineItemLineItemFilterArrayOutput{})
 	pulumi.RegisterOutputType(CustomLineItemPercentageChargeDetailsOutput{})
 	pulumi.RegisterOutputType(CustomLineItemPercentageChargeDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CustomLineItemTagOutput{})

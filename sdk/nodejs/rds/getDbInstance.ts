@@ -103,9 +103,25 @@ export interface GetDbInstanceResult {
      */
     readonly domain?: string;
     /**
+     * The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+     */
+    readonly domainAuthSecretArn?: string;
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+     */
+    readonly domainDnsIps?: string[];
+    /**
+     * The fully qualified domain name (FQDN) of an Active Directory domain.
+     */
+    readonly domainFqdn?: string;
+    /**
      * Specify the name of the IAM role to be used when making API calls to the Directory Service.
      */
     readonly domainIamRoleName?: string;
+    /**
+     * The Active Directory organizational unit for your DB instance to join.
+     */
+    readonly domainOu?: string;
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
      */

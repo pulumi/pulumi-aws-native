@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class TransitGatewayRouteTableTag
     {
+        /// <summary>
+        /// The key of the associated tag key-value pair
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value of the associated tag key-value pair
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

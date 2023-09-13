@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.BillingConductor.Outputs
     public sealed class CustomLineItemChargeDetails
     {
         public readonly Outputs.CustomLineItemFlatChargeDetails? Flat;
+        public readonly ImmutableArray<Outputs.CustomLineItemLineItemFilter> LineItemFilters;
         public readonly Outputs.CustomLineItemPercentageChargeDetails? Percentage;
         public readonly Pulumi.AwsNative.BillingConductor.CustomLineItemType Type;
 
@@ -21,11 +22,14 @@ namespace Pulumi.AwsNative.BillingConductor.Outputs
         private CustomLineItemChargeDetails(
             Outputs.CustomLineItemFlatChargeDetails? flat,
 
+            ImmutableArray<Outputs.CustomLineItemLineItemFilter> lineItemFilters,
+
             Outputs.CustomLineItemPercentageChargeDetails? percentage,
 
             Pulumi.AwsNative.BillingConductor.CustomLineItemType type)
         {
             Flat = flat;
+            LineItemFilters = lineItemFilters;
             Percentage = percentage;
             Type = type;
         }

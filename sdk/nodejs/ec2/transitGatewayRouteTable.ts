@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::TransitGatewayRouteTable
- *
- * @deprecated TransitGatewayRouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class TransitGatewayRouteTable extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TransitGatewayRouteTable {
-        pulumi.log.warn("TransitGatewayRouteTable is deprecated: TransitGatewayRouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new TransitGatewayRouteTable(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,8 +37,18 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayRouteTable.__pulumiType;
     }
 
+    /**
+     * Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+     */
     public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayRouteTableTag[] | undefined>;
+    /**
+     * The ID of the transit gateway.
+     */
     public readonly transitGatewayId!: pulumi.Output<string>;
+    /**
+     * Transit Gateway Route Table primary identifier
+     */
+    public /*out*/ readonly transitGatewayRouteTableId!: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayRouteTable resource with the given unique name, arguments, and options.
@@ -50,9 +57,7 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated TransitGatewayRouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TransitGatewayRouteTableArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TransitGatewayRouteTable is deprecated: TransitGatewayRouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -61,9 +66,11 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
             }
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["transitGatewayRouteTableId"] = undefined /*out*/;
         } else {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["transitGatewayId"] = undefined /*out*/;
+            resourceInputs["transitGatewayRouteTableId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["tags[*]", "transitGatewayId"] };
@@ -76,6 +83,12 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
  * The set of arguments for constructing a TransitGatewayRouteTable resource.
  */
 export interface TransitGatewayRouteTableArgs {
+    /**
+     * Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.TransitGatewayRouteTableTagArgs>[]>;
+    /**
+     * The ID of the transit gateway.
+     */
     transitGatewayId: pulumi.Input<string>;
 }

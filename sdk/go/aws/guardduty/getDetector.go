@@ -30,10 +30,10 @@ type LookupDetectorArgs struct {
 type LookupDetectorResult struct {
 	DataSources                *DetectorCfnDataSourceConfigurations `pulumi:"dataSources"`
 	Enable                     *bool                                `pulumi:"enable"`
-	Features                   []DetectorFeatureConfigurations      `pulumi:"features"`
+	Features                   []DetectorCfnFeatureConfiguration    `pulumi:"features"`
 	FindingPublishingFrequency *string                              `pulumi:"findingPublishingFrequency"`
 	Id                         *string                              `pulumi:"id"`
-	Tags                       []DetectorTag                        `pulumi:"tags"`
+	Tags                       []DetectorTagItem                    `pulumi:"tags"`
 }
 
 func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorResultOutput {
@@ -85,8 +85,8 @@ func (o LookupDetectorResultOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDetectorResult) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupDetectorResultOutput) Features() DetectorFeatureConfigurationsArrayOutput {
-	return o.ApplyT(func(v LookupDetectorResult) []DetectorFeatureConfigurations { return v.Features }).(DetectorFeatureConfigurationsArrayOutput)
+func (o LookupDetectorResultOutput) Features() DetectorCfnFeatureConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupDetectorResult) []DetectorCfnFeatureConfiguration { return v.Features }).(DetectorCfnFeatureConfigurationArrayOutput)
 }
 
 func (o LookupDetectorResultOutput) FindingPublishingFrequency() pulumi.StringPtrOutput {
@@ -97,8 +97,8 @@ func (o LookupDetectorResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDetectorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDetectorResultOutput) Tags() DetectorTagArrayOutput {
-	return o.ApplyT(func(v LookupDetectorResult) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
+func (o LookupDetectorResultOutput) Tags() DetectorTagItemArrayOutput {
+	return o.ApplyT(func(v LookupDetectorResult) []DetectorTagItem { return v.Tags }).(DetectorTagItemArrayOutput)
 }
 
 func init() {

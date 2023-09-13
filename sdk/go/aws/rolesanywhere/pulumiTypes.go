@@ -262,6 +262,142 @@ func (o ProfileTagArrayOutput) Index(i pulumi.IntInput) ProfileTagOutput {
 	}).(ProfileTagOutput)
 }
 
+type TrustAnchorNotificationSetting struct {
+	Channel   *TrustAnchorNotificationChannel `pulumi:"channel"`
+	Enabled   bool                            `pulumi:"enabled"`
+	Event     TrustAnchorNotificationEvent    `pulumi:"event"`
+	Threshold *float64                        `pulumi:"threshold"`
+}
+
+// TrustAnchorNotificationSettingInput is an input type that accepts TrustAnchorNotificationSettingArgs and TrustAnchorNotificationSettingOutput values.
+// You can construct a concrete instance of `TrustAnchorNotificationSettingInput` via:
+//
+//	TrustAnchorNotificationSettingArgs{...}
+type TrustAnchorNotificationSettingInput interface {
+	pulumi.Input
+
+	ToTrustAnchorNotificationSettingOutput() TrustAnchorNotificationSettingOutput
+	ToTrustAnchorNotificationSettingOutputWithContext(context.Context) TrustAnchorNotificationSettingOutput
+}
+
+type TrustAnchorNotificationSettingArgs struct {
+	Channel   TrustAnchorNotificationChannelPtrInput `pulumi:"channel"`
+	Enabled   pulumi.BoolInput                       `pulumi:"enabled"`
+	Event     TrustAnchorNotificationEventInput      `pulumi:"event"`
+	Threshold pulumi.Float64PtrInput                 `pulumi:"threshold"`
+}
+
+func (TrustAnchorNotificationSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustAnchorNotificationSetting)(nil)).Elem()
+}
+
+func (i TrustAnchorNotificationSettingArgs) ToTrustAnchorNotificationSettingOutput() TrustAnchorNotificationSettingOutput {
+	return i.ToTrustAnchorNotificationSettingOutputWithContext(context.Background())
+}
+
+func (i TrustAnchorNotificationSettingArgs) ToTrustAnchorNotificationSettingOutputWithContext(ctx context.Context) TrustAnchorNotificationSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorNotificationSettingOutput)
+}
+
+func (i TrustAnchorNotificationSettingArgs) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorNotificationSetting] {
+	return pulumix.Output[TrustAnchorNotificationSetting]{
+		OutputState: i.ToTrustAnchorNotificationSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TrustAnchorNotificationSettingArrayInput is an input type that accepts TrustAnchorNotificationSettingArray and TrustAnchorNotificationSettingArrayOutput values.
+// You can construct a concrete instance of `TrustAnchorNotificationSettingArrayInput` via:
+//
+//	TrustAnchorNotificationSettingArray{ TrustAnchorNotificationSettingArgs{...} }
+type TrustAnchorNotificationSettingArrayInput interface {
+	pulumi.Input
+
+	ToTrustAnchorNotificationSettingArrayOutput() TrustAnchorNotificationSettingArrayOutput
+	ToTrustAnchorNotificationSettingArrayOutputWithContext(context.Context) TrustAnchorNotificationSettingArrayOutput
+}
+
+type TrustAnchorNotificationSettingArray []TrustAnchorNotificationSettingInput
+
+func (TrustAnchorNotificationSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustAnchorNotificationSetting)(nil)).Elem()
+}
+
+func (i TrustAnchorNotificationSettingArray) ToTrustAnchorNotificationSettingArrayOutput() TrustAnchorNotificationSettingArrayOutput {
+	return i.ToTrustAnchorNotificationSettingArrayOutputWithContext(context.Background())
+}
+
+func (i TrustAnchorNotificationSettingArray) ToTrustAnchorNotificationSettingArrayOutputWithContext(ctx context.Context) TrustAnchorNotificationSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorNotificationSettingArrayOutput)
+}
+
+func (i TrustAnchorNotificationSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]TrustAnchorNotificationSetting] {
+	return pulumix.Output[[]TrustAnchorNotificationSetting]{
+		OutputState: i.ToTrustAnchorNotificationSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TrustAnchorNotificationSettingOutput struct{ *pulumi.OutputState }
+
+func (TrustAnchorNotificationSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustAnchorNotificationSetting)(nil)).Elem()
+}
+
+func (o TrustAnchorNotificationSettingOutput) ToTrustAnchorNotificationSettingOutput() TrustAnchorNotificationSettingOutput {
+	return o
+}
+
+func (o TrustAnchorNotificationSettingOutput) ToTrustAnchorNotificationSettingOutputWithContext(ctx context.Context) TrustAnchorNotificationSettingOutput {
+	return o
+}
+
+func (o TrustAnchorNotificationSettingOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorNotificationSetting] {
+	return pulumix.Output[TrustAnchorNotificationSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TrustAnchorNotificationSettingOutput) Channel() TrustAnchorNotificationChannelPtrOutput {
+	return o.ApplyT(func(v TrustAnchorNotificationSetting) *TrustAnchorNotificationChannel { return v.Channel }).(TrustAnchorNotificationChannelPtrOutput)
+}
+
+func (o TrustAnchorNotificationSettingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TrustAnchorNotificationSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o TrustAnchorNotificationSettingOutput) Event() TrustAnchorNotificationEventOutput {
+	return o.ApplyT(func(v TrustAnchorNotificationSetting) TrustAnchorNotificationEvent { return v.Event }).(TrustAnchorNotificationEventOutput)
+}
+
+func (o TrustAnchorNotificationSettingOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TrustAnchorNotificationSetting) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+type TrustAnchorNotificationSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (TrustAnchorNotificationSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustAnchorNotificationSetting)(nil)).Elem()
+}
+
+func (o TrustAnchorNotificationSettingArrayOutput) ToTrustAnchorNotificationSettingArrayOutput() TrustAnchorNotificationSettingArrayOutput {
+	return o
+}
+
+func (o TrustAnchorNotificationSettingArrayOutput) ToTrustAnchorNotificationSettingArrayOutputWithContext(ctx context.Context) TrustAnchorNotificationSettingArrayOutput {
+	return o
+}
+
+func (o TrustAnchorNotificationSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrustAnchorNotificationSetting] {
+	return pulumix.Output[[]TrustAnchorNotificationSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TrustAnchorNotificationSettingArrayOutput) Index(i pulumi.IntInput) TrustAnchorNotificationSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrustAnchorNotificationSetting {
+		return vs[0].([]TrustAnchorNotificationSetting)[vs[1].(int)]
+	}).(TrustAnchorNotificationSettingOutput)
+}
+
 type TrustAnchorSource struct {
 	SourceData interface{}      `pulumi:"sourceData"`
 	SourceType *TrustAnchorType `pulumi:"sourceType"`
@@ -514,6 +650,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrlTagArrayInput)(nil)).Elem(), CrlTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagInput)(nil)).Elem(), ProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagArrayInput)(nil)).Elem(), ProfileTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorNotificationSettingInput)(nil)).Elem(), TrustAnchorNotificationSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorNotificationSettingArrayInput)(nil)).Elem(), TrustAnchorNotificationSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorSourceInput)(nil)).Elem(), TrustAnchorSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorTagInput)(nil)).Elem(), TrustAnchorTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorTagArrayInput)(nil)).Elem(), TrustAnchorTagArray{})
@@ -521,6 +659,8 @@ func init() {
 	pulumi.RegisterOutputType(CrlTagArrayOutput{})
 	pulumi.RegisterOutputType(ProfileTagOutput{})
 	pulumi.RegisterOutputType(ProfileTagArrayOutput{})
+	pulumi.RegisterOutputType(TrustAnchorNotificationSettingOutput{})
+	pulumi.RegisterOutputType(TrustAnchorNotificationSettingArrayOutput{})
 	pulumi.RegisterOutputType(TrustAnchorSourceOutput{})
 	pulumi.RegisterOutputType(TrustAnchorSourcePtrOutput{})
 	pulumi.RegisterOutputType(TrustAnchorTagOutput{})

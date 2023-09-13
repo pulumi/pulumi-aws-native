@@ -276,6 +276,34 @@ namespace Pulumi.AwsNative.VpcLattice
     }
 
     [EnumType]
+    public readonly struct TargetGroupConfigLambdaEventStructureVersion : IEquatable<TargetGroupConfigLambdaEventStructureVersion>
+    {
+        private readonly string _value;
+
+        private TargetGroupConfigLambdaEventStructureVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TargetGroupConfigLambdaEventStructureVersion V1 { get; } = new TargetGroupConfigLambdaEventStructureVersion("V1");
+        public static TargetGroupConfigLambdaEventStructureVersion V2 { get; } = new TargetGroupConfigLambdaEventStructureVersion("V2");
+
+        public static bool operator ==(TargetGroupConfigLambdaEventStructureVersion left, TargetGroupConfigLambdaEventStructureVersion right) => left.Equals(right);
+        public static bool operator !=(TargetGroupConfigLambdaEventStructureVersion left, TargetGroupConfigLambdaEventStructureVersion right) => !left.Equals(right);
+
+        public static explicit operator string(TargetGroupConfigLambdaEventStructureVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TargetGroupConfigLambdaEventStructureVersion other && Equals(other);
+        public bool Equals(TargetGroupConfigLambdaEventStructureVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TargetGroupConfigProtocol : IEquatable<TargetGroupConfigProtocol>
     {
         private readonly string _value;
@@ -372,6 +400,7 @@ namespace Pulumi.AwsNative.VpcLattice
 
         public static TargetGroupHealthCheckConfigProtocolVersion Http1 { get; } = new TargetGroupHealthCheckConfigProtocolVersion("HTTP1");
         public static TargetGroupHealthCheckConfigProtocolVersion Http2 { get; } = new TargetGroupHealthCheckConfigProtocolVersion("HTTP2");
+        public static TargetGroupHealthCheckConfigProtocolVersion Grpc { get; } = new TargetGroupHealthCheckConfigProtocolVersion("GRPC");
 
         public static bool operator ==(TargetGroupHealthCheckConfigProtocolVersion left, TargetGroupHealthCheckConfigProtocolVersion right) => left.Equals(right);
         public static bool operator !=(TargetGroupHealthCheckConfigProtocolVersion left, TargetGroupHealthCheckConfigProtocolVersion right) => !left.Equals(right);

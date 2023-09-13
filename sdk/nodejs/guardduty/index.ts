@@ -61,6 +61,9 @@ export const ThreatIntelSet: typeof import("./threatIntelSet").ThreatIntelSet = 
 utilities.lazyLoad(exports, ["ThreatIntelSet"], () => require("./threatIntelSet"));
 
 
+// Export enums:
+export * from "../types/enums/guardduty";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

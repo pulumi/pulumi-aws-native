@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
             set => _outputGroups = value;
         }
 
+        [Input("thumbnailConfiguration")]
+        public Input<Inputs.ChannelThumbnailConfigurationArgs>? ThumbnailConfiguration { get; set; }
+
         [Input("timecodeConfig")]
         public Input<Inputs.ChannelTimecodeConfigArgs>? TimecodeConfig { get; set; }
 

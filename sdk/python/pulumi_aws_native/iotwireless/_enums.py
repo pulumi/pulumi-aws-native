@@ -21,6 +21,7 @@ class DestinationExpressionType(str, Enum):
     """
     RULE_NAME = "RuleName"
     MQTT_TOPIC = "MqttTopic"
+    SNS_TOPIC = "SnsTopic"
 
 
 class NetworkAnalyzerConfigurationLogLevel(str, Enum):

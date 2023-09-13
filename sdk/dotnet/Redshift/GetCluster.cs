@@ -86,10 +86,6 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public readonly string? AvailabilityZoneRelocationStatus;
         /// <summary>
-        /// A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to false , the resize type is elastic.
-        /// </summary>
-        public readonly bool? Classic;
-        /// <summary>
         /// The name of the parameter group to be associated with this cluster.
         /// </summary>
         public readonly string? ClusterParameterGroupName;
@@ -245,8 +241,6 @@ namespace Pulumi.AwsNative.Redshift
 
             string? availabilityZoneRelocationStatus,
 
-            bool? classic,
-
             string? clusterParameterGroupName,
 
             ImmutableArray<string> clusterSecurityGroups,
@@ -323,7 +317,6 @@ namespace Pulumi.AwsNative.Redshift
             AvailabilityZone = availabilityZone;
             AvailabilityZoneRelocation = availabilityZoneRelocation;
             AvailabilityZoneRelocationStatus = availabilityZoneRelocationStatus;
-            Classic = classic;
             ClusterParameterGroupName = clusterParameterGroupName;
             ClusterSecurityGroups = clusterSecurityGroups;
             ClusterType = clusterType;

@@ -13,24 +13,37 @@ import (
 )
 
 // Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
-//
-// Deprecated: LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
-	CanonicalHostedZoneId  pulumi.StringOutput                  `pulumi:"canonicalHostedZoneId"`
-	DnsName                pulumi.StringOutput                  `pulumi:"dnsName"`
-	IpAddressType          pulumi.StringPtrOutput               `pulumi:"ipAddressType"`
-	LoadBalancerAttributes LoadBalancerAttributeArrayOutput     `pulumi:"loadBalancerAttributes"`
-	LoadBalancerFullName   pulumi.StringOutput                  `pulumi:"loadBalancerFullName"`
-	LoadBalancerName       pulumi.StringOutput                  `pulumi:"loadBalancerName"`
-	Name                   pulumi.StringPtrOutput               `pulumi:"name"`
-	Scheme                 pulumi.StringPtrOutput               `pulumi:"scheme"`
-	SecurityGroups         pulumi.StringArrayOutput             `pulumi:"securityGroups"`
-	SubnetMappings         LoadBalancerSubnetMappingArrayOutput `pulumi:"subnetMappings"`
-	Subnets                pulumi.StringArrayOutput             `pulumi:"subnets"`
-	Tags                   LoadBalancerTagArrayOutput           `pulumi:"tags"`
-	Type                   pulumi.StringPtrOutput               `pulumi:"type"`
+	// The ID of the Amazon Route 53 hosted zone associated with the load balancer.
+	CanonicalHostedZoneId pulumi.StringOutput `pulumi:"canonicalHostedZoneId"`
+	// The public DNS name of the load balancer.
+	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	// The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
+	// The Amazon Resource Name (ARN) of the load balancer.
+	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
+	// The load balancer attributes.
+	LoadBalancerAttributes LoadBalancerAttributeArrayOutput `pulumi:"loadBalancerAttributes"`
+	// The full name of the load balancer.
+	LoadBalancerFullName pulumi.StringOutput `pulumi:"loadBalancerFullName"`
+	// The name of the load balancer.
+	LoadBalancerName pulumi.StringOutput `pulumi:"loadBalancerName"`
+	// The name of the load balancer.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+	Scheme pulumi.StringPtrOutput `pulumi:"scheme"`
+	// The IDs of the security groups for the load balancer.
+	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
+	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+	SubnetMappings LoadBalancerSubnetMappingArrayOutput `pulumi:"subnetMappings"`
+	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
+	// The tags to assign to the load balancer.
+	Tags LoadBalancerTagArrayOutput `pulumi:"tags"`
+	// The type of load balancer. The default is application.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
@@ -79,28 +92,46 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
-	IpAddressType          *string                     `pulumi:"ipAddressType"`
-	LoadBalancerAttributes []LoadBalancerAttribute     `pulumi:"loadBalancerAttributes"`
-	Name                   *string                     `pulumi:"name"`
-	Scheme                 *string                     `pulumi:"scheme"`
-	SecurityGroups         []string                    `pulumi:"securityGroups"`
-	SubnetMappings         []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
-	Subnets                []string                    `pulumi:"subnets"`
-	Tags                   []LoadBalancerTag           `pulumi:"tags"`
-	Type                   *string                     `pulumi:"type"`
+	// The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// The load balancer attributes.
+	LoadBalancerAttributes []LoadBalancerAttribute `pulumi:"loadBalancerAttributes"`
+	// The name of the load balancer.
+	Name *string `pulumi:"name"`
+	// The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+	Scheme *string `pulumi:"scheme"`
+	// The IDs of the security groups for the load balancer.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
+	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+	Subnets []string `pulumi:"subnets"`
+	// The tags to assign to the load balancer.
+	Tags []LoadBalancerTag `pulumi:"tags"`
+	// The type of load balancer. The default is application.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
-	IpAddressType          pulumi.StringPtrInput
+	// The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+	IpAddressType pulumi.StringPtrInput
+	// The load balancer attributes.
 	LoadBalancerAttributes LoadBalancerAttributeArrayInput
-	Name                   pulumi.StringPtrInput
-	Scheme                 pulumi.StringPtrInput
-	SecurityGroups         pulumi.StringArrayInput
-	SubnetMappings         LoadBalancerSubnetMappingArrayInput
-	Subnets                pulumi.StringArrayInput
-	Tags                   LoadBalancerTagArrayInput
-	Type                   pulumi.StringPtrInput
+	// The name of the load balancer.
+	Name pulumi.StringPtrInput
+	// The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+	Scheme pulumi.StringPtrInput
+	// The IDs of the security groups for the load balancer.
+	SecurityGroups pulumi.StringArrayInput
+	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+	SubnetMappings LoadBalancerSubnetMappingArrayInput
+	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+	Subnets pulumi.StringArrayInput
+	// The tags to assign to the load balancer.
+	Tags LoadBalancerTagArrayInput
+	// The type of load balancer. The default is application.
+	Type pulumi.StringPtrInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {
@@ -152,54 +183,72 @@ func (o LoadBalancerOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBa
 	}
 }
 
+// The ID of the Amazon Route 53 hosted zone associated with the load balancer.
 func (o LoadBalancerOutput) CanonicalHostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.CanonicalHostedZoneId }).(pulumi.StringOutput)
 }
 
+// The public DNS name of the load balancer.
 func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
+// The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
 func (o LoadBalancerOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the load balancer.
+func (o LoadBalancerOutput) LoadBalancerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
+}
+
+// The load balancer attributes.
 func (o LoadBalancerOutput) LoadBalancerAttributes() LoadBalancerAttributeArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerAttributeArrayOutput { return v.LoadBalancerAttributes }).(LoadBalancerAttributeArrayOutput)
 }
 
+// The full name of the load balancer.
 func (o LoadBalancerOutput) LoadBalancerFullName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerFullName }).(pulumi.StringOutput)
 }
 
+// The name of the load balancer.
 func (o LoadBalancerOutput) LoadBalancerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerName }).(pulumi.StringOutput)
 }
 
+// The name of the load balancer.
 func (o LoadBalancerOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
 func (o LoadBalancerOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
+// The IDs of the security groups for the load balancer.
 func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
 func (o LoadBalancerOutput) SubnetMappings() LoadBalancerSubnetMappingArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerSubnetMappingArrayOutput { return v.SubnetMappings }).(LoadBalancerSubnetMappingArrayOutput)
 }
 
+// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
 func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
+// The tags to assign to the load balancer.
 func (o LoadBalancerOutput) Tags() LoadBalancerTagArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerTagArrayOutput { return v.Tags }).(LoadBalancerTagArrayOutput)
 }
 
+// The type of load balancer. The default is application.
 func (o LoadBalancerOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

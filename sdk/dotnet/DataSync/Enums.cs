@@ -1025,6 +1025,223 @@ namespace Pulumi.AwsNative.DataSync
     }
 
     /// <summary>
+    /// Specifies whether your task report includes the new version of each object transferred into an S3 bucket, this only applies if you enable versioning on your bucket.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskReportConfigObjectVersionIds : IEquatable<TaskReportConfigObjectVersionIds>
+    {
+        private readonly string _value;
+
+        private TaskReportConfigObjectVersionIds(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskReportConfigObjectVersionIds Include { get; } = new TaskReportConfigObjectVersionIds("INCLUDE");
+        public static TaskReportConfigObjectVersionIds None { get; } = new TaskReportConfigObjectVersionIds("NONE");
+
+        public static bool operator ==(TaskReportConfigObjectVersionIds left, TaskReportConfigObjectVersionIds right) => left.Equals(right);
+        public static bool operator !=(TaskReportConfigObjectVersionIds left, TaskReportConfigObjectVersionIds right) => !left.Equals(right);
+
+        public static explicit operator string(TaskReportConfigObjectVersionIds value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskReportConfigObjectVersionIds other && Equals(other);
+        public bool Equals(TaskReportConfigObjectVersionIds other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the type of task report that you want.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskReportConfigOutputType : IEquatable<TaskReportConfigOutputType>
+    {
+        private readonly string _value;
+
+        private TaskReportConfigOutputType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskReportConfigOutputType SummaryOnly { get; } = new TaskReportConfigOutputType("SUMMARY_ONLY");
+        public static TaskReportConfigOutputType Standard { get; } = new TaskReportConfigOutputType("STANDARD");
+
+        public static bool operator ==(TaskReportConfigOutputType left, TaskReportConfigOutputType right) => left.Equals(right);
+        public static bool operator !=(TaskReportConfigOutputType left, TaskReportConfigOutputType right) => !left.Equals(right);
+
+        public static explicit operator string(TaskReportConfigOutputType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskReportConfigOutputType other && Equals(other);
+        public bool Equals(TaskReportConfigOutputType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel : IEquatable<TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel>
+    {
+        private readonly string _value;
+
+        private TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel ErrorsOnly { get; } = new TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel("ERRORS_ONLY");
+        public static TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel SuccessesAndErrors { get; } = new TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel("SUCCESSES_AND_ERRORS");
+
+        public static bool operator ==(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel left, TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel right) => left.Equals(right);
+        public static bool operator !=(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel left, TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel right) => !left.Equals(right);
+
+        public static explicit operator string(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel other && Equals(other);
+        public bool Equals(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel : IEquatable<TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel>
+    {
+        private readonly string _value;
+
+        private TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel ErrorsOnly { get; } = new TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel("ERRORS_ONLY");
+        public static TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel SuccessesAndErrors { get; } = new TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel("SUCCESSES_AND_ERRORS");
+
+        public static bool operator ==(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel left, TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel right) => left.Equals(right);
+        public static bool operator !=(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel left, TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel right) => !left.Equals(right);
+
+        public static explicit operator string(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel other && Equals(other);
+        public bool Equals(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel : IEquatable<TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel>
+    {
+        private readonly string _value;
+
+        private TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel ErrorsOnly { get; } = new TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel("ERRORS_ONLY");
+        public static TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel SuccessesAndErrors { get; } = new TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel("SUCCESSES_AND_ERRORS");
+
+        public static bool operator ==(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel left, TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel right) => left.Equals(right);
+        public static bool operator !=(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel left, TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel right) => !left.Equals(right);
+
+        public static explicit operator string(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel other && Equals(other);
+        public bool Equals(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel : IEquatable<TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel>
+    {
+        private readonly string _value;
+
+        private TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel ErrorsOnly { get; } = new TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel("ERRORS_ONLY");
+        public static TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel SuccessesAndErrors { get; } = new TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel("SUCCESSES_AND_ERRORS");
+
+        public static bool operator ==(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel left, TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel right) => left.Equals(right);
+        public static bool operator !=(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel left, TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel right) => !left.Equals(right);
+
+        public static explicit operator string(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel other && Equals(other);
+        public bool Equals(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskReportConfigReportLevel : IEquatable<TaskReportConfigReportLevel>
+    {
+        private readonly string _value;
+
+        private TaskReportConfigReportLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskReportConfigReportLevel ErrorsOnly { get; } = new TaskReportConfigReportLevel("ERRORS_ONLY");
+        public static TaskReportConfigReportLevel SuccessesAndErrors { get; } = new TaskReportConfigReportLevel("SUCCESSES_AND_ERRORS");
+
+        public static bool operator ==(TaskReportConfigReportLevel left, TaskReportConfigReportLevel right) => left.Equals(right);
+        public static bool operator !=(TaskReportConfigReportLevel left, TaskReportConfigReportLevel right) => !left.Equals(right);
+
+        public static explicit operator string(TaskReportConfigReportLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskReportConfigReportLevel other && Equals(other);
+        public bool Equals(TaskReportConfigReportLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the task that was described.
     /// </summary>
     [EnumType]

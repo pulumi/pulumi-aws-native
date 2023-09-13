@@ -44,7 +44,8 @@ type LookupTaskResult struct {
 	// An array of key-value pairs to apply to this resource.
 	Tags []TaskTag `pulumi:"tags"`
 	// The ARN of the task.
-	TaskArn *string `pulumi:"taskArn"`
+	TaskArn          *string           `pulumi:"taskArn"`
+	TaskReportConfig *TaskReportConfig `pulumi:"taskReportConfig"`
 }
 
 func LookupTaskOutput(ctx *pulumi.Context, args LookupTaskOutputArgs, opts ...pulumi.InvokeOption) LookupTaskResultOutput {
@@ -136,6 +137,10 @@ func (o LookupTaskResultOutput) Tags() TaskTagArrayOutput {
 // The ARN of the task.
 func (o LookupTaskResultOutput) TaskArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTaskResult) *string { return v.TaskArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupTaskResultOutput) TaskReportConfig() TaskReportConfigPtrOutput {
+	return o.ApplyT(func(v LookupTaskResult) *TaskReportConfig { return v.TaskReportConfig }).(TaskReportConfigPtrOutput)
 }
 
 func init() {

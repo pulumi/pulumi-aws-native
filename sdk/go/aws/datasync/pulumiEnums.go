@@ -5732,6 +5732,1287 @@ func (in *taskOptionsVerifyModePtr) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
+// Specifies whether your task report includes the new version of each object transferred into an S3 bucket, this only applies if you enable versioning on your bucket.
+type TaskReportConfigObjectVersionIds string
+
+const (
+	TaskReportConfigObjectVersionIdsInclude = TaskReportConfigObjectVersionIds("INCLUDE")
+	TaskReportConfigObjectVersionIdsNone    = TaskReportConfigObjectVersionIds("NONE")
+)
+
+func (TaskReportConfigObjectVersionIds) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigObjectVersionIds)(nil)).Elem()
+}
+
+func (e TaskReportConfigObjectVersionIds) ToTaskReportConfigObjectVersionIdsOutput() TaskReportConfigObjectVersionIdsOutput {
+	return pulumi.ToOutput(e).(TaskReportConfigObjectVersionIdsOutput)
+}
+
+func (e TaskReportConfigObjectVersionIds) ToTaskReportConfigObjectVersionIdsOutputWithContext(ctx context.Context) TaskReportConfigObjectVersionIdsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskReportConfigObjectVersionIdsOutput)
+}
+
+func (e TaskReportConfigObjectVersionIds) ToTaskReportConfigObjectVersionIdsPtrOutput() TaskReportConfigObjectVersionIdsPtrOutput {
+	return e.ToTaskReportConfigObjectVersionIdsPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigObjectVersionIds) ToTaskReportConfigObjectVersionIdsPtrOutputWithContext(ctx context.Context) TaskReportConfigObjectVersionIdsPtrOutput {
+	return TaskReportConfigObjectVersionIds(e).ToTaskReportConfigObjectVersionIdsOutputWithContext(ctx).ToTaskReportConfigObjectVersionIdsPtrOutputWithContext(ctx)
+}
+
+func (e TaskReportConfigObjectVersionIds) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigObjectVersionIds) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigObjectVersionIds) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigObjectVersionIds) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskReportConfigObjectVersionIdsOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigObjectVersionIdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigObjectVersionIds)(nil)).Elem()
+}
+
+func (o TaskReportConfigObjectVersionIdsOutput) ToTaskReportConfigObjectVersionIdsOutput() TaskReportConfigObjectVersionIdsOutput {
+	return o
+}
+
+func (o TaskReportConfigObjectVersionIdsOutput) ToTaskReportConfigObjectVersionIdsOutputWithContext(ctx context.Context) TaskReportConfigObjectVersionIdsOutput {
+	return o
+}
+
+func (o TaskReportConfigObjectVersionIdsOutput) ToTaskReportConfigObjectVersionIdsPtrOutput() TaskReportConfigObjectVersionIdsPtrOutput {
+	return o.ToTaskReportConfigObjectVersionIdsPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigObjectVersionIdsOutput) ToTaskReportConfigObjectVersionIdsPtrOutputWithContext(ctx context.Context) TaskReportConfigObjectVersionIdsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskReportConfigObjectVersionIds) *TaskReportConfigObjectVersionIds {
+		return &v
+	}).(TaskReportConfigObjectVersionIdsPtrOutput)
+}
+
+func (o TaskReportConfigObjectVersionIdsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigObjectVersionIds] {
+	return pulumix.Output[TaskReportConfigObjectVersionIds]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigObjectVersionIdsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigObjectVersionIdsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigObjectVersionIds) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskReportConfigObjectVersionIdsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigObjectVersionIdsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigObjectVersionIds) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskReportConfigObjectVersionIdsPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigObjectVersionIdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskReportConfigObjectVersionIds)(nil)).Elem()
+}
+
+func (o TaskReportConfigObjectVersionIdsPtrOutput) ToTaskReportConfigObjectVersionIdsPtrOutput() TaskReportConfigObjectVersionIdsPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigObjectVersionIdsPtrOutput) ToTaskReportConfigObjectVersionIdsPtrOutputWithContext(ctx context.Context) TaskReportConfigObjectVersionIdsPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigObjectVersionIdsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigObjectVersionIds] {
+	return pulumix.Output[*TaskReportConfigObjectVersionIds]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigObjectVersionIdsPtrOutput) Elem() TaskReportConfigObjectVersionIdsOutput {
+	return o.ApplyT(func(v *TaskReportConfigObjectVersionIds) TaskReportConfigObjectVersionIds {
+		if v != nil {
+			return *v
+		}
+		var ret TaskReportConfigObjectVersionIds
+		return ret
+	}).(TaskReportConfigObjectVersionIdsOutput)
+}
+
+func (o TaskReportConfigObjectVersionIdsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigObjectVersionIdsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskReportConfigObjectVersionIds) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskReportConfigObjectVersionIdsInput is an input type that accepts TaskReportConfigObjectVersionIdsArgs and TaskReportConfigObjectVersionIdsOutput values.
+// You can construct a concrete instance of `TaskReportConfigObjectVersionIdsInput` via:
+//
+//	TaskReportConfigObjectVersionIdsArgs{...}
+type TaskReportConfigObjectVersionIdsInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigObjectVersionIdsOutput() TaskReportConfigObjectVersionIdsOutput
+	ToTaskReportConfigObjectVersionIdsOutputWithContext(context.Context) TaskReportConfigObjectVersionIdsOutput
+}
+
+var taskReportConfigObjectVersionIdsPtrType = reflect.TypeOf((**TaskReportConfigObjectVersionIds)(nil)).Elem()
+
+type TaskReportConfigObjectVersionIdsPtrInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigObjectVersionIdsPtrOutput() TaskReportConfigObjectVersionIdsPtrOutput
+	ToTaskReportConfigObjectVersionIdsPtrOutputWithContext(context.Context) TaskReportConfigObjectVersionIdsPtrOutput
+}
+
+type taskReportConfigObjectVersionIdsPtr string
+
+func TaskReportConfigObjectVersionIdsPtr(v string) TaskReportConfigObjectVersionIdsPtrInput {
+	return (*taskReportConfigObjectVersionIdsPtr)(&v)
+}
+
+func (*taskReportConfigObjectVersionIdsPtr) ElementType() reflect.Type {
+	return taskReportConfigObjectVersionIdsPtrType
+}
+
+func (in *taskReportConfigObjectVersionIdsPtr) ToTaskReportConfigObjectVersionIdsPtrOutput() TaskReportConfigObjectVersionIdsPtrOutput {
+	return pulumi.ToOutput(in).(TaskReportConfigObjectVersionIdsPtrOutput)
+}
+
+func (in *taskReportConfigObjectVersionIdsPtr) ToTaskReportConfigObjectVersionIdsPtrOutputWithContext(ctx context.Context) TaskReportConfigObjectVersionIdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskReportConfigObjectVersionIdsPtrOutput)
+}
+
+func (in *taskReportConfigObjectVersionIdsPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigObjectVersionIds] {
+	return pulumix.Output[*TaskReportConfigObjectVersionIds]{
+		OutputState: in.ToTaskReportConfigObjectVersionIdsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Specifies the type of task report that you want.
+type TaskReportConfigOutputType string
+
+const (
+	TaskReportConfigOutputTypeSummaryOnly = TaskReportConfigOutputType("SUMMARY_ONLY")
+	TaskReportConfigOutputTypeStandard    = TaskReportConfigOutputType("STANDARD")
+)
+
+func (TaskReportConfigOutputType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigOutputType)(nil)).Elem()
+}
+
+func (e TaskReportConfigOutputType) ToTaskReportConfigOutputTypeOutput() TaskReportConfigOutputTypeOutput {
+	return pulumi.ToOutput(e).(TaskReportConfigOutputTypeOutput)
+}
+
+func (e TaskReportConfigOutputType) ToTaskReportConfigOutputTypeOutputWithContext(ctx context.Context) TaskReportConfigOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskReportConfigOutputTypeOutput)
+}
+
+func (e TaskReportConfigOutputType) ToTaskReportConfigOutputTypePtrOutput() TaskReportConfigOutputTypePtrOutput {
+	return e.ToTaskReportConfigOutputTypePtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigOutputType) ToTaskReportConfigOutputTypePtrOutputWithContext(ctx context.Context) TaskReportConfigOutputTypePtrOutput {
+	return TaskReportConfigOutputType(e).ToTaskReportConfigOutputTypeOutputWithContext(ctx).ToTaskReportConfigOutputTypePtrOutputWithContext(ctx)
+}
+
+func (e TaskReportConfigOutputType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigOutputType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigOutputType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigOutputType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskReportConfigOutputTypeOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigOutputType)(nil)).Elem()
+}
+
+func (o TaskReportConfigOutputTypeOutput) ToTaskReportConfigOutputTypeOutput() TaskReportConfigOutputTypeOutput {
+	return o
+}
+
+func (o TaskReportConfigOutputTypeOutput) ToTaskReportConfigOutputTypeOutputWithContext(ctx context.Context) TaskReportConfigOutputTypeOutput {
+	return o
+}
+
+func (o TaskReportConfigOutputTypeOutput) ToTaskReportConfigOutputTypePtrOutput() TaskReportConfigOutputTypePtrOutput {
+	return o.ToTaskReportConfigOutputTypePtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOutputTypeOutput) ToTaskReportConfigOutputTypePtrOutputWithContext(ctx context.Context) TaskReportConfigOutputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskReportConfigOutputType) *TaskReportConfigOutputType {
+		return &v
+	}).(TaskReportConfigOutputTypePtrOutput)
+}
+
+func (o TaskReportConfigOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOutputType] {
+	return pulumix.Output[TaskReportConfigOutputType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigOutputTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOutputTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigOutputType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskReportConfigOutputTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOutputTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigOutputType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskReportConfigOutputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigOutputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskReportConfigOutputType)(nil)).Elem()
+}
+
+func (o TaskReportConfigOutputTypePtrOutput) ToTaskReportConfigOutputTypePtrOutput() TaskReportConfigOutputTypePtrOutput {
+	return o
+}
+
+func (o TaskReportConfigOutputTypePtrOutput) ToTaskReportConfigOutputTypePtrOutputWithContext(ctx context.Context) TaskReportConfigOutputTypePtrOutput {
+	return o
+}
+
+func (o TaskReportConfigOutputTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOutputType] {
+	return pulumix.Output[*TaskReportConfigOutputType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigOutputTypePtrOutput) Elem() TaskReportConfigOutputTypeOutput {
+	return o.ApplyT(func(v *TaskReportConfigOutputType) TaskReportConfigOutputType {
+		if v != nil {
+			return *v
+		}
+		var ret TaskReportConfigOutputType
+		return ret
+	}).(TaskReportConfigOutputTypeOutput)
+}
+
+func (o TaskReportConfigOutputTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOutputTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskReportConfigOutputType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskReportConfigOutputTypeInput is an input type that accepts TaskReportConfigOutputTypeArgs and TaskReportConfigOutputTypeOutput values.
+// You can construct a concrete instance of `TaskReportConfigOutputTypeInput` via:
+//
+//	TaskReportConfigOutputTypeArgs{...}
+type TaskReportConfigOutputTypeInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigOutputTypeOutput() TaskReportConfigOutputTypeOutput
+	ToTaskReportConfigOutputTypeOutputWithContext(context.Context) TaskReportConfigOutputTypeOutput
+}
+
+var taskReportConfigOutputTypePtrType = reflect.TypeOf((**TaskReportConfigOutputType)(nil)).Elem()
+
+type TaskReportConfigOutputTypePtrInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigOutputTypePtrOutput() TaskReportConfigOutputTypePtrOutput
+	ToTaskReportConfigOutputTypePtrOutputWithContext(context.Context) TaskReportConfigOutputTypePtrOutput
+}
+
+type taskReportConfigOutputTypePtr string
+
+func TaskReportConfigOutputTypePtr(v string) TaskReportConfigOutputTypePtrInput {
+	return (*taskReportConfigOutputTypePtr)(&v)
+}
+
+func (*taskReportConfigOutputTypePtr) ElementType() reflect.Type {
+	return taskReportConfigOutputTypePtrType
+}
+
+func (in *taskReportConfigOutputTypePtr) ToTaskReportConfigOutputTypePtrOutput() TaskReportConfigOutputTypePtrOutput {
+	return pulumi.ToOutput(in).(TaskReportConfigOutputTypePtrOutput)
+}
+
+func (in *taskReportConfigOutputTypePtr) ToTaskReportConfigOutputTypePtrOutputWithContext(ctx context.Context) TaskReportConfigOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskReportConfigOutputTypePtrOutput)
+}
+
+func (in *taskReportConfigOutputTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOutputType] {
+	return pulumix.Output[*TaskReportConfigOutputType]{
+		OutputState: in.ToTaskReportConfigOutputTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+type TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel string
+
+const (
+	TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelErrorsOnly         = TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel("ERRORS_ONLY")
+	TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelSuccessesAndErrors = TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel("SUCCESSES_AND_ERRORS")
+)
+
+func (TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel)(nil)).Elem()
+}
+
+func (e TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput {
+	return pulumi.ToOutput(e).(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput {
+	return e.ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput {
+	return TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel(e).ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutputWithContext(ctx).ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutputWithContext(ctx)
+}
+
+func (e TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel)(nil)).Elem()
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput {
+	return o.ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) *TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel {
+		return &v
+	}).(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel] {
+	return pulumix.Output[TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel)(nil)).Elem()
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput {
+	return o.ApplyT(func(v *TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel {
+		if v != nil {
+			return *v
+		}
+		var ret TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel
+		return ret
+	}).(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelInput is an input type that accepts TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelArgs and TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput values.
+// You can construct a concrete instance of `TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelInput` via:
+//
+//	TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelArgs{...}
+type TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput
+	ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutputWithContext(context.Context) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput
+}
+
+var taskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrType = reflect.TypeOf((**TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel)(nil)).Elem()
+
+type TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput
+	ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutputWithContext(context.Context) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput
+}
+
+type taskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtr string
+
+func TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtr(v string) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrInput {
+	return (*taskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtr)(&v)
+}
+
+func (*taskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtr) ElementType() reflect.Type {
+	return taskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrType
+}
+
+func (in *taskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtr) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput {
+	return pulumi.ToOutput(in).(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput)
+}
+
+func (in *taskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtr) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput)
+}
+
+func (in *taskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel]{
+		OutputState: in.ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+type TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel string
+
+const (
+	TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelErrorsOnly         = TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel("ERRORS_ONLY")
+	TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelSuccessesAndErrors = TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel("SUCCESSES_AND_ERRORS")
+)
+
+func (TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel)(nil)).Elem()
+}
+
+func (e TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput {
+	return pulumi.ToOutput(e).(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput {
+	return e.ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput {
+	return TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel(e).ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutputWithContext(ctx).ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutputWithContext(ctx)
+}
+
+func (e TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel)(nil)).Elem()
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput {
+	return o.ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) *TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel {
+		return &v
+	}).(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel] {
+	return pulumix.Output[TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel)(nil)).Elem()
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput {
+	return o.ApplyT(func(v *TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel {
+		if v != nil {
+			return *v
+		}
+		var ret TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel
+		return ret
+	}).(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelInput is an input type that accepts TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelArgs and TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput values.
+// You can construct a concrete instance of `TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelInput` via:
+//
+//	TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelArgs{...}
+type TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput
+	ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutputWithContext(context.Context) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput
+}
+
+var taskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrType = reflect.TypeOf((**TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel)(nil)).Elem()
+
+type TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput
+	ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutputWithContext(context.Context) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput
+}
+
+type taskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtr string
+
+func TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtr(v string) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrInput {
+	return (*taskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtr)(&v)
+}
+
+func (*taskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtr) ElementType() reflect.Type {
+	return taskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrType
+}
+
+func (in *taskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtr) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput {
+	return pulumi.ToOutput(in).(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput)
+}
+
+func (in *taskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtr) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput)
+}
+
+func (in *taskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel]{
+		OutputState: in.ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+type TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel string
+
+const (
+	TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelErrorsOnly         = TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel("ERRORS_ONLY")
+	TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelSuccessesAndErrors = TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel("SUCCESSES_AND_ERRORS")
+)
+
+func (TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel)(nil)).Elem()
+}
+
+func (e TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput {
+	return pulumi.ToOutput(e).(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput {
+	return e.ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput {
+	return TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel(e).ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutputWithContext(ctx).ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutputWithContext(ctx)
+}
+
+func (e TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel)(nil)).Elem()
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput {
+	return o.ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) *TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel {
+		return &v
+	}).(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel] {
+	return pulumix.Output[TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel)(nil)).Elem()
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput {
+	return o.ApplyT(func(v *TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel {
+		if v != nil {
+			return *v
+		}
+		var ret TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel
+		return ret
+	}).(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelInput is an input type that accepts TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelArgs and TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput values.
+// You can construct a concrete instance of `TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelInput` via:
+//
+//	TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelArgs{...}
+type TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput
+	ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutputWithContext(context.Context) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput
+}
+
+var taskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrType = reflect.TypeOf((**TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel)(nil)).Elem()
+
+type TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput
+	ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutputWithContext(context.Context) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput
+}
+
+type taskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtr string
+
+func TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtr(v string) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrInput {
+	return (*taskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtr)(&v)
+}
+
+func (*taskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtr) ElementType() reflect.Type {
+	return taskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrType
+}
+
+func (in *taskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtr) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput {
+	return pulumi.ToOutput(in).(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput)
+}
+
+func (in *taskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtr) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput)
+}
+
+func (in *taskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel]{
+		OutputState: in.ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+type TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel string
+
+const (
+	TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelErrorsOnly         = TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel("ERRORS_ONLY")
+	TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelSuccessesAndErrors = TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel("SUCCESSES_AND_ERRORS")
+)
+
+func (TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel)(nil)).Elem()
+}
+
+func (e TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput {
+	return pulumi.ToOutput(e).(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput {
+	return e.ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput {
+	return TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel(e).ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutputWithContext(ctx).ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutputWithContext(ctx)
+}
+
+func (e TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel)(nil)).Elem()
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput {
+	return o.ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) *TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel {
+		return &v
+	}).(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel] {
+	return pulumix.Output[TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel)(nil)).Elem()
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput {
+	return o.ApplyT(func(v *TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel {
+		if v != nil {
+			return *v
+		}
+		var ret TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel
+		return ret
+	}).(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput)
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelInput is an input type that accepts TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelArgs and TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput values.
+// You can construct a concrete instance of `TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelInput` via:
+//
+//	TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelArgs{...}
+type TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput() TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput
+	ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutputWithContext(context.Context) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput
+}
+
+var taskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrType = reflect.TypeOf((**TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel)(nil)).Elem()
+
+type TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput
+	ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutputWithContext(context.Context) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput
+}
+
+type taskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtr string
+
+func TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtr(v string) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrInput {
+	return (*taskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtr)(&v)
+}
+
+func (*taskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtr) ElementType() reflect.Type {
+	return taskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrType
+}
+
+func (in *taskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtr) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput() TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput {
+	return pulumi.ToOutput(in).(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput)
+}
+
+func (in *taskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtr) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput)
+}
+
+func (in *taskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel]{
+		OutputState: in.ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+type TaskReportConfigReportLevel string
+
+const (
+	TaskReportConfigReportLevelErrorsOnly         = TaskReportConfigReportLevel("ERRORS_ONLY")
+	TaskReportConfigReportLevelSuccessesAndErrors = TaskReportConfigReportLevel("SUCCESSES_AND_ERRORS")
+)
+
+func (TaskReportConfigReportLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigReportLevel)(nil)).Elem()
+}
+
+func (e TaskReportConfigReportLevel) ToTaskReportConfigReportLevelOutput() TaskReportConfigReportLevelOutput {
+	return pulumi.ToOutput(e).(TaskReportConfigReportLevelOutput)
+}
+
+func (e TaskReportConfigReportLevel) ToTaskReportConfigReportLevelOutputWithContext(ctx context.Context) TaskReportConfigReportLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskReportConfigReportLevelOutput)
+}
+
+func (e TaskReportConfigReportLevel) ToTaskReportConfigReportLevelPtrOutput() TaskReportConfigReportLevelPtrOutput {
+	return e.ToTaskReportConfigReportLevelPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigReportLevel) ToTaskReportConfigReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigReportLevelPtrOutput {
+	return TaskReportConfigReportLevel(e).ToTaskReportConfigReportLevelOutputWithContext(ctx).ToTaskReportConfigReportLevelPtrOutputWithContext(ctx)
+}
+
+func (e TaskReportConfigReportLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigReportLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskReportConfigReportLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskReportConfigReportLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskReportConfigReportLevelOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigReportLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigReportLevel)(nil)).Elem()
+}
+
+func (o TaskReportConfigReportLevelOutput) ToTaskReportConfigReportLevelOutput() TaskReportConfigReportLevelOutput {
+	return o
+}
+
+func (o TaskReportConfigReportLevelOutput) ToTaskReportConfigReportLevelOutputWithContext(ctx context.Context) TaskReportConfigReportLevelOutput {
+	return o
+}
+
+func (o TaskReportConfigReportLevelOutput) ToTaskReportConfigReportLevelPtrOutput() TaskReportConfigReportLevelPtrOutput {
+	return o.ToTaskReportConfigReportLevelPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigReportLevelOutput) ToTaskReportConfigReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigReportLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskReportConfigReportLevel) *TaskReportConfigReportLevel {
+		return &v
+	}).(TaskReportConfigReportLevelPtrOutput)
+}
+
+func (o TaskReportConfigReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigReportLevel] {
+	return pulumix.Output[TaskReportConfigReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigReportLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigReportLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigReportLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskReportConfigReportLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigReportLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskReportConfigReportLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskReportConfigReportLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskReportConfigReportLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskReportConfigReportLevel)(nil)).Elem()
+}
+
+func (o TaskReportConfigReportLevelPtrOutput) ToTaskReportConfigReportLevelPtrOutput() TaskReportConfigReportLevelPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigReportLevelPtrOutput) ToTaskReportConfigReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigReportLevelPtrOutput {
+	return o
+}
+
+func (o TaskReportConfigReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigReportLevel] {
+	return pulumix.Output[*TaskReportConfigReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TaskReportConfigReportLevelPtrOutput) Elem() TaskReportConfigReportLevelOutput {
+	return o.ApplyT(func(v *TaskReportConfigReportLevel) TaskReportConfigReportLevel {
+		if v != nil {
+			return *v
+		}
+		var ret TaskReportConfigReportLevel
+		return ret
+	}).(TaskReportConfigReportLevelOutput)
+}
+
+func (o TaskReportConfigReportLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskReportConfigReportLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskReportConfigReportLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskReportConfigReportLevelInput is an input type that accepts TaskReportConfigReportLevelArgs and TaskReportConfigReportLevelOutput values.
+// You can construct a concrete instance of `TaskReportConfigReportLevelInput` via:
+//
+//	TaskReportConfigReportLevelArgs{...}
+type TaskReportConfigReportLevelInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigReportLevelOutput() TaskReportConfigReportLevelOutput
+	ToTaskReportConfigReportLevelOutputWithContext(context.Context) TaskReportConfigReportLevelOutput
+}
+
+var taskReportConfigReportLevelPtrType = reflect.TypeOf((**TaskReportConfigReportLevel)(nil)).Elem()
+
+type TaskReportConfigReportLevelPtrInput interface {
+	pulumi.Input
+
+	ToTaskReportConfigReportLevelPtrOutput() TaskReportConfigReportLevelPtrOutput
+	ToTaskReportConfigReportLevelPtrOutputWithContext(context.Context) TaskReportConfigReportLevelPtrOutput
+}
+
+type taskReportConfigReportLevelPtr string
+
+func TaskReportConfigReportLevelPtr(v string) TaskReportConfigReportLevelPtrInput {
+	return (*taskReportConfigReportLevelPtr)(&v)
+}
+
+func (*taskReportConfigReportLevelPtr) ElementType() reflect.Type {
+	return taskReportConfigReportLevelPtrType
+}
+
+func (in *taskReportConfigReportLevelPtr) ToTaskReportConfigReportLevelPtrOutput() TaskReportConfigReportLevelPtrOutput {
+	return pulumi.ToOutput(in).(TaskReportConfigReportLevelPtrOutput)
+}
+
+func (in *taskReportConfigReportLevelPtr) ToTaskReportConfigReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigReportLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskReportConfigReportLevelPtrOutput)
+}
+
+func (in *taskReportConfigReportLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigReportLevel] {
+	return pulumix.Output[*TaskReportConfigReportLevel]{
+		OutputState: in.ToTaskReportConfigReportLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The status of the task that was described.
 type TaskStatus string
 
@@ -5899,6 +7180,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsUidPtrInput)(nil)).Elem(), TaskOptionsUid("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsVerifyModeInput)(nil)).Elem(), TaskOptionsVerifyMode("POINT_IN_TIME_CONSISTENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsVerifyModePtrInput)(nil)).Elem(), TaskOptionsVerifyMode("POINT_IN_TIME_CONSISTENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigObjectVersionIdsInput)(nil)).Elem(), TaskReportConfigObjectVersionIds("INCLUDE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigObjectVersionIdsPtrInput)(nil)).Elem(), TaskReportConfigObjectVersionIds("INCLUDE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOutputTypeInput)(nil)).Elem(), TaskReportConfigOutputType("SUMMARY_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOutputTypePtrInput)(nil)).Elem(), TaskReportConfigOutputType("SUMMARY_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel("ERRORS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel("ERRORS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel("ERRORS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel("ERRORS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel("ERRORS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel("ERRORS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel("ERRORS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel("ERRORS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigReportLevelInput)(nil)).Elem(), TaskReportConfigReportLevel("ERRORS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigReportLevelPtrInput)(nil)).Elem(), TaskReportConfigReportLevel("ERRORS_ONLY"))
 	pulumi.RegisterOutputType(AgentEndpointTypeOutput{})
 	pulumi.RegisterOutputType(AgentEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(LocationAzureBlobAzureAccessTierOutput{})
@@ -5963,6 +7258,20 @@ func init() {
 	pulumi.RegisterOutputType(TaskOptionsUidPtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsVerifyModeOutput{})
 	pulumi.RegisterOutputType(TaskOptionsVerifyModePtrOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigObjectVersionIdsOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigObjectVersionIdsPtrOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigOutputTypeOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigOutputTypePtrOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigReportLevelOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigReportLevelPtrOutput{})
 	pulumi.RegisterOutputType(TaskStatusOutput{})
 	pulumi.RegisterOutputType(TaskStatusPtrOutput{})
 }

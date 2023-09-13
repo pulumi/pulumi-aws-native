@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly string? CacheFullBehavior;
         public readonly int? CacheLength;
         public readonly string? CaptionData;
+        public readonly string? IncludeFillerNalUnits;
         public readonly string? InputLossAction;
         public readonly int? RestartDelay;
 
@@ -33,6 +34,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             string? captionData,
 
+            string? includeFillerNalUnits,
+
             string? inputLossAction,
 
             int? restartDelay)
@@ -42,6 +45,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             CacheFullBehavior = cacheFullBehavior;
             CacheLength = cacheLength;
             CaptionData = captionData;
+            IncludeFillerNalUnits = includeFillerNalUnits;
             InputLossAction = inputLossAction;
             RestartDelay = restartDelay;
         }

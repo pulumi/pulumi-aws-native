@@ -58,6 +58,7 @@ namespace Pulumi.AwsNative.Ram
         public readonly ImmutableArray<string> PermissionArns;
         public readonly ImmutableArray<string> Principals;
         public readonly ImmutableArray<string> ResourceArns;
+        public readonly ImmutableArray<string> Sources;
         public readonly ImmutableArray<Outputs.ResourceShareTag> Tags;
 
         [OutputConstructor]
@@ -76,6 +77,8 @@ namespace Pulumi.AwsNative.Ram
 
             ImmutableArray<string> resourceArns,
 
+            ImmutableArray<string> sources,
+
             ImmutableArray<Outputs.ResourceShareTag> tags)
         {
             AllowExternalPrincipals = allowExternalPrincipals;
@@ -85,6 +88,7 @@ namespace Pulumi.AwsNative.Ram
             PermissionArns = permissionArns;
             Principals = principals;
             ResourceArns = resourceArns;
+            Sources = sources;
             Tags = tags;
         }
     }

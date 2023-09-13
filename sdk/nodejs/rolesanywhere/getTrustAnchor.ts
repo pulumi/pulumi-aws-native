@@ -25,6 +25,7 @@ export interface GetTrustAnchorArgs {
 export interface GetTrustAnchorResult {
     readonly enabled?: boolean;
     readonly name?: string;
+    readonly notificationSettings?: outputs.rolesanywhere.TrustAnchorNotificationSetting[];
     readonly source?: outputs.rolesanywhere.TrustAnchorSource;
     readonly tags?: outputs.rolesanywhere.TrustAnchorTag[];
     readonly trustAnchorArn?: string;

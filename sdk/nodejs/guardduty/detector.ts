@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::GuardDuty::Detector
- *
- * @deprecated Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Detector extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Detector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Detector {
-        pulumi.log.warn("Detector is deprecated: Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Detector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -42,9 +39,9 @@ export class Detector extends pulumi.CustomResource {
 
     public readonly dataSources!: pulumi.Output<outputs.guardduty.DetectorCfnDataSourceConfigurations | undefined>;
     public readonly enable!: pulumi.Output<boolean>;
-    public readonly features!: pulumi.Output<outputs.guardduty.DetectorFeatureConfigurations[] | undefined>;
+    public readonly features!: pulumi.Output<outputs.guardduty.DetectorCfnFeatureConfiguration[] | undefined>;
     public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.guardduty.DetectorTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.guardduty.DetectorTagItem[] | undefined>;
 
     /**
      * Create a Detector resource with the given unique name, arguments, and options.
@@ -53,9 +50,7 @@ export class Detector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DetectorArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Detector is deprecated: Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -85,7 +80,7 @@ export class Detector extends pulumi.CustomResource {
 export interface DetectorArgs {
     dataSources?: pulumi.Input<inputs.guardduty.DetectorCfnDataSourceConfigurationsArgs>;
     enable: pulumi.Input<boolean>;
-    features?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorFeatureConfigurationsArgs>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorCfnFeatureConfigurationArgs>[]>;
     findingPublishingFrequency?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorTagItemArgs>[]>;
 }

@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
+        [Input("loadBalancerArn", required: true)]
+        public string LoadBalancerArn { get; set; } = null!;
 
         public GetLoadBalancerArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
+        [Input("loadBalancerArn", required: true)]
+        public Input<string> LoadBalancerArn { get; set; } = null!;
 
         public GetLoadBalancerInvokeArgs()
         {
@@ -51,16 +57,49 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
+        /// <summary>
+        /// The ID of the Amazon Route 53 hosted zone associated with the load balancer.
+        /// </summary>
         public readonly string? CanonicalHostedZoneId;
+        /// <summary>
+        /// The public DNS name of the load balancer.
+        /// </summary>
         public readonly string? DnsName;
-        public readonly string? Id;
+        /// <summary>
+        /// The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+        /// </summary>
         public readonly string? IpAddressType;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
+        public readonly string? LoadBalancerArn;
+        /// <summary>
+        /// The load balancer attributes.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerAttribute> LoadBalancerAttributes;
+        /// <summary>
+        /// The full name of the load balancer.
+        /// </summary>
         public readonly string? LoadBalancerFullName;
+        /// <summary>
+        /// The name of the load balancer.
+        /// </summary>
         public readonly string? LoadBalancerName;
+        /// <summary>
+        /// The IDs of the security groups for the load balancer.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
+        /// <summary>
+        /// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerSubnetMapping> SubnetMappings;
+        /// <summary>
+        /// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+        /// </summary>
         public readonly ImmutableArray<string> Subnets;
+        /// <summary>
+        /// The tags to assign to the load balancer.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerTag> Tags;
 
         [OutputConstructor]
@@ -69,9 +108,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             string? dnsName,
 
-            string? id,
-
             string? ipAddressType,
+
+            string? loadBalancerArn,
 
             ImmutableArray<Outputs.LoadBalancerAttribute> loadBalancerAttributes,
 
@@ -89,8 +128,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         {
             CanonicalHostedZoneId = canonicalHostedZoneId;
             DnsName = dnsName;
-            Id = id;
             IpAddressType = ipAddressType;
+            LoadBalancerArn = loadBalancerArn;
             LoadBalancerAttributes = loadBalancerAttributes;
             LoadBalancerFullName = loadBalancerFullName;
             LoadBalancerName = loadBalancerName;

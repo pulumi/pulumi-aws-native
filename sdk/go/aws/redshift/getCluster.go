@@ -45,8 +45,6 @@ type LookupClusterResult struct {
 	AvailabilityZoneRelocation *bool `pulumi:"availabilityZoneRelocation"`
 	// The availability zone relocation status of the cluster
 	AvailabilityZoneRelocationStatus *string `pulumi:"availabilityZoneRelocationStatus"`
-	// A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to false , the resize type is elastic.
-	Classic *bool `pulumi:"classic"`
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName *string `pulumi:"clusterParameterGroupName"`
 	// A list of security groups to be associated with this cluster.
@@ -200,11 +198,6 @@ func (o LookupClusterResultOutput) AvailabilityZoneRelocation() pulumi.BoolPtrOu
 // The availability zone relocation status of the cluster
 func (o LookupClusterResultOutput) AvailabilityZoneRelocationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.AvailabilityZoneRelocationStatus }).(pulumi.StringPtrOutput)
-}
-
-// A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to false , the resize type is elastic.
-func (o LookupClusterResultOutput) Classic() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *bool { return v.Classic }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the parameter group to be associated with this cluster.

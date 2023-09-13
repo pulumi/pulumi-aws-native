@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("taskArn")]
         public Output<string> TaskArn { get; private set; } = null!;
 
+        [Output("taskReportConfig")]
+        public Output<Outputs.TaskReportConfig?> TaskReportConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Task resource with the given unique name, arguments, and options.
@@ -182,6 +185,9 @@ namespace Pulumi.AwsNative.DataSync
             get => _tags ?? (_tags = new InputList<Inputs.TaskTagArgs>());
             set => _tags = value;
         }
+
+        [Input("taskReportConfig")]
+        public Input<Inputs.TaskReportConfigArgs>? TaskReportConfig { get; set; }
 
         public TaskArgs()
         {

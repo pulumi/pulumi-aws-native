@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.BillingConductor.Inputs
         [Input("flat")]
         public Input<Inputs.CustomLineItemFlatChargeDetailsArgs>? Flat { get; set; }
 
+        [Input("lineItemFilters")]
+        private InputList<Inputs.CustomLineItemLineItemFilterArgs>? _lineItemFilters;
+        public InputList<Inputs.CustomLineItemLineItemFilterArgs> LineItemFilters
+        {
+            get => _lineItemFilters ?? (_lineItemFilters = new InputList<Inputs.CustomLineItemLineItemFilterArgs>());
+            set => _lineItemFilters = value;
+        }
+
         [Input("percentage")]
         public Input<Inputs.CustomLineItemPercentageChargeDetailsArgs>? Percentage { get; set; }
 

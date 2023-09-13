@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelAc3Settings
     {
+        public readonly string? AttenuationControl;
         public readonly double? Bitrate;
         public readonly string? BitstreamMode;
         public readonly string? CodingMode;
@@ -23,6 +24,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
         [OutputConstructor]
         private ChannelAc3Settings(
+            string? attenuationControl,
+
             double? bitrate,
 
             string? bitstreamMode,
@@ -37,6 +40,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             string? metadataControl)
         {
+            AttenuationControl = attenuationControl;
             Bitrate = bitrate;
             BitstreamMode = bitstreamMode;
             CodingMode = codingMode;

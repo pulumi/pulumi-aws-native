@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorCfnKubernetesConfiguration
     {
-        public readonly Outputs.DetectorCfnKubernetesAuditLogsConfiguration? AuditLogs;
+        public readonly Outputs.DetectorCfnKubernetesAuditLogsConfiguration AuditLogs;
 
         [OutputConstructor]
-        private DetectorCfnKubernetesConfiguration(Outputs.DetectorCfnKubernetesAuditLogsConfiguration? auditLogs)
+        private DetectorCfnKubernetesConfiguration(Outputs.DetectorCfnKubernetesAuditLogsConfiguration auditLogs)
         {
             AuditLogs = auditLogs;
         }

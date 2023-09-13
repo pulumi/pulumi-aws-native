@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'CrlTagArgs',
     'ProfileTagArgs',
+    'TrustAnchorNotificationSettingArgs',
     'TrustAnchorSourceData0PropertiesArgs',
     'TrustAnchorSourceData1PropertiesArgs',
     'TrustAnchorSourceArgs',
@@ -71,6 +72,57 @@ class ProfileTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TrustAnchorNotificationSettingArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 event: pulumi.Input['TrustAnchorNotificationEvent'],
+                 channel: Optional[pulumi.Input['TrustAnchorNotificationChannel']] = None,
+                 threshold: Optional[pulumi.Input[float]] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "event", event)
+        if channel is not None:
+            pulumi.set(__self__, "channel", channel)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def event(self) -> pulumi.Input['TrustAnchorNotificationEvent']:
+        return pulumi.get(self, "event")
+
+    @event.setter
+    def event(self, value: pulumi.Input['TrustAnchorNotificationEvent']):
+        pulumi.set(self, "event", value)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> Optional[pulumi.Input['TrustAnchorNotificationChannel']]:
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: Optional[pulumi.Input['TrustAnchorNotificationChannel']]):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "threshold", value)
 
 
 @pulumi.input_type

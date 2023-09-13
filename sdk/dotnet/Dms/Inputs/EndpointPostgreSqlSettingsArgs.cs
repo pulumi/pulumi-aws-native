@@ -15,8 +15,14 @@ namespace Pulumi.AwsNative.Dms.Inputs
         [Input("afterConnectScript")]
         public Input<string>? AfterConnectScript { get; set; }
 
+        [Input("babelfishDatabaseName")]
+        public Input<string>? BabelfishDatabaseName { get; set; }
+
         [Input("captureDdls")]
         public Input<bool>? CaptureDdls { get; set; }
+
+        [Input("databaseMode")]
+        public Input<string>? DatabaseMode { get; set; }
 
         [Input("ddlArtifactsSchema")]
         public Input<string>? DdlArtifactsSchema { get; set; }

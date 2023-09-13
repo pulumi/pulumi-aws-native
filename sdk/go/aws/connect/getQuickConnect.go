@@ -39,6 +39,8 @@ type LookupQuickConnectResult struct {
 	QuickConnectArn *string `pulumi:"quickConnectArn"`
 	// Configuration settings for the quick connect.
 	QuickConnectConfig *QuickConnectConfig `pulumi:"quickConnectConfig"`
+	// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+	QuickConnectType *QuickConnectType `pulumi:"quickConnectType"`
 	// One or more tags.
 	Tags []QuickConnectTag `pulumi:"tags"`
 }
@@ -108,6 +110,11 @@ func (o LookupQuickConnectResultOutput) QuickConnectArn() pulumi.StringPtrOutput
 // Configuration settings for the quick connect.
 func (o LookupQuickConnectResultOutput) QuickConnectConfig() QuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v LookupQuickConnectResult) *QuickConnectConfig { return v.QuickConnectConfig }).(QuickConnectConfigPtrOutput)
+}
+
+// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+func (o LookupQuickConnectResultOutput) QuickConnectType() QuickConnectTypePtrOutput {
+	return o.ApplyT(func(v LookupQuickConnectResult) *QuickConnectType { return v.QuickConnectType }).(QuickConnectTypePtrOutput)
 }
 
 // One or more tags.

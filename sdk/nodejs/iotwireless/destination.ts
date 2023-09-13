@@ -60,7 +60,7 @@ export class Destination extends pulumi.CustomResource {
     /**
      * AWS role ARN that grants access
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
@@ -82,9 +82,6 @@ export class Destination extends pulumi.CustomResource {
             }
             if ((!args || args.expressionType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'expressionType'");
-            }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roleArn'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["expression"] = args ? args.expression : undefined;
@@ -132,7 +129,7 @@ export interface DestinationArgs {
     /**
      * AWS role ARN that grants access
      */
-    roleArn: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */

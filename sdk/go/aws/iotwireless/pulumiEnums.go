@@ -17,6 +17,7 @@ type DestinationExpressionType string
 const (
 	DestinationExpressionTypeRuleName  = DestinationExpressionType("RuleName")
 	DestinationExpressionTypeMqttTopic = DestinationExpressionType("MqttTopic")
+	DestinationExpressionTypeSnsTopic  = DestinationExpressionType("SnsTopic")
 )
 
 func (DestinationExpressionType) ElementType() reflect.Type {

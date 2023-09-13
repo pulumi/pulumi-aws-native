@@ -102,6 +102,10 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public readonly string? LastUpdatedAt;
         /// <summary>
+        /// The format of your sourceLastUpdatedTimestamp that was previously set up.
+        /// </summary>
+        public readonly string? SourceLastUpdatedTimestampFormat;
+        /// <summary>
         /// The tags (keys and values) associated with the integration.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObjectTypeTag> Tags;
@@ -128,6 +132,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             string? lastUpdatedAt,
 
+            string? sourceLastUpdatedTimestampFormat,
+
             ImmutableArray<Outputs.ObjectTypeTag> tags,
 
             string? templateId)
@@ -140,6 +146,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
             Fields = fields;
             Keys = keys;
             LastUpdatedAt = lastUpdatedAt;
+            SourceLastUpdatedTimestampFormat = sourceLastUpdatedTimestampFormat;
             Tags = tags;
             TemplateId = templateId;
         }

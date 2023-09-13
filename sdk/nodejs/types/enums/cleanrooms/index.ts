@@ -2,6 +2,32 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AnalysisTemplateAnalysisParameterType = {
+    Smallint: "SMALLINT",
+    Integer: "INTEGER",
+    Bigint: "BIGINT",
+    Decimal: "DECIMAL",
+    Real: "REAL",
+    DoublePrecision: "DOUBLE_PRECISION",
+    Boolean: "BOOLEAN",
+    Char: "CHAR",
+    Varchar: "VARCHAR",
+    Date: "DATE",
+    Timestamp: "TIMESTAMP",
+    Timestamptz: "TIMESTAMPTZ",
+    Time: "TIME",
+    Timetz: "TIMETZ",
+    Varbyte: "VARBYTE",
+} as const;
+
+export type AnalysisTemplateAnalysisParameterType = (typeof AnalysisTemplateAnalysisParameterType)[keyof typeof AnalysisTemplateAnalysisParameterType];
+
+export const AnalysisTemplateFormat = {
+    Sql: "SQL",
+} as const;
+
+export type AnalysisTemplateFormat = (typeof AnalysisTemplateFormat)[keyof typeof AnalysisTemplateFormat];
+
 export const CollaborationMemberAbility = {
     CanQuery: "CAN_QUERY",
     CanReceiveResults: "CAN_RECEIVE_RESULTS",

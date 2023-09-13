@@ -11,6 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AnalysisTemplateAnalysisParameterArgs',
+    'AnalysisTemplateAnalysisSourceArgs',
+    'AnalysisTemplateTagArgs',
     'CollaborationDataEncryptionMetadataArgs',
     'CollaborationMemberSpecificationArgs',
     'CollaborationTagArgs',
@@ -30,6 +33,88 @@ __all__ = [
     'ConfiguredTableTagArgs',
     'MembershipTagArgs',
 ]
+
+@pulumi.input_type
+class AnalysisTemplateAnalysisParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['AnalysisTemplateAnalysisParameterType'],
+                 default_value: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AnalysisTemplateAnalysisParameterType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AnalysisTemplateAnalysisParameterType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_value", value)
+
+
+@pulumi.input_type
+class AnalysisTemplateAnalysisSourceArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+
+@pulumi.input_type
+class AnalysisTemplateTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class CollaborationDataEncryptionMetadataArgs:

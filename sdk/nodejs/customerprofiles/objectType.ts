@@ -78,6 +78,10 @@ export class ObjectType extends pulumi.CustomResource {
      */
     public readonly objectTypeName!: pulumi.Output<string | undefined>;
     /**
+     * The format of your sourceLastUpdatedTimestamp that was previously set up.
+     */
+    public readonly sourceLastUpdatedTimestampFormat!: pulumi.Output<string | undefined>;
+    /**
      * The tags (keys and values) associated with the integration.
      */
     public readonly tags!: pulumi.Output<outputs.customerprofiles.ObjectTypeTag[] | undefined>;
@@ -108,6 +112,7 @@ export class ObjectType extends pulumi.CustomResource {
             resourceInputs["fields"] = args ? args.fields : undefined;
             resourceInputs["keys"] = args ? args.keys : undefined;
             resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
+            resourceInputs["sourceLastUpdatedTimestampFormat"] = args ? args.sourceLastUpdatedTimestampFormat : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateId"] = args ? args.templateId : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -123,6 +128,7 @@ export class ObjectType extends pulumi.CustomResource {
             resourceInputs["keys"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["objectTypeName"] = undefined /*out*/;
+            resourceInputs["sourceLastUpdatedTimestampFormat"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["templateId"] = undefined /*out*/;
         }
@@ -169,6 +175,10 @@ export interface ObjectTypeArgs {
      * The name of the profile object type.
      */
     objectTypeName?: pulumi.Input<string>;
+    /**
+     * The format of your sourceLastUpdatedTimestamp that was previously set up.
+     */
+    sourceLastUpdatedTimestampFormat?: pulumi.Input<string>;
     /**
      * The tags (keys and values) associated with the integration.
      */

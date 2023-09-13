@@ -18,17 +18,20 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
         [Input("ipAddressType")]
         public Input<Pulumi.AwsNative.VpcLattice.TargetGroupConfigIpAddressType>? IpAddressType { get; set; }
 
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
+        [Input("lambdaEventStructureVersion")]
+        public Input<Pulumi.AwsNative.VpcLattice.TargetGroupConfigLambdaEventStructureVersion>? LambdaEventStructureVersion { get; set; }
 
-        [Input("protocol", required: true)]
-        public Input<Pulumi.AwsNative.VpcLattice.TargetGroupConfigProtocol> Protocol { get; set; } = null!;
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        [Input("protocol")]
+        public Input<Pulumi.AwsNative.VpcLattice.TargetGroupConfigProtocol>? Protocol { get; set; }
 
         [Input("protocolVersion")]
         public Input<Pulumi.AwsNative.VpcLattice.TargetGroupConfigProtocolVersion>? ProtocolVersion { get; set; }
 
-        [Input("vpcIdentifier", required: true)]
-        public Input<string> VpcIdentifier { get; set; } = null!;
+        [Input("vpcIdentifier")]
+        public Input<string>? VpcIdentifier { get; set; }
 
         public TargetGroupConfigArgs()
         {

@@ -40,7 +40,7 @@ type LookupWorkspaceResult struct {
 	Description *string `pulumi:"description"`
 	// Endpoint for the Grafana workspace.
 	Endpoint *string `pulumi:"endpoint"`
-	// The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+	// The version of Grafana to support in your workspace.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
 	// The id that uniquely identifies a Grafana workspace.
 	Id *string `pulumi:"id"`
@@ -139,7 +139,7 @@ func (o LookupWorkspaceResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+// The version of Grafana to support in your workspace.
 func (o LookupWorkspaceResultOutput) GrafanaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.GrafanaVersion }).(pulumi.StringPtrOutput)
 }

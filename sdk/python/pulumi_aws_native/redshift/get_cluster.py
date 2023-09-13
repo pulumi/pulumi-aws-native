@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation=None, availability_zone_relocation_status=None, classic=None, cluster_parameter_group_name=None, cluster_security_groups=None, cluster_type=None, cluster_version=None, defer_maintenance=None, defer_maintenance_duration=None, defer_maintenance_end_time=None, defer_maintenance_identifier=None, defer_maintenance_start_time=None, destination_region=None, elastic_ip=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, hsm_client_certificate_identifier=None, hsm_configuration_identifier=None, iam_roles=None, id=None, kms_key_id=None, logging_properties=None, maintenance_track_name=None, manual_snapshot_retention_period=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, resource_action=None, revision_target=None, rotate_encryption_key=None, snapshot_copy_grant_name=None, snapshot_copy_manual=None, snapshot_copy_retention_period=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation=None, availability_zone_relocation_status=None, cluster_parameter_group_name=None, cluster_security_groups=None, cluster_type=None, cluster_version=None, defer_maintenance=None, defer_maintenance_duration=None, defer_maintenance_end_time=None, defer_maintenance_identifier=None, defer_maintenance_start_time=None, destination_region=None, elastic_ip=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, hsm_client_certificate_identifier=None, hsm_configuration_identifier=None, iam_roles=None, id=None, kms_key_id=None, logging_properties=None, maintenance_track_name=None, manual_snapshot_retention_period=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, resource_action=None, revision_target=None, rotate_encryption_key=None, snapshot_copy_grant_name=None, snapshot_copy_manual=None, snapshot_copy_retention_period=None, tags=None, vpc_security_group_ids=None):
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_version_upgrade' to be a bool")
         pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
@@ -38,9 +38,6 @@ class GetClusterResult:
         if availability_zone_relocation_status and not isinstance(availability_zone_relocation_status, str):
             raise TypeError("Expected argument 'availability_zone_relocation_status' to be a str")
         pulumi.set(__self__, "availability_zone_relocation_status", availability_zone_relocation_status)
-        if classic and not isinstance(classic, bool):
-            raise TypeError("Expected argument 'classic' to be a bool")
-        pulumi.set(__self__, "classic", classic)
         if cluster_parameter_group_name and not isinstance(cluster_parameter_group_name, str):
             raise TypeError("Expected argument 'cluster_parameter_group_name' to be a str")
         pulumi.set(__self__, "cluster_parameter_group_name", cluster_parameter_group_name)
@@ -198,14 +195,6 @@ class GetClusterResult:
         The availability zone relocation status of the cluster
         """
         return pulumi.get(self, "availability_zone_relocation_status")
-
-    @property
-    @pulumi.getter
-    def classic(self) -> Optional[bool]:
-        """
-        A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to false , the resize type is elastic.
-        """
-        return pulumi.get(self, "classic")
 
     @property
     @pulumi.getter(name="clusterParameterGroupName")
@@ -501,7 +490,6 @@ class AwaitableGetClusterResult(GetClusterResult):
             availability_zone=self.availability_zone,
             availability_zone_relocation=self.availability_zone_relocation,
             availability_zone_relocation_status=self.availability_zone_relocation_status,
-            classic=self.classic,
             cluster_parameter_group_name=self.cluster_parameter_group_name,
             cluster_security_groups=self.cluster_security_groups,
             cluster_type=self.cluster_type,
@@ -559,7 +547,6 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         availability_zone_relocation=pulumi.get(__ret__, 'availability_zone_relocation'),
         availability_zone_relocation_status=pulumi.get(__ret__, 'availability_zone_relocation_status'),
-        classic=pulumi.get(__ret__, 'classic'),
         cluster_parameter_group_name=pulumi.get(__ret__, 'cluster_parameter_group_name'),
         cluster_security_groups=pulumi.get(__ret__, 'cluster_security_groups'),
         cluster_type=pulumi.get(__ret__, 'cluster_type'),

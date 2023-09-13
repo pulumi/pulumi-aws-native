@@ -349,6 +349,8 @@ if typing.TYPE_CHECKING:
     osis = __osis
     import pulumi_aws_native.panorama as __panorama
     panorama = __panorama
+    import pulumi_aws_native.pcaconnectorad as __pcaconnectorad
+    pcaconnectorad = __pcaconnectorad
     import pulumi_aws_native.personalize as __personalize
     personalize = __personalize
     import pulumi_aws_native.pinpoint as __pinpoint
@@ -634,6 +636,7 @@ else:
     organizations = _utilities.lazy_import('pulumi_aws_native.organizations')
     osis = _utilities.lazy_import('pulumi_aws_native.osis')
     panorama = _utilities.lazy_import('pulumi_aws_native.panorama')
+    pcaconnectorad = _utilities.lazy_import('pulumi_aws_native.pcaconnectorad')
     personalize = _utilities.lazy_import('pulumi_aws_native.personalize')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
     pinpointemail = _utilities.lazy_import('pulumi_aws_native.pinpointemail')
@@ -1058,6 +1061,7 @@ _utilities.register(
   "mod": "cleanrooms",
   "fqn": "pulumi_aws_native.cleanrooms",
   "classes": {
+   "aws-native:cleanrooms:AnalysisTemplate": "AnalysisTemplate",
    "aws-native:cleanrooms:Collaboration": "Collaboration",
    "aws-native:cleanrooms:ConfiguredTable": "ConfiguredTable",
    "aws-native:cleanrooms:ConfiguredTableAssociation": "ConfiguredTableAssociation",
@@ -1295,7 +1299,9 @@ _utilities.register(
    "aws-native:connect:TaskTemplate": "TaskTemplate",
    "aws-native:connect:TrafficDistributionGroup": "TrafficDistributionGroup",
    "aws-native:connect:User": "User",
-   "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup"
+   "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup",
+   "aws-native:connect:View": "View",
+   "aws-native:connect:ViewVersion": "ViewVersion"
   }
  },
  {
@@ -2668,6 +2674,18 @@ _utilities.register(
    "aws-native:panorama:ApplicationInstance": "ApplicationInstance",
    "aws-native:panorama:Package": "Package",
    "aws-native:panorama:PackageVersion": "PackageVersion"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "pcaconnectorad",
+  "fqn": "pulumi_aws_native.pcaconnectorad",
+  "classes": {
+   "aws-native:pcaconnectorad:Connector": "Connector",
+   "aws-native:pcaconnectorad:DirectoryRegistration": "DirectoryRegistration",
+   "aws-native:pcaconnectorad:ServicePrincipalName": "ServicePrincipalName",
+   "aws-native:pcaconnectorad:Template": "Template",
+   "aws-native:pcaconnectorad:TemplateGroupAccessControlEntry": "TemplateGroupAccessControlEntry"
   }
  },
  {

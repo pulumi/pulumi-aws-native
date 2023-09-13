@@ -38,6 +38,10 @@ export class FlowLog extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     */
+    public readonly deliverCrossAccountRole!: pulumi.Output<string | undefined>;
+    /**
      * The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
      */
     public readonly deliverLogsPermissionArn!: pulumi.Output<string | undefined>;
@@ -96,6 +100,7 @@ export class FlowLog extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
+            resourceInputs["deliverCrossAccountRole"] = args ? args.deliverCrossAccountRole : undefined;
             resourceInputs["deliverLogsPermissionArn"] = args ? args.deliverLogsPermissionArn : undefined;
             resourceInputs["destinationOptions"] = args ? args.destinationOptions : undefined;
             resourceInputs["logDestination"] = args ? args.logDestination : undefined;
@@ -108,6 +113,7 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficType"] = args ? args.trafficType : undefined;
         } else {
+            resourceInputs["deliverCrossAccountRole"] = undefined /*out*/;
             resourceInputs["deliverLogsPermissionArn"] = undefined /*out*/;
             resourceInputs["destinationOptions"] = undefined /*out*/;
             resourceInputs["logDestination"] = undefined /*out*/;
@@ -121,7 +127,7 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["trafficType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["deliverLogsPermissionArn", "destinationOptions", "logDestination", "logDestinationType", "logFormat", "logGroupName", "maxAggregationInterval", "resourceId", "resourceType", "trafficType"] };
+        const replaceOnChanges = { replaceOnChanges: ["deliverCrossAccountRole", "deliverLogsPermissionArn", "destinationOptions", "logDestination", "logDestinationType", "logFormat", "logGroupName", "maxAggregationInterval", "resourceId", "resourceType", "trafficType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FlowLog.__pulumiType, name, resourceInputs, opts);
     }
@@ -131,6 +137,10 @@ export class FlowLog extends pulumi.CustomResource {
  * The set of arguments for constructing a FlowLog resource.
  */
 export interface FlowLogArgs {
+    /**
+     * The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     */
+    deliverCrossAccountRole?: pulumi.Input<string>;
     /**
      * The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
      */

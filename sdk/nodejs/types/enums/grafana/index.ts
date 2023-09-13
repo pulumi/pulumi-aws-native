@@ -74,11 +74,13 @@ export const WorkspaceStatus = {
     Failed: "FAILED",
     Updating: "UPDATING",
     Upgrading: "UPGRADING",
+    VersionUpdating: "VERSION_UPDATING",
     DeletionFailed: "DELETION_FAILED",
     CreationFailed: "CREATION_FAILED",
     UpdateFailed: "UPDATE_FAILED",
     UpgradeFailed: "UPGRADE_FAILED",
     LicenseRemovalFailed: "LICENSE_REMOVAL_FAILED",
+    VersionUpdateFailed: "VERSION_UPDATE_FAILED",
 } as const;
 
 /**

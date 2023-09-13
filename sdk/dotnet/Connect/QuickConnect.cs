@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.Connect
         public Output<Outputs.QuickConnectConfig> QuickConnectConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+        /// </summary>
+        [Output("quickConnectType")]
+        public Output<Pulumi.AwsNative.Connect.QuickConnectType> QuickConnectType { get; private set; } = null!;
+
+        /// <summary>
         /// One or more tags.
         /// </summary>
         [Output("tags")]

@@ -91,6 +91,8 @@ __all__ = [
     'FlowSalesforceDestinationProperties',
     'FlowSalesforceSourceProperties',
     'FlowSapoDataDestinationProperties',
+    'FlowSapoDataPaginationConfig',
+    'FlowSapoDataParallelismConfig',
     'FlowSapoDataSourceProperties',
     'FlowScheduledTriggerProperties',
     'FlowServiceNowSourceProperties',
@@ -4222,12 +4224,86 @@ class FlowSapoDataDestinationProperties(dict):
 
 
 @pulumi.output_type
+class FlowSapoDataPaginationConfig(dict):
+    """
+    SAP Source connector page size
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPageSize":
+            suggest = "max_page_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSapoDataPaginationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSapoDataPaginationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSapoDataPaginationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_page_size: int):
+        """
+        SAP Source connector page size
+        """
+        pulumi.set(__self__, "max_page_size", max_page_size)
+
+    @property
+    @pulumi.getter(name="maxPageSize")
+    def max_page_size(self) -> int:
+        return pulumi.get(self, "max_page_size")
+
+
+@pulumi.output_type
+class FlowSapoDataParallelismConfig(dict):
+    """
+    SAP Source connector parallelism factor
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxParallelism":
+            suggest = "max_parallelism"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSapoDataParallelismConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSapoDataParallelismConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSapoDataParallelismConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_parallelism: int):
+        """
+        SAP Source connector parallelism factor
+        """
+        pulumi.set(__self__, "max_parallelism", max_parallelism)
+
+    @property
+    @pulumi.getter(name="maxParallelism")
+    def max_parallelism(self) -> int:
+        return pulumi.get(self, "max_parallelism")
+
+
+@pulumi.output_type
 class FlowSapoDataSourceProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "objectPath":
             suggest = "object_path"
+        elif key == "paginationConfig":
+            suggest = "pagination_config"
+        elif key == "parallelismConfig":
+            suggest = "parallelism_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowSapoDataSourceProperties. Access the value via the '{suggest}' property getter instead.")
@@ -4241,13 +4317,29 @@ class FlowSapoDataSourceProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 object_path: str):
+                 object_path: str,
+                 pagination_config: Optional['outputs.FlowSapoDataPaginationConfig'] = None,
+                 parallelism_config: Optional['outputs.FlowSapoDataParallelismConfig'] = None):
         pulumi.set(__self__, "object_path", object_path)
+        if pagination_config is not None:
+            pulumi.set(__self__, "pagination_config", pagination_config)
+        if parallelism_config is not None:
+            pulumi.set(__self__, "parallelism_config", parallelism_config)
 
     @property
     @pulumi.getter(name="objectPath")
     def object_path(self) -> str:
         return pulumi.get(self, "object_path")
+
+    @property
+    @pulumi.getter(name="paginationConfig")
+    def pagination_config(self) -> Optional['outputs.FlowSapoDataPaginationConfig']:
+        return pulumi.get(self, "pagination_config")
+
+    @property
+    @pulumi.getter(name="parallelismConfig")
+    def parallelism_config(self) -> Optional['outputs.FlowSapoDataParallelismConfig']:
+        return pulumi.get(self, "parallelism_config")
 
 
 @pulumi.output_type

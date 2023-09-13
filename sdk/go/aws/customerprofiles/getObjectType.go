@@ -47,6 +47,8 @@ type LookupObjectTypeResult struct {
 	Keys []ObjectTypeKeyMap `pulumi:"keys"`
 	// The time of this integration got last updated at.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	// The format of your sourceLastUpdatedTimestamp that was previously set up.
+	SourceLastUpdatedTimestampFormat *string `pulumi:"sourceLastUpdatedTimestampFormat"`
 	// The tags (keys and values) associated with the integration.
 	Tags []ObjectTypeTag `pulumi:"tags"`
 	// A unique identifier for the object template.
@@ -135,6 +137,11 @@ func (o LookupObjectTypeResultOutput) Keys() ObjectTypeKeyMapArrayOutput {
 // The time of this integration got last updated at.
 func (o LookupObjectTypeResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupObjectTypeResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The format of your sourceLastUpdatedTimestamp that was previously set up.
+func (o LookupObjectTypeResultOutput) SourceLastUpdatedTimestampFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupObjectTypeResult) *string { return v.SourceLastUpdatedTimestampFormat }).(pulumi.StringPtrOutput)
 }
 
 // The tags (keys and values) associated with the integration.

@@ -14,16 +14,14 @@ import (
 )
 
 // Resource Type definition for AWS::GuardDuty::Detector
-//
-// Deprecated: Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Detector struct {
 	pulumi.CustomResourceState
 
 	DataSources                DetectorCfnDataSourceConfigurationsPtrOutput `pulumi:"dataSources"`
 	Enable                     pulumi.BoolOutput                            `pulumi:"enable"`
-	Features                   DetectorFeatureConfigurationsArrayOutput     `pulumi:"features"`
+	Features                   DetectorCfnFeatureConfigurationArrayOutput   `pulumi:"features"`
 	FindingPublishingFrequency pulumi.StringPtrOutput                       `pulumi:"findingPublishingFrequency"`
-	Tags                       DetectorTagArrayOutput                       `pulumi:"tags"`
+	Tags                       DetectorTagItemArrayOutput                   `pulumi:"tags"`
 }
 
 // NewDetector registers a new resource with the given unique name, arguments, and options.
@@ -71,18 +69,18 @@ func (DetectorState) ElementType() reflect.Type {
 type detectorArgs struct {
 	DataSources                *DetectorCfnDataSourceConfigurations `pulumi:"dataSources"`
 	Enable                     bool                                 `pulumi:"enable"`
-	Features                   []DetectorFeatureConfigurations      `pulumi:"features"`
+	Features                   []DetectorCfnFeatureConfiguration    `pulumi:"features"`
 	FindingPublishingFrequency *string                              `pulumi:"findingPublishingFrequency"`
-	Tags                       []DetectorTag                        `pulumi:"tags"`
+	Tags                       []DetectorTagItem                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Detector resource.
 type DetectorArgs struct {
 	DataSources                DetectorCfnDataSourceConfigurationsPtrInput
 	Enable                     pulumi.BoolInput
-	Features                   DetectorFeatureConfigurationsArrayInput
+	Features                   DetectorCfnFeatureConfigurationArrayInput
 	FindingPublishingFrequency pulumi.StringPtrInput
-	Tags                       DetectorTagArrayInput
+	Tags                       DetectorTagItemArrayInput
 }
 
 func (DetectorArgs) ElementType() reflect.Type {
@@ -142,16 +140,16 @@ func (o DetectorOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Detector) pulumi.BoolOutput { return v.Enable }).(pulumi.BoolOutput)
 }
 
-func (o DetectorOutput) Features() DetectorFeatureConfigurationsArrayOutput {
-	return o.ApplyT(func(v *Detector) DetectorFeatureConfigurationsArrayOutput { return v.Features }).(DetectorFeatureConfigurationsArrayOutput)
+func (o DetectorOutput) Features() DetectorCfnFeatureConfigurationArrayOutput {
+	return o.ApplyT(func(v *Detector) DetectorCfnFeatureConfigurationArrayOutput { return v.Features }).(DetectorCfnFeatureConfigurationArrayOutput)
 }
 
 func (o DetectorOutput) FindingPublishingFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringPtrOutput { return v.FindingPublishingFrequency }).(pulumi.StringPtrOutput)
 }
 
-func (o DetectorOutput) Tags() DetectorTagArrayOutput {
-	return o.ApplyT(func(v *Detector) DetectorTagArrayOutput { return v.Tags }).(DetectorTagArrayOutput)
+func (o DetectorOutput) Tags() DetectorTagItemArrayOutput {
+	return o.ApplyT(func(v *Detector) DetectorTagItemArrayOutput { return v.Tags }).(DetectorTagItemArrayOutput)
 }
 
 func init() {

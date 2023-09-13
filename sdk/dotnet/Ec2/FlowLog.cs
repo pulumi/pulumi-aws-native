@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Ec2
     public partial class FlowLog : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// </summary>
+        [Output("deliverCrossAccountRole")]
+        public Output<string?> DeliverCrossAccountRole { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         /// </summary>
         [Output("deliverLogsPermissionArn")]
@@ -103,6 +109,7 @@ namespace Pulumi.AwsNative.Ec2
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "deliverCrossAccountRole",
                     "deliverLogsPermissionArn",
                     "destinationOptions",
                     "logDestination",
@@ -136,6 +143,12 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class FlowLogArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// </summary>
+        [Input("deliverCrossAccountRole")]
+        public Input<string>? DeliverCrossAccountRole { get; set; }
+
         /// <summary>
         /// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         /// </summary>

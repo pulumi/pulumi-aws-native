@@ -64,6 +64,9 @@ export interface GetApplicationResult {
      * Tag map with key and value
      */
     readonly tags?: outputs.emrserverless.ApplicationTag[];
+    /**
+     * The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
+     */
     readonly workerTypeSpecifications?: outputs.emrserverless.ApplicationWorkerTypeSpecificationInputMap;
 }
 /**

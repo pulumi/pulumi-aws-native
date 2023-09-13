@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("captionData")]
         public Input<string>? CaptionData { get; set; }
 
+        [Input("includeFillerNalUnits")]
+        public Input<string>? IncludeFillerNalUnits { get; set; }
+
         [Input("inputLossAction")]
         public Input<string>? InputLossAction { get; set; }
 

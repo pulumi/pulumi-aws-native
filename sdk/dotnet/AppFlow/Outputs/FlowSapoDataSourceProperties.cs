@@ -14,11 +14,20 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class FlowSapoDataSourceProperties
     {
         public readonly string ObjectPath;
+        public readonly Outputs.FlowSapoDataPaginationConfig? PaginationConfig;
+        public readonly Outputs.FlowSapoDataParallelismConfig? ParallelismConfig;
 
         [OutputConstructor]
-        private FlowSapoDataSourceProperties(string objectPath)
+        private FlowSapoDataSourceProperties(
+            string objectPath,
+
+            Outputs.FlowSapoDataPaginationConfig? paginationConfig,
+
+            Outputs.FlowSapoDataParallelismConfig? parallelismConfig)
         {
             ObjectPath = objectPath;
+            PaginationConfig = paginationConfig;
+            ParallelismConfig = parallelismConfig;
         }
     }
 }

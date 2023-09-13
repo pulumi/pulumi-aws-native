@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
- *
- * @deprecated LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LoadBalancer {
-        pulumi.log.warn("LoadBalancer is deprecated: LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new LoadBalancer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,18 +37,61 @@ export class LoadBalancer extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadBalancer.__pulumiType;
     }
 
+    /**
+     * The ID of the Amazon Route 53 hosted zone associated with the load balancer.
+     */
     public /*out*/ readonly canonicalHostedZoneId!: pulumi.Output<string>;
+    /**
+     * The public DNS name of the load balancer.
+     */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    /**
+     * The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+     */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the load balancer.
+     */
+    public /*out*/ readonly loadBalancerArn!: pulumi.Output<string>;
+    /**
+     * The load balancer attributes.
+     */
     public readonly loadBalancerAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerAttribute[] | undefined>;
+    /**
+     * The full name of the load balancer.
+     */
     public /*out*/ readonly loadBalancerFullName!: pulumi.Output<string>;
+    /**
+     * The name of the load balancer.
+     */
     public /*out*/ readonly loadBalancerName!: pulumi.Output<string>;
+    /**
+     * The name of the load balancer.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+     */
     public readonly scheme!: pulumi.Output<string | undefined>;
+    /**
+     * The IDs of the security groups for the load balancer.
+     */
     public readonly securityGroups!: pulumi.Output<string[] | undefined>;
+    /**
+     * The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+     */
     public readonly subnetMappings!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerSubnetMapping[] | undefined>;
+    /**
+     * The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+     */
     public readonly subnets!: pulumi.Output<string[] | undefined>;
+    /**
+     * The tags to assign to the load balancer.
+     */
     public readonly tags!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerTag[] | undefined>;
+    /**
+     * The type of load balancer. The default is application.
+     */
     public readonly type!: pulumi.Output<string | undefined>;
 
     /**
@@ -61,9 +101,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("LoadBalancer is deprecated: LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -78,12 +116,14 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["canonicalHostedZoneId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["loadBalancerArn"] = undefined /*out*/;
             resourceInputs["loadBalancerFullName"] = undefined /*out*/;
             resourceInputs["loadBalancerName"] = undefined /*out*/;
         } else {
             resourceInputs["canonicalHostedZoneId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
+            resourceInputs["loadBalancerArn"] = undefined /*out*/;
             resourceInputs["loadBalancerAttributes"] = undefined /*out*/;
             resourceInputs["loadBalancerFullName"] = undefined /*out*/;
             resourceInputs["loadBalancerName"] = undefined /*out*/;
@@ -106,13 +146,40 @@ export class LoadBalancer extends pulumi.CustomResource {
  * The set of arguments for constructing a LoadBalancer resource.
  */
 export interface LoadBalancerArgs {
+    /**
+     * The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+     */
     ipAddressType?: pulumi.Input<string>;
+    /**
+     * The load balancer attributes.
+     */
     loadBalancerAttributes?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerAttributeArgs>[]>;
+    /**
+     * The name of the load balancer.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+     */
     scheme?: pulumi.Input<string>;
+    /**
+     * The IDs of the security groups for the load balancer.
+     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+     */
     subnetMappings?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerSubnetMappingArgs>[]>;
+    /**
+     * The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+     */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tags to assign to the load balancer.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerTagArgs>[]>;
+    /**
+     * The type of load balancer. The default is application.
+     */
     type?: pulumi.Input<string>;
 }

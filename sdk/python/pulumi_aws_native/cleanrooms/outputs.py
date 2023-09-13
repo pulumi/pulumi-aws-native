@@ -12,6 +12,10 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AnalysisTemplateAnalysisParameter',
+    'AnalysisTemplateAnalysisSchema',
+    'AnalysisTemplateAnalysisSource',
+    'AnalysisTemplateTag',
     'CollaborationDataEncryptionMetadata',
     'CollaborationMemberSpecification',
     'CollaborationTag',
@@ -31,6 +35,110 @@ __all__ = [
     'ConfiguredTableTag',
     'MembershipTag',
 ]
+
+@pulumi.output_type
+class AnalysisTemplateAnalysisParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisTemplateAnalysisParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisTemplateAnalysisParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisTemplateAnalysisParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: 'AnalysisTemplateAnalysisParameterType',
+                 default_value: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AnalysisTemplateAnalysisParameterType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[str]:
+        return pulumi.get(self, "default_value")
+
+
+@pulumi.output_type
+class AnalysisTemplateAnalysisSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referencedTables":
+            suggest = "referenced_tables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisTemplateAnalysisSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisTemplateAnalysisSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisTemplateAnalysisSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 referenced_tables: Sequence[str]):
+        pulumi.set(__self__, "referenced_tables", referenced_tables)
+
+    @property
+    @pulumi.getter(name="referencedTables")
+    def referenced_tables(self) -> Sequence[str]:
+        return pulumi.get(self, "referenced_tables")
+
+
+@pulumi.output_type
+class AnalysisTemplateAnalysisSource(dict):
+    def __init__(__self__, *,
+                 text: str):
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class AnalysisTemplateTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class CollaborationDataEncryptionMetadata(dict):

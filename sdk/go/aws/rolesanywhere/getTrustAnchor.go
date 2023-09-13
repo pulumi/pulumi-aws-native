@@ -28,12 +28,13 @@ type LookupTrustAnchorArgs struct {
 }
 
 type LookupTrustAnchorResult struct {
-	Enabled        *bool              `pulumi:"enabled"`
-	Name           *string            `pulumi:"name"`
-	Source         *TrustAnchorSource `pulumi:"source"`
-	Tags           []TrustAnchorTag   `pulumi:"tags"`
-	TrustAnchorArn *string            `pulumi:"trustAnchorArn"`
-	TrustAnchorId  *string            `pulumi:"trustAnchorId"`
+	Enabled              *bool                            `pulumi:"enabled"`
+	Name                 *string                          `pulumi:"name"`
+	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
+	Source               *TrustAnchorSource               `pulumi:"source"`
+	Tags                 []TrustAnchorTag                 `pulumi:"tags"`
+	TrustAnchorArn       *string                          `pulumi:"trustAnchorArn"`
+	TrustAnchorId        *string                          `pulumi:"trustAnchorId"`
 }
 
 func LookupTrustAnchorOutput(ctx *pulumi.Context, args LookupTrustAnchorOutputArgs, opts ...pulumi.InvokeOption) LookupTrustAnchorResultOutput {
@@ -83,6 +84,10 @@ func (o LookupTrustAnchorResultOutput) Enabled() pulumi.BoolPtrOutput {
 
 func (o LookupTrustAnchorResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupTrustAnchorResultOutput) NotificationSettings() TrustAnchorNotificationSettingArrayOutput {
+	return o.ApplyT(func(v LookupTrustAnchorResult) []TrustAnchorNotificationSetting { return v.NotificationSettings }).(TrustAnchorNotificationSettingArrayOutput)
 }
 
 func (o LookupTrustAnchorResultOutput) Source() TrustAnchorSourcePtrOutput {

@@ -59,6 +59,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &User{}
 	case "aws-native:connect:UserHierarchyGroup":
 		r = &UserHierarchyGroup{}
+	case "aws-native:connect:View":
+		r = &View{}
+	case "aws-native:connect:ViewVersion":
+		r = &ViewVersion{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

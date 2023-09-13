@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.AutoScaling
     /// <summary>
     /// Resource Type definition for AWS::AutoScaling::AutoScalingGroup
     /// </summary>
-    [Obsolete(@"AutoScalingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:autoscaling:AutoScalingGroup")]
     public partial class AutoScalingGroup : global::Pulumi.CustomResource
     {

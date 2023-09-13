@@ -9074,6 +9074,139 @@ func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
 	}).(UserTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type ViewTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters
+	Key string `pulumi:"key"`
+	// The value for the tag. . You can specify a value that is maximum of 256 Unicode characters
+	Value string `pulumi:"value"`
+}
+
+// ViewTagInput is an input type that accepts ViewTagArgs and ViewTagOutput values.
+// You can construct a concrete instance of `ViewTagInput` via:
+//
+//	ViewTagArgs{...}
+type ViewTagInput interface {
+	pulumi.Input
+
+	ToViewTagOutput() ViewTagOutput
+	ToViewTagOutputWithContext(context.Context) ViewTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ViewTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. . You can specify a value that is maximum of 256 Unicode characters
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ViewTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewTag)(nil)).Elem()
+}
+
+func (i ViewTagArgs) ToViewTagOutput() ViewTagOutput {
+	return i.ToViewTagOutputWithContext(context.Background())
+}
+
+func (i ViewTagArgs) ToViewTagOutputWithContext(ctx context.Context) ViewTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewTagOutput)
+}
+
+func (i ViewTagArgs) ToOutput(ctx context.Context) pulumix.Output[ViewTag] {
+	return pulumix.Output[ViewTag]{
+		OutputState: i.ToViewTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ViewTagArrayInput is an input type that accepts ViewTagArray and ViewTagArrayOutput values.
+// You can construct a concrete instance of `ViewTagArrayInput` via:
+//
+//	ViewTagArray{ ViewTagArgs{...} }
+type ViewTagArrayInput interface {
+	pulumi.Input
+
+	ToViewTagArrayOutput() ViewTagArrayOutput
+	ToViewTagArrayOutputWithContext(context.Context) ViewTagArrayOutput
+}
+
+type ViewTagArray []ViewTagInput
+
+func (ViewTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ViewTag)(nil)).Elem()
+}
+
+func (i ViewTagArray) ToViewTagArrayOutput() ViewTagArrayOutput {
+	return i.ToViewTagArrayOutputWithContext(context.Background())
+}
+
+func (i ViewTagArray) ToViewTagArrayOutputWithContext(ctx context.Context) ViewTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewTagArrayOutput)
+}
+
+func (i ViewTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ViewTag] {
+	return pulumix.Output[[]ViewTag]{
+		OutputState: i.ToViewTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type ViewTagOutput struct{ *pulumi.OutputState }
+
+func (ViewTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewTag)(nil)).Elem()
+}
+
+func (o ViewTagOutput) ToViewTagOutput() ViewTagOutput {
+	return o
+}
+
+func (o ViewTagOutput) ToViewTagOutputWithContext(ctx context.Context) ViewTagOutput {
+	return o
+}
+
+func (o ViewTagOutput) ToOutput(ctx context.Context) pulumix.Output[ViewTag] {
+	return pulumix.Output[ViewTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters
+func (o ViewTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. . You can specify a value that is maximum of 256 Unicode characters
+func (o ViewTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ViewTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ViewTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ViewTag)(nil)).Elem()
+}
+
+func (o ViewTagArrayOutput) ToViewTagArrayOutput() ViewTagArrayOutput {
+	return o
+}
+
+func (o ViewTagArrayOutput) ToViewTagArrayOutputWithContext(ctx context.Context) ViewTagArrayOutput {
+	return o
+}
+
+func (o ViewTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ViewTag] {
+	return pulumix.Output[[]ViewTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ViewTagArrayOutput) Index(i pulumi.IntInput) ViewTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ViewTag {
+		return vs[0].([]ViewTag)[vs[1].(int)]
+	}).(ViewTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesPtrInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
@@ -9187,6 +9320,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigInput)(nil)).Elem(), UserPhoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagInput)(nil)).Elem(), ViewTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagArrayInput)(nil)).Elem(), ViewTagArray{})
 	pulumi.RegisterOutputType(ConstraintsPropertiesOutput{})
 	pulumi.RegisterOutputType(ConstraintsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContactFlowModuleTagOutput{})
@@ -9303,4 +9438,6 @@ func init() {
 	pulumi.RegisterOutputType(UserPhoneConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserTagOutput{})
 	pulumi.RegisterOutputType(UserTagArrayOutput{})
+	pulumi.RegisterOutputType(ViewTagOutput{})
+	pulumi.RegisterOutputType(ViewTagArrayOutput{})
 }

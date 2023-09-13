@@ -87,8 +87,16 @@ type DbInstance struct {
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
+	// The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+	DomainAuthSecretArn pulumi.StringPtrOutput `pulumi:"domainAuthSecretArn"`
+	// The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+	DomainDnsIps pulumi.StringArrayOutput `pulumi:"domainDnsIps"`
+	// The fully qualified domain name (FQDN) of an Active Directory domain.
+	DomainFqdn pulumi.StringPtrOutput `pulumi:"domainFqdn"`
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName pulumi.StringPtrOutput `pulumi:"domainIamRoleName"`
+	// The Active Directory organizational unit for your DB instance to join.
+	DomainOu pulumi.StringPtrOutput `pulumi:"domainOu"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
 	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -302,8 +310,16 @@ type dbInstanceArgs struct {
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 	Domain *string `pulumi:"domain"`
+	// The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+	DomainAuthSecretArn *string `pulumi:"domainAuthSecretArn"`
+	// The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+	DomainDnsIps []string `pulumi:"domainDnsIps"`
+	// The fully qualified domain name (FQDN) of an Active Directory domain.
+	DomainFqdn *string `pulumi:"domainFqdn"`
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
+	// The Active Directory organizational unit for your DB instance to join.
+	DomainOu *string `pulumi:"domainOu"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -463,8 +479,16 @@ type DbInstanceArgs struct {
 	DeletionProtection pulumi.BoolPtrInput
 	// The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 	Domain pulumi.StringPtrInput
+	// The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+	DomainAuthSecretArn pulumi.StringPtrInput
+	// The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+	DomainDnsIps pulumi.StringArrayInput
+	// The fully qualified domain name (FQDN) of an Active Directory domain.
+	DomainFqdn pulumi.StringPtrInput
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName pulumi.StringPtrInput
+	// The Active Directory organizational unit for your DB instance to join.
+	DomainOu pulumi.StringPtrInput
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -758,9 +782,29 @@ func (o DbInstanceOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
+// The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+func (o DbInstanceOutput) DomainAuthSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.DomainAuthSecretArn }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+func (o DbInstanceOutput) DomainDnsIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringArrayOutput { return v.DomainDnsIps }).(pulumi.StringArrayOutput)
+}
+
+// The fully qualified domain name (FQDN) of an Active Directory domain.
+func (o DbInstanceOutput) DomainFqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.DomainFqdn }).(pulumi.StringPtrOutput)
+}
+
 // Specify the name of the IAM role to be used when making API calls to the Directory Service.
 func (o DbInstanceOutput) DomainIamRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.DomainIamRoleName }).(pulumi.StringPtrOutput)
+}
+
+// The Active Directory organizational unit for your DB instance to join.
+func (o DbInstanceOutput) DomainOu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.DomainOu }).(pulumi.StringPtrOutput)
 }
 
 // The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.

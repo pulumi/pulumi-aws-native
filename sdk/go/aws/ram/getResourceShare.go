@@ -35,6 +35,7 @@ type LookupResourceShareResult struct {
 	PermissionArns          []string           `pulumi:"permissionArns"`
 	Principals              []string           `pulumi:"principals"`
 	ResourceArns            []string           `pulumi:"resourceArns"`
+	Sources                 []string           `pulumi:"sources"`
 	Tags                    []ResourceShareTag `pulumi:"tags"`
 }
 
@@ -105,6 +106,10 @@ func (o LookupResourceShareResultOutput) Principals() pulumi.StringArrayOutput {
 
 func (o LookupResourceShareResultOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupResourceShareResultOutput) Sources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupResourceShareResultOutput) Tags() ResourceShareTagArrayOutput {

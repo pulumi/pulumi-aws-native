@@ -217,11 +217,13 @@ namespace Pulumi.AwsNative.Grafana
         public static WorkspaceStatus Failed { get; } = new WorkspaceStatus("FAILED");
         public static WorkspaceStatus Updating { get; } = new WorkspaceStatus("UPDATING");
         public static WorkspaceStatus Upgrading { get; } = new WorkspaceStatus("UPGRADING");
+        public static WorkspaceStatus VersionUpdating { get; } = new WorkspaceStatus("VERSION_UPDATING");
         public static WorkspaceStatus DeletionFailed { get; } = new WorkspaceStatus("DELETION_FAILED");
         public static WorkspaceStatus CreationFailed { get; } = new WorkspaceStatus("CREATION_FAILED");
         public static WorkspaceStatus UpdateFailed { get; } = new WorkspaceStatus("UPDATE_FAILED");
         public static WorkspaceStatus UpgradeFailed { get; } = new WorkspaceStatus("UPGRADE_FAILED");
         public static WorkspaceStatus LicenseRemovalFailed { get; } = new WorkspaceStatus("LICENSE_REMOVAL_FAILED");
+        public static WorkspaceStatus VersionUpdateFailed { get; } = new WorkspaceStatus("VERSION_UPDATE_FAILED");
 
         public static bool operator ==(WorkspaceStatus left, WorkspaceStatus right) => left.Equals(right);
         public static bool operator !=(WorkspaceStatus left, WorkspaceStatus right) => !left.Equals(right);

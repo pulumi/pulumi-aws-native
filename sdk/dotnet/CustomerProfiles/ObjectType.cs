@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Output<string?> ObjectTypeName { get; private set; } = null!;
 
         /// <summary>
+        /// The format of your sourceLastUpdatedTimestamp that was previously set up.
+        /// </summary>
+        [Output("sourceLastUpdatedTimestampFormat")]
+        public Output<string?> SourceLastUpdatedTimestampFormat { get; private set; } = null!;
+
+        /// <summary>
         /// The tags (keys and values) associated with the integration.
         /// </summary>
         [Output("tags")]
@@ -196,6 +202,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         [Input("objectTypeName")]
         public Input<string>? ObjectTypeName { get; set; }
+
+        /// <summary>
+        /// The format of your sourceLastUpdatedTimestamp that was previously set up.
+        /// </summary>
+        [Input("sourceLastUpdatedTimestampFormat")]
+        public Input<string>? SourceLastUpdatedTimestampFormat { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ObjectTypeTagArgs>? _tags;

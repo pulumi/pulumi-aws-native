@@ -37,6 +37,13 @@ __all__ = [
     'TaskOptionsTransferMode',
     'TaskOptionsUid',
     'TaskOptionsVerifyMode',
+    'TaskReportConfigObjectVersionIds',
+    'TaskReportConfigOutputType',
+    'TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel',
+    'TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel',
+    'TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel',
+    'TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel',
+    'TaskReportConfigReportLevel',
     'TaskStatus',
 ]
 
@@ -320,6 +327,62 @@ class TaskOptionsVerifyMode(str, Enum):
     POINT_IN_TIME_CONSISTENT = "POINT_IN_TIME_CONSISTENT"
     ONLY_FILES_TRANSFERRED = "ONLY_FILES_TRANSFERRED"
     NONE = "NONE"
+
+
+class TaskReportConfigObjectVersionIds(str, Enum):
+    """
+    Specifies whether your task report includes the new version of each object transferred into an S3 bucket, this only applies if you enable versioning on your bucket.
+    """
+    INCLUDE = "INCLUDE"
+    NONE = "NONE"
+
+
+class TaskReportConfigOutputType(str, Enum):
+    """
+    Specifies the type of task report that you want.
+    """
+    SUMMARY_ONLY = "SUMMARY_ONLY"
+    STANDARD = "STANDARD"
+
+
+class TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel(str, Enum):
+    """
+    Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+    """
+    ERRORS_ONLY = "ERRORS_ONLY"
+    SUCCESSES_AND_ERRORS = "SUCCESSES_AND_ERRORS"
+
+
+class TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel(str, Enum):
+    """
+    Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+    """
+    ERRORS_ONLY = "ERRORS_ONLY"
+    SUCCESSES_AND_ERRORS = "SUCCESSES_AND_ERRORS"
+
+
+class TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel(str, Enum):
+    """
+    Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+    """
+    ERRORS_ONLY = "ERRORS_ONLY"
+    SUCCESSES_AND_ERRORS = "SUCCESSES_AND_ERRORS"
+
+
+class TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel(str, Enum):
+    """
+    Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+    """
+    ERRORS_ONLY = "ERRORS_ONLY"
+    SUCCESSES_AND_ERRORS = "SUCCESSES_AND_ERRORS"
+
+
+class TaskReportConfigReportLevel(str, Enum):
+    """
+    Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+    """
+    ERRORS_ONLY = "ERRORS_ONLY"
+    SUCCESSES_AND_ERRORS = "SUCCESSES_AND_ERRORS"
 
 
 class TaskStatus(str, Enum):

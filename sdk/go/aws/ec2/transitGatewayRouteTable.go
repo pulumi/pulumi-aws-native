@@ -14,13 +14,15 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::TransitGatewayRouteTable
-//
-// Deprecated: TransitGatewayRouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type TransitGatewayRouteTable struct {
 	pulumi.CustomResourceState
 
-	Tags             TransitGatewayRouteTableTagArrayOutput `pulumi:"tags"`
-	TransitGatewayId pulumi.StringOutput                    `pulumi:"transitGatewayId"`
+	// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+	Tags TransitGatewayRouteTableTagArrayOutput `pulumi:"tags"`
+	// The ID of the transit gateway.
+	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+	// Transit Gateway Route Table primary identifier
+	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
 }
 
 // NewTransitGatewayRouteTable registers a new resource with the given unique name, arguments, and options.
@@ -71,13 +73,17 @@ func (TransitGatewayRouteTableState) ElementType() reflect.Type {
 }
 
 type transitGatewayRouteTableArgs struct {
-	Tags             []TransitGatewayRouteTableTag `pulumi:"tags"`
-	TransitGatewayId string                        `pulumi:"transitGatewayId"`
+	// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+	Tags []TransitGatewayRouteTableTag `pulumi:"tags"`
+	// The ID of the transit gateway.
+	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
 
 // The set of arguments for constructing a TransitGatewayRouteTable resource.
 type TransitGatewayRouteTableArgs struct {
-	Tags             TransitGatewayRouteTableTagArrayInput
+	// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+	Tags TransitGatewayRouteTableTagArrayInput
+	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringInput
 }
 
@@ -130,12 +136,19 @@ func (o TransitGatewayRouteTableOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
+// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
 func (o TransitGatewayRouteTableOutput) Tags() TransitGatewayRouteTableTagArrayOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTable) TransitGatewayRouteTableTagArrayOutput { return v.Tags }).(TransitGatewayRouteTableTagArrayOutput)
 }
 
+// The ID of the transit gateway.
 func (o TransitGatewayRouteTableOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTable) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+// Transit Gateway Route Table primary identifier
+func (o TransitGatewayRouteTableOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTable) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
 }
 
 func init() {

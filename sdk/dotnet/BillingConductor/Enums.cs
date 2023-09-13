@@ -64,6 +64,87 @@ namespace Pulumi.AwsNative.BillingConductor
     }
 
     [EnumType]
+    public readonly struct CustomLineItemLineItemFilterAttribute : IEquatable<CustomLineItemLineItemFilterAttribute>
+    {
+        private readonly string _value;
+
+        private CustomLineItemLineItemFilterAttribute(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomLineItemLineItemFilterAttribute LineItemType { get; } = new CustomLineItemLineItemFilterAttribute("LINE_ITEM_TYPE");
+
+        public static bool operator ==(CustomLineItemLineItemFilterAttribute left, CustomLineItemLineItemFilterAttribute right) => left.Equals(right);
+        public static bool operator !=(CustomLineItemLineItemFilterAttribute left, CustomLineItemLineItemFilterAttribute right) => !left.Equals(right);
+
+        public static explicit operator string(CustomLineItemLineItemFilterAttribute value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomLineItemLineItemFilterAttribute other && Equals(other);
+        public bool Equals(CustomLineItemLineItemFilterAttribute other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CustomLineItemLineItemFilterMatchOption : IEquatable<CustomLineItemLineItemFilterMatchOption>
+    {
+        private readonly string _value;
+
+        private CustomLineItemLineItemFilterMatchOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomLineItemLineItemFilterMatchOption NotEqual { get; } = new CustomLineItemLineItemFilterMatchOption("NOT_EQUAL");
+
+        public static bool operator ==(CustomLineItemLineItemFilterMatchOption left, CustomLineItemLineItemFilterMatchOption right) => left.Equals(right);
+        public static bool operator !=(CustomLineItemLineItemFilterMatchOption left, CustomLineItemLineItemFilterMatchOption right) => !left.Equals(right);
+
+        public static explicit operator string(CustomLineItemLineItemFilterMatchOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomLineItemLineItemFilterMatchOption other && Equals(other);
+        public bool Equals(CustomLineItemLineItemFilterMatchOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CustomLineItemLineItemFilterValue : IEquatable<CustomLineItemLineItemFilterValue>
+    {
+        private readonly string _value;
+
+        private CustomLineItemLineItemFilterValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomLineItemLineItemFilterValue SavingsPlanNegation { get; } = new CustomLineItemLineItemFilterValue("SAVINGS_PLAN_NEGATION");
+
+        public static bool operator ==(CustomLineItemLineItemFilterValue left, CustomLineItemLineItemFilterValue right) => left.Equals(right);
+        public static bool operator !=(CustomLineItemLineItemFilterValue left, CustomLineItemLineItemFilterValue right) => !left.Equals(right);
+
+        public static explicit operator string(CustomLineItemLineItemFilterValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomLineItemLineItemFilterValue other && Equals(other);
+        public bool Equals(CustomLineItemLineItemFilterValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct CustomLineItemType : IEquatable<CustomLineItemType>
     {
         private readonly string _value;

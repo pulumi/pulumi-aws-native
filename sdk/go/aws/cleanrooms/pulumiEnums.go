@@ -11,6 +11,382 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+type AnalysisTemplateAnalysisParameterType string
+
+const (
+	AnalysisTemplateAnalysisParameterTypeSmallint        = AnalysisTemplateAnalysisParameterType("SMALLINT")
+	AnalysisTemplateAnalysisParameterTypeInteger         = AnalysisTemplateAnalysisParameterType("INTEGER")
+	AnalysisTemplateAnalysisParameterTypeBigint          = AnalysisTemplateAnalysisParameterType("BIGINT")
+	AnalysisTemplateAnalysisParameterTypeDecimal         = AnalysisTemplateAnalysisParameterType("DECIMAL")
+	AnalysisTemplateAnalysisParameterTypeReal            = AnalysisTemplateAnalysisParameterType("REAL")
+	AnalysisTemplateAnalysisParameterTypeDoublePrecision = AnalysisTemplateAnalysisParameterType("DOUBLE_PRECISION")
+	AnalysisTemplateAnalysisParameterTypeBoolean         = AnalysisTemplateAnalysisParameterType("BOOLEAN")
+	AnalysisTemplateAnalysisParameterTypeChar            = AnalysisTemplateAnalysisParameterType("CHAR")
+	AnalysisTemplateAnalysisParameterTypeVarchar         = AnalysisTemplateAnalysisParameterType("VARCHAR")
+	AnalysisTemplateAnalysisParameterTypeDate            = AnalysisTemplateAnalysisParameterType("DATE")
+	AnalysisTemplateAnalysisParameterTypeTimestamp       = AnalysisTemplateAnalysisParameterType("TIMESTAMP")
+	AnalysisTemplateAnalysisParameterTypeTimestamptz     = AnalysisTemplateAnalysisParameterType("TIMESTAMPTZ")
+	AnalysisTemplateAnalysisParameterTypeTime            = AnalysisTemplateAnalysisParameterType("TIME")
+	AnalysisTemplateAnalysisParameterTypeTimetz          = AnalysisTemplateAnalysisParameterType("TIMETZ")
+	AnalysisTemplateAnalysisParameterTypeVarbyte         = AnalysisTemplateAnalysisParameterType("VARBYTE")
+)
+
+func (AnalysisTemplateAnalysisParameterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisParameterType)(nil)).Elem()
+}
+
+func (e AnalysisTemplateAnalysisParameterType) ToAnalysisTemplateAnalysisParameterTypeOutput() AnalysisTemplateAnalysisParameterTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisTemplateAnalysisParameterTypeOutput)
+}
+
+func (e AnalysisTemplateAnalysisParameterType) ToAnalysisTemplateAnalysisParameterTypeOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisTemplateAnalysisParameterTypeOutput)
+}
+
+func (e AnalysisTemplateAnalysisParameterType) ToAnalysisTemplateAnalysisParameterTypePtrOutput() AnalysisTemplateAnalysisParameterTypePtrOutput {
+	return e.ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTemplateAnalysisParameterType) ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterTypePtrOutput {
+	return AnalysisTemplateAnalysisParameterType(e).ToAnalysisTemplateAnalysisParameterTypeOutputWithContext(ctx).ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisTemplateAnalysisParameterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTemplateAnalysisParameterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTemplateAnalysisParameterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTemplateAnalysisParameterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisTemplateAnalysisParameterTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateAnalysisParameterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisParameterType)(nil)).Elem()
+}
+
+func (o AnalysisTemplateAnalysisParameterTypeOutput) ToAnalysisTemplateAnalysisParameterTypeOutput() AnalysisTemplateAnalysisParameterTypeOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisParameterTypeOutput) ToAnalysisTemplateAnalysisParameterTypeOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterTypeOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisParameterTypeOutput) ToAnalysisTemplateAnalysisParameterTypePtrOutput() AnalysisTemplateAnalysisParameterTypePtrOutput {
+	return o.ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateAnalysisParameterTypeOutput) ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateAnalysisParameterType) *AnalysisTemplateAnalysisParameterType {
+		return &v
+	}).(AnalysisTemplateAnalysisParameterTypePtrOutput)
+}
+
+func (o AnalysisTemplateAnalysisParameterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisParameterType] {
+	return pulumix.Output[AnalysisTemplateAnalysisParameterType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisTemplateAnalysisParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateAnalysisParameterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTemplateAnalysisParameterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisTemplateAnalysisParameterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateAnalysisParameterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTemplateAnalysisParameterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisTemplateAnalysisParameterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateAnalysisParameterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateAnalysisParameterType)(nil)).Elem()
+}
+
+func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToAnalysisTemplateAnalysisParameterTypePtrOutput() AnalysisTemplateAnalysisParameterTypePtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterTypePtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateAnalysisParameterType] {
+	return pulumix.Output[*AnalysisTemplateAnalysisParameterType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisTemplateAnalysisParameterTypePtrOutput) Elem() AnalysisTemplateAnalysisParameterTypeOutput {
+	return o.ApplyT(func(v *AnalysisTemplateAnalysisParameterType) AnalysisTemplateAnalysisParameterType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateAnalysisParameterType
+		return ret
+	}).(AnalysisTemplateAnalysisParameterTypeOutput)
+}
+
+func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisTemplateAnalysisParameterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisTemplateAnalysisParameterTypeInput is an input type that accepts AnalysisTemplateAnalysisParameterTypeArgs and AnalysisTemplateAnalysisParameterTypeOutput values.
+// You can construct a concrete instance of `AnalysisTemplateAnalysisParameterTypeInput` via:
+//
+//	AnalysisTemplateAnalysisParameterTypeArgs{...}
+type AnalysisTemplateAnalysisParameterTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateAnalysisParameterTypeOutput() AnalysisTemplateAnalysisParameterTypeOutput
+	ToAnalysisTemplateAnalysisParameterTypeOutputWithContext(context.Context) AnalysisTemplateAnalysisParameterTypeOutput
+}
+
+var analysisTemplateAnalysisParameterTypePtrType = reflect.TypeOf((**AnalysisTemplateAnalysisParameterType)(nil)).Elem()
+
+type AnalysisTemplateAnalysisParameterTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateAnalysisParameterTypePtrOutput() AnalysisTemplateAnalysisParameterTypePtrOutput
+	ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(context.Context) AnalysisTemplateAnalysisParameterTypePtrOutput
+}
+
+type analysisTemplateAnalysisParameterTypePtr string
+
+func AnalysisTemplateAnalysisParameterTypePtr(v string) AnalysisTemplateAnalysisParameterTypePtrInput {
+	return (*analysisTemplateAnalysisParameterTypePtr)(&v)
+}
+
+func (*analysisTemplateAnalysisParameterTypePtr) ElementType() reflect.Type {
+	return analysisTemplateAnalysisParameterTypePtrType
+}
+
+func (in *analysisTemplateAnalysisParameterTypePtr) ToAnalysisTemplateAnalysisParameterTypePtrOutput() AnalysisTemplateAnalysisParameterTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisTemplateAnalysisParameterTypePtrOutput)
+}
+
+func (in *analysisTemplateAnalysisParameterTypePtr) ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTemplateAnalysisParameterTypePtrOutput)
+}
+
+func (in *analysisTemplateAnalysisParameterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateAnalysisParameterType] {
+	return pulumix.Output[*AnalysisTemplateAnalysisParameterType]{
+		OutputState: in.ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AnalysisTemplateFormat string
+
+const (
+	AnalysisTemplateFormatSql = AnalysisTemplateFormat("SQL")
+)
+
+func (AnalysisTemplateFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateFormat)(nil)).Elem()
+}
+
+func (e AnalysisTemplateFormat) ToAnalysisTemplateFormatOutput() AnalysisTemplateFormatOutput {
+	return pulumi.ToOutput(e).(AnalysisTemplateFormatOutput)
+}
+
+func (e AnalysisTemplateFormat) ToAnalysisTemplateFormatOutputWithContext(ctx context.Context) AnalysisTemplateFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisTemplateFormatOutput)
+}
+
+func (e AnalysisTemplateFormat) ToAnalysisTemplateFormatPtrOutput() AnalysisTemplateFormatPtrOutput {
+	return e.ToAnalysisTemplateFormatPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTemplateFormat) ToAnalysisTemplateFormatPtrOutputWithContext(ctx context.Context) AnalysisTemplateFormatPtrOutput {
+	return AnalysisTemplateFormat(e).ToAnalysisTemplateFormatOutputWithContext(ctx).ToAnalysisTemplateFormatPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisTemplateFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTemplateFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTemplateFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTemplateFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisTemplateFormatOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateFormat)(nil)).Elem()
+}
+
+func (o AnalysisTemplateFormatOutput) ToAnalysisTemplateFormatOutput() AnalysisTemplateFormatOutput {
+	return o
+}
+
+func (o AnalysisTemplateFormatOutput) ToAnalysisTemplateFormatOutputWithContext(ctx context.Context) AnalysisTemplateFormatOutput {
+	return o
+}
+
+func (o AnalysisTemplateFormatOutput) ToAnalysisTemplateFormatPtrOutput() AnalysisTemplateFormatPtrOutput {
+	return o.ToAnalysisTemplateFormatPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateFormatOutput) ToAnalysisTemplateFormatPtrOutputWithContext(ctx context.Context) AnalysisTemplateFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateFormat) *AnalysisTemplateFormat {
+		return &v
+	}).(AnalysisTemplateFormatPtrOutput)
+}
+
+func (o AnalysisTemplateFormatOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateFormat] {
+	return pulumix.Output[AnalysisTemplateFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisTemplateFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTemplateFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisTemplateFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTemplateFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisTemplateFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateFormat)(nil)).Elem()
+}
+
+func (o AnalysisTemplateFormatPtrOutput) ToAnalysisTemplateFormatPtrOutput() AnalysisTemplateFormatPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateFormatPtrOutput) ToAnalysisTemplateFormatPtrOutputWithContext(ctx context.Context) AnalysisTemplateFormatPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateFormat] {
+	return pulumix.Output[*AnalysisTemplateFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisTemplateFormatPtrOutput) Elem() AnalysisTemplateFormatOutput {
+	return o.ApplyT(func(v *AnalysisTemplateFormat) AnalysisTemplateFormat {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateFormat
+		return ret
+	}).(AnalysisTemplateFormatOutput)
+}
+
+func (o AnalysisTemplateFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisTemplateFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisTemplateFormatInput is an input type that accepts AnalysisTemplateFormatArgs and AnalysisTemplateFormatOutput values.
+// You can construct a concrete instance of `AnalysisTemplateFormatInput` via:
+//
+//	AnalysisTemplateFormatArgs{...}
+type AnalysisTemplateFormatInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateFormatOutput() AnalysisTemplateFormatOutput
+	ToAnalysisTemplateFormatOutputWithContext(context.Context) AnalysisTemplateFormatOutput
+}
+
+var analysisTemplateFormatPtrType = reflect.TypeOf((**AnalysisTemplateFormat)(nil)).Elem()
+
+type AnalysisTemplateFormatPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateFormatPtrOutput() AnalysisTemplateFormatPtrOutput
+	ToAnalysisTemplateFormatPtrOutputWithContext(context.Context) AnalysisTemplateFormatPtrOutput
+}
+
+type analysisTemplateFormatPtr string
+
+func AnalysisTemplateFormatPtr(v string) AnalysisTemplateFormatPtrInput {
+	return (*analysisTemplateFormatPtr)(&v)
+}
+
+func (*analysisTemplateFormatPtr) ElementType() reflect.Type {
+	return analysisTemplateFormatPtrType
+}
+
+func (in *analysisTemplateFormatPtr) ToAnalysisTemplateFormatPtrOutput() AnalysisTemplateFormatPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisTemplateFormatPtrOutput)
+}
+
+func (in *analysisTemplateFormatPtr) ToAnalysisTemplateFormatPtrOutputWithContext(ctx context.Context) AnalysisTemplateFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTemplateFormatPtrOutput)
+}
+
+func (in *analysisTemplateFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateFormat] {
+	return pulumix.Output[*AnalysisTemplateFormat]{
+		OutputState: in.ToAnalysisTemplateFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CollaborationMemberAbility string
 
 const (
@@ -1026,6 +1402,10 @@ func (in *membershipQueryLogStatusPtr) ToOutput(ctx context.Context) pulumix.Out
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterTypeInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterType("SMALLINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterTypePtrInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterType("SMALLINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateFormatInput)(nil)).Elem(), AnalysisTemplateFormat("SQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateFormatPtrInput)(nil)).Elem(), AnalysisTemplateFormat("SQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityInput)(nil)).Elem(), CollaborationMemberAbility("CAN_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityPtrInput)(nil)).Elem(), CollaborationMemberAbility("CAN_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityArrayInput)(nil)).Elem(), CollaborationMemberAbilityArray{})
@@ -1037,6 +1417,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleTypePtrInput)(nil)).Elem(), ConfiguredTableAnalysisRuleType("AGGREGATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryLogStatusInput)(nil)).Elem(), MembershipQueryLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryLogStatusPtrInput)(nil)).Elem(), MembershipQueryLogStatus("ENABLED"))
+	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateFormatOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateFormatPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityArrayOutput{})

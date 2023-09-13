@@ -736,6 +736,10 @@ class EndpointMicrosoftSqlServerSettings(dict):
             suggest = "bcp_packet_size"
         elif key == "controlTablesFileGroup":
             suggest = "control_tables_file_group"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "forceLobLookup":
+            suggest = "force_lob_lookup"
         elif key == "querySingleAlwaysOnNode":
             suggest = "query_single_always_on_node"
         elif key == "readBackupOnly":
@@ -746,6 +750,12 @@ class EndpointMicrosoftSqlServerSettings(dict):
             suggest = "secrets_manager_access_role_arn"
         elif key == "secretsManagerSecretId":
             suggest = "secrets_manager_secret_id"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "tlogAccessMode":
+            suggest = "tlog_access_mode"
+        elif key == "trimSpaceInChar":
+            suggest = "trim_space_in_char"
         elif key == "useBcpFullLoad":
             suggest = "use_bcp_full_load"
         elif key == "useThirdPartyBackupDevice":
@@ -765,17 +775,33 @@ class EndpointMicrosoftSqlServerSettings(dict):
     def __init__(__self__, *,
                  bcp_packet_size: Optional[int] = None,
                  control_tables_file_group: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 force_lob_lookup: Optional[bool] = None,
+                 password: Optional[str] = None,
+                 port: Optional[int] = None,
                  query_single_always_on_node: Optional[bool] = None,
                  read_backup_only: Optional[bool] = None,
                  safeguard_policy: Optional[str] = None,
                  secrets_manager_access_role_arn: Optional[str] = None,
                  secrets_manager_secret_id: Optional[str] = None,
+                 server_name: Optional[str] = None,
+                 tlog_access_mode: Optional[str] = None,
+                 trim_space_in_char: Optional[bool] = None,
                  use_bcp_full_load: Optional[bool] = None,
-                 use_third_party_backup_device: Optional[bool] = None):
+                 use_third_party_backup_device: Optional[bool] = None,
+                 username: Optional[str] = None):
         if bcp_packet_size is not None:
             pulumi.set(__self__, "bcp_packet_size", bcp_packet_size)
         if control_tables_file_group is not None:
             pulumi.set(__self__, "control_tables_file_group", control_tables_file_group)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if force_lob_lookup is not None:
+            pulumi.set(__self__, "force_lob_lookup", force_lob_lookup)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if query_single_always_on_node is not None:
             pulumi.set(__self__, "query_single_always_on_node", query_single_always_on_node)
         if read_backup_only is not None:
@@ -786,10 +812,18 @@ class EndpointMicrosoftSqlServerSettings(dict):
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if tlog_access_mode is not None:
+            pulumi.set(__self__, "tlog_access_mode", tlog_access_mode)
+        if trim_space_in_char is not None:
+            pulumi.set(__self__, "trim_space_in_char", trim_space_in_char)
         if use_bcp_full_load is not None:
             pulumi.set(__self__, "use_bcp_full_load", use_bcp_full_load)
         if use_third_party_backup_device is not None:
             pulumi.set(__self__, "use_third_party_backup_device", use_third_party_backup_device)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="bcpPacketSize")
@@ -800,6 +834,26 @@ class EndpointMicrosoftSqlServerSettings(dict):
     @pulumi.getter(name="controlTablesFileGroup")
     def control_tables_file_group(self) -> Optional[str]:
         return pulumi.get(self, "control_tables_file_group")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="forceLobLookup")
+    def force_lob_lookup(self) -> Optional[bool]:
+        return pulumi.get(self, "force_lob_lookup")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="querySingleAlwaysOnNode")
@@ -827,6 +881,21 @@ class EndpointMicrosoftSqlServerSettings(dict):
         return pulumi.get(self, "secrets_manager_secret_id")
 
     @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[str]:
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="tlogAccessMode")
+    def tlog_access_mode(self) -> Optional[str]:
+        return pulumi.get(self, "tlog_access_mode")
+
+    @property
+    @pulumi.getter(name="trimSpaceInChar")
+    def trim_space_in_char(self) -> Optional[bool]:
+        return pulumi.get(self, "trim_space_in_char")
+
+    @property
     @pulumi.getter(name="useBcpFullLoad")
     def use_bcp_full_load(self) -> Optional[bool]:
         return pulumi.get(self, "use_bcp_full_load")
@@ -835,6 +904,11 @@ class EndpointMicrosoftSqlServerSettings(dict):
     @pulumi.getter(name="useThirdPartyBackupDevice")
     def use_third_party_backup_device(self) -> Optional[bool]:
         return pulumi.get(self, "use_third_party_backup_device")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -1558,8 +1632,12 @@ class EndpointPostgreSqlSettings(dict):
         suggest = None
         if key == "afterConnectScript":
             suggest = "after_connect_script"
+        elif key == "babelfishDatabaseName":
+            suggest = "babelfish_database_name"
         elif key == "captureDdls":
             suggest = "capture_ddls"
+        elif key == "databaseMode":
+            suggest = "database_mode"
         elif key == "ddlArtifactsSchema":
             suggest = "ddl_artifacts_schema"
         elif key == "executeTimeout":
@@ -1598,7 +1676,9 @@ class EndpointPostgreSqlSettings(dict):
 
     def __init__(__self__, *,
                  after_connect_script: Optional[str] = None,
+                 babelfish_database_name: Optional[str] = None,
                  capture_ddls: Optional[bool] = None,
+                 database_mode: Optional[str] = None,
                  ddl_artifacts_schema: Optional[str] = None,
                  execute_timeout: Optional[int] = None,
                  fail_tasks_on_lob_truncation: Optional[bool] = None,
@@ -1613,8 +1693,12 @@ class EndpointPostgreSqlSettings(dict):
                  slot_name: Optional[str] = None):
         if after_connect_script is not None:
             pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if babelfish_database_name is not None:
+            pulumi.set(__self__, "babelfish_database_name", babelfish_database_name)
         if capture_ddls is not None:
             pulumi.set(__self__, "capture_ddls", capture_ddls)
+        if database_mode is not None:
+            pulumi.set(__self__, "database_mode", database_mode)
         if ddl_artifacts_schema is not None:
             pulumi.set(__self__, "ddl_artifacts_schema", ddl_artifacts_schema)
         if execute_timeout is not None:
@@ -1646,9 +1730,19 @@ class EndpointPostgreSqlSettings(dict):
         return pulumi.get(self, "after_connect_script")
 
     @property
+    @pulumi.getter(name="babelfishDatabaseName")
+    def babelfish_database_name(self) -> Optional[str]:
+        return pulumi.get(self, "babelfish_database_name")
+
+    @property
     @pulumi.getter(name="captureDdls")
     def capture_ddls(self) -> Optional[bool]:
         return pulumi.get(self, "capture_ddls")
+
+    @property
+    @pulumi.getter(name="databaseMode")
+    def database_mode(self) -> Optional[str]:
+        return pulumi.get(self, "database_mode")
 
     @property
     @pulumi.getter(name="ddlArtifactsSchema")

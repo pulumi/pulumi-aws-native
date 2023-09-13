@@ -28,7 +28,7 @@ type Destination struct {
 	// Unique name of destination
 	Name pulumi.StringOutput `pulumi:"name"`
 	// AWS role ARN that grants access
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// A list of key-value pairs that contain metadata for the destination.
 	Tags DestinationTagArrayOutput `pulumi:"tags"`
 }
@@ -45,9 +45,6 @@ func NewDestination(ctx *pulumi.Context,
 	}
 	if args.ExpressionType == nil {
 		return nil, errors.New("invalid value for required argument 'ExpressionType'")
-	}
-	if args.RoleArn == nil {
-		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
@@ -95,7 +92,7 @@ type destinationArgs struct {
 	// Unique name of destination
 	Name *string `pulumi:"name"`
 	// AWS role ARN that grants access
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
 	// A list of key-value pairs that contain metadata for the destination.
 	Tags []DestinationTag `pulumi:"tags"`
 }
@@ -111,7 +108,7 @@ type DestinationArgs struct {
 	// Unique name of destination
 	Name pulumi.StringPtrInput
 	// AWS role ARN that grants access
-	RoleArn pulumi.StringInput
+	RoleArn pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the destination.
 	Tags DestinationTagArrayInput
 }
@@ -191,8 +188,8 @@ func (o DestinationOutput) Name() pulumi.StringOutput {
 }
 
 // AWS role ARN that grants access
-func (o DestinationOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+func (o DestinationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // A list of key-value pairs that contain metadata for the destination.

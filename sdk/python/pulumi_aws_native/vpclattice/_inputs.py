@@ -663,48 +663,27 @@ class ServiceTagArgs:
 @pulumi.input_type
 class TargetGroupConfigArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[int],
-                 protocol: pulumi.Input['TargetGroupConfigProtocol'],
-                 vpc_identifier: pulumi.Input[str],
                  health_check: Optional[pulumi.Input['TargetGroupHealthCheckConfigArgs']] = None,
                  ip_address_type: Optional[pulumi.Input['TargetGroupConfigIpAddressType']] = None,
-                 protocol_version: Optional[pulumi.Input['TargetGroupConfigProtocolVersion']] = None):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+                 lambda_event_structure_version: Optional[pulumi.Input['TargetGroupConfigLambdaEventStructureVersion']] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input['TargetGroupConfigProtocol']] = None,
+                 protocol_version: Optional[pulumi.Input['TargetGroupConfigProtocolVersion']] = None,
+                 vpc_identifier: Optional[pulumi.Input[str]] = None):
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if lambda_event_structure_version is not None:
+            pulumi.set(__self__, "lambda_event_structure_version", lambda_event_structure_version)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
         if protocol_version is not None:
             pulumi.set(__self__, "protocol_version", protocol_version)
-
-    @property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[int]:
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[int]):
-        pulumi.set(self, "port", value)
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> pulumi.Input['TargetGroupConfigProtocol']:
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: pulumi.Input['TargetGroupConfigProtocol']):
-        pulumi.set(self, "protocol", value)
-
-    @property
-    @pulumi.getter(name="vpcIdentifier")
-    def vpc_identifier(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "vpc_identifier")
-
-    @vpc_identifier.setter
-    def vpc_identifier(self, value: pulumi.Input[str]):
-        pulumi.set(self, "vpc_identifier", value)
+        if vpc_identifier is not None:
+            pulumi.set(__self__, "vpc_identifier", vpc_identifier)
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -725,6 +704,33 @@ class TargetGroupConfigArgs:
         pulumi.set(self, "ip_address_type", value)
 
     @property
+    @pulumi.getter(name="lambdaEventStructureVersion")
+    def lambda_event_structure_version(self) -> Optional[pulumi.Input['TargetGroupConfigLambdaEventStructureVersion']]:
+        return pulumi.get(self, "lambda_event_structure_version")
+
+    @lambda_event_structure_version.setter
+    def lambda_event_structure_version(self, value: Optional[pulumi.Input['TargetGroupConfigLambdaEventStructureVersion']]):
+        pulumi.set(self, "lambda_event_structure_version", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input['TargetGroupConfigProtocol']]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input['TargetGroupConfigProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @property
     @pulumi.getter(name="protocolVersion")
     def protocol_version(self) -> Optional[pulumi.Input['TargetGroupConfigProtocolVersion']]:
         return pulumi.get(self, "protocol_version")
@@ -732,6 +738,15 @@ class TargetGroupConfigArgs:
     @protocol_version.setter
     def protocol_version(self, value: Optional[pulumi.Input['TargetGroupConfigProtocolVersion']]):
         pulumi.set(self, "protocol_version", value)
+
+    @property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vpc_identifier")
+
+    @vpc_identifier.setter
+    def vpc_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_identifier", value)
 
 
 @pulumi.input_type

@@ -16,6 +16,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly int? AudioFramesPerPes;
         public readonly string? AudioPids;
         public readonly string? EcmPid;
+        public readonly string? KlvBehavior;
+        public readonly string? KlvDataPids;
         public readonly string? NielsenId3Behavior;
         public readonly int? PatInterval;
         public readonly string? PcrControl;
@@ -38,6 +40,10 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             string? audioPids,
 
             string? ecmPid,
+
+            string? klvBehavior,
+
+            string? klvDataPids,
 
             string? nielsenId3Behavior,
 
@@ -70,6 +76,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             AudioFramesPerPes = audioFramesPerPes;
             AudioPids = audioPids;
             EcmPid = ecmPid;
+            KlvBehavior = klvBehavior;
+            KlvDataPids = klvDataPids;
             NielsenId3Behavior = nielsenId3Behavior;
             PatInterval = patInterval;
             PcrControl = pcrControl;

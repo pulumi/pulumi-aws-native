@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTaskResult:
-    def __init__(__self__, cloud_watch_log_group_arn=None, destination_network_interface_arns=None, excludes=None, includes=None, name=None, options=None, schedule=None, source_network_interface_arns=None, status=None, tags=None, task_arn=None):
+    def __init__(__self__, cloud_watch_log_group_arn=None, destination_network_interface_arns=None, excludes=None, includes=None, name=None, options=None, schedule=None, source_network_interface_arns=None, status=None, tags=None, task_arn=None, task_report_config=None):
         if cloud_watch_log_group_arn and not isinstance(cloud_watch_log_group_arn, str):
             raise TypeError("Expected argument 'cloud_watch_log_group_arn' to be a str")
         pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
@@ -54,6 +54,9 @@ class GetTaskResult:
         if task_arn and not isinstance(task_arn, str):
             raise TypeError("Expected argument 'task_arn' to be a str")
         pulumi.set(__self__, "task_arn", task_arn)
+        if task_report_config and not isinstance(task_report_config, dict):
+            raise TypeError("Expected argument 'task_report_config' to be a dict")
+        pulumi.set(__self__, "task_report_config", task_report_config)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
@@ -125,6 +128,11 @@ class GetTaskResult:
         """
         return pulumi.get(self, "task_arn")
 
+    @property
+    @pulumi.getter(name="taskReportConfig")
+    def task_report_config(self) -> Optional['outputs.TaskReportConfig']:
+        return pulumi.get(self, "task_report_config")
+
 
 class AwaitableGetTaskResult(GetTaskResult):
     # pylint: disable=using-constant-test
@@ -142,7 +150,8 @@ class AwaitableGetTaskResult(GetTaskResult):
             source_network_interface_arns=self.source_network_interface_arns,
             status=self.status,
             tags=self.tags,
-            task_arn=self.task_arn)
+            task_arn=self.task_arn,
+            task_report_config=self.task_report_config)
 
 
 def get_task(task_arn: Optional[str] = None,
@@ -169,7 +178,8 @@ def get_task(task_arn: Optional[str] = None,
         source_network_interface_arns=pulumi.get(__ret__, 'source_network_interface_arns'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
-        task_arn=pulumi.get(__ret__, 'task_arn'))
+        task_arn=pulumi.get(__ret__, 'task_arn'),
+        task_report_config=pulumi.get(__ret__, 'task_report_config'))
 
 
 @_utilities.lift_output_func(get_task)

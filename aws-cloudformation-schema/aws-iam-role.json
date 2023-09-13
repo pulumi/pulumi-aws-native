@@ -65,6 +65,7 @@
     },
     "Path" : {
       "description" : "The path to the role.",
+      "default" : "/",
       "type" : "string"
     },
     "PermissionsBoundary" : {

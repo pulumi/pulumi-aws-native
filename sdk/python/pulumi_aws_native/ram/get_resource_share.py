@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetResourceShareResult:
-    def __init__(__self__, allow_external_principals=None, arn=None, id=None, name=None, permission_arns=None, principals=None, resource_arns=None, tags=None):
+    def __init__(__self__, allow_external_principals=None, arn=None, id=None, name=None, permission_arns=None, principals=None, resource_arns=None, sources=None, tags=None):
         if allow_external_principals and not isinstance(allow_external_principals, bool):
             raise TypeError("Expected argument 'allow_external_principals' to be a bool")
         pulumi.set(__self__, "allow_external_principals", allow_external_principals)
@@ -41,6 +41,9 @@ class GetResourceShareResult:
         if resource_arns and not isinstance(resource_arns, list):
             raise TypeError("Expected argument 'resource_arns' to be a list")
         pulumi.set(__self__, "resource_arns", resource_arns)
+        if sources and not isinstance(sources, list):
+            raise TypeError("Expected argument 'sources' to be a list")
+        pulumi.set(__self__, "sources", sources)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -82,6 +85,11 @@ class GetResourceShareResult:
 
     @property
     @pulumi.getter
+    def sources(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ResourceShareTag']]:
         return pulumi.get(self, "tags")
 
@@ -99,6 +107,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
             permission_arns=self.permission_arns,
             principals=self.principals,
             resource_arns=self.resource_arns,
+            sources=self.sources,
             tags=self.tags)
 
 
@@ -120,6 +129,7 @@ def get_resource_share(id: Optional[str] = None,
         permission_arns=pulumi.get(__ret__, 'permission_arns'),
         principals=pulumi.get(__ret__, 'principals'),
         resource_arns=pulumi.get(__ret__, 'resource_arns'),
+        sources=pulumi.get(__ret__, 'sources'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

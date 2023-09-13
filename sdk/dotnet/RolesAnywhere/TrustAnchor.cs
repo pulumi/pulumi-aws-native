@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("notificationSettings")]
+        public Output<ImmutableArray<Outputs.TrustAnchorNotificationSetting>> NotificationSettings { get; private set; } = null!;
+
         [Output("source")]
         public Output<Outputs.TrustAnchorSource> Source { get; private set; } = null!;
 
@@ -83,6 +86,14 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("notificationSettings")]
+        private InputList<Inputs.TrustAnchorNotificationSettingArgs>? _notificationSettings;
+        public InputList<Inputs.TrustAnchorNotificationSettingArgs> NotificationSettings
+        {
+            get => _notificationSettings ?? (_notificationSettings = new InputList<Inputs.TrustAnchorNotificationSettingArgs>());
+            set => _notificationSettings = value;
+        }
 
         [Input("source", required: true)]
         public Input<Inputs.TrustAnchorSourceArgs> Source { get; set; } = null!;

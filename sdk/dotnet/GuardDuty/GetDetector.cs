@@ -53,10 +53,10 @@ namespace Pulumi.AwsNative.GuardDuty
     {
         public readonly Outputs.DetectorCfnDataSourceConfigurations? DataSources;
         public readonly bool? Enable;
-        public readonly ImmutableArray<Outputs.DetectorFeatureConfigurations> Features;
+        public readonly ImmutableArray<Outputs.DetectorCfnFeatureConfiguration> Features;
         public readonly string? FindingPublishingFrequency;
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.DetectorTag> Tags;
+        public readonly ImmutableArray<Outputs.DetectorTagItem> Tags;
 
         [OutputConstructor]
         private GetDetectorResult(
@@ -64,13 +64,13 @@ namespace Pulumi.AwsNative.GuardDuty
 
             bool? enable,
 
-            ImmutableArray<Outputs.DetectorFeatureConfigurations> features,
+            ImmutableArray<Outputs.DetectorCfnFeatureConfiguration> features,
 
             string? findingPublishingFrequency,
 
             string? id,
 
-            ImmutableArray<Outputs.DetectorTag> tags)
+            ImmutableArray<Outputs.DetectorTagItem> tags)
         {
             DataSources = dataSources;
             Enable = enable;

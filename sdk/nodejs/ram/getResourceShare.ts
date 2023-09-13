@@ -30,6 +30,7 @@ export interface GetResourceShareResult {
     readonly permissionArns?: string[];
     readonly principals?: string[];
     readonly resourceArns?: string[];
+    readonly sources?: string[];
     readonly tags?: outputs.ram.ResourceShareTag[];
 }
 /**

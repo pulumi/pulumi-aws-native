@@ -40,6 +40,7 @@ func NewTargetGroup(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"config.ipAddressType",
+		"config.lambdaEventStructureVersion",
 		"config.port",
 		"config.protocol",
 		"config.protocolVersion",

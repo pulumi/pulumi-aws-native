@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetTransitGatewayRouteTableArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// Transit Gateway Route Table primary identifier
+        /// </summary>
+        [Input("transitGatewayRouteTableId", required: true)]
+        public string TransitGatewayRouteTableId { get; set; } = null!;
 
         public GetTransitGatewayRouteTableArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetTransitGatewayRouteTableInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// Transit Gateway Route Table primary identifier
+        /// </summary>
+        [Input("transitGatewayRouteTableId", required: true)]
+        public Input<string> TransitGatewayRouteTableId { get; set; } = null!;
 
         public GetTransitGatewayRouteTableInvokeArgs()
         {
@@ -51,12 +57,15 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetTransitGatewayRouteTableResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// Transit Gateway Route Table primary identifier
+        /// </summary>
+        public readonly string? TransitGatewayRouteTableId;
 
         [OutputConstructor]
-        private GetTransitGatewayRouteTableResult(string? id)
+        private GetTransitGatewayRouteTableResult(string? transitGatewayRouteTableId)
         {
-            Id = id;
+            TransitGatewayRouteTableId = transitGatewayRouteTableId;
         }
     }
 }

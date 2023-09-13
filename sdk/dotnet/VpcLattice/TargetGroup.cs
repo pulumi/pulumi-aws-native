@@ -68,6 +68,7 @@ namespace Pulumi.AwsNative.VpcLattice
                 ReplaceOnChanges =
                 {
                     "config.ipAddressType",
+                    "config.lambdaEventStructureVersion",
                     "config.port",
                     "config.protocol",
                     "config.protocolVersion",

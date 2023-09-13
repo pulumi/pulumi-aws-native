@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.EmrServerless
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
+        /// </summary>
         [Output("workerTypeSpecifications")]
         public Output<Outputs.ApplicationWorkerTypeSpecificationInputMap?> WorkerTypeSpecifications { get; private set; } = null!;
 
@@ -212,6 +215,9 @@ namespace Pulumi.AwsNative.EmrServerless
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
+        /// </summary>
         [Input("workerTypeSpecifications")]
         public Input<Inputs.ApplicationWorkerTypeSpecificationInputMapArgs>? WorkerTypeSpecifications { get; set; }
 

@@ -192,6 +192,7 @@ namespace Pulumi.AwsNative.MediaTailor
 
         public static SourceLocationAccessType S3Sigv4 { get; } = new SourceLocationAccessType("S3_SIGV4");
         public static SourceLocationAccessType SecretsManagerAccessToken { get; } = new SourceLocationAccessType("SECRETS_MANAGER_ACCESS_TOKEN");
+        public static SourceLocationAccessType AutodetectSigv4 { get; } = new SourceLocationAccessType("AUTODETECT_SIGV4");
 
         public static bool operator ==(SourceLocationAccessType left, SourceLocationAccessType right) => left.Equals(right);
         public static bool operator !=(SourceLocationAccessType left, SourceLocationAccessType right) => !left.Equals(right);

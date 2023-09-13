@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("objectPath", required: true)]
         public Input<string> ObjectPath { get; set; } = null!;
 
+        [Input("paginationConfig")]
+        public Input<Inputs.FlowSapoDataPaginationConfigArgs>? PaginationConfig { get; set; }
+
+        [Input("parallelismConfig")]
+        public Input<Inputs.FlowSapoDataParallelismConfigArgs>? ParallelismConfig { get; set; }
+
         public FlowSapoDataSourcePropertiesArgs()
         {
         }

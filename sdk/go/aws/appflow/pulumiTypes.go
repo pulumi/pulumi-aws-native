@@ -15189,8 +15189,330 @@ func (o FlowSapoDataDestinationPropertiesPtrOutput) WriteOperationType() FlowWri
 	}).(FlowWriteOperationTypePtrOutput)
 }
 
+// SAP Source connector page size
+type FlowSapoDataPaginationConfig struct {
+	MaxPageSize int `pulumi:"maxPageSize"`
+}
+
+// FlowSapoDataPaginationConfigInput is an input type that accepts FlowSapoDataPaginationConfigArgs and FlowSapoDataPaginationConfigOutput values.
+// You can construct a concrete instance of `FlowSapoDataPaginationConfigInput` via:
+//
+//	FlowSapoDataPaginationConfigArgs{...}
+type FlowSapoDataPaginationConfigInput interface {
+	pulumi.Input
+
+	ToFlowSapoDataPaginationConfigOutput() FlowSapoDataPaginationConfigOutput
+	ToFlowSapoDataPaginationConfigOutputWithContext(context.Context) FlowSapoDataPaginationConfigOutput
+}
+
+// SAP Source connector page size
+type FlowSapoDataPaginationConfigArgs struct {
+	MaxPageSize pulumi.IntInput `pulumi:"maxPageSize"`
+}
+
+func (FlowSapoDataPaginationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSapoDataPaginationConfig)(nil)).Elem()
+}
+
+func (i FlowSapoDataPaginationConfigArgs) ToFlowSapoDataPaginationConfigOutput() FlowSapoDataPaginationConfigOutput {
+	return i.ToFlowSapoDataPaginationConfigOutputWithContext(context.Background())
+}
+
+func (i FlowSapoDataPaginationConfigArgs) ToFlowSapoDataPaginationConfigOutputWithContext(ctx context.Context) FlowSapoDataPaginationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataPaginationConfigOutput)
+}
+
+func (i FlowSapoDataPaginationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSapoDataPaginationConfig] {
+	return pulumix.Output[FlowSapoDataPaginationConfig]{
+		OutputState: i.ToFlowSapoDataPaginationConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FlowSapoDataPaginationConfigArgs) ToFlowSapoDataPaginationConfigPtrOutput() FlowSapoDataPaginationConfigPtrOutput {
+	return i.ToFlowSapoDataPaginationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSapoDataPaginationConfigArgs) ToFlowSapoDataPaginationConfigPtrOutputWithContext(ctx context.Context) FlowSapoDataPaginationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataPaginationConfigOutput).ToFlowSapoDataPaginationConfigPtrOutputWithContext(ctx)
+}
+
+// FlowSapoDataPaginationConfigPtrInput is an input type that accepts FlowSapoDataPaginationConfigArgs, FlowSapoDataPaginationConfigPtr and FlowSapoDataPaginationConfigPtrOutput values.
+// You can construct a concrete instance of `FlowSapoDataPaginationConfigPtrInput` via:
+//
+//	        FlowSapoDataPaginationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSapoDataPaginationConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowSapoDataPaginationConfigPtrOutput() FlowSapoDataPaginationConfigPtrOutput
+	ToFlowSapoDataPaginationConfigPtrOutputWithContext(context.Context) FlowSapoDataPaginationConfigPtrOutput
+}
+
+type flowSapoDataPaginationConfigPtrType FlowSapoDataPaginationConfigArgs
+
+func FlowSapoDataPaginationConfigPtr(v *FlowSapoDataPaginationConfigArgs) FlowSapoDataPaginationConfigPtrInput {
+	return (*flowSapoDataPaginationConfigPtrType)(v)
+}
+
+func (*flowSapoDataPaginationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSapoDataPaginationConfig)(nil)).Elem()
+}
+
+func (i *flowSapoDataPaginationConfigPtrType) ToFlowSapoDataPaginationConfigPtrOutput() FlowSapoDataPaginationConfigPtrOutput {
+	return i.ToFlowSapoDataPaginationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSapoDataPaginationConfigPtrType) ToFlowSapoDataPaginationConfigPtrOutputWithContext(ctx context.Context) FlowSapoDataPaginationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataPaginationConfigPtrOutput)
+}
+
+func (i *flowSapoDataPaginationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSapoDataPaginationConfig] {
+	return pulumix.Output[*FlowSapoDataPaginationConfig]{
+		OutputState: i.ToFlowSapoDataPaginationConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// SAP Source connector page size
+type FlowSapoDataPaginationConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowSapoDataPaginationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSapoDataPaginationConfig)(nil)).Elem()
+}
+
+func (o FlowSapoDataPaginationConfigOutput) ToFlowSapoDataPaginationConfigOutput() FlowSapoDataPaginationConfigOutput {
+	return o
+}
+
+func (o FlowSapoDataPaginationConfigOutput) ToFlowSapoDataPaginationConfigOutputWithContext(ctx context.Context) FlowSapoDataPaginationConfigOutput {
+	return o
+}
+
+func (o FlowSapoDataPaginationConfigOutput) ToFlowSapoDataPaginationConfigPtrOutput() FlowSapoDataPaginationConfigPtrOutput {
+	return o.ToFlowSapoDataPaginationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSapoDataPaginationConfigOutput) ToFlowSapoDataPaginationConfigPtrOutputWithContext(ctx context.Context) FlowSapoDataPaginationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSapoDataPaginationConfig) *FlowSapoDataPaginationConfig {
+		return &v
+	}).(FlowSapoDataPaginationConfigPtrOutput)
+}
+
+func (o FlowSapoDataPaginationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSapoDataPaginationConfig] {
+	return pulumix.Output[FlowSapoDataPaginationConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FlowSapoDataPaginationConfigOutput) MaxPageSize() pulumi.IntOutput {
+	return o.ApplyT(func(v FlowSapoDataPaginationConfig) int { return v.MaxPageSize }).(pulumi.IntOutput)
+}
+
+type FlowSapoDataPaginationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSapoDataPaginationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSapoDataPaginationConfig)(nil)).Elem()
+}
+
+func (o FlowSapoDataPaginationConfigPtrOutput) ToFlowSapoDataPaginationConfigPtrOutput() FlowSapoDataPaginationConfigPtrOutput {
+	return o
+}
+
+func (o FlowSapoDataPaginationConfigPtrOutput) ToFlowSapoDataPaginationConfigPtrOutputWithContext(ctx context.Context) FlowSapoDataPaginationConfigPtrOutput {
+	return o
+}
+
+func (o FlowSapoDataPaginationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSapoDataPaginationConfig] {
+	return pulumix.Output[*FlowSapoDataPaginationConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FlowSapoDataPaginationConfigPtrOutput) Elem() FlowSapoDataPaginationConfigOutput {
+	return o.ApplyT(func(v *FlowSapoDataPaginationConfig) FlowSapoDataPaginationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSapoDataPaginationConfig
+		return ret
+	}).(FlowSapoDataPaginationConfigOutput)
+}
+
+func (o FlowSapoDataPaginationConfigPtrOutput) MaxPageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSapoDataPaginationConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPageSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// SAP Source connector parallelism factor
+type FlowSapoDataParallelismConfig struct {
+	MaxParallelism int `pulumi:"maxParallelism"`
+}
+
+// FlowSapoDataParallelismConfigInput is an input type that accepts FlowSapoDataParallelismConfigArgs and FlowSapoDataParallelismConfigOutput values.
+// You can construct a concrete instance of `FlowSapoDataParallelismConfigInput` via:
+//
+//	FlowSapoDataParallelismConfigArgs{...}
+type FlowSapoDataParallelismConfigInput interface {
+	pulumi.Input
+
+	ToFlowSapoDataParallelismConfigOutput() FlowSapoDataParallelismConfigOutput
+	ToFlowSapoDataParallelismConfigOutputWithContext(context.Context) FlowSapoDataParallelismConfigOutput
+}
+
+// SAP Source connector parallelism factor
+type FlowSapoDataParallelismConfigArgs struct {
+	MaxParallelism pulumi.IntInput `pulumi:"maxParallelism"`
+}
+
+func (FlowSapoDataParallelismConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSapoDataParallelismConfig)(nil)).Elem()
+}
+
+func (i FlowSapoDataParallelismConfigArgs) ToFlowSapoDataParallelismConfigOutput() FlowSapoDataParallelismConfigOutput {
+	return i.ToFlowSapoDataParallelismConfigOutputWithContext(context.Background())
+}
+
+func (i FlowSapoDataParallelismConfigArgs) ToFlowSapoDataParallelismConfigOutputWithContext(ctx context.Context) FlowSapoDataParallelismConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataParallelismConfigOutput)
+}
+
+func (i FlowSapoDataParallelismConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSapoDataParallelismConfig] {
+	return pulumix.Output[FlowSapoDataParallelismConfig]{
+		OutputState: i.ToFlowSapoDataParallelismConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FlowSapoDataParallelismConfigArgs) ToFlowSapoDataParallelismConfigPtrOutput() FlowSapoDataParallelismConfigPtrOutput {
+	return i.ToFlowSapoDataParallelismConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSapoDataParallelismConfigArgs) ToFlowSapoDataParallelismConfigPtrOutputWithContext(ctx context.Context) FlowSapoDataParallelismConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataParallelismConfigOutput).ToFlowSapoDataParallelismConfigPtrOutputWithContext(ctx)
+}
+
+// FlowSapoDataParallelismConfigPtrInput is an input type that accepts FlowSapoDataParallelismConfigArgs, FlowSapoDataParallelismConfigPtr and FlowSapoDataParallelismConfigPtrOutput values.
+// You can construct a concrete instance of `FlowSapoDataParallelismConfigPtrInput` via:
+//
+//	        FlowSapoDataParallelismConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSapoDataParallelismConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowSapoDataParallelismConfigPtrOutput() FlowSapoDataParallelismConfigPtrOutput
+	ToFlowSapoDataParallelismConfigPtrOutputWithContext(context.Context) FlowSapoDataParallelismConfigPtrOutput
+}
+
+type flowSapoDataParallelismConfigPtrType FlowSapoDataParallelismConfigArgs
+
+func FlowSapoDataParallelismConfigPtr(v *FlowSapoDataParallelismConfigArgs) FlowSapoDataParallelismConfigPtrInput {
+	return (*flowSapoDataParallelismConfigPtrType)(v)
+}
+
+func (*flowSapoDataParallelismConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSapoDataParallelismConfig)(nil)).Elem()
+}
+
+func (i *flowSapoDataParallelismConfigPtrType) ToFlowSapoDataParallelismConfigPtrOutput() FlowSapoDataParallelismConfigPtrOutput {
+	return i.ToFlowSapoDataParallelismConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSapoDataParallelismConfigPtrType) ToFlowSapoDataParallelismConfigPtrOutputWithContext(ctx context.Context) FlowSapoDataParallelismConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataParallelismConfigPtrOutput)
+}
+
+func (i *flowSapoDataParallelismConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSapoDataParallelismConfig] {
+	return pulumix.Output[*FlowSapoDataParallelismConfig]{
+		OutputState: i.ToFlowSapoDataParallelismConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// SAP Source connector parallelism factor
+type FlowSapoDataParallelismConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowSapoDataParallelismConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSapoDataParallelismConfig)(nil)).Elem()
+}
+
+func (o FlowSapoDataParallelismConfigOutput) ToFlowSapoDataParallelismConfigOutput() FlowSapoDataParallelismConfigOutput {
+	return o
+}
+
+func (o FlowSapoDataParallelismConfigOutput) ToFlowSapoDataParallelismConfigOutputWithContext(ctx context.Context) FlowSapoDataParallelismConfigOutput {
+	return o
+}
+
+func (o FlowSapoDataParallelismConfigOutput) ToFlowSapoDataParallelismConfigPtrOutput() FlowSapoDataParallelismConfigPtrOutput {
+	return o.ToFlowSapoDataParallelismConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSapoDataParallelismConfigOutput) ToFlowSapoDataParallelismConfigPtrOutputWithContext(ctx context.Context) FlowSapoDataParallelismConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSapoDataParallelismConfig) *FlowSapoDataParallelismConfig {
+		return &v
+	}).(FlowSapoDataParallelismConfigPtrOutput)
+}
+
+func (o FlowSapoDataParallelismConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSapoDataParallelismConfig] {
+	return pulumix.Output[FlowSapoDataParallelismConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FlowSapoDataParallelismConfigOutput) MaxParallelism() pulumi.IntOutput {
+	return o.ApplyT(func(v FlowSapoDataParallelismConfig) int { return v.MaxParallelism }).(pulumi.IntOutput)
+}
+
+type FlowSapoDataParallelismConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSapoDataParallelismConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSapoDataParallelismConfig)(nil)).Elem()
+}
+
+func (o FlowSapoDataParallelismConfigPtrOutput) ToFlowSapoDataParallelismConfigPtrOutput() FlowSapoDataParallelismConfigPtrOutput {
+	return o
+}
+
+func (o FlowSapoDataParallelismConfigPtrOutput) ToFlowSapoDataParallelismConfigPtrOutputWithContext(ctx context.Context) FlowSapoDataParallelismConfigPtrOutput {
+	return o
+}
+
+func (o FlowSapoDataParallelismConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSapoDataParallelismConfig] {
+	return pulumix.Output[*FlowSapoDataParallelismConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FlowSapoDataParallelismConfigPtrOutput) Elem() FlowSapoDataParallelismConfigOutput {
+	return o.ApplyT(func(v *FlowSapoDataParallelismConfig) FlowSapoDataParallelismConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSapoDataParallelismConfig
+		return ret
+	}).(FlowSapoDataParallelismConfigOutput)
+}
+
+func (o FlowSapoDataParallelismConfigPtrOutput) MaxParallelism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSapoDataParallelismConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxParallelism
+	}).(pulumi.IntPtrOutput)
+}
+
 type FlowSapoDataSourceProperties struct {
-	ObjectPath string `pulumi:"objectPath"`
+	ObjectPath        string                         `pulumi:"objectPath"`
+	PaginationConfig  *FlowSapoDataPaginationConfig  `pulumi:"paginationConfig"`
+	ParallelismConfig *FlowSapoDataParallelismConfig `pulumi:"parallelismConfig"`
 }
 
 // FlowSapoDataSourcePropertiesInput is an input type that accepts FlowSapoDataSourcePropertiesArgs and FlowSapoDataSourcePropertiesOutput values.
@@ -15205,7 +15527,9 @@ type FlowSapoDataSourcePropertiesInput interface {
 }
 
 type FlowSapoDataSourcePropertiesArgs struct {
-	ObjectPath pulumi.StringInput `pulumi:"objectPath"`
+	ObjectPath        pulumi.StringInput                    `pulumi:"objectPath"`
+	PaginationConfig  FlowSapoDataPaginationConfigPtrInput  `pulumi:"paginationConfig"`
+	ParallelismConfig FlowSapoDataParallelismConfigPtrInput `pulumi:"parallelismConfig"`
 }
 
 func (FlowSapoDataSourcePropertiesArgs) ElementType() reflect.Type {
@@ -15307,6 +15631,14 @@ func (o FlowSapoDataSourcePropertiesOutput) ObjectPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSapoDataSourceProperties) string { return v.ObjectPath }).(pulumi.StringOutput)
 }
 
+func (o FlowSapoDataSourcePropertiesOutput) PaginationConfig() FlowSapoDataPaginationConfigPtrOutput {
+	return o.ApplyT(func(v FlowSapoDataSourceProperties) *FlowSapoDataPaginationConfig { return v.PaginationConfig }).(FlowSapoDataPaginationConfigPtrOutput)
+}
+
+func (o FlowSapoDataSourcePropertiesOutput) ParallelismConfig() FlowSapoDataParallelismConfigPtrOutput {
+	return o.ApplyT(func(v FlowSapoDataSourceProperties) *FlowSapoDataParallelismConfig { return v.ParallelismConfig }).(FlowSapoDataParallelismConfigPtrOutput)
+}
+
 type FlowSapoDataSourcePropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (FlowSapoDataSourcePropertiesPtrOutput) ElementType() reflect.Type {
@@ -15344,6 +15676,24 @@ func (o FlowSapoDataSourcePropertiesPtrOutput) ObjectPath() pulumi.StringPtrOutp
 		}
 		return &v.ObjectPath
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o FlowSapoDataSourcePropertiesPtrOutput) PaginationConfig() FlowSapoDataPaginationConfigPtrOutput {
+	return o.ApplyT(func(v *FlowSapoDataSourceProperties) *FlowSapoDataPaginationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PaginationConfig
+	}).(FlowSapoDataPaginationConfigPtrOutput)
+}
+
+func (o FlowSapoDataSourcePropertiesPtrOutput) ParallelismConfig() FlowSapoDataParallelismConfigPtrOutput {
+	return o.ApplyT(func(v *FlowSapoDataSourceProperties) *FlowSapoDataParallelismConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ParallelismConfig
+	}).(FlowSapoDataParallelismConfigPtrOutput)
 }
 
 // Details required for scheduled trigger type
@@ -18797,6 +19147,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSalesforceSourcePropertiesPtrInput)(nil)).Elem(), FlowSalesforceSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataDestinationPropertiesInput)(nil)).Elem(), FlowSapoDataDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataDestinationPropertiesPtrInput)(nil)).Elem(), FlowSapoDataDestinationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataPaginationConfigInput)(nil)).Elem(), FlowSapoDataPaginationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataPaginationConfigPtrInput)(nil)).Elem(), FlowSapoDataPaginationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataParallelismConfigInput)(nil)).Elem(), FlowSapoDataParallelismConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataParallelismConfigPtrInput)(nil)).Elem(), FlowSapoDataParallelismConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataSourcePropertiesInput)(nil)).Elem(), FlowSapoDataSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataSourcePropertiesPtrInput)(nil)).Elem(), FlowSapoDataSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowScheduledTriggerPropertiesInput)(nil)).Elem(), FlowScheduledTriggerPropertiesArgs{})
@@ -18989,6 +19343,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowSalesforceSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowSapoDataDestinationPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowSapoDataDestinationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowSapoDataPaginationConfigOutput{})
+	pulumi.RegisterOutputType(FlowSapoDataPaginationConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowSapoDataParallelismConfigOutput{})
+	pulumi.RegisterOutputType(FlowSapoDataParallelismConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowSapoDataSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowSapoDataSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowScheduledTriggerPropertiesOutput{})

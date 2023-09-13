@@ -47,6 +47,10 @@ export interface GetQuickConnectResult {
      */
     readonly quickConnectConfig?: outputs.connect.QuickConnectConfig;
     /**
+     * The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+     */
+    readonly quickConnectType?: enums.connect.QuickConnectType;
+    /**
      * One or more tags.
      */
     readonly tags?: outputs.connect.QuickConnectTag[];

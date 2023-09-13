@@ -150,6 +150,7 @@ __all__ = [
     'ChannelTeletextDestinationSettings',
     'ChannelTeletextSourceSettings',
     'ChannelTemporalFilterSettings',
+    'ChannelThumbnailConfiguration',
     'ChannelTimecodeBurninSettings',
     'ChannelTimecodeConfig',
     'ChannelTtmlDestinationSettings',
@@ -284,7 +285,9 @@ class ChannelAc3Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "bitstreamMode":
+        if key == "attenuationControl":
+            suggest = "attenuation_control"
+        elif key == "bitstreamMode":
             suggest = "bitstream_mode"
         elif key == "codingMode":
             suggest = "coding_mode"
@@ -307,6 +310,7 @@ class ChannelAc3Settings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 attenuation_control: Optional[str] = None,
                  bitrate: Optional[float] = None,
                  bitstream_mode: Optional[str] = None,
                  coding_mode: Optional[str] = None,
@@ -314,6 +318,8 @@ class ChannelAc3Settings(dict):
                  drc_profile: Optional[str] = None,
                  lfe_filter: Optional[str] = None,
                  metadata_control: Optional[str] = None):
+        if attenuation_control is not None:
+            pulumi.set(__self__, "attenuation_control", attenuation_control)
         if bitrate is not None:
             pulumi.set(__self__, "bitrate", bitrate)
         if bitstream_mode is not None:
@@ -328,6 +334,11 @@ class ChannelAc3Settings(dict):
             pulumi.set(__self__, "lfe_filter", lfe_filter)
         if metadata_control is not None:
             pulumi.set(__self__, "metadata_control", metadata_control)
+
+    @property
+    @pulumi.getter(name="attenuationControl")
+    def attenuation_control(self) -> Optional[str]:
+        return pulumi.get(self, "attenuation_control")
 
     @property
     @pulumi.getter
@@ -3057,6 +3068,8 @@ class ChannelEncoderSettings(dict):
             suggest = "nielsen_configuration"
         elif key == "outputGroups":
             suggest = "output_groups"
+        elif key == "thumbnailConfiguration":
+            suggest = "thumbnail_configuration"
         elif key == "timecodeConfig":
             suggest = "timecode_config"
         elif key == "videoDescriptions":
@@ -3084,6 +3097,7 @@ class ChannelEncoderSettings(dict):
                  motion_graphics_configuration: Optional['outputs.ChannelMotionGraphicsConfiguration'] = None,
                  nielsen_configuration: Optional['outputs.ChannelNielsenConfiguration'] = None,
                  output_groups: Optional[Sequence['outputs.ChannelOutputGroup']] = None,
+                 thumbnail_configuration: Optional['outputs.ChannelThumbnailConfiguration'] = None,
                  timecode_config: Optional['outputs.ChannelTimecodeConfig'] = None,
                  video_descriptions: Optional[Sequence['outputs.ChannelVideoDescription']] = None):
         if audio_descriptions is not None:
@@ -3106,6 +3120,8 @@ class ChannelEncoderSettings(dict):
             pulumi.set(__self__, "nielsen_configuration", nielsen_configuration)
         if output_groups is not None:
             pulumi.set(__self__, "output_groups", output_groups)
+        if thumbnail_configuration is not None:
+            pulumi.set(__self__, "thumbnail_configuration", thumbnail_configuration)
         if timecode_config is not None:
             pulumi.set(__self__, "timecode_config", timecode_config)
         if video_descriptions is not None:
@@ -3160,6 +3176,11 @@ class ChannelEncoderSettings(dict):
     @pulumi.getter(name="outputGroups")
     def output_groups(self) -> Optional[Sequence['outputs.ChannelOutputGroup']]:
         return pulumi.get(self, "output_groups")
+
+    @property
+    @pulumi.getter(name="thumbnailConfiguration")
+    def thumbnail_configuration(self) -> Optional['outputs.ChannelThumbnailConfiguration']:
+        return pulumi.get(self, "thumbnail_configuration")
 
     @property
     @pulumi.getter(name="timecodeConfig")
@@ -6659,6 +6680,10 @@ class ChannelM3u8Settings(dict):
             suggest = "audio_pids"
         elif key == "ecmPid":
             suggest = "ecm_pid"
+        elif key == "klvBehavior":
+            suggest = "klv_behavior"
+        elif key == "klvDataPids":
+            suggest = "klv_data_pids"
         elif key == "nielsenId3Behavior":
             suggest = "nielsen_id3_behavior"
         elif key == "patInterval":
@@ -6703,6 +6728,8 @@ class ChannelM3u8Settings(dict):
                  audio_frames_per_pes: Optional[int] = None,
                  audio_pids: Optional[str] = None,
                  ecm_pid: Optional[str] = None,
+                 klv_behavior: Optional[str] = None,
+                 klv_data_pids: Optional[str] = None,
                  nielsen_id3_behavior: Optional[str] = None,
                  pat_interval: Optional[int] = None,
                  pcr_control: Optional[str] = None,
@@ -6723,6 +6750,10 @@ class ChannelM3u8Settings(dict):
             pulumi.set(__self__, "audio_pids", audio_pids)
         if ecm_pid is not None:
             pulumi.set(__self__, "ecm_pid", ecm_pid)
+        if klv_behavior is not None:
+            pulumi.set(__self__, "klv_behavior", klv_behavior)
+        if klv_data_pids is not None:
+            pulumi.set(__self__, "klv_data_pids", klv_data_pids)
         if nielsen_id3_behavior is not None:
             pulumi.set(__self__, "nielsen_id3_behavior", nielsen_id3_behavior)
         if pat_interval is not None:
@@ -6766,6 +6797,16 @@ class ChannelM3u8Settings(dict):
     @pulumi.getter(name="ecmPid")
     def ecm_pid(self) -> Optional[str]:
         return pulumi.get(self, "ecm_pid")
+
+    @property
+    @pulumi.getter(name="klvBehavior")
+    def klv_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "klv_behavior")
+
+    @property
+    @pulumi.getter(name="klvDataPids")
+    def klv_data_pids(self) -> Optional[str]:
+        return pulumi.get(self, "klv_data_pids")
 
     @property
     @pulumi.getter(name="nielsenId3Behavior")
@@ -8349,6 +8390,8 @@ class ChannelRtmpGroupSettings(dict):
             suggest = "cache_length"
         elif key == "captionData":
             suggest = "caption_data"
+        elif key == "includeFillerNalUnits":
+            suggest = "include_filler_nal_units"
         elif key == "inputLossAction":
             suggest = "input_loss_action"
         elif key == "restartDelay":
@@ -8371,6 +8414,7 @@ class ChannelRtmpGroupSettings(dict):
                  cache_full_behavior: Optional[str] = None,
                  cache_length: Optional[int] = None,
                  caption_data: Optional[str] = None,
+                 include_filler_nal_units: Optional[str] = None,
                  input_loss_action: Optional[str] = None,
                  restart_delay: Optional[int] = None):
         if ad_markers is not None:
@@ -8383,6 +8427,8 @@ class ChannelRtmpGroupSettings(dict):
             pulumi.set(__self__, "cache_length", cache_length)
         if caption_data is not None:
             pulumi.set(__self__, "caption_data", caption_data)
+        if include_filler_nal_units is not None:
+            pulumi.set(__self__, "include_filler_nal_units", include_filler_nal_units)
         if input_loss_action is not None:
             pulumi.set(__self__, "input_loss_action", input_loss_action)
         if restart_delay is not None:
@@ -8412,6 +8458,11 @@ class ChannelRtmpGroupSettings(dict):
     @pulumi.getter(name="captionData")
     def caption_data(self) -> Optional[str]:
         return pulumi.get(self, "caption_data")
+
+    @property
+    @pulumi.getter(name="includeFillerNalUnits")
+    def include_filler_nal_units(self) -> Optional[str]:
+        return pulumi.get(self, "include_filler_nal_units")
 
     @property
     @pulumi.getter(name="inputLossAction")
@@ -8840,6 +8891,19 @@ class ChannelTemporalFilterSettings(dict):
     @pulumi.getter
     def strength(self) -> Optional[str]:
         return pulumi.get(self, "strength")
+
+
+@pulumi.output_type
+class ChannelThumbnailConfiguration(dict):
+    def __init__(__self__, *,
+                 state: Optional[str] = None):
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

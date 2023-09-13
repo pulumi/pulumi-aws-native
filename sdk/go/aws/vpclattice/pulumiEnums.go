@@ -1345,6 +1345,188 @@ func (in *targetGroupConfigIpAddressTypePtr) ToOutput(ctx context.Context) pulum
 	}
 }
 
+type TargetGroupConfigLambdaEventStructureVersion string
+
+const (
+	TargetGroupConfigLambdaEventStructureVersionV1 = TargetGroupConfigLambdaEventStructureVersion("V1")
+	TargetGroupConfigLambdaEventStructureVersionV2 = TargetGroupConfigLambdaEventStructureVersion("V2")
+)
+
+func (TargetGroupConfigLambdaEventStructureVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupConfigLambdaEventStructureVersion)(nil)).Elem()
+}
+
+func (e TargetGroupConfigLambdaEventStructureVersion) ToTargetGroupConfigLambdaEventStructureVersionOutput() TargetGroupConfigLambdaEventStructureVersionOutput {
+	return pulumi.ToOutput(e).(TargetGroupConfigLambdaEventStructureVersionOutput)
+}
+
+func (e TargetGroupConfigLambdaEventStructureVersion) ToTargetGroupConfigLambdaEventStructureVersionOutputWithContext(ctx context.Context) TargetGroupConfigLambdaEventStructureVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TargetGroupConfigLambdaEventStructureVersionOutput)
+}
+
+func (e TargetGroupConfigLambdaEventStructureVersion) ToTargetGroupConfigLambdaEventStructureVersionPtrOutput() TargetGroupConfigLambdaEventStructureVersionPtrOutput {
+	return e.ToTargetGroupConfigLambdaEventStructureVersionPtrOutputWithContext(context.Background())
+}
+
+func (e TargetGroupConfigLambdaEventStructureVersion) ToTargetGroupConfigLambdaEventStructureVersionPtrOutputWithContext(ctx context.Context) TargetGroupConfigLambdaEventStructureVersionPtrOutput {
+	return TargetGroupConfigLambdaEventStructureVersion(e).ToTargetGroupConfigLambdaEventStructureVersionOutputWithContext(ctx).ToTargetGroupConfigLambdaEventStructureVersionPtrOutputWithContext(ctx)
+}
+
+func (e TargetGroupConfigLambdaEventStructureVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TargetGroupConfigLambdaEventStructureVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TargetGroupConfigLambdaEventStructureVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TargetGroupConfigLambdaEventStructureVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TargetGroupConfigLambdaEventStructureVersionOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupConfigLambdaEventStructureVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupConfigLambdaEventStructureVersion)(nil)).Elem()
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToTargetGroupConfigLambdaEventStructureVersionOutput() TargetGroupConfigLambdaEventStructureVersionOutput {
+	return o
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToTargetGroupConfigLambdaEventStructureVersionOutputWithContext(ctx context.Context) TargetGroupConfigLambdaEventStructureVersionOutput {
+	return o
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToTargetGroupConfigLambdaEventStructureVersionPtrOutput() TargetGroupConfigLambdaEventStructureVersionPtrOutput {
+	return o.ToTargetGroupConfigLambdaEventStructureVersionPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToTargetGroupConfigLambdaEventStructureVersionPtrOutputWithContext(ctx context.Context) TargetGroupConfigLambdaEventStructureVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupConfigLambdaEventStructureVersion) *TargetGroupConfigLambdaEventStructureVersion {
+		return &v
+	}).(TargetGroupConfigLambdaEventStructureVersionPtrOutput)
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigLambdaEventStructureVersion] {
+	return pulumix.Output[TargetGroupConfigLambdaEventStructureVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TargetGroupConfigLambdaEventStructureVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TargetGroupConfigLambdaEventStructureVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupConfigLambdaEventStructureVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupConfigLambdaEventStructureVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupConfigLambdaEventStructureVersion)(nil)).Elem()
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionPtrOutput) ToTargetGroupConfigLambdaEventStructureVersionPtrOutput() TargetGroupConfigLambdaEventStructureVersionPtrOutput {
+	return o
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionPtrOutput) ToTargetGroupConfigLambdaEventStructureVersionPtrOutputWithContext(ctx context.Context) TargetGroupConfigLambdaEventStructureVersionPtrOutput {
+	return o
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigLambdaEventStructureVersion] {
+	return pulumix.Output[*TargetGroupConfigLambdaEventStructureVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionPtrOutput) Elem() TargetGroupConfigLambdaEventStructureVersionOutput {
+	return o.ApplyT(func(v *TargetGroupConfigLambdaEventStructureVersion) TargetGroupConfigLambdaEventStructureVersion {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupConfigLambdaEventStructureVersion
+		return ret
+	}).(TargetGroupConfigLambdaEventStructureVersionOutput)
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupConfigLambdaEventStructureVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TargetGroupConfigLambdaEventStructureVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TargetGroupConfigLambdaEventStructureVersionInput is an input type that accepts TargetGroupConfigLambdaEventStructureVersionArgs and TargetGroupConfigLambdaEventStructureVersionOutput values.
+// You can construct a concrete instance of `TargetGroupConfigLambdaEventStructureVersionInput` via:
+//
+//	TargetGroupConfigLambdaEventStructureVersionArgs{...}
+type TargetGroupConfigLambdaEventStructureVersionInput interface {
+	pulumi.Input
+
+	ToTargetGroupConfigLambdaEventStructureVersionOutput() TargetGroupConfigLambdaEventStructureVersionOutput
+	ToTargetGroupConfigLambdaEventStructureVersionOutputWithContext(context.Context) TargetGroupConfigLambdaEventStructureVersionOutput
+}
+
+var targetGroupConfigLambdaEventStructureVersionPtrType = reflect.TypeOf((**TargetGroupConfigLambdaEventStructureVersion)(nil)).Elem()
+
+type TargetGroupConfigLambdaEventStructureVersionPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupConfigLambdaEventStructureVersionPtrOutput() TargetGroupConfigLambdaEventStructureVersionPtrOutput
+	ToTargetGroupConfigLambdaEventStructureVersionPtrOutputWithContext(context.Context) TargetGroupConfigLambdaEventStructureVersionPtrOutput
+}
+
+type targetGroupConfigLambdaEventStructureVersionPtr string
+
+func TargetGroupConfigLambdaEventStructureVersionPtr(v string) TargetGroupConfigLambdaEventStructureVersionPtrInput {
+	return (*targetGroupConfigLambdaEventStructureVersionPtr)(&v)
+}
+
+func (*targetGroupConfigLambdaEventStructureVersionPtr) ElementType() reflect.Type {
+	return targetGroupConfigLambdaEventStructureVersionPtrType
+}
+
+func (in *targetGroupConfigLambdaEventStructureVersionPtr) ToTargetGroupConfigLambdaEventStructureVersionPtrOutput() TargetGroupConfigLambdaEventStructureVersionPtrOutput {
+	return pulumi.ToOutput(in).(TargetGroupConfigLambdaEventStructureVersionPtrOutput)
+}
+
+func (in *targetGroupConfigLambdaEventStructureVersionPtr) ToTargetGroupConfigLambdaEventStructureVersionPtrOutputWithContext(ctx context.Context) TargetGroupConfigLambdaEventStructureVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigLambdaEventStructureVersionPtrOutput)
+}
+
+func (in *targetGroupConfigLambdaEventStructureVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigLambdaEventStructureVersion] {
+	return pulumix.Output[*TargetGroupConfigLambdaEventStructureVersion]{
+		OutputState: in.ToTargetGroupConfigLambdaEventStructureVersionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TargetGroupConfigProtocol string
 
 const (
@@ -1897,6 +2079,7 @@ type TargetGroupHealthCheckConfigProtocolVersion string
 const (
 	TargetGroupHealthCheckConfigProtocolVersionHttp1 = TargetGroupHealthCheckConfigProtocolVersion("HTTP1")
 	TargetGroupHealthCheckConfigProtocolVersionHttp2 = TargetGroupHealthCheckConfigProtocolVersion("HTTP2")
+	TargetGroupHealthCheckConfigProtocolVersionGrpc  = TargetGroupHealthCheckConfigProtocolVersion("GRPC")
 )
 
 func (TargetGroupHealthCheckConfigProtocolVersion) ElementType() reflect.Type {
@@ -2374,6 +2557,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAuthTypePtrInput)(nil)).Elem(), ServiceNetworkAuthType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigIpAddressTypeInput)(nil)).Elem(), TargetGroupConfigIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigIpAddressTypePtrInput)(nil)).Elem(), TargetGroupConfigIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigLambdaEventStructureVersionInput)(nil)).Elem(), TargetGroupConfigLambdaEventStructureVersion("V1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigLambdaEventStructureVersionPtrInput)(nil)).Elem(), TargetGroupConfigLambdaEventStructureVersion("V1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigProtocolInput)(nil)).Elem(), TargetGroupConfigProtocol("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigProtocolPtrInput)(nil)).Elem(), TargetGroupConfigProtocol("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigProtocolVersionInput)(nil)).Elem(), TargetGroupConfigProtocolVersion("HTTP1"))
@@ -2402,6 +2587,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceStatusPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigIpAddressTypeOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigIpAddressTypePtrOutput{})
+	pulumi.RegisterOutputType(TargetGroupConfigLambdaEventStructureVersionOutput{})
+	pulumi.RegisterOutputType(TargetGroupConfigLambdaEventStructureVersionPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigProtocolOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigProtocolPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigProtocolVersionOutput{})

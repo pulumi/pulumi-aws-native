@@ -24,11 +24,13 @@ func LookupTransitGatewayRouteTable(ctx *pulumi.Context, args *LookupTransitGate
 }
 
 type LookupTransitGatewayRouteTableArgs struct {
-	Id string `pulumi:"id"`
+	// Transit Gateway Route Table primary identifier
+	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
 
 type LookupTransitGatewayRouteTableResult struct {
-	Id *string `pulumi:"id"`
+	// Transit Gateway Route Table primary identifier
+	TransitGatewayRouteTableId *string `pulumi:"transitGatewayRouteTableId"`
 }
 
 func LookupTransitGatewayRouteTableOutput(ctx *pulumi.Context, args LookupTransitGatewayRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayRouteTableResultOutput {
@@ -45,7 +47,8 @@ func LookupTransitGatewayRouteTableOutput(ctx *pulumi.Context, args LookupTransi
 }
 
 type LookupTransitGatewayRouteTableOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// Transit Gateway Route Table primary identifier
+	TransitGatewayRouteTableId pulumi.StringInput `pulumi:"transitGatewayRouteTableId"`
 }
 
 func (LookupTransitGatewayRouteTableOutputArgs) ElementType() reflect.Type {
@@ -72,8 +75,9 @@ func (o LookupTransitGatewayRouteTableResultOutput) ToOutput(ctx context.Context
 	}
 }
 
-func (o LookupTransitGatewayRouteTableResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTransitGatewayRouteTableResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// Transit Gateway Route Table primary identifier
+func (o LookupTransitGatewayRouteTableResultOutput) TransitGatewayRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTransitGatewayRouteTableResult) *string { return v.TransitGatewayRouteTableId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

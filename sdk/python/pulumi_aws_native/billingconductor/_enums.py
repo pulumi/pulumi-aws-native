@@ -7,6 +7,9 @@ from enum import Enum
 __all__ = [
     'BillingGroupStatus',
     'CustomLineItemCurrencyCode',
+    'CustomLineItemLineItemFilterAttribute',
+    'CustomLineItemLineItemFilterMatchOption',
+    'CustomLineItemLineItemFilterValue',
     'CustomLineItemType',
     'PricingRuleBillingEntity',
     'PricingRuleScope',
@@ -22,6 +25,18 @@ class BillingGroupStatus(str, Enum):
 class CustomLineItemCurrencyCode(str, Enum):
     USD = "USD"
     CNY = "CNY"
+
+
+class CustomLineItemLineItemFilterAttribute(str, Enum):
+    LINE_ITEM_TYPE = "LINE_ITEM_TYPE"
+
+
+class CustomLineItemLineItemFilterMatchOption(str, Enum):
+    NOT_EQUAL = "NOT_EQUAL"
+
+
+class CustomLineItemLineItemFilterValue(str, Enum):
+    SAVINGS_PLAN_NEGATION = "SAVINGS_PLAN_NEGATION"
 
 
 class CustomLineItemType(str, Enum):

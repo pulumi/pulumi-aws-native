@@ -21,6 +21,7 @@ class ResourceShareArgs:
                  permission_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceShareTagArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceShare resource.
@@ -35,6 +36,8 @@ class ResourceShareArgs:
             pulumi.set(__self__, "principals", principals)
         if resource_arns is not None:
             pulumi.set(__self__, "resource_arns", resource_arns)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -85,6 +88,15 @@ class ResourceShareArgs:
 
     @property
     @pulumi.getter
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "sources")
+
+    @sources.setter
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "sources", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceShareTagArgs']]]]:
         return pulumi.get(self, "tags")
 
@@ -108,6 +120,7 @@ class ResourceShare(pulumi.CustomResource):
                  permission_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceShareTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -145,6 +158,7 @@ class ResourceShare(pulumi.CustomResource):
                  permission_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceShareTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""ResourceShare is deprecated: ResourceShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -161,6 +175,7 @@ class ResourceShare(pulumi.CustomResource):
             __props__.__dict__["permission_arns"] = permission_arns
             __props__.__dict__["principals"] = principals
             __props__.__dict__["resource_arns"] = resource_arns
+            __props__.__dict__["sources"] = sources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(ResourceShare, __self__).__init__(
@@ -191,6 +206,7 @@ class ResourceShare(pulumi.CustomResource):
         __props__.__dict__["permission_arns"] = None
         __props__.__dict__["principals"] = None
         __props__.__dict__["resource_arns"] = None
+        __props__.__dict__["sources"] = None
         __props__.__dict__["tags"] = None
         return ResourceShare(resource_name, opts=opts, __props__=__props__)
 
@@ -223,6 +239,11 @@ class ResourceShare(pulumi.CustomResource):
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "resource_arns")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "sources")
 
     @property
     @pulumi.getter

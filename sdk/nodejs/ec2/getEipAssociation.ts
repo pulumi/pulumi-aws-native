@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::EIPAssociation
+ * Resource schema for EC2 EIP association.
  */
 export function getEipAssociation(args: GetEipAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetEipAssociationResult> {
 
@@ -16,24 +16,28 @@ export function getEipAssociation(args: GetEipAssociationArgs, opts?: pulumi.Inv
 }
 
 export interface GetEipAssociationArgs {
+    /**
+     * Composite ID of non-empty properties, to determine the identification.
+     */
     id: string;
 }
 
 export interface GetEipAssociationResult {
-    readonly allocationId?: string;
-    readonly eip?: string;
+    /**
+     * Composite ID of non-empty properties, to determine the identification.
+     */
     readonly id?: string;
-    readonly instanceId?: string;
-    readonly networkInterfaceId?: string;
-    readonly privateIpAddress?: string;
 }
 /**
- * Resource Type definition for AWS::EC2::EIPAssociation
+ * Resource schema for EC2 EIP association.
  */
 export function getEipAssociationOutput(args: GetEipAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEipAssociationResult> {
     return pulumi.output(args).apply((a: any) => getEipAssociation(a, opts))
 }
 
 export interface GetEipAssociationOutputArgs {
+    /**
+     * Composite ID of non-empty properties, to determine the identification.
+     */
     id: pulumi.Input<string>;
 }

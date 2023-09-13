@@ -17,12 +17,13 @@ import (
 type TrustAnchor struct {
 	pulumi.CustomResourceState
 
-	Enabled        pulumi.BoolPtrOutput      `pulumi:"enabled"`
-	Name           pulumi.StringOutput       `pulumi:"name"`
-	Source         TrustAnchorSourceOutput   `pulumi:"source"`
-	Tags           TrustAnchorTagArrayOutput `pulumi:"tags"`
-	TrustAnchorArn pulumi.StringOutput       `pulumi:"trustAnchorArn"`
-	TrustAnchorId  pulumi.StringOutput       `pulumi:"trustAnchorId"`
+	Enabled              pulumi.BoolPtrOutput                      `pulumi:"enabled"`
+	Name                 pulumi.StringOutput                       `pulumi:"name"`
+	NotificationSettings TrustAnchorNotificationSettingArrayOutput `pulumi:"notificationSettings"`
+	Source               TrustAnchorSourceOutput                   `pulumi:"source"`
+	Tags                 TrustAnchorTagArrayOutput                 `pulumi:"tags"`
+	TrustAnchorArn       pulumi.StringOutput                       `pulumi:"trustAnchorArn"`
+	TrustAnchorId        pulumi.StringOutput                       `pulumi:"trustAnchorId"`
 }
 
 // NewTrustAnchor registers a new resource with the given unique name, arguments, and options.
@@ -68,18 +69,20 @@ func (TrustAnchorState) ElementType() reflect.Type {
 }
 
 type trustAnchorArgs struct {
-	Enabled *bool             `pulumi:"enabled"`
-	Name    *string           `pulumi:"name"`
-	Source  TrustAnchorSource `pulumi:"source"`
-	Tags    []TrustAnchorTag  `pulumi:"tags"`
+	Enabled              *bool                            `pulumi:"enabled"`
+	Name                 *string                          `pulumi:"name"`
+	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
+	Source               TrustAnchorSource                `pulumi:"source"`
+	Tags                 []TrustAnchorTag                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrustAnchor resource.
 type TrustAnchorArgs struct {
-	Enabled pulumi.BoolPtrInput
-	Name    pulumi.StringPtrInput
-	Source  TrustAnchorSourceInput
-	Tags    TrustAnchorTagArrayInput
+	Enabled              pulumi.BoolPtrInput
+	Name                 pulumi.StringPtrInput
+	NotificationSettings TrustAnchorNotificationSettingArrayInput
+	Source               TrustAnchorSourceInput
+	Tags                 TrustAnchorTagArrayInput
 }
 
 func (TrustAnchorArgs) ElementType() reflect.Type {
@@ -137,6 +140,10 @@ func (o TrustAnchorOutput) Enabled() pulumi.BoolPtrOutput {
 
 func (o TrustAnchorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o TrustAnchorOutput) NotificationSettings() TrustAnchorNotificationSettingArrayOutput {
+	return o.ApplyT(func(v *TrustAnchor) TrustAnchorNotificationSettingArrayOutput { return v.NotificationSettings }).(TrustAnchorNotificationSettingArrayOutput)
 }
 
 func (o TrustAnchorOutput) Source() TrustAnchorSourceOutput {

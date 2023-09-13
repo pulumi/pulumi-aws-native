@@ -17,6 +17,7 @@ __all__ = [
     'CustomLineItemBillingPeriodRangeArgs',
     'CustomLineItemChargeDetailsArgs',
     'CustomLineItemFlatChargeDetailsArgs',
+    'CustomLineItemLineItemFilterArgs',
     'CustomLineItemPercentageChargeDetailsArgs',
     'CustomLineItemTagArgs',
     'PricingPlanTagArgs',
@@ -136,10 +137,13 @@ class CustomLineItemChargeDetailsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['CustomLineItemType'],
                  flat: Optional[pulumi.Input['CustomLineItemFlatChargeDetailsArgs']] = None,
+                 line_item_filters: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemLineItemFilterArgs']]]] = None,
                  percentage: Optional[pulumi.Input['CustomLineItemPercentageChargeDetailsArgs']] = None):
         pulumi.set(__self__, "type", type)
         if flat is not None:
             pulumi.set(__self__, "flat", flat)
+        if line_item_filters is not None:
+            pulumi.set(__self__, "line_item_filters", line_item_filters)
         if percentage is not None:
             pulumi.set(__self__, "percentage", percentage)
 
@@ -160,6 +164,15 @@ class CustomLineItemChargeDetailsArgs:
     @flat.setter
     def flat(self, value: Optional[pulumi.Input['CustomLineItemFlatChargeDetailsArgs']]):
         pulumi.set(self, "flat", value)
+
+    @property
+    @pulumi.getter(name="lineItemFilters")
+    def line_item_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemLineItemFilterArgs']]]]:
+        return pulumi.get(self, "line_item_filters")
+
+    @line_item_filters.setter
+    def line_item_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemLineItemFilterArgs']]]]):
+        pulumi.set(self, "line_item_filters", value)
 
     @property
     @pulumi.getter
@@ -185,6 +198,44 @@ class CustomLineItemFlatChargeDetailsArgs:
     @charge_value.setter
     def charge_value(self, value: pulumi.Input[float]):
         pulumi.set(self, "charge_value", value)
+
+
+@pulumi.input_type
+class CustomLineItemLineItemFilterArgs:
+    def __init__(__self__, *,
+                 attribute: pulumi.Input['CustomLineItemLineItemFilterAttribute'],
+                 match_option: pulumi.Input['CustomLineItemLineItemFilterMatchOption'],
+                 values: pulumi.Input[Sequence[pulumi.Input['CustomLineItemLineItemFilterValue']]]):
+        pulumi.set(__self__, "attribute", attribute)
+        pulumi.set(__self__, "match_option", match_option)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> pulumi.Input['CustomLineItemLineItemFilterAttribute']:
+        return pulumi.get(self, "attribute")
+
+    @attribute.setter
+    def attribute(self, value: pulumi.Input['CustomLineItemLineItemFilterAttribute']):
+        pulumi.set(self, "attribute", value)
+
+    @property
+    @pulumi.getter(name="matchOption")
+    def match_option(self) -> pulumi.Input['CustomLineItemLineItemFilterMatchOption']:
+        return pulumi.get(self, "match_option")
+
+    @match_option.setter
+    def match_option(self, value: pulumi.Input['CustomLineItemLineItemFilterMatchOption']):
+        pulumi.set(self, "match_option", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input['CustomLineItemLineItemFilterValue']]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input['CustomLineItemLineItemFilterValue']]]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type

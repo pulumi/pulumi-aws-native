@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:cleanrooms:AnalysisTemplate":
+		r = &AnalysisTemplate{}
 	case "aws-native:cleanrooms:Collaboration":
 		r = &Collaboration{}
 	case "aws-native:cleanrooms:ConfiguredTable":

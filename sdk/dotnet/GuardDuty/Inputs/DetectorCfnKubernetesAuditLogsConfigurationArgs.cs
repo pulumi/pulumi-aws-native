@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
 
     public sealed class DetectorCfnKubernetesAuditLogsConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("enable")]
-        public Input<bool>? Enable { get; set; }
+        [Input("enable", required: true)]
+        public Input<bool> Enable { get; set; } = null!;
 
         public DetectorCfnKubernetesAuditLogsConfigurationArgs()
         {

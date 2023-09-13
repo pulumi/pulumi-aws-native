@@ -14,6 +14,388 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AnalysisTemplateAnalysisParameter struct {
+	DefaultValue *string                               `pulumi:"defaultValue"`
+	Name         string                                `pulumi:"name"`
+	Type         AnalysisTemplateAnalysisParameterType `pulumi:"type"`
+}
+
+// AnalysisTemplateAnalysisParameterInput is an input type that accepts AnalysisTemplateAnalysisParameterArgs and AnalysisTemplateAnalysisParameterOutput values.
+// You can construct a concrete instance of `AnalysisTemplateAnalysisParameterInput` via:
+//
+//	AnalysisTemplateAnalysisParameterArgs{...}
+type AnalysisTemplateAnalysisParameterInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateAnalysisParameterOutput() AnalysisTemplateAnalysisParameterOutput
+	ToAnalysisTemplateAnalysisParameterOutputWithContext(context.Context) AnalysisTemplateAnalysisParameterOutput
+}
+
+type AnalysisTemplateAnalysisParameterArgs struct {
+	DefaultValue pulumi.StringPtrInput                      `pulumi:"defaultValue"`
+	Name         pulumi.StringInput                         `pulumi:"name"`
+	Type         AnalysisTemplateAnalysisParameterTypeInput `pulumi:"type"`
+}
+
+func (AnalysisTemplateAnalysisParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisParameter)(nil)).Elem()
+}
+
+func (i AnalysisTemplateAnalysisParameterArgs) ToAnalysisTemplateAnalysisParameterOutput() AnalysisTemplateAnalysisParameterOutput {
+	return i.ToAnalysisTemplateAnalysisParameterOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateAnalysisParameterArgs) ToAnalysisTemplateAnalysisParameterOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisParameterOutput)
+}
+
+func (i AnalysisTemplateAnalysisParameterArgs) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisParameter] {
+	return pulumix.Output[AnalysisTemplateAnalysisParameter]{
+		OutputState: i.ToAnalysisTemplateAnalysisParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AnalysisTemplateAnalysisParameterArrayInput is an input type that accepts AnalysisTemplateAnalysisParameterArray and AnalysisTemplateAnalysisParameterArrayOutput values.
+// You can construct a concrete instance of `AnalysisTemplateAnalysisParameterArrayInput` via:
+//
+//	AnalysisTemplateAnalysisParameterArray{ AnalysisTemplateAnalysisParameterArgs{...} }
+type AnalysisTemplateAnalysisParameterArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateAnalysisParameterArrayOutput() AnalysisTemplateAnalysisParameterArrayOutput
+	ToAnalysisTemplateAnalysisParameterArrayOutputWithContext(context.Context) AnalysisTemplateAnalysisParameterArrayOutput
+}
+
+type AnalysisTemplateAnalysisParameterArray []AnalysisTemplateAnalysisParameterInput
+
+func (AnalysisTemplateAnalysisParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTemplateAnalysisParameter)(nil)).Elem()
+}
+
+func (i AnalysisTemplateAnalysisParameterArray) ToAnalysisTemplateAnalysisParameterArrayOutput() AnalysisTemplateAnalysisParameterArrayOutput {
+	return i.ToAnalysisTemplateAnalysisParameterArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateAnalysisParameterArray) ToAnalysisTemplateAnalysisParameterArrayOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisParameterArrayOutput)
+}
+
+func (i AnalysisTemplateAnalysisParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]AnalysisTemplateAnalysisParameter] {
+	return pulumix.Output[[]AnalysisTemplateAnalysisParameter]{
+		OutputState: i.ToAnalysisTemplateAnalysisParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AnalysisTemplateAnalysisParameterOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateAnalysisParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisParameter)(nil)).Elem()
+}
+
+func (o AnalysisTemplateAnalysisParameterOutput) ToAnalysisTemplateAnalysisParameterOutput() AnalysisTemplateAnalysisParameterOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisParameterOutput) ToAnalysisTemplateAnalysisParameterOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisParameterOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisParameter] {
+	return pulumix.Output[AnalysisTemplateAnalysisParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisTemplateAnalysisParameterOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisTemplateAnalysisParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisTemplateAnalysisParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTemplateAnalysisParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AnalysisTemplateAnalysisParameterOutput) Type() AnalysisTemplateAnalysisParameterTypeOutput {
+	return o.ApplyT(func(v AnalysisTemplateAnalysisParameter) AnalysisTemplateAnalysisParameterType { return v.Type }).(AnalysisTemplateAnalysisParameterTypeOutput)
+}
+
+type AnalysisTemplateAnalysisParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateAnalysisParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTemplateAnalysisParameter)(nil)).Elem()
+}
+
+func (o AnalysisTemplateAnalysisParameterArrayOutput) ToAnalysisTemplateAnalysisParameterArrayOutput() AnalysisTemplateAnalysisParameterArrayOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisParameterArrayOutput) ToAnalysisTemplateAnalysisParameterArrayOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterArrayOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnalysisTemplateAnalysisParameter] {
+	return pulumix.Output[[]AnalysisTemplateAnalysisParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisTemplateAnalysisParameterArrayOutput) Index(i pulumi.IntInput) AnalysisTemplateAnalysisParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisTemplateAnalysisParameter {
+		return vs[0].([]AnalysisTemplateAnalysisParameter)[vs[1].(int)]
+	}).(AnalysisTemplateAnalysisParameterOutput)
+}
+
+type AnalysisTemplateAnalysisSchema struct {
+	ReferencedTables []string `pulumi:"referencedTables"`
+}
+
+type AnalysisTemplateAnalysisSchemaOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateAnalysisSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisSchema)(nil)).Elem()
+}
+
+func (o AnalysisTemplateAnalysisSchemaOutput) ToAnalysisTemplateAnalysisSchemaOutput() AnalysisTemplateAnalysisSchemaOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSchemaOutput) ToAnalysisTemplateAnalysisSchemaOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSchemaOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisSchema] {
+	return pulumix.Output[AnalysisTemplateAnalysisSchema]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisTemplateAnalysisSchemaOutput) ReferencedTables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnalysisTemplateAnalysisSchema) []string { return v.ReferencedTables }).(pulumi.StringArrayOutput)
+}
+
+type AnalysisTemplateAnalysisSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateAnalysisSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateAnalysisSchema)(nil)).Elem()
+}
+
+func (o AnalysisTemplateAnalysisSchemaPtrOutput) ToAnalysisTemplateAnalysisSchemaPtrOutput() AnalysisTemplateAnalysisSchemaPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSchemaPtrOutput) ToAnalysisTemplateAnalysisSchemaPtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSchemaPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateAnalysisSchema] {
+	return pulumix.Output[*AnalysisTemplateAnalysisSchema]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisTemplateAnalysisSchemaPtrOutput) Elem() AnalysisTemplateAnalysisSchemaOutput {
+	return o.ApplyT(func(v *AnalysisTemplateAnalysisSchema) AnalysisTemplateAnalysisSchema {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateAnalysisSchema
+		return ret
+	}).(AnalysisTemplateAnalysisSchemaOutput)
+}
+
+func (o AnalysisTemplateAnalysisSchemaPtrOutput) ReferencedTables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnalysisTemplateAnalysisSchema) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ReferencedTables
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnalysisTemplateAnalysisSource struct {
+	Text string `pulumi:"text"`
+}
+
+// AnalysisTemplateAnalysisSourceInput is an input type that accepts AnalysisTemplateAnalysisSourceArgs and AnalysisTemplateAnalysisSourceOutput values.
+// You can construct a concrete instance of `AnalysisTemplateAnalysisSourceInput` via:
+//
+//	AnalysisTemplateAnalysisSourceArgs{...}
+type AnalysisTemplateAnalysisSourceInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateAnalysisSourceOutput() AnalysisTemplateAnalysisSourceOutput
+	ToAnalysisTemplateAnalysisSourceOutputWithContext(context.Context) AnalysisTemplateAnalysisSourceOutput
+}
+
+type AnalysisTemplateAnalysisSourceArgs struct {
+	Text pulumi.StringInput `pulumi:"text"`
+}
+
+func (AnalysisTemplateAnalysisSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisSource)(nil)).Elem()
+}
+
+func (i AnalysisTemplateAnalysisSourceArgs) ToAnalysisTemplateAnalysisSourceOutput() AnalysisTemplateAnalysisSourceOutput {
+	return i.ToAnalysisTemplateAnalysisSourceOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateAnalysisSourceArgs) ToAnalysisTemplateAnalysisSourceOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisSourceOutput)
+}
+
+func (i AnalysisTemplateAnalysisSourceArgs) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisSource] {
+	return pulumix.Output[AnalysisTemplateAnalysisSource]{
+		OutputState: i.ToAnalysisTemplateAnalysisSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AnalysisTemplateAnalysisSourceOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateAnalysisSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisSource)(nil)).Elem()
+}
+
+func (o AnalysisTemplateAnalysisSourceOutput) ToAnalysisTemplateAnalysisSourceOutput() AnalysisTemplateAnalysisSourceOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSourceOutput) ToAnalysisTemplateAnalysisSourceOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSourceOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSourceOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisSource] {
+	return pulumix.Output[AnalysisTemplateAnalysisSource]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisTemplateAnalysisSourceOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTemplateAnalysisSource) string { return v.Text }).(pulumi.StringOutput)
+}
+
+type AnalysisTemplateTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// AnalysisTemplateTagInput is an input type that accepts AnalysisTemplateTagArgs and AnalysisTemplateTagOutput values.
+// You can construct a concrete instance of `AnalysisTemplateTagInput` via:
+//
+//	AnalysisTemplateTagArgs{...}
+type AnalysisTemplateTagInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateTagOutput() AnalysisTemplateTagOutput
+	ToAnalysisTemplateTagOutputWithContext(context.Context) AnalysisTemplateTagOutput
+}
+
+type AnalysisTemplateTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AnalysisTemplateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateTag)(nil)).Elem()
+}
+
+func (i AnalysisTemplateTagArgs) ToAnalysisTemplateTagOutput() AnalysisTemplateTagOutput {
+	return i.ToAnalysisTemplateTagOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateTagArgs) ToAnalysisTemplateTagOutputWithContext(ctx context.Context) AnalysisTemplateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateTagOutput)
+}
+
+func (i AnalysisTemplateTagArgs) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateTag] {
+	return pulumix.Output[AnalysisTemplateTag]{
+		OutputState: i.ToAnalysisTemplateTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AnalysisTemplateTagArrayInput is an input type that accepts AnalysisTemplateTagArray and AnalysisTemplateTagArrayOutput values.
+// You can construct a concrete instance of `AnalysisTemplateTagArrayInput` via:
+//
+//	AnalysisTemplateTagArray{ AnalysisTemplateTagArgs{...} }
+type AnalysisTemplateTagArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateTagArrayOutput() AnalysisTemplateTagArrayOutput
+	ToAnalysisTemplateTagArrayOutputWithContext(context.Context) AnalysisTemplateTagArrayOutput
+}
+
+type AnalysisTemplateTagArray []AnalysisTemplateTagInput
+
+func (AnalysisTemplateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTemplateTag)(nil)).Elem()
+}
+
+func (i AnalysisTemplateTagArray) ToAnalysisTemplateTagArrayOutput() AnalysisTemplateTagArrayOutput {
+	return i.ToAnalysisTemplateTagArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateTagArray) ToAnalysisTemplateTagArrayOutputWithContext(ctx context.Context) AnalysisTemplateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateTagArrayOutput)
+}
+
+func (i AnalysisTemplateTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AnalysisTemplateTag] {
+	return pulumix.Output[[]AnalysisTemplateTag]{
+		OutputState: i.ToAnalysisTemplateTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AnalysisTemplateTagOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateTag)(nil)).Elem()
+}
+
+func (o AnalysisTemplateTagOutput) ToAnalysisTemplateTagOutput() AnalysisTemplateTagOutput {
+	return o
+}
+
+func (o AnalysisTemplateTagOutput) ToAnalysisTemplateTagOutputWithContext(ctx context.Context) AnalysisTemplateTagOutput {
+	return o
+}
+
+func (o AnalysisTemplateTagOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateTag] {
+	return pulumix.Output[AnalysisTemplateTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisTemplateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTemplateTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o AnalysisTemplateTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTemplateTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AnalysisTemplateTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTemplateTag)(nil)).Elem()
+}
+
+func (o AnalysisTemplateTagArrayOutput) ToAnalysisTemplateTagArrayOutput() AnalysisTemplateTagArrayOutput {
+	return o
+}
+
+func (o AnalysisTemplateTagArrayOutput) ToAnalysisTemplateTagArrayOutputWithContext(ctx context.Context) AnalysisTemplateTagArrayOutput {
+	return o
+}
+
+func (o AnalysisTemplateTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnalysisTemplateTag] {
+	return pulumix.Output[[]AnalysisTemplateTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisTemplateTagArrayOutput) Index(i pulumi.IntInput) AnalysisTemplateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisTemplateTag {
+		return vs[0].([]AnalysisTemplateTag)[vs[1].(int)]
+	}).(AnalysisTemplateTagOutput)
+}
+
 type CollaborationDataEncryptionMetadata struct {
 	AllowCleartext                        bool `pulumi:"allowCleartext"`
 	AllowDuplicates                       bool `pulumi:"allowDuplicates"`
@@ -1200,6 +1582,11 @@ func (o MembershipTagArrayOutput) Index(i pulumi.IntInput) MembershipTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterArrayInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisSourceInput)(nil)).Elem(), AnalysisTemplateAnalysisSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateTagInput)(nil)).Elem(), AnalysisTemplateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateTagArrayInput)(nil)).Elem(), AnalysisTemplateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataPtrInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberSpecificationInput)(nil)).Elem(), CollaborationMemberSpecificationArgs{})
@@ -1217,6 +1604,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTagArrayInput)(nil)).Elem(), ConfiguredTableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipTagInput)(nil)).Elem(), MembershipTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipTagArrayInput)(nil)).Elem(), MembershipTagArray{})
+	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSchemaOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSchemaPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSourceOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateTagOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataOutput{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberSpecificationOutput{})

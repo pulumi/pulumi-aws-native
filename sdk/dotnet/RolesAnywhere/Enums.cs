@@ -8,6 +8,61 @@ using Pulumi;
 namespace Pulumi.AwsNative.RolesAnywhere
 {
     [EnumType]
+    public readonly struct TrustAnchorNotificationChannel : IEquatable<TrustAnchorNotificationChannel>
+    {
+        private readonly string _value;
+
+        private TrustAnchorNotificationChannel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrustAnchorNotificationChannel All { get; } = new TrustAnchorNotificationChannel("ALL");
+
+        public static bool operator ==(TrustAnchorNotificationChannel left, TrustAnchorNotificationChannel right) => left.Equals(right);
+        public static bool operator !=(TrustAnchorNotificationChannel left, TrustAnchorNotificationChannel right) => !left.Equals(right);
+
+        public static explicit operator string(TrustAnchorNotificationChannel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrustAnchorNotificationChannel other && Equals(other);
+        public bool Equals(TrustAnchorNotificationChannel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TrustAnchorNotificationEvent : IEquatable<TrustAnchorNotificationEvent>
+    {
+        private readonly string _value;
+
+        private TrustAnchorNotificationEvent(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrustAnchorNotificationEvent CaCertificateExpiry { get; } = new TrustAnchorNotificationEvent("CA_CERTIFICATE_EXPIRY");
+        public static TrustAnchorNotificationEvent EndEntityCertificateExpiry { get; } = new TrustAnchorNotificationEvent("END_ENTITY_CERTIFICATE_EXPIRY");
+
+        public static bool operator ==(TrustAnchorNotificationEvent left, TrustAnchorNotificationEvent right) => left.Equals(right);
+        public static bool operator !=(TrustAnchorNotificationEvent left, TrustAnchorNotificationEvent right) => !left.Equals(right);
+
+        public static explicit operator string(TrustAnchorNotificationEvent value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrustAnchorNotificationEvent other && Equals(other);
+        public bool Equals(TrustAnchorNotificationEvent other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TrustAnchorType : IEquatable<TrustAnchorType>
     {
         private readonly string _value;

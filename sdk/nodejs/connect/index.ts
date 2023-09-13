@@ -115,6 +115,16 @@ export const getUserHierarchyGroup: typeof import("./getUserHierarchyGroup").get
 export const getUserHierarchyGroupOutput: typeof import("./getUserHierarchyGroup").getUserHierarchyGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getUserHierarchyGroup","getUserHierarchyGroupOutput"], () => require("./getUserHierarchyGroup"));
 
+export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
+export const getView: typeof import("./getView").getView = null as any;
+export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
+utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
+
+export { GetViewVersionArgs, GetViewVersionResult, GetViewVersionOutputArgs } from "./getViewVersion";
+export const getViewVersion: typeof import("./getViewVersion").getViewVersion = null as any;
+export const getViewVersionOutput: typeof import("./getViewVersion").getViewVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getViewVersion","getViewVersionOutput"], () => require("./getViewVersion"));
+
 export { HoursOfOperationArgs } from "./hoursOfOperation";
 export type HoursOfOperation = import("./hoursOfOperation").HoursOfOperation;
 export const HoursOfOperation: typeof import("./hoursOfOperation").HoursOfOperation = null as any;
@@ -190,6 +200,16 @@ export type UserHierarchyGroup = import("./userHierarchyGroup").UserHierarchyGro
 export const UserHierarchyGroup: typeof import("./userHierarchyGroup").UserHierarchyGroup = null as any;
 utilities.lazyLoad(exports, ["UserHierarchyGroup"], () => require("./userHierarchyGroup"));
 
+export { ViewArgs } from "./view";
+export type View = import("./view").View;
+export const View: typeof import("./view").View = null as any;
+utilities.lazyLoad(exports, ["View"], () => require("./view"));
+
+export { ViewVersionArgs } from "./viewVersion";
+export type ViewVersion = import("./viewVersion").ViewVersion;
+export const ViewVersion: typeof import("./viewVersion").ViewVersion = null as any;
+utilities.lazyLoad(exports, ["ViewVersion"], () => require("./viewVersion"));
+
 
 // Export enums:
 export * from "../types/enums/connect";
@@ -236,6 +256,10 @@ const _module = {
                 return new User(name, <any>undefined, { urn })
             case "aws-native:connect:UserHierarchyGroup":
                 return new UserHierarchyGroup(name, <any>undefined, { urn })
+            case "aws-native:connect:View":
+                return new View(name, <any>undefined, { urn })
+            case "aws-native:connect:ViewVersion":
+                return new ViewVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -120,19 +120,19 @@
   "writeOnlyProperties" : [ "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "redshift:CreateEventSubscription", "redshift:CreateTags" ]
+      "permissions" : [ "redshift:CreateEventSubscription", "redshift:CreateTags", "redshift:DescribeTags", "redshift:DescribeEventSubscriptions" ]
     },
     "read" : {
       "permissions" : [ "redshift:DescribeEventSubscriptions", "redshift:DescribeTags" ]
     },
     "update" : {
-      "permissions" : [ "redshift:ModifyEventSubscription", "redshift:CreateTags", "redshift:DescribeTags", "redshift:DeleteTags" ]
+      "permissions" : [ "redshift:ModifyEventSubscription", "redshift:CreateTags", "redshift:DescribeTags", "redshift:DescribeEventSubscriptions", "redshift:DeleteTags" ]
     },
     "delete" : {
-      "permissions" : [ "redshift:DeleteEventSubscription", "redshift:DeleteTags" ]
+      "permissions" : [ "redshift:DescribeEventSubscriptions", "redshift:DeleteEventSubscription", "redshift:DescribeTags", "redshift:DeleteTags" ]
     },
     "list" : {
-      "permissions" : [ "redshift:DescribeEventSubscriptions" ]
+      "permissions" : [ "redshift:DescribeTags", "redshift:DescribeEventSubscriptions" ]
     }
   }
 }

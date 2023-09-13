@@ -58,6 +58,10 @@ export class QuickConnect extends pulumi.CustomResource {
      */
     public readonly quickConnectConfig!: pulumi.Output<outputs.connect.QuickConnectConfig>;
     /**
+     * The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+     */
+    public /*out*/ readonly quickConnectType!: pulumi.Output<enums.connect.QuickConnectType>;
+    /**
      * One or more tags.
      */
     public readonly tags!: pulumi.Output<outputs.connect.QuickConnectTag[] | undefined>;
@@ -85,12 +89,14 @@ export class QuickConnect extends pulumi.CustomResource {
             resourceInputs["quickConnectConfig"] = args ? args.quickConnectConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["quickConnectArn"] = undefined /*out*/;
+            resourceInputs["quickConnectType"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["quickConnectArn"] = undefined /*out*/;
             resourceInputs["quickConnectConfig"] = undefined /*out*/;
+            resourceInputs["quickConnectType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

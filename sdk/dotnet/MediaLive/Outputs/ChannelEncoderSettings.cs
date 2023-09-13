@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly Outputs.ChannelMotionGraphicsConfiguration? MotionGraphicsConfiguration;
         public readonly Outputs.ChannelNielsenConfiguration? NielsenConfiguration;
         public readonly ImmutableArray<Outputs.ChannelOutputGroup> OutputGroups;
+        public readonly Outputs.ChannelThumbnailConfiguration? ThumbnailConfiguration;
         public readonly Outputs.ChannelTimecodeConfig? TimecodeConfig;
         public readonly ImmutableArray<Outputs.ChannelVideoDescription> VideoDescriptions;
 
@@ -48,6 +49,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             ImmutableArray<Outputs.ChannelOutputGroup> outputGroups,
 
+            Outputs.ChannelThumbnailConfiguration? thumbnailConfiguration,
+
             Outputs.ChannelTimecodeConfig? timecodeConfig,
 
             ImmutableArray<Outputs.ChannelVideoDescription> videoDescriptions)
@@ -62,6 +65,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             MotionGraphicsConfiguration = motionGraphicsConfiguration;
             NielsenConfiguration = nielsenConfiguration;
             OutputGroups = outputGroups;
+            ThumbnailConfiguration = thumbnailConfiguration;
             TimecodeConfig = timecodeConfig;
             VideoDescriptions = videoDescriptions;
         }

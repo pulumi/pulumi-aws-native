@@ -90,6 +90,8 @@ __all__ = [
     'FlowSalesforceDestinationPropertiesArgs',
     'FlowSalesforceSourcePropertiesArgs',
     'FlowSapoDataDestinationPropertiesArgs',
+    'FlowSapoDataPaginationConfigArgs',
+    'FlowSapoDataParallelismConfigArgs',
     'FlowSapoDataSourcePropertiesArgs',
     'FlowScheduledTriggerPropertiesArgs',
     'FlowServiceNowSourcePropertiesArgs',
@@ -3907,10 +3909,54 @@ class FlowSapoDataDestinationPropertiesArgs:
 
 
 @pulumi.input_type
+class FlowSapoDataPaginationConfigArgs:
+    def __init__(__self__, *,
+                 max_page_size: pulumi.Input[int]):
+        """
+        SAP Source connector page size
+        """
+        pulumi.set(__self__, "max_page_size", max_page_size)
+
+    @property
+    @pulumi.getter(name="maxPageSize")
+    def max_page_size(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_page_size")
+
+    @max_page_size.setter
+    def max_page_size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_page_size", value)
+
+
+@pulumi.input_type
+class FlowSapoDataParallelismConfigArgs:
+    def __init__(__self__, *,
+                 max_parallelism: pulumi.Input[int]):
+        """
+        SAP Source connector parallelism factor
+        """
+        pulumi.set(__self__, "max_parallelism", max_parallelism)
+
+    @property
+    @pulumi.getter(name="maxParallelism")
+    def max_parallelism(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_parallelism")
+
+    @max_parallelism.setter
+    def max_parallelism(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_parallelism", value)
+
+
+@pulumi.input_type
 class FlowSapoDataSourcePropertiesArgs:
     def __init__(__self__, *,
-                 object_path: pulumi.Input[str]):
+                 object_path: pulumi.Input[str],
+                 pagination_config: Optional[pulumi.Input['FlowSapoDataPaginationConfigArgs']] = None,
+                 parallelism_config: Optional[pulumi.Input['FlowSapoDataParallelismConfigArgs']] = None):
         pulumi.set(__self__, "object_path", object_path)
+        if pagination_config is not None:
+            pulumi.set(__self__, "pagination_config", pagination_config)
+        if parallelism_config is not None:
+            pulumi.set(__self__, "parallelism_config", parallelism_config)
 
     @property
     @pulumi.getter(name="objectPath")
@@ -3920,6 +3966,24 @@ class FlowSapoDataSourcePropertiesArgs:
     @object_path.setter
     def object_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "object_path", value)
+
+    @property
+    @pulumi.getter(name="paginationConfig")
+    def pagination_config(self) -> Optional[pulumi.Input['FlowSapoDataPaginationConfigArgs']]:
+        return pulumi.get(self, "pagination_config")
+
+    @pagination_config.setter
+    def pagination_config(self, value: Optional[pulumi.Input['FlowSapoDataPaginationConfigArgs']]):
+        pulumi.set(self, "pagination_config", value)
+
+    @property
+    @pulumi.getter(name="parallelismConfig")
+    def parallelism_config(self) -> Optional[pulumi.Input['FlowSapoDataParallelismConfigArgs']]:
+        return pulumi.get(self, "parallelism_config")
+
+    @parallelism_config.setter
+    def parallelism_config(self, value: Optional[pulumi.Input['FlowSapoDataParallelismConfigArgs']]):
+        pulumi.set(self, "parallelism_config", value)
 
 
 @pulumi.input_type

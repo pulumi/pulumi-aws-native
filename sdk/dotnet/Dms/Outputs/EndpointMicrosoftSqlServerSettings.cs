@@ -15,19 +15,35 @@ namespace Pulumi.AwsNative.Dms.Outputs
     {
         public readonly int? BcpPacketSize;
         public readonly string? ControlTablesFileGroup;
+        public readonly string? DatabaseName;
+        public readonly bool? ForceLobLookup;
+        public readonly string? Password;
+        public readonly int? Port;
         public readonly bool? QuerySingleAlwaysOnNode;
         public readonly bool? ReadBackupOnly;
         public readonly string? SafeguardPolicy;
         public readonly string? SecretsManagerAccessRoleArn;
         public readonly string? SecretsManagerSecretId;
+        public readonly string? ServerName;
+        public readonly string? TlogAccessMode;
+        public readonly bool? TrimSpaceInChar;
         public readonly bool? UseBcpFullLoad;
         public readonly bool? UseThirdPartyBackupDevice;
+        public readonly string? Username;
 
         [OutputConstructor]
         private EndpointMicrosoftSqlServerSettings(
             int? bcpPacketSize,
 
             string? controlTablesFileGroup,
+
+            string? databaseName,
+
+            bool? forceLobLookup,
+
+            string? password,
+
+            int? port,
 
             bool? querySingleAlwaysOnNode,
 
@@ -39,19 +55,35 @@ namespace Pulumi.AwsNative.Dms.Outputs
 
             string? secretsManagerSecretId,
 
+            string? serverName,
+
+            string? tlogAccessMode,
+
+            bool? trimSpaceInChar,
+
             bool? useBcpFullLoad,
 
-            bool? useThirdPartyBackupDevice)
+            bool? useThirdPartyBackupDevice,
+
+            string? username)
         {
             BcpPacketSize = bcpPacketSize;
             ControlTablesFileGroup = controlTablesFileGroup;
+            DatabaseName = databaseName;
+            ForceLobLookup = forceLobLookup;
+            Password = password;
+            Port = port;
             QuerySingleAlwaysOnNode = querySingleAlwaysOnNode;
             ReadBackupOnly = readBackupOnly;
             SafeguardPolicy = safeguardPolicy;
             SecretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
             SecretsManagerSecretId = secretsManagerSecretId;
+            ServerName = serverName;
+            TlogAccessMode = tlogAccessMode;
+            TrimSpaceInChar = trimSpaceInChar;
             UseBcpFullLoad = useBcpFullLoad;
             UseThirdPartyBackupDevice = useThirdPartyBackupDevice;
+            Username = username;
         }
     }
 }

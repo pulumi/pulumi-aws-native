@@ -32228,7 +32228,9 @@ func (o TransitGatewayPeeringAttachmentTagArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type TransitGatewayRouteTableTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the associated tag key-value pair
+	Key string `pulumi:"key"`
+	// The value of the associated tag key-value pair
 	Value string `pulumi:"value"`
 }
 
@@ -32244,7 +32246,9 @@ type TransitGatewayRouteTableTagInput interface {
 }
 
 type TransitGatewayRouteTableTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key of the associated tag key-value pair
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the associated tag key-value pair
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -32317,10 +32321,12 @@ func (o TransitGatewayRouteTableTagOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
+// The key of the associated tag key-value pair
 func (o TransitGatewayRouteTableTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TransitGatewayRouteTableTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value of the associated tag key-value pair
 func (o TransitGatewayRouteTableTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TransitGatewayRouteTableTag) string { return v.Value }).(pulumi.StringOutput)
 }

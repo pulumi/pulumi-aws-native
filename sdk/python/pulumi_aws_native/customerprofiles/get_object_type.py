@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetObjectTypeResult:
-    def __init__(__self__, allow_profile_creation=None, created_at=None, description=None, encryption_key=None, expiration_days=None, fields=None, keys=None, last_updated_at=None, tags=None, template_id=None):
+    def __init__(__self__, allow_profile_creation=None, created_at=None, description=None, encryption_key=None, expiration_days=None, fields=None, keys=None, last_updated_at=None, source_last_updated_timestamp_format=None, tags=None, template_id=None):
         if allow_profile_creation and not isinstance(allow_profile_creation, bool):
             raise TypeError("Expected argument 'allow_profile_creation' to be a bool")
         pulumi.set(__self__, "allow_profile_creation", allow_profile_creation)
@@ -45,6 +45,9 @@ class GetObjectTypeResult:
         if last_updated_at and not isinstance(last_updated_at, str):
             raise TypeError("Expected argument 'last_updated_at' to be a str")
         pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if source_last_updated_timestamp_format and not isinstance(source_last_updated_timestamp_format, str):
+            raise TypeError("Expected argument 'source_last_updated_timestamp_format' to be a str")
+        pulumi.set(__self__, "source_last_updated_timestamp_format", source_last_updated_timestamp_format)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -117,6 +120,14 @@ class GetObjectTypeResult:
         return pulumi.get(self, "last_updated_at")
 
     @property
+    @pulumi.getter(name="sourceLastUpdatedTimestampFormat")
+    def source_last_updated_timestamp_format(self) -> Optional[str]:
+        """
+        The format of your sourceLastUpdatedTimestamp that was previously set up.
+        """
+        return pulumi.get(self, "source_last_updated_timestamp_format")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ObjectTypeTag']]:
         """
@@ -147,6 +158,7 @@ class AwaitableGetObjectTypeResult(GetObjectTypeResult):
             fields=self.fields,
             keys=self.keys,
             last_updated_at=self.last_updated_at,
+            source_last_updated_timestamp_format=self.source_last_updated_timestamp_format,
             tags=self.tags,
             template_id=self.template_id)
 
@@ -176,6 +188,7 @@ def get_object_type(domain_name: Optional[str] = None,
         fields=pulumi.get(__ret__, 'fields'),
         keys=pulumi.get(__ret__, 'keys'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        source_last_updated_timestamp_format=pulumi.get(__ret__, 'source_last_updated_timestamp_format'),
         tags=pulumi.get(__ret__, 'tags'),
         template_id=pulumi.get(__ret__, 'template_id'))
 

@@ -3110,12 +3110,13 @@ func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
 }
 
 type TargetGroupConfig struct {
-	HealthCheck     *TargetGroupHealthCheckConfig     `pulumi:"healthCheck"`
-	IpAddressType   *TargetGroupConfigIpAddressType   `pulumi:"ipAddressType"`
-	Port            int                               `pulumi:"port"`
-	Protocol        TargetGroupConfigProtocol         `pulumi:"protocol"`
-	ProtocolVersion *TargetGroupConfigProtocolVersion `pulumi:"protocolVersion"`
-	VpcIdentifier   string                            `pulumi:"vpcIdentifier"`
+	HealthCheck                 *TargetGroupHealthCheckConfig                 `pulumi:"healthCheck"`
+	IpAddressType               *TargetGroupConfigIpAddressType               `pulumi:"ipAddressType"`
+	LambdaEventStructureVersion *TargetGroupConfigLambdaEventStructureVersion `pulumi:"lambdaEventStructureVersion"`
+	Port                        *int                                          `pulumi:"port"`
+	Protocol                    *TargetGroupConfigProtocol                    `pulumi:"protocol"`
+	ProtocolVersion             *TargetGroupConfigProtocolVersion             `pulumi:"protocolVersion"`
+	VpcIdentifier               *string                                       `pulumi:"vpcIdentifier"`
 }
 
 // TargetGroupConfigInput is an input type that accepts TargetGroupConfigArgs and TargetGroupConfigOutput values.
@@ -3130,12 +3131,13 @@ type TargetGroupConfigInput interface {
 }
 
 type TargetGroupConfigArgs struct {
-	HealthCheck     TargetGroupHealthCheckConfigPtrInput     `pulumi:"healthCheck"`
-	IpAddressType   TargetGroupConfigIpAddressTypePtrInput   `pulumi:"ipAddressType"`
-	Port            pulumi.IntInput                          `pulumi:"port"`
-	Protocol        TargetGroupConfigProtocolInput           `pulumi:"protocol"`
-	ProtocolVersion TargetGroupConfigProtocolVersionPtrInput `pulumi:"protocolVersion"`
-	VpcIdentifier   pulumi.StringInput                       `pulumi:"vpcIdentifier"`
+	HealthCheck                 TargetGroupHealthCheckConfigPtrInput                 `pulumi:"healthCheck"`
+	IpAddressType               TargetGroupConfigIpAddressTypePtrInput               `pulumi:"ipAddressType"`
+	LambdaEventStructureVersion TargetGroupConfigLambdaEventStructureVersionPtrInput `pulumi:"lambdaEventStructureVersion"`
+	Port                        pulumi.IntPtrInput                                   `pulumi:"port"`
+	Protocol                    TargetGroupConfigProtocolPtrInput                    `pulumi:"protocol"`
+	ProtocolVersion             TargetGroupConfigProtocolVersionPtrInput             `pulumi:"protocolVersion"`
+	VpcIdentifier               pulumi.StringPtrInput                                `pulumi:"vpcIdentifier"`
 }
 
 func (TargetGroupConfigArgs) ElementType() reflect.Type {
@@ -3241,20 +3243,26 @@ func (o TargetGroupConfigOutput) IpAddressType() TargetGroupConfigIpAddressTypeP
 	return o.ApplyT(func(v TargetGroupConfig) *TargetGroupConfigIpAddressType { return v.IpAddressType }).(TargetGroupConfigIpAddressTypePtrOutput)
 }
 
-func (o TargetGroupConfigOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v TargetGroupConfig) int { return v.Port }).(pulumi.IntOutput)
+func (o TargetGroupConfigOutput) LambdaEventStructureVersion() TargetGroupConfigLambdaEventStructureVersionPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *TargetGroupConfigLambdaEventStructureVersion {
+		return v.LambdaEventStructureVersion
+	}).(TargetGroupConfigLambdaEventStructureVersionPtrOutput)
 }
 
-func (o TargetGroupConfigOutput) Protocol() TargetGroupConfigProtocolOutput {
-	return o.ApplyT(func(v TargetGroupConfig) TargetGroupConfigProtocol { return v.Protocol }).(TargetGroupConfigProtocolOutput)
+func (o TargetGroupConfigOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o TargetGroupConfigOutput) Protocol() TargetGroupConfigProtocolPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *TargetGroupConfigProtocol { return v.Protocol }).(TargetGroupConfigProtocolPtrOutput)
 }
 
 func (o TargetGroupConfigOutput) ProtocolVersion() TargetGroupConfigProtocolVersionPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfig) *TargetGroupConfigProtocolVersion { return v.ProtocolVersion }).(TargetGroupConfigProtocolVersionPtrOutput)
 }
 
-func (o TargetGroupConfigOutput) VpcIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v TargetGroupConfig) string { return v.VpcIdentifier }).(pulumi.StringOutput)
+func (o TargetGroupConfigOutput) VpcIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *string { return v.VpcIdentifier }).(pulumi.StringPtrOutput)
 }
 
 type TargetGroupConfigPtrOutput struct{ *pulumi.OutputState }
@@ -3305,12 +3313,21 @@ func (o TargetGroupConfigPtrOutput) IpAddressType() TargetGroupConfigIpAddressTy
 	}).(TargetGroupConfigIpAddressTypePtrOutput)
 }
 
+func (o TargetGroupConfigPtrOutput) LambdaEventStructureVersion() TargetGroupConfigLambdaEventStructureVersionPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfig) *TargetGroupConfigLambdaEventStructureVersion {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaEventStructureVersion
+	}).(TargetGroupConfigLambdaEventStructureVersionPtrOutput)
+}
+
 func (o TargetGroupConfigPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.Port
+		return v.Port
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -3319,7 +3336,7 @@ func (o TargetGroupConfigPtrOutput) Protocol() TargetGroupConfigProtocolPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return &v.Protocol
+		return v.Protocol
 	}).(TargetGroupConfigProtocolPtrOutput)
 }
 
@@ -3337,7 +3354,7 @@ func (o TargetGroupConfigPtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.VpcIdentifier
+		return v.VpcIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 

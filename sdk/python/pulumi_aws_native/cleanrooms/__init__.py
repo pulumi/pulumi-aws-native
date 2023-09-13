@@ -6,9 +6,11 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .analysis_template import *
 from .collaboration import *
 from .configured_table import *
 from .configured_table_association import *
+from .get_analysis_template import *
 from .get_collaboration import *
 from .get_configured_table import *
 from .get_configured_table_association import *

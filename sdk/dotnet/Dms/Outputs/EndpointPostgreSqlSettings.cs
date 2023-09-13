@@ -14,7 +14,9 @@ namespace Pulumi.AwsNative.Dms.Outputs
     public sealed class EndpointPostgreSqlSettings
     {
         public readonly string? AfterConnectScript;
+        public readonly string? BabelfishDatabaseName;
         public readonly bool? CaptureDdls;
+        public readonly string? DatabaseMode;
         public readonly string? DdlArtifactsSchema;
         public readonly int? ExecuteTimeout;
         public readonly bool? FailTasksOnLobTruncation;
@@ -32,7 +34,11 @@ namespace Pulumi.AwsNative.Dms.Outputs
         private EndpointPostgreSqlSettings(
             string? afterConnectScript,
 
+            string? babelfishDatabaseName,
+
             bool? captureDdls,
+
+            string? databaseMode,
 
             string? ddlArtifactsSchema,
 
@@ -59,7 +65,9 @@ namespace Pulumi.AwsNative.Dms.Outputs
             string? slotName)
         {
             AfterConnectScript = afterConnectScript;
+            BabelfishDatabaseName = babelfishDatabaseName;
             CaptureDdls = captureDdls;
+            DatabaseMode = databaseMode;
             DdlArtifactsSchema = ddlArtifactsSchema;
             ExecuteTimeout = executeTimeout;
             FailTasksOnLobTruncation = failTasksOnLobTruncation;

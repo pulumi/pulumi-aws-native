@@ -52,6 +52,7 @@ export interface GetTaskResult {
      * The ARN of the task.
      */
     readonly taskArn?: string;
+    readonly taskReportConfig?: outputs.datasync.TaskReportConfig;
 }
 /**
  * Resource schema for AWS::DataSync::Task.

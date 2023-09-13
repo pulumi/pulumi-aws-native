@@ -2,6 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const TrustAnchorNotificationChannel = {
+    All: "ALL",
+} as const;
+
+export type TrustAnchorNotificationChannel = (typeof TrustAnchorNotificationChannel)[keyof typeof TrustAnchorNotificationChannel];
+
+export const TrustAnchorNotificationEvent = {
+    CaCertificateExpiry: "CA_CERTIFICATE_EXPIRY",
+    EndEntityCertificateExpiry: "END_ENTITY_CERTIFICATE_EXPIRY",
+} as const;
+
+export type TrustAnchorNotificationEvent = (typeof TrustAnchorNotificationEvent)[keyof typeof TrustAnchorNotificationEvent];
+
 export const TrustAnchorType = {
     AwsAcmPca: "AWS_ACM_PCA",
     CertificateBundle: "CERTIFICATE_BUNDLE",

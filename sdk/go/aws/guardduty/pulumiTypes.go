@@ -203,8 +203,264 @@ func (o DetectorCfnDataSourceConfigurationsPtrOutput) S3Logs() DetectorCfns3Logs
 	}).(DetectorCfns3LogsConfigurationPtrOutput)
 }
 
+type DetectorCfnFeatureAdditionalConfiguration struct {
+	Name   *string `pulumi:"name"`
+	Status *string `pulumi:"status"`
+}
+
+// DetectorCfnFeatureAdditionalConfigurationInput is an input type that accepts DetectorCfnFeatureAdditionalConfigurationArgs and DetectorCfnFeatureAdditionalConfigurationOutput values.
+// You can construct a concrete instance of `DetectorCfnFeatureAdditionalConfigurationInput` via:
+//
+//	DetectorCfnFeatureAdditionalConfigurationArgs{...}
+type DetectorCfnFeatureAdditionalConfigurationInput interface {
+	pulumi.Input
+
+	ToDetectorCfnFeatureAdditionalConfigurationOutput() DetectorCfnFeatureAdditionalConfigurationOutput
+	ToDetectorCfnFeatureAdditionalConfigurationOutputWithContext(context.Context) DetectorCfnFeatureAdditionalConfigurationOutput
+}
+
+type DetectorCfnFeatureAdditionalConfigurationArgs struct {
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DetectorCfnFeatureAdditionalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCfnFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (i DetectorCfnFeatureAdditionalConfigurationArgs) ToDetectorCfnFeatureAdditionalConfigurationOutput() DetectorCfnFeatureAdditionalConfigurationOutput {
+	return i.ToDetectorCfnFeatureAdditionalConfigurationOutputWithContext(context.Background())
+}
+
+func (i DetectorCfnFeatureAdditionalConfigurationArgs) ToDetectorCfnFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) DetectorCfnFeatureAdditionalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnFeatureAdditionalConfigurationOutput)
+}
+
+func (i DetectorCfnFeatureAdditionalConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnFeatureAdditionalConfiguration] {
+	return pulumix.Output[DetectorCfnFeatureAdditionalConfiguration]{
+		OutputState: i.ToDetectorCfnFeatureAdditionalConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// DetectorCfnFeatureAdditionalConfigurationArrayInput is an input type that accepts DetectorCfnFeatureAdditionalConfigurationArray and DetectorCfnFeatureAdditionalConfigurationArrayOutput values.
+// You can construct a concrete instance of `DetectorCfnFeatureAdditionalConfigurationArrayInput` via:
+//
+//	DetectorCfnFeatureAdditionalConfigurationArray{ DetectorCfnFeatureAdditionalConfigurationArgs{...} }
+type DetectorCfnFeatureAdditionalConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDetectorCfnFeatureAdditionalConfigurationArrayOutput() DetectorCfnFeatureAdditionalConfigurationArrayOutput
+	ToDetectorCfnFeatureAdditionalConfigurationArrayOutputWithContext(context.Context) DetectorCfnFeatureAdditionalConfigurationArrayOutput
+}
+
+type DetectorCfnFeatureAdditionalConfigurationArray []DetectorCfnFeatureAdditionalConfigurationInput
+
+func (DetectorCfnFeatureAdditionalConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorCfnFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (i DetectorCfnFeatureAdditionalConfigurationArray) ToDetectorCfnFeatureAdditionalConfigurationArrayOutput() DetectorCfnFeatureAdditionalConfigurationArrayOutput {
+	return i.ToDetectorCfnFeatureAdditionalConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DetectorCfnFeatureAdditionalConfigurationArray) ToDetectorCfnFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) DetectorCfnFeatureAdditionalConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnFeatureAdditionalConfigurationArrayOutput)
+}
+
+func (i DetectorCfnFeatureAdditionalConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorCfnFeatureAdditionalConfiguration] {
+	return pulumix.Output[[]DetectorCfnFeatureAdditionalConfiguration]{
+		OutputState: i.ToDetectorCfnFeatureAdditionalConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DetectorCfnFeatureAdditionalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DetectorCfnFeatureAdditionalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCfnFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (o DetectorCfnFeatureAdditionalConfigurationOutput) ToDetectorCfnFeatureAdditionalConfigurationOutput() DetectorCfnFeatureAdditionalConfigurationOutput {
+	return o
+}
+
+func (o DetectorCfnFeatureAdditionalConfigurationOutput) ToDetectorCfnFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) DetectorCfnFeatureAdditionalConfigurationOutput {
+	return o
+}
+
+func (o DetectorCfnFeatureAdditionalConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnFeatureAdditionalConfiguration] {
+	return pulumix.Output[DetectorCfnFeatureAdditionalConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DetectorCfnFeatureAdditionalConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorCfnFeatureAdditionalConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o DetectorCfnFeatureAdditionalConfigurationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorCfnFeatureAdditionalConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type DetectorCfnFeatureAdditionalConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DetectorCfnFeatureAdditionalConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorCfnFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (o DetectorCfnFeatureAdditionalConfigurationArrayOutput) ToDetectorCfnFeatureAdditionalConfigurationArrayOutput() DetectorCfnFeatureAdditionalConfigurationArrayOutput {
+	return o
+}
+
+func (o DetectorCfnFeatureAdditionalConfigurationArrayOutput) ToDetectorCfnFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) DetectorCfnFeatureAdditionalConfigurationArrayOutput {
+	return o
+}
+
+func (o DetectorCfnFeatureAdditionalConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorCfnFeatureAdditionalConfiguration] {
+	return pulumix.Output[[]DetectorCfnFeatureAdditionalConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DetectorCfnFeatureAdditionalConfigurationArrayOutput) Index(i pulumi.IntInput) DetectorCfnFeatureAdditionalConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorCfnFeatureAdditionalConfiguration {
+		return vs[0].([]DetectorCfnFeatureAdditionalConfiguration)[vs[1].(int)]
+	}).(DetectorCfnFeatureAdditionalConfigurationOutput)
+}
+
+type DetectorCfnFeatureConfiguration struct {
+	AdditionalConfiguration []DetectorCfnFeatureAdditionalConfiguration `pulumi:"additionalConfiguration"`
+	Name                    DetectorCfnFeatureConfigurationName         `pulumi:"name"`
+	Status                  DetectorCfnFeatureConfigurationStatus       `pulumi:"status"`
+}
+
+// DetectorCfnFeatureConfigurationInput is an input type that accepts DetectorCfnFeatureConfigurationArgs and DetectorCfnFeatureConfigurationOutput values.
+// You can construct a concrete instance of `DetectorCfnFeatureConfigurationInput` via:
+//
+//	DetectorCfnFeatureConfigurationArgs{...}
+type DetectorCfnFeatureConfigurationInput interface {
+	pulumi.Input
+
+	ToDetectorCfnFeatureConfigurationOutput() DetectorCfnFeatureConfigurationOutput
+	ToDetectorCfnFeatureConfigurationOutputWithContext(context.Context) DetectorCfnFeatureConfigurationOutput
+}
+
+type DetectorCfnFeatureConfigurationArgs struct {
+	AdditionalConfiguration DetectorCfnFeatureAdditionalConfigurationArrayInput `pulumi:"additionalConfiguration"`
+	Name                    DetectorCfnFeatureConfigurationNameInput            `pulumi:"name"`
+	Status                  DetectorCfnFeatureConfigurationStatusInput          `pulumi:"status"`
+}
+
+func (DetectorCfnFeatureConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCfnFeatureConfiguration)(nil)).Elem()
+}
+
+func (i DetectorCfnFeatureConfigurationArgs) ToDetectorCfnFeatureConfigurationOutput() DetectorCfnFeatureConfigurationOutput {
+	return i.ToDetectorCfnFeatureConfigurationOutputWithContext(context.Background())
+}
+
+func (i DetectorCfnFeatureConfigurationArgs) ToDetectorCfnFeatureConfigurationOutputWithContext(ctx context.Context) DetectorCfnFeatureConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnFeatureConfigurationOutput)
+}
+
+func (i DetectorCfnFeatureConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnFeatureConfiguration] {
+	return pulumix.Output[DetectorCfnFeatureConfiguration]{
+		OutputState: i.ToDetectorCfnFeatureConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// DetectorCfnFeatureConfigurationArrayInput is an input type that accepts DetectorCfnFeatureConfigurationArray and DetectorCfnFeatureConfigurationArrayOutput values.
+// You can construct a concrete instance of `DetectorCfnFeatureConfigurationArrayInput` via:
+//
+//	DetectorCfnFeatureConfigurationArray{ DetectorCfnFeatureConfigurationArgs{...} }
+type DetectorCfnFeatureConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDetectorCfnFeatureConfigurationArrayOutput() DetectorCfnFeatureConfigurationArrayOutput
+	ToDetectorCfnFeatureConfigurationArrayOutputWithContext(context.Context) DetectorCfnFeatureConfigurationArrayOutput
+}
+
+type DetectorCfnFeatureConfigurationArray []DetectorCfnFeatureConfigurationInput
+
+func (DetectorCfnFeatureConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorCfnFeatureConfiguration)(nil)).Elem()
+}
+
+func (i DetectorCfnFeatureConfigurationArray) ToDetectorCfnFeatureConfigurationArrayOutput() DetectorCfnFeatureConfigurationArrayOutput {
+	return i.ToDetectorCfnFeatureConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DetectorCfnFeatureConfigurationArray) ToDetectorCfnFeatureConfigurationArrayOutputWithContext(ctx context.Context) DetectorCfnFeatureConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnFeatureConfigurationArrayOutput)
+}
+
+func (i DetectorCfnFeatureConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorCfnFeatureConfiguration] {
+	return pulumix.Output[[]DetectorCfnFeatureConfiguration]{
+		OutputState: i.ToDetectorCfnFeatureConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DetectorCfnFeatureConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DetectorCfnFeatureConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCfnFeatureConfiguration)(nil)).Elem()
+}
+
+func (o DetectorCfnFeatureConfigurationOutput) ToDetectorCfnFeatureConfigurationOutput() DetectorCfnFeatureConfigurationOutput {
+	return o
+}
+
+func (o DetectorCfnFeatureConfigurationOutput) ToDetectorCfnFeatureConfigurationOutputWithContext(ctx context.Context) DetectorCfnFeatureConfigurationOutput {
+	return o
+}
+
+func (o DetectorCfnFeatureConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnFeatureConfiguration] {
+	return pulumix.Output[DetectorCfnFeatureConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DetectorCfnFeatureConfigurationOutput) AdditionalConfiguration() DetectorCfnFeatureAdditionalConfigurationArrayOutput {
+	return o.ApplyT(func(v DetectorCfnFeatureConfiguration) []DetectorCfnFeatureAdditionalConfiguration {
+		return v.AdditionalConfiguration
+	}).(DetectorCfnFeatureAdditionalConfigurationArrayOutput)
+}
+
+func (o DetectorCfnFeatureConfigurationOutput) Name() DetectorCfnFeatureConfigurationNameOutput {
+	return o.ApplyT(func(v DetectorCfnFeatureConfiguration) DetectorCfnFeatureConfigurationName { return v.Name }).(DetectorCfnFeatureConfigurationNameOutput)
+}
+
+func (o DetectorCfnFeatureConfigurationOutput) Status() DetectorCfnFeatureConfigurationStatusOutput {
+	return o.ApplyT(func(v DetectorCfnFeatureConfiguration) DetectorCfnFeatureConfigurationStatus { return v.Status }).(DetectorCfnFeatureConfigurationStatusOutput)
+}
+
+type DetectorCfnFeatureConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DetectorCfnFeatureConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorCfnFeatureConfiguration)(nil)).Elem()
+}
+
+func (o DetectorCfnFeatureConfigurationArrayOutput) ToDetectorCfnFeatureConfigurationArrayOutput() DetectorCfnFeatureConfigurationArrayOutput {
+	return o
+}
+
+func (o DetectorCfnFeatureConfigurationArrayOutput) ToDetectorCfnFeatureConfigurationArrayOutputWithContext(ctx context.Context) DetectorCfnFeatureConfigurationArrayOutput {
+	return o
+}
+
+func (o DetectorCfnFeatureConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorCfnFeatureConfiguration] {
+	return pulumix.Output[[]DetectorCfnFeatureConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DetectorCfnFeatureConfigurationArrayOutput) Index(i pulumi.IntInput) DetectorCfnFeatureConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorCfnFeatureConfiguration {
+		return vs[0].([]DetectorCfnFeatureConfiguration)[vs[1].(int)]
+	}).(DetectorCfnFeatureConfigurationOutput)
+}
+
 type DetectorCfnKubernetesAuditLogsConfiguration struct {
-	Enable *bool `pulumi:"enable"`
+	Enable bool `pulumi:"enable"`
 }
 
 // DetectorCfnKubernetesAuditLogsConfigurationInput is an input type that accepts DetectorCfnKubernetesAuditLogsConfigurationArgs and DetectorCfnKubernetesAuditLogsConfigurationOutput values.
@@ -219,7 +475,7 @@ type DetectorCfnKubernetesAuditLogsConfigurationInput interface {
 }
 
 type DetectorCfnKubernetesAuditLogsConfigurationArgs struct {
-	Enable pulumi.BoolPtrInput `pulumi:"enable"`
+	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
 func (DetectorCfnKubernetesAuditLogsConfigurationArgs) ElementType() reflect.Type {
@@ -317,8 +573,8 @@ func (o DetectorCfnKubernetesAuditLogsConfigurationOutput) ToOutput(ctx context.
 	}
 }
 
-func (o DetectorCfnKubernetesAuditLogsConfigurationOutput) Enable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DetectorCfnKubernetesAuditLogsConfiguration) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+func (o DetectorCfnKubernetesAuditLogsConfigurationOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v DetectorCfnKubernetesAuditLogsConfiguration) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
 type DetectorCfnKubernetesAuditLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -356,12 +612,12 @@ func (o DetectorCfnKubernetesAuditLogsConfigurationPtrOutput) Enable() pulumi.Bo
 		if v == nil {
 			return nil
 		}
-		return v.Enable
+		return &v.Enable
 	}).(pulumi.BoolPtrOutput)
 }
 
 type DetectorCfnKubernetesConfiguration struct {
-	AuditLogs *DetectorCfnKubernetesAuditLogsConfiguration `pulumi:"auditLogs"`
+	AuditLogs DetectorCfnKubernetesAuditLogsConfiguration `pulumi:"auditLogs"`
 }
 
 // DetectorCfnKubernetesConfigurationInput is an input type that accepts DetectorCfnKubernetesConfigurationArgs and DetectorCfnKubernetesConfigurationOutput values.
@@ -376,7 +632,7 @@ type DetectorCfnKubernetesConfigurationInput interface {
 }
 
 type DetectorCfnKubernetesConfigurationArgs struct {
-	AuditLogs DetectorCfnKubernetesAuditLogsConfigurationPtrInput `pulumi:"auditLogs"`
+	AuditLogs DetectorCfnKubernetesAuditLogsConfigurationInput `pulumi:"auditLogs"`
 }
 
 func (DetectorCfnKubernetesConfigurationArgs) ElementType() reflect.Type {
@@ -474,10 +730,10 @@ func (o DetectorCfnKubernetesConfigurationOutput) ToOutput(ctx context.Context) 
 	}
 }
 
-func (o DetectorCfnKubernetesConfigurationOutput) AuditLogs() DetectorCfnKubernetesAuditLogsConfigurationPtrOutput {
-	return o.ApplyT(func(v DetectorCfnKubernetesConfiguration) *DetectorCfnKubernetesAuditLogsConfiguration {
+func (o DetectorCfnKubernetesConfigurationOutput) AuditLogs() DetectorCfnKubernetesAuditLogsConfigurationOutput {
+	return o.ApplyT(func(v DetectorCfnKubernetesConfiguration) DetectorCfnKubernetesAuditLogsConfiguration {
 		return v.AuditLogs
-	}).(DetectorCfnKubernetesAuditLogsConfigurationPtrOutput)
+	}).(DetectorCfnKubernetesAuditLogsConfigurationOutput)
 }
 
 type DetectorCfnKubernetesConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -515,7 +771,7 @@ func (o DetectorCfnKubernetesConfigurationPtrOutput) AuditLogs() DetectorCfnKube
 		if v == nil {
 			return nil
 		}
-		return v.AuditLogs
+		return &v.AuditLogs
 	}).(DetectorCfnKubernetesAuditLogsConfigurationPtrOutput)
 }
 
@@ -836,7 +1092,7 @@ func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput) EbsVolumes
 }
 
 type DetectorCfns3LogsConfiguration struct {
-	Enable *bool `pulumi:"enable"`
+	Enable bool `pulumi:"enable"`
 }
 
 // DetectorCfns3LogsConfigurationInput is an input type that accepts DetectorCfns3LogsConfigurationArgs and DetectorCfns3LogsConfigurationOutput values.
@@ -851,7 +1107,7 @@ type DetectorCfns3LogsConfigurationInput interface {
 }
 
 type DetectorCfns3LogsConfigurationArgs struct {
-	Enable pulumi.BoolPtrInput `pulumi:"enable"`
+	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
 func (DetectorCfns3LogsConfigurationArgs) ElementType() reflect.Type {
@@ -949,8 +1205,8 @@ func (o DetectorCfns3LogsConfigurationOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
-func (o DetectorCfns3LogsConfigurationOutput) Enable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DetectorCfns3LogsConfiguration) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+func (o DetectorCfns3LogsConfigurationOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v DetectorCfns3LogsConfiguration) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
 type DetectorCfns3LogsConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -988,388 +1244,132 @@ func (o DetectorCfns3LogsConfigurationPtrOutput) Enable() pulumi.BoolPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Enable
+		return &v.Enable
 	}).(pulumi.BoolPtrOutput)
 }
 
-type DetectorFeatureAdditionalConfiguration struct {
-	Name   *string `pulumi:"name"`
-	Status *string `pulumi:"status"`
-}
-
-// DetectorFeatureAdditionalConfigurationInput is an input type that accepts DetectorFeatureAdditionalConfigurationArgs and DetectorFeatureAdditionalConfigurationOutput values.
-// You can construct a concrete instance of `DetectorFeatureAdditionalConfigurationInput` via:
-//
-//	DetectorFeatureAdditionalConfigurationArgs{...}
-type DetectorFeatureAdditionalConfigurationInput interface {
-	pulumi.Input
-
-	ToDetectorFeatureAdditionalConfigurationOutput() DetectorFeatureAdditionalConfigurationOutput
-	ToDetectorFeatureAdditionalConfigurationOutputWithContext(context.Context) DetectorFeatureAdditionalConfigurationOutput
-}
-
-type DetectorFeatureAdditionalConfigurationArgs struct {
-	Name   pulumi.StringPtrInput `pulumi:"name"`
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (DetectorFeatureAdditionalConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorFeatureAdditionalConfiguration)(nil)).Elem()
-}
-
-func (i DetectorFeatureAdditionalConfigurationArgs) ToDetectorFeatureAdditionalConfigurationOutput() DetectorFeatureAdditionalConfigurationOutput {
-	return i.ToDetectorFeatureAdditionalConfigurationOutputWithContext(context.Background())
-}
-
-func (i DetectorFeatureAdditionalConfigurationArgs) ToDetectorFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) DetectorFeatureAdditionalConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorFeatureAdditionalConfigurationOutput)
-}
-
-func (i DetectorFeatureAdditionalConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorFeatureAdditionalConfiguration] {
-	return pulumix.Output[DetectorFeatureAdditionalConfiguration]{
-		OutputState: i.ToDetectorFeatureAdditionalConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
-// DetectorFeatureAdditionalConfigurationArrayInput is an input type that accepts DetectorFeatureAdditionalConfigurationArray and DetectorFeatureAdditionalConfigurationArrayOutput values.
-// You can construct a concrete instance of `DetectorFeatureAdditionalConfigurationArrayInput` via:
-//
-//	DetectorFeatureAdditionalConfigurationArray{ DetectorFeatureAdditionalConfigurationArgs{...} }
-type DetectorFeatureAdditionalConfigurationArrayInput interface {
-	pulumi.Input
-
-	ToDetectorFeatureAdditionalConfigurationArrayOutput() DetectorFeatureAdditionalConfigurationArrayOutput
-	ToDetectorFeatureAdditionalConfigurationArrayOutputWithContext(context.Context) DetectorFeatureAdditionalConfigurationArrayOutput
-}
-
-type DetectorFeatureAdditionalConfigurationArray []DetectorFeatureAdditionalConfigurationInput
-
-func (DetectorFeatureAdditionalConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DetectorFeatureAdditionalConfiguration)(nil)).Elem()
-}
-
-func (i DetectorFeatureAdditionalConfigurationArray) ToDetectorFeatureAdditionalConfigurationArrayOutput() DetectorFeatureAdditionalConfigurationArrayOutput {
-	return i.ToDetectorFeatureAdditionalConfigurationArrayOutputWithContext(context.Background())
-}
-
-func (i DetectorFeatureAdditionalConfigurationArray) ToDetectorFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) DetectorFeatureAdditionalConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorFeatureAdditionalConfigurationArrayOutput)
-}
-
-func (i DetectorFeatureAdditionalConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorFeatureAdditionalConfiguration] {
-	return pulumix.Output[[]DetectorFeatureAdditionalConfiguration]{
-		OutputState: i.ToDetectorFeatureAdditionalConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
-type DetectorFeatureAdditionalConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DetectorFeatureAdditionalConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorFeatureAdditionalConfiguration)(nil)).Elem()
-}
-
-func (o DetectorFeatureAdditionalConfigurationOutput) ToDetectorFeatureAdditionalConfigurationOutput() DetectorFeatureAdditionalConfigurationOutput {
-	return o
-}
-
-func (o DetectorFeatureAdditionalConfigurationOutput) ToDetectorFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) DetectorFeatureAdditionalConfigurationOutput {
-	return o
-}
-
-func (o DetectorFeatureAdditionalConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorFeatureAdditionalConfiguration] {
-	return pulumix.Output[DetectorFeatureAdditionalConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o DetectorFeatureAdditionalConfigurationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorFeatureAdditionalConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o DetectorFeatureAdditionalConfigurationOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorFeatureAdditionalConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type DetectorFeatureAdditionalConfigurationArrayOutput struct{ *pulumi.OutputState }
-
-func (DetectorFeatureAdditionalConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DetectorFeatureAdditionalConfiguration)(nil)).Elem()
-}
-
-func (o DetectorFeatureAdditionalConfigurationArrayOutput) ToDetectorFeatureAdditionalConfigurationArrayOutput() DetectorFeatureAdditionalConfigurationArrayOutput {
-	return o
-}
-
-func (o DetectorFeatureAdditionalConfigurationArrayOutput) ToDetectorFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) DetectorFeatureAdditionalConfigurationArrayOutput {
-	return o
-}
-
-func (o DetectorFeatureAdditionalConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorFeatureAdditionalConfiguration] {
-	return pulumix.Output[[]DetectorFeatureAdditionalConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o DetectorFeatureAdditionalConfigurationArrayOutput) Index(i pulumi.IntInput) DetectorFeatureAdditionalConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorFeatureAdditionalConfiguration {
-		return vs[0].([]DetectorFeatureAdditionalConfiguration)[vs[1].(int)]
-	}).(DetectorFeatureAdditionalConfigurationOutput)
-}
-
-type DetectorFeatureConfigurations struct {
-	AdditionalConfiguration []DetectorFeatureAdditionalConfiguration `pulumi:"additionalConfiguration"`
-	Name                    *string                                  `pulumi:"name"`
-	Status                  *string                                  `pulumi:"status"`
-}
-
-// DetectorFeatureConfigurationsInput is an input type that accepts DetectorFeatureConfigurationsArgs and DetectorFeatureConfigurationsOutput values.
-// You can construct a concrete instance of `DetectorFeatureConfigurationsInput` via:
-//
-//	DetectorFeatureConfigurationsArgs{...}
-type DetectorFeatureConfigurationsInput interface {
-	pulumi.Input
-
-	ToDetectorFeatureConfigurationsOutput() DetectorFeatureConfigurationsOutput
-	ToDetectorFeatureConfigurationsOutputWithContext(context.Context) DetectorFeatureConfigurationsOutput
-}
-
-type DetectorFeatureConfigurationsArgs struct {
-	AdditionalConfiguration DetectorFeatureAdditionalConfigurationArrayInput `pulumi:"additionalConfiguration"`
-	Name                    pulumi.StringPtrInput                            `pulumi:"name"`
-	Status                  pulumi.StringPtrInput                            `pulumi:"status"`
-}
-
-func (DetectorFeatureConfigurationsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorFeatureConfigurations)(nil)).Elem()
-}
-
-func (i DetectorFeatureConfigurationsArgs) ToDetectorFeatureConfigurationsOutput() DetectorFeatureConfigurationsOutput {
-	return i.ToDetectorFeatureConfigurationsOutputWithContext(context.Background())
-}
-
-func (i DetectorFeatureConfigurationsArgs) ToDetectorFeatureConfigurationsOutputWithContext(ctx context.Context) DetectorFeatureConfigurationsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorFeatureConfigurationsOutput)
-}
-
-func (i DetectorFeatureConfigurationsArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorFeatureConfigurations] {
-	return pulumix.Output[DetectorFeatureConfigurations]{
-		OutputState: i.ToDetectorFeatureConfigurationsOutputWithContext(ctx).OutputState,
-	}
-}
-
-// DetectorFeatureConfigurationsArrayInput is an input type that accepts DetectorFeatureConfigurationsArray and DetectorFeatureConfigurationsArrayOutput values.
-// You can construct a concrete instance of `DetectorFeatureConfigurationsArrayInput` via:
-//
-//	DetectorFeatureConfigurationsArray{ DetectorFeatureConfigurationsArgs{...} }
-type DetectorFeatureConfigurationsArrayInput interface {
-	pulumi.Input
-
-	ToDetectorFeatureConfigurationsArrayOutput() DetectorFeatureConfigurationsArrayOutput
-	ToDetectorFeatureConfigurationsArrayOutputWithContext(context.Context) DetectorFeatureConfigurationsArrayOutput
-}
-
-type DetectorFeatureConfigurationsArray []DetectorFeatureConfigurationsInput
-
-func (DetectorFeatureConfigurationsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DetectorFeatureConfigurations)(nil)).Elem()
-}
-
-func (i DetectorFeatureConfigurationsArray) ToDetectorFeatureConfigurationsArrayOutput() DetectorFeatureConfigurationsArrayOutput {
-	return i.ToDetectorFeatureConfigurationsArrayOutputWithContext(context.Background())
-}
-
-func (i DetectorFeatureConfigurationsArray) ToDetectorFeatureConfigurationsArrayOutputWithContext(ctx context.Context) DetectorFeatureConfigurationsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorFeatureConfigurationsArrayOutput)
-}
-
-func (i DetectorFeatureConfigurationsArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorFeatureConfigurations] {
-	return pulumix.Output[[]DetectorFeatureConfigurations]{
-		OutputState: i.ToDetectorFeatureConfigurationsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
-type DetectorFeatureConfigurationsOutput struct{ *pulumi.OutputState }
-
-func (DetectorFeatureConfigurationsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorFeatureConfigurations)(nil)).Elem()
-}
-
-func (o DetectorFeatureConfigurationsOutput) ToDetectorFeatureConfigurationsOutput() DetectorFeatureConfigurationsOutput {
-	return o
-}
-
-func (o DetectorFeatureConfigurationsOutput) ToDetectorFeatureConfigurationsOutputWithContext(ctx context.Context) DetectorFeatureConfigurationsOutput {
-	return o
-}
-
-func (o DetectorFeatureConfigurationsOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorFeatureConfigurations] {
-	return pulumix.Output[DetectorFeatureConfigurations]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o DetectorFeatureConfigurationsOutput) AdditionalConfiguration() DetectorFeatureAdditionalConfigurationArrayOutput {
-	return o.ApplyT(func(v DetectorFeatureConfigurations) []DetectorFeatureAdditionalConfiguration {
-		return v.AdditionalConfiguration
-	}).(DetectorFeatureAdditionalConfigurationArrayOutput)
-}
-
-func (o DetectorFeatureConfigurationsOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorFeatureConfigurations) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o DetectorFeatureConfigurationsOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorFeatureConfigurations) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type DetectorFeatureConfigurationsArrayOutput struct{ *pulumi.OutputState }
-
-func (DetectorFeatureConfigurationsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DetectorFeatureConfigurations)(nil)).Elem()
-}
-
-func (o DetectorFeatureConfigurationsArrayOutput) ToDetectorFeatureConfigurationsArrayOutput() DetectorFeatureConfigurationsArrayOutput {
-	return o
-}
-
-func (o DetectorFeatureConfigurationsArrayOutput) ToDetectorFeatureConfigurationsArrayOutputWithContext(ctx context.Context) DetectorFeatureConfigurationsArrayOutput {
-	return o
-}
-
-func (o DetectorFeatureConfigurationsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorFeatureConfigurations] {
-	return pulumix.Output[[]DetectorFeatureConfigurations]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o DetectorFeatureConfigurationsArrayOutput) Index(i pulumi.IntInput) DetectorFeatureConfigurationsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorFeatureConfigurations {
-		return vs[0].([]DetectorFeatureConfigurations)[vs[1].(int)]
-	}).(DetectorFeatureConfigurationsOutput)
-}
-
-type DetectorTag struct {
+type DetectorTagItem struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
-// DetectorTagInput is an input type that accepts DetectorTagArgs and DetectorTagOutput values.
-// You can construct a concrete instance of `DetectorTagInput` via:
+// DetectorTagItemInput is an input type that accepts DetectorTagItemArgs and DetectorTagItemOutput values.
+// You can construct a concrete instance of `DetectorTagItemInput` via:
 //
-//	DetectorTagArgs{...}
-type DetectorTagInput interface {
+//	DetectorTagItemArgs{...}
+type DetectorTagItemInput interface {
 	pulumi.Input
 
-	ToDetectorTagOutput() DetectorTagOutput
-	ToDetectorTagOutputWithContext(context.Context) DetectorTagOutput
+	ToDetectorTagItemOutput() DetectorTagItemOutput
+	ToDetectorTagItemOutputWithContext(context.Context) DetectorTagItemOutput
 }
 
-type DetectorTagArgs struct {
+type DetectorTagItemArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (DetectorTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorTag)(nil)).Elem()
+func (DetectorTagItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorTagItem)(nil)).Elem()
 }
 
-func (i DetectorTagArgs) ToDetectorTagOutput() DetectorTagOutput {
-	return i.ToDetectorTagOutputWithContext(context.Background())
+func (i DetectorTagItemArgs) ToDetectorTagItemOutput() DetectorTagItemOutput {
+	return i.ToDetectorTagItemOutputWithContext(context.Background())
 }
 
-func (i DetectorTagArgs) ToDetectorTagOutputWithContext(ctx context.Context) DetectorTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorTagOutput)
+func (i DetectorTagItemArgs) ToDetectorTagItemOutputWithContext(ctx context.Context) DetectorTagItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorTagItemOutput)
 }
 
-func (i DetectorTagArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorTag] {
-	return pulumix.Output[DetectorTag]{
-		OutputState: i.ToDetectorTagOutputWithContext(ctx).OutputState,
+func (i DetectorTagItemArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorTagItem] {
+	return pulumix.Output[DetectorTagItem]{
+		OutputState: i.ToDetectorTagItemOutputWithContext(ctx).OutputState,
 	}
 }
 
-// DetectorTagArrayInput is an input type that accepts DetectorTagArray and DetectorTagArrayOutput values.
-// You can construct a concrete instance of `DetectorTagArrayInput` via:
+// DetectorTagItemArrayInput is an input type that accepts DetectorTagItemArray and DetectorTagItemArrayOutput values.
+// You can construct a concrete instance of `DetectorTagItemArrayInput` via:
 //
-//	DetectorTagArray{ DetectorTagArgs{...} }
-type DetectorTagArrayInput interface {
+//	DetectorTagItemArray{ DetectorTagItemArgs{...} }
+type DetectorTagItemArrayInput interface {
 	pulumi.Input
 
-	ToDetectorTagArrayOutput() DetectorTagArrayOutput
-	ToDetectorTagArrayOutputWithContext(context.Context) DetectorTagArrayOutput
+	ToDetectorTagItemArrayOutput() DetectorTagItemArrayOutput
+	ToDetectorTagItemArrayOutputWithContext(context.Context) DetectorTagItemArrayOutput
 }
 
-type DetectorTagArray []DetectorTagInput
+type DetectorTagItemArray []DetectorTagItemInput
 
-func (DetectorTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DetectorTag)(nil)).Elem()
+func (DetectorTagItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorTagItem)(nil)).Elem()
 }
 
-func (i DetectorTagArray) ToDetectorTagArrayOutput() DetectorTagArrayOutput {
-	return i.ToDetectorTagArrayOutputWithContext(context.Background())
+func (i DetectorTagItemArray) ToDetectorTagItemArrayOutput() DetectorTagItemArrayOutput {
+	return i.ToDetectorTagItemArrayOutputWithContext(context.Background())
 }
 
-func (i DetectorTagArray) ToDetectorTagArrayOutputWithContext(ctx context.Context) DetectorTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorTagArrayOutput)
+func (i DetectorTagItemArray) ToDetectorTagItemArrayOutputWithContext(ctx context.Context) DetectorTagItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorTagItemArrayOutput)
 }
 
-func (i DetectorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorTag] {
-	return pulumix.Output[[]DetectorTag]{
-		OutputState: i.ToDetectorTagArrayOutputWithContext(ctx).OutputState,
+func (i DetectorTagItemArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorTagItem] {
+	return pulumix.Output[[]DetectorTagItem]{
+		OutputState: i.ToDetectorTagItemArrayOutputWithContext(ctx).OutputState,
 	}
 }
 
-type DetectorTagOutput struct{ *pulumi.OutputState }
+type DetectorTagItemOutput struct{ *pulumi.OutputState }
 
-func (DetectorTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorTag)(nil)).Elem()
+func (DetectorTagItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorTagItem)(nil)).Elem()
 }
 
-func (o DetectorTagOutput) ToDetectorTagOutput() DetectorTagOutput {
+func (o DetectorTagItemOutput) ToDetectorTagItemOutput() DetectorTagItemOutput {
 	return o
 }
 
-func (o DetectorTagOutput) ToDetectorTagOutputWithContext(ctx context.Context) DetectorTagOutput {
+func (o DetectorTagItemOutput) ToDetectorTagItemOutputWithContext(ctx context.Context) DetectorTagItemOutput {
 	return o
 }
 
-func (o DetectorTagOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorTag] {
-	return pulumix.Output[DetectorTag]{
+func (o DetectorTagItemOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorTagItem] {
+	return pulumix.Output[DetectorTagItem]{
 		OutputState: o.OutputState,
 	}
 }
 
-func (o DetectorTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DetectorTag) string { return v.Key }).(pulumi.StringOutput)
+func (o DetectorTagItemOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorTagItem) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o DetectorTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DetectorTag) string { return v.Value }).(pulumi.StringOutput)
+func (o DetectorTagItemOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorTagItem) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type DetectorTagArrayOutput struct{ *pulumi.OutputState }
+type DetectorTagItemArrayOutput struct{ *pulumi.OutputState }
 
-func (DetectorTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DetectorTag)(nil)).Elem()
+func (DetectorTagItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorTagItem)(nil)).Elem()
 }
 
-func (o DetectorTagArrayOutput) ToDetectorTagArrayOutput() DetectorTagArrayOutput {
+func (o DetectorTagItemArrayOutput) ToDetectorTagItemArrayOutput() DetectorTagItemArrayOutput {
 	return o
 }
 
-func (o DetectorTagArrayOutput) ToDetectorTagArrayOutputWithContext(ctx context.Context) DetectorTagArrayOutput {
+func (o DetectorTagItemArrayOutput) ToDetectorTagItemArrayOutputWithContext(ctx context.Context) DetectorTagItemArrayOutput {
 	return o
 }
 
-func (o DetectorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorTag] {
-	return pulumix.Output[[]DetectorTag]{
+func (o DetectorTagItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorTagItem] {
+	return pulumix.Output[[]DetectorTagItem]{
 		OutputState: o.OutputState,
 	}
 }
 
-func (o DetectorTagArrayOutput) Index(i pulumi.IntInput) DetectorTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorTag {
-		return vs[0].([]DetectorTag)[vs[1].(int)]
-	}).(DetectorTagOutput)
+func (o DetectorTagItemArrayOutput) Index(i pulumi.IntInput) DetectorTagItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorTagItem {
+		return vs[0].([]DetectorTagItem)[vs[1].(int)]
+	}).(DetectorTagItemOutput)
 }
 
 type FilterCondition struct {
@@ -2184,6 +2184,10 @@ func (o ThreatIntelSetTagArrayOutput) Index(i pulumi.IntInput) ThreatIntelSetTag
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnDataSourceConfigurationsInput)(nil)).Elem(), DetectorCfnDataSourceConfigurationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnDataSourceConfigurationsPtrInput)(nil)).Elem(), DetectorCfnDataSourceConfigurationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureAdditionalConfigurationInput)(nil)).Elem(), DetectorCfnFeatureAdditionalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureAdditionalConfigurationArrayInput)(nil)).Elem(), DetectorCfnFeatureAdditionalConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationInput)(nil)).Elem(), DetectorCfnFeatureConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationArrayInput)(nil)).Elem(), DetectorCfnFeatureConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnKubernetesAuditLogsConfigurationInput)(nil)).Elem(), DetectorCfnKubernetesAuditLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnKubernetesAuditLogsConfigurationPtrInput)(nil)).Elem(), DetectorCfnKubernetesAuditLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnKubernetesConfigurationInput)(nil)).Elem(), DetectorCfnKubernetesConfigurationArgs{})
@@ -2194,12 +2198,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrInput)(nil)).Elem(), DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfns3LogsConfigurationInput)(nil)).Elem(), DetectorCfns3LogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfns3LogsConfigurationPtrInput)(nil)).Elem(), DetectorCfns3LogsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorFeatureAdditionalConfigurationInput)(nil)).Elem(), DetectorFeatureAdditionalConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorFeatureAdditionalConfigurationArrayInput)(nil)).Elem(), DetectorFeatureAdditionalConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorFeatureConfigurationsInput)(nil)).Elem(), DetectorFeatureConfigurationsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorFeatureConfigurationsArrayInput)(nil)).Elem(), DetectorFeatureConfigurationsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorTagInput)(nil)).Elem(), DetectorTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorTagArrayInput)(nil)).Elem(), DetectorTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorTagItemInput)(nil)).Elem(), DetectorTagItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorTagItemArrayInput)(nil)).Elem(), DetectorTagItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterConditionInput)(nil)).Elem(), FilterConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterConditionPtrInput)(nil)).Elem(), FilterConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
@@ -2211,6 +2211,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelSetTagArrayInput)(nil)).Elem(), ThreatIntelSetTagArray{})
 	pulumi.RegisterOutputType(DetectorCfnDataSourceConfigurationsOutput{})
 	pulumi.RegisterOutputType(DetectorCfnDataSourceConfigurationsPtrOutput{})
+	pulumi.RegisterOutputType(DetectorCfnFeatureAdditionalConfigurationOutput{})
+	pulumi.RegisterOutputType(DetectorCfnFeatureAdditionalConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DetectorCfnFeatureConfigurationOutput{})
+	pulumi.RegisterOutputType(DetectorCfnFeatureConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DetectorCfnKubernetesAuditLogsConfigurationOutput{})
 	pulumi.RegisterOutputType(DetectorCfnKubernetesAuditLogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DetectorCfnKubernetesConfigurationOutput{})
@@ -2221,12 +2225,8 @@ func init() {
 	pulumi.RegisterOutputType(DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DetectorCfns3LogsConfigurationOutput{})
 	pulumi.RegisterOutputType(DetectorCfns3LogsConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DetectorFeatureAdditionalConfigurationOutput{})
-	pulumi.RegisterOutputType(DetectorFeatureAdditionalConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(DetectorFeatureConfigurationsOutput{})
-	pulumi.RegisterOutputType(DetectorFeatureConfigurationsArrayOutput{})
-	pulumi.RegisterOutputType(DetectorTagOutput{})
-	pulumi.RegisterOutputType(DetectorTagArrayOutput{})
+	pulumi.RegisterOutputType(DetectorTagItemOutput{})
+	pulumi.RegisterOutputType(DetectorTagItemArrayOutput{})
 	pulumi.RegisterOutputType(FilterConditionOutput{})
 	pulumi.RegisterOutputType(FilterConditionPtrOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaOutput{})

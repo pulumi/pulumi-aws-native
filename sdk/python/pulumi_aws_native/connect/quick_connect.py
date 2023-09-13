@@ -170,6 +170,7 @@ class QuickConnect(pulumi.CustomResource):
             __props__.__dict__["quick_connect_config"] = quick_connect_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["quick_connect_arn"] = None
+            __props__.__dict__["quick_connect_type"] = None
         super(QuickConnect, __self__).__init__(
             'aws-native:connect:QuickConnect',
             resource_name,
@@ -197,6 +198,7 @@ class QuickConnect(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["quick_connect_arn"] = None
         __props__.__dict__["quick_connect_config"] = None
+        __props__.__dict__["quick_connect_type"] = None
         __props__.__dict__["tags"] = None
         return QuickConnect(resource_name, opts=opts, __props__=__props__)
 
@@ -239,6 +241,14 @@ class QuickConnect(pulumi.CustomResource):
         Configuration settings for the quick connect.
         """
         return pulumi.get(self, "quick_connect_config")
+
+    @property
+    @pulumi.getter(name="quickConnectType")
+    def quick_connect_type(self) -> pulumi.Output['QuickConnectType']:
+        """
+        The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+        """
+        return pulumi.get(self, "quick_connect_type")
 
     @property
     @pulumi.getter

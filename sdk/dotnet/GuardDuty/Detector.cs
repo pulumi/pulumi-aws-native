@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.GuardDuty
     /// <summary>
     /// Resource Type definition for AWS::GuardDuty::Detector
     /// </summary>
-    [Obsolete(@"Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:Detector")]
     public partial class Detector : global::Pulumi.CustomResource
     {
@@ -23,13 +22,13 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<bool> Enable { get; private set; } = null!;
 
         [Output("features")]
-        public Output<ImmutableArray<Outputs.DetectorFeatureConfigurations>> Features { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DetectorCfnFeatureConfiguration>> Features { get; private set; } = null!;
 
         [Output("findingPublishingFrequency")]
         public Output<string?> FindingPublishingFrequency { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DetectorTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DetectorTagItem>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -83,10 +82,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public Input<bool> Enable { get; set; } = null!;
 
         [Input("features")]
-        private InputList<Inputs.DetectorFeatureConfigurationsArgs>? _features;
-        public InputList<Inputs.DetectorFeatureConfigurationsArgs> Features
+        private InputList<Inputs.DetectorCfnFeatureConfigurationArgs>? _features;
+        public InputList<Inputs.DetectorCfnFeatureConfigurationArgs> Features
         {
-            get => _features ?? (_features = new InputList<Inputs.DetectorFeatureConfigurationsArgs>());
+            get => _features ?? (_features = new InputList<Inputs.DetectorCfnFeatureConfigurationArgs>());
             set => _features = value;
         }
 
@@ -94,10 +93,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public Input<string>? FindingPublishingFrequency { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DetectorTagArgs>? _tags;
-        public InputList<Inputs.DetectorTagArgs> Tags
+        private InputList<Inputs.DetectorTagItemArgs>? _tags;
+        public InputList<Inputs.DetectorTagItemArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DetectorTagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DetectorTagItemArgs>());
             set => _tags = value;
         }
 

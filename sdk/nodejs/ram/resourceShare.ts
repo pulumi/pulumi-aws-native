@@ -46,6 +46,7 @@ export class ResourceShare extends pulumi.CustomResource {
     public readonly permissionArns!: pulumi.Output<string[] | undefined>;
     public readonly principals!: pulumi.Output<string[] | undefined>;
     public readonly resourceArns!: pulumi.Output<string[] | undefined>;
+    public readonly sources!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.ram.ResourceShareTag[] | undefined>;
 
     /**
@@ -66,6 +67,7 @@ export class ResourceShare extends pulumi.CustomResource {
             resourceInputs["permissionArns"] = args ? args.permissionArns : undefined;
             resourceInputs["principals"] = args ? args.principals : undefined;
             resourceInputs["resourceArns"] = args ? args.resourceArns : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -75,6 +77,7 @@ export class ResourceShare extends pulumi.CustomResource {
             resourceInputs["permissionArns"] = undefined /*out*/;
             resourceInputs["principals"] = undefined /*out*/;
             resourceInputs["resourceArns"] = undefined /*out*/;
+            resourceInputs["sources"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -91,5 +94,6 @@ export interface ResourceShareArgs {
     permissionArns?: pulumi.Input<pulumi.Input<string>[]>;
     principals?: pulumi.Input<pulumi.Input<string>[]>;
     resourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    sources?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.ram.ResourceShareTagArgs>[]>;
 }

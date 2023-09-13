@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorCfnKubernetesAuditLogsConfiguration
     {
-        public readonly bool? Enable;
+        public readonly bool Enable;
 
         [OutputConstructor]
-        private DetectorCfnKubernetesAuditLogsConfiguration(bool? enable)
+        private DetectorCfnKubernetesAuditLogsConfiguration(bool enable)
         {
             Enable = enable;
         }

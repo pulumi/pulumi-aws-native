@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.Ram
         [Output("resourceArns")]
         public Output<ImmutableArray<string>> ResourceArns { get; private set; } = null!;
 
+        [Output("sources")]
+        public Output<ImmutableArray<string>> Sources { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ResourceShareTag>> Tags { get; private set; } = null!;
 
@@ -110,6 +113,14 @@ namespace Pulumi.AwsNative.Ram
         {
             get => _resourceArns ?? (_resourceArns = new InputList<string>());
             set => _resourceArns = value;
+        }
+
+        [Input("sources")]
+        private InputList<string>? _sources;
+        public InputList<string> Sources
+        {
+            get => _sources ?? (_sources = new InputList<string>());
+            set => _sources = value;
         }
 
         [Input("tags")]

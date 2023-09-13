@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AnalysisTemplateArgs } from "./analysisTemplate";
+export type AnalysisTemplate = import("./analysisTemplate").AnalysisTemplate;
+export const AnalysisTemplate: typeof import("./analysisTemplate").AnalysisTemplate = null as any;
+utilities.lazyLoad(exports, ["AnalysisTemplate"], () => require("./analysisTemplate"));
+
 export { CollaborationArgs } from "./collaboration";
 export type Collaboration = import("./collaboration").Collaboration;
 export const Collaboration: typeof import("./collaboration").Collaboration = null as any;
@@ -19,6 +24,11 @@ export { ConfiguredTableAssociationArgs } from "./configuredTableAssociation";
 export type ConfiguredTableAssociation = import("./configuredTableAssociation").ConfiguredTableAssociation;
 export const ConfiguredTableAssociation: typeof import("./configuredTableAssociation").ConfiguredTableAssociation = null as any;
 utilities.lazyLoad(exports, ["ConfiguredTableAssociation"], () => require("./configuredTableAssociation"));
+
+export { GetAnalysisTemplateArgs, GetAnalysisTemplateResult, GetAnalysisTemplateOutputArgs } from "./getAnalysisTemplate";
+export const getAnalysisTemplate: typeof import("./getAnalysisTemplate").getAnalysisTemplate = null as any;
+export const getAnalysisTemplateOutput: typeof import("./getAnalysisTemplate").getAnalysisTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getAnalysisTemplate","getAnalysisTemplateOutput"], () => require("./getAnalysisTemplate"));
 
 export { GetCollaborationArgs, GetCollaborationResult, GetCollaborationOutputArgs } from "./getCollaboration";
 export const getCollaboration: typeof import("./getCollaboration").getCollaboration = null as any;
@@ -53,6 +63,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:cleanrooms:AnalysisTemplate":
+                return new AnalysisTemplate(name, <any>undefined, { urn })
             case "aws-native:cleanrooms:Collaboration":
                 return new Collaboration(name, <any>undefined, { urn })
             case "aws-native:cleanrooms:ConfiguredTable":

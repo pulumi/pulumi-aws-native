@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetDetectorResult',
@@ -51,7 +52,7 @@ class GetDetectorResult:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[Sequence['outputs.DetectorFeatureConfigurations']]:
+    def features(self) -> Optional[Sequence['outputs.DetectorCfnFeatureConfiguration']]:
         return pulumi.get(self, "features")
 
     @property
@@ -66,7 +67,7 @@ class GetDetectorResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DetectorTag']]:
+    def tags(self) -> Optional[Sequence['outputs.DetectorTagItem']]:
         return pulumi.get(self, "tags")
 
 

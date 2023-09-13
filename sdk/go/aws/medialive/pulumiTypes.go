@@ -292,13 +292,14 @@ func (o ChannelAacSettingsPtrOutput) VbrQuality() pulumi.StringPtrOutput {
 }
 
 type ChannelAc3Settings struct {
-	Bitrate         *float64 `pulumi:"bitrate"`
-	BitstreamMode   *string  `pulumi:"bitstreamMode"`
-	CodingMode      *string  `pulumi:"codingMode"`
-	Dialnorm        *int     `pulumi:"dialnorm"`
-	DrcProfile      *string  `pulumi:"drcProfile"`
-	LfeFilter       *string  `pulumi:"lfeFilter"`
-	MetadataControl *string  `pulumi:"metadataControl"`
+	AttenuationControl *string  `pulumi:"attenuationControl"`
+	Bitrate            *float64 `pulumi:"bitrate"`
+	BitstreamMode      *string  `pulumi:"bitstreamMode"`
+	CodingMode         *string  `pulumi:"codingMode"`
+	Dialnorm           *int     `pulumi:"dialnorm"`
+	DrcProfile         *string  `pulumi:"drcProfile"`
+	LfeFilter          *string  `pulumi:"lfeFilter"`
+	MetadataControl    *string  `pulumi:"metadataControl"`
 }
 
 // ChannelAc3SettingsInput is an input type that accepts ChannelAc3SettingsArgs and ChannelAc3SettingsOutput values.
@@ -313,13 +314,14 @@ type ChannelAc3SettingsInput interface {
 }
 
 type ChannelAc3SettingsArgs struct {
-	Bitrate         pulumi.Float64PtrInput `pulumi:"bitrate"`
-	BitstreamMode   pulumi.StringPtrInput  `pulumi:"bitstreamMode"`
-	CodingMode      pulumi.StringPtrInput  `pulumi:"codingMode"`
-	Dialnorm        pulumi.IntPtrInput     `pulumi:"dialnorm"`
-	DrcProfile      pulumi.StringPtrInput  `pulumi:"drcProfile"`
-	LfeFilter       pulumi.StringPtrInput  `pulumi:"lfeFilter"`
-	MetadataControl pulumi.StringPtrInput  `pulumi:"metadataControl"`
+	AttenuationControl pulumi.StringPtrInput  `pulumi:"attenuationControl"`
+	Bitrate            pulumi.Float64PtrInput `pulumi:"bitrate"`
+	BitstreamMode      pulumi.StringPtrInput  `pulumi:"bitstreamMode"`
+	CodingMode         pulumi.StringPtrInput  `pulumi:"codingMode"`
+	Dialnorm           pulumi.IntPtrInput     `pulumi:"dialnorm"`
+	DrcProfile         pulumi.StringPtrInput  `pulumi:"drcProfile"`
+	LfeFilter          pulumi.StringPtrInput  `pulumi:"lfeFilter"`
+	MetadataControl    pulumi.StringPtrInput  `pulumi:"metadataControl"`
 }
 
 func (ChannelAc3SettingsArgs) ElementType() reflect.Type {
@@ -417,6 +419,10 @@ func (o ChannelAc3SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[C
 	}
 }
 
+func (o ChannelAc3SettingsOutput) AttenuationControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelAc3Settings) *string { return v.AttenuationControl }).(pulumi.StringPtrOutput)
+}
+
 func (o ChannelAc3SettingsOutput) Bitrate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ChannelAc3Settings) *float64 { return v.Bitrate }).(pulumi.Float64PtrOutput)
 }
@@ -473,6 +479,15 @@ func (o ChannelAc3SettingsPtrOutput) Elem() ChannelAc3SettingsOutput {
 		var ret ChannelAc3Settings
 		return ret
 	}).(ChannelAc3SettingsOutput)
+}
+
+func (o ChannelAc3SettingsPtrOutput) AttenuationControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelAc3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AttenuationControl
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelAc3SettingsPtrOutput) Bitrate() pulumi.Float64PtrOutput {
@@ -9884,6 +9899,7 @@ type ChannelEncoderSettings struct {
 	MotionGraphicsConfiguration *ChannelMotionGraphicsConfiguration `pulumi:"motionGraphicsConfiguration"`
 	NielsenConfiguration        *ChannelNielsenConfiguration        `pulumi:"nielsenConfiguration"`
 	OutputGroups                []ChannelOutputGroup                `pulumi:"outputGroups"`
+	ThumbnailConfiguration      *ChannelThumbnailConfiguration      `pulumi:"thumbnailConfiguration"`
 	TimecodeConfig              *ChannelTimecodeConfig              `pulumi:"timecodeConfig"`
 	VideoDescriptions           []ChannelVideoDescription           `pulumi:"videoDescriptions"`
 }
@@ -9910,6 +9926,7 @@ type ChannelEncoderSettingsArgs struct {
 	MotionGraphicsConfiguration ChannelMotionGraphicsConfigurationPtrInput `pulumi:"motionGraphicsConfiguration"`
 	NielsenConfiguration        ChannelNielsenConfigurationPtrInput        `pulumi:"nielsenConfiguration"`
 	OutputGroups                ChannelOutputGroupArrayInput               `pulumi:"outputGroups"`
+	ThumbnailConfiguration      ChannelThumbnailConfigurationPtrInput      `pulumi:"thumbnailConfiguration"`
 	TimecodeConfig              ChannelTimecodeConfigPtrInput              `pulumi:"timecodeConfig"`
 	VideoDescriptions           ChannelVideoDescriptionArrayInput          `pulumi:"videoDescriptions"`
 }
@@ -10051,6 +10068,10 @@ func (o ChannelEncoderSettingsOutput) OutputGroups() ChannelOutputGroupArrayOutp
 	return o.ApplyT(func(v ChannelEncoderSettings) []ChannelOutputGroup { return v.OutputGroups }).(ChannelOutputGroupArrayOutput)
 }
 
+func (o ChannelEncoderSettingsOutput) ThumbnailConfiguration() ChannelThumbnailConfigurationPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettings) *ChannelThumbnailConfiguration { return v.ThumbnailConfiguration }).(ChannelThumbnailConfigurationPtrOutput)
+}
+
 func (o ChannelEncoderSettingsOutput) TimecodeConfig() ChannelTimecodeConfigPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettings) *ChannelTimecodeConfig { return v.TimecodeConfig }).(ChannelTimecodeConfigPtrOutput)
 }
@@ -10177,6 +10198,15 @@ func (o ChannelEncoderSettingsPtrOutput) OutputGroups() ChannelOutputGroupArrayO
 		}
 		return v.OutputGroups
 	}).(ChannelOutputGroupArrayOutput)
+}
+
+func (o ChannelEncoderSettingsPtrOutput) ThumbnailConfiguration() ChannelThumbnailConfigurationPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettings) *ChannelThumbnailConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ThumbnailConfiguration
+	}).(ChannelThumbnailConfigurationPtrOutput)
 }
 
 func (o ChannelEncoderSettingsPtrOutput) TimecodeConfig() ChannelTimecodeConfigPtrOutput {
@@ -19880,6 +19910,8 @@ type ChannelM3u8Settings struct {
 	AudioFramesPerPes     *int    `pulumi:"audioFramesPerPes"`
 	AudioPids             *string `pulumi:"audioPids"`
 	EcmPid                *string `pulumi:"ecmPid"`
+	KlvBehavior           *string `pulumi:"klvBehavior"`
+	KlvDataPids           *string `pulumi:"klvDataPids"`
 	NielsenId3Behavior    *string `pulumi:"nielsenId3Behavior"`
 	PatInterval           *int    `pulumi:"patInterval"`
 	PcrControl            *string `pulumi:"pcrControl"`
@@ -19911,6 +19943,8 @@ type ChannelM3u8SettingsArgs struct {
 	AudioFramesPerPes     pulumi.IntPtrInput    `pulumi:"audioFramesPerPes"`
 	AudioPids             pulumi.StringPtrInput `pulumi:"audioPids"`
 	EcmPid                pulumi.StringPtrInput `pulumi:"ecmPid"`
+	KlvBehavior           pulumi.StringPtrInput `pulumi:"klvBehavior"`
+	KlvDataPids           pulumi.StringPtrInput `pulumi:"klvDataPids"`
 	NielsenId3Behavior    pulumi.StringPtrInput `pulumi:"nielsenId3Behavior"`
 	PatInterval           pulumi.IntPtrInput    `pulumi:"patInterval"`
 	PcrControl            pulumi.StringPtrInput `pulumi:"pcrControl"`
@@ -20034,6 +20068,14 @@ func (o ChannelM3u8SettingsOutput) EcmPid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelM3u8Settings) *string { return v.EcmPid }).(pulumi.StringPtrOutput)
 }
 
+func (o ChannelM3u8SettingsOutput) KlvBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelM3u8Settings) *string { return v.KlvBehavior }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelM3u8SettingsOutput) KlvDataPids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelM3u8Settings) *string { return v.KlvDataPids }).(pulumi.StringPtrOutput)
+}
+
 func (o ChannelM3u8SettingsOutput) NielsenId3Behavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelM3u8Settings) *string { return v.NielsenId3Behavior }).(pulumi.StringPtrOutput)
 }
@@ -20144,6 +20186,24 @@ func (o ChannelM3u8SettingsPtrOutput) EcmPid() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.EcmPid
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelM3u8SettingsPtrOutput) KlvBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelM3u8Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KlvBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelM3u8SettingsPtrOutput) KlvDataPids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelM3u8Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KlvDataPids
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -26042,13 +26102,14 @@ func (o ChannelRtmpCaptionInfoDestinationSettingsPtrOutput) Elem() ChannelRtmpCa
 }
 
 type ChannelRtmpGroupSettings struct {
-	AdMarkers            []string `pulumi:"adMarkers"`
-	AuthenticationScheme *string  `pulumi:"authenticationScheme"`
-	CacheFullBehavior    *string  `pulumi:"cacheFullBehavior"`
-	CacheLength          *int     `pulumi:"cacheLength"`
-	CaptionData          *string  `pulumi:"captionData"`
-	InputLossAction      *string  `pulumi:"inputLossAction"`
-	RestartDelay         *int     `pulumi:"restartDelay"`
+	AdMarkers             []string `pulumi:"adMarkers"`
+	AuthenticationScheme  *string  `pulumi:"authenticationScheme"`
+	CacheFullBehavior     *string  `pulumi:"cacheFullBehavior"`
+	CacheLength           *int     `pulumi:"cacheLength"`
+	CaptionData           *string  `pulumi:"captionData"`
+	IncludeFillerNalUnits *string  `pulumi:"includeFillerNalUnits"`
+	InputLossAction       *string  `pulumi:"inputLossAction"`
+	RestartDelay          *int     `pulumi:"restartDelay"`
 }
 
 // ChannelRtmpGroupSettingsInput is an input type that accepts ChannelRtmpGroupSettingsArgs and ChannelRtmpGroupSettingsOutput values.
@@ -26063,13 +26124,14 @@ type ChannelRtmpGroupSettingsInput interface {
 }
 
 type ChannelRtmpGroupSettingsArgs struct {
-	AdMarkers            pulumi.StringArrayInput `pulumi:"adMarkers"`
-	AuthenticationScheme pulumi.StringPtrInput   `pulumi:"authenticationScheme"`
-	CacheFullBehavior    pulumi.StringPtrInput   `pulumi:"cacheFullBehavior"`
-	CacheLength          pulumi.IntPtrInput      `pulumi:"cacheLength"`
-	CaptionData          pulumi.StringPtrInput   `pulumi:"captionData"`
-	InputLossAction      pulumi.StringPtrInput   `pulumi:"inputLossAction"`
-	RestartDelay         pulumi.IntPtrInput      `pulumi:"restartDelay"`
+	AdMarkers             pulumi.StringArrayInput `pulumi:"adMarkers"`
+	AuthenticationScheme  pulumi.StringPtrInput   `pulumi:"authenticationScheme"`
+	CacheFullBehavior     pulumi.StringPtrInput   `pulumi:"cacheFullBehavior"`
+	CacheLength           pulumi.IntPtrInput      `pulumi:"cacheLength"`
+	CaptionData           pulumi.StringPtrInput   `pulumi:"captionData"`
+	IncludeFillerNalUnits pulumi.StringPtrInput   `pulumi:"includeFillerNalUnits"`
+	InputLossAction       pulumi.StringPtrInput   `pulumi:"inputLossAction"`
+	RestartDelay          pulumi.IntPtrInput      `pulumi:"restartDelay"`
 }
 
 func (ChannelRtmpGroupSettingsArgs) ElementType() reflect.Type {
@@ -26187,6 +26249,10 @@ func (o ChannelRtmpGroupSettingsOutput) CaptionData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelRtmpGroupSettings) *string { return v.CaptionData }).(pulumi.StringPtrOutput)
 }
 
+func (o ChannelRtmpGroupSettingsOutput) IncludeFillerNalUnits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelRtmpGroupSettings) *string { return v.IncludeFillerNalUnits }).(pulumi.StringPtrOutput)
+}
+
 func (o ChannelRtmpGroupSettingsOutput) InputLossAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelRtmpGroupSettings) *string { return v.InputLossAction }).(pulumi.StringPtrOutput)
 }
@@ -26267,6 +26333,15 @@ func (o ChannelRtmpGroupSettingsPtrOutput) CaptionData() pulumi.StringPtrOutput 
 			return nil
 		}
 		return v.CaptionData
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelRtmpGroupSettingsPtrOutput) IncludeFillerNalUnits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelRtmpGroupSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeFillerNalUnits
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -28461,6 +28536,163 @@ func (o ChannelTemporalFilterSettingsPtrOutput) Strength() pulumi.StringPtrOutpu
 			return nil
 		}
 		return v.Strength
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelThumbnailConfiguration struct {
+	State *string `pulumi:"state"`
+}
+
+// ChannelThumbnailConfigurationInput is an input type that accepts ChannelThumbnailConfigurationArgs and ChannelThumbnailConfigurationOutput values.
+// You can construct a concrete instance of `ChannelThumbnailConfigurationInput` via:
+//
+//	ChannelThumbnailConfigurationArgs{...}
+type ChannelThumbnailConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelThumbnailConfigurationOutput() ChannelThumbnailConfigurationOutput
+	ToChannelThumbnailConfigurationOutputWithContext(context.Context) ChannelThumbnailConfigurationOutput
+}
+
+type ChannelThumbnailConfigurationArgs struct {
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (ChannelThumbnailConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelThumbnailConfiguration)(nil)).Elem()
+}
+
+func (i ChannelThumbnailConfigurationArgs) ToChannelThumbnailConfigurationOutput() ChannelThumbnailConfigurationOutput {
+	return i.ToChannelThumbnailConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelThumbnailConfigurationArgs) ToChannelThumbnailConfigurationOutputWithContext(ctx context.Context) ChannelThumbnailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelThumbnailConfigurationOutput)
+}
+
+func (i ChannelThumbnailConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelThumbnailConfiguration] {
+	return pulumix.Output[ChannelThumbnailConfiguration]{
+		OutputState: i.ToChannelThumbnailConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ChannelThumbnailConfigurationArgs) ToChannelThumbnailConfigurationPtrOutput() ChannelThumbnailConfigurationPtrOutput {
+	return i.ToChannelThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelThumbnailConfigurationArgs) ToChannelThumbnailConfigurationPtrOutputWithContext(ctx context.Context) ChannelThumbnailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelThumbnailConfigurationOutput).ToChannelThumbnailConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelThumbnailConfigurationPtrInput is an input type that accepts ChannelThumbnailConfigurationArgs, ChannelThumbnailConfigurationPtr and ChannelThumbnailConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelThumbnailConfigurationPtrInput` via:
+//
+//	        ChannelThumbnailConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelThumbnailConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelThumbnailConfigurationPtrOutput() ChannelThumbnailConfigurationPtrOutput
+	ToChannelThumbnailConfigurationPtrOutputWithContext(context.Context) ChannelThumbnailConfigurationPtrOutput
+}
+
+type channelThumbnailConfigurationPtrType ChannelThumbnailConfigurationArgs
+
+func ChannelThumbnailConfigurationPtr(v *ChannelThumbnailConfigurationArgs) ChannelThumbnailConfigurationPtrInput {
+	return (*channelThumbnailConfigurationPtrType)(v)
+}
+
+func (*channelThumbnailConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelThumbnailConfiguration)(nil)).Elem()
+}
+
+func (i *channelThumbnailConfigurationPtrType) ToChannelThumbnailConfigurationPtrOutput() ChannelThumbnailConfigurationPtrOutput {
+	return i.ToChannelThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelThumbnailConfigurationPtrType) ToChannelThumbnailConfigurationPtrOutputWithContext(ctx context.Context) ChannelThumbnailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelThumbnailConfigurationPtrOutput)
+}
+
+func (i *channelThumbnailConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelThumbnailConfiguration] {
+	return pulumix.Output[*ChannelThumbnailConfiguration]{
+		OutputState: i.ToChannelThumbnailConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ChannelThumbnailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelThumbnailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelThumbnailConfiguration)(nil)).Elem()
+}
+
+func (o ChannelThumbnailConfigurationOutput) ToChannelThumbnailConfigurationOutput() ChannelThumbnailConfigurationOutput {
+	return o
+}
+
+func (o ChannelThumbnailConfigurationOutput) ToChannelThumbnailConfigurationOutputWithContext(ctx context.Context) ChannelThumbnailConfigurationOutput {
+	return o
+}
+
+func (o ChannelThumbnailConfigurationOutput) ToChannelThumbnailConfigurationPtrOutput() ChannelThumbnailConfigurationPtrOutput {
+	return o.ToChannelThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelThumbnailConfigurationOutput) ToChannelThumbnailConfigurationPtrOutputWithContext(ctx context.Context) ChannelThumbnailConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelThumbnailConfiguration) *ChannelThumbnailConfiguration {
+		return &v
+	}).(ChannelThumbnailConfigurationPtrOutput)
+}
+
+func (o ChannelThumbnailConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelThumbnailConfiguration] {
+	return pulumix.Output[ChannelThumbnailConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelThumbnailConfigurationOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelThumbnailConfiguration) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type ChannelThumbnailConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelThumbnailConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelThumbnailConfiguration)(nil)).Elem()
+}
+
+func (o ChannelThumbnailConfigurationPtrOutput) ToChannelThumbnailConfigurationPtrOutput() ChannelThumbnailConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelThumbnailConfigurationPtrOutput) ToChannelThumbnailConfigurationPtrOutputWithContext(ctx context.Context) ChannelThumbnailConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelThumbnailConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelThumbnailConfiguration] {
+	return pulumix.Output[*ChannelThumbnailConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelThumbnailConfigurationPtrOutput) Elem() ChannelThumbnailConfigurationOutput {
+	return o.ApplyT(func(v *ChannelThumbnailConfiguration) ChannelThumbnailConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelThumbnailConfiguration
+		return ret
+	}).(ChannelThumbnailConfigurationOutput)
+}
+
+func (o ChannelThumbnailConfigurationPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelThumbnailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -32483,6 +32715,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTeletextSourceSettingsPtrInput)(nil)).Elem(), ChannelTeletextSourceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTemporalFilterSettingsInput)(nil)).Elem(), ChannelTemporalFilterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTemporalFilterSettingsPtrInput)(nil)).Elem(), ChannelTemporalFilterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelThumbnailConfigurationInput)(nil)).Elem(), ChannelThumbnailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelThumbnailConfigurationPtrInput)(nil)).Elem(), ChannelThumbnailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimecodeBurninSettingsInput)(nil)).Elem(), ChannelTimecodeBurninSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimecodeBurninSettingsPtrInput)(nil)).Elem(), ChannelTimecodeBurninSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimecodeConfigInput)(nil)).Elem(), ChannelTimecodeConfigArgs{})
@@ -32807,6 +33041,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelTeletextSourceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelTemporalFilterSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelTemporalFilterSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelThumbnailConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelThumbnailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelTimecodeBurninSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelTimecodeBurninSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelTimecodeConfigOutput{})

@@ -18,6 +18,18 @@ namespace Pulumi.AwsNative.Dms.Inputs
         [Input("controlTablesFileGroup")]
         public Input<string>? ControlTablesFileGroup { get; set; }
 
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
+
+        [Input("forceLobLookup")]
+        public Input<bool>? ForceLobLookup { get; set; }
+
+        [Input("password")]
+        public Input<string>? Password { get; set; }
+
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
         [Input("querySingleAlwaysOnNode")]
         public Input<bool>? QuerySingleAlwaysOnNode { get; set; }
 
@@ -33,11 +45,23 @@ namespace Pulumi.AwsNative.Dms.Inputs
         [Input("secretsManagerSecretId")]
         public Input<string>? SecretsManagerSecretId { get; set; }
 
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
+
+        [Input("tlogAccessMode")]
+        public Input<string>? TlogAccessMode { get; set; }
+
+        [Input("trimSpaceInChar")]
+        public Input<bool>? TrimSpaceInChar { get; set; }
+
         [Input("useBcpFullLoad")]
         public Input<bool>? UseBcpFullLoad { get; set; }
 
         [Input("useThirdPartyBackupDevice")]
         public Input<bool>? UseThirdPartyBackupDevice { get; set; }
+
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public EndpointMicrosoftSqlServerSettingsArgs()
         {

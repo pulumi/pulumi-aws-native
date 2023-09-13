@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorCfns3LogsConfiguration
     {
-        public readonly bool? Enable;
+        public readonly bool Enable;
 
         [OutputConstructor]
-        private DetectorCfns3LogsConfiguration(bool? enable)
+        private DetectorCfns3LogsConfiguration(bool enable)
         {
             Enable = enable;
         }

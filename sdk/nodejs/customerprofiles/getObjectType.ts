@@ -64,6 +64,10 @@ export interface GetObjectTypeResult {
      */
     readonly lastUpdatedAt?: string;
     /**
+     * The format of your sourceLastUpdatedTimestamp that was previously set up.
+     */
+    readonly sourceLastUpdatedTimestampFormat?: string;
+    /**
      * The tags (keys and values) associated with the integration.
      */
     readonly tags?: outputs.customerprofiles.ObjectTypeTag[];

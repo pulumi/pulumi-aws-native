@@ -19,26 +19,27 @@ class DestinationArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[str],
                  expression_type: pulumi.Input['DestinationExpressionType'],
-                 role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]]] = None):
         """
         The set of arguments for constructing a Destination resource.
         :param pulumi.Input[str] expression: Destination expression
         :param pulumi.Input['DestinationExpressionType'] expression_type: Must be RuleName
-        :param pulumi.Input[str] role_arn: AWS role ARN that grants access
         :param pulumi.Input[str] description: Destination description
         :param pulumi.Input[str] name: Unique name of destination
+        :param pulumi.Input[str] role_arn: AWS role ARN that grants access
         :param pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]] tags: A list of key-value pairs that contain metadata for the destination.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "expression_type", expression_type)
-        pulumi.set(__self__, "role_arn", role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -67,18 +68,6 @@ class DestinationArgs:
         pulumi.set(self, "expression_type", value)
 
     @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Input[str]:
-        """
-        AWS role ARN that grants access
-        """
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_arn", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -101,6 +90,18 @@ class DestinationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS role ARN that grants access
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
 
     @property
     @pulumi.getter
@@ -186,8 +187,6 @@ class Destination(pulumi.CustomResource):
                 raise TypeError("Missing required property 'expression_type'")
             __props__.__dict__["expression_type"] = expression_type
             __props__.__dict__["name"] = name
-            if role_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -266,7 +265,7 @@ class Destination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Output[str]:
+    def role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         AWS role ARN that grants access
         """

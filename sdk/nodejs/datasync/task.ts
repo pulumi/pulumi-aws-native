@@ -71,6 +71,7 @@ export class Task extends pulumi.CustomResource {
      * The ARN of the task.
      */
     public /*out*/ readonly taskArn!: pulumi.Output<string>;
+    public readonly taskReportConfig!: pulumi.Output<outputs.datasync.TaskReportConfig | undefined>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -98,6 +99,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taskReportConfig"] = args ? args.taskReportConfig : undefined;
             resourceInputs["destinationNetworkInterfaceArns"] = undefined /*out*/;
             resourceInputs["sourceNetworkInterfaceArns"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -116,6 +118,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["taskArn"] = undefined /*out*/;
+            resourceInputs["taskReportConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["destinationLocationArn", "sourceLocationArn"] };
@@ -152,4 +155,5 @@ export interface TaskArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.datasync.TaskTagArgs>[]>;
+    taskReportConfig?: pulumi.Input<inputs.datasync.TaskReportConfigArgs>;
 }

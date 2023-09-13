@@ -39,7 +39,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] client_token: A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]] data_sources: List of data sources on the service managed IAM role.
         :param pulumi.Input[str] description: Description of a workspace.
-        :param pulumi.Input[str] grafana_version: The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+        :param pulumi.Input[str] grafana_version: The version of Grafana to support in your workspace.
         :param pulumi.Input[str] name: The user friendly name of a workspace.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]] notification_destinations: List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
         :param pulumi.Input[str] organization_role_name: The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
@@ -147,7 +147,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+        The version of Grafana to support in your workspace.
         """
         return pulumi.get(self, "grafana_version")
 
@@ -286,7 +286,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] client_token: A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]] data_sources: List of data sources on the service managed IAM role.
         :param pulumi.Input[str] description: Description of a workspace.
-        :param pulumi.Input[str] grafana_version: The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+        :param pulumi.Input[str] grafana_version: The version of Grafana to support in your workspace.
         :param pulumi.Input[str] name: The user friendly name of a workspace.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]] notification_destinations: List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
         :param pulumi.Input[str] organization_role_name: The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
@@ -476,7 +476,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+        The version of Grafana to support in your workspace.
         """
         return pulumi.get(self, "grafana_version")
 

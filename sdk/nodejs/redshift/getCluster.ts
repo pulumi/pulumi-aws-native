@@ -55,10 +55,6 @@ export interface GetClusterResult {
      */
     readonly availabilityZoneRelocationStatus?: string;
     /**
-     * A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to false , the resize type is elastic.
-     */
-    readonly classic?: boolean;
-    /**
      * The name of the parameter group to be associated with this cluster.
      */
     readonly clusterParameterGroupName?: string;

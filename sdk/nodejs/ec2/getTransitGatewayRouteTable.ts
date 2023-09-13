@@ -11,16 +11,22 @@ export function getTransitGatewayRouteTable(args: GetTransitGatewayRouteTableArg
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getTransitGatewayRouteTable", {
-        "id": args.id,
+        "transitGatewayRouteTableId": args.transitGatewayRouteTableId,
     }, opts);
 }
 
 export interface GetTransitGatewayRouteTableArgs {
-    id: string;
+    /**
+     * Transit Gateway Route Table primary identifier
+     */
+    transitGatewayRouteTableId: string;
 }
 
 export interface GetTransitGatewayRouteTableResult {
-    readonly id?: string;
+    /**
+     * Transit Gateway Route Table primary identifier
+     */
+    readonly transitGatewayRouteTableId?: string;
 }
 /**
  * Resource Type definition for AWS::EC2::TransitGatewayRouteTable
@@ -30,5 +36,8 @@ export function getTransitGatewayRouteTableOutput(args: GetTransitGatewayRouteTa
 }
 
 export interface GetTransitGatewayRouteTableOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * Transit Gateway Route Table primary identifier
+     */
+    transitGatewayRouteTableId: pulumi.Input<string>;
 }

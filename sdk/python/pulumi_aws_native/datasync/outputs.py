@@ -45,6 +45,14 @@ __all__ = [
     'StorageSystemTag',
     'TaskFilterRule',
     'TaskOptions',
+    'TaskReportConfig',
+    'TaskReportConfigDestinationProperties',
+    'TaskReportConfigDestinationPropertiesS3Properties',
+    'TaskReportConfigOverridesProperties',
+    'TaskReportConfigOverridesPropertiesDeletedProperties',
+    'TaskReportConfigOverridesPropertiesSkippedProperties',
+    'TaskReportConfigOverridesPropertiesTransferredProperties',
+    'TaskReportConfigOverridesPropertiesVerifiedProperties',
     'TaskSchedule',
     'TaskTag',
 ]
@@ -1398,6 +1406,404 @@ class TaskOptions(dict):
         A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
         """
         return pulumi.get(self, "verify_mode")
+
+
+@pulumi.output_type
+class TaskReportConfig(dict):
+    """
+    Specifies how you want to configure a task report, which provides detailed information about for your Datasync transfer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputType":
+            suggest = "output_type"
+        elif key == "objectVersionIds":
+            suggest = "object_version_ids"
+        elif key == "reportLevel":
+            suggest = "report_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskReportConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskReportConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskReportConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: 'outputs.TaskReportConfigDestinationProperties',
+                 output_type: 'TaskReportConfigOutputType',
+                 object_version_ids: Optional['TaskReportConfigObjectVersionIds'] = None,
+                 overrides: Optional['outputs.TaskReportConfigOverridesProperties'] = None,
+                 report_level: Optional['TaskReportConfigReportLevel'] = None):
+        """
+        Specifies how you want to configure a task report, which provides detailed information about for your Datasync transfer.
+        :param 'TaskReportConfigDestinationProperties' destination: Specifies where DataSync uploads your task report.
+        :param 'TaskReportConfigOutputType' output_type: Specifies the type of task report that you want.
+        :param 'TaskReportConfigObjectVersionIds' object_version_ids: Specifies whether your task report includes the new version of each object transferred into an S3 bucket, this only applies if you enable versioning on your bucket.
+        :param 'TaskReportConfigOverridesProperties' overrides: Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that Datasync attempted to delete in your destination location.
+        :param 'TaskReportConfigReportLevel' report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "output_type", output_type)
+        if object_version_ids is not None:
+            pulumi.set(__self__, "object_version_ids", object_version_ids)
+        if overrides is not None:
+            pulumi.set(__self__, "overrides", overrides)
+        if report_level is not None:
+            pulumi.set(__self__, "report_level", report_level)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.TaskReportConfigDestinationProperties':
+        """
+        Specifies where DataSync uploads your task report.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="outputType")
+    def output_type(self) -> 'TaskReportConfigOutputType':
+        """
+        Specifies the type of task report that you want.
+        """
+        return pulumi.get(self, "output_type")
+
+    @property
+    @pulumi.getter(name="objectVersionIds")
+    def object_version_ids(self) -> Optional['TaskReportConfigObjectVersionIds']:
+        """
+        Specifies whether your task report includes the new version of each object transferred into an S3 bucket, this only applies if you enable versioning on your bucket.
+        """
+        return pulumi.get(self, "object_version_ids")
+
+    @property
+    @pulumi.getter
+    def overrides(self) -> Optional['outputs.TaskReportConfigOverridesProperties']:
+        """
+        Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that Datasync attempted to delete in your destination location.
+        """
+        return pulumi.get(self, "overrides")
+
+    @property
+    @pulumi.getter(name="reportLevel")
+    def report_level(self) -> Optional['TaskReportConfigReportLevel']:
+        """
+        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+        return pulumi.get(self, "report_level")
+
+
+@pulumi.output_type
+class TaskReportConfigDestinationProperties(dict):
+    """
+    Specifies where DataSync uploads your task report.
+    """
+    def __init__(__self__, *,
+                 s3: Optional['outputs.TaskReportConfigDestinationPropertiesS3Properties'] = None):
+        """
+        Specifies where DataSync uploads your task report.
+        :param 'TaskReportConfigDestinationPropertiesS3Properties' s3: Specifies the Amazon S3 bucket where DataSync uploads your task report.
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.TaskReportConfigDestinationPropertiesS3Properties']:
+        """
+        Specifies the Amazon S3 bucket where DataSync uploads your task report.
+        """
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class TaskReportConfigDestinationPropertiesS3Properties(dict):
+    """
+    Specifies the Amazon S3 bucket where DataSync uploads your task report.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketAccessRoleArn":
+            suggest = "bucket_access_role_arn"
+        elif key == "s3BucketArn":
+            suggest = "s3_bucket_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskReportConfigDestinationPropertiesS3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskReportConfigDestinationPropertiesS3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskReportConfigDestinationPropertiesS3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_access_role_arn: Optional[str] = None,
+                 s3_bucket_arn: Optional[str] = None,
+                 subdirectory: Optional[str] = None):
+        """
+        Specifies the Amazon S3 bucket where DataSync uploads your task report.
+        :param str bucket_access_role_arn: Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
+        :param str s3_bucket_arn: Specifies the ARN of the S3 bucket where Datasync uploads your report.
+        :param str subdirectory: Specifies a bucket prefix for your report.
+        """
+        if bucket_access_role_arn is not None:
+            pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
+        if s3_bucket_arn is not None:
+            pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
+        if subdirectory is not None:
+            pulumi.set(__self__, "subdirectory", subdirectory)
+
+    @property
+    @pulumi.getter(name="bucketAccessRoleArn")
+    def bucket_access_role_arn(self) -> Optional[str]:
+        """
+        Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
+        """
+        return pulumi.get(self, "bucket_access_role_arn")
+
+    @property
+    @pulumi.getter(name="s3BucketArn")
+    def s3_bucket_arn(self) -> Optional[str]:
+        """
+        Specifies the ARN of the S3 bucket where Datasync uploads your report.
+        """
+        return pulumi.get(self, "s3_bucket_arn")
+
+    @property
+    @pulumi.getter
+    def subdirectory(self) -> Optional[str]:
+        """
+        Specifies a bucket prefix for your report.
+        """
+        return pulumi.get(self, "subdirectory")
+
+
+@pulumi.output_type
+class TaskReportConfigOverridesProperties(dict):
+    """
+    Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that Datasync attempted to delete in your destination location.
+    """
+    def __init__(__self__, *,
+                 deleted: Optional['outputs.TaskReportConfigOverridesPropertiesDeletedProperties'] = None,
+                 skipped: Optional['outputs.TaskReportConfigOverridesPropertiesSkippedProperties'] = None,
+                 transferred: Optional['outputs.TaskReportConfigOverridesPropertiesTransferredProperties'] = None,
+                 verified: Optional['outputs.TaskReportConfigOverridesPropertiesVerifiedProperties'] = None):
+        """
+        Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that Datasync attempted to delete in your destination location.
+        :param 'TaskReportConfigOverridesPropertiesDeletedProperties' deleted: Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source.
+        :param 'TaskReportConfigOverridesPropertiesSkippedProperties' skipped: Specifies the level of reporting for the files, objects, and directories that Datasync attempted to skip during your transfer.
+        :param 'TaskReportConfigOverridesPropertiesTransferredProperties' transferred: Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
+        :param 'TaskReportConfigOverridesPropertiesVerifiedProperties' verified: Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
+        """
+        if deleted is not None:
+            pulumi.set(__self__, "deleted", deleted)
+        if skipped is not None:
+            pulumi.set(__self__, "skipped", skipped)
+        if transferred is not None:
+            pulumi.set(__self__, "transferred", transferred)
+        if verified is not None:
+            pulumi.set(__self__, "verified", verified)
+
+    @property
+    @pulumi.getter
+    def deleted(self) -> Optional['outputs.TaskReportConfigOverridesPropertiesDeletedProperties']:
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source.
+        """
+        return pulumi.get(self, "deleted")
+
+    @property
+    @pulumi.getter
+    def skipped(self) -> Optional['outputs.TaskReportConfigOverridesPropertiesSkippedProperties']:
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to skip during your transfer.
+        """
+        return pulumi.get(self, "skipped")
+
+    @property
+    @pulumi.getter
+    def transferred(self) -> Optional['outputs.TaskReportConfigOverridesPropertiesTransferredProperties']:
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
+        """
+        return pulumi.get(self, "transferred")
+
+    @property
+    @pulumi.getter
+    def verified(self) -> Optional['outputs.TaskReportConfigOverridesPropertiesVerifiedProperties']:
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
+        """
+        return pulumi.get(self, "verified")
+
+
+@pulumi.output_type
+class TaskReportConfigOverridesPropertiesDeletedProperties(dict):
+    """
+    Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportLevel":
+            suggest = "report_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskReportConfigOverridesPropertiesDeletedProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskReportConfigOverridesPropertiesDeletedProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskReportConfigOverridesPropertiesDeletedProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 report_level: Optional['TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel'] = None):
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source.
+        :param 'TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel' report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+        if report_level is not None:
+            pulumi.set(__self__, "report_level", report_level)
+
+    @property
+    @pulumi.getter(name="reportLevel")
+    def report_level(self) -> Optional['TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel']:
+        """
+        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+        return pulumi.get(self, "report_level")
+
+
+@pulumi.output_type
+class TaskReportConfigOverridesPropertiesSkippedProperties(dict):
+    """
+    Specifies the level of reporting for the files, objects, and directories that Datasync attempted to skip during your transfer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportLevel":
+            suggest = "report_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskReportConfigOverridesPropertiesSkippedProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskReportConfigOverridesPropertiesSkippedProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskReportConfigOverridesPropertiesSkippedProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 report_level: Optional['TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel'] = None):
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to skip during your transfer.
+        :param 'TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel' report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+        if report_level is not None:
+            pulumi.set(__self__, "report_level", report_level)
+
+    @property
+    @pulumi.getter(name="reportLevel")
+    def report_level(self) -> Optional['TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel']:
+        """
+        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+        return pulumi.get(self, "report_level")
+
+
+@pulumi.output_type
+class TaskReportConfigOverridesPropertiesTransferredProperties(dict):
+    """
+    Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportLevel":
+            suggest = "report_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskReportConfigOverridesPropertiesTransferredProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskReportConfigOverridesPropertiesTransferredProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskReportConfigOverridesPropertiesTransferredProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 report_level: Optional['TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel'] = None):
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
+        :param 'TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel' report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+        if report_level is not None:
+            pulumi.set(__self__, "report_level", report_level)
+
+    @property
+    @pulumi.getter(name="reportLevel")
+    def report_level(self) -> Optional['TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel']:
+        """
+        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+        return pulumi.get(self, "report_level")
+
+
+@pulumi.output_type
+class TaskReportConfigOverridesPropertiesVerifiedProperties(dict):
+    """
+    Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportLevel":
+            suggest = "report_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskReportConfigOverridesPropertiesVerifiedProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskReportConfigOverridesPropertiesVerifiedProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskReportConfigOverridesPropertiesVerifiedProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 report_level: Optional['TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel'] = None):
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
+        :param 'TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel' report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+        if report_level is not None:
+            pulumi.set(__self__, "report_level", report_level)
+
+    @property
+    @pulumi.getter(name="reportLevel")
+    def report_level(self) -> Optional['TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel']:
+        """
+        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+        return pulumi.get(self, "report_level")
 
 
 @pulumi.output_type

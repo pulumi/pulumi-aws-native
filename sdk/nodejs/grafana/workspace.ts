@@ -63,7 +63,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+     * The version of Grafana to support in your workspace.
      */
     public readonly grafanaVersion!: pulumi.Output<string | undefined>;
     /**
@@ -200,7 +200,7 @@ export interface WorkspaceArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+     * The version of Grafana to support in your workspace.
      */
     grafanaVersion?: pulumi.Input<string>;
     /**

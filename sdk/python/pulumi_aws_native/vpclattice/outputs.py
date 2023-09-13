@@ -734,14 +734,16 @@ class TargetGroupConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "vpcIdentifier":
-            suggest = "vpc_identifier"
-        elif key == "healthCheck":
+        if key == "healthCheck":
             suggest = "health_check"
         elif key == "ipAddressType":
             suggest = "ip_address_type"
+        elif key == "lambdaEventStructureVersion":
+            suggest = "lambda_event_structure_version"
         elif key == "protocolVersion":
             suggest = "protocol_version"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TargetGroupConfig. Access the value via the '{suggest}' property getter instead.")
@@ -755,36 +757,27 @@ class TargetGroupConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 port: int,
-                 protocol: 'TargetGroupConfigProtocol',
-                 vpc_identifier: str,
                  health_check: Optional['outputs.TargetGroupHealthCheckConfig'] = None,
                  ip_address_type: Optional['TargetGroupConfigIpAddressType'] = None,
-                 protocol_version: Optional['TargetGroupConfigProtocolVersion'] = None):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+                 lambda_event_structure_version: Optional['TargetGroupConfigLambdaEventStructureVersion'] = None,
+                 port: Optional[int] = None,
+                 protocol: Optional['TargetGroupConfigProtocol'] = None,
+                 protocol_version: Optional['TargetGroupConfigProtocolVersion'] = None,
+                 vpc_identifier: Optional[str] = None):
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if lambda_event_structure_version is not None:
+            pulumi.set(__self__, "lambda_event_structure_version", lambda_event_structure_version)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
         if protocol_version is not None:
             pulumi.set(__self__, "protocol_version", protocol_version)
-
-    @property
-    @pulumi.getter
-    def port(self) -> int:
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> 'TargetGroupConfigProtocol':
-        return pulumi.get(self, "protocol")
-
-    @property
-    @pulumi.getter(name="vpcIdentifier")
-    def vpc_identifier(self) -> str:
-        return pulumi.get(self, "vpc_identifier")
+        if vpc_identifier is not None:
+            pulumi.set(__self__, "vpc_identifier", vpc_identifier)
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -797,9 +790,29 @@ class TargetGroupConfig(dict):
         return pulumi.get(self, "ip_address_type")
 
     @property
+    @pulumi.getter(name="lambdaEventStructureVersion")
+    def lambda_event_structure_version(self) -> Optional['TargetGroupConfigLambdaEventStructureVersion']:
+        return pulumi.get(self, "lambda_event_structure_version")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional['TargetGroupConfigProtocol']:
+        return pulumi.get(self, "protocol")
+
+    @property
     @pulumi.getter(name="protocolVersion")
     def protocol_version(self) -> Optional['TargetGroupConfigProtocolVersion']:
         return pulumi.get(self, "protocol_version")
+
+    @property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> Optional[str]:
+        return pulumi.get(self, "vpc_identifier")
 
 
 @pulumi.output_type

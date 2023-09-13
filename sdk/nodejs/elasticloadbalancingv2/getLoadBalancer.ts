@@ -14,25 +14,61 @@ export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticloadbalancingv2:getLoadBalancer", {
-        "id": args.id,
+        "loadBalancerArn": args.loadBalancerArn,
     }, opts);
 }
 
 export interface GetLoadBalancerArgs {
-    id: string;
+    /**
+     * The Amazon Resource Name (ARN) of the load balancer.
+     */
+    loadBalancerArn: string;
 }
 
 export interface GetLoadBalancerResult {
+    /**
+     * The ID of the Amazon Route 53 hosted zone associated with the load balancer.
+     */
     readonly canonicalHostedZoneId?: string;
+    /**
+     * The public DNS name of the load balancer.
+     */
     readonly dnsName?: string;
-    readonly id?: string;
+    /**
+     * The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+     */
     readonly ipAddressType?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the load balancer.
+     */
+    readonly loadBalancerArn?: string;
+    /**
+     * The load balancer attributes.
+     */
     readonly loadBalancerAttributes?: outputs.elasticloadbalancingv2.LoadBalancerAttribute[];
+    /**
+     * The full name of the load balancer.
+     */
     readonly loadBalancerFullName?: string;
+    /**
+     * The name of the load balancer.
+     */
     readonly loadBalancerName?: string;
+    /**
+     * The IDs of the security groups for the load balancer.
+     */
     readonly securityGroups?: string[];
+    /**
+     * The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+     */
     readonly subnetMappings?: outputs.elasticloadbalancingv2.LoadBalancerSubnetMapping[];
+    /**
+     * The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+     */
     readonly subnets?: string[];
+    /**
+     * The tags to assign to the load balancer.
+     */
     readonly tags?: outputs.elasticloadbalancingv2.LoadBalancerTag[];
 }
 /**
@@ -43,5 +79,8 @@ export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pu
 }
 
 export interface GetLoadBalancerOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the load balancer.
+     */
+    loadBalancerArn: pulumi.Input<string>;
 }

@@ -14,6 +14,7 @@ __all__ = [
     'ServiceNetworkVpcAssociationStatus',
     'ServiceStatus',
     'TargetGroupConfigIpAddressType',
+    'TargetGroupConfigLambdaEventStructureVersion',
     'TargetGroupConfigProtocol',
     'TargetGroupConfigProtocolVersion',
     'TargetGroupHealthCheckConfigProtocol',
@@ -84,6 +85,11 @@ class TargetGroupConfigIpAddressType(str, Enum):
     IPV6 = "IPV6"
 
 
+class TargetGroupConfigLambdaEventStructureVersion(str, Enum):
+    V1 = "V1"
+    V2 = "V2"
+
+
 class TargetGroupConfigProtocol(str, Enum):
     HTTP = "HTTP"
     HTTPS = "HTTPS"
@@ -103,6 +109,7 @@ class TargetGroupHealthCheckConfigProtocol(str, Enum):
 class TargetGroupHealthCheckConfigProtocolVersion(str, Enum):
     HTTP1 = "HTTP1"
     HTTP2 = "HTTP2"
+    GRPC = "GRPC"
 
 
 class TargetGroupStatus(str, Enum):

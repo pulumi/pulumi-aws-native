@@ -52,6 +52,7 @@ export type PlaybackConfigurationDashConfigurationOriginManifestType = (typeof P
 export const SourceLocationAccessType = {
     S3Sigv4: "S3_SIGV4",
     SecretsManagerAccessToken: "SECRETS_MANAGER_ACCESS_TOKEN",
+    AutodetectSigv4: "AUTODETECT_SIGV4",
 } as const;
 
 export type SourceLocationAccessType = (typeof SourceLocationAccessType)[keyof typeof SourceLocationAccessType];

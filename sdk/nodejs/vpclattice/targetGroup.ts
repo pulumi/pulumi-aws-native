@@ -82,7 +82,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["config.ipAddressType", "config.port", "config.protocol", "config.protocolVersion", "config.vpcIdentifier", "name", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["config.ipAddressType", "config.lambdaEventStructureVersion", "config.port", "config.protocol", "config.protocolVersion", "config.vpcIdentifier", "name", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TargetGroup.__pulumiType, name, resourceInputs, opts);
     }

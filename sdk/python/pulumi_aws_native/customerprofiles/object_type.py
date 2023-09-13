@@ -25,6 +25,7 @@ class ObjectTypeArgs:
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeFieldMapArgs']]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyMapArgs']]]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
+                 source_last_updated_timestamp_format: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None):
         """
@@ -37,6 +38,7 @@ class ObjectTypeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeFieldMapArgs']]] fields: A list of the name and ObjectType field.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyMapArgs']]] keys: A list of unique keys that can be used to map data to the profile.
         :param pulumi.Input[str] object_type_name: The name of the profile object type.
+        :param pulumi.Input[str] source_last_updated_timestamp_format: The format of your sourceLastUpdatedTimestamp that was previously set up.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]] tags: The tags (keys and values) associated with the integration.
         :param pulumi.Input[str] template_id: A unique identifier for the object template.
         """
@@ -55,6 +57,8 @@ class ObjectTypeArgs:
             pulumi.set(__self__, "keys", keys)
         if object_type_name is not None:
             pulumi.set(__self__, "object_type_name", object_type_name)
+        if source_last_updated_timestamp_format is not None:
+            pulumi.set(__self__, "source_last_updated_timestamp_format", source_last_updated_timestamp_format)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if template_id is not None:
@@ -157,6 +161,18 @@ class ObjectTypeArgs:
         pulumi.set(self, "object_type_name", value)
 
     @property
+    @pulumi.getter(name="sourceLastUpdatedTimestampFormat")
+    def source_last_updated_timestamp_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The format of your sourceLastUpdatedTimestamp that was previously set up.
+        """
+        return pulumi.get(self, "source_last_updated_timestamp_format")
+
+    @source_last_updated_timestamp_format.setter
+    def source_last_updated_timestamp_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_last_updated_timestamp_format", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]]]:
         """
@@ -194,6 +210,7 @@ class ObjectType(pulumi.CustomResource):
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeFieldMapArgs']]]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeKeyMapArgs']]]]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
+                 source_last_updated_timestamp_format: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeTagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -210,6 +227,7 @@ class ObjectType(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeFieldMapArgs']]]] fields: A list of the name and ObjectType field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeKeyMapArgs']]]] keys: A list of unique keys that can be used to map data to the profile.
         :param pulumi.Input[str] object_type_name: The name of the profile object type.
+        :param pulumi.Input[str] source_last_updated_timestamp_format: The format of your sourceLastUpdatedTimestamp that was previously set up.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeTagArgs']]]] tags: The tags (keys and values) associated with the integration.
         :param pulumi.Input[str] template_id: A unique identifier for the object template.
         """
@@ -245,6 +263,7 @@ class ObjectType(pulumi.CustomResource):
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeFieldMapArgs']]]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeKeyMapArgs']]]]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
+                 source_last_updated_timestamp_format: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeTagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -266,6 +285,7 @@ class ObjectType(pulumi.CustomResource):
             __props__.__dict__["fields"] = fields
             __props__.__dict__["keys"] = keys
             __props__.__dict__["object_type_name"] = object_type_name
+            __props__.__dict__["source_last_updated_timestamp_format"] = source_last_updated_timestamp_format
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_id"] = template_id
             __props__.__dict__["created_at"] = None
@@ -304,6 +324,7 @@ class ObjectType(pulumi.CustomResource):
         __props__.__dict__["keys"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["object_type_name"] = None
+        __props__.__dict__["source_last_updated_timestamp_format"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template_id"] = None
         return ObjectType(resource_name, opts=opts, __props__=__props__)
@@ -387,6 +408,14 @@ class ObjectType(pulumi.CustomResource):
         The name of the profile object type.
         """
         return pulumi.get(self, "object_type_name")
+
+    @property
+    @pulumi.getter(name="sourceLastUpdatedTimestampFormat")
+    def source_last_updated_timestamp_format(self) -> pulumi.Output[Optional[str]]:
+        """
+        The format of your sourceLastUpdatedTimestamp that was previously set up.
+        """
+        return pulumi.get(self, "source_last_updated_timestamp_format")
 
     @property
     @pulumi.getter

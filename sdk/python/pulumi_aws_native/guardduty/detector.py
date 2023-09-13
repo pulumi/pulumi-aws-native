@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DetectorArgs', 'Detector']
@@ -18,9 +19,9 @@ class DetectorArgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool],
                  data_sources: Optional[pulumi.Input['DetectorCfnDataSourceConfigurationsArgs']] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureConfigurationsArgs']]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureConfigurationArgs']]]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagItemArgs']]]] = None):
         """
         The set of arguments for constructing a Detector resource.
         """
@@ -54,11 +55,11 @@ class DetectorArgs:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureConfigurationsArgs']]]]:
+    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureConfigurationArgs']]]]:
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureConfigurationsArgs']]]]):
+    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureConfigurationArgs']]]]):
         pulumi.set(self, "features", value)
 
     @property
@@ -72,29 +73,24 @@ class DetectorArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagItemArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagItemArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Detector(pulumi.CustomResource):
-    warnings.warn("""Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_sources: Optional[pulumi.Input[pulumi.InputType['DetectorCfnDataSourceConfigurationsArgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureConfigurationsArgs']]]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorCfnFeatureConfigurationArgs']]]]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagItemArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::Detector
@@ -128,11 +124,10 @@ class Detector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_sources: Optional[pulumi.Input[pulumi.InputType['DetectorCfnDataSourceConfigurationsArgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureConfigurationsArgs']]]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorCfnFeatureConfigurationArgs']]]]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagItemArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Detector is deprecated: Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -189,7 +184,7 @@ class Detector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> pulumi.Output[Optional[Sequence['outputs.DetectorFeatureConfigurations']]]:
+    def features(self) -> pulumi.Output[Optional[Sequence['outputs.DetectorCfnFeatureConfiguration']]]:
         return pulumi.get(self, "features")
 
     @property
@@ -199,6 +194,6 @@ class Detector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DetectorTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DetectorTagItem']]]:
         return pulumi.get(self, "tags")
 

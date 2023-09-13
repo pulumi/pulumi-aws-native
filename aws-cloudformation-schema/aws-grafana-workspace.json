@@ -220,7 +220,7 @@
     "WorkspaceStatus" : {
       "type" : "string",
       "description" : "These enums represent the status of a workspace.",
-      "enum" : [ "ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING", "UPGRADING", "DELETION_FAILED", "CREATION_FAILED", "UPDATE_FAILED", "UPGRADE_FAILED", "LICENSE_REMOVAL_FAILED" ]
+      "enum" : [ "ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING", "UPGRADING", "VERSION_UPDATING", "DELETION_FAILED", "CREATION_FAILED", "UPDATE_FAILED", "UPGRADE_FAILED", "LICENSE_REMOVAL_FAILED", "VERSION_UPDATE_FAILED" ]
     },
     "SamlConfigurationStatus" : {
       "type" : "string",
@@ -277,7 +277,7 @@
       "type" : "string",
       "maxLength" : 255,
       "minLength" : 1,
-      "description" : "The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported."
+      "description" : "The version of Grafana to support in your workspace."
     },
     "Endpoint" : {
       "type" : "string",
@@ -363,19 +363,19 @@
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "grafana:CreateWorkspace", "grafana:UpdateWorkspaceAuthentication", "sso:DescribeRegisteredRegions", "sso:CreateManagedApplicationInstance", "organizations:DescribeOrganization", "sso:GetSharedSsoConfiguration", "iam:PassRole", "ec2:GetManagedPrefixListEntries", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "sso:ListApplicationInstances", "sso:GetApplicationInstance" ]
+      "permissions" : [ "grafana:CreateWorkspace", "grafana:DescribeWorkspace", "grafana:DescribeWorkspaceAuthentication", "grafana:DescribeWorkspaceConfiguration", "grafana:UpdateWorkspaceAuthentication", "sso:DescribeRegisteredRegions", "sso:CreateManagedApplicationInstance", "organizations:DescribeOrganization", "sso:GetSharedSsoConfiguration", "iam:PassRole", "ec2:GetManagedPrefixListEntries", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "sso:ListApplicationInstances", "sso:GetApplicationInstance" ]
     },
     "read" : {
-      "permissions" : [ "grafana:DescribeWorkspace", "grafana:DescribeWorkspaceAuthentication" ]
+      "permissions" : [ "grafana:DescribeWorkspace", "grafana:DescribeWorkspaceAuthentication", "grafana:DescribeWorkspaceConfiguration" ]
     },
     "update" : {
-      "permissions" : [ "grafana:UpdateWorkspace", "grafana:UpdateWorkspaceAuthentication", "sso:DescribeRegisteredRegions", "sso:CreateManagedApplicationInstance", "ec2:GetManagedPrefixListEntries", "iam:PassRole", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "sso:ListApplicationInstances", "sso:GetApplicationInstance" ]
+      "permissions" : [ "grafana:DescribeWorkspace", "grafana:DescribeWorkspaceAuthentication", "grafana:DescribeWorkspaceConfiguration", "grafana:UpdateWorkspace", "grafana:UpdateWorkspaceAuthentication", "grafana:UpdateWorkspaceConfiguration", "sso:DescribeRegisteredRegions", "sso:CreateManagedApplicationInstance", "ec2:GetManagedPrefixListEntries", "iam:PassRole", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "sso:ListApplicationInstances", "sso:GetApplicationInstance" ]
     },
     "delete" : {
-      "permissions" : [ "grafana:DeleteWorkspace", "sso:DeleteManagedApplicationInstance", "sso:DescribeRegisteredRegions" ]
+      "permissions" : [ "grafana:DeleteWorkspace", "grafana:DescribeWorkspace", "grafana:DescribeWorkspaceAuthentication", "grafana:DescribeWorkspaceConfiguration", "sso:DeleteManagedApplicationInstance", "sso:DescribeRegisteredRegions" ]
     },
     "list" : {
-      "permissions" : [ "grafana:ListWorkspaces", "grafana:DescribeWorkspaceAuthentication" ]
+      "permissions" : [ "grafana:ListWorkspaces", "grafana:DescribeWorkspaceAuthentication", "grafana:DescribeWorkspaceConfiguration" ]
     }
   }
 }

@@ -16,6 +16,24 @@ export const CustomLineItemCurrencyCode = {
 
 export type CustomLineItemCurrencyCode = (typeof CustomLineItemCurrencyCode)[keyof typeof CustomLineItemCurrencyCode];
 
+export const CustomLineItemLineItemFilterAttribute = {
+    LineItemType: "LINE_ITEM_TYPE",
+} as const;
+
+export type CustomLineItemLineItemFilterAttribute = (typeof CustomLineItemLineItemFilterAttribute)[keyof typeof CustomLineItemLineItemFilterAttribute];
+
+export const CustomLineItemLineItemFilterMatchOption = {
+    NotEqual: "NOT_EQUAL",
+} as const;
+
+export type CustomLineItemLineItemFilterMatchOption = (typeof CustomLineItemLineItemFilterMatchOption)[keyof typeof CustomLineItemLineItemFilterMatchOption];
+
+export const CustomLineItemLineItemFilterValue = {
+    SavingsPlanNegation: "SAVINGS_PLAN_NEGATION",
+} as const;
+
+export type CustomLineItemLineItemFilterValue = (typeof CustomLineItemLineItemFilterValue)[keyof typeof CustomLineItemLineItemFilterValue];
+
 export const CustomLineItemType = {
     Fee: "FEE",
     Credit: "CREDIT",

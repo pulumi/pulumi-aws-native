@@ -1215,11 +1215,13 @@ const (
 	WorkspaceStatusFailed               = WorkspaceStatus("FAILED")
 	WorkspaceStatusUpdating             = WorkspaceStatus("UPDATING")
 	WorkspaceStatusUpgrading            = WorkspaceStatus("UPGRADING")
+	WorkspaceStatusVersionUpdating      = WorkspaceStatus("VERSION_UPDATING")
 	WorkspaceStatusDeletionFailed       = WorkspaceStatus("DELETION_FAILED")
 	WorkspaceStatusCreationFailed       = WorkspaceStatus("CREATION_FAILED")
 	WorkspaceStatusUpdateFailed         = WorkspaceStatus("UPDATE_FAILED")
 	WorkspaceStatusUpgradeFailed        = WorkspaceStatus("UPGRADE_FAILED")
 	WorkspaceStatusLicenseRemovalFailed = WorkspaceStatus("LICENSE_REMOVAL_FAILED")
+	WorkspaceStatusVersionUpdateFailed  = WorkspaceStatus("VERSION_UPDATE_FAILED")
 )
 
 type WorkspaceStatusOutput struct{ *pulumi.OutputState }

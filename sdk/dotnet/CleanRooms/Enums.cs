@@ -8,6 +8,74 @@ using Pulumi;
 namespace Pulumi.AwsNative.CleanRooms
 {
     [EnumType]
+    public readonly struct AnalysisTemplateAnalysisParameterType : IEquatable<AnalysisTemplateAnalysisParameterType>
+    {
+        private readonly string _value;
+
+        private AnalysisTemplateAnalysisParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisTemplateAnalysisParameterType Smallint { get; } = new AnalysisTemplateAnalysisParameterType("SMALLINT");
+        public static AnalysisTemplateAnalysisParameterType Integer { get; } = new AnalysisTemplateAnalysisParameterType("INTEGER");
+        public static AnalysisTemplateAnalysisParameterType Bigint { get; } = new AnalysisTemplateAnalysisParameterType("BIGINT");
+        public static AnalysisTemplateAnalysisParameterType Decimal { get; } = new AnalysisTemplateAnalysisParameterType("DECIMAL");
+        public static AnalysisTemplateAnalysisParameterType Real { get; } = new AnalysisTemplateAnalysisParameterType("REAL");
+        public static AnalysisTemplateAnalysisParameterType DoublePrecision { get; } = new AnalysisTemplateAnalysisParameterType("DOUBLE_PRECISION");
+        public static AnalysisTemplateAnalysisParameterType Boolean { get; } = new AnalysisTemplateAnalysisParameterType("BOOLEAN");
+        public static AnalysisTemplateAnalysisParameterType Char { get; } = new AnalysisTemplateAnalysisParameterType("CHAR");
+        public static AnalysisTemplateAnalysisParameterType Varchar { get; } = new AnalysisTemplateAnalysisParameterType("VARCHAR");
+        public static AnalysisTemplateAnalysisParameterType Date { get; } = new AnalysisTemplateAnalysisParameterType("DATE");
+        public static AnalysisTemplateAnalysisParameterType Timestamp { get; } = new AnalysisTemplateAnalysisParameterType("TIMESTAMP");
+        public static AnalysisTemplateAnalysisParameterType Timestamptz { get; } = new AnalysisTemplateAnalysisParameterType("TIMESTAMPTZ");
+        public static AnalysisTemplateAnalysisParameterType Time { get; } = new AnalysisTemplateAnalysisParameterType("TIME");
+        public static AnalysisTemplateAnalysisParameterType Timetz { get; } = new AnalysisTemplateAnalysisParameterType("TIMETZ");
+        public static AnalysisTemplateAnalysisParameterType Varbyte { get; } = new AnalysisTemplateAnalysisParameterType("VARBYTE");
+
+        public static bool operator ==(AnalysisTemplateAnalysisParameterType left, AnalysisTemplateAnalysisParameterType right) => left.Equals(right);
+        public static bool operator !=(AnalysisTemplateAnalysisParameterType left, AnalysisTemplateAnalysisParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisTemplateAnalysisParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisTemplateAnalysisParameterType other && Equals(other);
+        public bool Equals(AnalysisTemplateAnalysisParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisTemplateFormat : IEquatable<AnalysisTemplateFormat>
+    {
+        private readonly string _value;
+
+        private AnalysisTemplateFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisTemplateFormat Sql { get; } = new AnalysisTemplateFormat("SQL");
+
+        public static bool operator ==(AnalysisTemplateFormat left, AnalysisTemplateFormat right) => left.Equals(right);
+        public static bool operator !=(AnalysisTemplateFormat left, AnalysisTemplateFormat right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisTemplateFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisTemplateFormat other && Equals(other);
+        public bool Equals(AnalysisTemplateFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct CollaborationMemberAbility : IEquatable<CollaborationMemberAbility>
     {
         private readonly string _value;

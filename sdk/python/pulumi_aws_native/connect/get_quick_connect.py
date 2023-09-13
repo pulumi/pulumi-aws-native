@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetQuickConnectResult:
-    def __init__(__self__, description=None, instance_arn=None, name=None, quick_connect_arn=None, quick_connect_config=None, tags=None):
+    def __init__(__self__, description=None, instance_arn=None, name=None, quick_connect_arn=None, quick_connect_config=None, quick_connect_type=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -36,6 +36,9 @@ class GetQuickConnectResult:
         if quick_connect_config and not isinstance(quick_connect_config, dict):
             raise TypeError("Expected argument 'quick_connect_config' to be a dict")
         pulumi.set(__self__, "quick_connect_config", quick_connect_config)
+        if quick_connect_type and not isinstance(quick_connect_type, str):
+            raise TypeError("Expected argument 'quick_connect_type' to be a str")
+        pulumi.set(__self__, "quick_connect_type", quick_connect_type)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -81,6 +84,14 @@ class GetQuickConnectResult:
         return pulumi.get(self, "quick_connect_config")
 
     @property
+    @pulumi.getter(name="quickConnectType")
+    def quick_connect_type(self) -> Optional['QuickConnectType']:
+        """
+        The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+        """
+        return pulumi.get(self, "quick_connect_type")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.QuickConnectTag']]:
         """
@@ -100,6 +111,7 @@ class AwaitableGetQuickConnectResult(GetQuickConnectResult):
             name=self.name,
             quick_connect_arn=self.quick_connect_arn,
             quick_connect_config=self.quick_connect_config,
+            quick_connect_type=self.quick_connect_type,
             tags=self.tags)
 
 
@@ -122,6 +134,7 @@ def get_quick_connect(quick_connect_arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         quick_connect_arn=pulumi.get(__ret__, 'quick_connect_arn'),
         quick_connect_config=pulumi.get(__ret__, 'quick_connect_config'),
+        quick_connect_type=pulumi.get(__ret__, 'quick_connect_type'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

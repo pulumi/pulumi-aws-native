@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
         public static DestinationExpressionType RuleName { get; } = new DestinationExpressionType("RuleName");
         public static DestinationExpressionType MqttTopic { get; } = new DestinationExpressionType("MqttTopic");
+        public static DestinationExpressionType SnsTopic { get; } = new DestinationExpressionType("SnsTopic");
 
         public static bool operator ==(DestinationExpressionType left, DestinationExpressionType right) => left.Equals(right);
         public static bool operator !=(DestinationExpressionType left, DestinationExpressionType right) => !left.Equals(right);

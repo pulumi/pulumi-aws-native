@@ -19,6 +19,7 @@ class FlowLogArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str],
                  resource_type: pulumi.Input['FlowLogResourceType'],
+                 deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
                  destination_options: Optional[pulumi.Input['DestinationOptionsPropertiesArgs']] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class FlowLogArgs:
         The set of arguments for constructing a FlowLog resource.
         :param pulumi.Input[str] resource_id: The ID of the subnet, network interface, or VPC for which you want to create a flow log.
         :param pulumi.Input['FlowLogResourceType'] resource_type: The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
+        :param pulumi.Input[str] deliver_cross_account_role: The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         :param pulumi.Input[str] deliver_logs_permission_arn: The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         :param pulumi.Input[str] log_destination: Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
         :param pulumi.Input['FlowLogLogDestinationType'] log_destination_type: Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -43,6 +45,8 @@ class FlowLogArgs:
         """
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "resource_type", resource_type)
+        if deliver_cross_account_role is not None:
+            pulumi.set(__self__, "deliver_cross_account_role", deliver_cross_account_role)
         if deliver_logs_permission_arn is not None:
             pulumi.set(__self__, "deliver_logs_permission_arn", deliver_logs_permission_arn)
         if destination_options is not None:
@@ -85,6 +89,18 @@ class FlowLogArgs:
     @resource_type.setter
     def resource_type(self, value: pulumi.Input['FlowLogResourceType']):
         pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="deliverCrossAccountRole")
+    def deliver_cross_account_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        """
+        return pulumi.get(self, "deliver_cross_account_role")
+
+    @deliver_cross_account_role.setter
+    def deliver_cross_account_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deliver_cross_account_role", value)
 
     @property
     @pulumi.getter(name="deliverLogsPermissionArn")
@@ -197,6 +213,7 @@ class FlowLog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
                  destination_options: Optional[pulumi.Input[pulumi.InputType['DestinationOptionsPropertiesArgs']]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -214,6 +231,7 @@ class FlowLog(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] deliver_cross_account_role: The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         :param pulumi.Input[str] deliver_logs_permission_arn: The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         :param pulumi.Input[str] log_destination: Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
         :param pulumi.Input['FlowLogLogDestinationType'] log_destination_type: Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -249,6 +267,7 @@ class FlowLog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
                  destination_options: Optional[pulumi.Input[pulumi.InputType['DestinationOptionsPropertiesArgs']]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -269,6 +288,7 @@ class FlowLog(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
+            __props__.__dict__["deliver_cross_account_role"] = deliver_cross_account_role
             __props__.__dict__["deliver_logs_permission_arn"] = deliver_logs_permission_arn
             __props__.__dict__["destination_options"] = destination_options
             __props__.__dict__["log_destination"] = log_destination
@@ -284,7 +304,7 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_type"] = traffic_type
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["deliver_logs_permission_arn", "destination_options", "log_destination", "log_destination_type", "log_format", "log_group_name", "max_aggregation_interval", "resource_id", "resource_type", "traffic_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["deliver_cross_account_role", "deliver_logs_permission_arn", "destination_options", "log_destination", "log_destination_type", "log_format", "log_group_name", "max_aggregation_interval", "resource_id", "resource_type", "traffic_type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FlowLog, __self__).__init__(
             'aws-native:ec2:FlowLog',
@@ -308,6 +328,7 @@ class FlowLog(pulumi.CustomResource):
 
         __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
+        __props__.__dict__["deliver_cross_account_role"] = None
         __props__.__dict__["deliver_logs_permission_arn"] = None
         __props__.__dict__["destination_options"] = None
         __props__.__dict__["log_destination"] = None
@@ -320,6 +341,14 @@ class FlowLog(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["traffic_type"] = None
         return FlowLog(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="deliverCrossAccountRole")
+    def deliver_cross_account_role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        """
+        return pulumi.get(self, "deliver_cross_account_role")
 
     @property
     @pulumi.getter(name="deliverLogsPermissionArn")

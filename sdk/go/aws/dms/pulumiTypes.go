@@ -1851,13 +1851,21 @@ func (o EndpointKinesisSettingsPtrOutput) StreamArn() pulumi.StringPtrOutput {
 type EndpointMicrosoftSqlServerSettings struct {
 	BcpPacketSize               *int    `pulumi:"bcpPacketSize"`
 	ControlTablesFileGroup      *string `pulumi:"controlTablesFileGroup"`
+	DatabaseName                *string `pulumi:"databaseName"`
+	ForceLobLookup              *bool   `pulumi:"forceLobLookup"`
+	Password                    *string `pulumi:"password"`
+	Port                        *int    `pulumi:"port"`
 	QuerySingleAlwaysOnNode     *bool   `pulumi:"querySingleAlwaysOnNode"`
 	ReadBackupOnly              *bool   `pulumi:"readBackupOnly"`
 	SafeguardPolicy             *string `pulumi:"safeguardPolicy"`
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
+	ServerName                  *string `pulumi:"serverName"`
+	TlogAccessMode              *string `pulumi:"tlogAccessMode"`
+	TrimSpaceInChar             *bool   `pulumi:"trimSpaceInChar"`
 	UseBcpFullLoad              *bool   `pulumi:"useBcpFullLoad"`
 	UseThirdPartyBackupDevice   *bool   `pulumi:"useThirdPartyBackupDevice"`
+	Username                    *string `pulumi:"username"`
 }
 
 // EndpointMicrosoftSqlServerSettingsInput is an input type that accepts EndpointMicrosoftSqlServerSettingsArgs and EndpointMicrosoftSqlServerSettingsOutput values.
@@ -1874,13 +1882,21 @@ type EndpointMicrosoftSqlServerSettingsInput interface {
 type EndpointMicrosoftSqlServerSettingsArgs struct {
 	BcpPacketSize               pulumi.IntPtrInput    `pulumi:"bcpPacketSize"`
 	ControlTablesFileGroup      pulumi.StringPtrInput `pulumi:"controlTablesFileGroup"`
+	DatabaseName                pulumi.StringPtrInput `pulumi:"databaseName"`
+	ForceLobLookup              pulumi.BoolPtrInput   `pulumi:"forceLobLookup"`
+	Password                    pulumi.StringPtrInput `pulumi:"password"`
+	Port                        pulumi.IntPtrInput    `pulumi:"port"`
 	QuerySingleAlwaysOnNode     pulumi.BoolPtrInput   `pulumi:"querySingleAlwaysOnNode"`
 	ReadBackupOnly              pulumi.BoolPtrInput   `pulumi:"readBackupOnly"`
 	SafeguardPolicy             pulumi.StringPtrInput `pulumi:"safeguardPolicy"`
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	ServerName                  pulumi.StringPtrInput `pulumi:"serverName"`
+	TlogAccessMode              pulumi.StringPtrInput `pulumi:"tlogAccessMode"`
+	TrimSpaceInChar             pulumi.BoolPtrInput   `pulumi:"trimSpaceInChar"`
 	UseBcpFullLoad              pulumi.BoolPtrInput   `pulumi:"useBcpFullLoad"`
 	UseThirdPartyBackupDevice   pulumi.BoolPtrInput   `pulumi:"useThirdPartyBackupDevice"`
+	Username                    pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (EndpointMicrosoftSqlServerSettingsArgs) ElementType() reflect.Type {
@@ -1986,6 +2002,22 @@ func (o EndpointMicrosoftSqlServerSettingsOutput) ControlTablesFileGroup() pulum
 	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *string { return v.ControlTablesFileGroup }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointMicrosoftSqlServerSettingsOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) ForceLobLookup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *bool { return v.ForceLobLookup }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 func (o EndpointMicrosoftSqlServerSettingsOutput) QuerySingleAlwaysOnNode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *bool { return v.QuerySingleAlwaysOnNode }).(pulumi.BoolPtrOutput)
 }
@@ -2006,12 +2038,28 @@ func (o EndpointMicrosoftSqlServerSettingsOutput) SecretsManagerSecretId() pulum
 	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointMicrosoftSqlServerSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) TlogAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *string { return v.TlogAccessMode }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) TrimSpaceInChar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *bool { return v.TrimSpaceInChar }).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointMicrosoftSqlServerSettingsOutput) UseBcpFullLoad() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *bool { return v.UseBcpFullLoad }).(pulumi.BoolPtrOutput)
 }
 
 func (o EndpointMicrosoftSqlServerSettingsOutput) UseThirdPartyBackupDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *bool { return v.UseThirdPartyBackupDevice }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type EndpointMicrosoftSqlServerSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -2062,6 +2110,42 @@ func (o EndpointMicrosoftSqlServerSettingsPtrOutput) ControlTablesFileGroup() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) ForceLobLookup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ForceLobLookup
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o EndpointMicrosoftSqlServerSettingsPtrOutput) QuerySingleAlwaysOnNode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *bool {
 		if v == nil {
@@ -2107,6 +2191,33 @@ func (o EndpointMicrosoftSqlServerSettingsPtrOutput) SecretsManagerSecretId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) TlogAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlogAccessMode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) TrimSpaceInChar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TrimSpaceInChar
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointMicrosoftSqlServerSettingsPtrOutput) UseBcpFullLoad() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *bool {
 		if v == nil {
@@ -2123,6 +2234,15 @@ func (o EndpointMicrosoftSqlServerSettingsPtrOutput) UseThirdPartyBackupDevice()
 		}
 		return v.UseThirdPartyBackupDevice
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointMongoDbSettings struct {
@@ -3655,7 +3775,9 @@ func (o EndpointOracleSettingsPtrOutput) UsePathPrefix() pulumi.StringPtrOutput 
 
 type EndpointPostgreSqlSettings struct {
 	AfterConnectScript          *string `pulumi:"afterConnectScript"`
+	BabelfishDatabaseName       *string `pulumi:"babelfishDatabaseName"`
 	CaptureDdls                 *bool   `pulumi:"captureDdls"`
+	DatabaseMode                *string `pulumi:"databaseMode"`
 	DdlArtifactsSchema          *string `pulumi:"ddlArtifactsSchema"`
 	ExecuteTimeout              *int    `pulumi:"executeTimeout"`
 	FailTasksOnLobTruncation    *bool   `pulumi:"failTasksOnLobTruncation"`
@@ -3683,7 +3805,9 @@ type EndpointPostgreSqlSettingsInput interface {
 
 type EndpointPostgreSqlSettingsArgs struct {
 	AfterConnectScript          pulumi.StringPtrInput `pulumi:"afterConnectScript"`
+	BabelfishDatabaseName       pulumi.StringPtrInput `pulumi:"babelfishDatabaseName"`
 	CaptureDdls                 pulumi.BoolPtrInput   `pulumi:"captureDdls"`
+	DatabaseMode                pulumi.StringPtrInput `pulumi:"databaseMode"`
 	DdlArtifactsSchema          pulumi.StringPtrInput `pulumi:"ddlArtifactsSchema"`
 	ExecuteTimeout              pulumi.IntPtrInput    `pulumi:"executeTimeout"`
 	FailTasksOnLobTruncation    pulumi.BoolPtrInput   `pulumi:"failTasksOnLobTruncation"`
@@ -3797,8 +3921,16 @@ func (o EndpointPostgreSqlSettingsOutput) AfterConnectScript() pulumi.StringPtrO
 	return o.ApplyT(func(v EndpointPostgreSqlSettings) *string { return v.AfterConnectScript }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointPostgreSqlSettingsOutput) BabelfishDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *string { return v.BabelfishDatabaseName }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointPostgreSqlSettingsOutput) CaptureDdls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointPostgreSqlSettings) *bool { return v.CaptureDdls }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsOutput) DatabaseMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *string { return v.DatabaseMode }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointPostgreSqlSettingsOutput) DdlArtifactsSchema() pulumi.StringPtrOutput {
@@ -3888,6 +4020,15 @@ func (o EndpointPostgreSqlSettingsPtrOutput) AfterConnectScript() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointPostgreSqlSettingsPtrOutput) BabelfishDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BabelfishDatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointPostgreSqlSettingsPtrOutput) CaptureDdls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *bool {
 		if v == nil {
@@ -3895,6 +4036,15 @@ func (o EndpointPostgreSqlSettingsPtrOutput) CaptureDdls() pulumi.BoolPtrOutput 
 		}
 		return v.CaptureDdls
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) DatabaseMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseMode
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointPostgreSqlSettingsPtrOutput) DdlArtifactsSchema() pulumi.StringPtrOutput {

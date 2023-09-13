@@ -39,6 +39,7 @@ export class TrustAnchor extends pulumi.CustomResource {
 
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly name!: pulumi.Output<string>;
+    public readonly notificationSettings!: pulumi.Output<outputs.rolesanywhere.TrustAnchorNotificationSetting[] | undefined>;
     public readonly source!: pulumi.Output<outputs.rolesanywhere.TrustAnchorSource>;
     public readonly tags!: pulumi.Output<outputs.rolesanywhere.TrustAnchorTag[] | undefined>;
     public /*out*/ readonly trustAnchorArn!: pulumi.Output<string>;
@@ -60,6 +61,7 @@ export class TrustAnchor extends pulumi.CustomResource {
             }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationSettings"] = args ? args.notificationSettings : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustAnchorArn"] = undefined /*out*/;
@@ -67,6 +69,7 @@ export class TrustAnchor extends pulumi.CustomResource {
         } else {
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notificationSettings"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["trustAnchorArn"] = undefined /*out*/;
@@ -83,6 +86,7 @@ export class TrustAnchor extends pulumi.CustomResource {
 export interface TrustAnchorArgs {
     enabled?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
+    notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSettingArgs>[]>;
     source: pulumi.Input<inputs.rolesanywhere.TrustAnchorSourceArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorTagArgs>[]>;
 }

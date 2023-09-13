@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class TransitGatewayRouteTableTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key of the associated tag key-value pair
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the associated tag key-value pair
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

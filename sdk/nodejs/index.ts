@@ -229,6 +229,7 @@ import * as opsworkscm from "./opsworkscm";
 import * as organizations from "./organizations";
 import * as osis from "./osis";
 import * as panorama from "./panorama";
+import * as pcaconnectorad from "./pcaconnectorad";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
 import * as pinpointemail from "./pinpointemail";
@@ -456,6 +457,7 @@ export {
     organizations,
     osis,
     panorama,
+    pcaconnectorad,
     personalize,
     pinpoint,
     pinpointemail,

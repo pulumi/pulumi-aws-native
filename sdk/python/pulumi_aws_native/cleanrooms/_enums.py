@@ -5,6 +5,8 @@
 from enum import Enum
 
 __all__ = [
+    'AnalysisTemplateAnalysisParameterType',
+    'AnalysisTemplateFormat',
     'CollaborationMemberAbility',
     'CollaborationQueryLogStatus',
     'ConfiguredTableAggregateFunctionName',
@@ -16,6 +18,28 @@ __all__ = [
     'ConfiguredTableScalarFunctions',
     'MembershipQueryLogStatus',
 ]
+
+
+class AnalysisTemplateAnalysisParameterType(str, Enum):
+    SMALLINT = "SMALLINT"
+    INTEGER = "INTEGER"
+    BIGINT = "BIGINT"
+    DECIMAL = "DECIMAL"
+    REAL = "REAL"
+    DOUBLE_PRECISION = "DOUBLE_PRECISION"
+    BOOLEAN = "BOOLEAN"
+    CHAR = "CHAR"
+    VARCHAR = "VARCHAR"
+    DATE = "DATE"
+    TIMESTAMP = "TIMESTAMP"
+    TIMESTAMPTZ = "TIMESTAMPTZ"
+    TIME = "TIME"
+    TIMETZ = "TIMETZ"
+    VARBYTE = "VARBYTE"
+
+
+class AnalysisTemplateFormat(str, Enum):
+    SQL = "SQL"
 
 
 class CollaborationMemberAbility(str, Enum):

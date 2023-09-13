@@ -2710,8 +2710,24 @@ export namespace appflow {
         writeOperationType?: pulumi.Input<enums.appflow.FlowWriteOperationType>;
     }
 
+    /**
+     * SAP Source connector page size
+     */
+    export interface FlowSapoDataPaginationConfigArgs {
+        maxPageSize: pulumi.Input<number>;
+    }
+
+    /**
+     * SAP Source connector parallelism factor
+     */
+    export interface FlowSapoDataParallelismConfigArgs {
+        maxParallelism: pulumi.Input<number>;
+    }
+
     export interface FlowSapoDataSourcePropertiesArgs {
         objectPath: pulumi.Input<string>;
+        paginationConfig?: pulumi.Input<inputs.appflow.FlowSapoDataPaginationConfigArgs>;
+        parallelismConfig?: pulumi.Input<inputs.appflow.FlowSapoDataParallelismConfigArgs>;
     }
 
     /**
@@ -5795,12 +5811,19 @@ export namespace billingconductor {
 
     export interface CustomLineItemChargeDetailsArgs {
         flat?: pulumi.Input<inputs.billingconductor.CustomLineItemFlatChargeDetailsArgs>;
+        lineItemFilters?: pulumi.Input<pulumi.Input<inputs.billingconductor.CustomLineItemLineItemFilterArgs>[]>;
         percentage?: pulumi.Input<inputs.billingconductor.CustomLineItemPercentageChargeDetailsArgs>;
         type: pulumi.Input<enums.billingconductor.CustomLineItemType>;
     }
 
     export interface CustomLineItemFlatChargeDetailsArgs {
         chargeValue: pulumi.Input<number>;
+    }
+
+    export interface CustomLineItemLineItemFilterArgs {
+        attribute: pulumi.Input<enums.billingconductor.CustomLineItemLineItemFilterAttribute>;
+        matchOption: pulumi.Input<enums.billingconductor.CustomLineItemLineItemFilterMatchOption>;
+        values: pulumi.Input<pulumi.Input<enums.billingconductor.CustomLineItemLineItemFilterValue>[]>;
     }
 
     export interface CustomLineItemPercentageChargeDetailsArgs {
@@ -6041,6 +6064,21 @@ export namespace certificatemanager {
 }
 
 export namespace cleanrooms {
+    export interface AnalysisTemplateAnalysisParameterArgs {
+        defaultValue?: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        type: pulumi.Input<enums.cleanrooms.AnalysisTemplateAnalysisParameterType>;
+    }
+
+    export interface AnalysisTemplateAnalysisSourceArgs {
+        text: pulumi.Input<string>;
+    }
+
+    export interface AnalysisTemplateTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface CollaborationDataEncryptionMetadataArgs {
         allowCleartext: pulumi.Input<boolean>;
         allowDuplicates: pulumi.Input<boolean>;
@@ -9055,6 +9093,20 @@ export namespace connect {
          */
         value: pulumi.Input<string>;
     }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ViewTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. . You can specify a value that is maximum of 256 Unicode characters
+         */
+        value: pulumi.Input<string>;
+    }
 }
 
 export namespace connectcampaigns {
@@ -10493,6 +10545,122 @@ export namespace datasync {
     }
 
     /**
+     * Specifies how you want to configure a task report, which provides detailed information about for your Datasync transfer.
+     */
+    export interface TaskReportConfigArgs {
+        /**
+         * Specifies where DataSync uploads your task report.
+         */
+        destination: pulumi.Input<inputs.datasync.TaskReportConfigDestinationPropertiesArgs>;
+        /**
+         * Specifies whether your task report includes the new version of each object transferred into an S3 bucket, this only applies if you enable versioning on your bucket.
+         */
+        objectVersionIds?: pulumi.Input<enums.datasync.TaskReportConfigObjectVersionIds>;
+        /**
+         * Specifies the type of task report that you want.
+         */
+        outputType: pulumi.Input<enums.datasync.TaskReportConfigOutputType>;
+        /**
+         * Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that Datasync attempted to delete in your destination location.
+         */
+        overrides?: pulumi.Input<inputs.datasync.TaskReportConfigOverridesPropertiesArgs>;
+        /**
+         * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+         */
+        reportLevel?: pulumi.Input<enums.datasync.TaskReportConfigReportLevel>;
+    }
+
+    /**
+     * Specifies where DataSync uploads your task report.
+     */
+    export interface TaskReportConfigDestinationPropertiesArgs {
+        /**
+         * Specifies the Amazon S3 bucket where DataSync uploads your task report.
+         */
+        s3?: pulumi.Input<inputs.datasync.TaskReportConfigDestinationPropertiesS3PropertiesArgs>;
+    }
+
+    /**
+     * Specifies the Amazon S3 bucket where DataSync uploads your task report.
+     */
+    export interface TaskReportConfigDestinationPropertiesS3PropertiesArgs {
+        /**
+         * Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
+         */
+        bucketAccessRoleArn?: pulumi.Input<string>;
+        /**
+         * Specifies the ARN of the S3 bucket where Datasync uploads your report.
+         */
+        s3BucketArn?: pulumi.Input<string>;
+        /**
+         * Specifies a bucket prefix for your report.
+         */
+        subdirectory?: pulumi.Input<string>;
+    }
+
+    /**
+     * Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that Datasync attempted to delete in your destination location.
+     */
+    export interface TaskReportConfigOverridesPropertiesArgs {
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source.
+         */
+        deleted?: pulumi.Input<inputs.datasync.TaskReportConfigOverridesPropertiesDeletedPropertiesArgs>;
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to skip during your transfer.
+         */
+        skipped?: pulumi.Input<inputs.datasync.TaskReportConfigOverridesPropertiesSkippedPropertiesArgs>;
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
+         */
+        transferred?: pulumi.Input<inputs.datasync.TaskReportConfigOverridesPropertiesTransferredPropertiesArgs>;
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
+         */
+        verified?: pulumi.Input<inputs.datasync.TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs>;
+    }
+
+    /**
+     * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source.
+     */
+    export interface TaskReportConfigOverridesPropertiesDeletedPropertiesArgs {
+        /**
+         * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+         */
+        reportLevel?: pulumi.Input<enums.datasync.TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel>;
+    }
+
+    /**
+     * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to skip during your transfer.
+     */
+    export interface TaskReportConfigOverridesPropertiesSkippedPropertiesArgs {
+        /**
+         * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+         */
+        reportLevel?: pulumi.Input<enums.datasync.TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel>;
+    }
+
+    /**
+     * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
+     */
+    export interface TaskReportConfigOverridesPropertiesTransferredPropertiesArgs {
+        /**
+         * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+         */
+        reportLevel?: pulumi.Input<enums.datasync.TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel>;
+    }
+
+    /**
+     * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
+     */
+    export interface TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs {
+        /**
+         * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+         */
+        reportLevel?: pulumi.Input<enums.datasync.TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel>;
+    }
+
+    /**
      * Specifies the schedule you want your task to use for repeated executions.
      */
     export interface TaskScheduleArgs {
@@ -10910,13 +11078,21 @@ export namespace dms {
     export interface EndpointMicrosoftSqlServerSettingsArgs {
         bcpPacketSize?: pulumi.Input<number>;
         controlTablesFileGroup?: pulumi.Input<string>;
+        databaseName?: pulumi.Input<string>;
+        forceLobLookup?: pulumi.Input<boolean>;
+        password?: pulumi.Input<string>;
+        port?: pulumi.Input<number>;
         querySingleAlwaysOnNode?: pulumi.Input<boolean>;
         readBackupOnly?: pulumi.Input<boolean>;
         safeguardPolicy?: pulumi.Input<string>;
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
+        serverName?: pulumi.Input<string>;
+        tlogAccessMode?: pulumi.Input<string>;
+        trimSpaceInChar?: pulumi.Input<boolean>;
         useBcpFullLoad?: pulumi.Input<boolean>;
         useThirdPartyBackupDevice?: pulumi.Input<boolean>;
+        username?: pulumi.Input<string>;
     }
 
     export interface EndpointMongoDbSettingsArgs {
@@ -10997,7 +11173,9 @@ export namespace dms {
 
     export interface EndpointPostgreSqlSettingsArgs {
         afterConnectScript?: pulumi.Input<string>;
+        babelfishDatabaseName?: pulumi.Input<string>;
         captureDdls?: pulumi.Input<boolean>;
+        databaseMode?: pulumi.Input<string>;
         ddlArtifactsSchema?: pulumi.Input<string>;
         executeTimeout?: pulumi.Input<number>;
         failTasksOnLobTruncation?: pulumi.Input<boolean>;
@@ -13123,7 +13301,13 @@ export namespace ec2 {
     }
 
     export interface TransitGatewayRouteTableTagArgs {
+        /**
+         * The key of the associated tag key-value pair
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value of the associated tag key-value pair
+         */
         value: pulumi.Input<string>;
     }
 
@@ -18377,12 +18561,23 @@ export namespace guardduty {
         s3Logs?: pulumi.Input<inputs.guardduty.DetectorCfns3LogsConfigurationArgs>;
     }
 
+    export interface DetectorCfnFeatureAdditionalConfigurationArgs {
+        name?: pulumi.Input<string>;
+        status?: pulumi.Input<string>;
+    }
+
+    export interface DetectorCfnFeatureConfigurationArgs {
+        additionalConfiguration?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorCfnFeatureAdditionalConfigurationArgs>[]>;
+        name: pulumi.Input<enums.guardduty.DetectorCfnFeatureConfigurationName>;
+        status: pulumi.Input<enums.guardduty.DetectorCfnFeatureConfigurationStatus>;
+    }
+
     export interface DetectorCfnKubernetesAuditLogsConfigurationArgs {
-        enable?: pulumi.Input<boolean>;
+        enable: pulumi.Input<boolean>;
     }
 
     export interface DetectorCfnKubernetesConfigurationArgs {
-        auditLogs?: pulumi.Input<inputs.guardduty.DetectorCfnKubernetesAuditLogsConfigurationArgs>;
+        auditLogs: pulumi.Input<inputs.guardduty.DetectorCfnKubernetesAuditLogsConfigurationArgs>;
     }
 
     export interface DetectorCfnMalwareProtectionConfigurationArgs {
@@ -18394,21 +18589,10 @@ export namespace guardduty {
     }
 
     export interface DetectorCfns3LogsConfigurationArgs {
-        enable?: pulumi.Input<boolean>;
+        enable: pulumi.Input<boolean>;
     }
 
-    export interface DetectorFeatureAdditionalConfigurationArgs {
-        name?: pulumi.Input<string>;
-        status?: pulumi.Input<string>;
-    }
-
-    export interface DetectorFeatureConfigurationsArgs {
-        additionalConfiguration?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorFeatureAdditionalConfigurationArgs>[]>;
-        name?: pulumi.Input<string>;
-        status?: pulumi.Input<string>;
-    }
-
-    export interface DetectorTagArgs {
+    export interface DetectorTagItemArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -27545,6 +27729,7 @@ export namespace medialive {
     }
 
     export interface ChannelAc3SettingsArgs {
+        attenuationControl?: pulumi.Input<string>;
         bitrate?: pulumi.Input<number>;
         bitstreamMode?: pulumi.Input<string>;
         codingMode?: pulumi.Input<string>;
@@ -27899,6 +28084,7 @@ export namespace medialive {
         motionGraphicsConfiguration?: pulumi.Input<inputs.medialive.ChannelMotionGraphicsConfigurationArgs>;
         nielsenConfiguration?: pulumi.Input<inputs.medialive.ChannelNielsenConfigurationArgs>;
         outputGroups?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelOutputGroupArgs>[]>;
+        thumbnailConfiguration?: pulumi.Input<inputs.medialive.ChannelThumbnailConfigurationArgs>;
         timecodeConfig?: pulumi.Input<inputs.medialive.ChannelTimecodeConfigArgs>;
         videoDescriptions?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelVideoDescriptionArgs>[]>;
     }
@@ -28303,6 +28489,8 @@ export namespace medialive {
         audioFramesPerPes?: pulumi.Input<number>;
         audioPids?: pulumi.Input<string>;
         ecmPid?: pulumi.Input<string>;
+        klvBehavior?: pulumi.Input<string>;
+        klvDataPids?: pulumi.Input<string>;
         nielsenId3Behavior?: pulumi.Input<string>;
         patInterval?: pulumi.Input<number>;
         pcrControl?: pulumi.Input<string>;
@@ -28522,6 +28710,7 @@ export namespace medialive {
         cacheFullBehavior?: pulumi.Input<string>;
         cacheLength?: pulumi.Input<number>;
         captionData?: pulumi.Input<string>;
+        includeFillerNalUnits?: pulumi.Input<string>;
         inputLossAction?: pulumi.Input<string>;
         restartDelay?: pulumi.Input<number>;
     }
@@ -28585,6 +28774,10 @@ export namespace medialive {
     export interface ChannelTemporalFilterSettingsArgs {
         postFilterSharpening?: pulumi.Input<string>;
         strength?: pulumi.Input<string>;
+    }
+
+    export interface ChannelThumbnailConfigurationArgs {
+        state?: pulumi.Input<string>;
     }
 
     export interface ChannelTimecodeBurninSettingsArgs {
@@ -31357,6 +31550,260 @@ export namespace panorama {
     export interface PackageTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+}
+
+export namespace pcaconnectorad {
+    export interface ConnectorTagsArgs {
+    }
+
+    export interface ConnectorVpcInformationArgs {
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DirectoryRegistrationTagsArgs {
+    }
+
+    export interface TemplateApplicationPoliciesArgs {
+        critical?: pulumi.Input<boolean>;
+        policies: pulumi.Input<pulumi.Input<inputs.pcaconnectorad.TemplateApplicationPolicy0PropertiesArgs | inputs.pcaconnectorad.TemplateApplicationPolicy1PropertiesArgs>[]>;
+    }
+
+    export interface TemplateApplicationPolicy0PropertiesArgs {
+        policyType: pulumi.Input<enums.pcaconnectorad.TemplateApplicationPolicyType>;
+    }
+
+    export interface TemplateApplicationPolicy1PropertiesArgs {
+        policyObjectIdentifier: pulumi.Input<string>;
+    }
+
+    export interface TemplateCertificateValidityArgs {
+        renewalPeriod: pulumi.Input<inputs.pcaconnectorad.TemplateValidityPeriodArgs>;
+        validityPeriod: pulumi.Input<inputs.pcaconnectorad.TemplateValidityPeriodArgs>;
+    }
+
+    export interface TemplateDefinition0PropertiesArgs {
+        templateV2: pulumi.Input<inputs.pcaconnectorad.TemplateV2Args>;
+    }
+
+    export interface TemplateDefinition1PropertiesArgs {
+        templateV3: pulumi.Input<inputs.pcaconnectorad.TemplateV3Args>;
+    }
+
+    export interface TemplateDefinition2PropertiesArgs {
+        templateV4: pulumi.Input<inputs.pcaconnectorad.TemplateV4Args>;
+    }
+
+    export interface TemplateEnrollmentFlagsV2Args {
+        enableKeyReuseOnNtTokenKeysetStorageFull?: pulumi.Input<boolean>;
+        includeSymmetricAlgorithms?: pulumi.Input<boolean>;
+        noSecurityExtension?: pulumi.Input<boolean>;
+        removeInvalidCertificateFromPersonalStore?: pulumi.Input<boolean>;
+        userInteractionRequired?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateEnrollmentFlagsV3Args {
+        enableKeyReuseOnNtTokenKeysetStorageFull?: pulumi.Input<boolean>;
+        includeSymmetricAlgorithms?: pulumi.Input<boolean>;
+        noSecurityExtension?: pulumi.Input<boolean>;
+        removeInvalidCertificateFromPersonalStore?: pulumi.Input<boolean>;
+        userInteractionRequired?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateEnrollmentFlagsV4Args {
+        enableKeyReuseOnNtTokenKeysetStorageFull?: pulumi.Input<boolean>;
+        includeSymmetricAlgorithms?: pulumi.Input<boolean>;
+        noSecurityExtension?: pulumi.Input<boolean>;
+        removeInvalidCertificateFromPersonalStore?: pulumi.Input<boolean>;
+        userInteractionRequired?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateExtensionsV2Args {
+        applicationPolicies?: pulumi.Input<inputs.pcaconnectorad.TemplateApplicationPoliciesArgs>;
+        keyUsage: pulumi.Input<inputs.pcaconnectorad.TemplateKeyUsageArgs>;
+    }
+
+    export interface TemplateExtensionsV3Args {
+        applicationPolicies?: pulumi.Input<inputs.pcaconnectorad.TemplateApplicationPoliciesArgs>;
+        keyUsage: pulumi.Input<inputs.pcaconnectorad.TemplateKeyUsageArgs>;
+    }
+
+    export interface TemplateExtensionsV4Args {
+        applicationPolicies?: pulumi.Input<inputs.pcaconnectorad.TemplateApplicationPoliciesArgs>;
+        keyUsage: pulumi.Input<inputs.pcaconnectorad.TemplateKeyUsageArgs>;
+    }
+
+    export interface TemplateGeneralFlagsV2Args {
+        autoEnrollment?: pulumi.Input<boolean>;
+        machineType?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateGeneralFlagsV3Args {
+        autoEnrollment?: pulumi.Input<boolean>;
+        machineType?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateGeneralFlagsV4Args {
+        autoEnrollment?: pulumi.Input<boolean>;
+        machineType?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateGroupAccessControlEntryAccessRightsArgs {
+        autoEnroll?: pulumi.Input<enums.pcaconnectorad.TemplateGroupAccessControlEntryAccessRight>;
+        enroll?: pulumi.Input<enums.pcaconnectorad.TemplateGroupAccessControlEntryAccessRight>;
+    }
+
+    export interface TemplateKeyUsageArgs {
+        critical?: pulumi.Input<boolean>;
+        usageFlags: pulumi.Input<inputs.pcaconnectorad.TemplateKeyUsageFlagsArgs>;
+    }
+
+    export interface TemplateKeyUsageFlagsArgs {
+        dataEncipherment?: pulumi.Input<boolean>;
+        digitalSignature?: pulumi.Input<boolean>;
+        keyAgreement?: pulumi.Input<boolean>;
+        keyEncipherment?: pulumi.Input<boolean>;
+        nonRepudiation?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateKeyUsageProperty0PropertiesArgs {
+        propertyType: pulumi.Input<enums.pcaconnectorad.TemplateKeyUsagePropertyType>;
+    }
+
+    export interface TemplateKeyUsageProperty1PropertiesArgs {
+        propertyFlags: pulumi.Input<inputs.pcaconnectorad.TemplateKeyUsagePropertyFlagsArgs>;
+    }
+
+    export interface TemplateKeyUsagePropertyFlagsArgs {
+        decrypt?: pulumi.Input<boolean>;
+        keyAgreement?: pulumi.Input<boolean>;
+        sign?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplatePrivateKeyAttributesV2Args {
+        cryptoProviders?: pulumi.Input<pulumi.Input<string>[]>;
+        keySpec: pulumi.Input<enums.pcaconnectorad.TemplateKeySpec>;
+        minimalKeyLength: pulumi.Input<number>;
+    }
+
+    export interface TemplatePrivateKeyAttributesV3Args {
+        algorithm: pulumi.Input<enums.pcaconnectorad.TemplatePrivateKeyAlgorithm>;
+        cryptoProviders?: pulumi.Input<pulumi.Input<string>[]>;
+        keySpec: pulumi.Input<enums.pcaconnectorad.TemplateKeySpec>;
+        keyUsageProperty: pulumi.Input<inputs.pcaconnectorad.TemplateKeyUsageProperty0PropertiesArgs | inputs.pcaconnectorad.TemplateKeyUsageProperty1PropertiesArgs>;
+        minimalKeyLength: pulumi.Input<number>;
+    }
+
+    export interface TemplatePrivateKeyAttributesV4Args {
+        algorithm?: pulumi.Input<enums.pcaconnectorad.TemplatePrivateKeyAlgorithm>;
+        cryptoProviders?: pulumi.Input<pulumi.Input<string>[]>;
+        keySpec: pulumi.Input<enums.pcaconnectorad.TemplateKeySpec>;
+        keyUsageProperty?: pulumi.Input<inputs.pcaconnectorad.TemplateKeyUsageProperty0PropertiesArgs | inputs.pcaconnectorad.TemplateKeyUsageProperty1PropertiesArgs>;
+        minimalKeyLength: pulumi.Input<number>;
+    }
+
+    export interface TemplatePrivateKeyFlagsV2Args {
+        clientVersion: pulumi.Input<enums.pcaconnectorad.TemplateClientCompatibilityV2>;
+        exportableKey?: pulumi.Input<boolean>;
+        strongKeyProtectionRequired?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplatePrivateKeyFlagsV3Args {
+        clientVersion: pulumi.Input<enums.pcaconnectorad.TemplateClientCompatibilityV3>;
+        exportableKey?: pulumi.Input<boolean>;
+        requireAlternateSignatureAlgorithm?: pulumi.Input<boolean>;
+        strongKeyProtectionRequired?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplatePrivateKeyFlagsV4Args {
+        clientVersion: pulumi.Input<enums.pcaconnectorad.TemplateClientCompatibilityV4>;
+        exportableKey?: pulumi.Input<boolean>;
+        requireAlternateSignatureAlgorithm?: pulumi.Input<boolean>;
+        requireSameKeyRenewal?: pulumi.Input<boolean>;
+        strongKeyProtectionRequired?: pulumi.Input<boolean>;
+        useLegacyProvider?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateSubjectNameFlagsV2Args {
+        requireCommonName?: pulumi.Input<boolean>;
+        requireDirectoryPath?: pulumi.Input<boolean>;
+        requireDnsAsCn?: pulumi.Input<boolean>;
+        requireEmail?: pulumi.Input<boolean>;
+        sanRequireDirectoryGuid?: pulumi.Input<boolean>;
+        sanRequireDns?: pulumi.Input<boolean>;
+        sanRequireDomainDns?: pulumi.Input<boolean>;
+        sanRequireEmail?: pulumi.Input<boolean>;
+        sanRequireSpn?: pulumi.Input<boolean>;
+        sanRequireUpn?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateSubjectNameFlagsV3Args {
+        requireCommonName?: pulumi.Input<boolean>;
+        requireDirectoryPath?: pulumi.Input<boolean>;
+        requireDnsAsCn?: pulumi.Input<boolean>;
+        requireEmail?: pulumi.Input<boolean>;
+        sanRequireDirectoryGuid?: pulumi.Input<boolean>;
+        sanRequireDns?: pulumi.Input<boolean>;
+        sanRequireDomainDns?: pulumi.Input<boolean>;
+        sanRequireEmail?: pulumi.Input<boolean>;
+        sanRequireSpn?: pulumi.Input<boolean>;
+        sanRequireUpn?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateSubjectNameFlagsV4Args {
+        requireCommonName?: pulumi.Input<boolean>;
+        requireDirectoryPath?: pulumi.Input<boolean>;
+        requireDnsAsCn?: pulumi.Input<boolean>;
+        requireEmail?: pulumi.Input<boolean>;
+        sanRequireDirectoryGuid?: pulumi.Input<boolean>;
+        sanRequireDns?: pulumi.Input<boolean>;
+        sanRequireDomainDns?: pulumi.Input<boolean>;
+        sanRequireEmail?: pulumi.Input<boolean>;
+        sanRequireSpn?: pulumi.Input<boolean>;
+        sanRequireUpn?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateTagsArgs {
+    }
+
+    export interface TemplateV2Args {
+        certificateValidity: pulumi.Input<inputs.pcaconnectorad.TemplateCertificateValidityArgs>;
+        enrollmentFlags: pulumi.Input<inputs.pcaconnectorad.TemplateEnrollmentFlagsV2Args>;
+        extensions: pulumi.Input<inputs.pcaconnectorad.TemplateExtensionsV2Args>;
+        generalFlags: pulumi.Input<inputs.pcaconnectorad.TemplateGeneralFlagsV2Args>;
+        privateKeyAttributes: pulumi.Input<inputs.pcaconnectorad.TemplatePrivateKeyAttributesV2Args>;
+        privateKeyFlags: pulumi.Input<inputs.pcaconnectorad.TemplatePrivateKeyFlagsV2Args>;
+        subjectNameFlags: pulumi.Input<inputs.pcaconnectorad.TemplateSubjectNameFlagsV2Args>;
+        supersededTemplates?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TemplateV3Args {
+        certificateValidity: pulumi.Input<inputs.pcaconnectorad.TemplateCertificateValidityArgs>;
+        enrollmentFlags: pulumi.Input<inputs.pcaconnectorad.TemplateEnrollmentFlagsV3Args>;
+        extensions: pulumi.Input<inputs.pcaconnectorad.TemplateExtensionsV3Args>;
+        generalFlags: pulumi.Input<inputs.pcaconnectorad.TemplateGeneralFlagsV3Args>;
+        hashAlgorithm: pulumi.Input<enums.pcaconnectorad.TemplateHashAlgorithm>;
+        privateKeyAttributes: pulumi.Input<inputs.pcaconnectorad.TemplatePrivateKeyAttributesV3Args>;
+        privateKeyFlags: pulumi.Input<inputs.pcaconnectorad.TemplatePrivateKeyFlagsV3Args>;
+        subjectNameFlags: pulumi.Input<inputs.pcaconnectorad.TemplateSubjectNameFlagsV3Args>;
+        supersededTemplates?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TemplateV4Args {
+        certificateValidity: pulumi.Input<inputs.pcaconnectorad.TemplateCertificateValidityArgs>;
+        enrollmentFlags: pulumi.Input<inputs.pcaconnectorad.TemplateEnrollmentFlagsV4Args>;
+        extensions: pulumi.Input<inputs.pcaconnectorad.TemplateExtensionsV4Args>;
+        generalFlags: pulumi.Input<inputs.pcaconnectorad.TemplateGeneralFlagsV4Args>;
+        hashAlgorithm?: pulumi.Input<enums.pcaconnectorad.TemplateHashAlgorithm>;
+        privateKeyAttributes: pulumi.Input<inputs.pcaconnectorad.TemplatePrivateKeyAttributesV4Args>;
+        privateKeyFlags: pulumi.Input<inputs.pcaconnectorad.TemplatePrivateKeyFlagsV4Args>;
+        subjectNameFlags: pulumi.Input<inputs.pcaconnectorad.TemplateSubjectNameFlagsV4Args>;
+        supersededTemplates?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TemplateValidityPeriodArgs {
+        period: pulumi.Input<number>;
+        periodType: pulumi.Input<enums.pcaconnectorad.TemplateValidityPeriodType>;
     }
 }
 
@@ -43323,6 +43770,13 @@ export namespace rolesanywhere {
         value: pulumi.Input<string>;
     }
 
+    export interface TrustAnchorNotificationSettingArgs {
+        channel?: pulumi.Input<enums.rolesanywhere.TrustAnchorNotificationChannel>;
+        enabled: pulumi.Input<boolean>;
+        event: pulumi.Input<enums.rolesanywhere.TrustAnchorNotificationEvent>;
+        threshold?: pulumi.Input<number>;
+    }
+
     export interface TrustAnchorSourceArgs {
         sourceData?: pulumi.Input<inputs.rolesanywhere.TrustAnchorSourceData0PropertiesArgs | inputs.rolesanywhere.TrustAnchorSourceData1PropertiesArgs>;
         sourceType?: pulumi.Input<enums.rolesanywhere.TrustAnchorType>;
@@ -50970,10 +51424,11 @@ export namespace vpclattice {
     export interface TargetGroupConfigArgs {
         healthCheck?: pulumi.Input<inputs.vpclattice.TargetGroupHealthCheckConfigArgs>;
         ipAddressType?: pulumi.Input<enums.vpclattice.TargetGroupConfigIpAddressType>;
-        port: pulumi.Input<number>;
-        protocol: pulumi.Input<enums.vpclattice.TargetGroupConfigProtocol>;
+        lambdaEventStructureVersion?: pulumi.Input<enums.vpclattice.TargetGroupConfigLambdaEventStructureVersion>;
+        port?: pulumi.Input<number>;
+        protocol?: pulumi.Input<enums.vpclattice.TargetGroupConfigProtocol>;
         protocolVersion?: pulumi.Input<enums.vpclattice.TargetGroupConfigProtocolVersion>;
-        vpcIdentifier: pulumi.Input<string>;
+        vpcIdentifier?: pulumi.Input<string>;
     }
 
     export interface TargetGroupHealthCheckConfigArgs {

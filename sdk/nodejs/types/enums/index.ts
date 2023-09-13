@@ -53,6 +53,7 @@ import * as glue from "./glue";
 import * as grafana from "./grafana";
 import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
+import * as guardduty from "./guardduty";
 import * as healthlake from "./healthlake";
 import * as imagebuilder from "./imagebuilder";
 import * as inspectorv2 from "./inspectorv2";
@@ -97,6 +98,7 @@ import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
 import * as organizations from "./organizations";
 import * as panorama from "./panorama";
+import * as pcaconnectorad from "./pcaconnectorad";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
@@ -192,6 +194,7 @@ export {
     grafana,
     greengrassv2,
     groundstation,
+    guardduty,
     healthlake,
     imagebuilder,
     inspectorv2,
@@ -236,6 +239,7 @@ export {
     opensearchserverless,
     organizations,
     panorama,
+    pcaconnectorad,
     personalize,
     pinpoint,
     pipes,

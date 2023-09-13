@@ -1166,6 +1166,7 @@ type SourceLocationAccessType string
 const (
 	SourceLocationAccessTypeS3Sigv4                   = SourceLocationAccessType("S3_SIGV4")
 	SourceLocationAccessTypeSecretsManagerAccessToken = SourceLocationAccessType("SECRETS_MANAGER_ACCESS_TOKEN")
+	SourceLocationAccessTypeAutodetectSigv4           = SourceLocationAccessType("AUTODETECT_SIGV4")
 )
 
 func (SourceLocationAccessType) ElementType() reflect.Type {

@@ -1207,10 +1207,10 @@
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:DescribeIngestion", "quicksight:CreateDataSet", "quicksight:PassDataSource", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:ListTagsForResource" ]
+      "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:DescribeIngestion", "quicksight:ListIngestions", "quicksight:CreateDataSet", "quicksight:PassDataSource", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:ListTagsForResource", "quicksight:DescribeDataSetRefreshProperties", "quicksight:PutDataSetRefreshProperties" ]
     },
     "read" : {
-      "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:ListTagsForResource" ]
+      "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:ListTagsForResource", "quicksight:DescribeDataSetRefreshProperties" ]
     },
     "update" : {
       "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:PassDataSource", "quicksight:UpdateDataSet", "quicksight:UpdateDataSetPermissions", "quicksight:PassDataSet", "quicksight:DescribeIngestion", "quicksight:ListIngestions", "quicksight:CancelIngestion", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource", "quicksight:PutDataSetRefreshProperties", "quicksight:DescribeDataSetRefreshProperties", "quicksight:DeleteDataSetRefreshProperties" ]

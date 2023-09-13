@@ -25,7 +25,8 @@ class TaskArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
                  schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]]] = None,
+                 task_report_config: Optional[pulumi.Input['TaskReportConfigArgs']] = None):
         """
         The set of arguments for constructing a Task resource.
         :param pulumi.Input[str] destination_location_arn: The ARN of an AWS storage resource's location.
@@ -50,6 +51,8 @@ class TaskArgs:
             pulumi.set(__self__, "schedule", schedule)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if task_report_config is not None:
+            pulumi.set(__self__, "task_report_config", task_report_config)
 
     @property
     @pulumi.getter(name="destinationLocationArn")
@@ -147,6 +150,15 @@ class TaskArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="taskReportConfig")
+    def task_report_config(self) -> Optional[pulumi.Input['TaskReportConfigArgs']]:
+        return pulumi.get(self, "task_report_config")
+
+    @task_report_config.setter
+    def task_report_config(self, value: Optional[pulumi.Input['TaskReportConfigArgs']]):
+        pulumi.set(self, "task_report_config", value)
+
 
 class Task(pulumi.CustomResource):
     @overload
@@ -162,6 +174,7 @@ class Task(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTagArgs']]]]] = None,
+                 task_report_config: Optional[pulumi.Input[pulumi.InputType['TaskReportConfigArgs']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::Task.
@@ -207,6 +220,7 @@ class Task(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTagArgs']]]]] = None,
+                 task_report_config: Optional[pulumi.Input[pulumi.InputType['TaskReportConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -229,6 +243,7 @@ class Task(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_location_arn'")
             __props__.__dict__["source_location_arn"] = source_location_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["task_report_config"] = task_report_config
             __props__.__dict__["destination_network_interface_arns"] = None
             __props__.__dict__["source_network_interface_arns"] = None
             __props__.__dict__["status"] = None
@@ -270,6 +285,7 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["task_arn"] = None
+        __props__.__dict__["task_report_config"] = None
         return Task(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -357,4 +373,9 @@ class Task(pulumi.CustomResource):
         The ARN of the task.
         """
         return pulumi.get(self, "task_arn")
+
+    @property
+    @pulumi.getter(name="taskReportConfig")
+    def task_report_config(self) -> pulumi.Output[Optional['outputs.TaskReportConfig']]:
+        return pulumi.get(self, "task_report_config")
 

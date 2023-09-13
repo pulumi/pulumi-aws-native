@@ -28,6 +28,8 @@ from .get_task_template import *
 from .get_traffic_distribution_group import *
 from .get_user import *
 from .get_user_hierarchy_group import *
+from .get_view import *
+from .get_view_version import *
 from .hours_of_operation import *
 from .instance import *
 from .instance_storage_config import *
@@ -43,5 +45,7 @@ from .task_template import *
 from .traffic_distribution_group import *
 from .user import *
 from .user_hierarchy_group import *
+from .view import *
+from .view_version import *
 from ._inputs import *
 from . import outputs

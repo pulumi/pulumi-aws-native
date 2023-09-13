@@ -1,20 +1,25 @@
 {
   "typeName" : "AWS::EC2::TransitGatewayRouteTable",
   "description" : "Resource Type definition for AWS::EC2::TransitGatewayRouteTable",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-transitgateway.git",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
+    "TransitGatewayRouteTableId" : {
+      "description" : "Transit Gateway Route Table primary identifier",
       "type" : "string"
     },
     "TransitGatewayId" : {
+      "description" : "The ID of the transit gateway.",
       "type" : "string"
     },
     "Tags" : {
       "type" : "array",
-      "uniqueItems" : false,
+      "description" : "Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.",
       "items" : {
         "$ref" : "#/definitions/Tag"
-      }
+      },
+      "insertionOrder" : false,
+      "uniqueItems" : false
     }
   },
   "definitions" : {
@@ -23,10 +28,12 @@
       "additionalProperties" : false,
       "properties" : {
         "Key" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The key of the associated tag key-value pair"
         },
         "Value" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The value of the associated tag key-value pair"
         }
       },
       "required" : [ "Value", "Key" ]
@@ -34,6 +41,26 @@
   },
   "required" : [ "TransitGatewayId" ],
   "createOnlyProperties" : [ "/properties/TransitGatewayId", "/properties/Tags" ],
-  "readOnlyProperties" : [ "/properties/Id" ],
-  "primaryIdentifier" : [ "/properties/Id" ]
+  "readOnlyProperties" : [ "/properties/TransitGatewayRouteTableId" ],
+  "primaryIdentifier" : [ "/properties/TransitGatewayRouteTableId" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "ec2:CreateTransitGatewayRouteTable", "ec2:CreateTags", "ec2:DescribeTransitGatewayRouteTables" ]
+    },
+    "read" : {
+      "permissions" : [ "ec2:DescribeTransitGatewayRouteTables" ]
+    },
+    "delete" : {
+      "permissions" : [ "ec2:DeleteTransitGatewayRouteTable", "ec2:DescribeTransitGatewayRouteTables", "ec2:GetTransitGatewayRouteTableAssociations", "ec2:DisassociateTransitGatewayRouteTable" ]
+    },
+    "list" : {
+      "permissions" : [ "ec2:DescribeTransitGatewayRouteTables" ]
+    }
+  }
 }

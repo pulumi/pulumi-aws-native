@@ -41,7 +41,11 @@ class DbInstanceArgs:
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 domain_auth_secret_arn: Optional[pulumi.Input[str]] = None,
+                 domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 domain_fqdn: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
+                 domain_ou: Optional[pulumi.Input[str]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
@@ -130,7 +134,11 @@ class DbInstanceArgs:
         :param pulumi.Input[bool] delete_automated_backups: A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
+        :param pulumi.Input[str] domain_auth_secret_arn: The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_dns_ips: The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+        :param pulumi.Input[str] domain_fqdn: The fully qualified domain name (FQDN) of an Active Directory domain.
         :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        :param pulumi.Input[str] domain_ou: The Active Directory organizational unit for your DB instance to join.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB instance.
@@ -225,8 +233,16 @@ class DbInstanceArgs:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if domain_auth_secret_arn is not None:
+            pulumi.set(__self__, "domain_auth_secret_arn", domain_auth_secret_arn)
+        if domain_dns_ips is not None:
+            pulumi.set(__self__, "domain_dns_ips", domain_dns_ips)
+        if domain_fqdn is not None:
+            pulumi.set(__self__, "domain_fqdn", domain_fqdn)
         if domain_iam_role_name is not None:
             pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
+        if domain_ou is not None:
+            pulumi.set(__self__, "domain_ou", domain_ou)
         if enable_cloudwatch_logs_exports is not None:
             pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
         if enable_iam_database_authentication is not None:
@@ -624,6 +640,42 @@ class DbInstanceArgs:
         pulumi.set(self, "domain", value)
 
     @property
+    @pulumi.getter(name="domainAuthSecretArn")
+    def domain_auth_secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+        """
+        return pulumi.get(self, "domain_auth_secret_arn")
+
+    @domain_auth_secret_arn.setter
+    def domain_auth_secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_auth_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="domainDnsIps")
+    def domain_dns_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+        """
+        return pulumi.get(self, "domain_dns_ips")
+
+    @domain_dns_ips.setter
+    def domain_dns_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "domain_dns_ips", value)
+
+    @property
+    @pulumi.getter(name="domainFqdn")
+    def domain_fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified domain name (FQDN) of an Active Directory domain.
+        """
+        return pulumi.get(self, "domain_fqdn")
+
+    @domain_fqdn.setter
+    def domain_fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_fqdn", value)
+
+    @property
     @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -634,6 +686,18 @@ class DbInstanceArgs:
     @domain_iam_role_name.setter
     def domain_iam_role_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_iam_role_name", value)
+
+    @property
+    @pulumi.getter(name="domainOu")
+    def domain_ou(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Active Directory organizational unit for your DB instance to join.
+        """
+        return pulumi.get(self, "domain_ou")
+
+    @domain_ou.setter
+    def domain_ou(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_ou", value)
 
     @property
     @pulumi.getter(name="enableCloudwatchLogsExports")
@@ -1205,7 +1269,11 @@ class DbInstance(pulumi.CustomResource):
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 domain_auth_secret_arn: Optional[pulumi.Input[str]] = None,
+                 domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 domain_fqdn: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
+                 domain_ou: Optional[pulumi.Input[str]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
@@ -1298,7 +1366,11 @@ class DbInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] delete_automated_backups: A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
+        :param pulumi.Input[str] domain_auth_secret_arn: The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_dns_ips: The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+        :param pulumi.Input[str] domain_fqdn: The fully qualified domain name (FQDN) of an Active Directory domain.
         :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        :param pulumi.Input[str] domain_ou: The Active Directory organizational unit for your DB instance to join.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB instance.
@@ -1393,7 +1465,11 @@ class DbInstance(pulumi.CustomResource):
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 domain_auth_secret_arn: Optional[pulumi.Input[str]] = None,
+                 domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 domain_fqdn: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
+                 domain_ou: Optional[pulumi.Input[str]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
@@ -1472,7 +1548,11 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["delete_automated_backups"] = delete_automated_backups
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["domain"] = domain
+            __props__.__dict__["domain_auth_secret_arn"] = domain_auth_secret_arn
+            __props__.__dict__["domain_dns_ips"] = domain_dns_ips
+            __props__.__dict__["domain_fqdn"] = domain_fqdn
             __props__.__dict__["domain_iam_role_name"] = domain_iam_role_name
+            __props__.__dict__["domain_ou"] = domain_ou
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
             __props__.__dict__["enable_iam_database_authentication"] = enable_iam_database_authentication
             __props__.__dict__["enable_performance_insights"] = enable_performance_insights
@@ -1572,7 +1652,11 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["delete_automated_backups"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["domain"] = None
+        __props__.__dict__["domain_auth_secret_arn"] = None
+        __props__.__dict__["domain_dns_ips"] = None
+        __props__.__dict__["domain_fqdn"] = None
         __props__.__dict__["domain_iam_role_name"] = None
+        __props__.__dict__["domain_ou"] = None
         __props__.__dict__["enable_cloudwatch_logs_exports"] = None
         __props__.__dict__["enable_iam_database_authentication"] = None
         __props__.__dict__["enable_performance_insights"] = None
@@ -1854,12 +1938,44 @@ class DbInstance(pulumi.CustomResource):
         return pulumi.get(self, "domain")
 
     @property
+    @pulumi.getter(name="domainAuthSecretArn")
+    def domain_auth_secret_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+        """
+        return pulumi.get(self, "domain_auth_secret_arn")
+
+    @property
+    @pulumi.getter(name="domainDnsIps")
+    def domain_dns_ips(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+        """
+        return pulumi.get(self, "domain_dns_ips")
+
+    @property
+    @pulumi.getter(name="domainFqdn")
+    def domain_fqdn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The fully qualified domain name (FQDN) of an Active Directory domain.
+        """
+        return pulumi.get(self, "domain_fqdn")
+
+    @property
     @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specify the name of the IAM role to be used when making API calls to the Directory Service.
         """
         return pulumi.get(self, "domain_iam_role_name")
+
+    @property
+    @pulumi.getter(name="domainOu")
+    def domain_ou(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Active Directory organizational unit for your DB instance to join.
+        """
+        return pulumi.get(self, "domain_ou")
 
     @property
     @pulumi.getter(name="enableCloudwatchLogsExports")

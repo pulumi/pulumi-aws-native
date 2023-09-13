@@ -20,13 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetTrustAnchorResult:
-    def __init__(__self__, enabled=None, name=None, source=None, tags=None, trust_anchor_arn=None, trust_anchor_id=None):
+    def __init__(__self__, enabled=None, name=None, notification_settings=None, source=None, tags=None, trust_anchor_arn=None, trust_anchor_id=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if notification_settings and not isinstance(notification_settings, list):
+            raise TypeError("Expected argument 'notification_settings' to be a list")
+        pulumi.set(__self__, "notification_settings", notification_settings)
         if source and not isinstance(source, dict):
             raise TypeError("Expected argument 'source' to be a dict")
         pulumi.set(__self__, "source", source)
@@ -49,6 +52,11 @@ class GetTrustAnchorResult:
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notificationSettings")
+    def notification_settings(self) -> Optional[Sequence['outputs.TrustAnchorNotificationSetting']]:
+        return pulumi.get(self, "notification_settings")
 
     @property
     @pulumi.getter
@@ -79,6 +87,7 @@ class AwaitableGetTrustAnchorResult(GetTrustAnchorResult):
         return GetTrustAnchorResult(
             enabled=self.enabled,
             name=self.name,
+            notification_settings=self.notification_settings,
             source=self.source,
             tags=self.tags,
             trust_anchor_arn=self.trust_anchor_arn,
@@ -98,6 +107,7 @@ def get_trust_anchor(trust_anchor_id: Optional[str] = None,
     return AwaitableGetTrustAnchorResult(
         enabled=pulumi.get(__ret__, 'enabled'),
         name=pulumi.get(__ret__, 'name'),
+        notification_settings=pulumi.get(__ret__, 'notification_settings'),
         source=pulumi.get(__ret__, 'source'),
         tags=pulumi.get(__ret__, 'tags'),
         trust_anchor_arn=pulumi.get(__ret__, 'trust_anchor_arn'),

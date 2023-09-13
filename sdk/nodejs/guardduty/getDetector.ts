@@ -25,10 +25,10 @@ export interface GetDetectorArgs {
 export interface GetDetectorResult {
     readonly dataSources?: outputs.guardduty.DetectorCfnDataSourceConfigurations;
     readonly enable?: boolean;
-    readonly features?: outputs.guardduty.DetectorFeatureConfigurations[];
+    readonly features?: outputs.guardduty.DetectorCfnFeatureConfiguration[];
     readonly findingPublishingFrequency?: string;
     readonly id?: string;
-    readonly tags?: outputs.guardduty.DetectorTag[];
+    readonly tags?: outputs.guardduty.DetectorTagItem[];
 }
 /**
  * Resource Type definition for AWS::GuardDuty::Detector

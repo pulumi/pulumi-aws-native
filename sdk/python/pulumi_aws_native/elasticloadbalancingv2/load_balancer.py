@@ -27,6 +27,15 @@ class LoadBalancerArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
+        :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]] load_balancer_attributes: The load balancer attributes.
+        :param pulumi.Input[str] name: The name of the load balancer.
+        :param pulumi.Input[str] scheme: The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The IDs of the security groups for the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]] subnet_mappings: The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]] tags: The tags to assign to the load balancer.
+        :param pulumi.Input[str] type: The type of load balancer. The default is application.
         """
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
@@ -50,6 +59,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -59,6 +71,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="loadBalancerAttributes")
     def load_balancer_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]]]:
+        """
+        The load balancer attributes.
+        """
         return pulumi.get(self, "load_balancer_attributes")
 
     @load_balancer_attributes.setter
@@ -68,6 +83,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the load balancer.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -77,6 +95,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def scheme(self) -> Optional[pulumi.Input[str]]:
+        """
+        The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+        """
         return pulumi.get(self, "scheme")
 
     @scheme.setter
@@ -86,6 +107,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the security groups for the load balancer.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -95,6 +119,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]:
+        """
+        The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+        """
         return pulumi.get(self, "subnet_mappings")
 
     @subnet_mappings.setter
@@ -104,6 +131,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -113,6 +143,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]]:
+        """
+        The tags to assign to the load balancer.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -122,6 +155,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of load balancer. The default is application.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -129,12 +165,7 @@ class LoadBalancerArgs:
         pulumi.set(self, "type", value)
 
 
-warnings.warn("""LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class LoadBalancer(pulumi.CustomResource):
-    warnings.warn("""LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -154,6 +185,15 @@ class LoadBalancer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerAttributeArgs']]]] load_balancer_attributes: The load balancer attributes.
+        :param pulumi.Input[str] name: The name of the load balancer.
+        :param pulumi.Input[str] scheme: The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The IDs of the security groups for the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerSubnetMappingArgs']]]] subnet_mappings: The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTagArgs']]]] tags: The tags to assign to the load balancer.
+        :param pulumi.Input[str] type: The type of load balancer. The default is application.
         """
         ...
     @overload
@@ -189,7 +229,6 @@ class LoadBalancer(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""LoadBalancer is deprecated: LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -209,6 +248,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["canonical_hosted_zone_id"] = None
             __props__.__dict__["dns_name"] = None
+            __props__.__dict__["load_balancer_arn"] = None
             __props__.__dict__["load_balancer_full_name"] = None
             __props__.__dict__["load_balancer_name"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "scheme", "type"])
@@ -238,6 +278,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["canonical_hosted_zone_id"] = None
         __props__.__dict__["dns_name"] = None
         __props__.__dict__["ip_address_type"] = None
+        __props__.__dict__["load_balancer_arn"] = None
         __props__.__dict__["load_balancer_attributes"] = None
         __props__.__dict__["load_balancer_full_name"] = None
         __props__.__dict__["load_balancer_name"] = None
@@ -253,65 +294,112 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="canonicalHostedZoneId")
     def canonical_hosted_zone_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Amazon Route 53 hosted zone associated with the load balancer.
+        """
         return pulumi.get(self, "canonical_hosted_zone_id")
 
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
+        """
+        The public DNS name of the load balancer.
+        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+        """
         return pulumi.get(self, "ip_address_type")
+
+    @property
+    @pulumi.getter(name="loadBalancerArn")
+    def load_balancer_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the load balancer.
+        """
+        return pulumi.get(self, "load_balancer_arn")
 
     @property
     @pulumi.getter(name="loadBalancerAttributes")
     def load_balancer_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerAttribute']]]:
+        """
+        The load balancer attributes.
+        """
         return pulumi.get(self, "load_balancer_attributes")
 
     @property
     @pulumi.getter(name="loadBalancerFullName")
     def load_balancer_full_name(self) -> pulumi.Output[str]:
+        """
+        The full name of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_full_name")
 
     @property
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> pulumi.Output[str]:
+        """
+        The name of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the load balancer.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def scheme(self) -> pulumi.Output[Optional[str]]:
+        """
+        The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+        """
         return pulumi.get(self, "scheme")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IDs of the security groups for the load balancer.
+        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerSubnetMapping']]]:
+        """
+        The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+        """
         return pulumi.get(self, "subnet_mappings")
 
     @property
     @pulumi.getter
     def subnets(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+        """
         return pulumi.get(self, "subnets")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerTag']]]:
+        """
+        The tags to assign to the load balancer.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of load balancer. The default is application.
+        """
         return pulumi.get(self, "type")
 

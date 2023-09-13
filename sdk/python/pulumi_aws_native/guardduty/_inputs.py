@@ -8,17 +8,18 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'DetectorCfnDataSourceConfigurationsArgs',
+    'DetectorCfnFeatureAdditionalConfigurationArgs',
+    'DetectorCfnFeatureConfigurationArgs',
     'DetectorCfnKubernetesAuditLogsConfigurationArgs',
     'DetectorCfnKubernetesConfigurationArgs',
     'DetectorCfnMalwareProtectionConfigurationArgs',
     'DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs',
     'DetectorCfns3LogsConfigurationArgs',
-    'DetectorFeatureAdditionalConfigurationArgs',
-    'DetectorFeatureConfigurationsArgs',
-    'DetectorTagArgs',
+    'DetectorTagItemArgs',
     'FilterConditionArgs',
     'FilterFindingCriteriaArgs',
     'FilterTagArgs',
@@ -68,36 +69,102 @@ class DetectorCfnDataSourceConfigurationsArgs:
 
 
 @pulumi.input_type
-class DetectorCfnKubernetesAuditLogsConfigurationArgs:
+class DetectorCfnFeatureAdditionalConfigurationArgs:
     def __init__(__self__, *,
-                 enable: Optional[pulumi.Input[bool]] = None):
-        if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[bool]]:
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class DetectorCfnFeatureConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input['DetectorCfnFeatureConfigurationName'],
+                 status: pulumi.Input['DetectorCfnFeatureConfigurationStatus'],
+                 additional_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureAdditionalConfigurationArgs']]]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+        if additional_configuration is not None:
+            pulumi.set(__self__, "additional_configuration", additional_configuration)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input['DetectorCfnFeatureConfigurationName']:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input['DetectorCfnFeatureConfigurationName']):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['DetectorCfnFeatureConfigurationStatus']:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['DetectorCfnFeatureConfigurationStatus']):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="additionalConfiguration")
+    def additional_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureAdditionalConfigurationArgs']]]]:
+        return pulumi.get(self, "additional_configuration")
+
+    @additional_configuration.setter
+    def additional_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureAdditionalConfigurationArgs']]]]):
+        pulumi.set(self, "additional_configuration", value)
+
+
+@pulumi.input_type
+class DetectorCfnKubernetesAuditLogsConfigurationArgs:
+    def __init__(__self__, *,
+                 enable: pulumi.Input[bool]):
+        pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> pulumi.Input[bool]:
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[bool]]):
+    def enable(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enable", value)
 
 
 @pulumi.input_type
 class DetectorCfnKubernetesConfigurationArgs:
     def __init__(__self__, *,
-                 audit_logs: Optional[pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']] = None):
-        if audit_logs is not None:
-            pulumi.set(__self__, "audit_logs", audit_logs)
+                 audit_logs: pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']):
+        pulumi.set(__self__, "audit_logs", audit_logs)
 
     @property
     @pulumi.getter(name="auditLogs")
-    def audit_logs(self) -> Optional[pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']]:
+    def audit_logs(self) -> pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']:
         return pulumi.get(self, "audit_logs")
 
     @audit_logs.setter
-    def audit_logs(self, value: Optional[pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']]):
+    def audit_logs(self, value: pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']):
         pulumi.set(self, "audit_logs", value)
 
 
@@ -138,92 +205,21 @@ class DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs:
 @pulumi.input_type
 class DetectorCfns3LogsConfigurationArgs:
     def __init__(__self__, *,
-                 enable: Optional[pulumi.Input[bool]] = None):
-        if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+                 enable: pulumi.Input[bool]):
+        pulumi.set(__self__, "enable", enable)
 
     @property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[bool]]:
+    def enable(self) -> pulumi.Input[bool]:
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[bool]]):
+    def enable(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enable", value)
 
 
 @pulumi.input_type
-class DetectorFeatureAdditionalConfigurationArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class DetectorFeatureConfigurationsArgs:
-    def __init__(__self__, *,
-                 additional_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
-        if additional_configuration is not None:
-            pulumi.set(__self__, "additional_configuration", additional_configuration)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="additionalConfiguration")
-    def additional_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]:
-        return pulumi.get(self, "additional_configuration")
-
-    @additional_configuration.setter
-    def additional_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]):
-        pulumi.set(self, "additional_configuration", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class DetectorTagArgs:
+class DetectorTagItemArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

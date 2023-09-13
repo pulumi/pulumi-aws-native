@@ -195,10 +195,34 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> Domain { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+        /// </summary>
+        [Output("domainAuthSecretArn")]
+        public Output<string?> DomainAuthSecretArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+        /// </summary>
+        [Output("domainDnsIps")]
+        public Output<ImmutableArray<string>> DomainDnsIps { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully qualified domain name (FQDN) of an Active Directory domain.
+        /// </summary>
+        [Output("domainFqdn")]
+        public Output<string?> DomainFqdn { get; private set; } = null!;
+
+        /// <summary>
         /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
         [Output("domainIamRoleName")]
         public Output<string?> DomainIamRoleName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Active Directory organizational unit for your DB instance to join.
+        /// </summary>
+        [Output("domainOu")]
+        public Output<string?> DomainOu { get; private set; } = null!;
 
         /// <summary>
         /// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
@@ -705,10 +729,40 @@ namespace Pulumi.AwsNative.Rds
         public Input<string>? Domain { get; set; }
 
         /// <summary>
+        /// The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+        /// </summary>
+        [Input("domainAuthSecretArn")]
+        public Input<string>? DomainAuthSecretArn { get; set; }
+
+        [Input("domainDnsIps")]
+        private InputList<string>? _domainDnsIps;
+
+        /// <summary>
+        /// The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+        /// </summary>
+        public InputList<string> DomainDnsIps
+        {
+            get => _domainDnsIps ?? (_domainDnsIps = new InputList<string>());
+            set => _domainDnsIps = value;
+        }
+
+        /// <summary>
+        /// The fully qualified domain name (FQDN) of an Active Directory domain.
+        /// </summary>
+        [Input("domainFqdn")]
+        public Input<string>? DomainFqdn { get; set; }
+
+        /// <summary>
         /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
         [Input("domainIamRoleName")]
         public Input<string>? DomainIamRoleName { get; set; }
+
+        /// <summary>
+        /// The Active Directory organizational unit for your DB instance to join.
+        /// </summary>
+        [Input("domainOu")]
+        public Input<string>? DomainOu { get; set; }
 
         [Input("enableCloudwatchLogsExports")]
         private InputList<string>? _enableCloudwatchLogsExports;

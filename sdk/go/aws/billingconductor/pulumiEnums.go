@@ -215,6 +215,606 @@ func (o CustomLineItemCurrencyCodePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
+type CustomLineItemLineItemFilterAttribute string
+
+const (
+	CustomLineItemLineItemFilterAttributeLineItemType = CustomLineItemLineItemFilterAttribute("LINE_ITEM_TYPE")
+)
+
+func (CustomLineItemLineItemFilterAttribute) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLineItemLineItemFilterAttribute)(nil)).Elem()
+}
+
+func (e CustomLineItemLineItemFilterAttribute) ToCustomLineItemLineItemFilterAttributeOutput() CustomLineItemLineItemFilterAttributeOutput {
+	return pulumi.ToOutput(e).(CustomLineItemLineItemFilterAttributeOutput)
+}
+
+func (e CustomLineItemLineItemFilterAttribute) ToCustomLineItemLineItemFilterAttributeOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CustomLineItemLineItemFilterAttributeOutput)
+}
+
+func (e CustomLineItemLineItemFilterAttribute) ToCustomLineItemLineItemFilterAttributePtrOutput() CustomLineItemLineItemFilterAttributePtrOutput {
+	return e.ToCustomLineItemLineItemFilterAttributePtrOutputWithContext(context.Background())
+}
+
+func (e CustomLineItemLineItemFilterAttribute) ToCustomLineItemLineItemFilterAttributePtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterAttributePtrOutput {
+	return CustomLineItemLineItemFilterAttribute(e).ToCustomLineItemLineItemFilterAttributeOutputWithContext(ctx).ToCustomLineItemLineItemFilterAttributePtrOutputWithContext(ctx)
+}
+
+func (e CustomLineItemLineItemFilterAttribute) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomLineItemLineItemFilterAttribute) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomLineItemLineItemFilterAttribute) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CustomLineItemLineItemFilterAttribute) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CustomLineItemLineItemFilterAttributeOutput struct{ *pulumi.OutputState }
+
+func (CustomLineItemLineItemFilterAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLineItemLineItemFilterAttribute)(nil)).Elem()
+}
+
+func (o CustomLineItemLineItemFilterAttributeOutput) ToCustomLineItemLineItemFilterAttributeOutput() CustomLineItemLineItemFilterAttributeOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterAttributeOutput) ToCustomLineItemLineItemFilterAttributeOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterAttributeOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterAttributeOutput) ToCustomLineItemLineItemFilterAttributePtrOutput() CustomLineItemLineItemFilterAttributePtrOutput {
+	return o.ToCustomLineItemLineItemFilterAttributePtrOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterAttributeOutput) ToCustomLineItemLineItemFilterAttributePtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterAttributePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLineItemLineItemFilterAttribute) *CustomLineItemLineItemFilterAttribute {
+		return &v
+	}).(CustomLineItemLineItemFilterAttributePtrOutput)
+}
+
+func (o CustomLineItemLineItemFilterAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemLineItemFilterAttribute] {
+	return pulumix.Output[CustomLineItemLineItemFilterAttribute]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomLineItemLineItemFilterAttributeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterAttributeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomLineItemLineItemFilterAttribute) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CustomLineItemLineItemFilterAttributeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterAttributeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomLineItemLineItemFilterAttribute) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CustomLineItemLineItemFilterAttributePtrOutput struct{ *pulumi.OutputState }
+
+func (CustomLineItemLineItemFilterAttributePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLineItemLineItemFilterAttribute)(nil)).Elem()
+}
+
+func (o CustomLineItemLineItemFilterAttributePtrOutput) ToCustomLineItemLineItemFilterAttributePtrOutput() CustomLineItemLineItemFilterAttributePtrOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterAttributePtrOutput) ToCustomLineItemLineItemFilterAttributePtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterAttributePtrOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterAttributePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterAttribute] {
+	return pulumix.Output[*CustomLineItemLineItemFilterAttribute]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomLineItemLineItemFilterAttributePtrOutput) Elem() CustomLineItemLineItemFilterAttributeOutput {
+	return o.ApplyT(func(v *CustomLineItemLineItemFilterAttribute) CustomLineItemLineItemFilterAttribute {
+		if v != nil {
+			return *v
+		}
+		var ret CustomLineItemLineItemFilterAttribute
+		return ret
+	}).(CustomLineItemLineItemFilterAttributeOutput)
+}
+
+func (o CustomLineItemLineItemFilterAttributePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterAttributePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CustomLineItemLineItemFilterAttribute) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CustomLineItemLineItemFilterAttributeInput is an input type that accepts CustomLineItemLineItemFilterAttributeArgs and CustomLineItemLineItemFilterAttributeOutput values.
+// You can construct a concrete instance of `CustomLineItemLineItemFilterAttributeInput` via:
+//
+//	CustomLineItemLineItemFilterAttributeArgs{...}
+type CustomLineItemLineItemFilterAttributeInput interface {
+	pulumi.Input
+
+	ToCustomLineItemLineItemFilterAttributeOutput() CustomLineItemLineItemFilterAttributeOutput
+	ToCustomLineItemLineItemFilterAttributeOutputWithContext(context.Context) CustomLineItemLineItemFilterAttributeOutput
+}
+
+var customLineItemLineItemFilterAttributePtrType = reflect.TypeOf((**CustomLineItemLineItemFilterAttribute)(nil)).Elem()
+
+type CustomLineItemLineItemFilterAttributePtrInput interface {
+	pulumi.Input
+
+	ToCustomLineItemLineItemFilterAttributePtrOutput() CustomLineItemLineItemFilterAttributePtrOutput
+	ToCustomLineItemLineItemFilterAttributePtrOutputWithContext(context.Context) CustomLineItemLineItemFilterAttributePtrOutput
+}
+
+type customLineItemLineItemFilterAttributePtr string
+
+func CustomLineItemLineItemFilterAttributePtr(v string) CustomLineItemLineItemFilterAttributePtrInput {
+	return (*customLineItemLineItemFilterAttributePtr)(&v)
+}
+
+func (*customLineItemLineItemFilterAttributePtr) ElementType() reflect.Type {
+	return customLineItemLineItemFilterAttributePtrType
+}
+
+func (in *customLineItemLineItemFilterAttributePtr) ToCustomLineItemLineItemFilterAttributePtrOutput() CustomLineItemLineItemFilterAttributePtrOutput {
+	return pulumi.ToOutput(in).(CustomLineItemLineItemFilterAttributePtrOutput)
+}
+
+func (in *customLineItemLineItemFilterAttributePtr) ToCustomLineItemLineItemFilterAttributePtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterAttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CustomLineItemLineItemFilterAttributePtrOutput)
+}
+
+func (in *customLineItemLineItemFilterAttributePtr) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterAttribute] {
+	return pulumix.Output[*CustomLineItemLineItemFilterAttribute]{
+		OutputState: in.ToCustomLineItemLineItemFilterAttributePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CustomLineItemLineItemFilterMatchOption string
+
+const (
+	CustomLineItemLineItemFilterMatchOptionNotEqual = CustomLineItemLineItemFilterMatchOption("NOT_EQUAL")
+)
+
+func (CustomLineItemLineItemFilterMatchOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLineItemLineItemFilterMatchOption)(nil)).Elem()
+}
+
+func (e CustomLineItemLineItemFilterMatchOption) ToCustomLineItemLineItemFilterMatchOptionOutput() CustomLineItemLineItemFilterMatchOptionOutput {
+	return pulumi.ToOutput(e).(CustomLineItemLineItemFilterMatchOptionOutput)
+}
+
+func (e CustomLineItemLineItemFilterMatchOption) ToCustomLineItemLineItemFilterMatchOptionOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterMatchOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CustomLineItemLineItemFilterMatchOptionOutput)
+}
+
+func (e CustomLineItemLineItemFilterMatchOption) ToCustomLineItemLineItemFilterMatchOptionPtrOutput() CustomLineItemLineItemFilterMatchOptionPtrOutput {
+	return e.ToCustomLineItemLineItemFilterMatchOptionPtrOutputWithContext(context.Background())
+}
+
+func (e CustomLineItemLineItemFilterMatchOption) ToCustomLineItemLineItemFilterMatchOptionPtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterMatchOptionPtrOutput {
+	return CustomLineItemLineItemFilterMatchOption(e).ToCustomLineItemLineItemFilterMatchOptionOutputWithContext(ctx).ToCustomLineItemLineItemFilterMatchOptionPtrOutputWithContext(ctx)
+}
+
+func (e CustomLineItemLineItemFilterMatchOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomLineItemLineItemFilterMatchOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomLineItemLineItemFilterMatchOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CustomLineItemLineItemFilterMatchOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CustomLineItemLineItemFilterMatchOptionOutput struct{ *pulumi.OutputState }
+
+func (CustomLineItemLineItemFilterMatchOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLineItemLineItemFilterMatchOption)(nil)).Elem()
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionOutput) ToCustomLineItemLineItemFilterMatchOptionOutput() CustomLineItemLineItemFilterMatchOptionOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionOutput) ToCustomLineItemLineItemFilterMatchOptionOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterMatchOptionOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionOutput) ToCustomLineItemLineItemFilterMatchOptionPtrOutput() CustomLineItemLineItemFilterMatchOptionPtrOutput {
+	return o.ToCustomLineItemLineItemFilterMatchOptionPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionOutput) ToCustomLineItemLineItemFilterMatchOptionPtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterMatchOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLineItemLineItemFilterMatchOption) *CustomLineItemLineItemFilterMatchOption {
+		return &v
+	}).(CustomLineItemLineItemFilterMatchOptionPtrOutput)
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemLineItemFilterMatchOption] {
+	return pulumix.Output[CustomLineItemLineItemFilterMatchOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomLineItemLineItemFilterMatchOption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomLineItemLineItemFilterMatchOption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CustomLineItemLineItemFilterMatchOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomLineItemLineItemFilterMatchOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLineItemLineItemFilterMatchOption)(nil)).Elem()
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionPtrOutput) ToCustomLineItemLineItemFilterMatchOptionPtrOutput() CustomLineItemLineItemFilterMatchOptionPtrOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionPtrOutput) ToCustomLineItemLineItemFilterMatchOptionPtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterMatchOptionPtrOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterMatchOption] {
+	return pulumix.Output[*CustomLineItemLineItemFilterMatchOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionPtrOutput) Elem() CustomLineItemLineItemFilterMatchOptionOutput {
+	return o.ApplyT(func(v *CustomLineItemLineItemFilterMatchOption) CustomLineItemLineItemFilterMatchOption {
+		if v != nil {
+			return *v
+		}
+		var ret CustomLineItemLineItemFilterMatchOption
+		return ret
+	}).(CustomLineItemLineItemFilterMatchOptionOutput)
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterMatchOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CustomLineItemLineItemFilterMatchOption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CustomLineItemLineItemFilterMatchOptionInput is an input type that accepts CustomLineItemLineItemFilterMatchOptionArgs and CustomLineItemLineItemFilterMatchOptionOutput values.
+// You can construct a concrete instance of `CustomLineItemLineItemFilterMatchOptionInput` via:
+//
+//	CustomLineItemLineItemFilterMatchOptionArgs{...}
+type CustomLineItemLineItemFilterMatchOptionInput interface {
+	pulumi.Input
+
+	ToCustomLineItemLineItemFilterMatchOptionOutput() CustomLineItemLineItemFilterMatchOptionOutput
+	ToCustomLineItemLineItemFilterMatchOptionOutputWithContext(context.Context) CustomLineItemLineItemFilterMatchOptionOutput
+}
+
+var customLineItemLineItemFilterMatchOptionPtrType = reflect.TypeOf((**CustomLineItemLineItemFilterMatchOption)(nil)).Elem()
+
+type CustomLineItemLineItemFilterMatchOptionPtrInput interface {
+	pulumi.Input
+
+	ToCustomLineItemLineItemFilterMatchOptionPtrOutput() CustomLineItemLineItemFilterMatchOptionPtrOutput
+	ToCustomLineItemLineItemFilterMatchOptionPtrOutputWithContext(context.Context) CustomLineItemLineItemFilterMatchOptionPtrOutput
+}
+
+type customLineItemLineItemFilterMatchOptionPtr string
+
+func CustomLineItemLineItemFilterMatchOptionPtr(v string) CustomLineItemLineItemFilterMatchOptionPtrInput {
+	return (*customLineItemLineItemFilterMatchOptionPtr)(&v)
+}
+
+func (*customLineItemLineItemFilterMatchOptionPtr) ElementType() reflect.Type {
+	return customLineItemLineItemFilterMatchOptionPtrType
+}
+
+func (in *customLineItemLineItemFilterMatchOptionPtr) ToCustomLineItemLineItemFilterMatchOptionPtrOutput() CustomLineItemLineItemFilterMatchOptionPtrOutput {
+	return pulumi.ToOutput(in).(CustomLineItemLineItemFilterMatchOptionPtrOutput)
+}
+
+func (in *customLineItemLineItemFilterMatchOptionPtr) ToCustomLineItemLineItemFilterMatchOptionPtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterMatchOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CustomLineItemLineItemFilterMatchOptionPtrOutput)
+}
+
+func (in *customLineItemLineItemFilterMatchOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterMatchOption] {
+	return pulumix.Output[*CustomLineItemLineItemFilterMatchOption]{
+		OutputState: in.ToCustomLineItemLineItemFilterMatchOptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CustomLineItemLineItemFilterValue string
+
+const (
+	CustomLineItemLineItemFilterValueSavingsPlanNegation = CustomLineItemLineItemFilterValue("SAVINGS_PLAN_NEGATION")
+)
+
+func (CustomLineItemLineItemFilterValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLineItemLineItemFilterValue)(nil)).Elem()
+}
+
+func (e CustomLineItemLineItemFilterValue) ToCustomLineItemLineItemFilterValueOutput() CustomLineItemLineItemFilterValueOutput {
+	return pulumi.ToOutput(e).(CustomLineItemLineItemFilterValueOutput)
+}
+
+func (e CustomLineItemLineItemFilterValue) ToCustomLineItemLineItemFilterValueOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CustomLineItemLineItemFilterValueOutput)
+}
+
+func (e CustomLineItemLineItemFilterValue) ToCustomLineItemLineItemFilterValuePtrOutput() CustomLineItemLineItemFilterValuePtrOutput {
+	return e.ToCustomLineItemLineItemFilterValuePtrOutputWithContext(context.Background())
+}
+
+func (e CustomLineItemLineItemFilterValue) ToCustomLineItemLineItemFilterValuePtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterValuePtrOutput {
+	return CustomLineItemLineItemFilterValue(e).ToCustomLineItemLineItemFilterValueOutputWithContext(ctx).ToCustomLineItemLineItemFilterValuePtrOutputWithContext(ctx)
+}
+
+func (e CustomLineItemLineItemFilterValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomLineItemLineItemFilterValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomLineItemLineItemFilterValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CustomLineItemLineItemFilterValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CustomLineItemLineItemFilterValueOutput struct{ *pulumi.OutputState }
+
+func (CustomLineItemLineItemFilterValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLineItemLineItemFilterValue)(nil)).Elem()
+}
+
+func (o CustomLineItemLineItemFilterValueOutput) ToCustomLineItemLineItemFilterValueOutput() CustomLineItemLineItemFilterValueOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterValueOutput) ToCustomLineItemLineItemFilterValueOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterValueOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterValueOutput) ToCustomLineItemLineItemFilterValuePtrOutput() CustomLineItemLineItemFilterValuePtrOutput {
+	return o.ToCustomLineItemLineItemFilterValuePtrOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterValueOutput) ToCustomLineItemLineItemFilterValuePtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLineItemLineItemFilterValue) *CustomLineItemLineItemFilterValue {
+		return &v
+	}).(CustomLineItemLineItemFilterValuePtrOutput)
+}
+
+func (o CustomLineItemLineItemFilterValueOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemLineItemFilterValue] {
+	return pulumix.Output[CustomLineItemLineItemFilterValue]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomLineItemLineItemFilterValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomLineItemLineItemFilterValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CustomLineItemLineItemFilterValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomLineItemLineItemFilterValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CustomLineItemLineItemFilterValuePtrOutput struct{ *pulumi.OutputState }
+
+func (CustomLineItemLineItemFilterValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLineItemLineItemFilterValue)(nil)).Elem()
+}
+
+func (o CustomLineItemLineItemFilterValuePtrOutput) ToCustomLineItemLineItemFilterValuePtrOutput() CustomLineItemLineItemFilterValuePtrOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterValuePtrOutput) ToCustomLineItemLineItemFilterValuePtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterValuePtrOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterValue] {
+	return pulumix.Output[*CustomLineItemLineItemFilterValue]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomLineItemLineItemFilterValuePtrOutput) Elem() CustomLineItemLineItemFilterValueOutput {
+	return o.ApplyT(func(v *CustomLineItemLineItemFilterValue) CustomLineItemLineItemFilterValue {
+		if v != nil {
+			return *v
+		}
+		var ret CustomLineItemLineItemFilterValue
+		return ret
+	}).(CustomLineItemLineItemFilterValueOutput)
+}
+
+func (o CustomLineItemLineItemFilterValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLineItemLineItemFilterValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CustomLineItemLineItemFilterValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CustomLineItemLineItemFilterValueInput is an input type that accepts CustomLineItemLineItemFilterValueArgs and CustomLineItemLineItemFilterValueOutput values.
+// You can construct a concrete instance of `CustomLineItemLineItemFilterValueInput` via:
+//
+//	CustomLineItemLineItemFilterValueArgs{...}
+type CustomLineItemLineItemFilterValueInput interface {
+	pulumi.Input
+
+	ToCustomLineItemLineItemFilterValueOutput() CustomLineItemLineItemFilterValueOutput
+	ToCustomLineItemLineItemFilterValueOutputWithContext(context.Context) CustomLineItemLineItemFilterValueOutput
+}
+
+var customLineItemLineItemFilterValuePtrType = reflect.TypeOf((**CustomLineItemLineItemFilterValue)(nil)).Elem()
+
+type CustomLineItemLineItemFilterValuePtrInput interface {
+	pulumi.Input
+
+	ToCustomLineItemLineItemFilterValuePtrOutput() CustomLineItemLineItemFilterValuePtrOutput
+	ToCustomLineItemLineItemFilterValuePtrOutputWithContext(context.Context) CustomLineItemLineItemFilterValuePtrOutput
+}
+
+type customLineItemLineItemFilterValuePtr string
+
+func CustomLineItemLineItemFilterValuePtr(v string) CustomLineItemLineItemFilterValuePtrInput {
+	return (*customLineItemLineItemFilterValuePtr)(&v)
+}
+
+func (*customLineItemLineItemFilterValuePtr) ElementType() reflect.Type {
+	return customLineItemLineItemFilterValuePtrType
+}
+
+func (in *customLineItemLineItemFilterValuePtr) ToCustomLineItemLineItemFilterValuePtrOutput() CustomLineItemLineItemFilterValuePtrOutput {
+	return pulumi.ToOutput(in).(CustomLineItemLineItemFilterValuePtrOutput)
+}
+
+func (in *customLineItemLineItemFilterValuePtr) ToCustomLineItemLineItemFilterValuePtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CustomLineItemLineItemFilterValuePtrOutput)
+}
+
+func (in *customLineItemLineItemFilterValuePtr) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterValue] {
+	return pulumix.Output[*CustomLineItemLineItemFilterValue]{
+		OutputState: in.ToCustomLineItemLineItemFilterValuePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// CustomLineItemLineItemFilterValueArrayInput is an input type that accepts CustomLineItemLineItemFilterValueArray and CustomLineItemLineItemFilterValueArrayOutput values.
+// You can construct a concrete instance of `CustomLineItemLineItemFilterValueArrayInput` via:
+//
+//	CustomLineItemLineItemFilterValueArray{ CustomLineItemLineItemFilterValueArgs{...} }
+type CustomLineItemLineItemFilterValueArrayInput interface {
+	pulumi.Input
+
+	ToCustomLineItemLineItemFilterValueArrayOutput() CustomLineItemLineItemFilterValueArrayOutput
+	ToCustomLineItemLineItemFilterValueArrayOutputWithContext(context.Context) CustomLineItemLineItemFilterValueArrayOutput
+}
+
+type CustomLineItemLineItemFilterValueArray []CustomLineItemLineItemFilterValue
+
+func (CustomLineItemLineItemFilterValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomLineItemLineItemFilterValue)(nil)).Elem()
+}
+
+func (i CustomLineItemLineItemFilterValueArray) ToCustomLineItemLineItemFilterValueArrayOutput() CustomLineItemLineItemFilterValueArrayOutput {
+	return i.ToCustomLineItemLineItemFilterValueArrayOutputWithContext(context.Background())
+}
+
+func (i CustomLineItemLineItemFilterValueArray) ToCustomLineItemLineItemFilterValueArrayOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemLineItemFilterValueArrayOutput)
+}
+
+func (i CustomLineItemLineItemFilterValueArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomLineItemLineItemFilterValue] {
+	return pulumix.Output[[]CustomLineItemLineItemFilterValue]{
+		OutputState: i.ToCustomLineItemLineItemFilterValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CustomLineItemLineItemFilterValueArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomLineItemLineItemFilterValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomLineItemLineItemFilterValue)(nil)).Elem()
+}
+
+func (o CustomLineItemLineItemFilterValueArrayOutput) ToCustomLineItemLineItemFilterValueArrayOutput() CustomLineItemLineItemFilterValueArrayOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterValueArrayOutput) ToCustomLineItemLineItemFilterValueArrayOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterValueArrayOutput {
+	return o
+}
+
+func (o CustomLineItemLineItemFilterValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomLineItemLineItemFilterValue] {
+	return pulumix.Output[[]CustomLineItemLineItemFilterValue]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomLineItemLineItemFilterValueArrayOutput) Index(i pulumi.IntInput) CustomLineItemLineItemFilterValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomLineItemLineItemFilterValue {
+		return vs[0].([]CustomLineItemLineItemFilterValue)[vs[1].(int)]
+	}).(CustomLineItemLineItemFilterValueOutput)
+}
+
 type CustomLineItemType string
 
 const (
@@ -951,6 +1551,13 @@ func (in *pricingRuleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*Pric
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemLineItemFilterAttributeInput)(nil)).Elem(), CustomLineItemLineItemFilterAttribute("LINE_ITEM_TYPE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemLineItemFilterAttributePtrInput)(nil)).Elem(), CustomLineItemLineItemFilterAttribute("LINE_ITEM_TYPE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemLineItemFilterMatchOptionInput)(nil)).Elem(), CustomLineItemLineItemFilterMatchOption("NOT_EQUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemLineItemFilterMatchOptionPtrInput)(nil)).Elem(), CustomLineItemLineItemFilterMatchOption("NOT_EQUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemLineItemFilterValueInput)(nil)).Elem(), CustomLineItemLineItemFilterValue("SAVINGS_PLAN_NEGATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemLineItemFilterValuePtrInput)(nil)).Elem(), CustomLineItemLineItemFilterValue("SAVINGS_PLAN_NEGATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemLineItemFilterValueArrayInput)(nil)).Elem(), CustomLineItemLineItemFilterValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemTypeInput)(nil)).Elem(), CustomLineItemType("FEE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemTypePtrInput)(nil)).Elem(), CustomLineItemType("FEE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleBillingEntityInput)(nil)).Elem(), PricingRuleBillingEntity("AWS"))
@@ -963,6 +1570,13 @@ func init() {
 	pulumi.RegisterOutputType(BillingGroupStatusPtrOutput{})
 	pulumi.RegisterOutputType(CustomLineItemCurrencyCodeOutput{})
 	pulumi.RegisterOutputType(CustomLineItemCurrencyCodePtrOutput{})
+	pulumi.RegisterOutputType(CustomLineItemLineItemFilterAttributeOutput{})
+	pulumi.RegisterOutputType(CustomLineItemLineItemFilterAttributePtrOutput{})
+	pulumi.RegisterOutputType(CustomLineItemLineItemFilterMatchOptionOutput{})
+	pulumi.RegisterOutputType(CustomLineItemLineItemFilterMatchOptionPtrOutput{})
+	pulumi.RegisterOutputType(CustomLineItemLineItemFilterValueOutput{})
+	pulumi.RegisterOutputType(CustomLineItemLineItemFilterValuePtrOutput{})
+	pulumi.RegisterOutputType(CustomLineItemLineItemFilterValueArrayOutput{})
 	pulumi.RegisterOutputType(CustomLineItemTypeOutput{})
 	pulumi.RegisterOutputType(CustomLineItemTypePtrOutput{})
 	pulumi.RegisterOutputType(PricingRuleBillingEntityOutput{})

@@ -5,6 +5,7 @@
 export const DestinationExpressionType = {
     RuleName: "RuleName",
     MqttTopic: "MqttTopic",
+    SnsTopic: "SnsTopic",
 } as const;
 
 /**

@@ -36,7 +36,8 @@ type Task struct {
 	// An array of key-value pairs to apply to this resource.
 	Tags TaskTagArrayOutput `pulumi:"tags"`
 	// The ARN of the task.
-	TaskArn pulumi.StringOutput `pulumi:"taskArn"`
+	TaskArn          pulumi.StringOutput       `pulumi:"taskArn"`
+	TaskReportConfig TaskReportConfigPtrOutput `pulumi:"taskReportConfig"`
 }
 
 // NewTask registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +104,8 @@ type taskArgs struct {
 	// The ARN of the source location for the task.
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []TaskTag `pulumi:"tags"`
+	Tags             []TaskTag         `pulumi:"tags"`
+	TaskReportConfig *TaskReportConfig `pulumi:"taskReportConfig"`
 }
 
 // The set of arguments for constructing a Task resource.
@@ -121,7 +123,8 @@ type TaskArgs struct {
 	// The ARN of the source location for the task.
 	SourceLocationArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags TaskTagArrayInput
+	Tags             TaskTagArrayInput
+	TaskReportConfig TaskReportConfigPtrInput
 }
 
 func (TaskArgs) ElementType() reflect.Type {
@@ -230,6 +233,10 @@ func (o TaskOutput) Tags() TaskTagArrayOutput {
 // The ARN of the task.
 func (o TaskOutput) TaskArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.TaskArn }).(pulumi.StringOutput)
+}
+
+func (o TaskOutput) TaskReportConfig() TaskReportConfigPtrOutput {
+	return o.ApplyT(func(v *Task) TaskReportConfigPtrOutput { return v.TaskReportConfig }).(TaskReportConfigPtrOutput)
 }
 
 func init() {

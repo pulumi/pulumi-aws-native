@@ -20,6 +20,8 @@ class TransitGatewayRouteTableArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableTagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayRouteTable resource.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableTagArgs']]] tags: Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
         """
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if tags is not None:
@@ -28,6 +30,9 @@ class TransitGatewayRouteTableArgs:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the transit gateway.
+        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -37,6 +42,9 @@ class TransitGatewayRouteTableArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableTagArgs']]]]:
+        """
+        Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -44,12 +52,7 @@ class TransitGatewayRouteTableArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""TransitGatewayRouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class TransitGatewayRouteTable(pulumi.CustomResource):
-    warnings.warn("""TransitGatewayRouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -62,6 +65,8 @@ class TransitGatewayRouteTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayRouteTableTagArgs']]]] tags: Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
         """
         ...
     @overload
@@ -90,7 +95,6 @@ class TransitGatewayRouteTable(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayRouteTableTagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""TransitGatewayRouteTable is deprecated: TransitGatewayRouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -103,6 +107,7 @@ class TransitGatewayRouteTable(pulumi.CustomResource):
             if transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
+            __props__.__dict__["transit_gateway_route_table_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags[*]", "transit_gateway_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayRouteTable, __self__).__init__(
@@ -129,15 +134,30 @@ class TransitGatewayRouteTable(pulumi.CustomResource):
 
         __props__.__dict__["tags"] = None
         __props__.__dict__["transit_gateway_id"] = None
+        __props__.__dict__["transit_gateway_route_table_id"] = None
         return TransitGatewayRouteTable(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TransitGatewayRouteTableTag']]]:
+        """
+        Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the transit gateway.
+        """
         return pulumi.get(self, "transit_gateway_id")
+
+    @property
+    @pulumi.getter(name="transitGatewayRouteTableId")
+    def transit_gateway_route_table_id(self) -> pulumi.Output[str]:
+        """
+        Transit Gateway Route Table primary identifier
+        """
+        return pulumi.get(self, "transit_gateway_route_table_id")
 

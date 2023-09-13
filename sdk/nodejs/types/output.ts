@@ -2015,8 +2015,24 @@ export namespace appflow {
         writeOperationType?: enums.appflow.FlowWriteOperationType;
     }
 
+    /**
+     * SAP Source connector page size
+     */
+    export interface FlowSapoDataPaginationConfig {
+        maxPageSize: number;
+    }
+
+    /**
+     * SAP Source connector parallelism factor
+     */
+    export interface FlowSapoDataParallelismConfig {
+        maxParallelism: number;
+    }
+
     export interface FlowSapoDataSourceProperties {
         objectPath: string;
+        paginationConfig?: outputs.appflow.FlowSapoDataPaginationConfig;
+        parallelismConfig?: outputs.appflow.FlowSapoDataParallelismConfig;
     }
 
     /**
@@ -5117,12 +5133,19 @@ export namespace billingconductor {
 
     export interface CustomLineItemChargeDetails {
         flat?: outputs.billingconductor.CustomLineItemFlatChargeDetails;
+        lineItemFilters?: outputs.billingconductor.CustomLineItemLineItemFilter[];
         percentage?: outputs.billingconductor.CustomLineItemPercentageChargeDetails;
         type: enums.billingconductor.CustomLineItemType;
     }
 
     export interface CustomLineItemFlatChargeDetails {
         chargeValue: number;
+    }
+
+    export interface CustomLineItemLineItemFilter {
+        attribute: enums.billingconductor.CustomLineItemLineItemFilterAttribute;
+        matchOption: enums.billingconductor.CustomLineItemLineItemFilterMatchOption;
+        values: enums.billingconductor.CustomLineItemLineItemFilterValue[];
     }
 
     export interface CustomLineItemPercentageChargeDetails {
@@ -5368,6 +5391,25 @@ export namespace certificatemanager {
 }
 
 export namespace cleanrooms {
+    export interface AnalysisTemplateAnalysisParameter {
+        defaultValue?: string;
+        name: string;
+        type: enums.cleanrooms.AnalysisTemplateAnalysisParameterType;
+    }
+
+    export interface AnalysisTemplateAnalysisSchema {
+        referencedTables: string[];
+    }
+
+    export interface AnalysisTemplateAnalysisSource {
+        text: string;
+    }
+
+    export interface AnalysisTemplateTag {
+        key: string;
+        value: string;
+    }
+
     export interface CollaborationDataEncryptionMetadata {
         allowCleartext: boolean;
         allowDuplicates: boolean;
@@ -9113,6 +9155,20 @@ export namespace connect {
         value: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ViewTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters
+         */
+        key: string;
+        /**
+         * The value for the tag. . You can specify a value that is maximum of 256 Unicode characters
+         */
+        value: string;
+    }
+
 }
 
 export namespace connectcampaigns {
@@ -10563,6 +10619,122 @@ export namespace datasync {
     }
 
     /**
+     * Specifies how you want to configure a task report, which provides detailed information about for your Datasync transfer.
+     */
+    export interface TaskReportConfig {
+        /**
+         * Specifies where DataSync uploads your task report.
+         */
+        destination: outputs.datasync.TaskReportConfigDestinationProperties;
+        /**
+         * Specifies whether your task report includes the new version of each object transferred into an S3 bucket, this only applies if you enable versioning on your bucket.
+         */
+        objectVersionIds?: enums.datasync.TaskReportConfigObjectVersionIds;
+        /**
+         * Specifies the type of task report that you want.
+         */
+        outputType: enums.datasync.TaskReportConfigOutputType;
+        /**
+         * Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that Datasync attempted to delete in your destination location.
+         */
+        overrides?: outputs.datasync.TaskReportConfigOverridesProperties;
+        /**
+         * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+         */
+        reportLevel?: enums.datasync.TaskReportConfigReportLevel;
+    }
+
+    /**
+     * Specifies where DataSync uploads your task report.
+     */
+    export interface TaskReportConfigDestinationProperties {
+        /**
+         * Specifies the Amazon S3 bucket where DataSync uploads your task report.
+         */
+        s3?: outputs.datasync.TaskReportConfigDestinationPropertiesS3Properties;
+    }
+
+    /**
+     * Specifies the Amazon S3 bucket where DataSync uploads your task report.
+     */
+    export interface TaskReportConfigDestinationPropertiesS3Properties {
+        /**
+         * Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
+         */
+        bucketAccessRoleArn?: string;
+        /**
+         * Specifies the ARN of the S3 bucket where Datasync uploads your report.
+         */
+        s3BucketArn?: string;
+        /**
+         * Specifies a bucket prefix for your report.
+         */
+        subdirectory?: string;
+    }
+
+    /**
+     * Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that Datasync attempted to delete in your destination location.
+     */
+    export interface TaskReportConfigOverridesProperties {
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source.
+         */
+        deleted?: outputs.datasync.TaskReportConfigOverridesPropertiesDeletedProperties;
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to skip during your transfer.
+         */
+        skipped?: outputs.datasync.TaskReportConfigOverridesPropertiesSkippedProperties;
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
+         */
+        transferred?: outputs.datasync.TaskReportConfigOverridesPropertiesTransferredProperties;
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
+         */
+        verified?: outputs.datasync.TaskReportConfigOverridesPropertiesVerifiedProperties;
+    }
+
+    /**
+     * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source.
+     */
+    export interface TaskReportConfigOverridesPropertiesDeletedProperties {
+        /**
+         * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+         */
+        reportLevel?: enums.datasync.TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel;
+    }
+
+    /**
+     * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to skip during your transfer.
+     */
+    export interface TaskReportConfigOverridesPropertiesSkippedProperties {
+        /**
+         * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+         */
+        reportLevel?: enums.datasync.TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel;
+    }
+
+    /**
+     * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
+     */
+    export interface TaskReportConfigOverridesPropertiesTransferredProperties {
+        /**
+         * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+         */
+        reportLevel?: enums.datasync.TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel;
+    }
+
+    /**
+     * Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
+     */
+    export interface TaskReportConfigOverridesPropertiesVerifiedProperties {
+        /**
+         * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+         */
+        reportLevel?: enums.datasync.TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel;
+    }
+
+    /**
      * Specifies the schedule you want your task to use for repeated executions.
      */
     export interface TaskSchedule {
@@ -10987,13 +11159,21 @@ export namespace dms {
     export interface EndpointMicrosoftSqlServerSettings {
         bcpPacketSize?: number;
         controlTablesFileGroup?: string;
+        databaseName?: string;
+        forceLobLookup?: boolean;
+        password?: string;
+        port?: number;
         querySingleAlwaysOnNode?: boolean;
         readBackupOnly?: boolean;
         safeguardPolicy?: string;
         secretsManagerAccessRoleArn?: string;
         secretsManagerSecretId?: string;
+        serverName?: string;
+        tlogAccessMode?: string;
+        trimSpaceInChar?: boolean;
         useBcpFullLoad?: boolean;
         useThirdPartyBackupDevice?: boolean;
+        username?: string;
     }
 
     export interface EndpointMongoDbSettings {
@@ -11074,7 +11254,9 @@ export namespace dms {
 
     export interface EndpointPostgreSqlSettings {
         afterConnectScript?: string;
+        babelfishDatabaseName?: string;
         captureDdls?: boolean;
+        databaseMode?: string;
         ddlArtifactsSchema?: string;
         executeTimeout?: number;
         failTasksOnLobTruncation?: boolean;
@@ -13373,7 +13555,13 @@ export namespace ec2 {
     }
 
     export interface TransitGatewayRouteTableTag {
+        /**
+         * The key of the associated tag key-value pair
+         */
         key: string;
+        /**
+         * The value of the associated tag key-value pair
+         */
         value: string;
     }
 
@@ -18657,12 +18845,23 @@ export namespace guardduty {
         s3Logs?: outputs.guardduty.DetectorCfns3LogsConfiguration;
     }
 
+    export interface DetectorCfnFeatureAdditionalConfiguration {
+        name?: string;
+        status?: string;
+    }
+
+    export interface DetectorCfnFeatureConfiguration {
+        additionalConfiguration?: outputs.guardduty.DetectorCfnFeatureAdditionalConfiguration[];
+        name: enums.guardduty.DetectorCfnFeatureConfigurationName;
+        status: enums.guardduty.DetectorCfnFeatureConfigurationStatus;
+    }
+
     export interface DetectorCfnKubernetesAuditLogsConfiguration {
-        enable?: boolean;
+        enable: boolean;
     }
 
     export interface DetectorCfnKubernetesConfiguration {
-        auditLogs?: outputs.guardduty.DetectorCfnKubernetesAuditLogsConfiguration;
+        auditLogs: outputs.guardduty.DetectorCfnKubernetesAuditLogsConfiguration;
     }
 
     export interface DetectorCfnMalwareProtectionConfiguration {
@@ -18674,21 +18873,10 @@ export namespace guardduty {
     }
 
     export interface DetectorCfns3LogsConfiguration {
-        enable?: boolean;
+        enable: boolean;
     }
 
-    export interface DetectorFeatureAdditionalConfiguration {
-        name?: string;
-        status?: string;
-    }
-
-    export interface DetectorFeatureConfigurations {
-        additionalConfiguration?: outputs.guardduty.DetectorFeatureAdditionalConfiguration[];
-        name?: string;
-        status?: string;
-    }
-
-    export interface DetectorTag {
+    export interface DetectorTagItem {
         key: string;
         value: string;
     }
@@ -27928,6 +28116,7 @@ export namespace medialive {
     }
 
     export interface ChannelAc3Settings {
+        attenuationControl?: string;
         bitrate?: number;
         bitstreamMode?: string;
         codingMode?: string;
@@ -28282,6 +28471,7 @@ export namespace medialive {
         motionGraphicsConfiguration?: outputs.medialive.ChannelMotionGraphicsConfiguration;
         nielsenConfiguration?: outputs.medialive.ChannelNielsenConfiguration;
         outputGroups?: outputs.medialive.ChannelOutputGroup[];
+        thumbnailConfiguration?: outputs.medialive.ChannelThumbnailConfiguration;
         timecodeConfig?: outputs.medialive.ChannelTimecodeConfig;
         videoDescriptions?: outputs.medialive.ChannelVideoDescription[];
     }
@@ -28686,6 +28876,8 @@ export namespace medialive {
         audioFramesPerPes?: number;
         audioPids?: string;
         ecmPid?: string;
+        klvBehavior?: string;
+        klvDataPids?: string;
         nielsenId3Behavior?: string;
         patInterval?: number;
         pcrControl?: string;
@@ -28905,6 +29097,7 @@ export namespace medialive {
         cacheFullBehavior?: string;
         cacheLength?: number;
         captionData?: string;
+        includeFillerNalUnits?: string;
         inputLossAction?: string;
         restartDelay?: number;
     }
@@ -28968,6 +29161,10 @@ export namespace medialive {
     export interface ChannelTemporalFilterSettings {
         postFilterSharpening?: string;
         strength?: string;
+    }
+
+    export interface ChannelThumbnailConfiguration {
+        state?: string;
     }
 
     export interface ChannelTimecodeBurninSettings {
@@ -31855,6 +32052,261 @@ export namespace panorama {
     export interface PackageTag {
         key: string;
         value: string;
+    }
+
+}
+
+export namespace pcaconnectorad {
+    export interface ConnectorTags {
+    }
+
+    export interface ConnectorVpcInformation {
+        securityGroupIds: string[];
+    }
+
+    export interface DirectoryRegistrationTags {
+    }
+
+    export interface TemplateApplicationPolicies {
+        critical?: boolean;
+        policies: (outputs.pcaconnectorad.TemplateApplicationPolicy0Properties | outputs.pcaconnectorad.TemplateApplicationPolicy1Properties)[];
+    }
+
+    export interface TemplateApplicationPolicy0Properties {
+        policyType: enums.pcaconnectorad.TemplateApplicationPolicyType;
+    }
+
+    export interface TemplateApplicationPolicy1Properties {
+        policyObjectIdentifier: string;
+    }
+
+    export interface TemplateCertificateValidity {
+        renewalPeriod: outputs.pcaconnectorad.TemplateValidityPeriod;
+        validityPeriod: outputs.pcaconnectorad.TemplateValidityPeriod;
+    }
+
+    export interface TemplateDefinition0Properties {
+        templateV2: outputs.pcaconnectorad.TemplateV2;
+    }
+
+    export interface TemplateDefinition1Properties {
+        templateV3: outputs.pcaconnectorad.TemplateV3;
+    }
+
+    export interface TemplateDefinition2Properties {
+        templateV4: outputs.pcaconnectorad.TemplateV4;
+    }
+
+    export interface TemplateEnrollmentFlagsV2 {
+        enableKeyReuseOnNtTokenKeysetStorageFull?: boolean;
+        includeSymmetricAlgorithms?: boolean;
+        noSecurityExtension?: boolean;
+        removeInvalidCertificateFromPersonalStore?: boolean;
+        userInteractionRequired?: boolean;
+    }
+
+    export interface TemplateEnrollmentFlagsV3 {
+        enableKeyReuseOnNtTokenKeysetStorageFull?: boolean;
+        includeSymmetricAlgorithms?: boolean;
+        noSecurityExtension?: boolean;
+        removeInvalidCertificateFromPersonalStore?: boolean;
+        userInteractionRequired?: boolean;
+    }
+
+    export interface TemplateEnrollmentFlagsV4 {
+        enableKeyReuseOnNtTokenKeysetStorageFull?: boolean;
+        includeSymmetricAlgorithms?: boolean;
+        noSecurityExtension?: boolean;
+        removeInvalidCertificateFromPersonalStore?: boolean;
+        userInteractionRequired?: boolean;
+    }
+
+    export interface TemplateExtensionsV2 {
+        applicationPolicies?: outputs.pcaconnectorad.TemplateApplicationPolicies;
+        keyUsage: outputs.pcaconnectorad.TemplateKeyUsage;
+    }
+
+    export interface TemplateExtensionsV3 {
+        applicationPolicies?: outputs.pcaconnectorad.TemplateApplicationPolicies;
+        keyUsage: outputs.pcaconnectorad.TemplateKeyUsage;
+    }
+
+    export interface TemplateExtensionsV4 {
+        applicationPolicies?: outputs.pcaconnectorad.TemplateApplicationPolicies;
+        keyUsage: outputs.pcaconnectorad.TemplateKeyUsage;
+    }
+
+    export interface TemplateGeneralFlagsV2 {
+        autoEnrollment?: boolean;
+        machineType?: boolean;
+    }
+
+    export interface TemplateGeneralFlagsV3 {
+        autoEnrollment?: boolean;
+        machineType?: boolean;
+    }
+
+    export interface TemplateGeneralFlagsV4 {
+        autoEnrollment?: boolean;
+        machineType?: boolean;
+    }
+
+    export interface TemplateGroupAccessControlEntryAccessRights {
+        autoEnroll?: enums.pcaconnectorad.TemplateGroupAccessControlEntryAccessRight;
+        enroll?: enums.pcaconnectorad.TemplateGroupAccessControlEntryAccessRight;
+    }
+
+    export interface TemplateKeyUsage {
+        critical?: boolean;
+        usageFlags: outputs.pcaconnectorad.TemplateKeyUsageFlags;
+    }
+
+    export interface TemplateKeyUsageFlags {
+        dataEncipherment?: boolean;
+        digitalSignature?: boolean;
+        keyAgreement?: boolean;
+        keyEncipherment?: boolean;
+        nonRepudiation?: boolean;
+    }
+
+    export interface TemplateKeyUsageProperty0Properties {
+        propertyType: enums.pcaconnectorad.TemplateKeyUsagePropertyType;
+    }
+
+    export interface TemplateKeyUsageProperty1Properties {
+        propertyFlags: outputs.pcaconnectorad.TemplateKeyUsagePropertyFlags;
+    }
+
+    export interface TemplateKeyUsagePropertyFlags {
+        decrypt?: boolean;
+        keyAgreement?: boolean;
+        sign?: boolean;
+    }
+
+    export interface TemplatePrivateKeyAttributesV2 {
+        cryptoProviders?: string[];
+        keySpec: enums.pcaconnectorad.TemplateKeySpec;
+        minimalKeyLength: number;
+    }
+
+    export interface TemplatePrivateKeyAttributesV3 {
+        algorithm: enums.pcaconnectorad.TemplatePrivateKeyAlgorithm;
+        cryptoProviders?: string[];
+        keySpec: enums.pcaconnectorad.TemplateKeySpec;
+        keyUsageProperty: outputs.pcaconnectorad.TemplateKeyUsageProperty0Properties | outputs.pcaconnectorad.TemplateKeyUsageProperty1Properties;
+        minimalKeyLength: number;
+    }
+
+    export interface TemplatePrivateKeyAttributesV4 {
+        algorithm?: enums.pcaconnectorad.TemplatePrivateKeyAlgorithm;
+        cryptoProviders?: string[];
+        keySpec: enums.pcaconnectorad.TemplateKeySpec;
+        keyUsageProperty?: outputs.pcaconnectorad.TemplateKeyUsageProperty0Properties | outputs.pcaconnectorad.TemplateKeyUsageProperty1Properties;
+        minimalKeyLength: number;
+    }
+
+    export interface TemplatePrivateKeyFlagsV2 {
+        clientVersion: enums.pcaconnectorad.TemplateClientCompatibilityV2;
+        exportableKey?: boolean;
+        strongKeyProtectionRequired?: boolean;
+    }
+
+    export interface TemplatePrivateKeyFlagsV3 {
+        clientVersion: enums.pcaconnectorad.TemplateClientCompatibilityV3;
+        exportableKey?: boolean;
+        requireAlternateSignatureAlgorithm?: boolean;
+        strongKeyProtectionRequired?: boolean;
+    }
+
+    export interface TemplatePrivateKeyFlagsV4 {
+        clientVersion: enums.pcaconnectorad.TemplateClientCompatibilityV4;
+        exportableKey?: boolean;
+        requireAlternateSignatureAlgorithm?: boolean;
+        requireSameKeyRenewal?: boolean;
+        strongKeyProtectionRequired?: boolean;
+        useLegacyProvider?: boolean;
+    }
+
+    export interface TemplateSubjectNameFlagsV2 {
+        requireCommonName?: boolean;
+        requireDirectoryPath?: boolean;
+        requireDnsAsCn?: boolean;
+        requireEmail?: boolean;
+        sanRequireDirectoryGuid?: boolean;
+        sanRequireDns?: boolean;
+        sanRequireDomainDns?: boolean;
+        sanRequireEmail?: boolean;
+        sanRequireSpn?: boolean;
+        sanRequireUpn?: boolean;
+    }
+
+    export interface TemplateSubjectNameFlagsV3 {
+        requireCommonName?: boolean;
+        requireDirectoryPath?: boolean;
+        requireDnsAsCn?: boolean;
+        requireEmail?: boolean;
+        sanRequireDirectoryGuid?: boolean;
+        sanRequireDns?: boolean;
+        sanRequireDomainDns?: boolean;
+        sanRequireEmail?: boolean;
+        sanRequireSpn?: boolean;
+        sanRequireUpn?: boolean;
+    }
+
+    export interface TemplateSubjectNameFlagsV4 {
+        requireCommonName?: boolean;
+        requireDirectoryPath?: boolean;
+        requireDnsAsCn?: boolean;
+        requireEmail?: boolean;
+        sanRequireDirectoryGuid?: boolean;
+        sanRequireDns?: boolean;
+        sanRequireDomainDns?: boolean;
+        sanRequireEmail?: boolean;
+        sanRequireSpn?: boolean;
+        sanRequireUpn?: boolean;
+    }
+
+    export interface TemplateTags {
+    }
+
+    export interface TemplateV2 {
+        certificateValidity: outputs.pcaconnectorad.TemplateCertificateValidity;
+        enrollmentFlags: outputs.pcaconnectorad.TemplateEnrollmentFlagsV2;
+        extensions: outputs.pcaconnectorad.TemplateExtensionsV2;
+        generalFlags: outputs.pcaconnectorad.TemplateGeneralFlagsV2;
+        privateKeyAttributes: outputs.pcaconnectorad.TemplatePrivateKeyAttributesV2;
+        privateKeyFlags: outputs.pcaconnectorad.TemplatePrivateKeyFlagsV2;
+        subjectNameFlags: outputs.pcaconnectorad.TemplateSubjectNameFlagsV2;
+        supersededTemplates?: string[];
+    }
+
+    export interface TemplateV3 {
+        certificateValidity: outputs.pcaconnectorad.TemplateCertificateValidity;
+        enrollmentFlags: outputs.pcaconnectorad.TemplateEnrollmentFlagsV3;
+        extensions: outputs.pcaconnectorad.TemplateExtensionsV3;
+        generalFlags: outputs.pcaconnectorad.TemplateGeneralFlagsV3;
+        hashAlgorithm: enums.pcaconnectorad.TemplateHashAlgorithm;
+        privateKeyAttributes: outputs.pcaconnectorad.TemplatePrivateKeyAttributesV3;
+        privateKeyFlags: outputs.pcaconnectorad.TemplatePrivateKeyFlagsV3;
+        subjectNameFlags: outputs.pcaconnectorad.TemplateSubjectNameFlagsV3;
+        supersededTemplates?: string[];
+    }
+
+    export interface TemplateV4 {
+        certificateValidity: outputs.pcaconnectorad.TemplateCertificateValidity;
+        enrollmentFlags: outputs.pcaconnectorad.TemplateEnrollmentFlagsV4;
+        extensions: outputs.pcaconnectorad.TemplateExtensionsV4;
+        generalFlags: outputs.pcaconnectorad.TemplateGeneralFlagsV4;
+        hashAlgorithm?: enums.pcaconnectorad.TemplateHashAlgorithm;
+        privateKeyAttributes: outputs.pcaconnectorad.TemplatePrivateKeyAttributesV4;
+        privateKeyFlags: outputs.pcaconnectorad.TemplatePrivateKeyFlagsV4;
+        subjectNameFlags: outputs.pcaconnectorad.TemplateSubjectNameFlagsV4;
+        supersededTemplates?: string[];
+    }
+
+    export interface TemplateValidityPeriod {
+        period: number;
+        periodType: enums.pcaconnectorad.TemplateValidityPeriodType;
     }
 
 }
@@ -44060,6 +44512,13 @@ export namespace rolesanywhere {
         value: string;
     }
 
+    export interface TrustAnchorNotificationSetting {
+        channel?: enums.rolesanywhere.TrustAnchorNotificationChannel;
+        enabled: boolean;
+        event: enums.rolesanywhere.TrustAnchorNotificationEvent;
+        threshold?: number;
+    }
+
     export interface TrustAnchorSource {
         sourceData?: outputs.rolesanywhere.TrustAnchorSourceData0Properties | outputs.rolesanywhere.TrustAnchorSourceData1Properties;
         sourceType?: enums.rolesanywhere.TrustAnchorType;
@@ -51828,10 +52287,11 @@ export namespace vpclattice {
     export interface TargetGroupConfig {
         healthCheck?: outputs.vpclattice.TargetGroupHealthCheckConfig;
         ipAddressType?: enums.vpclattice.TargetGroupConfigIpAddressType;
-        port: number;
-        protocol: enums.vpclattice.TargetGroupConfigProtocol;
+        lambdaEventStructureVersion?: enums.vpclattice.TargetGroupConfigLambdaEventStructureVersion;
+        port?: number;
+        protocol?: enums.vpclattice.TargetGroupConfigProtocol;
         protocolVersion?: enums.vpclattice.TargetGroupConfigProtocolVersion;
-        vpcIdentifier: string;
+        vpcIdentifier?: string;
     }
 
     export interface TargetGroupHealthCheckConfig {

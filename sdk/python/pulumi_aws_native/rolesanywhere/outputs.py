@@ -14,6 +14,7 @@ from ._enums import *
 __all__ = [
     'CrlTag',
     'ProfileTag',
+    'TrustAnchorNotificationSetting',
     'TrustAnchorSource',
     'TrustAnchorSourceData0Properties',
     'TrustAnchorSourceData1Properties',
@@ -56,6 +57,41 @@ class ProfileTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TrustAnchorNotificationSetting(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 event: 'TrustAnchorNotificationEvent',
+                 channel: Optional['TrustAnchorNotificationChannel'] = None,
+                 threshold: Optional[float] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "event", event)
+        if channel is not None:
+            pulumi.set(__self__, "channel", channel)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def event(self) -> 'TrustAnchorNotificationEvent':
+        return pulumi.get(self, "event")
+
+    @property
+    @pulumi.getter
+    def channel(self) -> Optional['TrustAnchorNotificationChannel']:
+        return pulumi.get(self, "channel")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[float]:
+        return pulumi.get(self, "threshold")
 
 
 @pulumi.output_type

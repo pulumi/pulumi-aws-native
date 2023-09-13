@@ -24,6 +24,7 @@ type ResourceShare struct {
 	PermissionArns          pulumi.StringArrayOutput    `pulumi:"permissionArns"`
 	Principals              pulumi.StringArrayOutput    `pulumi:"principals"`
 	ResourceArns            pulumi.StringArrayOutput    `pulumi:"resourceArns"`
+	Sources                 pulumi.StringArrayOutput    `pulumi:"sources"`
 	Tags                    ResourceShareTagArrayOutput `pulumi:"tags"`
 }
 
@@ -72,6 +73,7 @@ type resourceShareArgs struct {
 	PermissionArns          []string           `pulumi:"permissionArns"`
 	Principals              []string           `pulumi:"principals"`
 	ResourceArns            []string           `pulumi:"resourceArns"`
+	Sources                 []string           `pulumi:"sources"`
 	Tags                    []ResourceShareTag `pulumi:"tags"`
 }
 
@@ -82,6 +84,7 @@ type ResourceShareArgs struct {
 	PermissionArns          pulumi.StringArrayInput
 	Principals              pulumi.StringArrayInput
 	ResourceArns            pulumi.StringArrayInput
+	Sources                 pulumi.StringArrayInput
 	Tags                    ResourceShareTagArrayInput
 }
 
@@ -156,6 +159,10 @@ func (o ResourceShareOutput) Principals() pulumi.StringArrayOutput {
 
 func (o ResourceShareOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringArrayOutput { return v.ResourceArns }).(pulumi.StringArrayOutput)
+}
+
+func (o ResourceShareOutput) Sources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.StringArrayOutput { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
 func (o ResourceShareOutput) Tags() ResourceShareTagArrayOutput {

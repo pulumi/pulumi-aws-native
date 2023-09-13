@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
 
     public sealed class ChannelAc3SettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("attenuationControl")]
+        public Input<string>? AttenuationControl { get; set; }
+
         [Input("bitrate")]
         public Input<double>? Bitrate { get; set; }
 

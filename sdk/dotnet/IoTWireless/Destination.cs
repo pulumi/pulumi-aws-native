@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// AWS role ARN that grants access
         /// </summary>
         [Output("roleArn")]
-        public Output<string> RoleArn { get; private set; } = null!;
+        public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the destination.
@@ -133,8 +133,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// AWS role ARN that grants access
         /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DestinationTagArgs>? _tags;

@@ -81,6 +81,13 @@ export const TargetGroupConfigIpAddressType = {
 
 export type TargetGroupConfigIpAddressType = (typeof TargetGroupConfigIpAddressType)[keyof typeof TargetGroupConfigIpAddressType];
 
+export const TargetGroupConfigLambdaEventStructureVersion = {
+    V1: "V1",
+    V2: "V2",
+} as const;
+
+export type TargetGroupConfigLambdaEventStructureVersion = (typeof TargetGroupConfigLambdaEventStructureVersion)[keyof typeof TargetGroupConfigLambdaEventStructureVersion];
+
 export const TargetGroupConfigProtocol = {
     Http: "HTTP",
     Https: "HTTPS",
@@ -106,6 +113,7 @@ export type TargetGroupHealthCheckConfigProtocol = (typeof TargetGroupHealthChec
 export const TargetGroupHealthCheckConfigProtocolVersion = {
     Http1: "HTTP1",
     Http2: "HTTP2",
+    Grpc: "GRPC",
 } as const;
 
 export type TargetGroupHealthCheckConfigProtocolVersion = (typeof TargetGroupHealthCheckConfigProtocolVersion)[keyof typeof TargetGroupHealthCheckConfigProtocolVersion];

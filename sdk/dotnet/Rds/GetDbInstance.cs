@@ -134,9 +134,25 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? Domain;
         /// <summary>
+        /// The ARN for the Secrets Manager secret with the credentials for the user joining the domain.
+        /// </summary>
+        public readonly string? DomainAuthSecretArn;
+        /// <summary>
+        /// The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
+        /// </summary>
+        public readonly ImmutableArray<string> DomainDnsIps;
+        /// <summary>
+        /// The fully qualified domain name (FQDN) of an Active Directory domain.
+        /// </summary>
+        public readonly string? DomainFqdn;
+        /// <summary>
         /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
         public readonly string? DomainIamRoleName;
+        /// <summary>
+        /// The Active Directory organizational unit for your DB instance to join.
+        /// </summary>
+        public readonly string? DomainOu;
         /// <summary>
         /// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
         /// </summary>
@@ -294,7 +310,15 @@ namespace Pulumi.AwsNative.Rds
 
             string? domain,
 
+            string? domainAuthSecretArn,
+
+            ImmutableArray<string> domainDnsIps,
+
+            string? domainFqdn,
+
             string? domainIamRoleName,
+
+            string? domainOu,
 
             ImmutableArray<string> enableCloudwatchLogsExports,
 
@@ -373,7 +397,11 @@ namespace Pulumi.AwsNative.Rds
             DbiResourceId = dbiResourceId;
             DeletionProtection = deletionProtection;
             Domain = domain;
+            DomainAuthSecretArn = domainAuthSecretArn;
+            DomainDnsIps = domainDnsIps;
+            DomainFqdn = domainFqdn;
             DomainIamRoleName = domainIamRoleName;
+            DomainOu = domainOu;
             EnableCloudwatchLogsExports = enableCloudwatchLogsExports;
             EnableIamDatabaseAuthentication = enableIamDatabaseAuthentication;
             EnablePerformanceInsights = enablePerformanceInsights;

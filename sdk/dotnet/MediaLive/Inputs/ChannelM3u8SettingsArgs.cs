@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("ecmPid")]
         public Input<string>? EcmPid { get; set; }
 
+        [Input("klvBehavior")]
+        public Input<string>? KlvBehavior { get; set; }
+
+        [Input("klvDataPids")]
+        public Input<string>? KlvDataPids { get; set; }
+
         [Input("nielsenId3Behavior")]
         public Input<string>? NielsenId3Behavior { get; set; }
 

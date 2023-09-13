@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Grafana
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+        /// The version of Grafana to support in your workspace.
         /// </summary>
         [Output("grafanaVersion")]
         public Output<string?> GrafanaVersion { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.AwsNative.Grafana
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+        /// The version of Grafana to support in your workspace.
         /// </summary>
         [Input("grafanaVersion")]
         public Input<string>? GrafanaVersion { get; set; }

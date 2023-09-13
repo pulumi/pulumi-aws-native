@@ -347,6 +347,76 @@ export const TaskOptionsVerifyMode = {
  */
 export type TaskOptionsVerifyMode = (typeof TaskOptionsVerifyMode)[keyof typeof TaskOptionsVerifyMode];
 
+export const TaskReportConfigObjectVersionIds = {
+    Include: "INCLUDE",
+    None: "NONE",
+} as const;
+
+/**
+ * Specifies whether your task report includes the new version of each object transferred into an S3 bucket, this only applies if you enable versioning on your bucket.
+ */
+export type TaskReportConfigObjectVersionIds = (typeof TaskReportConfigObjectVersionIds)[keyof typeof TaskReportConfigObjectVersionIds];
+
+export const TaskReportConfigOutputType = {
+    SummaryOnly: "SUMMARY_ONLY",
+    Standard: "STANDARD",
+} as const;
+
+/**
+ * Specifies the type of task report that you want.
+ */
+export type TaskReportConfigOutputType = (typeof TaskReportConfigOutputType)[keyof typeof TaskReportConfigOutputType];
+
+export const TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel = {
+    ErrorsOnly: "ERRORS_ONLY",
+    SuccessesAndErrors: "SUCCESSES_AND_ERRORS",
+} as const;
+
+/**
+ * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+ */
+export type TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel = (typeof TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel)[keyof typeof TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel];
+
+export const TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel = {
+    ErrorsOnly: "ERRORS_ONLY",
+    SuccessesAndErrors: "SUCCESSES_AND_ERRORS",
+} as const;
+
+/**
+ * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+ */
+export type TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel = (typeof TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel)[keyof typeof TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel];
+
+export const TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel = {
+    ErrorsOnly: "ERRORS_ONLY",
+    SuccessesAndErrors: "SUCCESSES_AND_ERRORS",
+} as const;
+
+/**
+ * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+ */
+export type TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel = (typeof TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel)[keyof typeof TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel];
+
+export const TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel = {
+    ErrorsOnly: "ERRORS_ONLY",
+    SuccessesAndErrors: "SUCCESSES_AND_ERRORS",
+} as const;
+
+/**
+ * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+ */
+export type TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel = (typeof TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel)[keyof typeof TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel];
+
+export const TaskReportConfigReportLevel = {
+    ErrorsOnly: "ERRORS_ONLY",
+    SuccessesAndErrors: "SUCCESSES_AND_ERRORS",
+} as const;
+
+/**
+ * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+ */
+export type TaskReportConfigReportLevel = (typeof TaskReportConfigReportLevel)[keyof typeof TaskReportConfigReportLevel];
+
 export const TaskStatus = {
     Available: "AVAILABLE",
     Creating: "CREATING",

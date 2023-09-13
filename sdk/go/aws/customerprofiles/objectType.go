@@ -37,6 +37,8 @@ type ObjectType struct {
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// The name of the profile object type.
 	ObjectTypeName pulumi.StringPtrOutput `pulumi:"objectTypeName"`
+	// The format of your sourceLastUpdatedTimestamp that was previously set up.
+	SourceLastUpdatedTimestampFormat pulumi.StringPtrOutput `pulumi:"sourceLastUpdatedTimestampFormat"`
 	// The tags (keys and values) associated with the integration.
 	Tags ObjectTypeTagArrayOutput `pulumi:"tags"`
 	// A unique identifier for the object template.
@@ -107,6 +109,8 @@ type objectTypeArgs struct {
 	Keys []ObjectTypeKeyMap `pulumi:"keys"`
 	// The name of the profile object type.
 	ObjectTypeName *string `pulumi:"objectTypeName"`
+	// The format of your sourceLastUpdatedTimestamp that was previously set up.
+	SourceLastUpdatedTimestampFormat *string `pulumi:"sourceLastUpdatedTimestampFormat"`
 	// The tags (keys and values) associated with the integration.
 	Tags []ObjectTypeTag `pulumi:"tags"`
 	// A unique identifier for the object template.
@@ -131,6 +135,8 @@ type ObjectTypeArgs struct {
 	Keys ObjectTypeKeyMapArrayInput
 	// The name of the profile object type.
 	ObjectTypeName pulumi.StringPtrInput
+	// The format of your sourceLastUpdatedTimestamp that was previously set up.
+	SourceLastUpdatedTimestampFormat pulumi.StringPtrInput
 	// The tags (keys and values) associated with the integration.
 	Tags ObjectTypeTagArrayInput
 	// A unique identifier for the object template.
@@ -234,6 +240,11 @@ func (o ObjectTypeOutput) LastUpdatedAt() pulumi.StringOutput {
 // The name of the profile object type.
 func (o ObjectTypeOutput) ObjectTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectType) pulumi.StringPtrOutput { return v.ObjectTypeName }).(pulumi.StringPtrOutput)
+}
+
+// The format of your sourceLastUpdatedTimestamp that was previously set up.
+func (o ObjectTypeOutput) SourceLastUpdatedTimestampFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.StringPtrOutput { return v.SourceLastUpdatedTimestampFormat }).(pulumi.StringPtrOutput)
 }
 
 // The tags (keys and values) associated with the integration.

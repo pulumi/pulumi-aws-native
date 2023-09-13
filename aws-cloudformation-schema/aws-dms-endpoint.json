@@ -659,11 +659,14 @@
         "ReadBackupOnly" : {
           "type" : "boolean"
         },
+        "TlogAccessMode" : {
+          "type" : "string"
+        },
         "BcpPacketSize" : {
           "type" : "integer"
         },
-        "QuerySingleAlwaysOnNode" : {
-          "type" : "boolean"
+        "Port" : {
+          "type" : "integer"
         },
         "SafeguardPolicy" : {
           "type" : "string"
@@ -671,17 +674,38 @@
         "UseThirdPartyBackupDevice" : {
           "type" : "boolean"
         },
+        "DatabaseName" : {
+          "type" : "string"
+        },
+        "UseBcpFullLoad" : {
+          "type" : "boolean"
+        },
+        "Username" : {
+          "type" : "string"
+        },
+        "QuerySingleAlwaysOnNode" : {
+          "type" : "boolean"
+        },
+        "ServerName" : {
+          "type" : "string"
+        },
         "SecretsManagerSecretId" : {
           "type" : "string"
         },
         "ControlTablesFileGroup" : {
           "type" : "string"
         },
+        "ForceLobLookup" : {
+          "type" : "boolean"
+        },
         "SecretsManagerAccessRoleArn" : {
           "type" : "string"
         },
-        "UseBcpFullLoad" : {
+        "TrimSpaceInChar" : {
           "type" : "boolean"
+        },
+        "Password" : {
+          "type" : "string"
         }
       }
     },
@@ -851,6 +875,12 @@
         },
         "HeartbeatEnable" : {
           "type" : "boolean"
+        },
+        "BabelfishDatabaseName" : {
+          "type" : "string"
+        },
+        "DatabaseMode" : {
+          "type" : "string"
         },
         "CaptureDdls" : {
           "type" : "boolean"

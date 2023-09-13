@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The ARN of the task.
         /// </summary>
         public readonly string? TaskArn;
+        public readonly Outputs.TaskReportConfig? TaskReportConfig;
 
         [OutputConstructor]
         private GetTaskResult(
@@ -106,7 +107,9 @@ namespace Pulumi.AwsNative.DataSync
 
             ImmutableArray<Outputs.TaskTag> tags,
 
-            string? taskArn)
+            string? taskArn,
+
+            Outputs.TaskReportConfig? taskReportConfig)
         {
             CloudWatchLogGroupArn = cloudWatchLogGroupArn;
             DestinationNetworkInterfaceArns = destinationNetworkInterfaceArns;
@@ -119,6 +122,7 @@ namespace Pulumi.AwsNative.DataSync
             Status = status;
             Tags = tags;
             TaskArn = taskArn;
+            TaskReportConfig = taskReportConfig;
         }
     }
 }

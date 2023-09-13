@@ -12,15 +12,26 @@ namespace Pulumi.AwsNative.Ec2
     /// <summary>
     /// Resource Type definition for AWS::EC2::TransitGatewayRouteTable
     /// </summary>
-    [Obsolete(@"TransitGatewayRouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayRouteTable")]
     public partial class TransitGatewayRouteTable : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.TransitGatewayRouteTableTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway.
+        /// </summary>
         [Output("transitGatewayId")]
         public Output<string> TransitGatewayId { get; private set; } = null!;
+
+        /// <summary>
+        /// Transit Gateway Route Table primary identifier
+        /// </summary>
+        [Output("transitGatewayRouteTableId")]
+        public Output<string> TransitGatewayRouteTableId { get; private set; } = null!;
 
 
         /// <summary>
@@ -74,12 +85,19 @@ namespace Pulumi.AwsNative.Ec2
     {
         [Input("tags")]
         private InputList<Inputs.TransitGatewayRouteTableTagArgs>? _tags;
+
+        /// <summary>
+        /// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+        /// </summary>
         public InputList<Inputs.TransitGatewayRouteTableTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.TransitGatewayRouteTableTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the transit gateway.
+        /// </summary>
         [Input("transitGatewayId", required: true)]
         public Input<string> TransitGatewayId { get; set; } = null!;
 
