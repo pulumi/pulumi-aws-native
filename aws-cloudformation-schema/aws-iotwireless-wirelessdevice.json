@@ -229,10 +229,10 @@
       "permissions" : [ "iotwireless:GetWirelessDevice", "iotwireless:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iotwireless:UpdateWirelessDevice", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
+      "permissions" : [ "iotwireless:UpdateWirelessDevice", "iotwireless:UntagResource", "iotwireless:ListTagsForResource", "iotwireless:AssociateWirelessDeviceWithThing" ]
     },
     "delete" : {
-      "permissions" : [ "iotwireless:DeleteWirelessDevice" ]
+      "permissions" : [ "iotwireless:DeleteWirelessDevice", "iotwireless:DisassociateWirelessDeviceFromThing" ]
     },
     "list" : {
       "permissions" : [ "iotwireless:ListWirelessDevices", "iotwireless:ListTagsForResource" ]
