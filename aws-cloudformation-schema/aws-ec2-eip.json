@@ -85,5 +85,8 @@
   "writeOnlyProperties" : [ "/properties/TransferAddress" ],
   "readOnlyProperties" : [ "/properties/PublicIp", "/properties/AllocationId" ],
   "primaryIdentifier" : [ "/properties/PublicIp", "/properties/AllocationId" ],
-  "additionalProperties" : false
+  "additionalProperties" : false,
+  "propertyTransform" : {
+    "/properties/Domain" : "\"vpc\""
+  }
 }
