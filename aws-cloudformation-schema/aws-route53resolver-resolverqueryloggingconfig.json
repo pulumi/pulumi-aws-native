@@ -67,7 +67,7 @@
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "resolverquerylogging:CreateConfig", "resolverquerylogging:GetConfig", "route53resolver:CreateResolverQueryLogConfig", "route53resolver:GetResolverQueryLogConfig", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups" ]
+      "permissions" : [ "resolverquerylogging:CreateConfig", "resolverquerylogging:GetConfig", "route53resolver:CreateResolverQueryLogConfig", "route53resolver:GetResolverQueryLogConfig", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "resolverquerylogging:GetConfig", "route53resolver:GetResolverQueryLogConfig" ]

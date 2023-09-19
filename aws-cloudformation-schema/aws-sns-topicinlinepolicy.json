@@ -34,9 +34,6 @@
     },
     "update" : {
       "permissions" : [ "sns:SetTopicAttributes", "sns:GetTopicAttributes" ]
-    },
-    "list" : {
-      "permissions" : [ ]
     }
   }
 }
