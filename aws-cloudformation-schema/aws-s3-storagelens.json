@@ -288,7 +288,7 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 255,
-          "pattern" : "^(?!aws:.*)[a-zA-Z0-9\\s\\_\\.\\/\\=\\+\\-]+$"
+          "pattern" : "^(?!aws:.*)[a-zA-Z0-9\\s\\_\\.\\/\\=\\+\\-\\@]+$"
         }
       },
       "required" : [ "Key", "Value" ]
@@ -350,13 +350,13 @@
   "primaryIdentifier" : [ "/properties/StorageLensConfiguration/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "s3:PutStorageLensConfiguration", "s3:PutStorageLensConfigurationTagging" ]
+      "permissions" : [ "s3:PutStorageLensConfiguration", "s3:PutStorageLensConfigurationTagging", "s3:GetStorageLensConfiguration", "s3:GetStorageLensConfigurationTagging", "organizations:DescribeOrganization", "organizations:ListAccounts", "organizations:ListAWSServiceAccessForOrganization", "organizations:ListDelegatedAdministrators", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "s3:GetStorageLensConfiguration", "s3:GetStorageLensConfigurationTagging" ]
     },
     "update" : {
-      "permissions" : [ "s3:PutStorageLensConfiguration", "s3:PutStorageLensConfigurationTagging" ]
+      "permissions" : [ "s3:PutStorageLensConfiguration", "s3:PutStorageLensConfigurationTagging", "s3:GetStorageLensConfiguration", "s3:GetStorageLensConfigurationTagging", "organizations:DescribeOrganization", "organizations:ListAccounts", "organizations:ListAWSServiceAccessForOrganization", "organizations:ListDelegatedAdministrators", "iam:CreateServiceLinkedRole" ]
     },
     "delete" : {
       "permissions" : [ "s3:DeleteStorageLensConfiguration", "s3:DeleteStorageLensConfigurationTagging" ]
