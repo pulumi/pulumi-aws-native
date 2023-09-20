@@ -17,6 +17,7 @@ __all__ = [
     'ConfiguredTableJoinRequiredOption',
     'ConfiguredTableScalarFunctions',
     'MembershipQueryLogStatus',
+    'MembershipResultFormat',
 ]
 
 
@@ -102,3 +103,8 @@ class ConfiguredTableScalarFunctions(str, Enum):
 class MembershipQueryLogStatus(str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+class MembershipResultFormat(str, Enum):
+    CSV = "CSV"
+    PARQUET = "PARQUET"

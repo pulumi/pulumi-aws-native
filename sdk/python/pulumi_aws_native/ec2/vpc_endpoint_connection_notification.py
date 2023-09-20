@@ -65,12 +65,7 @@ class VpcEndpointConnectionNotificationArgs:
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
-warnings.warn("""VpcEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class VpcEndpointConnectionNotification(pulumi.CustomResource):
-    warnings.warn("""VpcEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -115,7 +110,6 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
                  service_id: Optional[pulumi.Input[str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VpcEndpointConnectionNotification is deprecated: VpcEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

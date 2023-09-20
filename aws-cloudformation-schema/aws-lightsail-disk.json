@@ -155,7 +155,7 @@
   "createOnlyProperties" : [ "/properties/DiskName", "/properties/AvailabilityZone", "/properties/SizeInGb" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "lightsail:CreateDisk", "lightsail:EnableAddOn", "lightsail:DisableAddOn", "lightsail:GetRegions", "lightsail:TagResource", "lightsail:UntagResource" ]
+      "permissions" : [ "lightsail:CreateDisk", "lightsail:EnableAddOn", "lightsail:DisableAddOn", "lightsail:GetDisk", "lightsail:GetDisks", "lightsail:GetRegions", "lightsail:TagResource", "lightsail:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "lightsail:GetDisk", "lightsail:GetDisks" ]

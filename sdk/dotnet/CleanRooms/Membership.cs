@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("collaborationIdentifier")]
         public Output<string> CollaborationIdentifier { get; private set; } = null!;
 
+        [Output("defaultResultConfiguration")]
+        public Output<Outputs.MembershipProtectedQueryResultConfiguration?> DefaultResultConfiguration { get; private set; } = null!;
+
         [Output("membershipIdentifier")]
         public Output<string> MembershipIdentifier { get; private set; } = null!;
 
@@ -90,6 +93,9 @@ namespace Pulumi.AwsNative.CleanRooms
     {
         [Input("collaborationIdentifier", required: true)]
         public Input<string> CollaborationIdentifier { get; set; } = null!;
+
+        [Input("defaultResultConfiguration")]
+        public Input<Inputs.MembershipProtectedQueryResultConfigurationArgs>? DefaultResultConfiguration { get; set; }
 
         [Input("queryLogStatus", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus> QueryLogStatus { get; set; } = null!;

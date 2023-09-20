@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutoScalingGroupResult:
-    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration_name=None, launch_template=None, launch_template_specification=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
+    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, id=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -50,15 +50,15 @@ class GetAutoScalingGroupResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if instance_maintenance_policy and not isinstance(instance_maintenance_policy, dict):
+            raise TypeError("Expected argument 'instance_maintenance_policy' to be a dict")
+        pulumi.set(__self__, "instance_maintenance_policy", instance_maintenance_policy)
         if launch_configuration_name and not isinstance(launch_configuration_name, str):
             raise TypeError("Expected argument 'launch_configuration_name' to be a str")
         pulumi.set(__self__, "launch_configuration_name", launch_configuration_name)
         if launch_template and not isinstance(launch_template, dict):
             raise TypeError("Expected argument 'launch_template' to be a dict")
         pulumi.set(__self__, "launch_template", launch_template)
-        if launch_template_specification and not isinstance(launch_template_specification, str):
-            raise TypeError("Expected argument 'launch_template_specification' to be a str")
-        pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if lifecycle_hook_specification_list and not isinstance(lifecycle_hook_specification_list, list):
             raise TypeError("Expected argument 'lifecycle_hook_specification_list' to be a list")
         pulumi.set(__self__, "lifecycle_hook_specification_list", lifecycle_hook_specification_list)
@@ -156,6 +156,11 @@ class GetAutoScalingGroupResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="instanceMaintenancePolicy")
+    def instance_maintenance_policy(self) -> Optional['outputs.AutoScalingGroupInstanceMaintenancePolicy']:
+        return pulumi.get(self, "instance_maintenance_policy")
+
+    @property
     @pulumi.getter(name="launchConfigurationName")
     def launch_configuration_name(self) -> Optional[str]:
         return pulumi.get(self, "launch_configuration_name")
@@ -164,11 +169,6 @@ class GetAutoScalingGroupResult:
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional['outputs.AutoScalingGroupLaunchTemplateSpecification']:
         return pulumi.get(self, "launch_template")
-
-    @property
-    @pulumi.getter(name="launchTemplateSpecification")
-    def launch_template_specification(self) -> Optional[str]:
-        return pulumi.get(self, "launch_template_specification")
 
     @property
     @pulumi.getter(name="lifecycleHookSpecificationList")
@@ -262,9 +262,9 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
             health_check_grace_period=self.health_check_grace_period,
             health_check_type=self.health_check_type,
             id=self.id,
+            instance_maintenance_policy=self.instance_maintenance_policy,
             launch_configuration_name=self.launch_configuration_name,
             launch_template=self.launch_template,
-            launch_template_specification=self.launch_template_specification,
             lifecycle_hook_specification_list=self.lifecycle_hook_specification_list,
             load_balancer_names=self.load_balancer_names,
             max_instance_lifetime=self.max_instance_lifetime,
@@ -303,9 +303,9 @@ def get_auto_scaling_group(id: Optional[str] = None,
         health_check_grace_period=pulumi.get(__ret__, 'health_check_grace_period'),
         health_check_type=pulumi.get(__ret__, 'health_check_type'),
         id=pulumi.get(__ret__, 'id'),
+        instance_maintenance_policy=pulumi.get(__ret__, 'instance_maintenance_policy'),
         launch_configuration_name=pulumi.get(__ret__, 'launch_configuration_name'),
         launch_template=pulumi.get(__ret__, 'launch_template'),
-        launch_template_specification=pulumi.get(__ret__, 'launch_template_specification'),
         lifecycle_hook_specification_list=pulumi.get(__ret__, 'lifecycle_hook_specification_list'),
         load_balancer_names=pulumi.get(__ret__, 'load_balancer_names'),
         max_instance_lifetime=pulumi.get(__ret__, 'max_instance_lifetime'),

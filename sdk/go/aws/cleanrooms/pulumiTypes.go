@@ -1457,6 +1457,526 @@ func (o ConfiguredTableTagArrayOutput) Index(i pulumi.IntInput) ConfiguredTableT
 	}).(ConfiguredTableTagOutput)
 }
 
+type MembershipProtectedQueryOutputConfiguration struct {
+	S3 MembershipProtectedQueryS3OutputConfiguration `pulumi:"s3"`
+}
+
+// MembershipProtectedQueryOutputConfigurationInput is an input type that accepts MembershipProtectedQueryOutputConfigurationArgs and MembershipProtectedQueryOutputConfigurationOutput values.
+// You can construct a concrete instance of `MembershipProtectedQueryOutputConfigurationInput` via:
+//
+//	MembershipProtectedQueryOutputConfigurationArgs{...}
+type MembershipProtectedQueryOutputConfigurationInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedQueryOutputConfigurationOutput() MembershipProtectedQueryOutputConfigurationOutput
+	ToMembershipProtectedQueryOutputConfigurationOutputWithContext(context.Context) MembershipProtectedQueryOutputConfigurationOutput
+}
+
+type MembershipProtectedQueryOutputConfigurationArgs struct {
+	S3 MembershipProtectedQueryS3OutputConfigurationInput `pulumi:"s3"`
+}
+
+func (MembershipProtectedQueryOutputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedQueryOutputConfiguration)(nil)).Elem()
+}
+
+func (i MembershipProtectedQueryOutputConfigurationArgs) ToMembershipProtectedQueryOutputConfigurationOutput() MembershipProtectedQueryOutputConfigurationOutput {
+	return i.ToMembershipProtectedQueryOutputConfigurationOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedQueryOutputConfigurationArgs) ToMembershipProtectedQueryOutputConfigurationOutputWithContext(ctx context.Context) MembershipProtectedQueryOutputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryOutputConfigurationOutput)
+}
+
+func (i MembershipProtectedQueryOutputConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryOutputConfiguration] {
+	return pulumix.Output[MembershipProtectedQueryOutputConfiguration]{
+		OutputState: i.ToMembershipProtectedQueryOutputConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i MembershipProtectedQueryOutputConfigurationArgs) ToMembershipProtectedQueryOutputConfigurationPtrOutput() MembershipProtectedQueryOutputConfigurationPtrOutput {
+	return i.ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedQueryOutputConfigurationArgs) ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryOutputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryOutputConfigurationOutput).ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(ctx)
+}
+
+// MembershipProtectedQueryOutputConfigurationPtrInput is an input type that accepts MembershipProtectedQueryOutputConfigurationArgs, MembershipProtectedQueryOutputConfigurationPtr and MembershipProtectedQueryOutputConfigurationPtrOutput values.
+// You can construct a concrete instance of `MembershipProtectedQueryOutputConfigurationPtrInput` via:
+//
+//	        MembershipProtectedQueryOutputConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipProtectedQueryOutputConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedQueryOutputConfigurationPtrOutput() MembershipProtectedQueryOutputConfigurationPtrOutput
+	ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(context.Context) MembershipProtectedQueryOutputConfigurationPtrOutput
+}
+
+type membershipProtectedQueryOutputConfigurationPtrType MembershipProtectedQueryOutputConfigurationArgs
+
+func MembershipProtectedQueryOutputConfigurationPtr(v *MembershipProtectedQueryOutputConfigurationArgs) MembershipProtectedQueryOutputConfigurationPtrInput {
+	return (*membershipProtectedQueryOutputConfigurationPtrType)(v)
+}
+
+func (*membershipProtectedQueryOutputConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedQueryOutputConfiguration)(nil)).Elem()
+}
+
+func (i *membershipProtectedQueryOutputConfigurationPtrType) ToMembershipProtectedQueryOutputConfigurationPtrOutput() MembershipProtectedQueryOutputConfigurationPtrOutput {
+	return i.ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipProtectedQueryOutputConfigurationPtrType) ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryOutputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryOutputConfigurationPtrOutput)
+}
+
+func (i *membershipProtectedQueryOutputConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryOutputConfiguration] {
+	return pulumix.Output[*MembershipProtectedQueryOutputConfiguration]{
+		OutputState: i.ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type MembershipProtectedQueryOutputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedQueryOutputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedQueryOutputConfiguration)(nil)).Elem()
+}
+
+func (o MembershipProtectedQueryOutputConfigurationOutput) ToMembershipProtectedQueryOutputConfigurationOutput() MembershipProtectedQueryOutputConfigurationOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryOutputConfigurationOutput) ToMembershipProtectedQueryOutputConfigurationOutputWithContext(ctx context.Context) MembershipProtectedQueryOutputConfigurationOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryOutputConfigurationOutput) ToMembershipProtectedQueryOutputConfigurationPtrOutput() MembershipProtectedQueryOutputConfigurationPtrOutput {
+	return o.ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipProtectedQueryOutputConfigurationOutput) ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryOutputConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipProtectedQueryOutputConfiguration) *MembershipProtectedQueryOutputConfiguration {
+		return &v
+	}).(MembershipProtectedQueryOutputConfigurationPtrOutput)
+}
+
+func (o MembershipProtectedQueryOutputConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryOutputConfiguration] {
+	return pulumix.Output[MembershipProtectedQueryOutputConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipProtectedQueryOutputConfigurationOutput) S3() MembershipProtectedQueryS3OutputConfigurationOutput {
+	return o.ApplyT(func(v MembershipProtectedQueryOutputConfiguration) MembershipProtectedQueryS3OutputConfiguration {
+		return v.S3
+	}).(MembershipProtectedQueryS3OutputConfigurationOutput)
+}
+
+type MembershipProtectedQueryOutputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedQueryOutputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedQueryOutputConfiguration)(nil)).Elem()
+}
+
+func (o MembershipProtectedQueryOutputConfigurationPtrOutput) ToMembershipProtectedQueryOutputConfigurationPtrOutput() MembershipProtectedQueryOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryOutputConfigurationPtrOutput) ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryOutputConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryOutputConfiguration] {
+	return pulumix.Output[*MembershipProtectedQueryOutputConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipProtectedQueryOutputConfigurationPtrOutput) Elem() MembershipProtectedQueryOutputConfigurationOutput {
+	return o.ApplyT(func(v *MembershipProtectedQueryOutputConfiguration) MembershipProtectedQueryOutputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipProtectedQueryOutputConfiguration
+		return ret
+	}).(MembershipProtectedQueryOutputConfigurationOutput)
+}
+
+func (o MembershipProtectedQueryOutputConfigurationPtrOutput) S3() MembershipProtectedQueryS3OutputConfigurationPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedQueryOutputConfiguration) *MembershipProtectedQueryS3OutputConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3
+	}).(MembershipProtectedQueryS3OutputConfigurationPtrOutput)
+}
+
+type MembershipProtectedQueryResultConfiguration struct {
+	OutputConfiguration MembershipProtectedQueryOutputConfiguration `pulumi:"outputConfiguration"`
+	RoleArn             *string                                     `pulumi:"roleArn"`
+}
+
+// MembershipProtectedQueryResultConfigurationInput is an input type that accepts MembershipProtectedQueryResultConfigurationArgs and MembershipProtectedQueryResultConfigurationOutput values.
+// You can construct a concrete instance of `MembershipProtectedQueryResultConfigurationInput` via:
+//
+//	MembershipProtectedQueryResultConfigurationArgs{...}
+type MembershipProtectedQueryResultConfigurationInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedQueryResultConfigurationOutput() MembershipProtectedQueryResultConfigurationOutput
+	ToMembershipProtectedQueryResultConfigurationOutputWithContext(context.Context) MembershipProtectedQueryResultConfigurationOutput
+}
+
+type MembershipProtectedQueryResultConfigurationArgs struct {
+	OutputConfiguration MembershipProtectedQueryOutputConfigurationInput `pulumi:"outputConfiguration"`
+	RoleArn             pulumi.StringPtrInput                            `pulumi:"roleArn"`
+}
+
+func (MembershipProtectedQueryResultConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedQueryResultConfiguration)(nil)).Elem()
+}
+
+func (i MembershipProtectedQueryResultConfigurationArgs) ToMembershipProtectedQueryResultConfigurationOutput() MembershipProtectedQueryResultConfigurationOutput {
+	return i.ToMembershipProtectedQueryResultConfigurationOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedQueryResultConfigurationArgs) ToMembershipProtectedQueryResultConfigurationOutputWithContext(ctx context.Context) MembershipProtectedQueryResultConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryResultConfigurationOutput)
+}
+
+func (i MembershipProtectedQueryResultConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryResultConfiguration] {
+	return pulumix.Output[MembershipProtectedQueryResultConfiguration]{
+		OutputState: i.ToMembershipProtectedQueryResultConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i MembershipProtectedQueryResultConfigurationArgs) ToMembershipProtectedQueryResultConfigurationPtrOutput() MembershipProtectedQueryResultConfigurationPtrOutput {
+	return i.ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedQueryResultConfigurationArgs) ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryResultConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryResultConfigurationOutput).ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(ctx)
+}
+
+// MembershipProtectedQueryResultConfigurationPtrInput is an input type that accepts MembershipProtectedQueryResultConfigurationArgs, MembershipProtectedQueryResultConfigurationPtr and MembershipProtectedQueryResultConfigurationPtrOutput values.
+// You can construct a concrete instance of `MembershipProtectedQueryResultConfigurationPtrInput` via:
+//
+//	        MembershipProtectedQueryResultConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipProtectedQueryResultConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedQueryResultConfigurationPtrOutput() MembershipProtectedQueryResultConfigurationPtrOutput
+	ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(context.Context) MembershipProtectedQueryResultConfigurationPtrOutput
+}
+
+type membershipProtectedQueryResultConfigurationPtrType MembershipProtectedQueryResultConfigurationArgs
+
+func MembershipProtectedQueryResultConfigurationPtr(v *MembershipProtectedQueryResultConfigurationArgs) MembershipProtectedQueryResultConfigurationPtrInput {
+	return (*membershipProtectedQueryResultConfigurationPtrType)(v)
+}
+
+func (*membershipProtectedQueryResultConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedQueryResultConfiguration)(nil)).Elem()
+}
+
+func (i *membershipProtectedQueryResultConfigurationPtrType) ToMembershipProtectedQueryResultConfigurationPtrOutput() MembershipProtectedQueryResultConfigurationPtrOutput {
+	return i.ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipProtectedQueryResultConfigurationPtrType) ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryResultConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryResultConfigurationPtrOutput)
+}
+
+func (i *membershipProtectedQueryResultConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryResultConfiguration] {
+	return pulumix.Output[*MembershipProtectedQueryResultConfiguration]{
+		OutputState: i.ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type MembershipProtectedQueryResultConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedQueryResultConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedQueryResultConfiguration)(nil)).Elem()
+}
+
+func (o MembershipProtectedQueryResultConfigurationOutput) ToMembershipProtectedQueryResultConfigurationOutput() MembershipProtectedQueryResultConfigurationOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryResultConfigurationOutput) ToMembershipProtectedQueryResultConfigurationOutputWithContext(ctx context.Context) MembershipProtectedQueryResultConfigurationOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryResultConfigurationOutput) ToMembershipProtectedQueryResultConfigurationPtrOutput() MembershipProtectedQueryResultConfigurationPtrOutput {
+	return o.ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipProtectedQueryResultConfigurationOutput) ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryResultConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipProtectedQueryResultConfiguration) *MembershipProtectedQueryResultConfiguration {
+		return &v
+	}).(MembershipProtectedQueryResultConfigurationPtrOutput)
+}
+
+func (o MembershipProtectedQueryResultConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryResultConfiguration] {
+	return pulumix.Output[MembershipProtectedQueryResultConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipProtectedQueryResultConfigurationOutput) OutputConfiguration() MembershipProtectedQueryOutputConfigurationOutput {
+	return o.ApplyT(func(v MembershipProtectedQueryResultConfiguration) MembershipProtectedQueryOutputConfiguration {
+		return v.OutputConfiguration
+	}).(MembershipProtectedQueryOutputConfigurationOutput)
+}
+
+func (o MembershipProtectedQueryResultConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MembershipProtectedQueryResultConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+type MembershipProtectedQueryResultConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedQueryResultConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedQueryResultConfiguration)(nil)).Elem()
+}
+
+func (o MembershipProtectedQueryResultConfigurationPtrOutput) ToMembershipProtectedQueryResultConfigurationPtrOutput() MembershipProtectedQueryResultConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryResultConfigurationPtrOutput) ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryResultConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryResultConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryResultConfiguration] {
+	return pulumix.Output[*MembershipProtectedQueryResultConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipProtectedQueryResultConfigurationPtrOutput) Elem() MembershipProtectedQueryResultConfigurationOutput {
+	return o.ApplyT(func(v *MembershipProtectedQueryResultConfiguration) MembershipProtectedQueryResultConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipProtectedQueryResultConfiguration
+		return ret
+	}).(MembershipProtectedQueryResultConfigurationOutput)
+}
+
+func (o MembershipProtectedQueryResultConfigurationPtrOutput) OutputConfiguration() MembershipProtectedQueryOutputConfigurationPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedQueryResultConfiguration) *MembershipProtectedQueryOutputConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputConfiguration
+	}).(MembershipProtectedQueryOutputConfigurationPtrOutput)
+}
+
+func (o MembershipProtectedQueryResultConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedQueryResultConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type MembershipProtectedQueryS3OutputConfiguration struct {
+	Bucket       string                 `pulumi:"bucket"`
+	KeyPrefix    *string                `pulumi:"keyPrefix"`
+	ResultFormat MembershipResultFormat `pulumi:"resultFormat"`
+}
+
+// MembershipProtectedQueryS3OutputConfigurationInput is an input type that accepts MembershipProtectedQueryS3OutputConfigurationArgs and MembershipProtectedQueryS3OutputConfigurationOutput values.
+// You can construct a concrete instance of `MembershipProtectedQueryS3OutputConfigurationInput` via:
+//
+//	MembershipProtectedQueryS3OutputConfigurationArgs{...}
+type MembershipProtectedQueryS3OutputConfigurationInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedQueryS3OutputConfigurationOutput() MembershipProtectedQueryS3OutputConfigurationOutput
+	ToMembershipProtectedQueryS3OutputConfigurationOutputWithContext(context.Context) MembershipProtectedQueryS3OutputConfigurationOutput
+}
+
+type MembershipProtectedQueryS3OutputConfigurationArgs struct {
+	Bucket       pulumi.StringInput          `pulumi:"bucket"`
+	KeyPrefix    pulumi.StringPtrInput       `pulumi:"keyPrefix"`
+	ResultFormat MembershipResultFormatInput `pulumi:"resultFormat"`
+}
+
+func (MembershipProtectedQueryS3OutputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedQueryS3OutputConfiguration)(nil)).Elem()
+}
+
+func (i MembershipProtectedQueryS3OutputConfigurationArgs) ToMembershipProtectedQueryS3OutputConfigurationOutput() MembershipProtectedQueryS3OutputConfigurationOutput {
+	return i.ToMembershipProtectedQueryS3OutputConfigurationOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedQueryS3OutputConfigurationArgs) ToMembershipProtectedQueryS3OutputConfigurationOutputWithContext(ctx context.Context) MembershipProtectedQueryS3OutputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryS3OutputConfigurationOutput)
+}
+
+func (i MembershipProtectedQueryS3OutputConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryS3OutputConfiguration] {
+	return pulumix.Output[MembershipProtectedQueryS3OutputConfiguration]{
+		OutputState: i.ToMembershipProtectedQueryS3OutputConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i MembershipProtectedQueryS3OutputConfigurationArgs) ToMembershipProtectedQueryS3OutputConfigurationPtrOutput() MembershipProtectedQueryS3OutputConfigurationPtrOutput {
+	return i.ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedQueryS3OutputConfigurationArgs) ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryS3OutputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryS3OutputConfigurationOutput).ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(ctx)
+}
+
+// MembershipProtectedQueryS3OutputConfigurationPtrInput is an input type that accepts MembershipProtectedQueryS3OutputConfigurationArgs, MembershipProtectedQueryS3OutputConfigurationPtr and MembershipProtectedQueryS3OutputConfigurationPtrOutput values.
+// You can construct a concrete instance of `MembershipProtectedQueryS3OutputConfigurationPtrInput` via:
+//
+//	        MembershipProtectedQueryS3OutputConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipProtectedQueryS3OutputConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedQueryS3OutputConfigurationPtrOutput() MembershipProtectedQueryS3OutputConfigurationPtrOutput
+	ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(context.Context) MembershipProtectedQueryS3OutputConfigurationPtrOutput
+}
+
+type membershipProtectedQueryS3OutputConfigurationPtrType MembershipProtectedQueryS3OutputConfigurationArgs
+
+func MembershipProtectedQueryS3OutputConfigurationPtr(v *MembershipProtectedQueryS3OutputConfigurationArgs) MembershipProtectedQueryS3OutputConfigurationPtrInput {
+	return (*membershipProtectedQueryS3OutputConfigurationPtrType)(v)
+}
+
+func (*membershipProtectedQueryS3OutputConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedQueryS3OutputConfiguration)(nil)).Elem()
+}
+
+func (i *membershipProtectedQueryS3OutputConfigurationPtrType) ToMembershipProtectedQueryS3OutputConfigurationPtrOutput() MembershipProtectedQueryS3OutputConfigurationPtrOutput {
+	return i.ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipProtectedQueryS3OutputConfigurationPtrType) ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryS3OutputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryS3OutputConfigurationPtrOutput)
+}
+
+func (i *membershipProtectedQueryS3OutputConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryS3OutputConfiguration] {
+	return pulumix.Output[*MembershipProtectedQueryS3OutputConfiguration]{
+		OutputState: i.ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type MembershipProtectedQueryS3OutputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedQueryS3OutputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedQueryS3OutputConfiguration)(nil)).Elem()
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationOutput) ToMembershipProtectedQueryS3OutputConfigurationOutput() MembershipProtectedQueryS3OutputConfigurationOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationOutput) ToMembershipProtectedQueryS3OutputConfigurationOutputWithContext(ctx context.Context) MembershipProtectedQueryS3OutputConfigurationOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationOutput) ToMembershipProtectedQueryS3OutputConfigurationPtrOutput() MembershipProtectedQueryS3OutputConfigurationPtrOutput {
+	return o.ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationOutput) ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryS3OutputConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipProtectedQueryS3OutputConfiguration) *MembershipProtectedQueryS3OutputConfiguration {
+		return &v
+	}).(MembershipProtectedQueryS3OutputConfigurationPtrOutput)
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryS3OutputConfiguration] {
+	return pulumix.Output[MembershipProtectedQueryS3OutputConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v MembershipProtectedQueryS3OutputConfiguration) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MembershipProtectedQueryS3OutputConfiguration) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationOutput) ResultFormat() MembershipResultFormatOutput {
+	return o.ApplyT(func(v MembershipProtectedQueryS3OutputConfiguration) MembershipResultFormat { return v.ResultFormat }).(MembershipResultFormatOutput)
+}
+
+type MembershipProtectedQueryS3OutputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedQueryS3OutputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedQueryS3OutputConfiguration)(nil)).Elem()
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) ToMembershipProtectedQueryS3OutputConfigurationPtrOutput() MembershipProtectedQueryS3OutputConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryS3OutputConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryS3OutputConfiguration] {
+	return pulumix.Output[*MembershipProtectedQueryS3OutputConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) Elem() MembershipProtectedQueryS3OutputConfigurationOutput {
+	return o.ApplyT(func(v *MembershipProtectedQueryS3OutputConfiguration) MembershipProtectedQueryS3OutputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipProtectedQueryS3OutputConfiguration
+		return ret
+	}).(MembershipProtectedQueryS3OutputConfigurationOutput)
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedQueryS3OutputConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedQueryS3OutputConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) ResultFormat() MembershipResultFormatPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedQueryS3OutputConfiguration) *MembershipResultFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.ResultFormat
+	}).(MembershipResultFormatPtrOutput)
+}
+
 type MembershipTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -1602,6 +2122,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReferenceInput)(nil)).Elem(), ConfiguredTableTableReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTagInput)(nil)).Elem(), ConfiguredTableTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTagArrayInput)(nil)).Elem(), ConfiguredTableTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryOutputConfigurationInput)(nil)).Elem(), MembershipProtectedQueryOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryOutputConfigurationPtrInput)(nil)).Elem(), MembershipProtectedQueryOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryResultConfigurationInput)(nil)).Elem(), MembershipProtectedQueryResultConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryResultConfigurationPtrInput)(nil)).Elem(), MembershipProtectedQueryResultConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryS3OutputConfigurationInput)(nil)).Elem(), MembershipProtectedQueryS3OutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryS3OutputConfigurationPtrInput)(nil)).Elem(), MembershipProtectedQueryS3OutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipTagInput)(nil)).Elem(), MembershipTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipTagArrayInput)(nil)).Elem(), MembershipTagArray{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterOutput{})
@@ -1626,6 +2152,12 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableTableReferenceOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTagOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTagArrayOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedQueryOutputConfigurationOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedQueryOutputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedQueryResultConfigurationOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedQueryResultConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedQueryS3OutputConfigurationOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedQueryS3OutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MembershipTagOutput{})
 	pulumi.RegisterOutputType(MembershipTagArrayOutput{})
 }

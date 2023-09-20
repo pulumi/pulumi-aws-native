@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.Efs
         [Output("provisionedThroughputInMibps")]
         public Output<double?> ProvisionedThroughputInMibps { get; private set; } = null!;
 
+        [Output("replicationConfiguration")]
+        public Output<Outputs.FileSystemReplicationConfiguration?> ReplicationConfiguration { get; private set; } = null!;
+
         [Output("throughputMode")]
         public Output<string?> ThroughputMode { get; private set; } = null!;
 
@@ -151,6 +154,9 @@ namespace Pulumi.AwsNative.Efs
 
         [Input("provisionedThroughputInMibps")]
         public Input<double>? ProvisionedThroughputInMibps { get; set; }
+
+        [Input("replicationConfiguration")]
+        public Input<Inputs.FileSystemReplicationConfigurationArgs>? ReplicationConfiguration { get; set; }
 
         [Input("throughputMode")]
         public Input<string>? ThroughputMode { get; set; }

@@ -17,16 +17,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? CollapsedRowDimensionsVisibility;
         public readonly Outputs.TemplateTableCellStyle? ColumnHeaderStyle;
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? ColumnNamesVisibility;
-        /// <summary>
-        /// String based length that is composed of value and unit in px
-        /// </summary>
-        public readonly string? DefaultCellWidth;
         public readonly Pulumi.AwsNative.QuickSight.TemplatePivotTableMetricPlacement? MetricPlacement;
         public readonly Outputs.TemplateRowAlternateColorOptions? RowAlternateColorOptions;
         public readonly Outputs.TemplateTableCellStyle? RowFieldNamesStyle;
         public readonly Outputs.TemplateTableCellStyle? RowHeaderStyle;
-        public readonly Outputs.TemplatePivotTableRowsLabelOptions? RowsLabelOptions;
-        public readonly Pulumi.AwsNative.QuickSight.TemplatePivotTableRowsLayout? RowsLayout;
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? SingleMetricVisibility;
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? ToggleButtonsVisibility;
 
@@ -40,8 +34,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateVisibility? columnNamesVisibility,
 
-            string? defaultCellWidth,
-
             Pulumi.AwsNative.QuickSight.TemplatePivotTableMetricPlacement? metricPlacement,
 
             Outputs.TemplateRowAlternateColorOptions? rowAlternateColorOptions,
@@ -49,10 +41,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Outputs.TemplateTableCellStyle? rowFieldNamesStyle,
 
             Outputs.TemplateTableCellStyle? rowHeaderStyle,
-
-            Outputs.TemplatePivotTableRowsLabelOptions? rowsLabelOptions,
-
-            Pulumi.AwsNative.QuickSight.TemplatePivotTableRowsLayout? rowsLayout,
 
             Pulumi.AwsNative.QuickSight.TemplateVisibility? singleMetricVisibility,
 
@@ -62,13 +50,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             CollapsedRowDimensionsVisibility = collapsedRowDimensionsVisibility;
             ColumnHeaderStyle = columnHeaderStyle;
             ColumnNamesVisibility = columnNamesVisibility;
-            DefaultCellWidth = defaultCellWidth;
             MetricPlacement = metricPlacement;
             RowAlternateColorOptions = rowAlternateColorOptions;
             RowFieldNamesStyle = rowFieldNamesStyle;
             RowHeaderStyle = rowHeaderStyle;
-            RowsLabelOptions = rowsLabelOptions;
-            RowsLayout = rowsLayout;
             SingleMetricVisibility = singleMetricVisibility;
             ToggleButtonsVisibility = toggleButtonsVisibility;
         }

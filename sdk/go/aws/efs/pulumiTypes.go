@@ -1121,6 +1121,299 @@ func (o FileSystemLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) FileSyste
 	}).(FileSystemLifecyclePolicyOutput)
 }
 
+type FileSystemReplicationConfiguration struct {
+	Destinations []FileSystemReplicationDestination `pulumi:"destinations"`
+}
+
+// FileSystemReplicationConfigurationInput is an input type that accepts FileSystemReplicationConfigurationArgs and FileSystemReplicationConfigurationOutput values.
+// You can construct a concrete instance of `FileSystemReplicationConfigurationInput` via:
+//
+//	FileSystemReplicationConfigurationArgs{...}
+type FileSystemReplicationConfigurationInput interface {
+	pulumi.Input
+
+	ToFileSystemReplicationConfigurationOutput() FileSystemReplicationConfigurationOutput
+	ToFileSystemReplicationConfigurationOutputWithContext(context.Context) FileSystemReplicationConfigurationOutput
+}
+
+type FileSystemReplicationConfigurationArgs struct {
+	Destinations FileSystemReplicationDestinationArrayInput `pulumi:"destinations"`
+}
+
+func (FileSystemReplicationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemReplicationConfiguration)(nil)).Elem()
+}
+
+func (i FileSystemReplicationConfigurationArgs) ToFileSystemReplicationConfigurationOutput() FileSystemReplicationConfigurationOutput {
+	return i.ToFileSystemReplicationConfigurationOutputWithContext(context.Background())
+}
+
+func (i FileSystemReplicationConfigurationArgs) ToFileSystemReplicationConfigurationOutputWithContext(ctx context.Context) FileSystemReplicationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemReplicationConfigurationOutput)
+}
+
+func (i FileSystemReplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemReplicationConfiguration] {
+	return pulumix.Output[FileSystemReplicationConfiguration]{
+		OutputState: i.ToFileSystemReplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FileSystemReplicationConfigurationArgs) ToFileSystemReplicationConfigurationPtrOutput() FileSystemReplicationConfigurationPtrOutput {
+	return i.ToFileSystemReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemReplicationConfigurationArgs) ToFileSystemReplicationConfigurationPtrOutputWithContext(ctx context.Context) FileSystemReplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemReplicationConfigurationOutput).ToFileSystemReplicationConfigurationPtrOutputWithContext(ctx)
+}
+
+// FileSystemReplicationConfigurationPtrInput is an input type that accepts FileSystemReplicationConfigurationArgs, FileSystemReplicationConfigurationPtr and FileSystemReplicationConfigurationPtrOutput values.
+// You can construct a concrete instance of `FileSystemReplicationConfigurationPtrInput` via:
+//
+//	        FileSystemReplicationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FileSystemReplicationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemReplicationConfigurationPtrOutput() FileSystemReplicationConfigurationPtrOutput
+	ToFileSystemReplicationConfigurationPtrOutputWithContext(context.Context) FileSystemReplicationConfigurationPtrOutput
+}
+
+type fileSystemReplicationConfigurationPtrType FileSystemReplicationConfigurationArgs
+
+func FileSystemReplicationConfigurationPtr(v *FileSystemReplicationConfigurationArgs) FileSystemReplicationConfigurationPtrInput {
+	return (*fileSystemReplicationConfigurationPtrType)(v)
+}
+
+func (*fileSystemReplicationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemReplicationConfiguration)(nil)).Elem()
+}
+
+func (i *fileSystemReplicationConfigurationPtrType) ToFileSystemReplicationConfigurationPtrOutput() FileSystemReplicationConfigurationPtrOutput {
+	return i.ToFileSystemReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemReplicationConfigurationPtrType) ToFileSystemReplicationConfigurationPtrOutputWithContext(ctx context.Context) FileSystemReplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemReplicationConfigurationPtrOutput)
+}
+
+func (i *fileSystemReplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemReplicationConfiguration] {
+	return pulumix.Output[*FileSystemReplicationConfiguration]{
+		OutputState: i.ToFileSystemReplicationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FileSystemReplicationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FileSystemReplicationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemReplicationConfiguration)(nil)).Elem()
+}
+
+func (o FileSystemReplicationConfigurationOutput) ToFileSystemReplicationConfigurationOutput() FileSystemReplicationConfigurationOutput {
+	return o
+}
+
+func (o FileSystemReplicationConfigurationOutput) ToFileSystemReplicationConfigurationOutputWithContext(ctx context.Context) FileSystemReplicationConfigurationOutput {
+	return o
+}
+
+func (o FileSystemReplicationConfigurationOutput) ToFileSystemReplicationConfigurationPtrOutput() FileSystemReplicationConfigurationPtrOutput {
+	return o.ToFileSystemReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemReplicationConfigurationOutput) ToFileSystemReplicationConfigurationPtrOutputWithContext(ctx context.Context) FileSystemReplicationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemReplicationConfiguration) *FileSystemReplicationConfiguration {
+		return &v
+	}).(FileSystemReplicationConfigurationPtrOutput)
+}
+
+func (o FileSystemReplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemReplicationConfiguration] {
+	return pulumix.Output[FileSystemReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FileSystemReplicationConfigurationOutput) Destinations() FileSystemReplicationDestinationArrayOutput {
+	return o.ApplyT(func(v FileSystemReplicationConfiguration) []FileSystemReplicationDestination { return v.Destinations }).(FileSystemReplicationDestinationArrayOutput)
+}
+
+type FileSystemReplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemReplicationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemReplicationConfiguration)(nil)).Elem()
+}
+
+func (o FileSystemReplicationConfigurationPtrOutput) ToFileSystemReplicationConfigurationPtrOutput() FileSystemReplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o FileSystemReplicationConfigurationPtrOutput) ToFileSystemReplicationConfigurationPtrOutputWithContext(ctx context.Context) FileSystemReplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o FileSystemReplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemReplicationConfiguration] {
+	return pulumix.Output[*FileSystemReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FileSystemReplicationConfigurationPtrOutput) Elem() FileSystemReplicationConfigurationOutput {
+	return o.ApplyT(func(v *FileSystemReplicationConfiguration) FileSystemReplicationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemReplicationConfiguration
+		return ret
+	}).(FileSystemReplicationConfigurationOutput)
+}
+
+func (o FileSystemReplicationConfigurationPtrOutput) Destinations() FileSystemReplicationDestinationArrayOutput {
+	return o.ApplyT(func(v *FileSystemReplicationConfiguration) []FileSystemReplicationDestination {
+		if v == nil {
+			return nil
+		}
+		return v.Destinations
+	}).(FileSystemReplicationDestinationArrayOutput)
+}
+
+type FileSystemReplicationDestination struct {
+	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
+	FileSystemId         *string `pulumi:"fileSystemId"`
+	KmsKeyId             *string `pulumi:"kmsKeyId"`
+	Region               *string `pulumi:"region"`
+}
+
+// FileSystemReplicationDestinationInput is an input type that accepts FileSystemReplicationDestinationArgs and FileSystemReplicationDestinationOutput values.
+// You can construct a concrete instance of `FileSystemReplicationDestinationInput` via:
+//
+//	FileSystemReplicationDestinationArgs{...}
+type FileSystemReplicationDestinationInput interface {
+	pulumi.Input
+
+	ToFileSystemReplicationDestinationOutput() FileSystemReplicationDestinationOutput
+	ToFileSystemReplicationDestinationOutputWithContext(context.Context) FileSystemReplicationDestinationOutput
+}
+
+type FileSystemReplicationDestinationArgs struct {
+	AvailabilityZoneName pulumi.StringPtrInput `pulumi:"availabilityZoneName"`
+	FileSystemId         pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	KmsKeyId             pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	Region               pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (FileSystemReplicationDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemReplicationDestination)(nil)).Elem()
+}
+
+func (i FileSystemReplicationDestinationArgs) ToFileSystemReplicationDestinationOutput() FileSystemReplicationDestinationOutput {
+	return i.ToFileSystemReplicationDestinationOutputWithContext(context.Background())
+}
+
+func (i FileSystemReplicationDestinationArgs) ToFileSystemReplicationDestinationOutputWithContext(ctx context.Context) FileSystemReplicationDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemReplicationDestinationOutput)
+}
+
+func (i FileSystemReplicationDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemReplicationDestination] {
+	return pulumix.Output[FileSystemReplicationDestination]{
+		OutputState: i.ToFileSystemReplicationDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// FileSystemReplicationDestinationArrayInput is an input type that accepts FileSystemReplicationDestinationArray and FileSystemReplicationDestinationArrayOutput values.
+// You can construct a concrete instance of `FileSystemReplicationDestinationArrayInput` via:
+//
+//	FileSystemReplicationDestinationArray{ FileSystemReplicationDestinationArgs{...} }
+type FileSystemReplicationDestinationArrayInput interface {
+	pulumi.Input
+
+	ToFileSystemReplicationDestinationArrayOutput() FileSystemReplicationDestinationArrayOutput
+	ToFileSystemReplicationDestinationArrayOutputWithContext(context.Context) FileSystemReplicationDestinationArrayOutput
+}
+
+type FileSystemReplicationDestinationArray []FileSystemReplicationDestinationInput
+
+func (FileSystemReplicationDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemReplicationDestination)(nil)).Elem()
+}
+
+func (i FileSystemReplicationDestinationArray) ToFileSystemReplicationDestinationArrayOutput() FileSystemReplicationDestinationArrayOutput {
+	return i.ToFileSystemReplicationDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i FileSystemReplicationDestinationArray) ToFileSystemReplicationDestinationArrayOutputWithContext(ctx context.Context) FileSystemReplicationDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemReplicationDestinationArrayOutput)
+}
+
+func (i FileSystemReplicationDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemReplicationDestination] {
+	return pulumix.Output[[]FileSystemReplicationDestination]{
+		OutputState: i.ToFileSystemReplicationDestinationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FileSystemReplicationDestinationOutput struct{ *pulumi.OutputState }
+
+func (FileSystemReplicationDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemReplicationDestination)(nil)).Elem()
+}
+
+func (o FileSystemReplicationDestinationOutput) ToFileSystemReplicationDestinationOutput() FileSystemReplicationDestinationOutput {
+	return o
+}
+
+func (o FileSystemReplicationDestinationOutput) ToFileSystemReplicationDestinationOutputWithContext(ctx context.Context) FileSystemReplicationDestinationOutput {
+	return o
+}
+
+func (o FileSystemReplicationDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemReplicationDestination] {
+	return pulumix.Output[FileSystemReplicationDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FileSystemReplicationDestinationOutput) AvailabilityZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.AvailabilityZoneName }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemReplicationDestinationOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemReplicationDestinationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemReplicationDestinationOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type FileSystemReplicationDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (FileSystemReplicationDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemReplicationDestination)(nil)).Elem()
+}
+
+func (o FileSystemReplicationDestinationArrayOutput) ToFileSystemReplicationDestinationArrayOutput() FileSystemReplicationDestinationArrayOutput {
+	return o
+}
+
+func (o FileSystemReplicationDestinationArrayOutput) ToFileSystemReplicationDestinationArrayOutputWithContext(ctx context.Context) FileSystemReplicationDestinationArrayOutput {
+	return o
+}
+
+func (o FileSystemReplicationDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemReplicationDestination] {
+	return pulumix.Output[[]FileSystemReplicationDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FileSystemReplicationDestinationArrayOutput) Index(i pulumi.IntInput) FileSystemReplicationDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystemReplicationDestination {
+		return vs[0].([]FileSystemReplicationDestination)[vs[1].(int)]
+	}).(FileSystemReplicationDestinationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointCreationInfoInput)(nil)).Elem(), AccessPointCreationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointCreationInfoPtrInput)(nil)).Elem(), AccessPointCreationInfoArgs{})
@@ -1136,6 +1429,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemElasticFileSystemTagArrayInput)(nil)).Elem(), FileSystemElasticFileSystemTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyInput)(nil)).Elem(), FileSystemLifecyclePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyArrayInput)(nil)).Elem(), FileSystemLifecyclePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemReplicationConfigurationInput)(nil)).Elem(), FileSystemReplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemReplicationConfigurationPtrInput)(nil)).Elem(), FileSystemReplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemReplicationDestinationInput)(nil)).Elem(), FileSystemReplicationDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemReplicationDestinationArrayInput)(nil)).Elem(), FileSystemReplicationDestinationArray{})
 	pulumi.RegisterOutputType(AccessPointCreationInfoOutput{})
 	pulumi.RegisterOutputType(AccessPointCreationInfoPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointPosixUserOutput{})
@@ -1150,4 +1447,8 @@ func init() {
 	pulumi.RegisterOutputType(FileSystemElasticFileSystemTagArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyArrayOutput{})
+	pulumi.RegisterOutputType(FileSystemReplicationConfigurationOutput{})
+	pulumi.RegisterOutputType(FileSystemReplicationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemReplicationDestinationOutput{})
+	pulumi.RegisterOutputType(FileSystemReplicationDestinationArrayOutput{})
 }

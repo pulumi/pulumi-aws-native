@@ -24,6 +24,7 @@ export interface GetUserSettingsArgs {
 
 export interface GetUserSettingsResult {
     readonly associatedPortalArns?: string[];
+    readonly cookieSynchronizationConfiguration?: outputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration;
     readonly copyAllowed?: enums.workspacesweb.UserSettingsEnabledType;
     readonly disconnectTimeoutInMinutes?: number;
     readonly downloadAllowed?: enums.workspacesweb.UserSettingsEnabledType;

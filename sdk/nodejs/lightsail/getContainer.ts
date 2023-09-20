@@ -40,6 +40,14 @@ export interface GetContainerResult {
      */
     readonly power?: string;
     /**
+     * The principal ARN of the container service.
+     */
+    readonly principalArn?: string;
+    /**
+     * A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+     */
+    readonly privateRegistryAccess?: outputs.lightsail.ContainerPrivateRegistryAccess;
+    /**
      * The public domain names to use with the container service, such as example.com and www.example.com.
      */
     readonly publicDomainNames?: outputs.lightsail.ContainerPublicDomainName[];

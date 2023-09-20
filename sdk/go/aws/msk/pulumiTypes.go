@@ -5186,6 +5186,193 @@ func (o ClusterVpcConnectivityTlsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ConfigurationLatestRevision struct {
+	CreationTime *string `pulumi:"creationTime"`
+	Description  *string `pulumi:"description"`
+	Revision     *int    `pulumi:"revision"`
+}
+
+// ConfigurationLatestRevisionInput is an input type that accepts ConfigurationLatestRevisionArgs and ConfigurationLatestRevisionOutput values.
+// You can construct a concrete instance of `ConfigurationLatestRevisionInput` via:
+//
+//	ConfigurationLatestRevisionArgs{...}
+type ConfigurationLatestRevisionInput interface {
+	pulumi.Input
+
+	ToConfigurationLatestRevisionOutput() ConfigurationLatestRevisionOutput
+	ToConfigurationLatestRevisionOutputWithContext(context.Context) ConfigurationLatestRevisionOutput
+}
+
+type ConfigurationLatestRevisionArgs struct {
+	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
+	Description  pulumi.StringPtrInput `pulumi:"description"`
+	Revision     pulumi.IntPtrInput    `pulumi:"revision"`
+}
+
+func (ConfigurationLatestRevisionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationLatestRevision)(nil)).Elem()
+}
+
+func (i ConfigurationLatestRevisionArgs) ToConfigurationLatestRevisionOutput() ConfigurationLatestRevisionOutput {
+	return i.ToConfigurationLatestRevisionOutputWithContext(context.Background())
+}
+
+func (i ConfigurationLatestRevisionArgs) ToConfigurationLatestRevisionOutputWithContext(ctx context.Context) ConfigurationLatestRevisionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationLatestRevisionOutput)
+}
+
+func (i ConfigurationLatestRevisionArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationLatestRevision] {
+	return pulumix.Output[ConfigurationLatestRevision]{
+		OutputState: i.ToConfigurationLatestRevisionOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ConfigurationLatestRevisionArgs) ToConfigurationLatestRevisionPtrOutput() ConfigurationLatestRevisionPtrOutput {
+	return i.ToConfigurationLatestRevisionPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationLatestRevisionArgs) ToConfigurationLatestRevisionPtrOutputWithContext(ctx context.Context) ConfigurationLatestRevisionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationLatestRevisionOutput).ToConfigurationLatestRevisionPtrOutputWithContext(ctx)
+}
+
+// ConfigurationLatestRevisionPtrInput is an input type that accepts ConfigurationLatestRevisionArgs, ConfigurationLatestRevisionPtr and ConfigurationLatestRevisionPtrOutput values.
+// You can construct a concrete instance of `ConfigurationLatestRevisionPtrInput` via:
+//
+//	        ConfigurationLatestRevisionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationLatestRevisionPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationLatestRevisionPtrOutput() ConfigurationLatestRevisionPtrOutput
+	ToConfigurationLatestRevisionPtrOutputWithContext(context.Context) ConfigurationLatestRevisionPtrOutput
+}
+
+type configurationLatestRevisionPtrType ConfigurationLatestRevisionArgs
+
+func ConfigurationLatestRevisionPtr(v *ConfigurationLatestRevisionArgs) ConfigurationLatestRevisionPtrInput {
+	return (*configurationLatestRevisionPtrType)(v)
+}
+
+func (*configurationLatestRevisionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationLatestRevision)(nil)).Elem()
+}
+
+func (i *configurationLatestRevisionPtrType) ToConfigurationLatestRevisionPtrOutput() ConfigurationLatestRevisionPtrOutput {
+	return i.ToConfigurationLatestRevisionPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationLatestRevisionPtrType) ToConfigurationLatestRevisionPtrOutputWithContext(ctx context.Context) ConfigurationLatestRevisionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationLatestRevisionPtrOutput)
+}
+
+func (i *configurationLatestRevisionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationLatestRevision] {
+	return pulumix.Output[*ConfigurationLatestRevision]{
+		OutputState: i.ToConfigurationLatestRevisionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ConfigurationLatestRevisionOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationLatestRevisionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationLatestRevision)(nil)).Elem()
+}
+
+func (o ConfigurationLatestRevisionOutput) ToConfigurationLatestRevisionOutput() ConfigurationLatestRevisionOutput {
+	return o
+}
+
+func (o ConfigurationLatestRevisionOutput) ToConfigurationLatestRevisionOutputWithContext(ctx context.Context) ConfigurationLatestRevisionOutput {
+	return o
+}
+
+func (o ConfigurationLatestRevisionOutput) ToConfigurationLatestRevisionPtrOutput() ConfigurationLatestRevisionPtrOutput {
+	return o.ToConfigurationLatestRevisionPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationLatestRevisionOutput) ToConfigurationLatestRevisionPtrOutputWithContext(ctx context.Context) ConfigurationLatestRevisionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationLatestRevision) *ConfigurationLatestRevision {
+		return &v
+	}).(ConfigurationLatestRevisionPtrOutput)
+}
+
+func (o ConfigurationLatestRevisionOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationLatestRevision] {
+	return pulumix.Output[ConfigurationLatestRevision]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConfigurationLatestRevisionOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationLatestRevision) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationLatestRevisionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationLatestRevision) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationLatestRevisionOutput) Revision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConfigurationLatestRevision) *int { return v.Revision }).(pulumi.IntPtrOutput)
+}
+
+type ConfigurationLatestRevisionPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationLatestRevisionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationLatestRevision)(nil)).Elem()
+}
+
+func (o ConfigurationLatestRevisionPtrOutput) ToConfigurationLatestRevisionPtrOutput() ConfigurationLatestRevisionPtrOutput {
+	return o
+}
+
+func (o ConfigurationLatestRevisionPtrOutput) ToConfigurationLatestRevisionPtrOutputWithContext(ctx context.Context) ConfigurationLatestRevisionPtrOutput {
+	return o
+}
+
+func (o ConfigurationLatestRevisionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationLatestRevision] {
+	return pulumix.Output[*ConfigurationLatestRevision]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConfigurationLatestRevisionPtrOutput) Elem() ConfigurationLatestRevisionOutput {
+	return o.ApplyT(func(v *ConfigurationLatestRevision) ConfigurationLatestRevision {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationLatestRevision
+		return ret
+	}).(ConfigurationLatestRevisionOutput)
+}
+
+func (o ConfigurationLatestRevisionPtrOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationLatestRevision) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreationTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationLatestRevisionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationLatestRevision) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationLatestRevisionPtrOutput) Revision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConfigurationLatestRevision) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Revision
+	}).(pulumi.IntPtrOutput)
+}
+
 type ServerlessClusterClientAuthentication struct {
 	Sasl ServerlessClusterSasl `pulumi:"sasl"`
 }
@@ -5700,6 +5887,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityScramPtrInput)(nil)).Elem(), ClusterVpcConnectivityScramArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityTlsInput)(nil)).Elem(), ClusterVpcConnectivityTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityTlsPtrInput)(nil)).Elem(), ClusterVpcConnectivityTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationLatestRevisionInput)(nil)).Elem(), ConfigurationLatestRevisionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationLatestRevisionPtrInput)(nil)).Elem(), ConfigurationLatestRevisionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterIamInput)(nil)).Elem(), ServerlessClusterIamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterSaslInput)(nil)).Elem(), ServerlessClusterSaslArgs{})
@@ -5769,6 +5958,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterVpcConnectivityScramPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConnectivityTlsOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConnectivityTlsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationLatestRevisionOutput{})
+	pulumi.RegisterOutputType(ConfigurationLatestRevisionPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterIamOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterSaslOutput{})

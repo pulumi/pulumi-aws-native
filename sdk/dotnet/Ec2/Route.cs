@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> DestinationIpv6CidrBlock { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of managed prefix list, it's a set of one or more CIDR blocks.
+        /// </summary>
+        [Output("destinationPrefixListId")]
+        public Output<string?> DestinationPrefixListId { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the egress-only internet gateway.
         /// </summary>
         [Output("egressOnlyInternetGatewayId")]
@@ -126,6 +132,7 @@ namespace Pulumi.AwsNative.Ec2
                 {
                     "destinationCidrBlock",
                     "destinationIpv6CidrBlock",
+                    "destinationPrefixListId",
                     "routeTableId",
                 },
             };
@@ -167,6 +174,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("destinationIpv6CidrBlock")]
         public Input<string>? DestinationIpv6CidrBlock { get; set; }
+
+        /// <summary>
+        /// The ID of managed prefix list, it's a set of one or more CIDR blocks.
+        /// </summary>
+        [Input("destinationPrefixListId")]
+        public Input<string>? DestinationPrefixListId { get; set; }
 
         /// <summary>
         /// The ID of the egress-only internet gateway.

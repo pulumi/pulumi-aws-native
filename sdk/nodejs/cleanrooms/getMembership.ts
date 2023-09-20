@@ -26,6 +26,7 @@ export interface GetMembershipResult {
     readonly arn?: string;
     readonly collaborationArn?: string;
     readonly collaborationCreatorAccountId?: string;
+    readonly defaultResultConfiguration?: outputs.cleanrooms.MembershipProtectedQueryResultConfiguration;
     readonly membershipIdentifier?: string;
     readonly queryLogStatus?: enums.cleanrooms.MembershipQueryLogStatus;
     /**

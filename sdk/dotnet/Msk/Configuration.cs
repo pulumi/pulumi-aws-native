@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Msk
         [Output("kafkaVersionsList")]
         public Output<ImmutableArray<string>> KafkaVersionsList { get; private set; } = null!;
 
+        [Output("latestRevision")]
+        public Output<Outputs.ConfigurationLatestRevision?> LatestRevision { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -90,6 +93,9 @@ namespace Pulumi.AwsNative.Msk
             get => _kafkaVersionsList ?? (_kafkaVersionsList = new InputList<string>());
             set => _kafkaVersionsList = value;
         }
+
+        [Input("latestRevision")]
+        public Input<Inputs.ConfigurationLatestRevisionArgs>? LatestRevision { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -25,6 +25,8 @@ type Route struct {
 	DestinationCidrBlock pulumi.StringPtrOutput `pulumi:"destinationCidrBlock"`
 	// The IPv6 CIDR block used for the destination match.
 	DestinationIpv6CidrBlock pulumi.StringPtrOutput `pulumi:"destinationIpv6CidrBlock"`
+	// The ID of managed prefix list, it's a set of one or more CIDR blocks.
+	DestinationPrefixListId pulumi.StringPtrOutput `pulumi:"destinationPrefixListId"`
 	// The ID of the egress-only internet gateway.
 	EgressOnlyInternetGatewayId pulumi.StringPtrOutput `pulumi:"egressOnlyInternetGatewayId"`
 	// The ID of an internet gateway or virtual private gateway attached to your VPC.
@@ -60,6 +62,7 @@ func NewRoute(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"destinationCidrBlock",
 		"destinationIpv6CidrBlock",
+		"destinationPrefixListId",
 		"routeTableId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -102,6 +105,8 @@ type routeArgs struct {
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// The IPv6 CIDR block used for the destination match.
 	DestinationIpv6CidrBlock *string `pulumi:"destinationIpv6CidrBlock"`
+	// The ID of managed prefix list, it's a set of one or more CIDR blocks.
+	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// The ID of the egress-only internet gateway.
 	EgressOnlyInternetGatewayId *string `pulumi:"egressOnlyInternetGatewayId"`
 	// The ID of an internet gateway or virtual private gateway attached to your VPC.
@@ -132,6 +137,8 @@ type RouteArgs struct {
 	DestinationCidrBlock pulumi.StringPtrInput
 	// The IPv6 CIDR block used for the destination match.
 	DestinationIpv6CidrBlock pulumi.StringPtrInput
+	// The ID of managed prefix list, it's a set of one or more CIDR blocks.
+	DestinationPrefixListId pulumi.StringPtrInput
 	// The ID of the egress-only internet gateway.
 	EgressOnlyInternetGatewayId pulumi.StringPtrInput
 	// The ID of an internet gateway or virtual private gateway attached to your VPC.
@@ -221,6 +228,11 @@ func (o RouteOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
 // The IPv6 CIDR block used for the destination match.
 func (o RouteOutput) DestinationIpv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.DestinationIpv6CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// The ID of managed prefix list, it's a set of one or more CIDR blocks.
+func (o RouteOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the egress-only internet gateway.

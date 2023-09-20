@@ -270,6 +270,7 @@ AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
 AWS::EC2::VPCEndpoint
+AWS::EC2::VPCEndpointConnectionNotification
 AWS::EC2::VPCEndpointService
 AWS::EC2::VPCEndpointServicePermissions
 AWS::EC2::VPCPeeringConnection

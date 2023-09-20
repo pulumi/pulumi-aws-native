@@ -17,6 +17,8 @@ __all__ = [
     'FileSystemBackupPolicyArgs',
     'FileSystemElasticFileSystemTagArgs',
     'FileSystemLifecyclePolicyArgs',
+    'FileSystemReplicationConfigurationArgs',
+    'FileSystemReplicationDestinationArgs',
 ]
 
 @pulumi.input_type
@@ -262,5 +264,75 @@ class FileSystemLifecyclePolicyArgs:
     @transition_to_primary_storage_class.setter
     def transition_to_primary_storage_class(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transition_to_primary_storage_class", value)
+
+
+@pulumi.input_type
+class FileSystemReplicationConfigurationArgs:
+    def __init__(__self__, *,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]] = None):
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]]:
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]]):
+        pulumi.set(self, "destinations", value)
+
+
+@pulumi.input_type
+class FileSystemReplicationDestinationArgs:
+    def __init__(__self__, *,
+                 availability_zone_name: Optional[pulumi.Input[str]] = None,
+                 file_system_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None):
+        if availability_zone_name is not None:
+            pulumi.set(__self__, "availability_zone_name", availability_zone_name)
+        if file_system_id is not None:
+            pulumi.set(__self__, "file_system_id", file_system_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="availabilityZoneName")
+    def availability_zone_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "availability_zone_name")
+
+    @availability_zone_name.setter
+    def availability_zone_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_name", value)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
 
 

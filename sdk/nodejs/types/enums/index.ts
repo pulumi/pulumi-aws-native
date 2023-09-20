@@ -87,6 +87,7 @@ import * as macie from "./macie";
 import * as managedblockchain from "./managedblockchain";
 import * as mediaconnect from "./mediaconnect";
 import * as mediapackage from "./mediapackage";
+import * as mediapackagev2 from "./mediapackagev2";
 import * as mediatailor from "./mediatailor";
 import * as memorydb from "./memorydb";
 import * as msk from "./msk";
@@ -228,6 +229,7 @@ export {
     managedblockchain,
     mediaconnect,
     mediapackage,
+    mediapackagev2,
     mediatailor,
     memorydb,
     msk,

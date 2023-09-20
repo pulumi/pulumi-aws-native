@@ -13,18 +13,18 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTopBottomMoversComputation
     {
-        public readonly Outputs.AnalysisDimensionField? Category;
+        public readonly Outputs.AnalysisDimensionField Category;
         public readonly string ComputationId;
         public readonly double? MoverSize;
         public readonly string? Name;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTopBottomSortOrder? SortOrder;
-        public readonly Outputs.AnalysisDimensionField? Time;
+        public readonly Outputs.AnalysisDimensionField Time;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTopBottomComputationType Type;
         public readonly Outputs.AnalysisMeasureField? Value;
 
         [OutputConstructor]
         private AnalysisTopBottomMoversComputation(
-            Outputs.AnalysisDimensionField? category,
+            Outputs.AnalysisDimensionField category,
 
             string computationId,
 
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.AnalysisTopBottomSortOrder? sortOrder,
 
-            Outputs.AnalysisDimensionField? time,
+            Outputs.AnalysisDimensionField time,
 
             Pulumi.AwsNative.QuickSight.AnalysisTopBottomComputationType type,
 

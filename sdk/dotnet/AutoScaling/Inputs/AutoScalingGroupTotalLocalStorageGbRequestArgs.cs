@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     public sealed class AutoScalingGroupTotalLocalStorageGbRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("max")]
-        public Input<int>? Max { get; set; }
+        public Input<double>? Max { get; set; }
 
         [Input("min")]
-        public Input<int>? Min { get; set; }
+        public Input<double>? Min { get; set; }
 
         public AutoScalingGroupTotalLocalStorageGbRequestArgs()
         {

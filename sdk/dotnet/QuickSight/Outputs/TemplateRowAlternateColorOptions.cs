@@ -15,19 +15,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly ImmutableArray<string> RowAlternateColors;
         public readonly Pulumi.AwsNative.QuickSight.TemplateWidgetStatus? Status;
-        public readonly Pulumi.AwsNative.QuickSight.TemplateWidgetStatus? UsePrimaryBackgroundColor;
 
         [OutputConstructor]
         private TemplateRowAlternateColorOptions(
             ImmutableArray<string> rowAlternateColors,
 
-            Pulumi.AwsNative.QuickSight.TemplateWidgetStatus? status,
-
-            Pulumi.AwsNative.QuickSight.TemplateWidgetStatus? usePrimaryBackgroundColor)
+            Pulumi.AwsNative.QuickSight.TemplateWidgetStatus? status)
         {
             RowAlternateColors = rowAlternateColors;
             Status = status;
-            UsePrimaryBackgroundColor = usePrimaryBackgroundColor;
         }
     }
 }

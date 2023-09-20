@@ -4904,6 +4904,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                  ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6PrefixSpecificationArgs']]]] = None,
                  network_card_index: Optional[pulumi.Input[int]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
+                 primary_ipv6: Optional[pulumi.Input[bool]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplatePrivateIpAddArgs']]]] = None,
                  secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
@@ -4925,6 +4926,7 @@ class LaunchTemplateNetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6PrefixSpecificationArgs']]] ipv6_prefixes: One or more IPv6 prefixes to be assigned to the network interface.
         :param pulumi.Input[int] network_card_index: The index of the network card.
         :param pulumi.Input[str] network_interface_id: The ID of the network interface.
+        :param pulumi.Input[bool] primary_ipv6: Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
         :param pulumi.Input[str] private_ip_address: The primary private IPv4 address of the network interface.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplatePrivateIpAddArgs']]] private_ip_addresses: One or more private IPv4 addresses.
         :param pulumi.Input[int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses to assign to a network interface.
@@ -4960,6 +4962,8 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "network_card_index", network_card_index)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if primary_ipv6 is not None:
+            pulumi.set(__self__, "primary_ipv6", primary_ipv6)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if private_ip_addresses is not None:
@@ -5148,6 +5152,18 @@ class LaunchTemplateNetworkInterfaceArgs:
     @network_interface_id.setter
     def network_interface_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter(name="primaryIpv6")
+    def primary_ipv6(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+        """
+        return pulumi.get(self, "primary_ipv6")
+
+    @primary_ipv6.setter
+    def primary_ipv6(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "primary_ipv6", value)
 
     @property
     @pulumi.getter(name="privateIpAddress")

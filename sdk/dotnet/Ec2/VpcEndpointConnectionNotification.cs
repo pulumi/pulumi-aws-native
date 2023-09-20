@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Ec2
     /// <summary>
     /// Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
     /// </summary>
-    [Obsolete(@"VpcEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VpcEndpointConnectionNotification")]
     public partial class VpcEndpointConnectionNotification : global::Pulumi.CustomResource
     {

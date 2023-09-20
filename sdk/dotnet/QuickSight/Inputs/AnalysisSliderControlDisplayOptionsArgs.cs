@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisSliderControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("infoIconLabelOptions")]
-        public Input<Inputs.AnalysisSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
-
         [Input("titleOptions")]
         public Input<Inputs.AnalysisLabelOptionsArgs>? TitleOptions { get; set; }
 

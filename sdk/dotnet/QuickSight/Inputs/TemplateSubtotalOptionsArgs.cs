@@ -29,14 +29,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("metricHeaderCellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? MetricHeaderCellStyle { get; set; }
 
-        [Input("styleTargets")]
-        private InputList<Inputs.TemplateTableStyleTargetArgs>? _styleTargets;
-        public InputList<Inputs.TemplateTableStyleTargetArgs> StyleTargets
-        {
-            get => _styleTargets ?? (_styleTargets = new InputList<Inputs.TemplateTableStyleTargetArgs>());
-            set => _styleTargets = value;
-        }
-
         [Input("totalCellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? TotalCellStyle { get; set; }
 

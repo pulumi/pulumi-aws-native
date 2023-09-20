@@ -36,6 +36,10 @@ type LookupContainerResult struct {
 	IsDisabled *bool `pulumi:"isDisabled"`
 	// The power specification for the container service.
 	Power *string `pulumi:"power"`
+	// The principal ARN of the container service.
+	PrincipalArn *string `pulumi:"principalArn"`
+	// A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+	PrivateRegistryAccess *ContainerPrivateRegistryAccess `pulumi:"privateRegistryAccess"`
 	// The public domain names to use with the container service, such as example.com and www.example.com.
 	PublicDomainNames []ContainerPublicDomainName `pulumi:"publicDomainNames"`
 	// The scale specification for the container service.
@@ -105,6 +109,16 @@ func (o LookupContainerResultOutput) IsDisabled() pulumi.BoolPtrOutput {
 // The power specification for the container service.
 func (o LookupContainerResultOutput) Power() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContainerResult) *string { return v.Power }).(pulumi.StringPtrOutput)
+}
+
+// The principal ARN of the container service.
+func (o LookupContainerResultOutput) PrincipalArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerResult) *string { return v.PrincipalArn }).(pulumi.StringPtrOutput)
+}
+
+// A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+func (o LookupContainerResultOutput) PrivateRegistryAccess() ContainerPrivateRegistryAccessPtrOutput {
+	return o.ApplyT(func(v LookupContainerResult) *ContainerPrivateRegistryAccess { return v.PrivateRegistryAccess }).(ContainerPrivateRegistryAccessPtrOutput)
 }
 
 // The public domain names to use with the container service, such as example.com and www.example.com.

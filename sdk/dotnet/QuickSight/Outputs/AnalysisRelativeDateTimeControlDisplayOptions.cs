@@ -14,19 +14,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisRelativeDateTimeControlDisplayOptions
     {
         public readonly string? DateTimeFormat;
-        public readonly Outputs.AnalysisSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
         public readonly Outputs.AnalysisLabelOptions? TitleOptions;
 
         [OutputConstructor]
         private AnalysisRelativeDateTimeControlDisplayOptions(
             string? dateTimeFormat,
 
-            Outputs.AnalysisSheetControlInfoIconLabelOptions? infoIconLabelOptions,
-
             Outputs.AnalysisLabelOptions? titleOptions)
         {
             DateTimeFormat = dateTimeFormat;
-            InfoIconLabelOptions = infoIconLabelOptions;
             TitleOptions = titleOptions;
         }
     }

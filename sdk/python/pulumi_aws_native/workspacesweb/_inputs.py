@@ -22,6 +22,9 @@ __all__ = [
     'PortalTagArgs',
     'TrustStoreTagArgs',
     'UserAccessLoggingSettingsTagArgs',
+    'UserSettingsCookieSpecificationArgs',
+    'UserSettingsCookieSynchronizationConfigurationArgs',
+    'UserSettingsEncryptionContextMapArgs',
     'UserSettingsTagArgs',
 ]
 
@@ -243,6 +246,80 @@ class UserAccessLoggingSettingsTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class UserSettingsCookieSpecificationArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "domain", domain)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class UserSettingsCookieSynchronizationConfigurationArgs:
+    def __init__(__self__, *,
+                 allowlist: pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]],
+                 blocklist: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]]] = None):
+        pulumi.set(__self__, "allowlist", allowlist)
+        if blocklist is not None:
+            pulumi.set(__self__, "blocklist", blocklist)
+
+    @property
+    @pulumi.getter
+    def allowlist(self) -> pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]]:
+        return pulumi.get(self, "allowlist")
+
+    @allowlist.setter
+    def allowlist(self, value: pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]]):
+        pulumi.set(self, "allowlist", value)
+
+    @property
+    @pulumi.getter
+    def blocklist(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]]]:
+        return pulumi.get(self, "blocklist")
+
+    @blocklist.setter
+    def blocklist(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]]]):
+        pulumi.set(self, "blocklist", value)
+
+
+@pulumi.input_type
+class UserSettingsEncryptionContextMapArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type

@@ -13,16 +13,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSliderControlDisplayOptions
     {
-        public readonly Outputs.AnalysisSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
         public readonly Outputs.AnalysisLabelOptions? TitleOptions;
 
         [OutputConstructor]
-        private AnalysisSliderControlDisplayOptions(
-            Outputs.AnalysisSheetControlInfoIconLabelOptions? infoIconLabelOptions,
-
-            Outputs.AnalysisLabelOptions? titleOptions)
+        private AnalysisSliderControlDisplayOptions(Outputs.AnalysisLabelOptions? titleOptions)
         {
-            InfoIconLabelOptions = infoIconLabelOptions;
             TitleOptions = titleOptions;
         }
     }

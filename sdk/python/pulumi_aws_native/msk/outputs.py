@@ -43,6 +43,7 @@ __all__ = [
     'ClusterVpcConnectivitySasl',
     'ClusterVpcConnectivityScram',
     'ClusterVpcConnectivityTls',
+    'ConfigurationLatestRevision',
     'ServerlessClusterClientAuthentication',
     'ServerlessClusterIam',
     'ServerlessClusterSasl',
@@ -934,6 +935,52 @@ class ClusterVpcConnectivityTls(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ConfigurationLatestRevision(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationTime":
+            suggest = "creation_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationLatestRevision. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationLatestRevision.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationLatestRevision.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_time: Optional[str] = None,
+                 description: Optional[str] = None,
+                 revision: Optional[int] = None):
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[int]:
+        return pulumi.get(self, "revision")
 
 
 @pulumi.output_type

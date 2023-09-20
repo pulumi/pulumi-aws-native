@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
- *
- * @deprecated VpcEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VpcEndpointConnectionNotification {
-        pulumi.log.warn("VpcEndpointConnectionNotification is deprecated: VpcEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new VpcEndpointConnectionNotification(name, undefined as any, { ...opts, id: id });
     }
 
@@ -49,9 +46,7 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated VpcEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VpcEndpointConnectionNotificationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VpcEndpointConnectionNotification is deprecated: VpcEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

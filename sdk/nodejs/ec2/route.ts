@@ -51,6 +51,10 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly destinationIpv6CidrBlock!: pulumi.Output<string | undefined>;
     /**
+     * The ID of managed prefix list, it's a set of one or more CIDR blocks.
+     */
+    public readonly destinationPrefixListId!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the egress-only internet gateway.
      */
     public readonly egressOnlyInternetGatewayId!: pulumi.Output<string | undefined>;
@@ -108,6 +112,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["carrierGatewayId"] = args ? args.carrierGatewayId : undefined;
             resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
             resourceInputs["destinationIpv6CidrBlock"] = args ? args.destinationIpv6CidrBlock : undefined;
+            resourceInputs["destinationPrefixListId"] = args ? args.destinationPrefixListId : undefined;
             resourceInputs["egressOnlyInternetGatewayId"] = args ? args.egressOnlyInternetGatewayId : undefined;
             resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
@@ -124,6 +129,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["destinationCidrBlock"] = undefined /*out*/;
             resourceInputs["destinationIpv6CidrBlock"] = undefined /*out*/;
+            resourceInputs["destinationPrefixListId"] = undefined /*out*/;
             resourceInputs["egressOnlyInternetGatewayId"] = undefined /*out*/;
             resourceInputs["gatewayId"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
@@ -136,7 +142,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["vpcPeeringConnectionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["destinationCidrBlock", "destinationIpv6CidrBlock", "routeTableId"] };
+        const replaceOnChanges = { replaceOnChanges: ["destinationCidrBlock", "destinationIpv6CidrBlock", "destinationPrefixListId", "routeTableId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Route.__pulumiType, name, resourceInputs, opts);
     }
@@ -158,6 +164,10 @@ export interface RouteArgs {
      * The IPv6 CIDR block used for the destination match.
      */
     destinationIpv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * The ID of managed prefix list, it's a set of one or more CIDR blocks.
+     */
+    destinationPrefixListId?: pulumi.Input<string>;
     /**
      * The ID of the egress-only internet gateway.
      */

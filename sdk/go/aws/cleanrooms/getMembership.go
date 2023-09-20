@@ -28,11 +28,12 @@ type LookupMembershipArgs struct {
 }
 
 type LookupMembershipResult struct {
-	Arn                           *string                   `pulumi:"arn"`
-	CollaborationArn              *string                   `pulumi:"collaborationArn"`
-	CollaborationCreatorAccountId *string                   `pulumi:"collaborationCreatorAccountId"`
-	MembershipIdentifier          *string                   `pulumi:"membershipIdentifier"`
-	QueryLogStatus                *MembershipQueryLogStatus `pulumi:"queryLogStatus"`
+	Arn                           *string                                      `pulumi:"arn"`
+	CollaborationArn              *string                                      `pulumi:"collaborationArn"`
+	CollaborationCreatorAccountId *string                                      `pulumi:"collaborationCreatorAccountId"`
+	DefaultResultConfiguration    *MembershipProtectedQueryResultConfiguration `pulumi:"defaultResultConfiguration"`
+	MembershipIdentifier          *string                                      `pulumi:"membershipIdentifier"`
+	QueryLogStatus                *MembershipQueryLogStatus                    `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags []MembershipTag `pulumi:"tags"`
 }
@@ -88,6 +89,12 @@ func (o LookupMembershipResultOutput) CollaborationArn() pulumi.StringPtrOutput 
 
 func (o LookupMembershipResultOutput) CollaborationCreatorAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMembershipResult) *string { return v.CollaborationCreatorAccountId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupMembershipResultOutput) DefaultResultConfiguration() MembershipProtectedQueryResultConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupMembershipResult) *MembershipProtectedQueryResultConfiguration {
+		return v.DefaultResultConfiguration
+	}).(MembershipProtectedQueryResultConfigurationPtrOutput)
 }
 
 func (o LookupMembershipResultOutput) MembershipIdentifier() pulumi.StringPtrOutput {

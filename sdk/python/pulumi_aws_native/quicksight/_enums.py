@@ -62,7 +62,6 @@ __all__ = [
     'AnalysisPivotTableConditionalFormattingScopeRole',
     'AnalysisPivotTableFieldCollapseState',
     'AnalysisPivotTableMetricPlacement',
-    'AnalysisPivotTableRowsLayout',
     'AnalysisPivotTableSubtotalLevel',
     'AnalysisPrimaryValueDisplayType',
     'AnalysisRadarChartAxesRangeScale',
@@ -85,11 +84,8 @@ __all__ = [
     'AnalysisSheetControlSliderType',
     'AnalysisSimpleAttributeAggregationFunction',
     'AnalysisSimpleNumericalAggregationFunction',
-    'AnalysisSmallMultiplesAxisPlacement',
-    'AnalysisSmallMultiplesAxisScale',
     'AnalysisSortDirection',
     'AnalysisSpecialValue',
-    'AnalysisStyledCellType',
     'AnalysisTableBorderStyle',
     'AnalysisTableCellImageScalingConfiguration',
     'AnalysisTableFieldIconSetType',
@@ -291,7 +287,6 @@ __all__ = [
     'TemplatePivotTableConditionalFormattingScopeRole',
     'TemplatePivotTableFieldCollapseState',
     'TemplatePivotTableMetricPlacement',
-    'TemplatePivotTableRowsLayout',
     'TemplatePivotTableSubtotalLevel',
     'TemplatePrimaryValueDisplayType',
     'TemplateRadarChartAxesRangeScale',
@@ -314,11 +309,8 @@ __all__ = [
     'TemplateSheetControlSliderType',
     'TemplateSimpleAttributeAggregationFunction',
     'TemplateSimpleNumericalAggregationFunction',
-    'TemplateSmallMultiplesAxisPlacement',
-    'TemplateSmallMultiplesAxisScale',
     'TemplateSortDirection',
     'TemplateSpecialValue',
-    'TemplateStyledCellType',
     'TemplateTableBorderStyle',
     'TemplateTableCellImageScalingConfiguration',
     'TemplateTableFieldIconSetType',
@@ -746,11 +738,6 @@ class AnalysisPivotTableMetricPlacement(str, Enum):
     COLUMN = "COLUMN"
 
 
-class AnalysisPivotTableRowsLayout(str, Enum):
-    TABULAR = "TABULAR"
-    HIERARCHY = "HIERARCHY"
-
-
 class AnalysisPivotTableSubtotalLevel(str, Enum):
     ALL = "ALL"
     CUSTOM = "CUSTOM"
@@ -883,16 +870,6 @@ class AnalysisSimpleNumericalAggregationFunction(str, Enum):
     MEDIAN = "MEDIAN"
 
 
-class AnalysisSmallMultiplesAxisPlacement(str, Enum):
-    OUTSIDE = "OUTSIDE"
-    INSIDE = "INSIDE"
-
-
-class AnalysisSmallMultiplesAxisScale(str, Enum):
-    SHARED = "SHARED"
-    INDEPENDENT = "INDEPENDENT"
-
-
 class AnalysisSortDirection(str, Enum):
     ASC = "ASC"
     DESC = "DESC"
@@ -902,12 +879,6 @@ class AnalysisSpecialValue(str, Enum):
     EMPTY = "EMPTY"
     NULL = "NULL"
     OTHER = "OTHER"
-
-
-class AnalysisStyledCellType(str, Enum):
-    TOTAL = "TOTAL"
-    METRIC_HEADER = "METRIC_HEADER"
-    VALUE = "VALUE"
 
 
 class AnalysisTableBorderStyle(str, Enum):
@@ -991,7 +962,6 @@ class AnalysisVerticalTextAlignment(str, Enum):
     TOP = "TOP"
     MIDDLE = "MIDDLE"
     BOTTOM = "BOTTOM"
-    AUTO = "AUTO"
 
 
 class AnalysisVisibility(str, Enum):
@@ -2190,11 +2160,6 @@ class TemplatePivotTableMetricPlacement(str, Enum):
     COLUMN = "COLUMN"
 
 
-class TemplatePivotTableRowsLayout(str, Enum):
-    TABULAR = "TABULAR"
-    HIERARCHY = "HIERARCHY"
-
-
 class TemplatePivotTableSubtotalLevel(str, Enum):
     ALL = "ALL"
     CUSTOM = "CUSTOM"
@@ -2327,16 +2292,6 @@ class TemplateSimpleNumericalAggregationFunction(str, Enum):
     MEDIAN = "MEDIAN"
 
 
-class TemplateSmallMultiplesAxisPlacement(str, Enum):
-    OUTSIDE = "OUTSIDE"
-    INSIDE = "INSIDE"
-
-
-class TemplateSmallMultiplesAxisScale(str, Enum):
-    SHARED = "SHARED"
-    INDEPENDENT = "INDEPENDENT"
-
-
 class TemplateSortDirection(str, Enum):
     ASC = "ASC"
     DESC = "DESC"
@@ -2346,12 +2301,6 @@ class TemplateSpecialValue(str, Enum):
     EMPTY = "EMPTY"
     NULL = "NULL"
     OTHER = "OTHER"
-
-
-class TemplateStyledCellType(str, Enum):
-    TOTAL = "TOTAL"
-    METRIC_HEADER = "METRIC_HEADER"
-    VALUE = "VALUE"
 
 
 class TemplateTableBorderStyle(str, Enum):
@@ -2435,7 +2384,6 @@ class TemplateVerticalTextAlignment(str, Enum):
     TOP = "TOP"
     MIDDLE = "MIDDLE"
     BOTTOM = "BOTTOM"
-    AUTO = "AUTO"
 
 
 class TemplateVisibility(str, Enum):

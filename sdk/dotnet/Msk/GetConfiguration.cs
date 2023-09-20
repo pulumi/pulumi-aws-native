@@ -53,15 +53,19 @@ namespace Pulumi.AwsNative.Msk
     {
         public readonly string? Arn;
         public readonly string? Description;
+        public readonly Outputs.ConfigurationLatestRevision? LatestRevision;
 
         [OutputConstructor]
         private GetConfigurationResult(
             string? arn,
 
-            string? description)
+            string? description,
+
+            Outputs.ConfigurationLatestRevision? latestRevision)
         {
             Arn = arn;
             Description = description;
+            LatestRevision = latestRevision;
         }
     }
 }

@@ -17,12 +17,13 @@ import (
 type Membership struct {
 	pulumi.CustomResourceState
 
-	Arn                           pulumi.StringOutput            `pulumi:"arn"`
-	CollaborationArn              pulumi.StringOutput            `pulumi:"collaborationArn"`
-	CollaborationCreatorAccountId pulumi.StringOutput            `pulumi:"collaborationCreatorAccountId"`
-	CollaborationIdentifier       pulumi.StringOutput            `pulumi:"collaborationIdentifier"`
-	MembershipIdentifier          pulumi.StringOutput            `pulumi:"membershipIdentifier"`
-	QueryLogStatus                MembershipQueryLogStatusOutput `pulumi:"queryLogStatus"`
+	Arn                           pulumi.StringOutput                                  `pulumi:"arn"`
+	CollaborationArn              pulumi.StringOutput                                  `pulumi:"collaborationArn"`
+	CollaborationCreatorAccountId pulumi.StringOutput                                  `pulumi:"collaborationCreatorAccountId"`
+	CollaborationIdentifier       pulumi.StringOutput                                  `pulumi:"collaborationIdentifier"`
+	DefaultResultConfiguration    MembershipProtectedQueryResultConfigurationPtrOutput `pulumi:"defaultResultConfiguration"`
+	MembershipIdentifier          pulumi.StringOutput                                  `pulumi:"membershipIdentifier"`
+	QueryLogStatus                MembershipQueryLogStatusOutput                       `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags MembershipTagArrayOutput `pulumi:"tags"`
 }
@@ -77,16 +78,18 @@ func (MembershipState) ElementType() reflect.Type {
 }
 
 type membershipArgs struct {
-	CollaborationIdentifier string                   `pulumi:"collaborationIdentifier"`
-	QueryLogStatus          MembershipQueryLogStatus `pulumi:"queryLogStatus"`
+	CollaborationIdentifier    string                                       `pulumi:"collaborationIdentifier"`
+	DefaultResultConfiguration *MembershipProtectedQueryResultConfiguration `pulumi:"defaultResultConfiguration"`
+	QueryLogStatus             MembershipQueryLogStatus                     `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags []MembershipTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Membership resource.
 type MembershipArgs struct {
-	CollaborationIdentifier pulumi.StringInput
-	QueryLogStatus          MembershipQueryLogStatusInput
+	CollaborationIdentifier    pulumi.StringInput
+	DefaultResultConfiguration MembershipProtectedQueryResultConfigurationPtrInput
+	QueryLogStatus             MembershipQueryLogStatusInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags MembershipTagArrayInput
 }
@@ -154,6 +157,12 @@ func (o MembershipOutput) CollaborationCreatorAccountId() pulumi.StringOutput {
 
 func (o MembershipOutput) CollaborationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.CollaborationIdentifier }).(pulumi.StringOutput)
+}
+
+func (o MembershipOutput) DefaultResultConfiguration() MembershipProtectedQueryResultConfigurationPtrOutput {
+	return o.ApplyT(func(v *Membership) MembershipProtectedQueryResultConfigurationPtrOutput {
+		return v.DefaultResultConfiguration
+	}).(MembershipProtectedQueryResultConfigurationPtrOutput)
 }
 
 func (o MembershipOutput) MembershipIdentifier() pulumi.StringOutput {

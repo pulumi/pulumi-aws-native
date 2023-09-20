@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTopBottomRankedComputationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("category")]
-        public Input<Inputs.AnalysisDimensionFieldArgs>? Category { get; set; }
+        [Input("category", required: true)]
+        public Input<Inputs.AnalysisDimensionFieldArgs> Category { get; set; } = null!;
 
         [Input("computationId", required: true)]
         public Input<string> ComputationId { get; set; } = null!;

@@ -13,19 +13,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDropDownControlDisplayOptions
     {
-        public readonly Outputs.AnalysisSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
         public readonly Outputs.AnalysisListControlSelectAllOptions? SelectAllOptions;
         public readonly Outputs.AnalysisLabelOptions? TitleOptions;
 
         [OutputConstructor]
         private AnalysisDropDownControlDisplayOptions(
-            Outputs.AnalysisSheetControlInfoIconLabelOptions? infoIconLabelOptions,
-
             Outputs.AnalysisListControlSelectAllOptions? selectAllOptions,
 
             Outputs.AnalysisLabelOptions? titleOptions)
         {
-            InfoIconLabelOptions = infoIconLabelOptions;
             SelectAllOptions = selectAllOptions;
             TitleOptions = titleOptions;
         }

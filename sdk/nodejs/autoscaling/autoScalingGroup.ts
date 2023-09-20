@@ -48,9 +48,9 @@ export class AutoScalingGroup extends pulumi.CustomResource {
     public readonly healthCheckGracePeriod!: pulumi.Output<number | undefined>;
     public readonly healthCheckType!: pulumi.Output<string | undefined>;
     public readonly instanceId!: pulumi.Output<string | undefined>;
+    public readonly instanceMaintenancePolicy!: pulumi.Output<outputs.autoscaling.AutoScalingGroupInstanceMaintenancePolicy | undefined>;
     public readonly launchConfigurationName!: pulumi.Output<string | undefined>;
     public readonly launchTemplate!: pulumi.Output<outputs.autoscaling.AutoScalingGroupLaunchTemplateSpecification | undefined>;
-    public /*out*/ readonly launchTemplateSpecification!: pulumi.Output<string>;
     public readonly lifecycleHookSpecificationList!: pulumi.Output<outputs.autoscaling.AutoScalingGroupLifecycleHookSpecification[] | undefined>;
     public readonly loadBalancerNames!: pulumi.Output<string[] | undefined>;
     public readonly maxInstanceLifetime!: pulumi.Output<number | undefined>;
@@ -95,6 +95,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["healthCheckGracePeriod"] = args ? args.healthCheckGracePeriod : undefined;
             resourceInputs["healthCheckType"] = args ? args.healthCheckType : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["instanceMaintenancePolicy"] = args ? args.instanceMaintenancePolicy : undefined;
             resourceInputs["launchConfigurationName"] = args ? args.launchConfigurationName : undefined;
             resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
             resourceInputs["lifecycleHookSpecificationList"] = args ? args.lifecycleHookSpecificationList : undefined;
@@ -112,7 +113,6 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
             resourceInputs["terminationPolicies"] = args ? args.terminationPolicies : undefined;
             resourceInputs["vpcZoneIdentifier"] = args ? args.vpcZoneIdentifier : undefined;
-            resourceInputs["launchTemplateSpecification"] = undefined /*out*/;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
@@ -125,9 +125,9 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["healthCheckGracePeriod"] = undefined /*out*/;
             resourceInputs["healthCheckType"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["instanceMaintenancePolicy"] = undefined /*out*/;
             resourceInputs["launchConfigurationName"] = undefined /*out*/;
             resourceInputs["launchTemplate"] = undefined /*out*/;
-            resourceInputs["launchTemplateSpecification"] = undefined /*out*/;
             resourceInputs["lifecycleHookSpecificationList"] = undefined /*out*/;
             resourceInputs["loadBalancerNames"] = undefined /*out*/;
             resourceInputs["maxInstanceLifetime"] = undefined /*out*/;
@@ -166,6 +166,7 @@ export interface AutoScalingGroupArgs {
     healthCheckGracePeriod?: pulumi.Input<number>;
     healthCheckType?: pulumi.Input<string>;
     instanceId?: pulumi.Input<string>;
+    instanceMaintenancePolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstanceMaintenancePolicyArgs>;
     launchConfigurationName?: pulumi.Input<string>;
     launchTemplate?: pulumi.Input<inputs.autoscaling.AutoScalingGroupLaunchTemplateSpecificationArgs>;
     lifecycleHookSpecificationList?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupLifecycleHookSpecificationArgs>[]>;

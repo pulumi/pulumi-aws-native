@@ -21,6 +21,7 @@ class ContainerInitArgs:
                  service_name: pulumi.Input[str],
                  container_service_deployment: Optional[pulumi.Input['ContainerServiceDeploymentArgs']] = None,
                  is_disabled: Optional[pulumi.Input[bool]] = None,
+                 private_registry_access: Optional[pulumi.Input['ContainerPrivateRegistryAccessArgs']] = None,
                  public_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPublicDomainNameArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerTagArgs']]]] = None):
         """
@@ -30,6 +31,7 @@ class ContainerInitArgs:
         :param pulumi.Input[str] service_name: The name for the container service.
         :param pulumi.Input['ContainerServiceDeploymentArgs'] container_service_deployment: Describes a container deployment configuration of an Amazon Lightsail container service.
         :param pulumi.Input[bool] is_disabled: A Boolean value to indicate whether the container service is disabled.
+        :param pulumi.Input['ContainerPrivateRegistryAccessArgs'] private_registry_access: A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerPublicDomainNameArgs']]] public_domain_names: The public domain names to use with the container service, such as example.com and www.example.com.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -40,6 +42,8 @@ class ContainerInitArgs:
             pulumi.set(__self__, "container_service_deployment", container_service_deployment)
         if is_disabled is not None:
             pulumi.set(__self__, "is_disabled", is_disabled)
+        if private_registry_access is not None:
+            pulumi.set(__self__, "private_registry_access", private_registry_access)
         if public_domain_names is not None:
             pulumi.set(__self__, "public_domain_names", public_domain_names)
         if tags is not None:
@@ -106,6 +110,18 @@ class ContainerInitArgs:
         pulumi.set(self, "is_disabled", value)
 
     @property
+    @pulumi.getter(name="privateRegistryAccess")
+    def private_registry_access(self) -> Optional[pulumi.Input['ContainerPrivateRegistryAccessArgs']]:
+        """
+        A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+        """
+        return pulumi.get(self, "private_registry_access")
+
+    @private_registry_access.setter
+    def private_registry_access(self, value: Optional[pulumi.Input['ContainerPrivateRegistryAccessArgs']]):
+        pulumi.set(self, "private_registry_access", value)
+
+    @property
     @pulumi.getter(name="publicDomainNames")
     def public_domain_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPublicDomainNameArgs']]]]:
         """
@@ -138,6 +154,7 @@ class Container(pulumi.CustomResource):
                  container_service_deployment: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentArgs']]] = None,
                  is_disabled: Optional[pulumi.Input[bool]] = None,
                  power: Optional[pulumi.Input[str]] = None,
+                 private_registry_access: Optional[pulumi.Input[pulumi.InputType['ContainerPrivateRegistryAccessArgs']]] = None,
                  public_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerPublicDomainNameArgs']]]]] = None,
                  scale: Optional[pulumi.Input[int]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -151,6 +168,7 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ContainerServiceDeploymentArgs']] container_service_deployment: Describes a container deployment configuration of an Amazon Lightsail container service.
         :param pulumi.Input[bool] is_disabled: A Boolean value to indicate whether the container service is disabled.
         :param pulumi.Input[str] power: The power specification for the container service.
+        :param pulumi.Input[pulumi.InputType['ContainerPrivateRegistryAccessArgs']] private_registry_access: A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerPublicDomainNameArgs']]]] public_domain_names: The public domain names to use with the container service, such as example.com and www.example.com.
         :param pulumi.Input[int] scale: The scale specification for the container service.
         :param pulumi.Input[str] service_name: The name for the container service.
@@ -183,6 +201,7 @@ class Container(pulumi.CustomResource):
                  container_service_deployment: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentArgs']]] = None,
                  is_disabled: Optional[pulumi.Input[bool]] = None,
                  power: Optional[pulumi.Input[str]] = None,
+                 private_registry_access: Optional[pulumi.Input[pulumi.InputType['ContainerPrivateRegistryAccessArgs']]] = None,
                  public_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerPublicDomainNameArgs']]]]] = None,
                  scale: Optional[pulumi.Input[int]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -201,6 +220,7 @@ class Container(pulumi.CustomResource):
             if power is None and not opts.urn:
                 raise TypeError("Missing required property 'power'")
             __props__.__dict__["power"] = power
+            __props__.__dict__["private_registry_access"] = private_registry_access
             __props__.__dict__["public_domain_names"] = public_domain_names
             if scale is None and not opts.urn:
                 raise TypeError("Missing required property 'scale'")
@@ -210,6 +230,7 @@ class Container(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["container_arn"] = None
+            __props__.__dict__["principal_arn"] = None
             __props__.__dict__["url"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["service_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -239,6 +260,8 @@ class Container(pulumi.CustomResource):
         __props__.__dict__["container_service_deployment"] = None
         __props__.__dict__["is_disabled"] = None
         __props__.__dict__["power"] = None
+        __props__.__dict__["principal_arn"] = None
+        __props__.__dict__["private_registry_access"] = None
         __props__.__dict__["public_domain_names"] = None
         __props__.__dict__["scale"] = None
         __props__.__dict__["service_name"] = None
@@ -274,6 +297,22 @@ class Container(pulumi.CustomResource):
         The power specification for the container service.
         """
         return pulumi.get(self, "power")
+
+    @property
+    @pulumi.getter(name="principalArn")
+    def principal_arn(self) -> pulumi.Output[str]:
+        """
+        The principal ARN of the container service.
+        """
+        return pulumi.get(self, "principal_arn")
+
+    @property
+    @pulumi.getter(name="privateRegistryAccess")
+    def private_registry_access(self) -> pulumi.Output[Optional['outputs.ContainerPrivateRegistryAccess']]:
+        """
+        A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+        """
+        return pulumi.get(self, "private_registry_access")
 
     @property
     @pulumi.getter(name="publicDomainNames")

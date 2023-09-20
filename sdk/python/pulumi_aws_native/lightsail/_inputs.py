@@ -17,6 +17,8 @@ __all__ = [
     'ContainerEnvironmentVariableArgs',
     'ContainerHealthCheckConfigArgs',
     'ContainerPortInfoArgs',
+    'ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs',
+    'ContainerPrivateRegistryAccessArgs',
     'ContainerPublicDomainNameArgs',
     'ContainerPublicEndpointArgs',
     'ContainerServiceDeploymentArgs',
@@ -327,6 +329,70 @@ class ContainerPortInfoArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs:
+    def __init__(__self__, *,
+                 is_active: Optional[pulumi.Input[bool]] = None,
+                 principal_arn: Optional[pulumi.Input[str]] = None):
+        """
+        An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+        :param pulumi.Input[bool] is_active: A Boolean value that indicates whether to activate the role.
+        :param pulumi.Input[str] principal_arn: The Amazon Resource Name (ARN) of the role, if it is activated.
+        """
+        if is_active is not None:
+            pulumi.set(__self__, "is_active", is_active)
+        if principal_arn is not None:
+            pulumi.set(__self__, "principal_arn", principal_arn)
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean value that indicates whether to activate the role.
+        """
+        return pulumi.get(self, "is_active")
+
+    @is_active.setter
+    def is_active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_active", value)
+
+    @property
+    @pulumi.getter(name="principalArn")
+    def principal_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the role, if it is activated.
+        """
+        return pulumi.get(self, "principal_arn")
+
+    @principal_arn.setter
+    def principal_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_arn", value)
+
+
+@pulumi.input_type
+class ContainerPrivateRegistryAccessArgs:
+    def __init__(__self__, *,
+                 ecr_image_puller_role: Optional[pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs']] = None):
+        """
+        An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+        :param pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs'] ecr_image_puller_role: An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+        """
+        if ecr_image_puller_role is not None:
+            pulumi.set(__self__, "ecr_image_puller_role", ecr_image_puller_role)
+
+    @property
+    @pulumi.getter(name="ecrImagePullerRole")
+    def ecr_image_puller_role(self) -> Optional[pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs']]:
+        """
+        An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+        """
+        return pulumi.get(self, "ecr_image_puller_role")
+
+    @ecr_image_puller_role.setter
+    def ecr_image_puller_role(self, value: Optional[pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs']]):
+        pulumi.set(self, "ecr_image_puller_role", value)
 
 
 @pulumi.input_type

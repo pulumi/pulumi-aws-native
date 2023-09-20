@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -37,6 +40,7 @@ export class Configuration extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly kafkaVersionsList!: pulumi.Output<string[] | undefined>;
+    public readonly latestRevision!: pulumi.Output<outputs.msk.ConfigurationLatestRevision | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly serverProperties!: pulumi.Output<string>;
 
@@ -56,6 +60,7 @@ export class Configuration extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kafkaVersionsList"] = args ? args.kafkaVersionsList : undefined;
+            resourceInputs["latestRevision"] = args ? args.latestRevision : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["serverProperties"] = args ? args.serverProperties : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -63,6 +68,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["kafkaVersionsList"] = undefined /*out*/;
+            resourceInputs["latestRevision"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["serverProperties"] = undefined /*out*/;
         }
@@ -79,6 +85,7 @@ export class Configuration extends pulumi.CustomResource {
 export interface ConfigurationArgs {
     description?: pulumi.Input<string>;
     kafkaVersionsList?: pulumi.Input<pulumi.Input<string>[]>;
+    latestRevision?: pulumi.Input<inputs.msk.ConfigurationLatestRevisionArgs>;
     name?: pulumi.Input<string>;
     serverProperties: pulumi.Input<string>;
 }

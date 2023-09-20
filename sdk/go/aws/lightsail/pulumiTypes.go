@@ -1130,6 +1130,355 @@ func (o ContainerPortInfoArrayOutput) Index(i pulumi.IntInput) ContainerPortInfo
 	}).(ContainerPortInfoOutput)
 }
 
+// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+type ContainerPrivateRegistryAccess struct {
+	// An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+	EcrImagePullerRole *ContainerPrivateRegistryAccessEcrImagePullerRoleProperties `pulumi:"ecrImagePullerRole"`
+}
+
+// ContainerPrivateRegistryAccessInput is an input type that accepts ContainerPrivateRegistryAccessArgs and ContainerPrivateRegistryAccessOutput values.
+// You can construct a concrete instance of `ContainerPrivateRegistryAccessInput` via:
+//
+//	ContainerPrivateRegistryAccessArgs{...}
+type ContainerPrivateRegistryAccessInput interface {
+	pulumi.Input
+
+	ToContainerPrivateRegistryAccessOutput() ContainerPrivateRegistryAccessOutput
+	ToContainerPrivateRegistryAccessOutputWithContext(context.Context) ContainerPrivateRegistryAccessOutput
+}
+
+// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+type ContainerPrivateRegistryAccessArgs struct {
+	// An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+	EcrImagePullerRole ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrInput `pulumi:"ecrImagePullerRole"`
+}
+
+func (ContainerPrivateRegistryAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPrivateRegistryAccess)(nil)).Elem()
+}
+
+func (i ContainerPrivateRegistryAccessArgs) ToContainerPrivateRegistryAccessOutput() ContainerPrivateRegistryAccessOutput {
+	return i.ToContainerPrivateRegistryAccessOutputWithContext(context.Background())
+}
+
+func (i ContainerPrivateRegistryAccessArgs) ToContainerPrivateRegistryAccessOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPrivateRegistryAccessOutput)
+}
+
+func (i ContainerPrivateRegistryAccessArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerPrivateRegistryAccess] {
+	return pulumix.Output[ContainerPrivateRegistryAccess]{
+		OutputState: i.ToContainerPrivateRegistryAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ContainerPrivateRegistryAccessArgs) ToContainerPrivateRegistryAccessPtrOutput() ContainerPrivateRegistryAccessPtrOutput {
+	return i.ToContainerPrivateRegistryAccessPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerPrivateRegistryAccessArgs) ToContainerPrivateRegistryAccessPtrOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPrivateRegistryAccessOutput).ToContainerPrivateRegistryAccessPtrOutputWithContext(ctx)
+}
+
+// ContainerPrivateRegistryAccessPtrInput is an input type that accepts ContainerPrivateRegistryAccessArgs, ContainerPrivateRegistryAccessPtr and ContainerPrivateRegistryAccessPtrOutput values.
+// You can construct a concrete instance of `ContainerPrivateRegistryAccessPtrInput` via:
+//
+//	        ContainerPrivateRegistryAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerPrivateRegistryAccessPtrInput interface {
+	pulumi.Input
+
+	ToContainerPrivateRegistryAccessPtrOutput() ContainerPrivateRegistryAccessPtrOutput
+	ToContainerPrivateRegistryAccessPtrOutputWithContext(context.Context) ContainerPrivateRegistryAccessPtrOutput
+}
+
+type containerPrivateRegistryAccessPtrType ContainerPrivateRegistryAccessArgs
+
+func ContainerPrivateRegistryAccessPtr(v *ContainerPrivateRegistryAccessArgs) ContainerPrivateRegistryAccessPtrInput {
+	return (*containerPrivateRegistryAccessPtrType)(v)
+}
+
+func (*containerPrivateRegistryAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerPrivateRegistryAccess)(nil)).Elem()
+}
+
+func (i *containerPrivateRegistryAccessPtrType) ToContainerPrivateRegistryAccessPtrOutput() ContainerPrivateRegistryAccessPtrOutput {
+	return i.ToContainerPrivateRegistryAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *containerPrivateRegistryAccessPtrType) ToContainerPrivateRegistryAccessPtrOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPrivateRegistryAccessPtrOutput)
+}
+
+func (i *containerPrivateRegistryAccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerPrivateRegistryAccess] {
+	return pulumix.Output[*ContainerPrivateRegistryAccess]{
+		OutputState: i.ToContainerPrivateRegistryAccessPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+type ContainerPrivateRegistryAccessOutput struct{ *pulumi.OutputState }
+
+func (ContainerPrivateRegistryAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPrivateRegistryAccess)(nil)).Elem()
+}
+
+func (o ContainerPrivateRegistryAccessOutput) ToContainerPrivateRegistryAccessOutput() ContainerPrivateRegistryAccessOutput {
+	return o
+}
+
+func (o ContainerPrivateRegistryAccessOutput) ToContainerPrivateRegistryAccessOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessOutput {
+	return o
+}
+
+func (o ContainerPrivateRegistryAccessOutput) ToContainerPrivateRegistryAccessPtrOutput() ContainerPrivateRegistryAccessPtrOutput {
+	return o.ToContainerPrivateRegistryAccessPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerPrivateRegistryAccessOutput) ToContainerPrivateRegistryAccessPtrOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerPrivateRegistryAccess) *ContainerPrivateRegistryAccess {
+		return &v
+	}).(ContainerPrivateRegistryAccessPtrOutput)
+}
+
+func (o ContainerPrivateRegistryAccessOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerPrivateRegistryAccess] {
+	return pulumix.Output[ContainerPrivateRegistryAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
+// An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+func (o ContainerPrivateRegistryAccessOutput) EcrImagePullerRole() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
+	return o.ApplyT(func(v ContainerPrivateRegistryAccess) *ContainerPrivateRegistryAccessEcrImagePullerRoleProperties {
+		return v.EcrImagePullerRole
+	}).(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput)
+}
+
+type ContainerPrivateRegistryAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerPrivateRegistryAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerPrivateRegistryAccess)(nil)).Elem()
+}
+
+func (o ContainerPrivateRegistryAccessPtrOutput) ToContainerPrivateRegistryAccessPtrOutput() ContainerPrivateRegistryAccessPtrOutput {
+	return o
+}
+
+func (o ContainerPrivateRegistryAccessPtrOutput) ToContainerPrivateRegistryAccessPtrOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessPtrOutput {
+	return o
+}
+
+func (o ContainerPrivateRegistryAccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerPrivateRegistryAccess] {
+	return pulumix.Output[*ContainerPrivateRegistryAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ContainerPrivateRegistryAccessPtrOutput) Elem() ContainerPrivateRegistryAccessOutput {
+	return o.ApplyT(func(v *ContainerPrivateRegistryAccess) ContainerPrivateRegistryAccess {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerPrivateRegistryAccess
+		return ret
+	}).(ContainerPrivateRegistryAccessOutput)
+}
+
+// An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+func (o ContainerPrivateRegistryAccessPtrOutput) EcrImagePullerRole() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
+	return o.ApplyT(func(v *ContainerPrivateRegistryAccess) *ContainerPrivateRegistryAccessEcrImagePullerRoleProperties {
+		if v == nil {
+			return nil
+		}
+		return v.EcrImagePullerRole
+	}).(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput)
+}
+
+// An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+type ContainerPrivateRegistryAccessEcrImagePullerRoleProperties struct {
+	// A Boolean value that indicates whether to activate the role.
+	IsActive *bool `pulumi:"isActive"`
+	// The Amazon Resource Name (ARN) of the role, if it is activated.
+	PrincipalArn *string `pulumi:"principalArn"`
+}
+
+// ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesInput is an input type that accepts ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs and ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput values.
+// You can construct a concrete instance of `ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesInput` via:
+//
+//	ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs{...}
+type ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesInput interface {
+	pulumi.Input
+
+	ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput
+	ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutputWithContext(context.Context) ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput
+}
+
+// An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+type ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs struct {
+	// A Boolean value that indicates whether to activate the role.
+	IsActive pulumi.BoolPtrInput `pulumi:"isActive"`
+	// The Amazon Resource Name (ARN) of the role, if it is activated.
+	PrincipalArn pulumi.StringPtrInput `pulumi:"principalArn"`
+}
+
+func (ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPrivateRegistryAccessEcrImagePullerRoleProperties)(nil)).Elem()
+}
+
+func (i ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput {
+	return i.ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutputWithContext(context.Background())
+}
+
+func (i ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput)
+}
+
+func (i ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerPrivateRegistryAccessEcrImagePullerRoleProperties] {
+	return pulumix.Output[ContainerPrivateRegistryAccessEcrImagePullerRoleProperties]{
+		OutputState: i.ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
+	return i.ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput).ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(ctx)
+}
+
+// ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrInput is an input type that accepts ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs, ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtr and ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput values.
+// You can construct a concrete instance of `ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrInput` via:
+//
+//	        ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput
+	ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(context.Context) ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput
+}
+
+type containerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrType ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs
+
+func ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtr(v *ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs) ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrInput {
+	return (*containerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrType)(v)
+}
+
+func (*containerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerPrivateRegistryAccessEcrImagePullerRoleProperties)(nil)).Elem()
+}
+
+func (i *containerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrType) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
+	return i.ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *containerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrType) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput)
+}
+
+func (i *containerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerPrivateRegistryAccessEcrImagePullerRoleProperties] {
+	return pulumix.Output[*ContainerPrivateRegistryAccessEcrImagePullerRoleProperties]{
+		OutputState: i.ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+type ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPrivateRegistryAccessEcrImagePullerRoleProperties)(nil)).Elem()
+}
+
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput {
+	return o
+}
+
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput {
+	return o
+}
+
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
+	return o.ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerPrivateRegistryAccessEcrImagePullerRoleProperties) *ContainerPrivateRegistryAccessEcrImagePullerRoleProperties {
+		return &v
+	}).(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput)
+}
+
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerPrivateRegistryAccessEcrImagePullerRoleProperties] {
+	return pulumix.Output[ContainerPrivateRegistryAccessEcrImagePullerRoleProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A Boolean value that indicates whether to activate the role.
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput) IsActive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContainerPrivateRegistryAccessEcrImagePullerRoleProperties) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the role, if it is activated.
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput) PrincipalArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerPrivateRegistryAccessEcrImagePullerRoleProperties) *string { return v.PrincipalArn }).(pulumi.StringPtrOutput)
+}
+
+type ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerPrivateRegistryAccessEcrImagePullerRoleProperties)(nil)).Elem()
+}
+
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
+	return o
+}
+
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
+	return o
+}
+
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerPrivateRegistryAccessEcrImagePullerRoleProperties] {
+	return pulumix.Output[*ContainerPrivateRegistryAccessEcrImagePullerRoleProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) Elem() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput {
+	return o.ApplyT(func(v *ContainerPrivateRegistryAccessEcrImagePullerRoleProperties) ContainerPrivateRegistryAccessEcrImagePullerRoleProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerPrivateRegistryAccessEcrImagePullerRoleProperties
+		return ret
+	}).(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput)
+}
+
+// A Boolean value that indicates whether to activate the role.
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) IsActive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContainerPrivateRegistryAccessEcrImagePullerRoleProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsActive
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the role, if it is activated.
+func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) PrincipalArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerPrivateRegistryAccessEcrImagePullerRoleProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // The public domain name to use with the container service, such as example.com and www.example.com.
 type ContainerPublicDomainName struct {
 	CertificateName *string `pulumi:"certificateName"`
@@ -5950,6 +6299,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerHealthCheckConfigPtrInput)(nil)).Elem(), ContainerHealthCheckConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPortInfoInput)(nil)).Elem(), ContainerPortInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPortInfoArrayInput)(nil)).Elem(), ContainerPortInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPrivateRegistryAccessInput)(nil)).Elem(), ContainerPrivateRegistryAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPrivateRegistryAccessPtrInput)(nil)).Elem(), ContainerPrivateRegistryAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesInput)(nil)).Elem(), ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrInput)(nil)).Elem(), ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPublicDomainNameInput)(nil)).Elem(), ContainerPublicDomainNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPublicDomainNameArrayInput)(nil)).Elem(), ContainerPublicDomainNameArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPublicEndpointInput)(nil)).Elem(), ContainerPublicEndpointArgs{})
@@ -6020,6 +6373,10 @@ func init() {
 	pulumi.RegisterOutputType(ContainerHealthCheckConfigPtrOutput{})
 	pulumi.RegisterOutputType(ContainerPortInfoOutput{})
 	pulumi.RegisterOutputType(ContainerPortInfoArrayOutput{})
+	pulumi.RegisterOutputType(ContainerPrivateRegistryAccessOutput{})
+	pulumi.RegisterOutputType(ContainerPrivateRegistryAccessPtrOutput{})
+	pulumi.RegisterOutputType(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput{})
+	pulumi.RegisterOutputType(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerPublicDomainNameOutput{})
 	pulumi.RegisterOutputType(ContainerPublicDomainNameArrayOutput{})
 	pulumi.RegisterOutputType(ContainerPublicEndpointOutput{})

@@ -77,6 +77,10 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? NetworkInterfaceId;
         /// <summary>
+        /// Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+        /// </summary>
+        public readonly bool? PrimaryIpv6;
+        /// <summary>
         /// The primary private IPv4 address of the network interface.
         /// </summary>
         public readonly string? PrivateIpAddress;
@@ -125,6 +129,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             string? networkInterfaceId,
 
+            bool? primaryIpv6,
+
             string? privateIpAddress,
 
             ImmutableArray<Outputs.LaunchTemplatePrivateIpAdd> privateIpAddresses,
@@ -148,6 +154,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             Ipv6Prefixes = ipv6Prefixes;
             NetworkCardIndex = networkCardIndex;
             NetworkInterfaceId = networkInterfaceId;
+            PrimaryIpv6 = primaryIpv6;
             PrivateIpAddress = privateIpAddress;
             PrivateIpAddresses = privateIpAddresses;
             SecondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;

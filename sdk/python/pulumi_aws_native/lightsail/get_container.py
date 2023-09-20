@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetContainerResult:
-    def __init__(__self__, container_arn=None, container_service_deployment=None, is_disabled=None, power=None, public_domain_names=None, scale=None, tags=None, url=None):
+    def __init__(__self__, container_arn=None, container_service_deployment=None, is_disabled=None, power=None, principal_arn=None, private_registry_access=None, public_domain_names=None, scale=None, tags=None, url=None):
         if container_arn and not isinstance(container_arn, str):
             raise TypeError("Expected argument 'container_arn' to be a str")
         pulumi.set(__self__, "container_arn", container_arn)
@@ -32,6 +32,12 @@ class GetContainerResult:
         if power and not isinstance(power, str):
             raise TypeError("Expected argument 'power' to be a str")
         pulumi.set(__self__, "power", power)
+        if principal_arn and not isinstance(principal_arn, str):
+            raise TypeError("Expected argument 'principal_arn' to be a str")
+        pulumi.set(__self__, "principal_arn", principal_arn)
+        if private_registry_access and not isinstance(private_registry_access, dict):
+            raise TypeError("Expected argument 'private_registry_access' to be a dict")
+        pulumi.set(__self__, "private_registry_access", private_registry_access)
         if public_domain_names and not isinstance(public_domain_names, list):
             raise TypeError("Expected argument 'public_domain_names' to be a list")
         pulumi.set(__self__, "public_domain_names", public_domain_names)
@@ -73,6 +79,22 @@ class GetContainerResult:
         The power specification for the container service.
         """
         return pulumi.get(self, "power")
+
+    @property
+    @pulumi.getter(name="principalArn")
+    def principal_arn(self) -> Optional[str]:
+        """
+        The principal ARN of the container service.
+        """
+        return pulumi.get(self, "principal_arn")
+
+    @property
+    @pulumi.getter(name="privateRegistryAccess")
+    def private_registry_access(self) -> Optional['outputs.ContainerPrivateRegistryAccess']:
+        """
+        A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+        """
+        return pulumi.get(self, "private_registry_access")
 
     @property
     @pulumi.getter(name="publicDomainNames")
@@ -117,6 +139,8 @@ class AwaitableGetContainerResult(GetContainerResult):
             container_service_deployment=self.container_service_deployment,
             is_disabled=self.is_disabled,
             power=self.power,
+            principal_arn=self.principal_arn,
+            private_registry_access=self.private_registry_access,
             public_domain_names=self.public_domain_names,
             scale=self.scale,
             tags=self.tags,
@@ -141,6 +165,8 @@ def get_container(service_name: Optional[str] = None,
         container_service_deployment=pulumi.get(__ret__, 'container_service_deployment'),
         is_disabled=pulumi.get(__ret__, 'is_disabled'),
         power=pulumi.get(__ret__, 'power'),
+        principal_arn=pulumi.get(__ret__, 'principal_arn'),
+        private_registry_access=pulumi.get(__ret__, 'private_registry_access'),
         public_domain_names=pulumi.get(__ret__, 'public_domain_names'),
         scale=pulumi.get(__ret__, 'scale'),
         tags=pulumi.get(__ret__, 'tags'),

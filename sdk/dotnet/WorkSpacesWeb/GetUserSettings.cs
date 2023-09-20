@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     public sealed class GetUserSettingsResult
     {
         public readonly ImmutableArray<string> AssociatedPortalArns;
+        public readonly Outputs.UserSettingsCookieSynchronizationConfiguration? CookieSynchronizationConfiguration;
         public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? CopyAllowed;
         public readonly double? DisconnectTimeoutInMinutes;
         public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? DownloadAllowed;
@@ -65,6 +66,8 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [OutputConstructor]
         private GetUserSettingsResult(
             ImmutableArray<string> associatedPortalArns,
+
+            Outputs.UserSettingsCookieSynchronizationConfiguration? cookieSynchronizationConfiguration,
 
             Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? copyAllowed,
 
@@ -85,6 +88,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             string? userSettingsArn)
         {
             AssociatedPortalArns = associatedPortalArns;
+            CookieSynchronizationConfiguration = cookieSynchronizationConfiguration;
             CopyAllowed = copyAllowed;
             DisconnectTimeoutInMinutes = disconnectTimeoutInMinutes;
             DownloadAllowed = downloadAllowed;

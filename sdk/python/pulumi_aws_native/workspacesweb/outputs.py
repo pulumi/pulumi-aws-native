@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -22,6 +23,9 @@ __all__ = [
     'PortalTag',
     'TrustStoreTag',
     'UserAccessLoggingSettingsTag',
+    'UserSettingsCookieSpecification',
+    'UserSettingsCookieSynchronizationConfiguration',
+    'UserSettingsEncryptionContextMap',
     'UserSettingsTag',
 ]
 
@@ -204,6 +208,60 @@ class UserAccessLoggingSettingsTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class UserSettingsCookieSpecification(dict):
+    def __init__(__self__, *,
+                 domain: str,
+                 name: Optional[str] = None,
+                 path: Optional[str] = None):
+        pulumi.set(__self__, "domain", domain)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class UserSettingsCookieSynchronizationConfiguration(dict):
+    def __init__(__self__, *,
+                 allowlist: Sequence['outputs.UserSettingsCookieSpecification'],
+                 blocklist: Optional[Sequence['outputs.UserSettingsCookieSpecification']] = None):
+        pulumi.set(__self__, "allowlist", allowlist)
+        if blocklist is not None:
+            pulumi.set(__self__, "blocklist", blocklist)
+
+    @property
+    @pulumi.getter
+    def allowlist(self) -> Sequence['outputs.UserSettingsCookieSpecification']:
+        return pulumi.get(self, "allowlist")
+
+    @property
+    @pulumi.getter
+    def blocklist(self) -> Optional[Sequence['outputs.UserSettingsCookieSpecification']]:
+        return pulumi.get(self, "blocklist")
+
+
+@pulumi.output_type
+class UserSettingsEncryptionContextMap(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type

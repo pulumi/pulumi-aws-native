@@ -130,6 +130,12 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
+        /// Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+        /// </summary>
+        [Input("primaryIpv6")]
+        public Input<bool>? PrimaryIpv6 { get; set; }
+
+        /// <summary>
         /// The primary private IPv4 address of the network interface.
         /// </summary>
         [Input("privateIpAddress")]

@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly double? PeriodsForward;
         public readonly double? PredictionInterval;
         public readonly Pulumi.AwsNative.QuickSight.TemplateForecastComputationSeasonality? Seasonality;
-        public readonly Outputs.TemplateDimensionField? Time;
+        public readonly Outputs.TemplateDimensionField Time;
         public readonly double? UpperBoundary;
         public readonly Outputs.TemplateMeasureField? Value;
 
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateForecastComputationSeasonality? seasonality,
 
-            Outputs.TemplateDimensionField? time,
+            Outputs.TemplateDimensionField time,
 
             double? upperBoundary,
 

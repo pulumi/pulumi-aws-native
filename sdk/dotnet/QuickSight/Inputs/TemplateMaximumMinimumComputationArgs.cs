@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("time")]
-        public Input<Inputs.TemplateDimensionFieldArgs>? Time { get; set; }
+        [Input("time", required: true)]
+        public Input<Inputs.TemplateDimensionFieldArgs> Time { get; set; } = null!;
 
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateMaximumMinimumComputationType> Type { get; set; } = null!;

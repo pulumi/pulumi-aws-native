@@ -18,6 +18,7 @@ class RouteArgs:
                  carrier_gateway_id: Optional[pulumi.Input[str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  egress_only_internet_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
@@ -33,6 +34,7 @@ class RouteArgs:
         :param pulumi.Input[str] carrier_gateway_id: The ID of the carrier gateway.
         :param pulumi.Input[str] destination_cidr_block: The IPv4 CIDR block used for the destination match.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The IPv6 CIDR block used for the destination match.
+        :param pulumi.Input[str] destination_prefix_list_id: The ID of managed prefix list, it's a set of one or more CIDR blocks.
         :param pulumi.Input[str] egress_only_internet_gateway_id: The ID of the egress-only internet gateway.
         :param pulumi.Input[str] gateway_id: The ID of an internet gateway or virtual private gateway attached to your VPC.
         :param pulumi.Input[str] instance_id: The ID of a NAT instance in your VPC.
@@ -50,6 +52,8 @@ class RouteArgs:
             pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         if destination_ipv6_cidr_block is not None:
             pulumi.set(__self__, "destination_ipv6_cidr_block", destination_ipv6_cidr_block)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         if egress_only_internet_gateway_id is not None:
             pulumi.set(__self__, "egress_only_internet_gateway_id", egress_only_internet_gateway_id)
         if gateway_id is not None:
@@ -116,6 +120,18 @@ class RouteArgs:
     @destination_ipv6_cidr_block.setter
     def destination_ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "destination_ipv6_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of managed prefix list, it's a set of one or more CIDR blocks.
+        """
+        return pulumi.get(self, "destination_prefix_list_id")
+
+    @destination_prefix_list_id.setter
+    def destination_prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_prefix_list_id", value)
 
     @property
     @pulumi.getter(name="egressOnlyInternetGatewayId")
@@ -234,6 +250,7 @@ class Route(pulumi.CustomResource):
                  carrier_gateway_id: Optional[pulumi.Input[str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  egress_only_internet_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
@@ -253,6 +270,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] carrier_gateway_id: The ID of the carrier gateway.
         :param pulumi.Input[str] destination_cidr_block: The IPv4 CIDR block used for the destination match.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The IPv6 CIDR block used for the destination match.
+        :param pulumi.Input[str] destination_prefix_list_id: The ID of managed prefix list, it's a set of one or more CIDR blocks.
         :param pulumi.Input[str] egress_only_internet_gateway_id: The ID of the egress-only internet gateway.
         :param pulumi.Input[str] gateway_id: The ID of an internet gateway or virtual private gateway attached to your VPC.
         :param pulumi.Input[str] instance_id: The ID of a NAT instance in your VPC.
@@ -291,6 +309,7 @@ class Route(pulumi.CustomResource):
                  carrier_gateway_id: Optional[pulumi.Input[str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  egress_only_internet_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
@@ -313,6 +332,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["carrier_gateway_id"] = carrier_gateway_id
             __props__.__dict__["destination_cidr_block"] = destination_cidr_block
             __props__.__dict__["destination_ipv6_cidr_block"] = destination_ipv6_cidr_block
+            __props__.__dict__["destination_prefix_list_id"] = destination_prefix_list_id
             __props__.__dict__["egress_only_internet_gateway_id"] = egress_only_internet_gateway_id
             __props__.__dict__["gateway_id"] = gateway_id
             __props__.__dict__["instance_id"] = instance_id
@@ -326,7 +346,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
             __props__.__dict__["vpc_peering_connection_id"] = vpc_peering_connection_id
             __props__.__dict__["cidr_block"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination_cidr_block", "destination_ipv6_cidr_block", "route_table_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination_cidr_block", "destination_ipv6_cidr_block", "destination_prefix_list_id", "route_table_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Route, __self__).__init__(
             'aws-native:ec2:Route',
@@ -354,6 +374,7 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["cidr_block"] = None
         __props__.__dict__["destination_cidr_block"] = None
         __props__.__dict__["destination_ipv6_cidr_block"] = None
+        __props__.__dict__["destination_prefix_list_id"] = None
         __props__.__dict__["egress_only_internet_gateway_id"] = None
         __props__.__dict__["gateway_id"] = None
         __props__.__dict__["instance_id"] = None
@@ -397,6 +418,14 @@ class Route(pulumi.CustomResource):
         The IPv6 CIDR block used for the destination match.
         """
         return pulumi.get(self, "destination_ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of managed prefix list, it's a set of one or more CIDR blocks.
+        """
+        return pulumi.get(self, "destination_prefix_list_id")
 
     @property
     @pulumi.getter(name="egressOnlyInternetGatewayId")

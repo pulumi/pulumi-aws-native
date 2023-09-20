@@ -15,17 +15,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("computationId", required: true)]
         public Input<string> ComputationId { get; set; } = null!;
 
-        [Input("fromValue")]
-        public Input<Inputs.AnalysisMeasureFieldArgs>? FromValue { get; set; }
+        [Input("fromValue", required: true)]
+        public Input<Inputs.AnalysisMeasureFieldArgs> FromValue { get; set; } = null!;
 
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("targetValue")]
-        public Input<Inputs.AnalysisMeasureFieldArgs>? TargetValue { get; set; }
+        [Input("targetValue", required: true)]
+        public Input<Inputs.AnalysisMeasureFieldArgs> TargetValue { get; set; } = null!;
 
-        [Input("time")]
-        public Input<Inputs.AnalysisDimensionFieldArgs>? Time { get; set; }
+        [Input("time", required: true)]
+        public Input<Inputs.AnalysisDimensionFieldArgs> Time { get; set; } = null!;
 
         public AnalysisMetricComparisonComputationArgs()
         {

@@ -54,6 +54,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public readonly string? Arn;
         public readonly string? CollaborationArn;
         public readonly string? CollaborationCreatorAccountId;
+        public readonly Outputs.MembershipProtectedQueryResultConfiguration? DefaultResultConfiguration;
         public readonly string? MembershipIdentifier;
         public readonly Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus? QueryLogStatus;
         /// <summary>
@@ -69,6 +70,8 @@ namespace Pulumi.AwsNative.CleanRooms
 
             string? collaborationCreatorAccountId,
 
+            Outputs.MembershipProtectedQueryResultConfiguration? defaultResultConfiguration,
+
             string? membershipIdentifier,
 
             Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus? queryLogStatus,
@@ -78,6 +81,7 @@ namespace Pulumi.AwsNative.CleanRooms
             Arn = arn;
             CollaborationArn = collaborationArn;
             CollaborationCreatorAccountId = collaborationCreatorAccountId;
+            DefaultResultConfiguration = defaultResultConfiguration;
             MembershipIdentifier = membershipIdentifier;
             QueryLogStatus = queryLogStatus;
             Tags = tags;

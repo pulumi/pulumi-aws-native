@@ -30,6 +30,7 @@ export interface GetFileSystemResult {
     readonly fileSystemTags?: outputs.efs.FileSystemElasticFileSystemTag[];
     readonly lifecyclePolicies?: outputs.efs.FileSystemLifecyclePolicy[];
     readonly provisionedThroughputInMibps?: number;
+    readonly replicationConfiguration?: outputs.efs.FileSystemReplicationConfiguration;
     readonly throughputMode?: string;
 }
 /**

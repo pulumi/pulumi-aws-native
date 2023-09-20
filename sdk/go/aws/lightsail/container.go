@@ -24,6 +24,10 @@ type Container struct {
 	IsDisabled pulumi.BoolPtrOutput `pulumi:"isDisabled"`
 	// The power specification for the container service.
 	Power pulumi.StringOutput `pulumi:"power"`
+	// The principal ARN of the container service.
+	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
+	// A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+	PrivateRegistryAccess ContainerPrivateRegistryAccessPtrOutput `pulumi:"privateRegistryAccess"`
 	// The public domain names to use with the container service, such as example.com and www.example.com.
 	PublicDomainNames ContainerPublicDomainNameArrayOutput `pulumi:"publicDomainNames"`
 	// The scale specification for the container service.
@@ -95,6 +99,8 @@ type containerArgs struct {
 	IsDisabled *bool `pulumi:"isDisabled"`
 	// The power specification for the container service.
 	Power string `pulumi:"power"`
+	// A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+	PrivateRegistryAccess *ContainerPrivateRegistryAccess `pulumi:"privateRegistryAccess"`
 	// The public domain names to use with the container service, such as example.com and www.example.com.
 	PublicDomainNames []ContainerPublicDomainName `pulumi:"publicDomainNames"`
 	// The scale specification for the container service.
@@ -113,6 +119,8 @@ type ContainerArgs struct {
 	IsDisabled pulumi.BoolPtrInput
 	// The power specification for the container service.
 	Power pulumi.StringInput
+	// A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+	PrivateRegistryAccess ContainerPrivateRegistryAccessPtrInput
 	// The public domain names to use with the container service, such as example.com and www.example.com.
 	PublicDomainNames ContainerPublicDomainNameArrayInput
 	// The scale specification for the container service.
@@ -189,6 +197,16 @@ func (o ContainerOutput) IsDisabled() pulumi.BoolPtrOutput {
 // The power specification for the container service.
 func (o ContainerOutput) Power() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Power }).(pulumi.StringOutput)
+}
+
+// The principal ARN of the container service.
+func (o ContainerOutput) PrincipalArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
+}
+
+// A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+func (o ContainerOutput) PrivateRegistryAccess() ContainerPrivateRegistryAccessPtrOutput {
+	return o.ApplyT(func(v *Container) ContainerPrivateRegistryAccessPtrOutput { return v.PrivateRegistryAccess }).(ContainerPrivateRegistryAccessPtrOutput)
 }
 
 // The public domain names to use with the container service, such as example.com and www.example.com.

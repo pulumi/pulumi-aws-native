@@ -33,9 +33,9 @@ export interface GetAutoScalingGroupResult {
     readonly healthCheckGracePeriod?: number;
     readonly healthCheckType?: string;
     readonly id?: string;
+    readonly instanceMaintenancePolicy?: outputs.autoscaling.AutoScalingGroupInstanceMaintenancePolicy;
     readonly launchConfigurationName?: string;
     readonly launchTemplate?: outputs.autoscaling.AutoScalingGroupLaunchTemplateSpecification;
-    readonly launchTemplateSpecification?: string;
     readonly lifecycleHookSpecificationList?: outputs.autoscaling.AutoScalingGroupLifecycleHookSpecification[];
     readonly loadBalancerNames?: string[];
     readonly maxInstanceLifetime?: number;

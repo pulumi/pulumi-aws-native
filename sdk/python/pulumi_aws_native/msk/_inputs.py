@@ -42,6 +42,7 @@ __all__ = [
     'ClusterVpcConnectivityScramArgs',
     'ClusterVpcConnectivityTlsArgs',
     'ClusterVpcConnectivityArgs',
+    'ConfigurationLatestRevisionArgs',
     'ServerlessClusterClientAuthenticationArgs',
     'ServerlessClusterIamArgs',
     'ServerlessClusterSaslArgs',
@@ -844,6 +845,47 @@ class ClusterVpcConnectivityArgs:
     @client_authentication.setter
     def client_authentication(self, value: Optional[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs']]):
         pulumi.set(self, "client_authentication", value)
+
+
+@pulumi.input_type
+class ConfigurationLatestRevisionArgs:
+    def __init__(__self__, *,
+                 creation_time: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 revision: Optional[pulumi.Input[int]] = None):
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "creation_time")
+
+    @creation_time.setter
+    def creation_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_time", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "revision")
+
+    @revision.setter
+    def revision(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "revision", value)
 
 
 @pulumi.input_type

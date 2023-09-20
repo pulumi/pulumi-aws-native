@@ -26,6 +26,53 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "ResultFormat" : {
+      "type" : "string",
+      "enum" : [ "CSV", "PARQUET" ]
+    },
+    "ProtectedQueryS3OutputConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ResultFormat" : {
+          "$ref" : "#/definitions/ResultFormat"
+        },
+        "Bucket" : {
+          "type" : "string",
+          "minLength" : 3,
+          "maxLength" : 63
+        },
+        "KeyPrefix" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ResultFormat", "Bucket" ]
+    },
+    "MembershipProtectedQueryOutputConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "S3" : {
+          "$ref" : "#/definitions/ProtectedQueryS3OutputConfiguration"
+        }
+      },
+      "required" : [ "S3" ]
+    },
+    "MembershipProtectedQueryResultConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "OutputConfiguration" : {
+          "$ref" : "#/definitions/MembershipProtectedQueryOutputConfiguration"
+        },
+        "RoleArn" : {
+          "type" : "string",
+          "minLength" : 32,
+          "maxLength" : 512
+        }
+      },
+      "required" : [ "OutputConfiguration" ]
     }
   },
   "properties" : {
@@ -66,6 +113,9 @@
     },
     "QueryLogStatus" : {
       "$ref" : "#/definitions/MembershipQueryLogStatus"
+    },
+    "DefaultResultConfiguration" : {
+      "$ref" : "#/definitions/MembershipProtectedQueryResultConfiguration"
     }
   },
   "required" : [ "CollaborationIdentifier", "QueryLogStatus" ],
@@ -81,13 +131,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "cleanrooms:CreateMembership", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:PutResourcePolicy", "logs:CreateLogGroup", "cleanrooms:GetMembership", "cleanrooms:ListTagsForResource", "cleanrooms:TagResource", "cleanrooms:ListMemberships" ]
+      "permissions" : [ "cleanrooms:CreateMembership", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:PutResourcePolicy", "logs:CreateLogGroup", "cleanrooms:GetMembership", "cleanrooms:ListTagsForResource", "cleanrooms:TagResource", "cleanrooms:ListMemberships", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "cleanrooms:GetMembership", "cleanrooms:ListTagsForResource", "logs:ListLogDeliveries", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:GetLogDelivery" ]
     },
     "update" : {
-      "permissions" : [ "cleanrooms:UpdateMembership", "cleanrooms:GetMembership", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:PutResourcePolicy", "logs:CreateLogGroup", "cleanrooms:ListTagsForResource", "cleanrooms:TagResource", "cleanrooms:UntagResource" ]
+      "permissions" : [ "cleanrooms:UpdateMembership", "cleanrooms:GetMembership", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:PutResourcePolicy", "logs:CreateLogGroup", "cleanrooms:ListTagsForResource", "cleanrooms:TagResource", "cleanrooms:UntagResource", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "cleanrooms:DeleteMembership", "cleanrooms:GetMembership", "cleanrooms:ListMemberships", "cleanrooms:ListTagsForResource", "logs:ListLogDeliveries", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:GetLogDelivery" ]

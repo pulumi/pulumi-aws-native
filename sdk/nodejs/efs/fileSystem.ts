@@ -52,6 +52,7 @@ export class FileSystem extends pulumi.CustomResource {
     public readonly lifecyclePolicies!: pulumi.Output<outputs.efs.FileSystemLifecyclePolicy[] | undefined>;
     public readonly performanceMode!: pulumi.Output<string | undefined>;
     public readonly provisionedThroughputInMibps!: pulumi.Output<number | undefined>;
+    public readonly replicationConfiguration!: pulumi.Output<outputs.efs.FileSystemReplicationConfiguration | undefined>;
     public readonly throughputMode!: pulumi.Output<string | undefined>;
 
     /**
@@ -75,6 +76,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["lifecyclePolicies"] = args ? args.lifecyclePolicies : undefined;
             resourceInputs["performanceMode"] = args ? args.performanceMode : undefined;
             resourceInputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
+            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
             resourceInputs["throughputMode"] = args ? args.throughputMode : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
@@ -91,6 +93,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["lifecyclePolicies"] = undefined /*out*/;
             resourceInputs["performanceMode"] = undefined /*out*/;
             resourceInputs["provisionedThroughputInMibps"] = undefined /*out*/;
+            resourceInputs["replicationConfiguration"] = undefined /*out*/;
             resourceInputs["throughputMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -117,5 +120,6 @@ export interface FileSystemArgs {
     lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicyArgs>[]>;
     performanceMode?: pulumi.Input<string>;
     provisionedThroughputInMibps?: pulumi.Input<number>;
+    replicationConfiguration?: pulumi.Input<inputs.efs.FileSystemReplicationConfigurationArgs>;
     throughputMode?: pulumi.Input<string>;
 }

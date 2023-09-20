@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTopBottomMoversComputationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("category")]
-        public Input<Inputs.TemplateDimensionFieldArgs>? Category { get; set; }
+        [Input("category", required: true)]
+        public Input<Inputs.TemplateDimensionFieldArgs> Category { get; set; } = null!;
 
         [Input("computationId", required: true)]
         public Input<string> ComputationId { get; set; } = null!;
@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("sortOrder")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateTopBottomSortOrder>? SortOrder { get; set; }
 
-        [Input("time")]
-        public Input<Inputs.TemplateDimensionFieldArgs>? Time { get; set; }
+        [Input("time", required: true)]
+        public Input<Inputs.TemplateDimensionFieldArgs> Time { get; set; } = null!;
 
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateTopBottomComputationType> Type { get; set; } = null!;

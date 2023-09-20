@@ -28,16 +28,17 @@ type LookupUserSettingsArgs struct {
 }
 
 type LookupUserSettingsResult struct {
-	AssociatedPortalArns           []string                 `pulumi:"associatedPortalArns"`
-	CopyAllowed                    *UserSettingsEnabledType `pulumi:"copyAllowed"`
-	DisconnectTimeoutInMinutes     *float64                 `pulumi:"disconnectTimeoutInMinutes"`
-	DownloadAllowed                *UserSettingsEnabledType `pulumi:"downloadAllowed"`
-	IdleDisconnectTimeoutInMinutes *float64                 `pulumi:"idleDisconnectTimeoutInMinutes"`
-	PasteAllowed                   *UserSettingsEnabledType `pulumi:"pasteAllowed"`
-	PrintAllowed                   *UserSettingsEnabledType `pulumi:"printAllowed"`
-	Tags                           []UserSettingsTag        `pulumi:"tags"`
-	UploadAllowed                  *UserSettingsEnabledType `pulumi:"uploadAllowed"`
-	UserSettingsArn                *string                  `pulumi:"userSettingsArn"`
+	AssociatedPortalArns               []string                                        `pulumi:"associatedPortalArns"`
+	CookieSynchronizationConfiguration *UserSettingsCookieSynchronizationConfiguration `pulumi:"cookieSynchronizationConfiguration"`
+	CopyAllowed                        *UserSettingsEnabledType                        `pulumi:"copyAllowed"`
+	DisconnectTimeoutInMinutes         *float64                                        `pulumi:"disconnectTimeoutInMinutes"`
+	DownloadAllowed                    *UserSettingsEnabledType                        `pulumi:"downloadAllowed"`
+	IdleDisconnectTimeoutInMinutes     *float64                                        `pulumi:"idleDisconnectTimeoutInMinutes"`
+	PasteAllowed                       *UserSettingsEnabledType                        `pulumi:"pasteAllowed"`
+	PrintAllowed                       *UserSettingsEnabledType                        `pulumi:"printAllowed"`
+	Tags                               []UserSettingsTag                               `pulumi:"tags"`
+	UploadAllowed                      *UserSettingsEnabledType                        `pulumi:"uploadAllowed"`
+	UserSettingsArn                    *string                                         `pulumi:"userSettingsArn"`
 }
 
 func LookupUserSettingsOutput(ctx *pulumi.Context, args LookupUserSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupUserSettingsResultOutput {
@@ -83,6 +84,12 @@ func (o LookupUserSettingsResultOutput) ToOutput(ctx context.Context) pulumix.Ou
 
 func (o LookupUserSettingsResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) []string { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupUserSettingsResultOutput) CookieSynchronizationConfiguration() UserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsCookieSynchronizationConfiguration {
+		return v.CookieSynchronizationConfiguration
+	}).(UserSettingsCookieSynchronizationConfigurationPtrOutput)
 }
 
 func (o LookupUserSettingsResultOutput) CopyAllowed() UserSettingsEnabledTypePtrOutput {

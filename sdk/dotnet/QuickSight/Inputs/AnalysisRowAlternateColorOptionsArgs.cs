@@ -23,9 +23,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("status")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisWidgetStatus>? Status { get; set; }
 
-        [Input("usePrimaryBackgroundColor")]
-        public Input<Pulumi.AwsNative.QuickSight.AnalysisWidgetStatus>? UsePrimaryBackgroundColor { get; set; }
-
         public AnalysisRowAlternateColorOptionsArgs()
         {
         }

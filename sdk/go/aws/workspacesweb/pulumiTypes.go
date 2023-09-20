@@ -1396,6 +1396,454 @@ func (o UserAccessLoggingSettingsTagArrayOutput) Index(i pulumi.IntInput) UserAc
 	}).(UserAccessLoggingSettingsTagOutput)
 }
 
+type UserSettingsCookieSpecification struct {
+	Domain string  `pulumi:"domain"`
+	Name   *string `pulumi:"name"`
+	Path   *string `pulumi:"path"`
+}
+
+// UserSettingsCookieSpecificationInput is an input type that accepts UserSettingsCookieSpecificationArgs and UserSettingsCookieSpecificationOutput values.
+// You can construct a concrete instance of `UserSettingsCookieSpecificationInput` via:
+//
+//	UserSettingsCookieSpecificationArgs{...}
+type UserSettingsCookieSpecificationInput interface {
+	pulumi.Input
+
+	ToUserSettingsCookieSpecificationOutput() UserSettingsCookieSpecificationOutput
+	ToUserSettingsCookieSpecificationOutputWithContext(context.Context) UserSettingsCookieSpecificationOutput
+}
+
+type UserSettingsCookieSpecificationArgs struct {
+	Domain pulumi.StringInput    `pulumi:"domain"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Path   pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (UserSettingsCookieSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsCookieSpecification)(nil)).Elem()
+}
+
+func (i UserSettingsCookieSpecificationArgs) ToUserSettingsCookieSpecificationOutput() UserSettingsCookieSpecificationOutput {
+	return i.ToUserSettingsCookieSpecificationOutputWithContext(context.Background())
+}
+
+func (i UserSettingsCookieSpecificationArgs) ToUserSettingsCookieSpecificationOutputWithContext(ctx context.Context) UserSettingsCookieSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsCookieSpecificationOutput)
+}
+
+func (i UserSettingsCookieSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[UserSettingsCookieSpecification] {
+	return pulumix.Output[UserSettingsCookieSpecification]{
+		OutputState: i.ToUserSettingsCookieSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// UserSettingsCookieSpecificationArrayInput is an input type that accepts UserSettingsCookieSpecificationArray and UserSettingsCookieSpecificationArrayOutput values.
+// You can construct a concrete instance of `UserSettingsCookieSpecificationArrayInput` via:
+//
+//	UserSettingsCookieSpecificationArray{ UserSettingsCookieSpecificationArgs{...} }
+type UserSettingsCookieSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToUserSettingsCookieSpecificationArrayOutput() UserSettingsCookieSpecificationArrayOutput
+	ToUserSettingsCookieSpecificationArrayOutputWithContext(context.Context) UserSettingsCookieSpecificationArrayOutput
+}
+
+type UserSettingsCookieSpecificationArray []UserSettingsCookieSpecificationInput
+
+func (UserSettingsCookieSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserSettingsCookieSpecification)(nil)).Elem()
+}
+
+func (i UserSettingsCookieSpecificationArray) ToUserSettingsCookieSpecificationArrayOutput() UserSettingsCookieSpecificationArrayOutput {
+	return i.ToUserSettingsCookieSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i UserSettingsCookieSpecificationArray) ToUserSettingsCookieSpecificationArrayOutputWithContext(ctx context.Context) UserSettingsCookieSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsCookieSpecificationArrayOutput)
+}
+
+func (i UserSettingsCookieSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]UserSettingsCookieSpecification] {
+	return pulumix.Output[[]UserSettingsCookieSpecification]{
+		OutputState: i.ToUserSettingsCookieSpecificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type UserSettingsCookieSpecificationOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsCookieSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsCookieSpecification)(nil)).Elem()
+}
+
+func (o UserSettingsCookieSpecificationOutput) ToUserSettingsCookieSpecificationOutput() UserSettingsCookieSpecificationOutput {
+	return o
+}
+
+func (o UserSettingsCookieSpecificationOutput) ToUserSettingsCookieSpecificationOutputWithContext(ctx context.Context) UserSettingsCookieSpecificationOutput {
+	return o
+}
+
+func (o UserSettingsCookieSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[UserSettingsCookieSpecification] {
+	return pulumix.Output[UserSettingsCookieSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserSettingsCookieSpecificationOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v UserSettingsCookieSpecification) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o UserSettingsCookieSpecificationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsCookieSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o UserSettingsCookieSpecificationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsCookieSpecification) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type UserSettingsCookieSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsCookieSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserSettingsCookieSpecification)(nil)).Elem()
+}
+
+func (o UserSettingsCookieSpecificationArrayOutput) ToUserSettingsCookieSpecificationArrayOutput() UserSettingsCookieSpecificationArrayOutput {
+	return o
+}
+
+func (o UserSettingsCookieSpecificationArrayOutput) ToUserSettingsCookieSpecificationArrayOutputWithContext(ctx context.Context) UserSettingsCookieSpecificationArrayOutput {
+	return o
+}
+
+func (o UserSettingsCookieSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserSettingsCookieSpecification] {
+	return pulumix.Output[[]UserSettingsCookieSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserSettingsCookieSpecificationArrayOutput) Index(i pulumi.IntInput) UserSettingsCookieSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserSettingsCookieSpecification {
+		return vs[0].([]UserSettingsCookieSpecification)[vs[1].(int)]
+	}).(UserSettingsCookieSpecificationOutput)
+}
+
+type UserSettingsCookieSynchronizationConfiguration struct {
+	Allowlist []UserSettingsCookieSpecification `pulumi:"allowlist"`
+	Blocklist []UserSettingsCookieSpecification `pulumi:"blocklist"`
+}
+
+// UserSettingsCookieSynchronizationConfigurationInput is an input type that accepts UserSettingsCookieSynchronizationConfigurationArgs and UserSettingsCookieSynchronizationConfigurationOutput values.
+// You can construct a concrete instance of `UserSettingsCookieSynchronizationConfigurationInput` via:
+//
+//	UserSettingsCookieSynchronizationConfigurationArgs{...}
+type UserSettingsCookieSynchronizationConfigurationInput interface {
+	pulumi.Input
+
+	ToUserSettingsCookieSynchronizationConfigurationOutput() UserSettingsCookieSynchronizationConfigurationOutput
+	ToUserSettingsCookieSynchronizationConfigurationOutputWithContext(context.Context) UserSettingsCookieSynchronizationConfigurationOutput
+}
+
+type UserSettingsCookieSynchronizationConfigurationArgs struct {
+	Allowlist UserSettingsCookieSpecificationArrayInput `pulumi:"allowlist"`
+	Blocklist UserSettingsCookieSpecificationArrayInput `pulumi:"blocklist"`
+}
+
+func (UserSettingsCookieSynchronizationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsCookieSynchronizationConfiguration)(nil)).Elem()
+}
+
+func (i UserSettingsCookieSynchronizationConfigurationArgs) ToUserSettingsCookieSynchronizationConfigurationOutput() UserSettingsCookieSynchronizationConfigurationOutput {
+	return i.ToUserSettingsCookieSynchronizationConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserSettingsCookieSynchronizationConfigurationArgs) ToUserSettingsCookieSynchronizationConfigurationOutputWithContext(ctx context.Context) UserSettingsCookieSynchronizationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsCookieSynchronizationConfigurationOutput)
+}
+
+func (i UserSettingsCookieSynchronizationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[UserSettingsCookieSynchronizationConfiguration] {
+	return pulumix.Output[UserSettingsCookieSynchronizationConfiguration]{
+		OutputState: i.ToUserSettingsCookieSynchronizationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i UserSettingsCookieSynchronizationConfigurationArgs) ToUserSettingsCookieSynchronizationConfigurationPtrOutput() UserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return i.ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserSettingsCookieSynchronizationConfigurationArgs) ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsCookieSynchronizationConfigurationOutput).ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserSettingsCookieSynchronizationConfigurationPtrInput is an input type that accepts UserSettingsCookieSynchronizationConfigurationArgs, UserSettingsCookieSynchronizationConfigurationPtr and UserSettingsCookieSynchronizationConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserSettingsCookieSynchronizationConfigurationPtrInput` via:
+//
+//	        UserSettingsCookieSynchronizationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserSettingsCookieSynchronizationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserSettingsCookieSynchronizationConfigurationPtrOutput() UserSettingsCookieSynchronizationConfigurationPtrOutput
+	ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(context.Context) UserSettingsCookieSynchronizationConfigurationPtrOutput
+}
+
+type userSettingsCookieSynchronizationConfigurationPtrType UserSettingsCookieSynchronizationConfigurationArgs
+
+func UserSettingsCookieSynchronizationConfigurationPtr(v *UserSettingsCookieSynchronizationConfigurationArgs) UserSettingsCookieSynchronizationConfigurationPtrInput {
+	return (*userSettingsCookieSynchronizationConfigurationPtrType)(v)
+}
+
+func (*userSettingsCookieSynchronizationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsCookieSynchronizationConfiguration)(nil)).Elem()
+}
+
+func (i *userSettingsCookieSynchronizationConfigurationPtrType) ToUserSettingsCookieSynchronizationConfigurationPtrOutput() UserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return i.ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userSettingsCookieSynchronizationConfigurationPtrType) ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsCookieSynchronizationConfigurationPtrOutput)
+}
+
+func (i *userSettingsCookieSynchronizationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserSettingsCookieSynchronizationConfiguration] {
+	return pulumix.Output[*UserSettingsCookieSynchronizationConfiguration]{
+		OutputState: i.ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type UserSettingsCookieSynchronizationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsCookieSynchronizationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsCookieSynchronizationConfiguration)(nil)).Elem()
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationOutput) ToUserSettingsCookieSynchronizationConfigurationOutput() UserSettingsCookieSynchronizationConfigurationOutput {
+	return o
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationOutput) ToUserSettingsCookieSynchronizationConfigurationOutputWithContext(ctx context.Context) UserSettingsCookieSynchronizationConfigurationOutput {
+	return o
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationOutput) ToUserSettingsCookieSynchronizationConfigurationPtrOutput() UserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return o.ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationOutput) ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsCookieSynchronizationConfiguration) *UserSettingsCookieSynchronizationConfiguration {
+		return &v
+	}).(UserSettingsCookieSynchronizationConfigurationPtrOutput)
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[UserSettingsCookieSynchronizationConfiguration] {
+	return pulumix.Output[UserSettingsCookieSynchronizationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationOutput) Allowlist() UserSettingsCookieSpecificationArrayOutput {
+	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSpecification {
+		return v.Allowlist
+	}).(UserSettingsCookieSpecificationArrayOutput)
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationOutput) Blocklist() UserSettingsCookieSpecificationArrayOutput {
+	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSpecification {
+		return v.Blocklist
+	}).(UserSettingsCookieSpecificationArrayOutput)
+}
+
+type UserSettingsCookieSynchronizationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsCookieSynchronizationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsCookieSynchronizationConfiguration)(nil)).Elem()
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) ToUserSettingsCookieSynchronizationConfigurationPtrOutput() UserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return o
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return o
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserSettingsCookieSynchronizationConfiguration] {
+	return pulumix.Output[*UserSettingsCookieSynchronizationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Elem() UserSettingsCookieSynchronizationConfigurationOutput {
+	return o.ApplyT(func(v *UserSettingsCookieSynchronizationConfiguration) UserSettingsCookieSynchronizationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserSettingsCookieSynchronizationConfiguration
+		return ret
+	}).(UserSettingsCookieSynchronizationConfigurationOutput)
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Allowlist() UserSettingsCookieSpecificationArrayOutput {
+	return o.ApplyT(func(v *UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.Allowlist
+	}).(UserSettingsCookieSpecificationArrayOutput)
+}
+
+func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Blocklist() UserSettingsCookieSpecificationArrayOutput {
+	return o.ApplyT(func(v *UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.Blocklist
+	}).(UserSettingsCookieSpecificationArrayOutput)
+}
+
+type UserSettingsEncryptionContextMap struct {
+}
+
+// UserSettingsEncryptionContextMapInput is an input type that accepts UserSettingsEncryptionContextMap and UserSettingsEncryptionContextMapOutput values.
+// You can construct a concrete instance of `UserSettingsEncryptionContextMapInput` via:
+//
+//	UserSettingsEncryptionContextMap{ "key": UserSettingsEncryptionContextArgs{...} }
+type UserSettingsEncryptionContextMapInput interface {
+	pulumi.Input
+
+	ToUserSettingsEncryptionContextMapOutput() UserSettingsEncryptionContextMapOutput
+	ToUserSettingsEncryptionContextMapOutputWithContext(context.Context) UserSettingsEncryptionContextMapOutput
+}
+
+type UserSettingsEncryptionContextMapArgs struct {
+}
+
+func (UserSettingsEncryptionContextMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsEncryptionContextMap)(nil)).Elem()
+}
+
+func (i UserSettingsEncryptionContextMapArgs) ToUserSettingsEncryptionContextMapOutput() UserSettingsEncryptionContextMapOutput {
+	return i.ToUserSettingsEncryptionContextMapOutputWithContext(context.Background())
+}
+
+func (i UserSettingsEncryptionContextMapArgs) ToUserSettingsEncryptionContextMapOutputWithContext(ctx context.Context) UserSettingsEncryptionContextMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsEncryptionContextMapOutput)
+}
+
+func (i UserSettingsEncryptionContextMapArgs) ToOutput(ctx context.Context) pulumix.Output[UserSettingsEncryptionContextMap] {
+	return pulumix.Output[UserSettingsEncryptionContextMap]{
+		OutputState: i.ToUserSettingsEncryptionContextMapOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i UserSettingsEncryptionContextMapArgs) ToUserSettingsEncryptionContextMapPtrOutput() UserSettingsEncryptionContextMapPtrOutput {
+	return i.ToUserSettingsEncryptionContextMapPtrOutputWithContext(context.Background())
+}
+
+func (i UserSettingsEncryptionContextMapArgs) ToUserSettingsEncryptionContextMapPtrOutputWithContext(ctx context.Context) UserSettingsEncryptionContextMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsEncryptionContextMapOutput).ToUserSettingsEncryptionContextMapPtrOutputWithContext(ctx)
+}
+
+// UserSettingsEncryptionContextMapPtrInput is an input type that accepts UserSettingsEncryptionContextMapArgs, UserSettingsEncryptionContextMapPtr and UserSettingsEncryptionContextMapPtrOutput values.
+// You can construct a concrete instance of `UserSettingsEncryptionContextMapPtrInput` via:
+//
+//	        UserSettingsEncryptionContextMapArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserSettingsEncryptionContextMapPtrInput interface {
+	pulumi.Input
+
+	ToUserSettingsEncryptionContextMapPtrOutput() UserSettingsEncryptionContextMapPtrOutput
+	ToUserSettingsEncryptionContextMapPtrOutputWithContext(context.Context) UserSettingsEncryptionContextMapPtrOutput
+}
+
+type userSettingsEncryptionContextMapPtrType UserSettingsEncryptionContextMapArgs
+
+func UserSettingsEncryptionContextMapPtr(v *UserSettingsEncryptionContextMapArgs) UserSettingsEncryptionContextMapPtrInput {
+	return (*userSettingsEncryptionContextMapPtrType)(v)
+}
+
+func (*userSettingsEncryptionContextMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsEncryptionContextMap)(nil)).Elem()
+}
+
+func (i *userSettingsEncryptionContextMapPtrType) ToUserSettingsEncryptionContextMapPtrOutput() UserSettingsEncryptionContextMapPtrOutput {
+	return i.ToUserSettingsEncryptionContextMapPtrOutputWithContext(context.Background())
+}
+
+func (i *userSettingsEncryptionContextMapPtrType) ToUserSettingsEncryptionContextMapPtrOutputWithContext(ctx context.Context) UserSettingsEncryptionContextMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsEncryptionContextMapPtrOutput)
+}
+
+func (i *userSettingsEncryptionContextMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserSettingsEncryptionContextMap] {
+	return pulumix.Output[*UserSettingsEncryptionContextMap]{
+		OutputState: i.ToUserSettingsEncryptionContextMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type UserSettingsEncryptionContextMapOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsEncryptionContextMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsEncryptionContextMap)(nil)).Elem()
+}
+
+func (o UserSettingsEncryptionContextMapOutput) ToUserSettingsEncryptionContextMapOutput() UserSettingsEncryptionContextMapOutput {
+	return o
+}
+
+func (o UserSettingsEncryptionContextMapOutput) ToUserSettingsEncryptionContextMapOutputWithContext(ctx context.Context) UserSettingsEncryptionContextMapOutput {
+	return o
+}
+
+func (o UserSettingsEncryptionContextMapOutput) ToUserSettingsEncryptionContextMapPtrOutput() UserSettingsEncryptionContextMapPtrOutput {
+	return o.ToUserSettingsEncryptionContextMapPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsEncryptionContextMapOutput) ToUserSettingsEncryptionContextMapPtrOutputWithContext(ctx context.Context) UserSettingsEncryptionContextMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsEncryptionContextMap) *UserSettingsEncryptionContextMap {
+		return &v
+	}).(UserSettingsEncryptionContextMapPtrOutput)
+}
+
+func (o UserSettingsEncryptionContextMapOutput) ToOutput(ctx context.Context) pulumix.Output[UserSettingsEncryptionContextMap] {
+	return pulumix.Output[UserSettingsEncryptionContextMap]{
+		OutputState: o.OutputState,
+	}
+}
+
+type UserSettingsEncryptionContextMapPtrOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsEncryptionContextMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsEncryptionContextMap)(nil)).Elem()
+}
+
+func (o UserSettingsEncryptionContextMapPtrOutput) ToUserSettingsEncryptionContextMapPtrOutput() UserSettingsEncryptionContextMapPtrOutput {
+	return o
+}
+
+func (o UserSettingsEncryptionContextMapPtrOutput) ToUserSettingsEncryptionContextMapPtrOutputWithContext(ctx context.Context) UserSettingsEncryptionContextMapPtrOutput {
+	return o
+}
+
+func (o UserSettingsEncryptionContextMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserSettingsEncryptionContextMap] {
+	return pulumix.Output[*UserSettingsEncryptionContextMap]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserSettingsEncryptionContextMapPtrOutput) Elem() UserSettingsEncryptionContextMapOutput {
+	return o.ApplyT(func(v *UserSettingsEncryptionContextMap) UserSettingsEncryptionContextMap {
+		if v != nil {
+			return *v
+		}
+		var ret UserSettingsEncryptionContextMap
+		return ret
+	}).(UserSettingsEncryptionContextMapOutput)
+}
+
 type UserSettingsTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -1542,6 +1990,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreTagArrayInput)(nil)).Elem(), TrustStoreTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAccessLoggingSettingsTagInput)(nil)).Elem(), UserAccessLoggingSettingsTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAccessLoggingSettingsTagArrayInput)(nil)).Elem(), UserAccessLoggingSettingsTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSpecificationInput)(nil)).Elem(), UserSettingsCookieSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSpecificationArrayInput)(nil)).Elem(), UserSettingsCookieSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationPtrInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEncryptionContextMapInput)(nil)).Elem(), UserSettingsEncryptionContextMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEncryptionContextMapPtrInput)(nil)).Elem(), UserSettingsEncryptionContextMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsTagInput)(nil)).Elem(), UserSettingsTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsTagArrayInput)(nil)).Elem(), UserSettingsTagArray{})
 	pulumi.RegisterOutputType(BrowserSettingsEncryptionContextMapOutput{})
@@ -1566,6 +2020,12 @@ func init() {
 	pulumi.RegisterOutputType(TrustStoreTagArrayOutput{})
 	pulumi.RegisterOutputType(UserAccessLoggingSettingsTagOutput{})
 	pulumi.RegisterOutputType(UserAccessLoggingSettingsTagArrayOutput{})
+	pulumi.RegisterOutputType(UserSettingsCookieSpecificationOutput{})
+	pulumi.RegisterOutputType(UserSettingsCookieSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationOutput{})
+	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserSettingsEncryptionContextMapOutput{})
+	pulumi.RegisterOutputType(UserSettingsEncryptionContextMapPtrOutput{})
 	pulumi.RegisterOutputType(UserSettingsTagOutput{})
 	pulumi.RegisterOutputType(UserSettingsTagArrayOutput{})
 }

@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFileSystemResult:
-    def __init__(__self__, arn=None, backup_policy=None, file_system_id=None, file_system_policy=None, file_system_tags=None, lifecycle_policies=None, provisioned_throughput_in_mibps=None, throughput_mode=None):
+    def __init__(__self__, arn=None, backup_policy=None, file_system_id=None, file_system_policy=None, file_system_tags=None, lifecycle_policies=None, provisioned_throughput_in_mibps=None, replication_configuration=None, throughput_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetFileSystemResult:
         if provisioned_throughput_in_mibps and not isinstance(provisioned_throughput_in_mibps, float):
             raise TypeError("Expected argument 'provisioned_throughput_in_mibps' to be a float")
         pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
+        if replication_configuration and not isinstance(replication_configuration, dict):
+            raise TypeError("Expected argument 'replication_configuration' to be a dict")
+        pulumi.set(__self__, "replication_configuration", replication_configuration)
         if throughput_mode and not isinstance(throughput_mode, str):
             raise TypeError("Expected argument 'throughput_mode' to be a str")
         pulumi.set(__self__, "throughput_mode", throughput_mode)
@@ -81,6 +84,11 @@ class GetFileSystemResult:
         return pulumi.get(self, "provisioned_throughput_in_mibps")
 
     @property
+    @pulumi.getter(name="replicationConfiguration")
+    def replication_configuration(self) -> Optional['outputs.FileSystemReplicationConfiguration']:
+        return pulumi.get(self, "replication_configuration")
+
+    @property
     @pulumi.getter(name="throughputMode")
     def throughput_mode(self) -> Optional[str]:
         return pulumi.get(self, "throughput_mode")
@@ -99,6 +107,7 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             file_system_tags=self.file_system_tags,
             lifecycle_policies=self.lifecycle_policies,
             provisioned_throughput_in_mibps=self.provisioned_throughput_in_mibps,
+            replication_configuration=self.replication_configuration,
             throughput_mode=self.throughput_mode)
 
 
@@ -120,6 +129,7 @@ def get_file_system(file_system_id: Optional[str] = None,
         file_system_tags=pulumi.get(__ret__, 'file_system_tags'),
         lifecycle_policies=pulumi.get(__ret__, 'lifecycle_policies'),
         provisioned_throughput_in_mibps=pulumi.get(__ret__, 'provisioned_throughput_in_mibps'),
+        replication_configuration=pulumi.get(__ret__, 'replication_configuration'),
         throughput_mode=pulumi.get(__ret__, 'throughput_mode'))
 
 

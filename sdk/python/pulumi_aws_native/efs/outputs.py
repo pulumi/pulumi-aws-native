@@ -18,6 +18,8 @@ __all__ = [
     'FileSystemBackupPolicy',
     'FileSystemElasticFileSystemTag',
     'FileSystemLifecyclePolicy',
+    'FileSystemReplicationConfiguration',
+    'FileSystemReplicationDestination',
 ]
 
 @pulumi.output_type
@@ -275,5 +277,76 @@ class FileSystemLifecyclePolicy(dict):
     @pulumi.getter(name="transitionToPrimaryStorageClass")
     def transition_to_primary_storage_class(self) -> Optional[str]:
         return pulumi.get(self, "transition_to_primary_storage_class")
+
+
+@pulumi.output_type
+class FileSystemReplicationConfiguration(dict):
+    def __init__(__self__, *,
+                 destinations: Optional[Sequence['outputs.FileSystemReplicationDestination']] = None):
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.FileSystemReplicationDestination']]:
+        return pulumi.get(self, "destinations")
+
+
+@pulumi.output_type
+class FileSystemReplicationDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZoneName":
+            suggest = "availability_zone_name"
+        elif key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemReplicationDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemReplicationDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemReplicationDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone_name: Optional[str] = None,
+                 file_system_id: Optional[str] = None,
+                 kms_key_id: Optional[str] = None,
+                 region: Optional[str] = None):
+        if availability_zone_name is not None:
+            pulumi.set(__self__, "availability_zone_name", availability_zone_name)
+        if file_system_id is not None:
+            pulumi.set(__self__, "file_system_id", file_system_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="availabilityZoneName")
+    def availability_zone_name(self) -> Optional[str]:
+        return pulumi.get(self, "availability_zone_name")
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> Optional[str]:
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        return pulumi.get(self, "region")
 
 

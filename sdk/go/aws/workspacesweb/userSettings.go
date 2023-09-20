@@ -17,16 +17,19 @@ import (
 type UserSettings struct {
 	pulumi.CustomResourceState
 
-	AssociatedPortalArns           pulumi.StringArrayOutput      `pulumi:"associatedPortalArns"`
-	CopyAllowed                    UserSettingsEnabledTypeOutput `pulumi:"copyAllowed"`
-	DisconnectTimeoutInMinutes     pulumi.Float64PtrOutput       `pulumi:"disconnectTimeoutInMinutes"`
-	DownloadAllowed                UserSettingsEnabledTypeOutput `pulumi:"downloadAllowed"`
-	IdleDisconnectTimeoutInMinutes pulumi.Float64PtrOutput       `pulumi:"idleDisconnectTimeoutInMinutes"`
-	PasteAllowed                   UserSettingsEnabledTypeOutput `pulumi:"pasteAllowed"`
-	PrintAllowed                   UserSettingsEnabledTypeOutput `pulumi:"printAllowed"`
-	Tags                           UserSettingsTagArrayOutput    `pulumi:"tags"`
-	UploadAllowed                  UserSettingsEnabledTypeOutput `pulumi:"uploadAllowed"`
-	UserSettingsArn                pulumi.StringOutput           `pulumi:"userSettingsArn"`
+	AdditionalEncryptionContext        UserSettingsEncryptionContextMapPtrOutput               `pulumi:"additionalEncryptionContext"`
+	AssociatedPortalArns               pulumi.StringArrayOutput                                `pulumi:"associatedPortalArns"`
+	CookieSynchronizationConfiguration UserSettingsCookieSynchronizationConfigurationPtrOutput `pulumi:"cookieSynchronizationConfiguration"`
+	CopyAllowed                        UserSettingsEnabledTypeOutput                           `pulumi:"copyAllowed"`
+	CustomerManagedKey                 pulumi.StringPtrOutput                                  `pulumi:"customerManagedKey"`
+	DisconnectTimeoutInMinutes         pulumi.Float64PtrOutput                                 `pulumi:"disconnectTimeoutInMinutes"`
+	DownloadAllowed                    UserSettingsEnabledTypeOutput                           `pulumi:"downloadAllowed"`
+	IdleDisconnectTimeoutInMinutes     pulumi.Float64PtrOutput                                 `pulumi:"idleDisconnectTimeoutInMinutes"`
+	PasteAllowed                       UserSettingsEnabledTypeOutput                           `pulumi:"pasteAllowed"`
+	PrintAllowed                       UserSettingsEnabledTypeOutput                           `pulumi:"printAllowed"`
+	Tags                               UserSettingsTagArrayOutput                              `pulumi:"tags"`
+	UploadAllowed                      UserSettingsEnabledTypeOutput                           `pulumi:"uploadAllowed"`
+	UserSettingsArn                    pulumi.StringOutput                                     `pulumi:"userSettingsArn"`
 }
 
 // NewUserSettings registers a new resource with the given unique name, arguments, and options.
@@ -51,6 +54,11 @@ func NewUserSettings(ctx *pulumi.Context,
 	if args.UploadAllowed == nil {
 		return nil, errors.New("invalid value for required argument 'UploadAllowed'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"additionalEncryptionContext",
+		"customerManagedKey",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserSettings
 	err := ctx.RegisterResource("aws-native:workspacesweb:UserSettings", name, args, &resource, opts...)
@@ -84,26 +92,32 @@ func (UserSettingsState) ElementType() reflect.Type {
 }
 
 type userSettingsArgs struct {
-	CopyAllowed                    UserSettingsEnabledType `pulumi:"copyAllowed"`
-	DisconnectTimeoutInMinutes     *float64                `pulumi:"disconnectTimeoutInMinutes"`
-	DownloadAllowed                UserSettingsEnabledType `pulumi:"downloadAllowed"`
-	IdleDisconnectTimeoutInMinutes *float64                `pulumi:"idleDisconnectTimeoutInMinutes"`
-	PasteAllowed                   UserSettingsEnabledType `pulumi:"pasteAllowed"`
-	PrintAllowed                   UserSettingsEnabledType `pulumi:"printAllowed"`
-	Tags                           []UserSettingsTag       `pulumi:"tags"`
-	UploadAllowed                  UserSettingsEnabledType `pulumi:"uploadAllowed"`
+	AdditionalEncryptionContext        *UserSettingsEncryptionContextMap               `pulumi:"additionalEncryptionContext"`
+	CookieSynchronizationConfiguration *UserSettingsCookieSynchronizationConfiguration `pulumi:"cookieSynchronizationConfiguration"`
+	CopyAllowed                        UserSettingsEnabledType                         `pulumi:"copyAllowed"`
+	CustomerManagedKey                 *string                                         `pulumi:"customerManagedKey"`
+	DisconnectTimeoutInMinutes         *float64                                        `pulumi:"disconnectTimeoutInMinutes"`
+	DownloadAllowed                    UserSettingsEnabledType                         `pulumi:"downloadAllowed"`
+	IdleDisconnectTimeoutInMinutes     *float64                                        `pulumi:"idleDisconnectTimeoutInMinutes"`
+	PasteAllowed                       UserSettingsEnabledType                         `pulumi:"pasteAllowed"`
+	PrintAllowed                       UserSettingsEnabledType                         `pulumi:"printAllowed"`
+	Tags                               []UserSettingsTag                               `pulumi:"tags"`
+	UploadAllowed                      UserSettingsEnabledType                         `pulumi:"uploadAllowed"`
 }
 
 // The set of arguments for constructing a UserSettings resource.
 type UserSettingsArgs struct {
-	CopyAllowed                    UserSettingsEnabledTypeInput
-	DisconnectTimeoutInMinutes     pulumi.Float64PtrInput
-	DownloadAllowed                UserSettingsEnabledTypeInput
-	IdleDisconnectTimeoutInMinutes pulumi.Float64PtrInput
-	PasteAllowed                   UserSettingsEnabledTypeInput
-	PrintAllowed                   UserSettingsEnabledTypeInput
-	Tags                           UserSettingsTagArrayInput
-	UploadAllowed                  UserSettingsEnabledTypeInput
+	AdditionalEncryptionContext        UserSettingsEncryptionContextMapPtrInput
+	CookieSynchronizationConfiguration UserSettingsCookieSynchronizationConfigurationPtrInput
+	CopyAllowed                        UserSettingsEnabledTypeInput
+	CustomerManagedKey                 pulumi.StringPtrInput
+	DisconnectTimeoutInMinutes         pulumi.Float64PtrInput
+	DownloadAllowed                    UserSettingsEnabledTypeInput
+	IdleDisconnectTimeoutInMinutes     pulumi.Float64PtrInput
+	PasteAllowed                       UserSettingsEnabledTypeInput
+	PrintAllowed                       UserSettingsEnabledTypeInput
+	Tags                               UserSettingsTagArrayInput
+	UploadAllowed                      UserSettingsEnabledTypeInput
 }
 
 func (UserSettingsArgs) ElementType() reflect.Type {
@@ -155,12 +169,26 @@ func (o UserSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*UserSe
 	}
 }
 
+func (o UserSettingsOutput) AdditionalEncryptionContext() UserSettingsEncryptionContextMapPtrOutput {
+	return o.ApplyT(func(v *UserSettings) UserSettingsEncryptionContextMapPtrOutput { return v.AdditionalEncryptionContext }).(UserSettingsEncryptionContextMapPtrOutput)
+}
+
 func (o UserSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+func (o UserSettingsOutput) CookieSynchronizationConfiguration() UserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserSettings) UserSettingsCookieSynchronizationConfigurationPtrOutput {
+		return v.CookieSynchronizationConfiguration
+	}).(UserSettingsCookieSynchronizationConfigurationPtrOutput)
+}
+
 func (o UserSettingsOutput) CopyAllowed() UserSettingsEnabledTypeOutput {
 	return o.ApplyT(func(v *UserSettings) UserSettingsEnabledTypeOutput { return v.CopyAllowed }).(UserSettingsEnabledTypeOutput)
+}
+
+func (o UserSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSettings) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
 func (o UserSettingsOutput) DisconnectTimeoutInMinutes() pulumi.Float64PtrOutput {

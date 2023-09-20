@@ -109,3 +109,10 @@ export const MembershipQueryLogStatus = {
 } as const;
 
 export type MembershipQueryLogStatus = (typeof MembershipQueryLogStatus)[keyof typeof MembershipQueryLogStatus];
+
+export const MembershipResultFormat = {
+    Csv: "CSV",
+    Parquet: "PARQUET",
+} as const;
+
+export type MembershipResultFormat = (typeof MembershipResultFormat)[keyof typeof MembershipResultFormat];

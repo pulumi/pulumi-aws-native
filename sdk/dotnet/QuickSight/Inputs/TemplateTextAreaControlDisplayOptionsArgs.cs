@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTextAreaControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("infoIconLabelOptions")]
-        public Input<Inputs.TemplateSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
-
         [Input("placeholderOptions")]
         public Input<Inputs.TemplateTextControlPlaceholderOptionsArgs>? PlaceholderOptions { get; set; }
 

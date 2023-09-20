@@ -28,14 +28,15 @@ type LookupFileSystemArgs struct {
 }
 
 type LookupFileSystemResult struct {
-	Arn                          *string                          `pulumi:"arn"`
-	BackupPolicy                 *FileSystemBackupPolicy          `pulumi:"backupPolicy"`
-	FileSystemId                 *string                          `pulumi:"fileSystemId"`
-	FileSystemPolicy             interface{}                      `pulumi:"fileSystemPolicy"`
-	FileSystemTags               []FileSystemElasticFileSystemTag `pulumi:"fileSystemTags"`
-	LifecyclePolicies            []FileSystemLifecyclePolicy      `pulumi:"lifecyclePolicies"`
-	ProvisionedThroughputInMibps *float64                         `pulumi:"provisionedThroughputInMibps"`
-	ThroughputMode               *string                          `pulumi:"throughputMode"`
+	Arn                          *string                             `pulumi:"arn"`
+	BackupPolicy                 *FileSystemBackupPolicy             `pulumi:"backupPolicy"`
+	FileSystemId                 *string                             `pulumi:"fileSystemId"`
+	FileSystemPolicy             interface{}                         `pulumi:"fileSystemPolicy"`
+	FileSystemTags               []FileSystemElasticFileSystemTag    `pulumi:"fileSystemTags"`
+	LifecyclePolicies            []FileSystemLifecyclePolicy         `pulumi:"lifecyclePolicies"`
+	ProvisionedThroughputInMibps *float64                            `pulumi:"provisionedThroughputInMibps"`
+	ReplicationConfiguration     *FileSystemReplicationConfiguration `pulumi:"replicationConfiguration"`
+	ThroughputMode               *string                             `pulumi:"throughputMode"`
 }
 
 func LookupFileSystemOutput(ctx *pulumi.Context, args LookupFileSystemOutputArgs, opts ...pulumi.InvokeOption) LookupFileSystemResultOutput {
@@ -105,6 +106,10 @@ func (o LookupFileSystemResultOutput) LifecyclePolicies() FileSystemLifecyclePol
 
 func (o LookupFileSystemResultOutput) ProvisionedThroughputInMibps() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) *float64 { return v.ProvisionedThroughputInMibps }).(pulumi.Float64PtrOutput)
+}
+
+func (o LookupFileSystemResultOutput) ReplicationConfiguration() FileSystemReplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *FileSystemReplicationConfiguration { return v.ReplicationConfiguration }).(FileSystemReplicationConfigurationPtrOutput)
 }
 
 func (o LookupFileSystemResultOutput) ThroughputMode() pulumi.StringPtrOutput {

@@ -4946,6 +4946,11 @@ export namespace autoscaling {
         min?: pulumi.Input<number>;
     }
 
+    export interface AutoScalingGroupInstanceMaintenancePolicyArgs {
+        maxHealthyPercentage?: pulumi.Input<number>;
+        minHealthyPercentage?: pulumi.Input<number>;
+    }
+
     export interface AutoScalingGroupInstanceRequirementsArgs {
         acceleratorCount?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAcceleratorCountRequestArgs>;
         acceleratorManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
@@ -5041,7 +5046,7 @@ export namespace autoscaling {
 
     export interface AutoScalingGroupNotificationConfigurationArgs {
         notificationTypes?: pulumi.Input<pulumi.Input<string>[]>;
-        topicArn: pulumi.Input<string>;
+        topicArn: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AutoScalingGroupTagPropertyArgs {
@@ -6167,6 +6172,21 @@ export namespace cleanrooms {
     export interface ConfiguredTableTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface MembershipProtectedQueryOutputConfigurationArgs {
+        s3: pulumi.Input<inputs.cleanrooms.MembershipProtectedQueryS3OutputConfigurationArgs>;
+    }
+
+    export interface MembershipProtectedQueryResultConfigurationArgs {
+        outputConfiguration: pulumi.Input<inputs.cleanrooms.MembershipProtectedQueryOutputConfigurationArgs>;
+        roleArn?: pulumi.Input<string>;
+    }
+
+    export interface MembershipProtectedQueryS3OutputConfigurationArgs {
+        bucket: pulumi.Input<string>;
+        keyPrefix?: pulumi.Input<string>;
+        resultFormat: pulumi.Input<enums.cleanrooms.MembershipResultFormat>;
     }
 
     export interface MembershipTagArgs {
@@ -12610,6 +12630,10 @@ export namespace ec2 {
          */
         networkInterfaceId?: pulumi.Input<string>;
         /**
+         * Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+         */
+        primaryIpv6?: pulumi.Input<boolean>;
+        /**
          * The primary private IPv4 address of the network interface.
          */
         privateIpAddress?: pulumi.Input<string>;
@@ -14292,6 +14316,17 @@ export namespace efs {
     export interface FileSystemLifecyclePolicyArgs {
         transitionToIa?: pulumi.Input<string>;
         transitionToPrimaryStorageClass?: pulumi.Input<string>;
+    }
+
+    export interface FileSystemReplicationConfigurationArgs {
+        destinations?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemReplicationDestinationArgs>[]>;
+    }
+
+    export interface FileSystemReplicationDestinationArgs {
+        availabilityZoneName?: pulumi.Input<string>;
+        fileSystemId?: pulumi.Input<string>;
+        kmsKeyId?: pulumi.Input<string>;
+        region?: pulumi.Input<string>;
     }
 }
 
@@ -26227,6 +26262,30 @@ export namespace lightsail {
     }
 
     /**
+     * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+     */
+    export interface ContainerPrivateRegistryAccessArgs {
+        /**
+         * An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+         */
+        ecrImagePullerRole?: pulumi.Input<inputs.lightsail.ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs>;
+    }
+
+    /**
+     * An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+     */
+    export interface ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs {
+        /**
+         * A Boolean value that indicates whether to activate the role.
+         */
+        isActive?: pulumi.Input<boolean>;
+        /**
+         * The Amazon Resource Name (ARN) of the role, if it is activated.
+         */
+        principalArn?: pulumi.Input<string>;
+    }
+
+    /**
      * The public domain name to use with the container service, such as example.com and www.example.com.
      */
     export interface ContainerPublicDomainNameArgs {
@@ -29534,6 +29593,193 @@ export namespace mediapackage {
     }
 }
 
+export namespace mediapackagev2 {
+    export interface ChannelGroupTagArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface ChannelTagArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>The parameters for encrypting content.</p>
+     */
+    export interface OriginEndpointEncryptionArgs {
+        /**
+         * <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
+         */
+        constantInitializationVector?: pulumi.Input<string>;
+        encryptionMethod: pulumi.Input<inputs.mediapackagev2.OriginEndpointEncryptionMethodArgs>;
+        /**
+         * <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p>
+         *          <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
+         *          </p>
+         */
+        keyRotationIntervalSeconds?: pulumi.Input<number>;
+        spekeKeyProvider: pulumi.Input<inputs.mediapackagev2.OriginEndpointSpekeKeyProviderArgs>;
+    }
+
+    /**
+     * <p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>
+     */
+    export interface OriginEndpointEncryptionContractConfigurationArgs {
+        presetSpeke20Audio: pulumi.Input<enums.mediapackagev2.OriginEndpointPresetSpeke20Audio>;
+        presetSpeke20Video: pulumi.Input<enums.mediapackagev2.OriginEndpointPresetSpeke20Video>;
+    }
+
+    /**
+     * <p>The encryption type.</p>
+     */
+    export interface OriginEndpointEncryptionMethodArgs {
+        cmafEncryptionMethod?: pulumi.Input<enums.mediapackagev2.OriginEndpointCmafEncryptionMethod>;
+        tsEncryptionMethod?: pulumi.Input<enums.mediapackagev2.OriginEndpointTsEncryptionMethod>;
+    }
+
+    /**
+     * <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
+     */
+    export interface OriginEndpointHlsManifestConfigurationArgs {
+        /**
+         * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+         */
+        childManifestName?: pulumi.Input<string>;
+        /**
+         * <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+         */
+        manifestName: pulumi.Input<string>;
+        /**
+         * <p>The total duration (in seconds) of the manifest's content.</p>
+         */
+        manifestWindowSeconds?: pulumi.Input<number>;
+        /**
+         * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
+         *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
+         *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
+         *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+         *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+         */
+        programDateTimeIntervalSeconds?: pulumi.Input<number>;
+        scteHls?: pulumi.Input<inputs.mediapackagev2.OriginEndpointScteHlsArgs>;
+        /**
+         * <p>The egress domain URL for stream delivery from MediaPackage.</p>
+         */
+        url?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
+     */
+    export interface OriginEndpointLowLatencyHlsManifestConfigurationArgs {
+        /**
+         * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+         */
+        childManifestName?: pulumi.Input<string>;
+        /**
+         * <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+         */
+        manifestName: pulumi.Input<string>;
+        /**
+         * <p>The total duration (in seconds) of the manifest's content.</p>
+         */
+        manifestWindowSeconds?: pulumi.Input<number>;
+        /**
+         * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
+         *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
+         *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
+         *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+         *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+         */
+        programDateTimeIntervalSeconds?: pulumi.Input<number>;
+        scteHls?: pulumi.Input<inputs.mediapackagev2.OriginEndpointScteHlsArgs>;
+        /**
+         * <p>The egress domain URL for stream delivery from MediaPackage.</p>
+         */
+        url?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>The SCTE configuration.</p>
+     */
+    export interface OriginEndpointScteArgs {
+        /**
+         * <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
+         */
+        scteFilter?: pulumi.Input<pulumi.Input<enums.mediapackagev2.OriginEndpointScteFilter>[]>;
+    }
+
+    /**
+     * <p>The SCTE configuration.</p>
+     */
+    export interface OriginEndpointScteHlsArgs {
+        adMarkerHls?: pulumi.Input<enums.mediapackagev2.OriginEndpointAdMarkerHls>;
+    }
+
+    /**
+     * <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
+     */
+    export interface OriginEndpointSegmentArgs {
+        encryption?: pulumi.Input<inputs.mediapackagev2.OriginEndpointEncryptionArgs>;
+        /**
+         * <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
+         */
+        includeIframeOnlyStreams?: pulumi.Input<boolean>;
+        scte?: pulumi.Input<inputs.mediapackagev2.OriginEndpointScteArgs>;
+        /**
+         * <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
+         */
+        segmentDurationSeconds?: pulumi.Input<number>;
+        /**
+         * <p>The name that describes the segment. The name is the base name of the segment used in all content manifests inside of the endpoint. You can't use spaces in the name.</p>
+         */
+        segmentName?: pulumi.Input<string>;
+        /**
+         * <p>By default, MediaPackage excludes all digital video broadcasting (DVB) subtitles from the output. When selected, MediaPackage passes through DVB subtitles into the output.</p>
+         */
+        tsIncludeDvbSubtitles?: pulumi.Input<boolean>;
+        /**
+         * <p>When selected, MediaPackage bundles all audio tracks in a rendition group. All other tracks in the stream can be used with any audio rendition from the group.</p>
+         */
+        tsUseAudioRenditionGroup?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * <p>The parameters for the SPEKE key provider.</p>
+     */
+    export interface OriginEndpointSpekeKeyProviderArgs {
+        /**
+         * <p>The DRM solution provider you're using to protect your content during distribution.</p>
+         */
+        drmSystems: pulumi.Input<pulumi.Input<enums.mediapackagev2.OriginEndpointDrmSystem>[]>;
+        encryptionContractConfiguration: pulumi.Input<inputs.mediapackagev2.OriginEndpointEncryptionContractConfigurationArgs>;
+        /**
+         * <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p>
+         *          <p>The following example shows a resource ID: <code>MovieNight20171126093045</code>
+         *          </p>
+         */
+        resourceId: pulumi.Input<string>;
+        /**
+         * <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p>
+         *          <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code>
+         *          </p>
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p>
+         *          <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code>
+         *          </p>
+         */
+        url: pulumi.Input<string>;
+    }
+
+    export interface OriginEndpointTagArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+}
+
 export namespace mediastore {
     export interface ContainerCorsRuleArgs {
         allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
@@ -30090,6 +30336,12 @@ export namespace msk {
 
     export interface ClusterVpcConnectivityTlsArgs {
         enabled: pulumi.Input<boolean>;
+    }
+
+    export interface ConfigurationLatestRevisionArgs {
+        creationTime?: pulumi.Input<string>;
+        description?: pulumi.Input<string>;
+        revision?: pulumi.Input<number>;
     }
 
     export interface ServerlessClusterClientAuthenticationArgs {
@@ -32871,9 +33123,6 @@ export namespace quicksight {
         sortDirection: pulumi.Input<enums.quicksight.AnalysisSortDirection>;
     }
 
-    export interface AnalysisAllSheetsFilterScopeConfigurationArgs {
-    }
-
     export interface AnalysisAnchorDateConfigurationArgs {
         anchorOption?: pulumi.Input<enums.quicksight.AnalysisAnchorOption>;
         parameterName?: pulumi.Input<string>;
@@ -33502,7 +33751,6 @@ export namespace quicksight {
 
     export interface AnalysisDateTimePickerControlDisplayOptionsArgs {
         dateTimeFormat?: pulumi.Input<string>;
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
     }
 
@@ -33609,7 +33857,6 @@ export namespace quicksight {
     }
 
     export interface AnalysisDropDownControlDisplayOptionsArgs {
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         selectAllOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlSelectAllOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
     }
@@ -33796,7 +34043,6 @@ export namespace quicksight {
     }
 
     export interface AnalysisFilterScopeConfigurationArgs {
-        allSheets?: pulumi.Input<inputs.quicksight.AnalysisAllSheetsFilterScopeConfigurationArgs>;
         selectedSheets?: pulumi.Input<inputs.quicksight.AnalysisSelectedSheetsFilterScopeConfigurationArgs>;
     }
 
@@ -33855,7 +34101,7 @@ export namespace quicksight {
         periodsForward?: pulumi.Input<number>;
         predictionInterval?: pulumi.Input<number>;
         seasonality?: pulumi.Input<enums.quicksight.AnalysisForecastComputationSeasonality>;
-        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         upperBoundary?: pulumi.Input<number>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
@@ -34132,7 +34378,7 @@ export namespace quicksight {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         periodSize?: pulumi.Input<number>;
-        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
 
@@ -34426,7 +34672,6 @@ export namespace quicksight {
     }
 
     export interface AnalysisListControlDisplayOptionsArgs {
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         searchOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlSearchOptionsArgs>;
         selectAllOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlSelectAllOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
@@ -34465,7 +34710,7 @@ export namespace quicksight {
     export interface AnalysisMaximumMinimumComputationArgs {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
-        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         type: pulumi.Input<enums.quicksight.AnalysisMaximumMinimumComputationType>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
@@ -34479,10 +34724,10 @@ export namespace quicksight {
 
     export interface AnalysisMetricComparisonComputationArgs {
         computationId: pulumi.Input<string>;
-        fromValue?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+        fromValue: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
         name?: pulumi.Input<string>;
-        targetValue?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
-        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        targetValue: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
     }
 
     export interface AnalysisMinimumLabelTypeArgs {
@@ -34713,7 +34958,7 @@ export namespace quicksight {
     export interface AnalysisPeriodOverPeriodComputationArgs {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
-        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
 
@@ -34721,7 +34966,7 @@ export namespace quicksight {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         periodTimeGranularity?: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
-        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
 
@@ -34847,16 +35092,10 @@ export namespace quicksight {
         collapsedRowDimensionsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         columnHeaderStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
         columnNamesVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
-        /**
-         * String based length that is composed of value and unit in px
-         */
-        defaultCellWidth?: pulumi.Input<string>;
         metricPlacement?: pulumi.Input<enums.quicksight.AnalysisPivotTableMetricPlacement>;
         rowAlternateColorOptions?: pulumi.Input<inputs.quicksight.AnalysisRowAlternateColorOptionsArgs>;
         rowFieldNamesStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
         rowHeaderStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
-        rowsLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisPivotTableRowsLabelOptionsArgs>;
-        rowsLayout?: pulumi.Input<enums.quicksight.AnalysisPivotTableRowsLayout>;
         singleMetricVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         toggleButtonsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
     }
@@ -34864,11 +35103,6 @@ export namespace quicksight {
     export interface AnalysisPivotTablePaginatedReportOptionsArgs {
         overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         verticalOverflowVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
-    }
-
-    export interface AnalysisPivotTableRowsLabelOptionsArgs {
-        customLabel?: pulumi.Input<string>;
-        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
     }
 
     export interface AnalysisPivotTableSortByArgs {
@@ -35021,7 +35255,6 @@ export namespace quicksight {
 
     export interface AnalysisRelativeDateTimeControlDisplayOptionsArgs {
         dateTimeFormat?: pulumi.Input<string>;
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
     }
 
@@ -35052,7 +35285,6 @@ export namespace quicksight {
     export interface AnalysisRowAlternateColorOptionsArgs {
         rowAlternateColors?: pulumi.Input<pulumi.Input<string>[]>;
         status?: pulumi.Input<enums.quicksight.AnalysisWidgetStatus>;
-        usePrimaryBackgroundColor?: pulumi.Input<enums.quicksight.AnalysisWidgetStatus>;
     }
 
     export interface AnalysisSameSheetTargetVisualConfigurationArgs {
@@ -35196,11 +35428,6 @@ export namespace quicksight {
         backgroundColor: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
     }
 
-    export interface AnalysisSheetControlInfoIconLabelOptionsArgs {
-        infoIconText?: pulumi.Input<string>;
-        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
-    }
-
     export interface AnalysisSheetControlLayoutArgs {
         configuration: pulumi.Input<inputs.quicksight.AnalysisSheetControlLayoutConfigurationArgs>;
     }
@@ -35253,21 +35480,13 @@ export namespace quicksight {
     }
 
     export interface AnalysisSliderControlDisplayOptionsArgs {
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
-    }
-
-    export interface AnalysisSmallMultiplesAxisPropertiesArgs {
-        placement?: pulumi.Input<enums.quicksight.AnalysisSmallMultiplesAxisPlacement>;
-        scale?: pulumi.Input<enums.quicksight.AnalysisSmallMultiplesAxisScale>;
     }
 
     export interface AnalysisSmallMultiplesOptionsArgs {
         maxVisibleColumns?: pulumi.Input<number>;
         maxVisibleRows?: pulumi.Input<number>;
         panelConfiguration?: pulumi.Input<inputs.quicksight.AnalysisPanelConfigurationArgs>;
-        xAxis?: pulumi.Input<inputs.quicksight.AnalysisSmallMultiplesAxisPropertiesArgs>;
-        yAxis?: pulumi.Input<inputs.quicksight.AnalysisSmallMultiplesAxisPropertiesArgs>;
     }
 
     export interface AnalysisSourceEntityArgs {
@@ -35331,7 +35550,6 @@ export namespace quicksight {
         fieldLevel?: pulumi.Input<enums.quicksight.AnalysisPivotTableSubtotalLevel>;
         fieldLevelOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPivotTableFieldSubtotalOptionsArgs>[]>;
         metricHeaderCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
-        styleTargets?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTableStyleTargetArgs>[]>;
         totalCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
         totalsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         valueCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
@@ -35471,10 +35689,6 @@ export namespace quicksight {
         rowSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
     }
 
-    export interface AnalysisTableStyleTargetArgs {
-        cellType: pulumi.Input<enums.quicksight.AnalysisStyledCellType>;
-    }
-
     export interface AnalysisTableUnaggregatedFieldWellsArgs {
         values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisUnaggregatedFieldArgs>[]>;
     }
@@ -35494,7 +35708,6 @@ export namespace quicksight {
     }
 
     export interface AnalysisTextAreaControlDisplayOptionsArgs {
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         placeholderOptions?: pulumi.Input<inputs.quicksight.AnalysisTextControlPlaceholderOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
     }
@@ -35510,7 +35723,6 @@ export namespace quicksight {
     }
 
     export interface AnalysisTextFieldControlDisplayOptionsArgs {
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         placeholderOptions?: pulumi.Input<inputs.quicksight.AnalysisTextControlPlaceholderOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
     }
@@ -35583,18 +35795,18 @@ export namespace quicksight {
     }
 
     export interface AnalysisTopBottomMoversComputationArgs {
-        category?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        category: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         computationId: pulumi.Input<string>;
         moverSize?: pulumi.Input<number>;
         name?: pulumi.Input<string>;
         sortOrder?: pulumi.Input<enums.quicksight.AnalysisTopBottomSortOrder>;
-        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         type: pulumi.Input<enums.quicksight.AnalysisTopBottomComputationType>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
 
     export interface AnalysisTopBottomRankedComputationArgs {
-        category?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        category: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         resultSize?: pulumi.Input<number>;
@@ -35605,7 +35817,7 @@ export namespace quicksight {
     export interface AnalysisTotalAggregationComputationArgs {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
-        value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+        value: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
 
     export interface AnalysisTotalOptionsArgs {
@@ -35663,7 +35875,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisUniqueValuesComputationArgs {
-        category?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        category: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
     }
@@ -39588,9 +39800,6 @@ export namespace quicksight {
         sortDirection: pulumi.Input<enums.quicksight.TemplateSortDirection>;
     }
 
-    export interface TemplateAllSheetsFilterScopeConfigurationArgs {
-    }
-
     export interface TemplateAnalysisDefaultsArgs {
         defaultNewSheetConfiguration: pulumi.Input<inputs.quicksight.TemplateDefaultNewSheetConfigurationArgs>;
     }
@@ -40238,7 +40447,6 @@ export namespace quicksight {
 
     export interface TemplateDateTimePickerControlDisplayOptionsArgs {
         dateTimeFormat?: pulumi.Input<string>;
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.TemplateSheetControlInfoIconLabelOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
     }
 
@@ -40326,7 +40534,6 @@ export namespace quicksight {
     }
 
     export interface TemplateDropDownControlDisplayOptionsArgs {
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.TemplateSheetControlInfoIconLabelOptionsArgs>;
         selectAllOptions?: pulumi.Input<inputs.quicksight.TemplateListControlSelectAllOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
     }
@@ -40513,7 +40720,6 @@ export namespace quicksight {
     }
 
     export interface TemplateFilterScopeConfigurationArgs {
-        allSheets?: pulumi.Input<inputs.quicksight.TemplateAllSheetsFilterScopeConfigurationArgs>;
         selectedSheets?: pulumi.Input<inputs.quicksight.TemplateSelectedSheetsFilterScopeConfigurationArgs>;
     }
 
@@ -40572,7 +40778,7 @@ export namespace quicksight {
         periodsForward?: pulumi.Input<number>;
         predictionInterval?: pulumi.Input<number>;
         seasonality?: pulumi.Input<enums.quicksight.TemplateForecastComputationSeasonality>;
-        time?: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
         upperBoundary?: pulumi.Input<number>;
         value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
     }
@@ -40849,7 +41055,7 @@ export namespace quicksight {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         periodSize?: pulumi.Input<number>;
-        time?: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
         value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
     }
 
@@ -41138,7 +41344,6 @@ export namespace quicksight {
     }
 
     export interface TemplateListControlDisplayOptionsArgs {
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.TemplateSheetControlInfoIconLabelOptionsArgs>;
         searchOptions?: pulumi.Input<inputs.quicksight.TemplateListControlSearchOptionsArgs>;
         selectAllOptions?: pulumi.Input<inputs.quicksight.TemplateListControlSelectAllOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
@@ -41177,7 +41382,7 @@ export namespace quicksight {
     export interface TemplateMaximumMinimumComputationArgs {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
-        time?: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
         type: pulumi.Input<enums.quicksight.TemplateMaximumMinimumComputationType>;
         value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
     }
@@ -41191,10 +41396,10 @@ export namespace quicksight {
 
     export interface TemplateMetricComparisonComputationArgs {
         computationId: pulumi.Input<string>;
-        fromValue?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+        fromValue: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
         name?: pulumi.Input<string>;
-        targetValue?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
-        time?: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        targetValue: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
     }
 
     export interface TemplateMinimumLabelTypeArgs {
@@ -41418,7 +41623,7 @@ export namespace quicksight {
     export interface TemplatePeriodOverPeriodComputationArgs {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
-        time?: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
         value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
     }
 
@@ -41426,7 +41631,7 @@ export namespace quicksight {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         periodTimeGranularity?: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
-        time?: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
         value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
     }
 
@@ -41552,16 +41757,10 @@ export namespace quicksight {
         collapsedRowDimensionsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
         columnHeaderStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
         columnNamesVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
-        /**
-         * String based length that is composed of value and unit in px
-         */
-        defaultCellWidth?: pulumi.Input<string>;
         metricPlacement?: pulumi.Input<enums.quicksight.TemplatePivotTableMetricPlacement>;
         rowAlternateColorOptions?: pulumi.Input<inputs.quicksight.TemplateRowAlternateColorOptionsArgs>;
         rowFieldNamesStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
         rowHeaderStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
-        rowsLabelOptions?: pulumi.Input<inputs.quicksight.TemplatePivotTableRowsLabelOptionsArgs>;
-        rowsLayout?: pulumi.Input<enums.quicksight.TemplatePivotTableRowsLayout>;
         singleMetricVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
         toggleButtonsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
     }
@@ -41569,11 +41768,6 @@ export namespace quicksight {
     export interface TemplatePivotTablePaginatedReportOptionsArgs {
         overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
         verticalOverflowVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
-    }
-
-    export interface TemplatePivotTableRowsLabelOptionsArgs {
-        customLabel?: pulumi.Input<string>;
-        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
     }
 
     export interface TemplatePivotTableSortByArgs {
@@ -41726,7 +41920,6 @@ export namespace quicksight {
 
     export interface TemplateRelativeDateTimeControlDisplayOptionsArgs {
         dateTimeFormat?: pulumi.Input<string>;
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.TemplateSheetControlInfoIconLabelOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
     }
 
@@ -41757,7 +41950,6 @@ export namespace quicksight {
     export interface TemplateRowAlternateColorOptionsArgs {
         rowAlternateColors?: pulumi.Input<pulumi.Input<string>[]>;
         status?: pulumi.Input<enums.quicksight.TemplateWidgetStatus>;
-        usePrimaryBackgroundColor?: pulumi.Input<enums.quicksight.TemplateWidgetStatus>;
     }
 
     export interface TemplateSameSheetTargetVisualConfigurationArgs {
@@ -41901,11 +42093,6 @@ export namespace quicksight {
         backgroundColor: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
     }
 
-    export interface TemplateSheetControlInfoIconLabelOptionsArgs {
-        infoIconText?: pulumi.Input<string>;
-        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
-    }
-
     export interface TemplateSheetControlLayoutArgs {
         configuration: pulumi.Input<inputs.quicksight.TemplateSheetControlLayoutConfigurationArgs>;
     }
@@ -41958,21 +42145,13 @@ export namespace quicksight {
     }
 
     export interface TemplateSliderControlDisplayOptionsArgs {
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.TemplateSheetControlInfoIconLabelOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
-    }
-
-    export interface TemplateSmallMultiplesAxisPropertiesArgs {
-        placement?: pulumi.Input<enums.quicksight.TemplateSmallMultiplesAxisPlacement>;
-        scale?: pulumi.Input<enums.quicksight.TemplateSmallMultiplesAxisScale>;
     }
 
     export interface TemplateSmallMultiplesOptionsArgs {
         maxVisibleColumns?: pulumi.Input<number>;
         maxVisibleRows?: pulumi.Input<number>;
         panelConfiguration?: pulumi.Input<inputs.quicksight.TemplatePanelConfigurationArgs>;
-        xAxis?: pulumi.Input<inputs.quicksight.TemplateSmallMultiplesAxisPropertiesArgs>;
-        yAxis?: pulumi.Input<inputs.quicksight.TemplateSmallMultiplesAxisPropertiesArgs>;
     }
 
     export interface TemplateSourceAnalysisArgs {
@@ -42036,7 +42215,6 @@ export namespace quicksight {
         fieldLevel?: pulumi.Input<enums.quicksight.TemplatePivotTableSubtotalLevel>;
         fieldLevelOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePivotTableFieldSubtotalOptionsArgs>[]>;
         metricHeaderCellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
-        styleTargets?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateTableStyleTargetArgs>[]>;
         totalCellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
         totalsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
         valueCellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
@@ -42176,10 +42354,6 @@ export namespace quicksight {
         rowSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
     }
 
-    export interface TemplateTableStyleTargetArgs {
-        cellType: pulumi.Input<enums.quicksight.TemplateStyledCellType>;
-    }
-
     export interface TemplateTableUnaggregatedFieldWellsArgs {
         values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateUnaggregatedFieldArgs>[]>;
     }
@@ -42199,7 +42373,6 @@ export namespace quicksight {
     }
 
     export interface TemplateTextAreaControlDisplayOptionsArgs {
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.TemplateSheetControlInfoIconLabelOptionsArgs>;
         placeholderOptions?: pulumi.Input<inputs.quicksight.TemplateTextControlPlaceholderOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
     }
@@ -42215,7 +42388,6 @@ export namespace quicksight {
     }
 
     export interface TemplateTextFieldControlDisplayOptionsArgs {
-        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.TemplateSheetControlInfoIconLabelOptionsArgs>;
         placeholderOptions?: pulumi.Input<inputs.quicksight.TemplateTextControlPlaceholderOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
     }
@@ -42288,18 +42460,18 @@ export namespace quicksight {
     }
 
     export interface TemplateTopBottomMoversComputationArgs {
-        category?: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        category: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
         computationId: pulumi.Input<string>;
         moverSize?: pulumi.Input<number>;
         name?: pulumi.Input<string>;
         sortOrder?: pulumi.Input<enums.quicksight.TemplateTopBottomSortOrder>;
-        time?: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
         type: pulumi.Input<enums.quicksight.TemplateTopBottomComputationType>;
         value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
     }
 
     export interface TemplateTopBottomRankedComputationArgs {
-        category?: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        category: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         resultSize?: pulumi.Input<number>;
@@ -42310,7 +42482,7 @@ export namespace quicksight {
     export interface TemplateTotalAggregationComputationArgs {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
-        value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+        value: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
     }
 
     export interface TemplateTotalOptionsArgs {
@@ -42368,7 +42540,7 @@ export namespace quicksight {
     }
 
     export interface TemplateUniqueValuesComputationArgs {
-        category?: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        category: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
     }
@@ -52969,6 +53141,20 @@ export namespace workspacesweb {
     export interface UserAccessLoggingSettingsTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface UserSettingsCookieSpecificationArgs {
+        domain: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        path?: pulumi.Input<string>;
+    }
+
+    export interface UserSettingsCookieSynchronizationConfigurationArgs {
+        allowlist: pulumi.Input<pulumi.Input<inputs.workspacesweb.UserSettingsCookieSpecificationArgs>[]>;
+        blocklist?: pulumi.Input<pulumi.Input<inputs.workspacesweb.UserSettingsCookieSpecificationArgs>[]>;
+    }
+
+    export interface UserSettingsEncryptionContextMapArgs {
     }
 
     export interface UserSettingsTagArgs {

@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class AutoScalingGroupTotalLocalStorageGbRequest
     {
-        public readonly int? Max;
-        public readonly int? Min;
+        public readonly double? Max;
+        public readonly double? Min;
 
         [OutputConstructor]
         private AutoScalingGroupTotalLocalStorageGbRequest(
-            int? max,
+            double? max,
 
-            int? min)
+            double? min)
         {
             Max = max;
             Min = min;

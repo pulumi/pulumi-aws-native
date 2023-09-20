@@ -14,22 +14,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateMetricComparisonComputation
     {
         public readonly string ComputationId;
-        public readonly Outputs.TemplateMeasureField? FromValue;
+        public readonly Outputs.TemplateMeasureField FromValue;
         public readonly string? Name;
-        public readonly Outputs.TemplateMeasureField? TargetValue;
-        public readonly Outputs.TemplateDimensionField? Time;
+        public readonly Outputs.TemplateMeasureField TargetValue;
+        public readonly Outputs.TemplateDimensionField Time;
 
         [OutputConstructor]
         private TemplateMetricComparisonComputation(
             string computationId,
 
-            Outputs.TemplateMeasureField? fromValue,
+            Outputs.TemplateMeasureField fromValue,
 
             string? name,
 
-            Outputs.TemplateMeasureField? targetValue,
+            Outputs.TemplateMeasureField targetValue,
 
-            Outputs.TemplateDimensionField? time)
+            Outputs.TemplateDimensionField time)
         {
             ComputationId = computationId;
             FromValue = fromValue;

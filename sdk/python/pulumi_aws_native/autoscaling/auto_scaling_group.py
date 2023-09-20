@@ -29,6 +29,7 @@ class AutoScalingGroupArgs:
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
+                 instance_maintenance_policy: Optional[pulumi.Input['AutoScalingGroupInstanceMaintenancePolicyArgs']] = None,
                  launch_configuration_name: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']] = None,
                  lifecycle_hook_specification_list: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLifecycleHookSpecificationArgs']]]] = None,
@@ -71,6 +72,8 @@ class AutoScalingGroupArgs:
             pulumi.set(__self__, "health_check_type", health_check_type)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
+        if instance_maintenance_policy is not None:
+            pulumi.set(__self__, "instance_maintenance_policy", instance_maintenance_policy)
         if launch_configuration_name is not None:
             pulumi.set(__self__, "launch_configuration_name", launch_configuration_name)
         if launch_template is not None:
@@ -218,6 +221,15 @@ class AutoScalingGroupArgs:
     @instance_id.setter
     def instance_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="instanceMaintenancePolicy")
+    def instance_maintenance_policy(self) -> Optional[pulumi.Input['AutoScalingGroupInstanceMaintenancePolicyArgs']]:
+        return pulumi.get(self, "instance_maintenance_policy")
+
+    @instance_maintenance_policy.setter
+    def instance_maintenance_policy(self, value: Optional[pulumi.Input['AutoScalingGroupInstanceMaintenancePolicyArgs']]):
+        pulumi.set(self, "instance_maintenance_policy", value)
 
     @property
     @pulumi.getter(name="launchConfigurationName")
@@ -371,6 +383,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
+                 instance_maintenance_policy: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupInstanceMaintenancePolicyArgs']]] = None,
                  launch_configuration_name: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupLaunchTemplateSpecificationArgs']]] = None,
                  lifecycle_hook_specification_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupLifecycleHookSpecificationArgs']]]]] = None,
@@ -430,6 +443,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
+                 instance_maintenance_policy: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupInstanceMaintenancePolicyArgs']]] = None,
                  launch_configuration_name: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupLaunchTemplateSpecificationArgs']]] = None,
                  lifecycle_hook_specification_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupLifecycleHookSpecificationArgs']]]]] = None,
@@ -467,6 +481,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["health_check_grace_period"] = health_check_grace_period
             __props__.__dict__["health_check_type"] = health_check_type
             __props__.__dict__["instance_id"] = instance_id
+            __props__.__dict__["instance_maintenance_policy"] = instance_maintenance_policy
             __props__.__dict__["launch_configuration_name"] = launch_configuration_name
             __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["lifecycle_hook_specification_list"] = lifecycle_hook_specification_list
@@ -488,7 +503,6 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["target_group_arns"] = target_group_arns
             __props__.__dict__["termination_policies"] = termination_policies
             __props__.__dict__["vpc_zone_identifier"] = vpc_zone_identifier
-            __props__.__dict__["launch_template_specification"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auto_scaling_group_name", "instance_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AutoScalingGroup, __self__).__init__(
@@ -524,9 +538,9 @@ class AutoScalingGroup(pulumi.CustomResource):
         __props__.__dict__["health_check_grace_period"] = None
         __props__.__dict__["health_check_type"] = None
         __props__.__dict__["instance_id"] = None
+        __props__.__dict__["instance_maintenance_policy"] = None
         __props__.__dict__["launch_configuration_name"] = None
         __props__.__dict__["launch_template"] = None
-        __props__.__dict__["launch_template_specification"] = None
         __props__.__dict__["lifecycle_hook_specification_list"] = None
         __props__.__dict__["load_balancer_names"] = None
         __props__.__dict__["max_instance_lifetime"] = None
@@ -600,6 +614,11 @@ class AutoScalingGroup(pulumi.CustomResource):
         return pulumi.get(self, "instance_id")
 
     @property
+    @pulumi.getter(name="instanceMaintenancePolicy")
+    def instance_maintenance_policy(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupInstanceMaintenancePolicy']]:
+        return pulumi.get(self, "instance_maintenance_policy")
+
+    @property
     @pulumi.getter(name="launchConfigurationName")
     def launch_configuration_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "launch_configuration_name")
@@ -608,11 +627,6 @@ class AutoScalingGroup(pulumi.CustomResource):
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupLaunchTemplateSpecification']]:
         return pulumi.get(self, "launch_template")
-
-    @property
-    @pulumi.getter(name="launchTemplateSpecification")
-    def launch_template_specification(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "launch_template_specification")
 
     @property
     @pulumi.getter(name="lifecycleHookSpecificationList")

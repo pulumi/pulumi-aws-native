@@ -71,6 +71,14 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         public readonly string? Power;
         /// <summary>
+        /// The principal ARN of the container service.
+        /// </summary>
+        public readonly string? PrincipalArn;
+        /// <summary>
+        /// A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+        /// </summary>
+        public readonly Outputs.ContainerPrivateRegistryAccess? PrivateRegistryAccess;
+        /// <summary>
         /// The public domain names to use with the container service, such as example.com and www.example.com.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerPublicDomainName> PublicDomainNames;
@@ -97,6 +105,10 @@ namespace Pulumi.AwsNative.Lightsail
 
             string? power,
 
+            string? principalArn,
+
+            Outputs.ContainerPrivateRegistryAccess? privateRegistryAccess,
+
             ImmutableArray<Outputs.ContainerPublicDomainName> publicDomainNames,
 
             int? scale,
@@ -109,6 +121,8 @@ namespace Pulumi.AwsNative.Lightsail
             ContainerServiceDeployment = containerServiceDeployment;
             IsDisabled = isDisabled;
             Power = power;
+            PrincipalArn = principalArn;
+            PrivateRegistryAccess = privateRegistryAccess;
             PublicDomainNames = publicDomainNames;
             Scale = scale;
             Tags = tags;

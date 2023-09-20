@@ -4965,6 +4965,8 @@ class LaunchTemplateNetworkInterface(dict):
             suggest = "network_card_index"
         elif key == "networkInterfaceId":
             suggest = "network_interface_id"
+        elif key == "primaryIpv6":
+            suggest = "primary_ipv6"
         elif key == "privateIpAddress":
             suggest = "private_ip_address"
         elif key == "privateIpAddresses":
@@ -5001,6 +5003,7 @@ class LaunchTemplateNetworkInterface(dict):
                  ipv6_prefixes: Optional[Sequence['outputs.LaunchTemplateIpv6PrefixSpecification']] = None,
                  network_card_index: Optional[int] = None,
                  network_interface_id: Optional[str] = None,
+                 primary_ipv6: Optional[bool] = None,
                  private_ip_address: Optional[str] = None,
                  private_ip_addresses: Optional[Sequence['outputs.LaunchTemplatePrivateIpAdd']] = None,
                  secondary_private_ip_address_count: Optional[int] = None,
@@ -5022,6 +5025,7 @@ class LaunchTemplateNetworkInterface(dict):
         :param Sequence['LaunchTemplateIpv6PrefixSpecification'] ipv6_prefixes: One or more IPv6 prefixes to be assigned to the network interface.
         :param int network_card_index: The index of the network card.
         :param str network_interface_id: The ID of the network interface.
+        :param bool primary_ipv6: Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
         :param str private_ip_address: The primary private IPv4 address of the network interface.
         :param Sequence['LaunchTemplatePrivateIpAdd'] private_ip_addresses: One or more private IPv4 addresses.
         :param int secondary_private_ip_address_count: The number of secondary private IPv4 addresses to assign to a network interface.
@@ -5057,6 +5061,8 @@ class LaunchTemplateNetworkInterface(dict):
             pulumi.set(__self__, "network_card_index", network_card_index)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if primary_ipv6 is not None:
+            pulumi.set(__self__, "primary_ipv6", primary_ipv6)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if private_ip_addresses is not None:
@@ -5185,6 +5191,14 @@ class LaunchTemplateNetworkInterface(dict):
         The ID of the network interface.
         """
         return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter(name="primaryIpv6")
+    def primary_ipv6(self) -> Optional[bool]:
+        """
+        Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+        """
+        return pulumi.get(self, "primary_ipv6")
 
     @property
     @pulumi.getter(name="privateIpAddress")

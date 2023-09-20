@@ -28,8 +28,9 @@ type LookupConfigurationArgs struct {
 }
 
 type LookupConfigurationResult struct {
-	Arn         *string `pulumi:"arn"`
-	Description *string `pulumi:"description"`
+	Arn            *string                      `pulumi:"arn"`
+	Description    *string                      `pulumi:"description"`
+	LatestRevision *ConfigurationLatestRevision `pulumi:"latestRevision"`
 }
 
 func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationResultOutput {
@@ -79,6 +80,10 @@ func (o LookupConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupConfigurationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupConfigurationResultOutput) LatestRevision() ConfigurationLatestRevisionPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) *ConfigurationLatestRevision { return v.LatestRevision }).(ConfigurationLatestRevisionPtrOutput)
 }
 
 func init() {

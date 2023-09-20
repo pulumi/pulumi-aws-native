@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMembershipResult:
-    def __init__(__self__, arn=None, collaboration_arn=None, collaboration_creator_account_id=None, membership_identifier=None, query_log_status=None, tags=None):
+    def __init__(__self__, arn=None, collaboration_arn=None, collaboration_creator_account_id=None, default_result_configuration=None, membership_identifier=None, query_log_status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -30,6 +30,9 @@ class GetMembershipResult:
         if collaboration_creator_account_id and not isinstance(collaboration_creator_account_id, str):
             raise TypeError("Expected argument 'collaboration_creator_account_id' to be a str")
         pulumi.set(__self__, "collaboration_creator_account_id", collaboration_creator_account_id)
+        if default_result_configuration and not isinstance(default_result_configuration, dict):
+            raise TypeError("Expected argument 'default_result_configuration' to be a dict")
+        pulumi.set(__self__, "default_result_configuration", default_result_configuration)
         if membership_identifier and not isinstance(membership_identifier, str):
             raise TypeError("Expected argument 'membership_identifier' to be a str")
         pulumi.set(__self__, "membership_identifier", membership_identifier)
@@ -54,6 +57,11 @@ class GetMembershipResult:
     @pulumi.getter(name="collaborationCreatorAccountId")
     def collaboration_creator_account_id(self) -> Optional[str]:
         return pulumi.get(self, "collaboration_creator_account_id")
+
+    @property
+    @pulumi.getter(name="defaultResultConfiguration")
+    def default_result_configuration(self) -> Optional['outputs.MembershipProtectedQueryResultConfiguration']:
+        return pulumi.get(self, "default_result_configuration")
 
     @property
     @pulumi.getter(name="membershipIdentifier")
@@ -83,6 +91,7 @@ class AwaitableGetMembershipResult(GetMembershipResult):
             arn=self.arn,
             collaboration_arn=self.collaboration_arn,
             collaboration_creator_account_id=self.collaboration_creator_account_id,
+            default_result_configuration=self.default_result_configuration,
             membership_identifier=self.membership_identifier,
             query_log_status=self.query_log_status,
             tags=self.tags)
@@ -102,6 +111,7 @@ def get_membership(membership_identifier: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         collaboration_arn=pulumi.get(__ret__, 'collaboration_arn'),
         collaboration_creator_account_id=pulumi.get(__ret__, 'collaboration_creator_account_id'),
+        default_result_configuration=pulumi.get(__ret__, 'default_result_configuration'),
         membership_identifier=pulumi.get(__ret__, 'membership_identifier'),
         query_log_status=pulumi.get(__ret__, 'query_log_status'),
         tags=pulumi.get(__ret__, 'tags'))

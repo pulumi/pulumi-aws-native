@@ -13,19 +13,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTextAreaControlDisplayOptions
     {
-        public readonly Outputs.TemplateSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
         public readonly Outputs.TemplateTextControlPlaceholderOptions? PlaceholderOptions;
         public readonly Outputs.TemplateLabelOptions? TitleOptions;
 
         [OutputConstructor]
         private TemplateTextAreaControlDisplayOptions(
-            Outputs.TemplateSheetControlInfoIconLabelOptions? infoIconLabelOptions,
-
             Outputs.TemplateTextControlPlaceholderOptions? placeholderOptions,
 
             Outputs.TemplateLabelOptions? titleOptions)
         {
-            InfoIconLabelOptions = infoIconLabelOptions;
             PlaceholderOptions = placeholderOptions;
             TitleOptions = titleOptions;
         }

@@ -530,6 +530,178 @@ func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+type AutoScalingGroupInstanceMaintenancePolicy struct {
+	MaxHealthyPercentage *int `pulumi:"maxHealthyPercentage"`
+	MinHealthyPercentage *int `pulumi:"minHealthyPercentage"`
+}
+
+// AutoScalingGroupInstanceMaintenancePolicyInput is an input type that accepts AutoScalingGroupInstanceMaintenancePolicyArgs and AutoScalingGroupInstanceMaintenancePolicyOutput values.
+// You can construct a concrete instance of `AutoScalingGroupInstanceMaintenancePolicyInput` via:
+//
+//	AutoScalingGroupInstanceMaintenancePolicyArgs{...}
+type AutoScalingGroupInstanceMaintenancePolicyInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupInstanceMaintenancePolicyOutput() AutoScalingGroupInstanceMaintenancePolicyOutput
+	ToAutoScalingGroupInstanceMaintenancePolicyOutputWithContext(context.Context) AutoScalingGroupInstanceMaintenancePolicyOutput
+}
+
+type AutoScalingGroupInstanceMaintenancePolicyArgs struct {
+	MaxHealthyPercentage pulumi.IntPtrInput `pulumi:"maxHealthyPercentage"`
+	MinHealthyPercentage pulumi.IntPtrInput `pulumi:"minHealthyPercentage"`
+}
+
+func (AutoScalingGroupInstanceMaintenancePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToAutoScalingGroupInstanceMaintenancePolicyOutput() AutoScalingGroupInstanceMaintenancePolicyOutput {
+	return i.ToAutoScalingGroupInstanceMaintenancePolicyOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToAutoScalingGroupInstanceMaintenancePolicyOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceMaintenancePolicyOutput)
+}
+
+func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy] {
+	return pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy]{
+		OutputState: i.ToAutoScalingGroupInstanceMaintenancePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutput() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
+	return i.ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceMaintenancePolicyOutput).ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx)
+}
+
+// AutoScalingGroupInstanceMaintenancePolicyPtrInput is an input type that accepts AutoScalingGroupInstanceMaintenancePolicyArgs, AutoScalingGroupInstanceMaintenancePolicyPtr and AutoScalingGroupInstanceMaintenancePolicyPtrOutput values.
+// You can construct a concrete instance of `AutoScalingGroupInstanceMaintenancePolicyPtrInput` via:
+//
+//	        AutoScalingGroupInstanceMaintenancePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutoScalingGroupInstanceMaintenancePolicyPtrInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupInstanceMaintenancePolicyPtrOutput() AutoScalingGroupInstanceMaintenancePolicyPtrOutput
+	ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Context) AutoScalingGroupInstanceMaintenancePolicyPtrOutput
+}
+
+type autoScalingGroupInstanceMaintenancePolicyPtrType AutoScalingGroupInstanceMaintenancePolicyArgs
+
+func AutoScalingGroupInstanceMaintenancePolicyPtr(v *AutoScalingGroupInstanceMaintenancePolicyArgs) AutoScalingGroupInstanceMaintenancePolicyPtrInput {
+	return (*autoScalingGroupInstanceMaintenancePolicyPtrType)(v)
+}
+
+func (*autoScalingGroupInstanceMaintenancePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (i *autoScalingGroupInstanceMaintenancePolicyPtrType) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutput() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
+	return i.ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *autoScalingGroupInstanceMaintenancePolicyPtrType) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceMaintenancePolicyPtrOutput)
+}
+
+func (i *autoScalingGroupInstanceMaintenancePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy] {
+	return pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy]{
+		OutputState: i.ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AutoScalingGroupInstanceMaintenancePolicyOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupInstanceMaintenancePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToAutoScalingGroupInstanceMaintenancePolicyOutput() AutoScalingGroupInstanceMaintenancePolicyOutput {
+	return o
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToAutoScalingGroupInstanceMaintenancePolicyOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyOutput {
+	return o
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutput() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
+	return o.ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupInstanceMaintenancePolicy) *AutoScalingGroupInstanceMaintenancePolicy {
+		return &v
+	}).(AutoScalingGroupInstanceMaintenancePolicyPtrOutput)
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy] {
+	return pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupInstanceMaintenancePolicy) *int { return v.MaxHealthyPercentage }).(pulumi.IntPtrOutput)
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupInstanceMaintenancePolicy) *int { return v.MinHealthyPercentage }).(pulumi.IntPtrOutput)
+}
+
+type AutoScalingGroupInstanceMaintenancePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupInstanceMaintenancePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutput() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy] {
+	return pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) Elem() AutoScalingGroupInstanceMaintenancePolicyOutput {
+	return o.ApplyT(func(v *AutoScalingGroupInstanceMaintenancePolicy) AutoScalingGroupInstanceMaintenancePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScalingGroupInstanceMaintenancePolicy
+		return ret
+	}).(AutoScalingGroupInstanceMaintenancePolicyOutput)
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupInstanceMaintenancePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxHealthyPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupInstanceMaintenancePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinHealthyPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
 type AutoScalingGroupInstanceRequirements struct {
 	AcceleratorCount                          *AutoScalingGroupAcceleratorCountRequest          `pulumi:"acceleratorCount"`
 	AcceleratorManufacturers                  []string                                          `pulumi:"acceleratorManufacturers"`
@@ -1919,8 +2091,8 @@ func (o AutoScalingGroupLifecycleHookSpecificationArrayOutput) Index(i pulumi.In
 }
 
 type AutoScalingGroupMemoryGiBPerVCpuRequest struct {
-	Max *int `pulumi:"max"`
-	Min *int `pulumi:"min"`
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
 }
 
 // AutoScalingGroupMemoryGiBPerVCpuRequestInput is an input type that accepts AutoScalingGroupMemoryGiBPerVCpuRequestArgs and AutoScalingGroupMemoryGiBPerVCpuRequestOutput values.
@@ -1935,8 +2107,8 @@ type AutoScalingGroupMemoryGiBPerVCpuRequestInput interface {
 }
 
 type AutoScalingGroupMemoryGiBPerVCpuRequestArgs struct {
-	Max pulumi.IntPtrInput `pulumi:"max"`
-	Min pulumi.IntPtrInput `pulumi:"min"`
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
 func (AutoScalingGroupMemoryGiBPerVCpuRequestArgs) ElementType() reflect.Type {
@@ -2034,12 +2206,12 @@ func (o AutoScalingGroupMemoryGiBPerVCpuRequestOutput) ToOutput(ctx context.Cont
 	}
 }
 
-func (o AutoScalingGroupMemoryGiBPerVCpuRequestOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupMemoryGiBPerVCpuRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+func (o AutoScalingGroupMemoryGiBPerVCpuRequestOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupMemoryGiBPerVCpuRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-func (o AutoScalingGroupMemoryGiBPerVCpuRequestOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupMemoryGiBPerVCpuRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+func (o AutoScalingGroupMemoryGiBPerVCpuRequestOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupMemoryGiBPerVCpuRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
 
 type AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput struct{ *pulumi.OutputState }
@@ -2072,22 +2244,22 @@ func (o AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput) Elem() AutoScalingGrou
 	}).(AutoScalingGroupMemoryGiBPerVCpuRequestOutput)
 }
 
-func (o AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroupMemoryGiBPerVCpuRequest) *int {
+func (o AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupMemoryGiBPerVCpuRequest) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Max
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
-func (o AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroupMemoryGiBPerVCpuRequest) *int {
+func (o AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupMemoryGiBPerVCpuRequest) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Min
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 type AutoScalingGroupMemoryMiBRequest struct {
@@ -2906,7 +3078,7 @@ func (o AutoScalingGroupNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntP
 
 type AutoScalingGroupNotificationConfiguration struct {
 	NotificationTypes []string `pulumi:"notificationTypes"`
-	TopicArn          string   `pulumi:"topicArn"`
+	TopicArn          []string `pulumi:"topicArn"`
 }
 
 // AutoScalingGroupNotificationConfigurationInput is an input type that accepts AutoScalingGroupNotificationConfigurationArgs and AutoScalingGroupNotificationConfigurationOutput values.
@@ -2922,7 +3094,7 @@ type AutoScalingGroupNotificationConfigurationInput interface {
 
 type AutoScalingGroupNotificationConfigurationArgs struct {
 	NotificationTypes pulumi.StringArrayInput `pulumi:"notificationTypes"`
-	TopicArn          pulumi.StringInput      `pulumi:"topicArn"`
+	TopicArn          pulumi.StringArrayInput `pulumi:"topicArn"`
 }
 
 func (AutoScalingGroupNotificationConfigurationArgs) ElementType() reflect.Type {
@@ -2998,8 +3170,8 @@ func (o AutoScalingGroupNotificationConfigurationOutput) NotificationTypes() pul
 	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) []string { return v.NotificationTypes }).(pulumi.StringArrayOutput)
 }
 
-func (o AutoScalingGroupNotificationConfigurationOutput) TopicArn() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) string { return v.TopicArn }).(pulumi.StringOutput)
+func (o AutoScalingGroupNotificationConfigurationOutput) TopicArn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) []string { return v.TopicArn }).(pulumi.StringArrayOutput)
 }
 
 type AutoScalingGroupNotificationConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -3159,8 +3331,8 @@ func (o AutoScalingGroupTagPropertyArrayOutput) Index(i pulumi.IntInput) AutoSca
 }
 
 type AutoScalingGroupTotalLocalStorageGbRequest struct {
-	Max *int `pulumi:"max"`
-	Min *int `pulumi:"min"`
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
 }
 
 // AutoScalingGroupTotalLocalStorageGbRequestInput is an input type that accepts AutoScalingGroupTotalLocalStorageGbRequestArgs and AutoScalingGroupTotalLocalStorageGbRequestOutput values.
@@ -3175,8 +3347,8 @@ type AutoScalingGroupTotalLocalStorageGbRequestInput interface {
 }
 
 type AutoScalingGroupTotalLocalStorageGbRequestArgs struct {
-	Max pulumi.IntPtrInput `pulumi:"max"`
-	Min pulumi.IntPtrInput `pulumi:"min"`
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
 func (AutoScalingGroupTotalLocalStorageGbRequestArgs) ElementType() reflect.Type {
@@ -3274,12 +3446,12 @@ func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) ToOutput(ctx context.C
 	}
 }
 
-func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupTotalLocalStorageGbRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupTotalLocalStorageGbRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupTotalLocalStorageGbRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupTotalLocalStorageGbRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
 
 type AutoScalingGroupTotalLocalStorageGbRequestPtrOutput struct{ *pulumi.OutputState }
@@ -3312,22 +3484,22 @@ func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) Elem() AutoScalingG
 	}).(AutoScalingGroupTotalLocalStorageGbRequestOutput)
 }
 
-func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroupTotalLocalStorageGbRequest) *int {
+func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Max
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
-func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroupTotalLocalStorageGbRequest) *int {
+func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Min
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 type AutoScalingGroupVCpuCountRequest struct {
@@ -7040,6 +7212,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrInput)(nil)).Elem(), AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupBaselineEbsBandwidthMbpsRequestInput)(nil)).Elem(), AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput)(nil)).Elem(), AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicyInput)(nil)).Elem(), AutoScalingGroupInstanceMaintenancePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicyPtrInput)(nil)).Elem(), AutoScalingGroupInstanceMaintenancePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceRequirementsInput)(nil)).Elem(), AutoScalingGroupInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceRequirementsPtrInput)(nil)).Elem(), AutoScalingGroupInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstancesDistributionInput)(nil)).Elem(), AutoScalingGroupInstancesDistributionArgs{})
@@ -7118,6 +7292,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupBaselineEbsBandwidthMbpsRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupInstanceMaintenancePolicyOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupInstanceMaintenancePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceRequirementsOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstancesDistributionOutput{})

@@ -16439,6 +16439,8 @@ type LaunchTemplateNetworkInterface struct {
 	NetworkCardIndex *int `pulumi:"networkCardIndex"`
 	// The ID of the network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+	PrimaryIpv6 *bool `pulumi:"primaryIpv6"`
 	// The primary private IPv4 address of the network interface.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// One or more private IPv4 addresses.
@@ -16492,6 +16494,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	NetworkCardIndex pulumi.IntPtrInput `pulumi:"networkCardIndex"`
 	// The ID of the network interface.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+	PrimaryIpv6 pulumi.BoolPtrInput `pulumi:"primaryIpv6"`
 	// The primary private IPv4 address of the network interface.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// One or more private IPv4 addresses.
@@ -16645,6 +16649,11 @@ func (o LaunchTemplateNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOu
 // The ID of the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+// Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+func (o LaunchTemplateNetworkInterfaceOutput) PrimaryIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.PrimaryIpv6 }).(pulumi.BoolPtrOutput)
 }
 
 // The primary private IPv4 address of the network interface.

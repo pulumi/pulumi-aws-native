@@ -75,7 +75,7 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags"
   },
@@ -85,6 +85,9 @@
     },
     "read" : {
       "permissions" : [ "kafka:DescribeVpcConnection", "kms:CreateGrant", "kms:DescribeKey" ]
+    },
+    "update" : {
+      "permissions" : [ "kafka:DescribeVpcConnection", "kms:CreateGrant", "kms:DescribeKey", "kafka:TagResource", "kafka:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "ec2:DeleteVpcEndpoint", "ec2:DeleteVpcEndpoints", "ec2:DescribeVpcEndpoints", "ec2:DescribeVpcEndpointConnections", "kafka:DeleteVpcConnection", "kafka:DescribeVpcConnection", "kms:CreateGrant", "kms:DescribeKey" ]

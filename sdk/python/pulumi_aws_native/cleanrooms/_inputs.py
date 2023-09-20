@@ -31,6 +31,9 @@ __all__ = [
     'ConfiguredTableGlueTableReferenceArgs',
     'ConfiguredTableTableReferenceArgs',
     'ConfiguredTableTagArgs',
+    'MembershipProtectedQueryOutputConfigurationArgs',
+    'MembershipProtectedQueryResultConfigurationArgs',
+    'MembershipProtectedQueryS3OutputConfigurationArgs',
     'MembershipTagArgs',
 ]
 
@@ -632,6 +635,89 @@ class ConfiguredTableTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class MembershipProtectedQueryOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 s3: pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs']):
+        pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs']:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs']):
+        pulumi.set(self, "s3", value)
+
+
+@pulumi.input_type
+class MembershipProtectedQueryResultConfigurationArgs:
+    def __init__(__self__, *,
+                 output_configuration: pulumi.Input['MembershipProtectedQueryOutputConfigurationArgs'],
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "output_configuration", output_configuration)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="outputConfiguration")
+    def output_configuration(self) -> pulumi.Input['MembershipProtectedQueryOutputConfigurationArgs']:
+        return pulumi.get(self, "output_configuration")
+
+    @output_configuration.setter
+    def output_configuration(self, value: pulumi.Input['MembershipProtectedQueryOutputConfigurationArgs']):
+        pulumi.set(self, "output_configuration", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class MembershipProtectedQueryS3OutputConfigurationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 result_format: pulumi.Input['MembershipResultFormat'],
+                 key_prefix: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "result_format", result_format)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="resultFormat")
+    def result_format(self) -> pulumi.Input['MembershipResultFormat']:
+        return pulumi.get(self, "result_format")
+
+    @result_format.setter
+    def result_format(self, value: pulumi.Input['MembershipResultFormat']):
+        pulumi.set(self, "result_format", value)
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key_prefix")
+
+    @key_prefix.setter
+    def key_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_prefix", value)
 
 
 @pulumi.input_type

@@ -33,6 +33,9 @@ __all__ = [
     'ConfiguredTableGlueTableReference',
     'ConfiguredTableTableReference',
     'ConfiguredTableTag',
+    'MembershipProtectedQueryOutputConfiguration',
+    'MembershipProtectedQueryResultConfiguration',
+    'MembershipProtectedQueryS3OutputConfiguration',
     'MembershipTag',
 ]
 
@@ -666,6 +669,103 @@ class ConfiguredTableTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MembershipProtectedQueryOutputConfiguration(dict):
+    def __init__(__self__, *,
+                 s3: 'outputs.MembershipProtectedQueryS3OutputConfiguration'):
+        pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> 'outputs.MembershipProtectedQueryS3OutputConfiguration':
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class MembershipProtectedQueryResultConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputConfiguration":
+            suggest = "output_configuration"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipProtectedQueryResultConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipProtectedQueryResultConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipProtectedQueryResultConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_configuration: 'outputs.MembershipProtectedQueryOutputConfiguration',
+                 role_arn: Optional[str] = None):
+        pulumi.set(__self__, "output_configuration", output_configuration)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="outputConfiguration")
+    def output_configuration(self) -> 'outputs.MembershipProtectedQueryOutputConfiguration':
+        return pulumi.get(self, "output_configuration")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class MembershipProtectedQueryS3OutputConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultFormat":
+            suggest = "result_format"
+        elif key == "keyPrefix":
+            suggest = "key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipProtectedQueryS3OutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipProtectedQueryS3OutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipProtectedQueryS3OutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: str,
+                 result_format: 'MembershipResultFormat',
+                 key_prefix: Optional[str] = None):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "result_format", result_format)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="resultFormat")
+    def result_format(self) -> 'MembershipResultFormat':
+        return pulumi.get(self, "result_format")
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "key_prefix")
 
 
 @pulumi.output_type

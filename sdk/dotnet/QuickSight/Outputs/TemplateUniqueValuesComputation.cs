@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateUniqueValuesComputation
     {
-        public readonly Outputs.TemplateDimensionField? Category;
+        public readonly Outputs.TemplateDimensionField Category;
         public readonly string ComputationId;
         public readonly string? Name;
 
         [OutputConstructor]
         private TemplateUniqueValuesComputation(
-            Outputs.TemplateDimensionField? category,
+            Outputs.TemplateDimensionField category,
 
             string computationId,
 

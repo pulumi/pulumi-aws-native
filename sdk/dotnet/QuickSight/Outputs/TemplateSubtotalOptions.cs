@@ -17,7 +17,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Pulumi.AwsNative.QuickSight.TemplatePivotTableSubtotalLevel? FieldLevel;
         public readonly ImmutableArray<Outputs.TemplatePivotTableFieldSubtotalOptions> FieldLevelOptions;
         public readonly Outputs.TemplateTableCellStyle? MetricHeaderCellStyle;
-        public readonly ImmutableArray<Outputs.TemplateTableStyleTarget> StyleTargets;
         public readonly Outputs.TemplateTableCellStyle? TotalCellStyle;
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? TotalsVisibility;
         public readonly Outputs.TemplateTableCellStyle? ValueCellStyle;
@@ -32,8 +31,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateTableCellStyle? metricHeaderCellStyle,
 
-            ImmutableArray<Outputs.TemplateTableStyleTarget> styleTargets,
-
             Outputs.TemplateTableCellStyle? totalCellStyle,
 
             Pulumi.AwsNative.QuickSight.TemplateVisibility? totalsVisibility,
@@ -44,7 +41,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             FieldLevel = fieldLevel;
             FieldLevelOptions = fieldLevelOptions;
             MetricHeaderCellStyle = metricHeaderCellStyle;
-            StyleTargets = styleTargets;
             TotalCellStyle = totalCellStyle;
             TotalsVisibility = totalsVisibility;
             ValueCellStyle = valueCellStyle;

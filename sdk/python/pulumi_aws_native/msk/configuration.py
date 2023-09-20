@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ConfigurationArgs', 'Configuration']
 
@@ -17,6 +19,7 @@ class ConfigurationArgs:
                  server_properties: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  kafka_versions_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 latest_revision: Optional[pulumi.Input['ConfigurationLatestRevisionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Configuration resource.
@@ -26,6 +29,8 @@ class ConfigurationArgs:
             pulumi.set(__self__, "description", description)
         if kafka_versions_list is not None:
             pulumi.set(__self__, "kafka_versions_list", kafka_versions_list)
+        if latest_revision is not None:
+            pulumi.set(__self__, "latest_revision", latest_revision)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -57,6 +62,15 @@ class ConfigurationArgs:
         pulumi.set(self, "kafka_versions_list", value)
 
     @property
+    @pulumi.getter(name="latestRevision")
+    def latest_revision(self) -> Optional[pulumi.Input['ConfigurationLatestRevisionArgs']]:
+        return pulumi.get(self, "latest_revision")
+
+    @latest_revision.setter
+    def latest_revision(self, value: Optional[pulumi.Input['ConfigurationLatestRevisionArgs']]):
+        pulumi.set(self, "latest_revision", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
@@ -73,6 +87,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kafka_versions_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 latest_revision: Optional[pulumi.Input[pulumi.InputType['ConfigurationLatestRevisionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_properties: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -108,6 +123,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kafka_versions_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 latest_revision: Optional[pulumi.Input[pulumi.InputType['ConfigurationLatestRevisionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_properties: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -121,6 +137,7 @@ class Configuration(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["kafka_versions_list"] = kafka_versions_list
+            __props__.__dict__["latest_revision"] = latest_revision
             __props__.__dict__["name"] = name
             if server_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'server_properties'")
@@ -153,6 +170,7 @@ class Configuration(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["kafka_versions_list"] = None
+        __props__.__dict__["latest_revision"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["server_properties"] = None
         return Configuration(resource_name, opts=opts, __props__=__props__)
@@ -171,6 +189,11 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="kafkaVersionsList")
     def kafka_versions_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "kafka_versions_list")
+
+    @property
+    @pulumi.getter(name="latestRevision")
+    def latest_revision(self) -> pulumi.Output[Optional['outputs.ConfigurationLatestRevision']]:
+        return pulumi.get(self, "latest_revision")
 
     @property
     @pulumi.getter

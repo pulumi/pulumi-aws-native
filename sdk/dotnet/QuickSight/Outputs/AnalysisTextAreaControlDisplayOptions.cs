@@ -13,19 +13,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTextAreaControlDisplayOptions
     {
-        public readonly Outputs.AnalysisSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
         public readonly Outputs.AnalysisTextControlPlaceholderOptions? PlaceholderOptions;
         public readonly Outputs.AnalysisLabelOptions? TitleOptions;
 
         [OutputConstructor]
         private AnalysisTextAreaControlDisplayOptions(
-            Outputs.AnalysisSheetControlInfoIconLabelOptions? infoIconLabelOptions,
-
             Outputs.AnalysisTextControlPlaceholderOptions? placeholderOptions,
 
             Outputs.AnalysisLabelOptions? titleOptions)
         {
-            InfoIconLabelOptions = infoIconLabelOptions;
             PlaceholderOptions = placeholderOptions;
             TitleOptions = titleOptions;
         }

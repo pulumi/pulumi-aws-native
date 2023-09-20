@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetConfigurationResult',
@@ -18,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfigurationResult:
-    def __init__(__self__, arn=None, description=None):
+    def __init__(__self__, arn=None, description=None, latest_revision=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if latest_revision and not isinstance(latest_revision, dict):
+            raise TypeError("Expected argument 'latest_revision' to be a dict")
+        pulumi.set(__self__, "latest_revision", latest_revision)
 
     @property
     @pulumi.getter
@@ -36,6 +40,11 @@ class GetConfigurationResult:
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
 
+    @property
+    @pulumi.getter(name="latestRevision")
+    def latest_revision(self) -> Optional['outputs.ConfigurationLatestRevision']:
+        return pulumi.get(self, "latest_revision")
+
 
 class AwaitableGetConfigurationResult(GetConfigurationResult):
     # pylint: disable=using-constant-test
@@ -44,7 +53,8 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
             yield self
         return GetConfigurationResult(
             arn=self.arn,
-            description=self.description)
+            description=self.description,
+            latest_revision=self.latest_revision)
 
 
 def get_configuration(arn: Optional[str] = None,
@@ -59,7 +69,8 @@ def get_configuration(arn: Optional[str] = None,
 
     return AwaitableGetConfigurationResult(
         arn=pulumi.get(__ret__, 'arn'),
-        description=pulumi.get(__ret__, 'description'))
+        description=pulumi.get(__ret__, 'description'),
+        latest_revision=pulumi.get(__ret__, 'latest_revision'))
 
 
 @_utilities.lift_output_func(get_configuration)

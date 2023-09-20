@@ -366,4 +366,32 @@ namespace Pulumi.AwsNative.CleanRooms
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct MembershipResultFormat : IEquatable<MembershipResultFormat>
+    {
+        private readonly string _value;
+
+        private MembershipResultFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MembershipResultFormat Csv { get; } = new MembershipResultFormat("CSV");
+        public static MembershipResultFormat Parquet { get; } = new MembershipResultFormat("PARQUET");
+
+        public static bool operator ==(MembershipResultFormat left, MembershipResultFormat right) => left.Equals(right);
+        public static bool operator !=(MembershipResultFormat left, MembershipResultFormat right) => !left.Equals(right);
+
+        public static explicit operator string(MembershipResultFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MembershipResultFormat other && Equals(other);
+        public bool Equals(MembershipResultFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

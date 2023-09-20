@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("periodSize")]
         public Input<double>? PeriodSize { get; set; }
 
-        [Input("time")]
-        public Input<Inputs.TemplateDimensionFieldArgs>? Time { get; set; }
+        [Input("time", required: true)]
+        public Input<Inputs.TemplateDimensionFieldArgs> Time { get; set; } = null!;
 
         [Input("value")]
         public Input<Inputs.TemplateMeasureFieldArgs>? Value { get; set; }

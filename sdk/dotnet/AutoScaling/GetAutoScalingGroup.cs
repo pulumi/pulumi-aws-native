@@ -61,9 +61,9 @@ namespace Pulumi.AwsNative.AutoScaling
         public readonly int? HealthCheckGracePeriod;
         public readonly string? HealthCheckType;
         public readonly string? Id;
+        public readonly Outputs.AutoScalingGroupInstanceMaintenancePolicy? InstanceMaintenancePolicy;
         public readonly string? LaunchConfigurationName;
         public readonly Outputs.AutoScalingGroupLaunchTemplateSpecification? LaunchTemplate;
-        public readonly string? LaunchTemplateSpecification;
         public readonly ImmutableArray<Outputs.AutoScalingGroupLifecycleHookSpecification> LifecycleHookSpecificationList;
         public readonly ImmutableArray<string> LoadBalancerNames;
         public readonly int? MaxInstanceLifetime;
@@ -102,11 +102,11 @@ namespace Pulumi.AwsNative.AutoScaling
 
             string? id,
 
+            Outputs.AutoScalingGroupInstanceMaintenancePolicy? instanceMaintenancePolicy,
+
             string? launchConfigurationName,
 
             Outputs.AutoScalingGroupLaunchTemplateSpecification? launchTemplate,
-
-            string? launchTemplateSpecification,
 
             ImmutableArray<Outputs.AutoScalingGroupLifecycleHookSpecification> lifecycleHookSpecificationList,
 
@@ -148,9 +148,9 @@ namespace Pulumi.AwsNative.AutoScaling
             HealthCheckGracePeriod = healthCheckGracePeriod;
             HealthCheckType = healthCheckType;
             Id = id;
+            InstanceMaintenancePolicy = instanceMaintenancePolicy;
             LaunchConfigurationName = launchConfigurationName;
             LaunchTemplate = launchTemplate;
-            LaunchTemplateSpecification = launchTemplateSpecification;
             LifecycleHookSpecificationList = lifecycleHookSpecificationList;
             LoadBalancerNames = loadBalancerNames;
             MaxInstanceLifetime = maxInstanceLifetime;

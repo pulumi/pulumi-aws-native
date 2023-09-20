@@ -22,6 +22,9 @@ class UserSettingsArgs:
                  paste_allowed: pulumi.Input['UserSettingsEnabledType'],
                  print_allowed: pulumi.Input['UserSettingsEnabledType'],
                  upload_allowed: pulumi.Input['UserSettingsEnabledType'],
+                 additional_encryption_context: Optional[pulumi.Input['UserSettingsEncryptionContextMapArgs']] = None,
+                 cookie_synchronization_configuration: Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']] = None,
+                 customer_managed_key: Optional[pulumi.Input[str]] = None,
                  disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsTagArgs']]]] = None):
@@ -33,6 +36,12 @@ class UserSettingsArgs:
         pulumi.set(__self__, "paste_allowed", paste_allowed)
         pulumi.set(__self__, "print_allowed", print_allowed)
         pulumi.set(__self__, "upload_allowed", upload_allowed)
+        if additional_encryption_context is not None:
+            pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
+        if cookie_synchronization_configuration is not None:
+            pulumi.set(__self__, "cookie_synchronization_configuration", cookie_synchronization_configuration)
+        if customer_managed_key is not None:
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if disconnect_timeout_in_minutes is not None:
             pulumi.set(__self__, "disconnect_timeout_in_minutes", disconnect_timeout_in_minutes)
         if idle_disconnect_timeout_in_minutes is not None:
@@ -86,6 +95,33 @@ class UserSettingsArgs:
         pulumi.set(self, "upload_allowed", value)
 
     @property
+    @pulumi.getter(name="additionalEncryptionContext")
+    def additional_encryption_context(self) -> Optional[pulumi.Input['UserSettingsEncryptionContextMapArgs']]:
+        return pulumi.get(self, "additional_encryption_context")
+
+    @additional_encryption_context.setter
+    def additional_encryption_context(self, value: Optional[pulumi.Input['UserSettingsEncryptionContextMapArgs']]):
+        pulumi.set(self, "additional_encryption_context", value)
+
+    @property
+    @pulumi.getter(name="cookieSynchronizationConfiguration")
+    def cookie_synchronization_configuration(self) -> Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']]:
+        return pulumi.get(self, "cookie_synchronization_configuration")
+
+    @cookie_synchronization_configuration.setter
+    def cookie_synchronization_configuration(self, value: Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']]):
+        pulumi.set(self, "cookie_synchronization_configuration", value)
+
+    @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "customer_managed_key")
+
+    @customer_managed_key.setter
+    def customer_managed_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_managed_key", value)
+
+    @property
     @pulumi.getter(name="disconnectTimeoutInMinutes")
     def disconnect_timeout_in_minutes(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "disconnect_timeout_in_minutes")
@@ -118,7 +154,10 @@ class UserSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_encryption_context: Optional[pulumi.Input[pulumi.InputType['UserSettingsEncryptionContextMapArgs']]] = None,
+                 cookie_synchronization_configuration: Optional[pulumi.Input[pulumi.InputType['UserSettingsCookieSynchronizationConfigurationArgs']]] = None,
                  copy_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
+                 customer_managed_key: Optional[pulumi.Input[str]] = None,
                  disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  download_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
@@ -157,7 +196,10 @@ class UserSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_encryption_context: Optional[pulumi.Input[pulumi.InputType['UserSettingsEncryptionContextMapArgs']]] = None,
+                 cookie_synchronization_configuration: Optional[pulumi.Input[pulumi.InputType['UserSettingsCookieSynchronizationConfigurationArgs']]] = None,
                  copy_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
+                 customer_managed_key: Optional[pulumi.Input[str]] = None,
                  disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  download_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
@@ -174,9 +216,12 @@ class UserSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserSettingsArgs.__new__(UserSettingsArgs)
 
+            __props__.__dict__["additional_encryption_context"] = additional_encryption_context
+            __props__.__dict__["cookie_synchronization_configuration"] = cookie_synchronization_configuration
             if copy_allowed is None and not opts.urn:
                 raise TypeError("Missing required property 'copy_allowed'")
             __props__.__dict__["copy_allowed"] = copy_allowed
+            __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["disconnect_timeout_in_minutes"] = disconnect_timeout_in_minutes
             if download_allowed is None and not opts.urn:
                 raise TypeError("Missing required property 'download_allowed'")
@@ -194,6 +239,8 @@ class UserSettings(pulumi.CustomResource):
             __props__.__dict__["upload_allowed"] = upload_allowed
             __props__.__dict__["associated_portal_arns"] = None
             __props__.__dict__["user_settings_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_encryption_context", "customer_managed_key"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserSettings, __self__).__init__(
             'aws-native:workspacesweb:UserSettings',
             resource_name,
@@ -216,8 +263,11 @@ class UserSettings(pulumi.CustomResource):
 
         __props__ = UserSettingsArgs.__new__(UserSettingsArgs)
 
+        __props__.__dict__["additional_encryption_context"] = None
         __props__.__dict__["associated_portal_arns"] = None
+        __props__.__dict__["cookie_synchronization_configuration"] = None
         __props__.__dict__["copy_allowed"] = None
+        __props__.__dict__["customer_managed_key"] = None
         __props__.__dict__["disconnect_timeout_in_minutes"] = None
         __props__.__dict__["download_allowed"] = None
         __props__.__dict__["idle_disconnect_timeout_in_minutes"] = None
@@ -229,14 +279,29 @@ class UserSettings(pulumi.CustomResource):
         return UserSettings(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="additionalEncryptionContext")
+    def additional_encryption_context(self) -> pulumi.Output[Optional['outputs.UserSettingsEncryptionContextMap']]:
+        return pulumi.get(self, "additional_encryption_context")
+
+    @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "associated_portal_arns")
 
     @property
+    @pulumi.getter(name="cookieSynchronizationConfiguration")
+    def cookie_synchronization_configuration(self) -> pulumi.Output[Optional['outputs.UserSettingsCookieSynchronizationConfiguration']]:
+        return pulumi.get(self, "cookie_synchronization_configuration")
+
+    @property
     @pulumi.getter(name="copyAllowed")
     def copy_allowed(self) -> pulumi.Output['UserSettingsEnabledType']:
         return pulumi.get(self, "copy_allowed")
+
+    @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "customer_managed_key")
 
     @property
     @pulumi.getter(name="disconnectTimeoutInMinutes")

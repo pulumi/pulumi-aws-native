@@ -15,11 +15,20 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [AwsNativeResourceType("aws-native:workspacesweb:UserSettings")]
     public partial class UserSettings : global::Pulumi.CustomResource
     {
+        [Output("additionalEncryptionContext")]
+        public Output<Outputs.UserSettingsEncryptionContextMap?> AdditionalEncryptionContext { get; private set; } = null!;
+
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
+        [Output("cookieSynchronizationConfiguration")]
+        public Output<Outputs.UserSettingsCookieSynchronizationConfiguration?> CookieSynchronizationConfiguration { get; private set; } = null!;
+
         [Output("copyAllowed")]
         public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> CopyAllowed { get; private set; } = null!;
+
+        [Output("customerManagedKey")]
+        public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
         [Output("disconnectTimeoutInMinutes")]
         public Output<double?> DisconnectTimeoutInMinutes { get; private set; } = null!;
@@ -68,6 +77,11 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "additionalEncryptionContext",
+                    "customerManagedKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -90,8 +104,17 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class UserSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalEncryptionContext")]
+        public Input<Inputs.UserSettingsEncryptionContextMapArgs>? AdditionalEncryptionContext { get; set; }
+
+        [Input("cookieSynchronizationConfiguration")]
+        public Input<Inputs.UserSettingsCookieSynchronizationConfigurationArgs>? CookieSynchronizationConfiguration { get; set; }
+
         [Input("copyAllowed", required: true)]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> CopyAllowed { get; set; } = null!;
+
+        [Input("customerManagedKey")]
+        public Input<string>? CustomerManagedKey { get; set; }
 
         [Input("disconnectTimeoutInMinutes")]
         public Input<double>? DisconnectTimeoutInMinutes { get; set; }

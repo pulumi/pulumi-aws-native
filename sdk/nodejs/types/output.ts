@@ -4263,6 +4263,11 @@ export namespace autoscaling {
         min?: number;
     }
 
+    export interface AutoScalingGroupInstanceMaintenancePolicy {
+        maxHealthyPercentage?: number;
+        minHealthyPercentage?: number;
+    }
+
     export interface AutoScalingGroupInstanceRequirements {
         acceleratorCount?: outputs.autoscaling.AutoScalingGroupAcceleratorCountRequest;
         acceleratorManufacturers?: string[];
@@ -4358,7 +4363,7 @@ export namespace autoscaling {
 
     export interface AutoScalingGroupNotificationConfiguration {
         notificationTypes?: string[];
-        topicArn: string;
+        topicArn: string[];
     }
 
     export interface AutoScalingGroupTagProperty {
@@ -5498,6 +5503,21 @@ export namespace cleanrooms {
     export interface ConfiguredTableTag {
         key: string;
         value: string;
+    }
+
+    export interface MembershipProtectedQueryOutputConfiguration {
+        s3: outputs.cleanrooms.MembershipProtectedQueryS3OutputConfiguration;
+    }
+
+    export interface MembershipProtectedQueryResultConfiguration {
+        outputConfiguration: outputs.cleanrooms.MembershipProtectedQueryOutputConfiguration;
+        roleArn?: string;
+    }
+
+    export interface MembershipProtectedQueryS3OutputConfiguration {
+        bucket: string;
+        keyPrefix?: string;
+        resultFormat: enums.cleanrooms.MembershipResultFormat;
     }
 
     export interface MembershipTag {
@@ -12695,6 +12715,10 @@ export namespace ec2 {
          */
         networkInterfaceId?: string;
         /**
+         * Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+         */
+        primaryIpv6?: boolean;
+        /**
          * The primary private IPv4 address of the network interface.
          */
         privateIpAddress?: string;
@@ -14549,6 +14573,17 @@ export namespace efs {
     export interface FileSystemLifecyclePolicy {
         transitionToIa?: string;
         transitionToPrimaryStorageClass?: string;
+    }
+
+    export interface FileSystemReplicationConfiguration {
+        destinations?: outputs.efs.FileSystemReplicationDestination[];
+    }
+
+    export interface FileSystemReplicationDestination {
+        availabilityZoneName?: string;
+        fileSystemId?: string;
+        kmsKeyId?: string;
+        region?: string;
     }
 
 }
@@ -26604,6 +26639,30 @@ export namespace lightsail {
     }
 
     /**
+     * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+     */
+    export interface ContainerPrivateRegistryAccess {
+        /**
+         * An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+         */
+        ecrImagePullerRole?: outputs.lightsail.ContainerPrivateRegistryAccessEcrImagePullerRoleProperties;
+    }
+
+    /**
+     * An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+     */
+    export interface ContainerPrivateRegistryAccessEcrImagePullerRoleProperties {
+        /**
+         * A Boolean value that indicates whether to activate the role.
+         */
+        isActive?: boolean;
+        /**
+         * The Amazon Resource Name (ARN) of the role, if it is activated.
+         */
+        principalArn?: string;
+    }
+
+    /**
      * The public domain name to use with the container service, such as example.com and www.example.com.
      */
     export interface ContainerPublicDomainName {
@@ -29923,6 +29982,199 @@ export namespace mediapackage {
 
 }
 
+export namespace mediapackagev2 {
+    export interface ChannelGroupTag {
+        key?: string;
+        value?: string;
+    }
+
+    export interface ChannelIngestEndpoint {
+        id?: string;
+        url?: string;
+    }
+
+    export interface ChannelTag {
+        key?: string;
+        value?: string;
+    }
+
+    /**
+     * <p>The parameters for encrypting content.</p>
+     */
+    export interface OriginEndpointEncryption {
+        /**
+         * <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
+         */
+        constantInitializationVector?: string;
+        encryptionMethod: outputs.mediapackagev2.OriginEndpointEncryptionMethod;
+        /**
+         * <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p>
+         *          <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
+         *          </p>
+         */
+        keyRotationIntervalSeconds?: number;
+        spekeKeyProvider: outputs.mediapackagev2.OriginEndpointSpekeKeyProvider;
+    }
+
+    /**
+     * <p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>
+     */
+    export interface OriginEndpointEncryptionContractConfiguration {
+        presetSpeke20Audio: enums.mediapackagev2.OriginEndpointPresetSpeke20Audio;
+        presetSpeke20Video: enums.mediapackagev2.OriginEndpointPresetSpeke20Video;
+    }
+
+    /**
+     * <p>The encryption type.</p>
+     */
+    export interface OriginEndpointEncryptionMethod {
+        cmafEncryptionMethod?: enums.mediapackagev2.OriginEndpointCmafEncryptionMethod;
+        tsEncryptionMethod?: enums.mediapackagev2.OriginEndpointTsEncryptionMethod;
+    }
+
+    /**
+     * <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
+     */
+    export interface OriginEndpointHlsManifestConfiguration {
+        /**
+         * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+         */
+        childManifestName?: string;
+        /**
+         * <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+         */
+        manifestName: string;
+        /**
+         * <p>The total duration (in seconds) of the manifest's content.</p>
+         */
+        manifestWindowSeconds?: number;
+        /**
+         * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
+         *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
+         *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
+         *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+         *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+         */
+        programDateTimeIntervalSeconds?: number;
+        scteHls?: outputs.mediapackagev2.OriginEndpointScteHls;
+        /**
+         * <p>The egress domain URL for stream delivery from MediaPackage.</p>
+         */
+        url?: string;
+    }
+
+    /**
+     * <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
+     */
+    export interface OriginEndpointLowLatencyHlsManifestConfiguration {
+        /**
+         * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+         */
+        childManifestName?: string;
+        /**
+         * <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+         */
+        manifestName: string;
+        /**
+         * <p>The total duration (in seconds) of the manifest's content.</p>
+         */
+        manifestWindowSeconds?: number;
+        /**
+         * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
+         *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
+         *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
+         *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+         *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+         */
+        programDateTimeIntervalSeconds?: number;
+        scteHls?: outputs.mediapackagev2.OriginEndpointScteHls;
+        /**
+         * <p>The egress domain URL for stream delivery from MediaPackage.</p>
+         */
+        url?: string;
+    }
+
+    /**
+     * <p>The SCTE configuration.</p>
+     */
+    export interface OriginEndpointScte {
+        /**
+         * <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
+         */
+        scteFilter?: enums.mediapackagev2.OriginEndpointScteFilter[];
+    }
+
+    /**
+     * <p>The SCTE configuration.</p>
+     */
+    export interface OriginEndpointScteHls {
+        adMarkerHls?: enums.mediapackagev2.OriginEndpointAdMarkerHls;
+    }
+
+    /**
+     * <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
+     */
+    export interface OriginEndpointSegment {
+        encryption?: outputs.mediapackagev2.OriginEndpointEncryption;
+        /**
+         * <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
+         */
+        includeIframeOnlyStreams?: boolean;
+        scte?: outputs.mediapackagev2.OriginEndpointScte;
+        /**
+         * <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
+         */
+        segmentDurationSeconds?: number;
+        /**
+         * <p>The name that describes the segment. The name is the base name of the segment used in all content manifests inside of the endpoint. You can't use spaces in the name.</p>
+         */
+        segmentName?: string;
+        /**
+         * <p>By default, MediaPackage excludes all digital video broadcasting (DVB) subtitles from the output. When selected, MediaPackage passes through DVB subtitles into the output.</p>
+         */
+        tsIncludeDvbSubtitles?: boolean;
+        /**
+         * <p>When selected, MediaPackage bundles all audio tracks in a rendition group. All other tracks in the stream can be used with any audio rendition from the group.</p>
+         */
+        tsUseAudioRenditionGroup?: boolean;
+    }
+
+    /**
+     * <p>The parameters for the SPEKE key provider.</p>
+     */
+    export interface OriginEndpointSpekeKeyProvider {
+        /**
+         * <p>The DRM solution provider you're using to protect your content during distribution.</p>
+         */
+        drmSystems: enums.mediapackagev2.OriginEndpointDrmSystem[];
+        encryptionContractConfiguration: outputs.mediapackagev2.OriginEndpointEncryptionContractConfiguration;
+        /**
+         * <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p>
+         *          <p>The following example shows a resource ID: <code>MovieNight20171126093045</code>
+         *          </p>
+         */
+        resourceId: string;
+        /**
+         * <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p>
+         *          <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code>
+         *          </p>
+         */
+        roleArn: string;
+        /**
+         * <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p>
+         *          <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code>
+         *          </p>
+         */
+        url: string;
+    }
+
+    export interface OriginEndpointTag {
+        key?: string;
+        value?: string;
+    }
+
+}
+
 export namespace mediastore {
     export interface ContainerCorsRule {
         allowedHeaders?: string[];
@@ -30482,6 +30734,12 @@ export namespace msk {
 
     export interface ClusterVpcConnectivityTls {
         enabled: boolean;
+    }
+
+    export interface ConfigurationLatestRevision {
+        creationTime?: string;
+        description?: string;
+        revision?: number;
     }
 
     export interface ServerlessClusterClientAuthentication {
@@ -33381,9 +33639,6 @@ export namespace quicksight {
         sortDirection: enums.quicksight.AnalysisSortDirection;
     }
 
-    export interface AnalysisAllSheetsFilterScopeConfiguration {
-    }
-
     export interface AnalysisAnchorDateConfiguration {
         anchorOption?: enums.quicksight.AnalysisAnchorOption;
         parameterName?: string;
@@ -34012,7 +34267,6 @@ export namespace quicksight {
 
     export interface AnalysisDateTimePickerControlDisplayOptions {
         dateTimeFormat?: string;
-        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
 
@@ -34119,7 +34373,6 @@ export namespace quicksight {
     }
 
     export interface AnalysisDropDownControlDisplayOptions {
-        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         selectAllOptions?: outputs.quicksight.AnalysisListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
@@ -34316,7 +34569,6 @@ export namespace quicksight {
     }
 
     export interface AnalysisFilterScopeConfiguration {
-        allSheets?: outputs.quicksight.AnalysisAllSheetsFilterScopeConfiguration;
         selectedSheets?: outputs.quicksight.AnalysisSelectedSheetsFilterScopeConfiguration;
     }
 
@@ -34375,7 +34627,7 @@ export namespace quicksight {
         periodsForward?: number;
         predictionInterval?: number;
         seasonality?: enums.quicksight.AnalysisForecastComputationSeasonality;
-        time?: outputs.quicksight.AnalysisDimensionField;
+        time: outputs.quicksight.AnalysisDimensionField;
         upperBoundary?: number;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
@@ -34652,7 +34904,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodSize?: number;
-        time?: outputs.quicksight.AnalysisDimensionField;
+        time: outputs.quicksight.AnalysisDimensionField;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
@@ -34946,7 +35198,6 @@ export namespace quicksight {
     }
 
     export interface AnalysisListControlDisplayOptions {
-        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         searchOptions?: outputs.quicksight.AnalysisListControlSearchOptions;
         selectAllOptions?: outputs.quicksight.AnalysisListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
@@ -34985,7 +35236,7 @@ export namespace quicksight {
     export interface AnalysisMaximumMinimumComputation {
         computationId: string;
         name?: string;
-        time?: outputs.quicksight.AnalysisDimensionField;
+        time: outputs.quicksight.AnalysisDimensionField;
         type: enums.quicksight.AnalysisMaximumMinimumComputationType;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
@@ -34999,10 +35250,10 @@ export namespace quicksight {
 
     export interface AnalysisMetricComparisonComputation {
         computationId: string;
-        fromValue?: outputs.quicksight.AnalysisMeasureField;
+        fromValue: outputs.quicksight.AnalysisMeasureField;
         name?: string;
-        targetValue?: outputs.quicksight.AnalysisMeasureField;
-        time?: outputs.quicksight.AnalysisDimensionField;
+        targetValue: outputs.quicksight.AnalysisMeasureField;
+        time: outputs.quicksight.AnalysisDimensionField;
     }
 
     export interface AnalysisMinimumLabelType {
@@ -35233,7 +35484,7 @@ export namespace quicksight {
     export interface AnalysisPeriodOverPeriodComputation {
         computationId: string;
         name?: string;
-        time?: outputs.quicksight.AnalysisDimensionField;
+        time: outputs.quicksight.AnalysisDimensionField;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
@@ -35241,7 +35492,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodTimeGranularity?: enums.quicksight.AnalysisTimeGranularity;
-        time?: outputs.quicksight.AnalysisDimensionField;
+        time: outputs.quicksight.AnalysisDimensionField;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
@@ -35367,16 +35618,10 @@ export namespace quicksight {
         collapsedRowDimensionsVisibility?: enums.quicksight.AnalysisVisibility;
         columnHeaderStyle?: outputs.quicksight.AnalysisTableCellStyle;
         columnNamesVisibility?: enums.quicksight.AnalysisVisibility;
-        /**
-         * String based length that is composed of value and unit in px
-         */
-        defaultCellWidth?: string;
         metricPlacement?: enums.quicksight.AnalysisPivotTableMetricPlacement;
         rowAlternateColorOptions?: outputs.quicksight.AnalysisRowAlternateColorOptions;
         rowFieldNamesStyle?: outputs.quicksight.AnalysisTableCellStyle;
         rowHeaderStyle?: outputs.quicksight.AnalysisTableCellStyle;
-        rowsLabelOptions?: outputs.quicksight.AnalysisPivotTableRowsLabelOptions;
-        rowsLayout?: enums.quicksight.AnalysisPivotTableRowsLayout;
         singleMetricVisibility?: enums.quicksight.AnalysisVisibility;
         toggleButtonsVisibility?: enums.quicksight.AnalysisVisibility;
     }
@@ -35384,11 +35629,6 @@ export namespace quicksight {
     export interface AnalysisPivotTablePaginatedReportOptions {
         overflowColumnHeaderVisibility?: enums.quicksight.AnalysisVisibility;
         verticalOverflowVisibility?: enums.quicksight.AnalysisVisibility;
-    }
-
-    export interface AnalysisPivotTableRowsLabelOptions {
-        customLabel?: string;
-        visibility?: enums.quicksight.AnalysisVisibility;
     }
 
     export interface AnalysisPivotTableSortBy {
@@ -35541,7 +35781,6 @@ export namespace quicksight {
 
     export interface AnalysisRelativeDateTimeControlDisplayOptions {
         dateTimeFormat?: string;
-        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
 
@@ -35572,7 +35811,6 @@ export namespace quicksight {
     export interface AnalysisRowAlternateColorOptions {
         rowAlternateColors?: string[];
         status?: enums.quicksight.AnalysisWidgetStatus;
-        usePrimaryBackgroundColor?: enums.quicksight.AnalysisWidgetStatus;
     }
 
     export interface AnalysisSameSheetTargetVisualConfiguration {
@@ -35721,11 +35959,6 @@ export namespace quicksight {
         sheetId?: string;
     }
 
-    export interface AnalysisSheetControlInfoIconLabelOptions {
-        infoIconText?: string;
-        visibility?: enums.quicksight.AnalysisVisibility;
-    }
-
     export interface AnalysisSheetControlLayout {
         configuration: outputs.quicksight.AnalysisSheetControlLayoutConfiguration;
     }
@@ -35778,21 +36011,13 @@ export namespace quicksight {
     }
 
     export interface AnalysisSliderControlDisplayOptions {
-        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
-    }
-
-    export interface AnalysisSmallMultiplesAxisProperties {
-        placement?: enums.quicksight.AnalysisSmallMultiplesAxisPlacement;
-        scale?: enums.quicksight.AnalysisSmallMultiplesAxisScale;
     }
 
     export interface AnalysisSmallMultiplesOptions {
         maxVisibleColumns?: number;
         maxVisibleRows?: number;
         panelConfiguration?: outputs.quicksight.AnalysisPanelConfiguration;
-        xAxis?: outputs.quicksight.AnalysisSmallMultiplesAxisProperties;
-        yAxis?: outputs.quicksight.AnalysisSmallMultiplesAxisProperties;
     }
 
     export interface AnalysisSourceEntity {
@@ -35856,7 +36081,6 @@ export namespace quicksight {
         fieldLevel?: enums.quicksight.AnalysisPivotTableSubtotalLevel;
         fieldLevelOptions?: outputs.quicksight.AnalysisPivotTableFieldSubtotalOptions[];
         metricHeaderCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
-        styleTargets?: outputs.quicksight.AnalysisTableStyleTarget[];
         totalCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
         totalsVisibility?: enums.quicksight.AnalysisVisibility;
         valueCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
@@ -35996,10 +36220,6 @@ export namespace quicksight {
         rowSort?: outputs.quicksight.AnalysisFieldSortOptions[];
     }
 
-    export interface AnalysisTableStyleTarget {
-        cellType: enums.quicksight.AnalysisStyledCellType;
-    }
-
     export interface AnalysisTableUnaggregatedFieldWells {
         values?: outputs.quicksight.AnalysisUnaggregatedField[];
     }
@@ -36019,7 +36239,6 @@ export namespace quicksight {
     }
 
     export interface AnalysisTextAreaControlDisplayOptions {
-        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.AnalysisTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
@@ -36035,7 +36254,6 @@ export namespace quicksight {
     }
 
     export interface AnalysisTextFieldControlDisplayOptions {
-        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.AnalysisTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
@@ -36108,18 +36326,18 @@ export namespace quicksight {
     }
 
     export interface AnalysisTopBottomMoversComputation {
-        category?: outputs.quicksight.AnalysisDimensionField;
+        category: outputs.quicksight.AnalysisDimensionField;
         computationId: string;
         moverSize?: number;
         name?: string;
         sortOrder?: enums.quicksight.AnalysisTopBottomSortOrder;
-        time?: outputs.quicksight.AnalysisDimensionField;
+        time: outputs.quicksight.AnalysisDimensionField;
         type: enums.quicksight.AnalysisTopBottomComputationType;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
     export interface AnalysisTopBottomRankedComputation {
-        category?: outputs.quicksight.AnalysisDimensionField;
+        category: outputs.quicksight.AnalysisDimensionField;
         computationId: string;
         name?: string;
         resultSize?: number;
@@ -36130,7 +36348,7 @@ export namespace quicksight {
     export interface AnalysisTotalAggregationComputation {
         computationId: string;
         name?: string;
-        value?: outputs.quicksight.AnalysisMeasureField;
+        value: outputs.quicksight.AnalysisMeasureField;
     }
 
     export interface AnalysisTotalOptions {
@@ -36188,7 +36406,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisUniqueValuesComputation {
-        category?: outputs.quicksight.AnalysisDimensionField;
+        category: outputs.quicksight.AnalysisDimensionField;
         computationId: string;
         name?: string;
     }
@@ -40156,9 +40374,6 @@ export namespace quicksight {
         sortDirection: enums.quicksight.TemplateSortDirection;
     }
 
-    export interface TemplateAllSheetsFilterScopeConfiguration {
-    }
-
     export interface TemplateAnalysisDefaults {
         defaultNewSheetConfiguration: outputs.quicksight.TemplateDefaultNewSheetConfiguration;
     }
@@ -40806,7 +41021,6 @@ export namespace quicksight {
 
     export interface TemplateDateTimePickerControlDisplayOptions {
         dateTimeFormat?: string;
-        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
 
@@ -40894,7 +41108,6 @@ export namespace quicksight {
     }
 
     export interface TemplateDropDownControlDisplayOptions {
-        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         selectAllOptions?: outputs.quicksight.TemplateListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
@@ -41091,7 +41304,6 @@ export namespace quicksight {
     }
 
     export interface TemplateFilterScopeConfiguration {
-        allSheets?: outputs.quicksight.TemplateAllSheetsFilterScopeConfiguration;
         selectedSheets?: outputs.quicksight.TemplateSelectedSheetsFilterScopeConfiguration;
     }
 
@@ -41150,7 +41362,7 @@ export namespace quicksight {
         periodsForward?: number;
         predictionInterval?: number;
         seasonality?: enums.quicksight.TemplateForecastComputationSeasonality;
-        time?: outputs.quicksight.TemplateDimensionField;
+        time: outputs.quicksight.TemplateDimensionField;
         upperBoundary?: number;
         value?: outputs.quicksight.TemplateMeasureField;
     }
@@ -41427,7 +41639,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodSize?: number;
-        time?: outputs.quicksight.TemplateDimensionField;
+        time: outputs.quicksight.TemplateDimensionField;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
@@ -41716,7 +41928,6 @@ export namespace quicksight {
     }
 
     export interface TemplateListControlDisplayOptions {
-        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         searchOptions?: outputs.quicksight.TemplateListControlSearchOptions;
         selectAllOptions?: outputs.quicksight.TemplateListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
@@ -41755,7 +41966,7 @@ export namespace quicksight {
     export interface TemplateMaximumMinimumComputation {
         computationId: string;
         name?: string;
-        time?: outputs.quicksight.TemplateDimensionField;
+        time: outputs.quicksight.TemplateDimensionField;
         type: enums.quicksight.TemplateMaximumMinimumComputationType;
         value?: outputs.quicksight.TemplateMeasureField;
     }
@@ -41769,10 +41980,10 @@ export namespace quicksight {
 
     export interface TemplateMetricComparisonComputation {
         computationId: string;
-        fromValue?: outputs.quicksight.TemplateMeasureField;
+        fromValue: outputs.quicksight.TemplateMeasureField;
         name?: string;
-        targetValue?: outputs.quicksight.TemplateMeasureField;
-        time?: outputs.quicksight.TemplateDimensionField;
+        targetValue: outputs.quicksight.TemplateMeasureField;
+        time: outputs.quicksight.TemplateDimensionField;
     }
 
     export interface TemplateMinimumLabelType {
@@ -41996,7 +42207,7 @@ export namespace quicksight {
     export interface TemplatePeriodOverPeriodComputation {
         computationId: string;
         name?: string;
-        time?: outputs.quicksight.TemplateDimensionField;
+        time: outputs.quicksight.TemplateDimensionField;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
@@ -42004,7 +42215,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodTimeGranularity?: enums.quicksight.TemplateTimeGranularity;
-        time?: outputs.quicksight.TemplateDimensionField;
+        time: outputs.quicksight.TemplateDimensionField;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
@@ -42130,16 +42341,10 @@ export namespace quicksight {
         collapsedRowDimensionsVisibility?: enums.quicksight.TemplateVisibility;
         columnHeaderStyle?: outputs.quicksight.TemplateTableCellStyle;
         columnNamesVisibility?: enums.quicksight.TemplateVisibility;
-        /**
-         * String based length that is composed of value and unit in px
-         */
-        defaultCellWidth?: string;
         metricPlacement?: enums.quicksight.TemplatePivotTableMetricPlacement;
         rowAlternateColorOptions?: outputs.quicksight.TemplateRowAlternateColorOptions;
         rowFieldNamesStyle?: outputs.quicksight.TemplateTableCellStyle;
         rowHeaderStyle?: outputs.quicksight.TemplateTableCellStyle;
-        rowsLabelOptions?: outputs.quicksight.TemplatePivotTableRowsLabelOptions;
-        rowsLayout?: enums.quicksight.TemplatePivotTableRowsLayout;
         singleMetricVisibility?: enums.quicksight.TemplateVisibility;
         toggleButtonsVisibility?: enums.quicksight.TemplateVisibility;
     }
@@ -42147,11 +42352,6 @@ export namespace quicksight {
     export interface TemplatePivotTablePaginatedReportOptions {
         overflowColumnHeaderVisibility?: enums.quicksight.TemplateVisibility;
         verticalOverflowVisibility?: enums.quicksight.TemplateVisibility;
-    }
-
-    export interface TemplatePivotTableRowsLabelOptions {
-        customLabel?: string;
-        visibility?: enums.quicksight.TemplateVisibility;
     }
 
     export interface TemplatePivotTableSortBy {
@@ -42304,7 +42504,6 @@ export namespace quicksight {
 
     export interface TemplateRelativeDateTimeControlDisplayOptions {
         dateTimeFormat?: string;
-        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
 
@@ -42335,7 +42534,6 @@ export namespace quicksight {
     export interface TemplateRowAlternateColorOptions {
         rowAlternateColors?: string[];
         status?: enums.quicksight.TemplateWidgetStatus;
-        usePrimaryBackgroundColor?: enums.quicksight.TemplateWidgetStatus;
     }
 
     export interface TemplateSameSheetTargetVisualConfiguration {
@@ -42484,11 +42682,6 @@ export namespace quicksight {
         sheetId?: string;
     }
 
-    export interface TemplateSheetControlInfoIconLabelOptions {
-        infoIconText?: string;
-        visibility?: enums.quicksight.TemplateVisibility;
-    }
-
     export interface TemplateSheetControlLayout {
         configuration: outputs.quicksight.TemplateSheetControlLayoutConfiguration;
     }
@@ -42541,21 +42734,13 @@ export namespace quicksight {
     }
 
     export interface TemplateSliderControlDisplayOptions {
-        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
-    }
-
-    export interface TemplateSmallMultiplesAxisProperties {
-        placement?: enums.quicksight.TemplateSmallMultiplesAxisPlacement;
-        scale?: enums.quicksight.TemplateSmallMultiplesAxisScale;
     }
 
     export interface TemplateSmallMultiplesOptions {
         maxVisibleColumns?: number;
         maxVisibleRows?: number;
         panelConfiguration?: outputs.quicksight.TemplatePanelConfiguration;
-        xAxis?: outputs.quicksight.TemplateSmallMultiplesAxisProperties;
-        yAxis?: outputs.quicksight.TemplateSmallMultiplesAxisProperties;
     }
 
     export interface TemplateSourceAnalysis {
@@ -42619,7 +42804,6 @@ export namespace quicksight {
         fieldLevel?: enums.quicksight.TemplatePivotTableSubtotalLevel;
         fieldLevelOptions?: outputs.quicksight.TemplatePivotTableFieldSubtotalOptions[];
         metricHeaderCellStyle?: outputs.quicksight.TemplateTableCellStyle;
-        styleTargets?: outputs.quicksight.TemplateTableStyleTarget[];
         totalCellStyle?: outputs.quicksight.TemplateTableCellStyle;
         totalsVisibility?: enums.quicksight.TemplateVisibility;
         valueCellStyle?: outputs.quicksight.TemplateTableCellStyle;
@@ -42759,10 +42943,6 @@ export namespace quicksight {
         rowSort?: outputs.quicksight.TemplateFieldSortOptions[];
     }
 
-    export interface TemplateTableStyleTarget {
-        cellType: enums.quicksight.TemplateStyledCellType;
-    }
-
     export interface TemplateTableUnaggregatedFieldWells {
         values?: outputs.quicksight.TemplateUnaggregatedField[];
     }
@@ -42782,7 +42962,6 @@ export namespace quicksight {
     }
 
     export interface TemplateTextAreaControlDisplayOptions {
-        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.TemplateTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
@@ -42798,7 +42977,6 @@ export namespace quicksight {
     }
 
     export interface TemplateTextFieldControlDisplayOptions {
-        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.TemplateTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
@@ -42871,18 +43049,18 @@ export namespace quicksight {
     }
 
     export interface TemplateTopBottomMoversComputation {
-        category?: outputs.quicksight.TemplateDimensionField;
+        category: outputs.quicksight.TemplateDimensionField;
         computationId: string;
         moverSize?: number;
         name?: string;
         sortOrder?: enums.quicksight.TemplateTopBottomSortOrder;
-        time?: outputs.quicksight.TemplateDimensionField;
+        time: outputs.quicksight.TemplateDimensionField;
         type: enums.quicksight.TemplateTopBottomComputationType;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
     export interface TemplateTopBottomRankedComputation {
-        category?: outputs.quicksight.TemplateDimensionField;
+        category: outputs.quicksight.TemplateDimensionField;
         computationId: string;
         name?: string;
         resultSize?: number;
@@ -42893,7 +43071,7 @@ export namespace quicksight {
     export interface TemplateTotalAggregationComputation {
         computationId: string;
         name?: string;
-        value?: outputs.quicksight.TemplateMeasureField;
+        value: outputs.quicksight.TemplateMeasureField;
     }
 
     export interface TemplateTotalOptions {
@@ -42951,7 +43129,7 @@ export namespace quicksight {
     }
 
     export interface TemplateUniqueValuesComputation {
-        category?: outputs.quicksight.TemplateDimensionField;
+        category: outputs.quicksight.TemplateDimensionField;
         computationId: string;
         name?: string;
     }
@@ -53845,6 +54023,20 @@ export namespace workspacesweb {
     export interface UserAccessLoggingSettingsTag {
         key: string;
         value: string;
+    }
+
+    export interface UserSettingsCookieSpecification {
+        domain: string;
+        name?: string;
+        path?: string;
+    }
+
+    export interface UserSettingsCookieSynchronizationConfiguration {
+        allowlist: outputs.workspacesweb.UserSettingsCookieSpecification[];
+        blocklist?: outputs.workspacesweb.UserSettingsCookieSpecification[];
+    }
+
+    export interface UserSettingsEncryptionContextMap {
     }
 
     export interface UserSettingsTag {

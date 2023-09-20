@@ -13,6 +13,7 @@ __all__ = [
     'AutoScalingGroupAcceleratorCountRequestArgs',
     'AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs',
     'AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs',
+    'AutoScalingGroupInstanceMaintenancePolicyArgs',
     'AutoScalingGroupInstanceRequirementsArgs',
     'AutoScalingGroupInstancesDistributionArgs',
     'AutoScalingGroupLaunchTemplateOverridesArgs',
@@ -136,6 +137,35 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs:
     @min.setter
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class AutoScalingGroupInstanceMaintenancePolicyArgs:
+    def __init__(__self__, *,
+                 max_healthy_percentage: Optional[pulumi.Input[int]] = None,
+                 min_healthy_percentage: Optional[pulumi.Input[int]] = None):
+        if max_healthy_percentage is not None:
+            pulumi.set(__self__, "max_healthy_percentage", max_healthy_percentage)
+        if min_healthy_percentage is not None:
+            pulumi.set(__self__, "min_healthy_percentage", min_healthy_percentage)
+
+    @property
+    @pulumi.getter(name="maxHealthyPercentage")
+    def max_healthy_percentage(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_healthy_percentage")
+
+    @max_healthy_percentage.setter
+    def max_healthy_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_healthy_percentage", value)
+
+    @property
+    @pulumi.getter(name="minHealthyPercentage")
+    def min_healthy_percentage(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_healthy_percentage")
+
+    @min_healthy_percentage.setter
+    def min_healthy_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_healthy_percentage", value)
 
 
 @pulumi.input_type
@@ -707,8 +737,8 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
 @pulumi.input_type
 class AutoScalingGroupMemoryGiBPerVCpuRequestArgs:
     def __init__(__self__, *,
-                 max: Optional[pulumi.Input[int]] = None,
-                 min: Optional[pulumi.Input[int]] = None):
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -716,20 +746,20 @@ class AutoScalingGroupMemoryGiBPerVCpuRequestArgs:
 
     @property
     @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[int]]:
+    def max(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "max")
 
     @max.setter
-    def max(self, value: Optional[pulumi.Input[int]]):
+    def max(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max", value)
 
     @property
     @pulumi.getter
-    def min(self) -> Optional[pulumi.Input[int]]:
+    def min(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "min")
 
     @min.setter
-    def min(self, value: Optional[pulumi.Input[int]]):
+    def min(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min", value)
 
 
@@ -879,7 +909,7 @@ class AutoScalingGroupNetworkInterfaceCountRequestArgs:
 @pulumi.input_type
 class AutoScalingGroupNotificationConfigurationArgs:
     def __init__(__self__, *,
-                 topic_arn: pulumi.Input[str],
+                 topic_arn: pulumi.Input[Sequence[pulumi.Input[str]]],
                  notification_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "topic_arn", topic_arn)
         if notification_types is not None:
@@ -887,11 +917,11 @@ class AutoScalingGroupNotificationConfigurationArgs:
 
     @property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> pulumi.Input[str]:
+    def topic_arn(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
-    def topic_arn(self, value: pulumi.Input[str]):
+    def topic_arn(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "topic_arn", value)
 
     @property
@@ -945,8 +975,8 @@ class AutoScalingGroupTagPropertyArgs:
 @pulumi.input_type
 class AutoScalingGroupTotalLocalStorageGbRequestArgs:
     def __init__(__self__, *,
-                 max: Optional[pulumi.Input[int]] = None,
-                 min: Optional[pulumi.Input[int]] = None):
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -954,20 +984,20 @@ class AutoScalingGroupTotalLocalStorageGbRequestArgs:
 
     @property
     @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[int]]:
+    def max(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "max")
 
     @max.setter
-    def max(self, value: Optional[pulumi.Input[int]]):
+    def max(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max", value)
 
     @property
     @pulumi.getter
-    def min(self) -> Optional[pulumi.Input[int]]:
+    def min(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "min")
 
     @min.setter
-    def min(self, value: Optional[pulumi.Input[int]]):
+    def min(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min", value)
 
 

@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly string ComputationId;
         public readonly string? Name;
-        public readonly Outputs.TemplateDimensionField? Time;
+        public readonly Outputs.TemplateDimensionField Time;
         public readonly Outputs.TemplateMeasureField? Value;
 
         [OutputConstructor]
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? name,
 
-            Outputs.TemplateDimensionField? time,
+            Outputs.TemplateDimensionField time,
 
             Outputs.TemplateMeasureField? value)
         {

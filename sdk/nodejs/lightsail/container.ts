@@ -51,6 +51,14 @@ export class Container extends pulumi.CustomResource {
      */
     public readonly power!: pulumi.Output<string>;
     /**
+     * The principal ARN of the container service.
+     */
+    public /*out*/ readonly principalArn!: pulumi.Output<string>;
+    /**
+     * A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+     */
+    public readonly privateRegistryAccess!: pulumi.Output<outputs.lightsail.ContainerPrivateRegistryAccess | undefined>;
+    /**
      * The public domain names to use with the container service, such as example.com and www.example.com.
      */
     public readonly publicDomainNames!: pulumi.Output<outputs.lightsail.ContainerPublicDomainName[] | undefined>;
@@ -94,17 +102,21 @@ export class Container extends pulumi.CustomResource {
             resourceInputs["containerServiceDeployment"] = args ? args.containerServiceDeployment : undefined;
             resourceInputs["isDisabled"] = args ? args.isDisabled : undefined;
             resourceInputs["power"] = args ? args.power : undefined;
+            resourceInputs["privateRegistryAccess"] = args ? args.privateRegistryAccess : undefined;
             resourceInputs["publicDomainNames"] = args ? args.publicDomainNames : undefined;
             resourceInputs["scale"] = args ? args.scale : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["containerArn"] = undefined /*out*/;
+            resourceInputs["principalArn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         } else {
             resourceInputs["containerArn"] = undefined /*out*/;
             resourceInputs["containerServiceDeployment"] = undefined /*out*/;
             resourceInputs["isDisabled"] = undefined /*out*/;
             resourceInputs["power"] = undefined /*out*/;
+            resourceInputs["principalArn"] = undefined /*out*/;
+            resourceInputs["privateRegistryAccess"] = undefined /*out*/;
             resourceInputs["publicDomainNames"] = undefined /*out*/;
             resourceInputs["scale"] = undefined /*out*/;
             resourceInputs["serviceName"] = undefined /*out*/;
@@ -134,6 +146,10 @@ export interface ContainerArgs {
      * The power specification for the container service.
      */
     power: pulumi.Input<string>;
+    /**
+     * A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+     */
+    privateRegistryAccess?: pulumi.Input<inputs.lightsail.ContainerPrivateRegistryAccessArgs>;
     /**
      * The public domain names to use with the container service, such as example.com and www.example.com.
      */

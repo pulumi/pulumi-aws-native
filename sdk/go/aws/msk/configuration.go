@@ -17,11 +17,12 @@ import (
 type Configuration struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput      `pulumi:"arn"`
-	Description       pulumi.StringPtrOutput   `pulumi:"description"`
-	KafkaVersionsList pulumi.StringArrayOutput `pulumi:"kafkaVersionsList"`
-	Name              pulumi.StringOutput      `pulumi:"name"`
-	ServerProperties  pulumi.StringOutput      `pulumi:"serverProperties"`
+	Arn               pulumi.StringOutput                  `pulumi:"arn"`
+	Description       pulumi.StringPtrOutput               `pulumi:"description"`
+	KafkaVersionsList pulumi.StringArrayOutput             `pulumi:"kafkaVersionsList"`
+	LatestRevision    ConfigurationLatestRevisionPtrOutput `pulumi:"latestRevision"`
+	Name              pulumi.StringOutput                  `pulumi:"name"`
+	ServerProperties  pulumi.StringOutput                  `pulumi:"serverProperties"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -72,16 +73,18 @@ func (ConfigurationState) ElementType() reflect.Type {
 }
 
 type configurationArgs struct {
-	Description       *string  `pulumi:"description"`
-	KafkaVersionsList []string `pulumi:"kafkaVersionsList"`
-	Name              *string  `pulumi:"name"`
-	ServerProperties  string   `pulumi:"serverProperties"`
+	Description       *string                      `pulumi:"description"`
+	KafkaVersionsList []string                     `pulumi:"kafkaVersionsList"`
+	LatestRevision    *ConfigurationLatestRevision `pulumi:"latestRevision"`
+	Name              *string                      `pulumi:"name"`
+	ServerProperties  string                       `pulumi:"serverProperties"`
 }
 
 // The set of arguments for constructing a Configuration resource.
 type ConfigurationArgs struct {
 	Description       pulumi.StringPtrInput
 	KafkaVersionsList pulumi.StringArrayInput
+	LatestRevision    ConfigurationLatestRevisionPtrInput
 	Name              pulumi.StringPtrInput
 	ServerProperties  pulumi.StringInput
 }
@@ -145,6 +148,10 @@ func (o ConfigurationOutput) Description() pulumi.StringPtrOutput {
 
 func (o ConfigurationOutput) KafkaVersionsList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringArrayOutput { return v.KafkaVersionsList }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfigurationOutput) LatestRevision() ConfigurationLatestRevisionPtrOutput {
+	return o.ApplyT(func(v *Configuration) ConfigurationLatestRevisionPtrOutput { return v.LatestRevision }).(ConfigurationLatestRevisionPtrOutput)
 }
 
 func (o ConfigurationOutput) Name() pulumi.StringOutput {

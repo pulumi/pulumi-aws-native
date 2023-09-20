@@ -1401,6 +1401,188 @@ func (in *membershipQueryLogStatusPtr) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
+type MembershipResultFormat string
+
+const (
+	MembershipResultFormatCsv     = MembershipResultFormat("CSV")
+	MembershipResultFormatParquet = MembershipResultFormat("PARQUET")
+)
+
+func (MembershipResultFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipResultFormat)(nil)).Elem()
+}
+
+func (e MembershipResultFormat) ToMembershipResultFormatOutput() MembershipResultFormatOutput {
+	return pulumi.ToOutput(e).(MembershipResultFormatOutput)
+}
+
+func (e MembershipResultFormat) ToMembershipResultFormatOutputWithContext(ctx context.Context) MembershipResultFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MembershipResultFormatOutput)
+}
+
+func (e MembershipResultFormat) ToMembershipResultFormatPtrOutput() MembershipResultFormatPtrOutput {
+	return e.ToMembershipResultFormatPtrOutputWithContext(context.Background())
+}
+
+func (e MembershipResultFormat) ToMembershipResultFormatPtrOutputWithContext(ctx context.Context) MembershipResultFormatPtrOutput {
+	return MembershipResultFormat(e).ToMembershipResultFormatOutputWithContext(ctx).ToMembershipResultFormatPtrOutputWithContext(ctx)
+}
+
+func (e MembershipResultFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MembershipResultFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MembershipResultFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MembershipResultFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MembershipResultFormatOutput struct{ *pulumi.OutputState }
+
+func (MembershipResultFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipResultFormat)(nil)).Elem()
+}
+
+func (o MembershipResultFormatOutput) ToMembershipResultFormatOutput() MembershipResultFormatOutput {
+	return o
+}
+
+func (o MembershipResultFormatOutput) ToMembershipResultFormatOutputWithContext(ctx context.Context) MembershipResultFormatOutput {
+	return o
+}
+
+func (o MembershipResultFormatOutput) ToMembershipResultFormatPtrOutput() MembershipResultFormatPtrOutput {
+	return o.ToMembershipResultFormatPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipResultFormatOutput) ToMembershipResultFormatPtrOutputWithContext(ctx context.Context) MembershipResultFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipResultFormat) *MembershipResultFormat {
+		return &v
+	}).(MembershipResultFormatPtrOutput)
+}
+
+func (o MembershipResultFormatOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipResultFormat] {
+	return pulumix.Output[MembershipResultFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipResultFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MembershipResultFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MembershipResultFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MembershipResultFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipResultFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MembershipResultFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MembershipResultFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipResultFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipResultFormat)(nil)).Elem()
+}
+
+func (o MembershipResultFormatPtrOutput) ToMembershipResultFormatPtrOutput() MembershipResultFormatPtrOutput {
+	return o
+}
+
+func (o MembershipResultFormatPtrOutput) ToMembershipResultFormatPtrOutputWithContext(ctx context.Context) MembershipResultFormatPtrOutput {
+	return o
+}
+
+func (o MembershipResultFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipResultFormat] {
+	return pulumix.Output[*MembershipResultFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipResultFormatPtrOutput) Elem() MembershipResultFormatOutput {
+	return o.ApplyT(func(v *MembershipResultFormat) MembershipResultFormat {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipResultFormat
+		return ret
+	}).(MembershipResultFormatOutput)
+}
+
+func (o MembershipResultFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipResultFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MembershipResultFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MembershipResultFormatInput is an input type that accepts MembershipResultFormatArgs and MembershipResultFormatOutput values.
+// You can construct a concrete instance of `MembershipResultFormatInput` via:
+//
+//	MembershipResultFormatArgs{...}
+type MembershipResultFormatInput interface {
+	pulumi.Input
+
+	ToMembershipResultFormatOutput() MembershipResultFormatOutput
+	ToMembershipResultFormatOutputWithContext(context.Context) MembershipResultFormatOutput
+}
+
+var membershipResultFormatPtrType = reflect.TypeOf((**MembershipResultFormat)(nil)).Elem()
+
+type MembershipResultFormatPtrInput interface {
+	pulumi.Input
+
+	ToMembershipResultFormatPtrOutput() MembershipResultFormatPtrOutput
+	ToMembershipResultFormatPtrOutputWithContext(context.Context) MembershipResultFormatPtrOutput
+}
+
+type membershipResultFormatPtr string
+
+func MembershipResultFormatPtr(v string) MembershipResultFormatPtrInput {
+	return (*membershipResultFormatPtr)(&v)
+}
+
+func (*membershipResultFormatPtr) ElementType() reflect.Type {
+	return membershipResultFormatPtrType
+}
+
+func (in *membershipResultFormatPtr) ToMembershipResultFormatPtrOutput() MembershipResultFormatPtrOutput {
+	return pulumi.ToOutput(in).(MembershipResultFormatPtrOutput)
+}
+
+func (in *membershipResultFormatPtr) ToMembershipResultFormatPtrOutputWithContext(ctx context.Context) MembershipResultFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MembershipResultFormatPtrOutput)
+}
+
+func (in *membershipResultFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*MembershipResultFormat] {
+	return pulumix.Output[*MembershipResultFormat]{
+		OutputState: in.ToMembershipResultFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterTypeInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterType("SMALLINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterTypePtrInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterType("SMALLINT"))
@@ -1417,6 +1599,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleTypePtrInput)(nil)).Elem(), ConfiguredTableAnalysisRuleType("AGGREGATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryLogStatusInput)(nil)).Elem(), MembershipQueryLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryLogStatusPtrInput)(nil)).Elem(), MembershipQueryLogStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipResultFormatInput)(nil)).Elem(), MembershipResultFormat("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipResultFormatPtrInput)(nil)).Elem(), MembershipResultFormat("CSV"))
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateFormatOutput{})
@@ -1432,4 +1616,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleTypePtrOutput{})
 	pulumi.RegisterOutputType(MembershipQueryLogStatusOutput{})
 	pulumi.RegisterOutputType(MembershipQueryLogStatusPtrOutput{})
+	pulumi.RegisterOutputType(MembershipResultFormatOutput{})
+	pulumi.RegisterOutputType(MembershipResultFormatPtrOutput{})
 }

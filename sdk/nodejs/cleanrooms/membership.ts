@@ -41,6 +41,7 @@ export class Membership extends pulumi.CustomResource {
     public /*out*/ readonly collaborationArn!: pulumi.Output<string>;
     public /*out*/ readonly collaborationCreatorAccountId!: pulumi.Output<string>;
     public readonly collaborationIdentifier!: pulumi.Output<string>;
+    public readonly defaultResultConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipProtectedQueryResultConfiguration | undefined>;
     public /*out*/ readonly membershipIdentifier!: pulumi.Output<string>;
     public readonly queryLogStatus!: pulumi.Output<enums.cleanrooms.MembershipQueryLogStatus>;
     /**
@@ -66,6 +67,7 @@ export class Membership extends pulumi.CustomResource {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
             resourceInputs["collaborationIdentifier"] = args ? args.collaborationIdentifier : undefined;
+            resourceInputs["defaultResultConfiguration"] = args ? args.defaultResultConfiguration : undefined;
             resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -77,6 +79,7 @@ export class Membership extends pulumi.CustomResource {
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationCreatorAccountId"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
+            resourceInputs["defaultResultConfiguration"] = undefined /*out*/;
             resourceInputs["membershipIdentifier"] = undefined /*out*/;
             resourceInputs["queryLogStatus"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -93,6 +96,7 @@ export class Membership extends pulumi.CustomResource {
  */
 export interface MembershipArgs {
     collaborationIdentifier: pulumi.Input<string>;
+    defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipProtectedQueryResultConfigurationArgs>;
     queryLogStatus: pulumi.Input<enums.cleanrooms.MembershipQueryLogStatus>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.

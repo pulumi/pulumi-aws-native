@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserSettingsResult:
-    def __init__(__self__, associated_portal_arns=None, copy_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, upload_allowed=None, user_settings_arn=None):
+    def __init__(__self__, associated_portal_arns=None, cookie_synchronization_configuration=None, copy_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, upload_allowed=None, user_settings_arn=None):
         if associated_portal_arns and not isinstance(associated_portal_arns, list):
             raise TypeError("Expected argument 'associated_portal_arns' to be a list")
         pulumi.set(__self__, "associated_portal_arns", associated_portal_arns)
+        if cookie_synchronization_configuration and not isinstance(cookie_synchronization_configuration, dict):
+            raise TypeError("Expected argument 'cookie_synchronization_configuration' to be a dict")
+        pulumi.set(__self__, "cookie_synchronization_configuration", cookie_synchronization_configuration)
         if copy_allowed and not isinstance(copy_allowed, str):
             raise TypeError("Expected argument 'copy_allowed' to be a str")
         pulumi.set(__self__, "copy_allowed", copy_allowed)
@@ -56,6 +59,11 @@ class GetUserSettingsResult:
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "associated_portal_arns")
+
+    @property
+    @pulumi.getter(name="cookieSynchronizationConfiguration")
+    def cookie_synchronization_configuration(self) -> Optional['outputs.UserSettingsCookieSynchronizationConfiguration']:
+        return pulumi.get(self, "cookie_synchronization_configuration")
 
     @property
     @pulumi.getter(name="copyAllowed")
@@ -110,6 +118,7 @@ class AwaitableGetUserSettingsResult(GetUserSettingsResult):
             yield self
         return GetUserSettingsResult(
             associated_portal_arns=self.associated_portal_arns,
+            cookie_synchronization_configuration=self.cookie_synchronization_configuration,
             copy_allowed=self.copy_allowed,
             disconnect_timeout_in_minutes=self.disconnect_timeout_in_minutes,
             download_allowed=self.download_allowed,
@@ -133,6 +142,7 @@ def get_user_settings(user_settings_arn: Optional[str] = None,
 
     return AwaitableGetUserSettingsResult(
         associated_portal_arns=pulumi.get(__ret__, 'associated_portal_arns'),
+        cookie_synchronization_configuration=pulumi.get(__ret__, 'cookie_synchronization_configuration'),
         copy_allowed=pulumi.get(__ret__, 'copy_allowed'),
         disconnect_timeout_in_minutes=pulumi.get(__ret__, 'disconnect_timeout_in_minutes'),
         download_allowed=pulumi.get(__ret__, 'download_allowed'),

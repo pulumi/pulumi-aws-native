@@ -26,6 +26,7 @@ class FileSystemArgs:
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
+                 replication_configuration: Optional[pulumi.Input['FileSystemReplicationConfigurationArgs']] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FileSystem resource.
@@ -51,6 +52,8 @@ class FileSystemArgs:
             pulumi.set(__self__, "performance_mode", performance_mode)
         if provisioned_throughput_in_mibps is not None:
             pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
+        if replication_configuration is not None:
+            pulumi.set(__self__, "replication_configuration", replication_configuration)
         if throughput_mode is not None:
             pulumi.set(__self__, "throughput_mode", throughput_mode)
 
@@ -148,6 +151,15 @@ class FileSystemArgs:
         pulumi.set(self, "provisioned_throughput_in_mibps", value)
 
     @property
+    @pulumi.getter(name="replicationConfiguration")
+    def replication_configuration(self) -> Optional[pulumi.Input['FileSystemReplicationConfigurationArgs']]:
+        return pulumi.get(self, "replication_configuration")
+
+    @replication_configuration.setter
+    def replication_configuration(self, value: Optional[pulumi.Input['FileSystemReplicationConfigurationArgs']]):
+        pulumi.set(self, "replication_configuration", value)
+
+    @property
     @pulumi.getter(name="throughputMode")
     def throughput_mode(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "throughput_mode")
@@ -172,6 +184,7 @@ class FileSystem(pulumi.CustomResource):
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
+                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemReplicationConfigurationArgs']]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -215,6 +228,7 @@ class FileSystem(pulumi.CustomResource):
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
+                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemReplicationConfigurationArgs']]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -235,6 +249,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["lifecycle_policies"] = lifecycle_policies
             __props__.__dict__["performance_mode"] = performance_mode
             __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
+            __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["throughput_mode"] = throughput_mode
             __props__.__dict__["arn"] = None
             __props__.__dict__["file_system_id"] = None
@@ -274,6 +289,7 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["lifecycle_policies"] = None
         __props__.__dict__["performance_mode"] = None
         __props__.__dict__["provisioned_throughput_in_mibps"] = None
+        __props__.__dict__["replication_configuration"] = None
         __props__.__dict__["throughput_mode"] = None
         return FileSystem(resource_name, opts=opts, __props__=__props__)
 
@@ -339,6 +355,11 @@ class FileSystem(pulumi.CustomResource):
     @pulumi.getter(name="provisionedThroughputInMibps")
     def provisioned_throughput_in_mibps(self) -> pulumi.Output[Optional[float]]:
         return pulumi.get(self, "provisioned_throughput_in_mibps")
+
+    @property
+    @pulumi.getter(name="replicationConfiguration")
+    def replication_configuration(self) -> pulumi.Output[Optional['outputs.FileSystemReplicationConfiguration']]:
+        return pulumi.get(self, "replication_configuration")
 
     @property
     @pulumi.getter(name="throughputMode")

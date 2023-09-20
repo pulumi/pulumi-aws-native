@@ -37,8 +37,11 @@ export class UserSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserSettings.__pulumiType;
     }
 
+    public readonly additionalEncryptionContext!: pulumi.Output<outputs.workspacesweb.UserSettingsEncryptionContextMap | undefined>;
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    public readonly cookieSynchronizationConfiguration!: pulumi.Output<outputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration | undefined>;
     public readonly copyAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
+    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
     public readonly disconnectTimeoutInMinutes!: pulumi.Output<number | undefined>;
     public readonly downloadAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
     public readonly idleDisconnectTimeoutInMinutes!: pulumi.Output<number | undefined>;
@@ -74,7 +77,10 @@ export class UserSettings extends pulumi.CustomResource {
             if ((!args || args.uploadAllowed === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'uploadAllowed'");
             }
+            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
+            resourceInputs["cookieSynchronizationConfiguration"] = args ? args.cookieSynchronizationConfiguration : undefined;
             resourceInputs["copyAllowed"] = args ? args.copyAllowed : undefined;
+            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["disconnectTimeoutInMinutes"] = args ? args.disconnectTimeoutInMinutes : undefined;
             resourceInputs["downloadAllowed"] = args ? args.downloadAllowed : undefined;
             resourceInputs["idleDisconnectTimeoutInMinutes"] = args ? args.idleDisconnectTimeoutInMinutes : undefined;
@@ -85,8 +91,11 @@ export class UserSettings extends pulumi.CustomResource {
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["userSettingsArn"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalEncryptionContext"] = undefined /*out*/;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
+            resourceInputs["cookieSynchronizationConfiguration"] = undefined /*out*/;
             resourceInputs["copyAllowed"] = undefined /*out*/;
+            resourceInputs["customerManagedKey"] = undefined /*out*/;
             resourceInputs["disconnectTimeoutInMinutes"] = undefined /*out*/;
             resourceInputs["downloadAllowed"] = undefined /*out*/;
             resourceInputs["idleDisconnectTimeoutInMinutes"] = undefined /*out*/;
@@ -97,6 +106,8 @@ export class UserSettings extends pulumi.CustomResource {
             resourceInputs["userSettingsArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext", "customerManagedKey"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -105,7 +116,10 @@ export class UserSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a UserSettings resource.
  */
 export interface UserSettingsArgs {
+    additionalEncryptionContext?: pulumi.Input<inputs.workspacesweb.UserSettingsEncryptionContextMapArgs>;
+    cookieSynchronizationConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsCookieSynchronizationConfigurationArgs>;
     copyAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
+    customerManagedKey?: pulumi.Input<string>;
     disconnectTimeoutInMinutes?: pulumi.Input<number>;
     downloadAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
     idleDisconnectTimeoutInMinutes?: pulumi.Input<number>;

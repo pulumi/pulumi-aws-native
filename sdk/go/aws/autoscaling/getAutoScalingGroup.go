@@ -38,9 +38,9 @@ type LookupAutoScalingGroupResult struct {
 	HealthCheckGracePeriod           *int                                         `pulumi:"healthCheckGracePeriod"`
 	HealthCheckType                  *string                                      `pulumi:"healthCheckType"`
 	Id                               *string                                      `pulumi:"id"`
+	InstanceMaintenancePolicy        *AutoScalingGroupInstanceMaintenancePolicy   `pulumi:"instanceMaintenancePolicy"`
 	LaunchConfigurationName          *string                                      `pulumi:"launchConfigurationName"`
 	LaunchTemplate                   *AutoScalingGroupLaunchTemplateSpecification `pulumi:"launchTemplate"`
-	LaunchTemplateSpecification      *string                                      `pulumi:"launchTemplateSpecification"`
 	LifecycleHookSpecificationList   []AutoScalingGroupLifecycleHookSpecification `pulumi:"lifecycleHookSpecificationList"`
 	LoadBalancerNames                []string                                     `pulumi:"loadBalancerNames"`
 	MaxInstanceLifetime              *int                                         `pulumi:"maxInstanceLifetime"`
@@ -139,6 +139,12 @@ func (o LookupAutoScalingGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupAutoScalingGroupResultOutput) InstanceMaintenancePolicy() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
+	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupInstanceMaintenancePolicy {
+		return v.InstanceMaintenancePolicy
+	}).(AutoScalingGroupInstanceMaintenancePolicyPtrOutput)
+}
+
 func (o LookupAutoScalingGroupResultOutput) LaunchConfigurationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.LaunchConfigurationName }).(pulumi.StringPtrOutput)
 }
@@ -147,10 +153,6 @@ func (o LookupAutoScalingGroupResultOutput) LaunchTemplate() AutoScalingGroupLau
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupLaunchTemplateSpecification {
 		return v.LaunchTemplate
 	}).(AutoScalingGroupLaunchTemplateSpecificationPtrOutput)
-}
-
-func (o LookupAutoScalingGroupResultOutput) LaunchTemplateSpecification() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.LaunchTemplateSpecification }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAutoScalingGroupResultOutput) LifecycleHookSpecificationList() AutoScalingGroupLifecycleHookSpecificationArrayOutput {

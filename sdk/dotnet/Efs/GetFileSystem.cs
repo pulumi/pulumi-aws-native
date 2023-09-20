@@ -58,6 +58,7 @@ namespace Pulumi.AwsNative.Efs
         public readonly ImmutableArray<Outputs.FileSystemElasticFileSystemTag> FileSystemTags;
         public readonly ImmutableArray<Outputs.FileSystemLifecyclePolicy> LifecyclePolicies;
         public readonly double? ProvisionedThroughputInMibps;
+        public readonly Outputs.FileSystemReplicationConfiguration? ReplicationConfiguration;
         public readonly string? ThroughputMode;
 
         [OutputConstructor]
@@ -76,6 +77,8 @@ namespace Pulumi.AwsNative.Efs
 
             double? provisionedThroughputInMibps,
 
+            Outputs.FileSystemReplicationConfiguration? replicationConfiguration,
+
             string? throughputMode)
         {
             Arn = arn;
@@ -85,6 +88,7 @@ namespace Pulumi.AwsNative.Efs
             FileSystemTags = fileSystemTags;
             LifecyclePolicies = lifecyclePolicies;
             ProvisionedThroughputInMibps = provisionedThroughputInMibps;
+            ReplicationConfiguration = replicationConfiguration;
             ThroughputMode = throughputMode;
         }
     }
