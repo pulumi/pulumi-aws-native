@@ -1282,6 +1282,13 @@
       "minLength" : 1,
       "maxLength" : 1000
     },
+    "LanguageCode" : {
+      "description" : "The code for a language.",
+      "type" : "string",
+      "minLength" : 2,
+      "maxLength" : 10,
+      "pattern" : "[a-zA-Z-]*"
+    },
     "RoleArn" : {
       "description" : "Role ARN",
       "type" : "string",
@@ -1473,6 +1480,9 @@
     },
     "CustomDocumentEnrichmentConfiguration" : {
       "$ref" : "#/definitions/CustomDocumentEnrichmentConfiguration"
+    },
+    "LanguageCode" : {
+      "$ref" : "#/definitions/LanguageCode"
     }
   },
   "required" : [ "Name", "IndexId", "Type" ],

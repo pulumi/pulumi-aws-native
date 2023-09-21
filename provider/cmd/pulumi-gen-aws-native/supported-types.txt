@@ -160,6 +160,7 @@ AWS::Connect::QuickConnect
 AWS::Connect::RoutingProfile
 AWS::Connect::Rule
 AWS::Connect::SecurityKey
+AWS::Connect::SecurityProfile
 AWS::Connect::TaskTemplate
 AWS::Connect::TrafficDistributionGroup
 AWS::Connect::User
@@ -368,6 +369,7 @@ AWS::GroundStation::Config
 AWS::GroundStation::DataflowEndpointGroup
 AWS::GroundStation::MissionProfile
 AWS::GuardDuty::Detector
+AWS::HealthImaging::Datastore
 AWS::HealthLake::FHIRDatastore
 AWS::IAM::GroupPolicy
 AWS::IAM::InstanceProfile
