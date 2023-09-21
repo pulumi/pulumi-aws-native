@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,14 +29,31 @@ class UrlArgs:
         :param pulumi.Input['UrlInvokeMode'] invoke_mode: The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         :param pulumi.Input[str] qualifier: The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         """
-        pulumi.set(__self__, "auth_type", auth_type)
-        pulumi.set(__self__, "target_function_arn", target_function_arn)
+        UrlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            target_function_arn=target_function_arn,
+            cors=cors,
+            invoke_mode=invoke_mode,
+            qualifier=qualifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input['UrlAuthType'],
+             target_function_arn: pulumi.Input[str],
+             cors: Optional[pulumi.Input['UrlCorsArgs']] = None,
+             invoke_mode: Optional[pulumi.Input['UrlInvokeMode']] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", auth_type)
+        _setter("target_function_arn", target_function_arn)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if invoke_mode is not None:
-            pulumi.set(__self__, "invoke_mode", invoke_mode)
+            _setter("invoke_mode", invoke_mode)
         if qualifier is not None:
-            pulumi.set(__self__, "qualifier", qualifier)
+            _setter("qualifier", qualifier)
 
     @property
     @pulumi.getter(name="authType")
@@ -136,6 +153,10 @@ class Url(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UrlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -158,6 +179,11 @@ class Url(pulumi.CustomResource):
             if auth_type is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_type'")
             __props__.__dict__["auth_type"] = auth_type
+            if not isinstance(cors, UrlCorsArgs):
+                cors = cors or {}
+                def _setter(key, value):
+                    cors[key] = value
+                UrlCorsArgs._configure(_setter, **cors)
             __props__.__dict__["cors"] = cors
             __props__.__dict__["invoke_mode"] = invoke_mode
             __props__.__dict__["qualifier"] = qualifier

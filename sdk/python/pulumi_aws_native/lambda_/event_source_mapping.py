@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -66,51 +66,104 @@ class EventSourceMappingArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: (Kafka) A list of Kafka topics.
         :param pulumi.Input[int] tumbling_window_in_seconds: (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
         """
-        pulumi.set(__self__, "function_name", function_name)
+        EventSourceMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_name=function_name,
+            amazon_managed_kafka_event_source_config=amazon_managed_kafka_event_source_config,
+            batch_size=batch_size,
+            bisect_batch_on_function_error=bisect_batch_on_function_error,
+            destination_config=destination_config,
+            document_db_event_source_config=document_db_event_source_config,
+            enabled=enabled,
+            event_source_arn=event_source_arn,
+            filter_criteria=filter_criteria,
+            function_response_types=function_response_types,
+            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
+            maximum_record_age_in_seconds=maximum_record_age_in_seconds,
+            maximum_retry_attempts=maximum_retry_attempts,
+            parallelization_factor=parallelization_factor,
+            queues=queues,
+            scaling_config=scaling_config,
+            self_managed_event_source=self_managed_event_source,
+            self_managed_kafka_event_source_config=self_managed_kafka_event_source_config,
+            source_access_configurations=source_access_configurations,
+            starting_position=starting_position,
+            starting_position_timestamp=starting_position_timestamp,
+            topics=topics,
+            tumbling_window_in_seconds=tumbling_window_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_name: pulumi.Input[str],
+             amazon_managed_kafka_event_source_config: Optional[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs']] = None,
+             batch_size: Optional[pulumi.Input[int]] = None,
+             bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
+             destination_config: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']] = None,
+             document_db_event_source_config: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             event_source_arn: Optional[pulumi.Input[str]] = None,
+             filter_criteria: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']] = None,
+             function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
+             maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
+             maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
+             maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+             parallelization_factor: Optional[pulumi.Input[int]] = None,
+             queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             scaling_config: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']] = None,
+             self_managed_event_source: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']] = None,
+             self_managed_kafka_event_source_config: Optional[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']] = None,
+             source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]]] = None,
+             starting_position: Optional[pulumi.Input[str]] = None,
+             starting_position_timestamp: Optional[pulumi.Input[float]] = None,
+             topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_name", function_name)
         if amazon_managed_kafka_event_source_config is not None:
-            pulumi.set(__self__, "amazon_managed_kafka_event_source_config", amazon_managed_kafka_event_source_config)
+            _setter("amazon_managed_kafka_event_source_config", amazon_managed_kafka_event_source_config)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if bisect_batch_on_function_error is not None:
-            pulumi.set(__self__, "bisect_batch_on_function_error", bisect_batch_on_function_error)
+            _setter("bisect_batch_on_function_error", bisect_batch_on_function_error)
         if destination_config is not None:
-            pulumi.set(__self__, "destination_config", destination_config)
+            _setter("destination_config", destination_config)
         if document_db_event_source_config is not None:
-            pulumi.set(__self__, "document_db_event_source_config", document_db_event_source_config)
+            _setter("document_db_event_source_config", document_db_event_source_config)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if event_source_arn is not None:
-            pulumi.set(__self__, "event_source_arn", event_source_arn)
+            _setter("event_source_arn", event_source_arn)
         if filter_criteria is not None:
-            pulumi.set(__self__, "filter_criteria", filter_criteria)
+            _setter("filter_criteria", filter_criteria)
         if function_response_types is not None:
-            pulumi.set(__self__, "function_response_types", function_response_types)
+            _setter("function_response_types", function_response_types)
         if maximum_batching_window_in_seconds is not None:
-            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if maximum_record_age_in_seconds is not None:
-            pulumi.set(__self__, "maximum_record_age_in_seconds", maximum_record_age_in_seconds)
+            _setter("maximum_record_age_in_seconds", maximum_record_age_in_seconds)
         if maximum_retry_attempts is not None:
-            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+            _setter("maximum_retry_attempts", maximum_retry_attempts)
         if parallelization_factor is not None:
-            pulumi.set(__self__, "parallelization_factor", parallelization_factor)
+            _setter("parallelization_factor", parallelization_factor)
         if queues is not None:
-            pulumi.set(__self__, "queues", queues)
+            _setter("queues", queues)
         if scaling_config is not None:
-            pulumi.set(__self__, "scaling_config", scaling_config)
+            _setter("scaling_config", scaling_config)
         if self_managed_event_source is not None:
-            pulumi.set(__self__, "self_managed_event_source", self_managed_event_source)
+            _setter("self_managed_event_source", self_managed_event_source)
         if self_managed_kafka_event_source_config is not None:
-            pulumi.set(__self__, "self_managed_kafka_event_source_config", self_managed_kafka_event_source_config)
+            _setter("self_managed_kafka_event_source_config", self_managed_kafka_event_source_config)
         if source_access_configurations is not None:
-            pulumi.set(__self__, "source_access_configurations", source_access_configurations)
+            _setter("source_access_configurations", source_access_configurations)
         if starting_position is not None:
-            pulumi.set(__self__, "starting_position", starting_position)
+            _setter("starting_position", starting_position)
         if starting_position_timestamp is not None:
-            pulumi.set(__self__, "starting_position_timestamp", starting_position_timestamp)
+            _setter("starting_position_timestamp", starting_position_timestamp)
         if topics is not None:
-            pulumi.set(__self__, "topics", topics)
+            _setter("topics", topics)
         if tumbling_window_in_seconds is not None:
-            pulumi.set(__self__, "tumbling_window_in_seconds", tumbling_window_in_seconds)
+            _setter("tumbling_window_in_seconds", tumbling_window_in_seconds)
 
     @property
     @pulumi.getter(name="functionName")
@@ -466,6 +519,10 @@ class EventSourceMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventSourceMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -503,13 +560,33 @@ class EventSourceMapping(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventSourceMappingArgs.__new__(EventSourceMappingArgs)
 
+            if not isinstance(amazon_managed_kafka_event_source_config, EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs):
+                amazon_managed_kafka_event_source_config = amazon_managed_kafka_event_source_config or {}
+                def _setter(key, value):
+                    amazon_managed_kafka_event_source_config[key] = value
+                EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs._configure(_setter, **amazon_managed_kafka_event_source_config)
             __props__.__dict__["amazon_managed_kafka_event_source_config"] = amazon_managed_kafka_event_source_config
             __props__.__dict__["batch_size"] = batch_size
             __props__.__dict__["bisect_batch_on_function_error"] = bisect_batch_on_function_error
+            if not isinstance(destination_config, EventSourceMappingDestinationConfigArgs):
+                destination_config = destination_config or {}
+                def _setter(key, value):
+                    destination_config[key] = value
+                EventSourceMappingDestinationConfigArgs._configure(_setter, **destination_config)
             __props__.__dict__["destination_config"] = destination_config
+            if not isinstance(document_db_event_source_config, EventSourceMappingDocumentDbEventSourceConfigArgs):
+                document_db_event_source_config = document_db_event_source_config or {}
+                def _setter(key, value):
+                    document_db_event_source_config[key] = value
+                EventSourceMappingDocumentDbEventSourceConfigArgs._configure(_setter, **document_db_event_source_config)
             __props__.__dict__["document_db_event_source_config"] = document_db_event_source_config
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["event_source_arn"] = event_source_arn
+            if not isinstance(filter_criteria, EventSourceMappingFilterCriteriaArgs):
+                filter_criteria = filter_criteria or {}
+                def _setter(key, value):
+                    filter_criteria[key] = value
+                EventSourceMappingFilterCriteriaArgs._configure(_setter, **filter_criteria)
             __props__.__dict__["filter_criteria"] = filter_criteria
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
@@ -520,8 +597,23 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
             __props__.__dict__["parallelization_factor"] = parallelization_factor
             __props__.__dict__["queues"] = queues
+            if not isinstance(scaling_config, EventSourceMappingScalingConfigArgs):
+                scaling_config = scaling_config or {}
+                def _setter(key, value):
+                    scaling_config[key] = value
+                EventSourceMappingScalingConfigArgs._configure(_setter, **scaling_config)
             __props__.__dict__["scaling_config"] = scaling_config
+            if not isinstance(self_managed_event_source, EventSourceMappingSelfManagedEventSourceArgs):
+                self_managed_event_source = self_managed_event_source or {}
+                def _setter(key, value):
+                    self_managed_event_source[key] = value
+                EventSourceMappingSelfManagedEventSourceArgs._configure(_setter, **self_managed_event_source)
             __props__.__dict__["self_managed_event_source"] = self_managed_event_source
+            if not isinstance(self_managed_kafka_event_source_config, EventSourceMappingSelfManagedKafkaEventSourceConfigArgs):
+                self_managed_kafka_event_source_config = self_managed_kafka_event_source_config or {}
+                def _setter(key, value):
+                    self_managed_kafka_event_source_config[key] = value
+                EventSourceMappingSelfManagedKafkaEventSourceConfigArgs._configure(_setter, **self_managed_kafka_event_source_config)
             __props__.__dict__["self_managed_kafka_event_source_config"] = self_managed_kafka_event_source_config
             __props__.__dict__["source_access_configurations"] = source_access_configurations
             __props__.__dict__["starting_position"] = starting_position

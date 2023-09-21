@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -84,10 +84,21 @@ class BucketAccessRules(dict):
         :param bool allow_public_overrides: A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
         :param str get_object: Specifies the anonymous access to all objects in a bucket.
         """
+        BucketAccessRules._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_public_overrides=allow_public_overrides,
+            get_object=get_object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_public_overrides: Optional[bool] = None,
+             get_object: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_public_overrides is not None:
-            pulumi.set(__self__, "allow_public_overrides", allow_public_overrides)
+            _setter("allow_public_overrides", allow_public_overrides)
         if get_object is not None:
-            pulumi.set(__self__, "get_object", get_object)
+            _setter("get_object", get_object)
 
     @property
     @pulumi.getter(name="allowPublicOverrides")
@@ -119,9 +130,20 @@ class BucketTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        BucketTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -153,9 +175,20 @@ class CertificateTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        CertificateTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -210,16 +243,33 @@ class Container(dict):
         :param str image: The name of the image used for the container.
         :param Sequence['ContainerPortInfo'] ports: The open firewall ports of the container.
         """
+        Container._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command=command,
+            container_name=container_name,
+            environment=environment,
+            image=image,
+            ports=ports,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command: Optional[Sequence[str]] = None,
+             container_name: Optional[str] = None,
+             environment: Optional[Sequence['outputs.ContainerEnvironmentVariable']] = None,
+             image: Optional[str] = None,
+             ports: Optional[Sequence['outputs.ContainerPortInfo']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if command is not None:
-            pulumi.set(__self__, "command", command)
+            _setter("command", command)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
 
     @property
     @pulumi.getter
@@ -267,10 +317,21 @@ class ContainerEnvironmentVariable(dict):
     def __init__(__self__, *,
                  value: Optional[str] = None,
                  variable: Optional[str] = None):
+        ContainerEnvironmentVariable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            variable=variable,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[str] = None,
+             variable: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if variable is not None:
-            pulumi.set(__self__, "variable", variable)
+            _setter("variable", variable)
 
     @property
     @pulumi.getter
@@ -329,18 +390,37 @@ class ContainerHealthCheckConfig(dict):
         :param int timeout_seconds: The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. The default value is 2.
         :param int unhealthy_threshold: The number of consecutive health check failures required before moving the container to the Unhealthy state. The default value is 2.
         """
+        ContainerHealthCheckConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            healthy_threshold=healthy_threshold,
+            interval_seconds=interval_seconds,
+            path=path,
+            success_codes=success_codes,
+            timeout_seconds=timeout_seconds,
+            unhealthy_threshold=unhealthy_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             healthy_threshold: Optional[int] = None,
+             interval_seconds: Optional[int] = None,
+             path: Optional[str] = None,
+             success_codes: Optional[str] = None,
+             timeout_seconds: Optional[int] = None,
+             unhealthy_threshold: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if healthy_threshold is not None:
-            pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+            _setter("healthy_threshold", healthy_threshold)
         if interval_seconds is not None:
-            pulumi.set(__self__, "interval_seconds", interval_seconds)
+            _setter("interval_seconds", interval_seconds)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if success_codes is not None:
-            pulumi.set(__self__, "success_codes", success_codes)
+            _setter("success_codes", success_codes)
         if timeout_seconds is not None:
-            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+            _setter("timeout_seconds", timeout_seconds)
         if unhealthy_threshold is not None:
-            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+            _setter("unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -396,10 +476,21 @@ class ContainerPortInfo(dict):
     def __init__(__self__, *,
                  port: Optional[str] = None,
                  protocol: Optional[str] = None):
+        ContainerPortInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[str] = None,
+             protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -440,8 +531,17 @@ class ContainerPrivateRegistryAccess(dict):
         An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
         :param 'ContainerPrivateRegistryAccessEcrImagePullerRoleProperties' ecr_image_puller_role: An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
         """
+        ContainerPrivateRegistryAccess._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ecr_image_puller_role=ecr_image_puller_role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ecr_image_puller_role: Optional['outputs.ContainerPrivateRegistryAccessEcrImagePullerRoleProperties'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ecr_image_puller_role is not None:
-            pulumi.set(__self__, "ecr_image_puller_role", ecr_image_puller_role)
+            _setter("ecr_image_puller_role", ecr_image_puller_role)
 
     @property
     @pulumi.getter(name="ecrImagePullerRole")
@@ -484,10 +584,21 @@ class ContainerPrivateRegistryAccessEcrImagePullerRoleProperties(dict):
         :param bool is_active: A Boolean value that indicates whether to activate the role.
         :param str principal_arn: The Amazon Resource Name (ARN) of the role, if it is activated.
         """
+        ContainerPrivateRegistryAccessEcrImagePullerRoleProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_active=is_active,
+            principal_arn=principal_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_active: Optional[bool] = None,
+             principal_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if is_active is not None:
-            pulumi.set(__self__, "is_active", is_active)
+            _setter("is_active", is_active)
         if principal_arn is not None:
-            pulumi.set(__self__, "principal_arn", principal_arn)
+            _setter("principal_arn", principal_arn)
 
     @property
     @pulumi.getter(name="isActive")
@@ -537,10 +648,21 @@ class ContainerPublicDomainName(dict):
         The public domain name to use with the container service, such as example.com and www.example.com.
         :param Sequence[str] domain_names: An object that describes the configuration for the containers of the deployment.
         """
+        ContainerPublicDomainName._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_name=certificate_name,
+            domain_names=domain_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_name: Optional[str] = None,
+             domain_names: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
+            _setter("certificate_name", certificate_name)
         if domain_names is not None:
-            pulumi.set(__self__, "domain_names", domain_names)
+            _setter("domain_names", domain_names)
 
     @property
     @pulumi.getter(name="certificateName")
@@ -592,12 +714,25 @@ class ContainerPublicEndpoint(dict):
         :param int container_port: The port of the container to which traffic is forwarded to.
         :param 'ContainerHealthCheckConfig' health_check_config: An object that describes the health check configuration of the container.
         """
+        ContainerPublicEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            container_port=container_port,
+            health_check_config=health_check_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[str] = None,
+             container_port: Optional[int] = None,
+             health_check_config: Optional['outputs.ContainerHealthCheckConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if container_port is not None:
-            pulumi.set(__self__, "container_port", container_port)
+            _setter("container_port", container_port)
         if health_check_config is not None:
-            pulumi.set(__self__, "health_check_config", health_check_config)
+            _setter("health_check_config", health_check_config)
 
     @property
     @pulumi.getter(name="containerName")
@@ -654,10 +789,21 @@ class ContainerServiceDeployment(dict):
         :param Sequence['Container'] containers: An object that describes the configuration for the containers of the deployment.
         :param 'ContainerPublicEndpoint' public_endpoint: An object that describes the endpoint of the deployment.
         """
+        ContainerServiceDeployment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            containers=containers,
+            public_endpoint=public_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             containers: Optional[Sequence['outputs.Container']] = None,
+             public_endpoint: Optional['outputs.ContainerPublicEndpoint'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if containers is not None:
-            pulumi.set(__self__, "containers", containers)
+            _setter("containers", containers)
         if public_endpoint is not None:
-            pulumi.set(__self__, "public_endpoint", public_endpoint)
+            _setter("public_endpoint", public_endpoint)
 
     @property
     @pulumi.getter
@@ -689,9 +835,20 @@ class ContainerTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        ContainerTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -764,22 +921,45 @@ class DatabaseRelationalDatabaseParameter(dict):
         :param str parameter_name: Specifies the name of the parameter.
         :param str parameter_value: Specifies the value of the parameter.
         """
+        DatabaseRelationalDatabaseParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_values=allowed_values,
+            apply_method=apply_method,
+            apply_type=apply_type,
+            data_type=data_type,
+            description=description,
+            is_modifiable=is_modifiable,
+            parameter_name=parameter_name,
+            parameter_value=parameter_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_values: Optional[str] = None,
+             apply_method: Optional[str] = None,
+             apply_type: Optional[str] = None,
+             data_type: Optional[str] = None,
+             description: Optional[str] = None,
+             is_modifiable: Optional[bool] = None,
+             parameter_name: Optional[str] = None,
+             parameter_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_values is not None:
-            pulumi.set(__self__, "allowed_values", allowed_values)
+            _setter("allowed_values", allowed_values)
         if apply_method is not None:
-            pulumi.set(__self__, "apply_method", apply_method)
+            _setter("apply_method", apply_method)
         if apply_type is not None:
-            pulumi.set(__self__, "apply_type", apply_type)
+            _setter("apply_type", apply_type)
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_modifiable is not None:
-            pulumi.set(__self__, "is_modifiable", is_modifiable)
+            _setter("is_modifiable", is_modifiable)
         if parameter_name is not None:
-            pulumi.set(__self__, "parameter_name", parameter_name)
+            _setter("parameter_name", parameter_name)
         if parameter_value is not None:
-            pulumi.set(__self__, "parameter_value", parameter_value)
+            _setter("parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="allowedValues")
@@ -859,9 +1039,20 @@ class DatabaseTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        DatabaseTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -913,11 +1104,24 @@ class DiskAddOn(dict):
         :param str add_on_type: The add-on type
         :param 'DiskAddOnStatus' status: Status of the Addon
         """
-        pulumi.set(__self__, "add_on_type", add_on_type)
+        DiskAddOn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_on_type=add_on_type,
+            auto_snapshot_add_on_request=auto_snapshot_add_on_request,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_on_type: str,
+             auto_snapshot_add_on_request: Optional['outputs.DiskAutoSnapshotAddOn'] = None,
+             status: Optional['DiskAddOnStatus'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("add_on_type", add_on_type)
         if auto_snapshot_add_on_request is not None:
-            pulumi.set(__self__, "auto_snapshot_add_on_request", auto_snapshot_add_on_request)
+            _setter("auto_snapshot_add_on_request", auto_snapshot_add_on_request)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="addOnType")
@@ -969,8 +1173,17 @@ class DiskAutoSnapshotAddOn(dict):
         An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
         :param str snapshot_time_of_day: The daily time when an automatic snapshot will be created.
         """
+        DiskAutoSnapshotAddOn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            snapshot_time_of_day=snapshot_time_of_day,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             snapshot_time_of_day: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if snapshot_time_of_day is not None:
-            pulumi.set(__self__, "snapshot_time_of_day", snapshot_time_of_day)
+            _setter("snapshot_time_of_day", snapshot_time_of_day)
 
     @property
     @pulumi.getter(name="snapshotTimeOfDay")
@@ -1013,10 +1226,21 @@ class DiskLocation(dict):
         :param str availability_zone: The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param str region_name: The Region Name in which to create your disk.
         """
+        DiskLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            region_name=region_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[str] = None,
+             region_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if region_name is not None:
-            pulumi.set(__self__, "region_name", region_name)
+            _setter("region_name", region_name)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -1048,9 +1272,20 @@ class DiskTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        DiskTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1080,8 +1315,17 @@ class DistributionCacheBehavior(dict):
         Describes the default cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
         :param str behavior: The cache behavior of the distribution.
         """
+        DistributionCacheBehavior._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            behavior=behavior,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             behavior: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if behavior is not None:
-            pulumi.set(__self__, "behavior", behavior)
+            _setter("behavior", behavior)
 
     @property
     @pulumi.getter
@@ -1105,10 +1349,21 @@ class DistributionCacheBehaviorPerPath(dict):
         :param str behavior: The cache behavior for the specified path.
         :param str path: The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/*), and file types (*.html, *jpg, *js). Directories and file paths are case-sensitive.
         """
+        DistributionCacheBehaviorPerPath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            behavior=behavior,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             behavior: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if behavior is not None:
-            pulumi.set(__self__, "behavior", behavior)
+            _setter("behavior", behavior)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1183,22 +1438,45 @@ class DistributionCacheSettings(dict):
         :param int maximum_ttl: The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         :param int minimum_ttl: The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         """
+        DistributionCacheSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_http_methods=allowed_http_methods,
+            cached_http_methods=cached_http_methods,
+            default_ttl=default_ttl,
+            forwarded_cookies=forwarded_cookies,
+            forwarded_headers=forwarded_headers,
+            forwarded_query_strings=forwarded_query_strings,
+            maximum_ttl=maximum_ttl,
+            minimum_ttl=minimum_ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_http_methods: Optional[str] = None,
+             cached_http_methods: Optional[str] = None,
+             default_ttl: Optional[int] = None,
+             forwarded_cookies: Optional['outputs.DistributionCookieObject'] = None,
+             forwarded_headers: Optional['outputs.DistributionHeaderObject'] = None,
+             forwarded_query_strings: Optional['outputs.DistributionQueryStringObject'] = None,
+             maximum_ttl: Optional[int] = None,
+             minimum_ttl: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_http_methods is not None:
-            pulumi.set(__self__, "allowed_http_methods", allowed_http_methods)
+            _setter("allowed_http_methods", allowed_http_methods)
         if cached_http_methods is not None:
-            pulumi.set(__self__, "cached_http_methods", cached_http_methods)
+            _setter("cached_http_methods", cached_http_methods)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if forwarded_cookies is not None:
-            pulumi.set(__self__, "forwarded_cookies", forwarded_cookies)
+            _setter("forwarded_cookies", forwarded_cookies)
         if forwarded_headers is not None:
-            pulumi.set(__self__, "forwarded_headers", forwarded_headers)
+            _setter("forwarded_headers", forwarded_headers)
         if forwarded_query_strings is not None:
-            pulumi.set(__self__, "forwarded_query_strings", forwarded_query_strings)
+            _setter("forwarded_query_strings", forwarded_query_strings)
         if maximum_ttl is not None:
-            pulumi.set(__self__, "maximum_ttl", maximum_ttl)
+            _setter("maximum_ttl", maximum_ttl)
         if minimum_ttl is not None:
-            pulumi.set(__self__, "minimum_ttl", minimum_ttl)
+            _setter("minimum_ttl", minimum_ttl)
 
     @property
     @pulumi.getter(name="allowedHttpMethods")
@@ -1295,10 +1573,21 @@ class DistributionCookieObject(dict):
         :param Sequence[str] cookies_allow_list: The specific cookies to forward to your distribution's origin.
         :param str option: Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
         """
+        DistributionCookieObject._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookies_allow_list=cookies_allow_list,
+            option=option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookies_allow_list: Optional[Sequence[str]] = None,
+             option: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cookies_allow_list is not None:
-            pulumi.set(__self__, "cookies_allow_list", cookies_allow_list)
+            _setter("cookies_allow_list", cookies_allow_list)
         if option is not None:
-            pulumi.set(__self__, "option", option)
+            _setter("option", option)
 
     @property
     @pulumi.getter(name="cookiesAllowList")
@@ -1347,10 +1636,21 @@ class DistributionHeaderObject(dict):
         :param Sequence[str] headers_allow_list: The specific headers to forward to your distribution's origin.
         :param str option: The headers that you want your distribution to forward to your origin and base caching on.
         """
+        DistributionHeaderObject._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers_allow_list=headers_allow_list,
+            option=option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers_allow_list: Optional[Sequence[str]] = None,
+             option: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers_allow_list is not None:
-            pulumi.set(__self__, "headers_allow_list", headers_allow_list)
+            _setter("headers_allow_list", headers_allow_list)
         if option is not None:
-            pulumi.set(__self__, "option", option)
+            _setter("option", option)
 
     @property
     @pulumi.getter(name="headersAllowList")
@@ -1403,12 +1703,25 @@ class DistributionInputOrigin(dict):
         :param str protocol_policy: The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
         :param str region_name: The AWS Region name of the origin resource.
         """
+        DistributionInputOrigin._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            protocol_policy=protocol_policy,
+            region_name=region_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             protocol_policy: Optional[str] = None,
+             region_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocol_policy is not None:
-            pulumi.set(__self__, "protocol_policy", protocol_policy)
+            _setter("protocol_policy", protocol_policy)
         if region_name is not None:
-            pulumi.set(__self__, "region_name", region_name)
+            _setter("region_name", region_name)
 
     @property
     @pulumi.getter
@@ -1465,10 +1778,21 @@ class DistributionQueryStringObject(dict):
         :param bool option: Indicates whether the distribution forwards and caches based on query strings.
         :param Sequence[str] query_strings_allow_list: The specific query strings that the distribution forwards to the origin.
         """
+        DistributionQueryStringObject._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            option=option,
+            query_strings_allow_list=query_strings_allow_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             option: Optional[bool] = None,
+             query_strings_allow_list: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if option is not None:
-            pulumi.set(__self__, "option", option)
+            _setter("option", option)
         if query_strings_allow_list is not None:
-            pulumi.set(__self__, "query_strings_allow_list", query_strings_allow_list)
+            _setter("query_strings_allow_list", query_strings_allow_list)
 
     @property
     @pulumi.getter
@@ -1500,9 +1824,20 @@ class DistributionTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        DistributionTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1554,11 +1889,24 @@ class InstanceAddOn(dict):
         :param str add_on_type: The add-on type
         :param 'InstanceAddOnStatus' status: Status of the Addon
         """
-        pulumi.set(__self__, "add_on_type", add_on_type)
+        InstanceAddOn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_on_type=add_on_type,
+            auto_snapshot_add_on_request=auto_snapshot_add_on_request,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_on_type: str,
+             auto_snapshot_add_on_request: Optional['outputs.InstanceAutoSnapshotAddOn'] = None,
+             status: Optional['InstanceAddOnStatus'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("add_on_type", add_on_type)
         if auto_snapshot_add_on_request is not None:
-            pulumi.set(__self__, "auto_snapshot_add_on_request", auto_snapshot_add_on_request)
+            _setter("auto_snapshot_add_on_request", auto_snapshot_add_on_request)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="addOnType")
@@ -1610,8 +1958,17 @@ class InstanceAutoSnapshotAddOn(dict):
         An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
         :param str snapshot_time_of_day: The daily time when an automatic snapshot will be created.
         """
+        InstanceAutoSnapshotAddOn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            snapshot_time_of_day=snapshot_time_of_day,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             snapshot_time_of_day: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if snapshot_time_of_day is not None:
-            pulumi.set(__self__, "snapshot_time_of_day", snapshot_time_of_day)
+            _setter("snapshot_time_of_day", snapshot_time_of_day)
 
     @property
     @pulumi.getter(name="snapshotTimeOfDay")
@@ -1670,18 +2027,39 @@ class InstanceDisk(dict):
         :param bool is_system_disk: Is the Attached disk is the system disk of the Instance.
         :param str size_in_gb: Size of the disk attached to the Instance.
         """
-        pulumi.set(__self__, "disk_name", disk_name)
-        pulumi.set(__self__, "path", path)
+        InstanceDisk._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_name=disk_name,
+            path=path,
+            attached_to=attached_to,
+            attachment_state=attachment_state,
+            iops=iops,
+            is_system_disk=is_system_disk,
+            size_in_gb=size_in_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_name: str,
+             path: str,
+             attached_to: Optional[str] = None,
+             attachment_state: Optional[str] = None,
+             iops: Optional[int] = None,
+             is_system_disk: Optional[bool] = None,
+             size_in_gb: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_name", disk_name)
+        _setter("path", path)
         if attached_to is not None:
-            pulumi.set(__self__, "attached_to", attached_to)
+            _setter("attached_to", attached_to)
         if attachment_state is not None:
-            pulumi.set(__self__, "attachment_state", attachment_state)
+            _setter("attachment_state", attachment_state)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if is_system_disk is not None:
-            pulumi.set(__self__, "is_system_disk", is_system_disk)
+            _setter("is_system_disk", is_system_disk)
         if size_in_gb is not None:
-            pulumi.set(__self__, "size_in_gb", size_in_gb)
+            _setter("size_in_gb", size_in_gb)
 
     @property
     @pulumi.getter(name="diskName")
@@ -1774,12 +2152,25 @@ class InstanceHardware(dict):
         :param Sequence['InstanceDisk'] disks: Disks attached to the Instance.
         :param int ram_size_in_gb: RAM Size of the Instance.
         """
+        InstanceHardware._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu_count=cpu_count,
+            disks=disks,
+            ram_size_in_gb=ram_size_in_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu_count: Optional[int] = None,
+             disks: Optional[Sequence['outputs.InstanceDisk']] = None,
+             ram_size_in_gb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cpu_count is not None:
-            pulumi.set(__self__, "cpu_count", cpu_count)
+            _setter("cpu_count", cpu_count)
         if disks is not None:
-            pulumi.set(__self__, "disks", disks)
+            _setter("disks", disks)
         if ram_size_in_gb is not None:
-            pulumi.set(__self__, "ram_size_in_gb", ram_size_in_gb)
+            _setter("ram_size_in_gb", ram_size_in_gb)
 
     @property
     @pulumi.getter(name="cpuCount")
@@ -1838,10 +2229,21 @@ class InstanceLocation(dict):
         :param str availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param str region_name: The Region Name in which to create your instance.
         """
+        InstanceLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            region_name=region_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[str] = None,
+             region_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if region_name is not None:
-            pulumi.set(__self__, "region_name", region_name)
+            _setter("region_name", region_name)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -1888,8 +2290,17 @@ class InstanceMonthlyTransfer(dict):
         Monthly Transfer of the Instance.
         :param str gb_per_month_allocated: GbPerMonthAllocated of the Instance.
         """
+        InstanceMonthlyTransfer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gb_per_month_allocated=gb_per_month_allocated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gb_per_month_allocated: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if gb_per_month_allocated is not None:
-            pulumi.set(__self__, "gb_per_month_allocated", gb_per_month_allocated)
+            _setter("gb_per_month_allocated", gb_per_month_allocated)
 
     @property
     @pulumi.getter(name="gbPerMonthAllocated")
@@ -1929,9 +2340,20 @@ class InstanceNetworking(dict):
         Networking of the Instance.
         :param Sequence['InstancePort'] ports: Ports to the Instance.
         """
-        pulumi.set(__self__, "ports", ports)
+        InstanceNetworking._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ports=ports,
+            monthly_transfer=monthly_transfer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ports: Sequence['outputs.InstancePort'],
+             monthly_transfer: Optional['outputs.InstanceMonthlyTransfer'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ports", ports)
         if monthly_transfer is not None:
-            pulumi.set(__self__, "monthly_transfer", monthly_transfer)
+            _setter("monthly_transfer", monthly_transfer)
 
     @property
     @pulumi.getter
@@ -2004,26 +2426,53 @@ class InstancePort(dict):
         :param str protocol: Port Protocol of the Instance.
         :param int to_port: To Port of the Instance.
         """
+        InstancePort._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_direction=access_direction,
+            access_from=access_from,
+            access_type=access_type,
+            cidr_list_aliases=cidr_list_aliases,
+            cidrs=cidrs,
+            common_name=common_name,
+            from_port=from_port,
+            ipv6_cidrs=ipv6_cidrs,
+            protocol=protocol,
+            to_port=to_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_direction: Optional[str] = None,
+             access_from: Optional[str] = None,
+             access_type: Optional[str] = None,
+             cidr_list_aliases: Optional[Sequence[str]] = None,
+             cidrs: Optional[Sequence[str]] = None,
+             common_name: Optional[str] = None,
+             from_port: Optional[int] = None,
+             ipv6_cidrs: Optional[Sequence[str]] = None,
+             protocol: Optional[str] = None,
+             to_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_direction is not None:
-            pulumi.set(__self__, "access_direction", access_direction)
+            _setter("access_direction", access_direction)
         if access_from is not None:
-            pulumi.set(__self__, "access_from", access_from)
+            _setter("access_from", access_from)
         if access_type is not None:
-            pulumi.set(__self__, "access_type", access_type)
+            _setter("access_type", access_type)
         if cidr_list_aliases is not None:
-            pulumi.set(__self__, "cidr_list_aliases", cidr_list_aliases)
+            _setter("cidr_list_aliases", cidr_list_aliases)
         if cidrs is not None:
-            pulumi.set(__self__, "cidrs", cidrs)
+            _setter("cidrs", cidrs)
         if common_name is not None:
-            pulumi.set(__self__, "common_name", common_name)
+            _setter("common_name", common_name)
         if from_port is not None:
-            pulumi.set(__self__, "from_port", from_port)
+            _setter("from_port", from_port)
         if ipv6_cidrs is not None:
-            pulumi.set(__self__, "ipv6_cidrs", ipv6_cidrs)
+            _setter("ipv6_cidrs", ipv6_cidrs)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if to_port is not None:
-            pulumi.set(__self__, "to_port", to_port)
+            _setter("to_port", to_port)
 
     @property
     @pulumi.getter(name="accessDirection")
@@ -2110,10 +2559,21 @@ class InstanceState(dict):
         :param int code: Status code of the Instance.
         :param str name: Status code of the Instance.
         """
+        InstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2145,9 +2605,20 @@ class InstanceTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        InstanceTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2179,9 +2650,20 @@ class LoadBalancerTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        LoadBalancerTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter

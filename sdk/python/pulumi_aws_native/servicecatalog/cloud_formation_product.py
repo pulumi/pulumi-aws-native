@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,31 +32,64 @@ class CloudFormationProductArgs:
         """
         The set of arguments for constructing a CloudFormationProduct resource.
         """
-        pulumi.set(__self__, "owner", owner)
+        CloudFormationProductArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            owner=owner,
+            accept_language=accept_language,
+            description=description,
+            distributor=distributor,
+            name=name,
+            product_type=product_type,
+            provisioning_artifact_parameters=provisioning_artifact_parameters,
+            replace_provisioning_artifacts=replace_provisioning_artifacts,
+            source_connection=source_connection,
+            support_description=support_description,
+            support_email=support_email,
+            support_url=support_url,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             owner: pulumi.Input[str],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             distributor: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             product_type: Optional[pulumi.Input[str]] = None,
+             provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]] = None,
+             replace_provisioning_artifacts: Optional[pulumi.Input[bool]] = None,
+             source_connection: Optional[pulumi.Input['CloudFormationProductSourceConnectionArgs']] = None,
+             support_description: Optional[pulumi.Input[str]] = None,
+             support_email: Optional[pulumi.Input[str]] = None,
+             support_url: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("owner", owner)
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if distributor is not None:
-            pulumi.set(__self__, "distributor", distributor)
+            _setter("distributor", distributor)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if product_type is not None:
-            pulumi.set(__self__, "product_type", product_type)
+            _setter("product_type", product_type)
         if provisioning_artifact_parameters is not None:
-            pulumi.set(__self__, "provisioning_artifact_parameters", provisioning_artifact_parameters)
+            _setter("provisioning_artifact_parameters", provisioning_artifact_parameters)
         if replace_provisioning_artifacts is not None:
-            pulumi.set(__self__, "replace_provisioning_artifacts", replace_provisioning_artifacts)
+            _setter("replace_provisioning_artifacts", replace_provisioning_artifacts)
         if source_connection is not None:
-            pulumi.set(__self__, "source_connection", source_connection)
+            _setter("source_connection", source_connection)
         if support_description is not None:
-            pulumi.set(__self__, "support_description", support_description)
+            _setter("support_description", support_description)
         if support_email is not None:
-            pulumi.set(__self__, "support_email", support_email)
+            _setter("support_email", support_email)
         if support_url is not None:
-            pulumi.set(__self__, "support_url", support_url)
+            _setter("support_url", support_url)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -225,6 +258,10 @@ class CloudFormationProduct(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudFormationProductArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -263,6 +300,11 @@ class CloudFormationProduct(pulumi.CustomResource):
             __props__.__dict__["product_type"] = product_type
             __props__.__dict__["provisioning_artifact_parameters"] = provisioning_artifact_parameters
             __props__.__dict__["replace_provisioning_artifacts"] = replace_provisioning_artifacts
+            if not isinstance(source_connection, CloudFormationProductSourceConnectionArgs):
+                source_connection = source_connection or {}
+                def _setter(key, value):
+                    source_connection[key] = value
+                CloudFormationProductSourceConnectionArgs._configure(_setter, **source_connection)
             __props__.__dict__["source_connection"] = source_connection
             __props__.__dict__["support_description"] = support_description
             __props__.__dict__["support_email"] = support_email

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,50 @@ class TaskSetArgs:
         :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]] service_registries: The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
         """
-        pulumi.set(__self__, "cluster", cluster)
-        pulumi.set(__self__, "service", service)
-        pulumi.set(__self__, "task_definition", task_definition)
+        TaskSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster=cluster,
+            service=service,
+            task_definition=task_definition,
+            external_id=external_id,
+            launch_type=launch_type,
+            load_balancers=load_balancers,
+            network_configuration=network_configuration,
+            platform_version=platform_version,
+            scale=scale,
+            service_registries=service_registries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster: pulumi.Input[str],
+             service: pulumi.Input[str],
+             task_definition: pulumi.Input[str],
+             external_id: Optional[pulumi.Input[str]] = None,
+             launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
+             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
+             network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']] = None,
+             platform_version: Optional[pulumi.Input[str]] = None,
+             scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
+             service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster", cluster)
+        _setter("service", service)
+        _setter("task_definition", task_definition)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if launch_type is not None:
-            pulumi.set(__self__, "launch_type", launch_type)
+            _setter("launch_type", launch_type)
         if load_balancers is not None:
-            pulumi.set(__self__, "load_balancers", load_balancers)
+            _setter("load_balancers", load_balancers)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if platform_version is not None:
-            pulumi.set(__self__, "platform_version", platform_version)
+            _setter("platform_version", platform_version)
         if scale is not None:
-            pulumi.set(__self__, "scale", scale)
+            _setter("scale", scale)
         if service_registries is not None:
-            pulumi.set(__self__, "service_registries", service_registries)
+            _setter("service_registries", service_registries)
 
     @property
     @pulumi.getter
@@ -220,6 +247,10 @@ class TaskSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TaskSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -250,8 +281,18 @@ class TaskSet(pulumi.CustomResource):
             __props__.__dict__["external_id"] = external_id
             __props__.__dict__["launch_type"] = launch_type
             __props__.__dict__["load_balancers"] = load_balancers
+            if not isinstance(network_configuration, TaskSetNetworkConfigurationArgs):
+                network_configuration = network_configuration or {}
+                def _setter(key, value):
+                    network_configuration[key] = value
+                TaskSetNetworkConfigurationArgs._configure(_setter, **network_configuration)
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["platform_version"] = platform_version
+            if not isinstance(scale, TaskSetScaleArgs):
+                scale = scale or {}
+                def _setter(key, value):
+                    scale[key] = value
+                TaskSetScaleArgs._configure(_setter, **scale)
             __props__.__dict__["scale"] = scale
             if service is None and not opts.urn:
                 raise TypeError("Missing required property 'service'")

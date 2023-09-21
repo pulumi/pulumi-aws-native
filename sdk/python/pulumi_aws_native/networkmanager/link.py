@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,38 @@ class LinkArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]] tags: The tags for the link.
         :param pulumi.Input[str] type: The type of the link.
         """
-        pulumi.set(__self__, "bandwidth", bandwidth)
-        pulumi.set(__self__, "global_network_id", global_network_id)
-        pulumi.set(__self__, "site_id", site_id)
+        LinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth=bandwidth,
+            global_network_id=global_network_id,
+            site_id=site_id,
+            description=description,
+            provider=provider,
+            tags=tags,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth: pulumi.Input['LinkBandwidthArgs'],
+             global_network_id: pulumi.Input[str],
+             site_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             provider: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bandwidth", bandwidth)
+        _setter("global_network_id", global_network_id)
+        _setter("site_id", site_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if provider is not None:
-            pulumi.set(__self__, "provider", provider)
+            _setter("provider", provider)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -175,6 +196,10 @@ class Link(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -196,6 +221,11 @@ class Link(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkArgs.__new__(LinkArgs)
 
+            if not isinstance(bandwidth, LinkBandwidthArgs):
+                bandwidth = bandwidth or {}
+                def _setter(key, value):
+                    bandwidth[key] = value
+                LinkBandwidthArgs._configure(_setter, **bandwidth)
             if bandwidth is None and not opts.urn:
                 raise TypeError("Missing required property 'bandwidth'")
             __props__.__dict__["bandwidth"] = bandwidth

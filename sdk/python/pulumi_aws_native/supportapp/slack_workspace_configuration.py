@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SlackWorkspaceConfigurationArgs', 'SlackWorkspaceConfiguration']
@@ -21,9 +21,20 @@ class SlackWorkspaceConfigurationArgs:
         :param pulumi.Input[str] team_id: The team ID in Slack, which uniquely identifies a workspace.
         :param pulumi.Input[str] version_id: An identifier used to update an existing Slack workspace configuration in AWS CloudFormation.
         """
-        pulumi.set(__self__, "team_id", team_id)
+        SlackWorkspaceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            team_id=team_id,
+            version_id=version_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             team_id: pulumi.Input[str],
+             version_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("team_id", team_id)
         if version_id is not None:
-            pulumi.set(__self__, "version_id", version_id)
+            _setter("version_id", version_id)
 
     @property
     @pulumi.getter(name="teamId")
@@ -85,6 +96,10 @@ class SlackWorkspaceConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SlackWorkspaceConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

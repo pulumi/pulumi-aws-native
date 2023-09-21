@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,30 +44,61 @@ class DataSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the data source.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
         """
+        DataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alternate_data_source_parameters=alternate_data_source_parameters,
+            aws_account_id=aws_account_id,
+            credentials=credentials,
+            data_source_id=data_source_id,
+            data_source_parameters=data_source_parameters,
+            error_info=error_info,
+            name=name,
+            permissions=permissions,
+            ssl_properties=ssl_properties,
+            tags=tags,
+            type=type,
+            vpc_connection_properties=vpc_connection_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['DataSourceCredentialsArgs']] = None,
+             data_source_id: Optional[pulumi.Input[str]] = None,
+             data_source_parameters: Optional[pulumi.Input['DataSourceParametersArgs']] = None,
+             error_info: Optional[pulumi.Input['DataSourceErrorInfoArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]] = None,
+             ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]] = None,
+             type: Optional[pulumi.Input['DataSourceType']] = None,
+             vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alternate_data_source_parameters is not None:
-            pulumi.set(__self__, "alternate_data_source_parameters", alternate_data_source_parameters)
+            _setter("alternate_data_source_parameters", alternate_data_source_parameters)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if data_source_id is not None:
-            pulumi.set(__self__, "data_source_id", data_source_id)
+            _setter("data_source_id", data_source_id)
         if data_source_parameters is not None:
-            pulumi.set(__self__, "data_source_parameters", data_source_parameters)
+            _setter("data_source_parameters", data_source_parameters)
         if error_info is not None:
-            pulumi.set(__self__, "error_info", error_info)
+            _setter("error_info", error_info)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if ssl_properties is not None:
-            pulumi.set(__self__, "ssl_properties", ssl_properties)
+            _setter("ssl_properties", ssl_properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if vpc_connection_properties is not None:
-            pulumi.set(__self__, "vpc_connection_properties", vpc_connection_properties)
+            _setter("vpc_connection_properties", vpc_connection_properties)
 
     @property
     @pulumi.getter(name="alternateDataSourceParameters")
@@ -253,6 +284,10 @@ class DataSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -281,15 +316,40 @@ class DataSource(pulumi.CustomResource):
 
             __props__.__dict__["alternate_data_source_parameters"] = alternate_data_source_parameters
             __props__.__dict__["aws_account_id"] = aws_account_id
+            if not isinstance(credentials, DataSourceCredentialsArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                DataSourceCredentialsArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["data_source_id"] = data_source_id
+            if not isinstance(data_source_parameters, DataSourceParametersArgs):
+                data_source_parameters = data_source_parameters or {}
+                def _setter(key, value):
+                    data_source_parameters[key] = value
+                DataSourceParametersArgs._configure(_setter, **data_source_parameters)
             __props__.__dict__["data_source_parameters"] = data_source_parameters
+            if not isinstance(error_info, DataSourceErrorInfoArgs):
+                error_info = error_info or {}
+                def _setter(key, value):
+                    error_info[key] = value
+                DataSourceErrorInfoArgs._configure(_setter, **error_info)
             __props__.__dict__["error_info"] = error_info
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
+            if not isinstance(ssl_properties, DataSourceSslPropertiesArgs):
+                ssl_properties = ssl_properties or {}
+                def _setter(key, value):
+                    ssl_properties[key] = value
+                DataSourceSslPropertiesArgs._configure(_setter, **ssl_properties)
             __props__.__dict__["ssl_properties"] = ssl_properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
+            if not isinstance(vpc_connection_properties, DataSourceVpcConnectionPropertiesArgs):
+                vpc_connection_properties = vpc_connection_properties or {}
+                def _setter(key, value):
+                    vpc_connection_properties[key] = value
+                DataSourceVpcConnectionPropertiesArgs._configure(_setter, **vpc_connection_properties)
             __props__.__dict__["vpc_connection_properties"] = vpc_connection_properties
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None

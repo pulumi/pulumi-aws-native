@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -66,18 +66,37 @@ class EnvironmentFederationParameters(dict):
         :param str saml_metadata_document: SAML metadata document to link the federation provider to the Environment
         :param str saml_metadata_url: SAML metadata URL to link with the Environment
         """
+        EnvironmentFederationParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_call_back_url=application_call_back_url,
+            attribute_map=attribute_map,
+            federation_provider_name=federation_provider_name,
+            federation_urn=federation_urn,
+            saml_metadata_document=saml_metadata_document,
+            saml_metadata_url=saml_metadata_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_call_back_url: Optional[str] = None,
+             attribute_map: Optional[Sequence['outputs.EnvironmentFederationParametersAttributeMapItemProperties']] = None,
+             federation_provider_name: Optional[str] = None,
+             federation_urn: Optional[str] = None,
+             saml_metadata_document: Optional[str] = None,
+             saml_metadata_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_call_back_url is not None:
-            pulumi.set(__self__, "application_call_back_url", application_call_back_url)
+            _setter("application_call_back_url", application_call_back_url)
         if attribute_map is not None:
-            pulumi.set(__self__, "attribute_map", attribute_map)
+            _setter("attribute_map", attribute_map)
         if federation_provider_name is not None:
-            pulumi.set(__self__, "federation_provider_name", federation_provider_name)
+            _setter("federation_provider_name", federation_provider_name)
         if federation_urn is not None:
-            pulumi.set(__self__, "federation_urn", federation_urn)
+            _setter("federation_urn", federation_urn)
         if saml_metadata_document is not None:
-            pulumi.set(__self__, "saml_metadata_document", saml_metadata_document)
+            _setter("saml_metadata_document", saml_metadata_document)
         if saml_metadata_url is not None:
-            pulumi.set(__self__, "saml_metadata_url", saml_metadata_url)
+            _setter("saml_metadata_url", saml_metadata_url)
 
     @property
     @pulumi.getter(name="applicationCallBackUrl")
@@ -137,10 +156,21 @@ class EnvironmentFederationParametersAttributeMapItemProperties(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
+        EnvironmentFederationParametersAttributeMapItemProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -195,12 +225,25 @@ class EnvironmentSuperuserParameters(dict):
         :param str first_name: First name
         :param str last_name: Last name
         """
+        EnvironmentSuperuserParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            first_name=first_name,
+            last_name=last_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: Optional[str] = None,
+             first_name: Optional[str] = None,
+             last_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -240,8 +283,19 @@ class EnvironmentTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EnvironmentTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

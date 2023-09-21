@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,13 +28,28 @@ class BucketArgs:
         :param pulumi.Input['BucketLifecycleConfigurationArgs'] lifecycle_configuration: Rules that define how Amazon S3Outposts manages objects during their lifetime.
         :param pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         """
-        pulumi.set(__self__, "outpost_id", outpost_id)
+        BucketArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            outpost_id=outpost_id,
+            bucket_name=bucket_name,
+            lifecycle_configuration=lifecycle_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             outpost_id: pulumi.Input[str],
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             lifecycle_configuration: Optional[pulumi.Input['BucketLifecycleConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("outpost_id", outpost_id)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if lifecycle_configuration is not None:
-            pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
+            _setter("lifecycle_configuration", lifecycle_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="outpostId")
@@ -124,6 +139,10 @@ class Bucket(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -143,6 +162,11 @@ class Bucket(pulumi.CustomResource):
             __props__ = BucketArgs.__new__(BucketArgs)
 
             __props__.__dict__["bucket_name"] = bucket_name
+            if not isinstance(lifecycle_configuration, BucketLifecycleConfigurationArgs):
+                lifecycle_configuration = lifecycle_configuration or {}
+                def _setter(key, value):
+                    lifecycle_configuration[key] = value
+                BucketLifecycleConfigurationArgs._configure(_setter, **lifecycle_configuration)
             __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
             if outpost_id is None and not opts.urn:
                 raise TypeError("Missing required property 'outpost_id'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,22 +35,45 @@ class ImageArgs:
         :param pulumi.Input[str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration.
         :param Any tags: The tags associated with the image.
         """
+        ImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_recipe_arn=container_recipe_arn,
+            distribution_configuration_arn=distribution_configuration_arn,
+            enhanced_image_metadata_enabled=enhanced_image_metadata_enabled,
+            image_recipe_arn=image_recipe_arn,
+            image_scanning_configuration=image_scanning_configuration,
+            image_tests_configuration=image_tests_configuration,
+            infrastructure_configuration_arn=infrastructure_configuration_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_recipe_arn: Optional[pulumi.Input[str]] = None,
+             distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
+             enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+             image_recipe_arn: Optional[pulumi.Input[str]] = None,
+             image_scanning_configuration: Optional[pulumi.Input['ImageScanningConfigurationArgs']] = None,
+             image_tests_configuration: Optional[pulumi.Input['ImageTestsConfigurationArgs']] = None,
+             infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_recipe_arn is not None:
-            pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
+            _setter("container_recipe_arn", container_recipe_arn)
         if distribution_configuration_arn is not None:
-            pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
+            _setter("distribution_configuration_arn", distribution_configuration_arn)
         if enhanced_image_metadata_enabled is not None:
-            pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+            _setter("enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
         if image_recipe_arn is not None:
-            pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
+            _setter("image_recipe_arn", image_recipe_arn)
         if image_scanning_configuration is not None:
-            pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
+            _setter("image_scanning_configuration", image_scanning_configuration)
         if image_tests_configuration is not None:
-            pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
+            _setter("image_tests_configuration", image_tests_configuration)
         if infrastructure_configuration_arn is not None:
-            pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
+            _setter("infrastructure_configuration_arn", infrastructure_configuration_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="containerRecipeArn")
@@ -196,6 +219,10 @@ class Image(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -222,7 +249,17 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
             __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
             __props__.__dict__["image_recipe_arn"] = image_recipe_arn
+            if not isinstance(image_scanning_configuration, ImageScanningConfigurationArgs):
+                image_scanning_configuration = image_scanning_configuration or {}
+                def _setter(key, value):
+                    image_scanning_configuration[key] = value
+                ImageScanningConfigurationArgs._configure(_setter, **image_scanning_configuration)
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
+            if not isinstance(image_tests_configuration, ImageTestsConfigurationArgs):
+                image_tests_configuration = image_tests_configuration or {}
+                def _setter(key, value):
+                    image_tests_configuration[key] = value
+                ImageTestsConfigurationArgs._configure(_setter, **image_tests_configuration)
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
             __props__.__dict__["tags"] = tags

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,16 +24,33 @@ class OrganizationConfigRuleArgs:
         """
         The set of arguments for constructing a OrganizationConfigRule resource.
         """
+        OrganizationConfigRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excluded_accounts=excluded_accounts,
+            organization_config_rule_name=organization_config_rule_name,
+            organization_custom_policy_rule_metadata=organization_custom_policy_rule_metadata,
+            organization_custom_rule_metadata=organization_custom_rule_metadata,
+            organization_managed_rule_metadata=organization_managed_rule_metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             organization_config_rule_name: Optional[pulumi.Input[str]] = None,
+             organization_custom_policy_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs']] = None,
+             organization_custom_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs']] = None,
+             organization_managed_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if excluded_accounts is not None:
-            pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+            _setter("excluded_accounts", excluded_accounts)
         if organization_config_rule_name is not None:
-            pulumi.set(__self__, "organization_config_rule_name", organization_config_rule_name)
+            _setter("organization_config_rule_name", organization_config_rule_name)
         if organization_custom_policy_rule_metadata is not None:
-            pulumi.set(__self__, "organization_custom_policy_rule_metadata", organization_custom_policy_rule_metadata)
+            _setter("organization_custom_policy_rule_metadata", organization_custom_policy_rule_metadata)
         if organization_custom_rule_metadata is not None:
-            pulumi.set(__self__, "organization_custom_rule_metadata", organization_custom_rule_metadata)
+            _setter("organization_custom_rule_metadata", organization_custom_rule_metadata)
         if organization_managed_rule_metadata is not None:
-            pulumi.set(__self__, "organization_managed_rule_metadata", organization_managed_rule_metadata)
+            _setter("organization_managed_rule_metadata", organization_managed_rule_metadata)
 
     @property
     @pulumi.getter(name="excludedAccounts")
@@ -122,6 +139,10 @@ class OrganizationConfigRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationConfigRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,8 +165,23 @@ class OrganizationConfigRule(pulumi.CustomResource):
 
             __props__.__dict__["excluded_accounts"] = excluded_accounts
             __props__.__dict__["organization_config_rule_name"] = organization_config_rule_name
+            if not isinstance(organization_custom_policy_rule_metadata, OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs):
+                organization_custom_policy_rule_metadata = organization_custom_policy_rule_metadata or {}
+                def _setter(key, value):
+                    organization_custom_policy_rule_metadata[key] = value
+                OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs._configure(_setter, **organization_custom_policy_rule_metadata)
             __props__.__dict__["organization_custom_policy_rule_metadata"] = organization_custom_policy_rule_metadata
+            if not isinstance(organization_custom_rule_metadata, OrganizationConfigRuleOrganizationCustomRuleMetadataArgs):
+                organization_custom_rule_metadata = organization_custom_rule_metadata or {}
+                def _setter(key, value):
+                    organization_custom_rule_metadata[key] = value
+                OrganizationConfigRuleOrganizationCustomRuleMetadataArgs._configure(_setter, **organization_custom_rule_metadata)
             __props__.__dict__["organization_custom_rule_metadata"] = organization_custom_rule_metadata
+            if not isinstance(organization_managed_rule_metadata, OrganizationConfigRuleOrganizationManagedRuleMetadataArgs):
+                organization_managed_rule_metadata = organization_managed_rule_metadata or {}
+                def _setter(key, value):
+                    organization_managed_rule_metadata[key] = value
+                OrganizationConfigRuleOrganizationManagedRuleMetadataArgs._configure(_setter, **organization_managed_rule_metadata)
             __props__.__dict__["organization_managed_rule_metadata"] = organization_managed_rule_metadata
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["organization_config_rule_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

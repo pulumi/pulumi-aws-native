@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,8 +38,19 @@ class ChannelDestination(dict):
         :param str location: The ARN of a resource that receives events from a channel.
         :param 'ChannelDestinationType' type: The type of destination for events arriving from a channel.
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "type", type)
+        ChannelDestination._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: str,
+             type: 'ChannelDestinationType',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("location", location)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -71,8 +82,19 @@ class ChannelTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ChannelTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -121,9 +143,20 @@ class EventDataStoreAdvancedEventSelector(dict):
         :param Sequence['EventDataStoreAdvancedFieldSelector'] field_selectors: Contains all selector statements in an advanced event selector.
         :param str name: An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
         """
-        pulumi.set(__self__, "field_selectors", field_selectors)
+        EventDataStoreAdvancedEventSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_selectors=field_selectors,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_selectors: Sequence['outputs.EventDataStoreAdvancedFieldSelector'],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field_selectors", field_selectors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="fieldSelectors")
@@ -190,19 +223,40 @@ class EventDataStoreAdvancedFieldSelector(dict):
         :param Sequence[str] not_starts_with: An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
         :param Sequence[str] starts_with: An operator that includes events that match the first few characters of the event record field specified as the value of Field.
         """
-        pulumi.set(__self__, "field", field)
+        EventDataStoreAdvancedFieldSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            ends_with=ends_with,
+            equals=equals,
+            not_ends_with=not_ends_with,
+            not_equals=not_equals,
+            not_starts_with=not_starts_with,
+            starts_with=starts_with,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             ends_with: Optional[Sequence[str]] = None,
+             equals: Optional[Sequence[str]] = None,
+             not_ends_with: Optional[Sequence[str]] = None,
+             not_equals: Optional[Sequence[str]] = None,
+             not_starts_with: Optional[Sequence[str]] = None,
+             starts_with: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
         if ends_with is not None:
-            pulumi.set(__self__, "ends_with", ends_with)
+            _setter("ends_with", ends_with)
         if equals is not None:
-            pulumi.set(__self__, "equals", equals)
+            _setter("equals", equals)
         if not_ends_with is not None:
-            pulumi.set(__self__, "not_ends_with", not_ends_with)
+            _setter("not_ends_with", not_ends_with)
         if not_equals is not None:
-            pulumi.set(__self__, "not_equals", not_equals)
+            _setter("not_equals", not_equals)
         if not_starts_with is not None:
-            pulumi.set(__self__, "not_starts_with", not_starts_with)
+            _setter("not_starts_with", not_starts_with)
         if starts_with is not None:
-            pulumi.set(__self__, "starts_with", starts_with)
+            _setter("starts_with", starts_with)
 
     @property
     @pulumi.getter
@@ -274,8 +328,19 @@ class EventDataStoreTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventDataStoreTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -324,9 +389,20 @@ class TrailAdvancedEventSelector(dict):
         :param Sequence['TrailAdvancedFieldSelector'] field_selectors: Contains all selector statements in an advanced event selector.
         :param str name: An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
         """
-        pulumi.set(__self__, "field_selectors", field_selectors)
+        TrailAdvancedEventSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_selectors=field_selectors,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_selectors: Sequence['outputs.TrailAdvancedFieldSelector'],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field_selectors", field_selectors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="fieldSelectors")
@@ -393,19 +469,40 @@ class TrailAdvancedFieldSelector(dict):
         :param Sequence[str] not_starts_with: An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
         :param Sequence[str] starts_with: An operator that includes events that match the first few characters of the event record field specified as the value of Field.
         """
-        pulumi.set(__self__, "field", field)
+        TrailAdvancedFieldSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            ends_with=ends_with,
+            equals=equals,
+            not_ends_with=not_ends_with,
+            not_equals=not_equals,
+            not_starts_with=not_starts_with,
+            starts_with=starts_with,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             ends_with: Optional[Sequence[str]] = None,
+             equals: Optional[Sequence[str]] = None,
+             not_ends_with: Optional[Sequence[str]] = None,
+             not_equals: Optional[Sequence[str]] = None,
+             not_starts_with: Optional[Sequence[str]] = None,
+             starts_with: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
         if ends_with is not None:
-            pulumi.set(__self__, "ends_with", ends_with)
+            _setter("ends_with", ends_with)
         if equals is not None:
-            pulumi.set(__self__, "equals", equals)
+            _setter("equals", equals)
         if not_ends_with is not None:
-            pulumi.set(__self__, "not_ends_with", not_ends_with)
+            _setter("not_ends_with", not_ends_with)
         if not_equals is not None:
-            pulumi.set(__self__, "not_equals", not_equals)
+            _setter("not_equals", not_equals)
         if not_starts_with is not None:
-            pulumi.set(__self__, "not_starts_with", not_starts_with)
+            _setter("not_starts_with", not_starts_with)
         if starts_with is not None:
-            pulumi.set(__self__, "starts_with", starts_with)
+            _setter("starts_with", starts_with)
 
     @property
     @pulumi.getter
@@ -477,9 +574,20 @@ class TrailDataResource(dict):
         :param str type: The resource type in which you want to log data events. You can specify AWS::S3::Object or AWS::Lambda::Function resources.
         :param Sequence[str] values: An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
         """
-        pulumi.set(__self__, "type", type)
+        TrailDataResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -537,14 +645,29 @@ class TrailEventSelector(dict):
         :param bool include_management_events: Specify if you want your event selector to include management events for your trail.
         :param 'TrailEventSelectorReadWriteType' read_write_type: Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
         """
+        TrailEventSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_resources=data_resources,
+            exclude_management_event_sources=exclude_management_event_sources,
+            include_management_events=include_management_events,
+            read_write_type=read_write_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_resources: Optional[Sequence['outputs.TrailDataResource']] = None,
+             exclude_management_event_sources: Optional[Sequence[str]] = None,
+             include_management_events: Optional[bool] = None,
+             read_write_type: Optional['TrailEventSelectorReadWriteType'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_resources is not None:
-            pulumi.set(__self__, "data_resources", data_resources)
+            _setter("data_resources", data_resources)
         if exclude_management_event_sources is not None:
-            pulumi.set(__self__, "exclude_management_event_sources", exclude_management_event_sources)
+            _setter("exclude_management_event_sources", exclude_management_event_sources)
         if include_management_events is not None:
-            pulumi.set(__self__, "include_management_events", include_management_events)
+            _setter("include_management_events", include_management_events)
         if read_write_type is not None:
-            pulumi.set(__self__, "read_write_type", read_write_type)
+            _setter("read_write_type", read_write_type)
 
     @property
     @pulumi.getter(name="dataResources")
@@ -604,8 +727,17 @@ class TrailInsightSelector(dict):
         A string that contains insight types that are logged on a trail.
         :param str insight_type: The type of insight to log on a trail.
         """
+        TrailInsightSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insight_type=insight_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insight_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if insight_type is not None:
-            pulumi.set(__self__, "insight_type", insight_type)
+            _setter("insight_type", insight_type)
 
     @property
     @pulumi.getter(name="insightType")
@@ -629,8 +761,19 @@ class TrailTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        TrailTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

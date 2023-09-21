@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,22 +40,49 @@ class DbProxyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new proxy.
         """
-        pulumi.set(__self__, "auth", auth)
-        pulumi.set(__self__, "engine_family", engine_family)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+        DbProxyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth=auth,
+            engine_family=engine_family,
+            role_arn=role_arn,
+            vpc_subnet_ids=vpc_subnet_ids,
+            db_proxy_name=db_proxy_name,
+            debug_logging=debug_logging,
+            idle_client_timeout=idle_client_timeout,
+            require_tls=require_tls,
+            tags=tags,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth: pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]],
+             engine_family: pulumi.Input['DbProxyEngineFamily'],
+             role_arn: pulumi.Input[str],
+             vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             db_proxy_name: Optional[pulumi.Input[str]] = None,
+             debug_logging: Optional[pulumi.Input[bool]] = None,
+             idle_client_timeout: Optional[pulumi.Input[int]] = None,
+             require_tls: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth", auth)
+        _setter("engine_family", engine_family)
+        _setter("role_arn", role_arn)
+        _setter("vpc_subnet_ids", vpc_subnet_ids)
         if db_proxy_name is not None:
-            pulumi.set(__self__, "db_proxy_name", db_proxy_name)
+            _setter("db_proxy_name", db_proxy_name)
         if debug_logging is not None:
-            pulumi.set(__self__, "debug_logging", debug_logging)
+            _setter("debug_logging", debug_logging)
         if idle_client_timeout is not None:
-            pulumi.set(__self__, "idle_client_timeout", idle_client_timeout)
+            _setter("idle_client_timeout", idle_client_timeout)
         if require_tls is not None:
-            pulumi.set(__self__, "require_tls", require_tls)
+            _setter("require_tls", require_tls)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter
@@ -229,6 +256,10 @@ class DbProxy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DbProxyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

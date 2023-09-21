@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,20 +28,43 @@ class ProvisioningTemplateArgs:
         """
         The set of arguments for constructing a ProvisioningTemplate resource.
         """
-        pulumi.set(__self__, "provisioning_role_arn", provisioning_role_arn)
-        pulumi.set(__self__, "template_body", template_body)
+        ProvisioningTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_role_arn=provisioning_role_arn,
+            template_body=template_body,
+            description=description,
+            enabled=enabled,
+            pre_provisioning_hook=pre_provisioning_hook,
+            tags=tags,
+            template_name=template_name,
+            template_type=template_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_role_arn: pulumi.Input[str],
+             template_body: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             pre_provisioning_hook: Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisioningTemplateTagArgs']]]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provisioning_role_arn", provisioning_role_arn)
+        _setter("template_body", template_body)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if pre_provisioning_hook is not None:
-            pulumi.set(__self__, "pre_provisioning_hook", pre_provisioning_hook)
+            _setter("pre_provisioning_hook", pre_provisioning_hook)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
+            _setter("template_name", template_name)
         if template_type is not None:
-            pulumi.set(__self__, "template_type", template_type)
+            _setter("template_type", template_type)
 
     @property
     @pulumi.getter(name="provisioningRoleArn")
@@ -155,6 +178,10 @@ class ProvisioningTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProvisioningTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -179,6 +206,11 @@ class ProvisioningTemplate(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
+            if not isinstance(pre_provisioning_hook, ProvisioningTemplateProvisioningHookArgs):
+                pre_provisioning_hook = pre_provisioning_hook or {}
+                def _setter(key, value):
+                    pre_provisioning_hook[key] = value
+                ProvisioningTemplateProvisioningHookArgs._configure(_setter, **pre_provisioning_hook)
             __props__.__dict__["pre_provisioning_hook"] = pre_provisioning_hook
             if provisioning_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioning_role_arn'")

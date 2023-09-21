@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,33 @@ class RotationArgs:
         :param pulumi.Input[str] time_zone_id: TimeZone Identifier for the Oncall Schedule
         :param pulumi.Input[str] name: Name of the Rotation
         """
-        pulumi.set(__self__, "contact_ids", contact_ids)
-        pulumi.set(__self__, "recurrence", recurrence)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "time_zone_id", time_zone_id)
+        RotationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_ids=contact_ids,
+            recurrence=recurrence,
+            start_time=start_time,
+            time_zone_id=time_zone_id,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             recurrence: pulumi.Input['RotationRecurrenceSettingsArgs'],
+             start_time: pulumi.Input[str],
+             time_zone_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RotationTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contact_ids", contact_ids)
+        _setter("recurrence", recurrence)
+        _setter("start_time", start_time)
+        _setter("time_zone_id", time_zone_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="contactIds")
@@ -147,6 +166,10 @@ class Rotation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RotationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -171,6 +194,11 @@ class Rotation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'contact_ids'")
             __props__.__dict__["contact_ids"] = contact_ids
             __props__.__dict__["name"] = name
+            if not isinstance(recurrence, RotationRecurrenceSettingsArgs):
+                recurrence = recurrence or {}
+                def _setter(key, value):
+                    recurrence[key] = value
+                RotationRecurrenceSettingsArgs._configure(_setter, **recurrence)
             if recurrence is None and not opts.urn:
                 raise TypeError("Missing required property 'recurrence'")
             __props__.__dict__["recurrence"] = recurrence

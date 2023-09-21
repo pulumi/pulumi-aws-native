@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -70,28 +70,57 @@ class AppAutoBranchCreationConfig(dict):
                  framework: Optional[str] = None,
                  pull_request_environment_name: Optional[str] = None,
                  stage: Optional['AppAutoBranchCreationConfigStage'] = None):
+        AppAutoBranchCreationConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_branch_creation_patterns=auto_branch_creation_patterns,
+            basic_auth_config=basic_auth_config,
+            build_spec=build_spec,
+            enable_auto_branch_creation=enable_auto_branch_creation,
+            enable_auto_build=enable_auto_build,
+            enable_performance_mode=enable_performance_mode,
+            enable_pull_request_preview=enable_pull_request_preview,
+            environment_variables=environment_variables,
+            framework=framework,
+            pull_request_environment_name=pull_request_environment_name,
+            stage=stage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_branch_creation_patterns: Optional[Sequence[str]] = None,
+             basic_auth_config: Optional['outputs.AppBasicAuthConfig'] = None,
+             build_spec: Optional[str] = None,
+             enable_auto_branch_creation: Optional[bool] = None,
+             enable_auto_build: Optional[bool] = None,
+             enable_performance_mode: Optional[bool] = None,
+             enable_pull_request_preview: Optional[bool] = None,
+             environment_variables: Optional[Sequence['outputs.AppEnvironmentVariable']] = None,
+             framework: Optional[str] = None,
+             pull_request_environment_name: Optional[str] = None,
+             stage: Optional['AppAutoBranchCreationConfigStage'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_branch_creation_patterns is not None:
-            pulumi.set(__self__, "auto_branch_creation_patterns", auto_branch_creation_patterns)
+            _setter("auto_branch_creation_patterns", auto_branch_creation_patterns)
         if basic_auth_config is not None:
-            pulumi.set(__self__, "basic_auth_config", basic_auth_config)
+            _setter("basic_auth_config", basic_auth_config)
         if build_spec is not None:
-            pulumi.set(__self__, "build_spec", build_spec)
+            _setter("build_spec", build_spec)
         if enable_auto_branch_creation is not None:
-            pulumi.set(__self__, "enable_auto_branch_creation", enable_auto_branch_creation)
+            _setter("enable_auto_branch_creation", enable_auto_branch_creation)
         if enable_auto_build is not None:
-            pulumi.set(__self__, "enable_auto_build", enable_auto_build)
+            _setter("enable_auto_build", enable_auto_build)
         if enable_performance_mode is not None:
-            pulumi.set(__self__, "enable_performance_mode", enable_performance_mode)
+            _setter("enable_performance_mode", enable_performance_mode)
         if enable_pull_request_preview is not None:
-            pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
+            _setter("enable_pull_request_preview", enable_pull_request_preview)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if framework is not None:
-            pulumi.set(__self__, "framework", framework)
+            _setter("framework", framework)
         if pull_request_environment_name is not None:
-            pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
+            _setter("pull_request_environment_name", pull_request_environment_name)
         if stage is not None:
-            pulumi.set(__self__, "stage", stage)
+            _setter("stage", stage)
 
     @property
     @pulumi.getter(name="autoBranchCreationPatterns")
@@ -172,12 +201,25 @@ class AppBasicAuthConfig(dict):
                  enable_basic_auth: Optional[bool] = None,
                  password: Optional[str] = None,
                  username: Optional[str] = None):
+        AppBasicAuthConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_basic_auth=enable_basic_auth,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_basic_auth: Optional[bool] = None,
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_basic_auth is not None:
-            pulumi.set(__self__, "enable_basic_auth", enable_basic_auth)
+            _setter("enable_basic_auth", enable_basic_auth)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="enableBasicAuth")
@@ -202,12 +244,27 @@ class AppCustomRule(dict):
                  target: str,
                  condition: Optional[str] = None,
                  status: Optional[str] = None):
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "target", target)
+        AppCustomRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+            target=target,
+            condition=condition,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: str,
+             target: str,
+             condition: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source", source)
+        _setter("target", target)
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -235,8 +292,19 @@ class AppEnvironmentVariable(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AppEnvironmentVariable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -254,8 +322,19 @@ class AppTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AppTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -291,10 +370,23 @@ class BranchBasicAuthConfig(dict):
                  password: str,
                  username: str,
                  enable_basic_auth: Optional[bool] = None):
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        BranchBasicAuthConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+            enable_basic_auth=enable_basic_auth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             enable_basic_auth: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
         if enable_basic_auth is not None:
-            pulumi.set(__self__, "enable_basic_auth", enable_basic_auth)
+            _setter("enable_basic_auth", enable_basic_auth)
 
     @property
     @pulumi.getter
@@ -317,8 +409,19 @@ class BranchEnvironmentVariable(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        BranchEnvironmentVariable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -336,8 +439,19 @@ class BranchTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        BranchTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -372,8 +486,19 @@ class DomainSubDomainSetting(dict):
     def __init__(__self__, *,
                  branch_name: str,
                  prefix: str):
-        pulumi.set(__self__, "branch_name", branch_name)
-        pulumi.set(__self__, "prefix", prefix)
+        DomainSubDomainSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_name=branch_name,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_name: str,
+             prefix: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("branch_name", branch_name)
+        _setter("prefix", prefix)
 
     @property
     @pulumi.getter(name="branchName")

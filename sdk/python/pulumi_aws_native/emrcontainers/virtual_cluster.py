@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,24 @@ class VirtualClusterArgs:
         :param pulumi.Input[str] name: Name of the virtual cluster.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualClusterTagArgs']]] tags: An array of key-value pairs to apply to this virtual cluster.
         """
-        pulumi.set(__self__, "container_provider", container_provider)
+        VirtualClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_provider=container_provider,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_provider: pulumi.Input['VirtualClusterContainerProviderArgs'],
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualClusterTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_provider", container_provider)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="containerProvider")
@@ -105,6 +118,10 @@ class VirtualCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -122,6 +139,11 @@ class VirtualCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualClusterArgs.__new__(VirtualClusterArgs)
 
+            if not isinstance(container_provider, VirtualClusterContainerProviderArgs):
+                container_provider = container_provider or {}
+                def _setter(key, value):
+                    container_provider[key] = value
+                VirtualClusterContainerProviderArgs._configure(_setter, **container_provider)
             if container_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'container_provider'")
             __props__.__dict__["container_provider"] = container_provider

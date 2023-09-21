@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,18 +31,37 @@ class UsagePlanArgs:
         :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle: Configures the overall request rate (average requests per second) and burst capacity.
         :param pulumi.Input[str] usage_plan_name: A name for the usage plan.
         """
+        UsagePlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_stages=api_stages,
+            description=description,
+            quota=quota,
+            tags=tags,
+            throttle=throttle,
+            usage_plan_name=usage_plan_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_stages: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             quota: Optional[pulumi.Input['UsagePlanQuotaSettingsArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]]] = None,
+             throttle: Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']] = None,
+             usage_plan_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_stages is not None:
-            pulumi.set(__self__, "api_stages", api_stages)
+            _setter("api_stages", api_stages)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if quota is not None:
-            pulumi.set(__self__, "quota", quota)
+            _setter("quota", quota)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if throttle is not None:
-            pulumi.set(__self__, "throttle", throttle)
+            _setter("throttle", throttle)
         if usage_plan_name is not None:
-            pulumi.set(__self__, "usage_plan_name", usage_plan_name)
+            _setter("usage_plan_name", usage_plan_name)
 
     @property
     @pulumi.getter(name="apiStages")
@@ -160,6 +179,10 @@ class UsagePlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UsagePlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,8 +205,18 @@ class UsagePlan(pulumi.CustomResource):
 
             __props__.__dict__["api_stages"] = api_stages
             __props__.__dict__["description"] = description
+            if not isinstance(quota, UsagePlanQuotaSettingsArgs):
+                quota = quota or {}
+                def _setter(key, value):
+                    quota[key] = value
+                UsagePlanQuotaSettingsArgs._configure(_setter, **quota)
             __props__.__dict__["quota"] = quota
             __props__.__dict__["tags"] = tags
+            if not isinstance(throttle, UsagePlanThrottleSettingsArgs):
+                throttle = throttle or {}
+                def _setter(key, value):
+                    throttle[key] = value
+                UsagePlanThrottleSettingsArgs._configure(_setter, **throttle)
             __props__.__dict__["throttle"] = throttle
             __props__.__dict__["usage_plan_name"] = usage_plan_name
         super(UsagePlan, __self__).__init__(

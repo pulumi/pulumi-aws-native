@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,51 +43,106 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         """
-        pulumi.set(__self__, "instances", instances)
-        pulumi.set(__self__, "job_flow_role", job_flow_role)
-        pulumi.set(__self__, "service_role", service_role)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instances=instances,
+            job_flow_role=job_flow_role,
+            service_role=service_role,
+            additional_info=additional_info,
+            applications=applications,
+            auto_scaling_role=auto_scaling_role,
+            auto_termination_policy=auto_termination_policy,
+            bootstrap_actions=bootstrap_actions,
+            configurations=configurations,
+            custom_ami_id=custom_ami_id,
+            ebs_root_volume_size=ebs_root_volume_size,
+            kerberos_attributes=kerberos_attributes,
+            log_encryption_kms_key_id=log_encryption_kms_key_id,
+            log_uri=log_uri,
+            managed_scaling_policy=managed_scaling_policy,
+            name=name,
+            os_release_label=os_release_label,
+            release_label=release_label,
+            scale_down_behavior=scale_down_behavior,
+            security_configuration=security_configuration,
+            step_concurrency_level=step_concurrency_level,
+            steps=steps,
+            tags=tags,
+            visible_to_all_users=visible_to_all_users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instances: pulumi.Input['ClusterJobFlowInstancesConfigArgs'],
+             job_flow_role: pulumi.Input[str],
+             service_role: pulumi.Input[str],
+             additional_info: Optional[Any] = None,
+             applications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterApplicationArgs']]]] = None,
+             auto_scaling_role: Optional[pulumi.Input[str]] = None,
+             auto_termination_policy: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']] = None,
+             bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionConfigArgs']]]] = None,
+             configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterConfigurationArgs']]]] = None,
+             custom_ami_id: Optional[pulumi.Input[str]] = None,
+             ebs_root_volume_size: Optional[pulumi.Input[int]] = None,
+             kerberos_attributes: Optional[pulumi.Input['ClusterKerberosAttributesArgs']] = None,
+             log_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
+             log_uri: Optional[pulumi.Input[str]] = None,
+             managed_scaling_policy: Optional[pulumi.Input['ClusterManagedScalingPolicyArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_release_label: Optional[pulumi.Input[str]] = None,
+             release_label: Optional[pulumi.Input[str]] = None,
+             scale_down_behavior: Optional[pulumi.Input[str]] = None,
+             security_configuration: Optional[pulumi.Input[str]] = None,
+             step_concurrency_level: Optional[pulumi.Input[int]] = None,
+             steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepConfigArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
+             visible_to_all_users: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instances", instances)
+        _setter("job_flow_role", job_flow_role)
+        _setter("service_role", service_role)
         if additional_info is not None:
-            pulumi.set(__self__, "additional_info", additional_info)
+            _setter("additional_info", additional_info)
         if applications is not None:
-            pulumi.set(__self__, "applications", applications)
+            _setter("applications", applications)
         if auto_scaling_role is not None:
-            pulumi.set(__self__, "auto_scaling_role", auto_scaling_role)
+            _setter("auto_scaling_role", auto_scaling_role)
         if auto_termination_policy is not None:
-            pulumi.set(__self__, "auto_termination_policy", auto_termination_policy)
+            _setter("auto_termination_policy", auto_termination_policy)
         if bootstrap_actions is not None:
-            pulumi.set(__self__, "bootstrap_actions", bootstrap_actions)
+            _setter("bootstrap_actions", bootstrap_actions)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
         if custom_ami_id is not None:
-            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
+            _setter("custom_ami_id", custom_ami_id)
         if ebs_root_volume_size is not None:
-            pulumi.set(__self__, "ebs_root_volume_size", ebs_root_volume_size)
+            _setter("ebs_root_volume_size", ebs_root_volume_size)
         if kerberos_attributes is not None:
-            pulumi.set(__self__, "kerberos_attributes", kerberos_attributes)
+            _setter("kerberos_attributes", kerberos_attributes)
         if log_encryption_kms_key_id is not None:
-            pulumi.set(__self__, "log_encryption_kms_key_id", log_encryption_kms_key_id)
+            _setter("log_encryption_kms_key_id", log_encryption_kms_key_id)
         if log_uri is not None:
-            pulumi.set(__self__, "log_uri", log_uri)
+            _setter("log_uri", log_uri)
         if managed_scaling_policy is not None:
-            pulumi.set(__self__, "managed_scaling_policy", managed_scaling_policy)
+            _setter("managed_scaling_policy", managed_scaling_policy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_release_label is not None:
-            pulumi.set(__self__, "os_release_label", os_release_label)
+            _setter("os_release_label", os_release_label)
         if release_label is not None:
-            pulumi.set(__self__, "release_label", release_label)
+            _setter("release_label", release_label)
         if scale_down_behavior is not None:
-            pulumi.set(__self__, "scale_down_behavior", scale_down_behavior)
+            _setter("scale_down_behavior", scale_down_behavior)
         if security_configuration is not None:
-            pulumi.set(__self__, "security_configuration", security_configuration)
+            _setter("security_configuration", security_configuration)
         if step_concurrency_level is not None:
-            pulumi.set(__self__, "step_concurrency_level", step_concurrency_level)
+            _setter("step_concurrency_level", step_concurrency_level)
         if steps is not None:
-            pulumi.set(__self__, "steps", steps)
+            _setter("steps", steps)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if visible_to_all_users is not None:
-            pulumi.set(__self__, "visible_to_all_users", visible_to_all_users)
+            _setter("visible_to_all_users", visible_to_all_users)
 
     @property
     @pulumi.getter
@@ -366,6 +421,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -408,20 +467,40 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["additional_info"] = additional_info
             __props__.__dict__["applications"] = applications
             __props__.__dict__["auto_scaling_role"] = auto_scaling_role
+            if not isinstance(auto_termination_policy, ClusterAutoTerminationPolicyArgs):
+                auto_termination_policy = auto_termination_policy or {}
+                def _setter(key, value):
+                    auto_termination_policy[key] = value
+                ClusterAutoTerminationPolicyArgs._configure(_setter, **auto_termination_policy)
             __props__.__dict__["auto_termination_policy"] = auto_termination_policy
             __props__.__dict__["bootstrap_actions"] = bootstrap_actions
             __props__.__dict__["configurations"] = configurations
             __props__.__dict__["custom_ami_id"] = custom_ami_id
             __props__.__dict__["ebs_root_volume_size"] = ebs_root_volume_size
+            if not isinstance(instances, ClusterJobFlowInstancesConfigArgs):
+                instances = instances or {}
+                def _setter(key, value):
+                    instances[key] = value
+                ClusterJobFlowInstancesConfigArgs._configure(_setter, **instances)
             if instances is None and not opts.urn:
                 raise TypeError("Missing required property 'instances'")
             __props__.__dict__["instances"] = instances
             if job_flow_role is None and not opts.urn:
                 raise TypeError("Missing required property 'job_flow_role'")
             __props__.__dict__["job_flow_role"] = job_flow_role
+            if not isinstance(kerberos_attributes, ClusterKerberosAttributesArgs):
+                kerberos_attributes = kerberos_attributes or {}
+                def _setter(key, value):
+                    kerberos_attributes[key] = value
+                ClusterKerberosAttributesArgs._configure(_setter, **kerberos_attributes)
             __props__.__dict__["kerberos_attributes"] = kerberos_attributes
             __props__.__dict__["log_encryption_kms_key_id"] = log_encryption_kms_key_id
             __props__.__dict__["log_uri"] = log_uri
+            if not isinstance(managed_scaling_policy, ClusterManagedScalingPolicyArgs):
+                managed_scaling_policy = managed_scaling_policy or {}
+                def _setter(key, value):
+                    managed_scaling_policy[key] = value
+                ClusterManagedScalingPolicyArgs._configure(_setter, **managed_scaling_policy)
             __props__.__dict__["managed_scaling_policy"] = managed_scaling_policy
             __props__.__dict__["name"] = name
             __props__.__dict__["os_release_label"] = os_release_label

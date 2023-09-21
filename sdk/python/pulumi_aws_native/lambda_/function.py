@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -67,52 +67,107 @@ class FunctionArgs:
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "role", role)
+        FunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            role=role,
+            architectures=architectures,
+            code_signing_config_arn=code_signing_config_arn,
+            dead_letter_config=dead_letter_config,
+            description=description,
+            environment=environment,
+            ephemeral_storage=ephemeral_storage,
+            file_system_configs=file_system_configs,
+            function_name=function_name,
+            handler=handler,
+            image_config=image_config,
+            kms_key_arn=kms_key_arn,
+            layers=layers,
+            memory_size=memory_size,
+            package_type=package_type,
+            reserved_concurrent_executions=reserved_concurrent_executions,
+            runtime=runtime,
+            runtime_management_config=runtime_management_config,
+            snap_start=snap_start,
+            tags=tags,
+            timeout=timeout,
+            tracing_config=tracing_config,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: pulumi.Input['FunctionCodeArgs'],
+             role: pulumi.Input[str],
+             architectures: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
+             code_signing_config_arn: Optional[pulumi.Input[str]] = None,
+             dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['FunctionEnvironmentArgs']] = None,
+             ephemeral_storage: Optional[pulumi.Input['FunctionEphemeralStorageArgs']] = None,
+             file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]]] = None,
+             function_name: Optional[pulumi.Input[str]] = None,
+             handler: Optional[pulumi.Input[str]] = None,
+             image_config: Optional[pulumi.Input['FunctionImageConfigArgs']] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             memory_size: Optional[pulumi.Input[int]] = None,
+             package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
+             reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
+             runtime: Optional[pulumi.Input[str]] = None,
+             runtime_management_config: Optional[pulumi.Input['FunctionRuntimeManagementConfigArgs']] = None,
+             snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
+             vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("role", role)
         if architectures is not None:
-            pulumi.set(__self__, "architectures", architectures)
+            _setter("architectures", architectures)
         if code_signing_config_arn is not None:
-            pulumi.set(__self__, "code_signing_config_arn", code_signing_config_arn)
+            _setter("code_signing_config_arn", code_signing_config_arn)
         if dead_letter_config is not None:
-            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
+            _setter("dead_letter_config", dead_letter_config)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if ephemeral_storage is not None:
-            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+            _setter("ephemeral_storage", ephemeral_storage)
         if file_system_configs is not None:
-            pulumi.set(__self__, "file_system_configs", file_system_configs)
+            _setter("file_system_configs", file_system_configs)
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if handler is not None:
-            pulumi.set(__self__, "handler", handler)
+            _setter("handler", handler)
         if image_config is not None:
-            pulumi.set(__self__, "image_config", image_config)
+            _setter("image_config", image_config)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if memory_size is not None:
-            pulumi.set(__self__, "memory_size", memory_size)
+            _setter("memory_size", memory_size)
         if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
+            _setter("package_type", package_type)
         if reserved_concurrent_executions is not None:
-            pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
+            _setter("reserved_concurrent_executions", reserved_concurrent_executions)
         if runtime is not None:
-            pulumi.set(__self__, "runtime", runtime)
+            _setter("runtime", runtime)
         if runtime_management_config is not None:
-            pulumi.set(__self__, "runtime_management_config", runtime_management_config)
+            _setter("runtime_management_config", runtime_management_config)
         if snap_start is not None:
-            pulumi.set(__self__, "snap_start", snap_start)
+            _setter("snap_start", snap_start)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if tracing_config is not None:
-            pulumi.set(__self__, "tracing_config", tracing_config)
+            _setter("tracing_config", tracing_config)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter
@@ -478,6 +533,10 @@ class Function(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -517,17 +576,42 @@ class Function(pulumi.CustomResource):
             __props__ = FunctionArgs.__new__(FunctionArgs)
 
             __props__.__dict__["architectures"] = architectures
+            if not isinstance(code, FunctionCodeArgs):
+                code = code or {}
+                def _setter(key, value):
+                    code[key] = value
+                FunctionCodeArgs._configure(_setter, **code)
             if code is None and not opts.urn:
                 raise TypeError("Missing required property 'code'")
             __props__.__dict__["code"] = code
             __props__.__dict__["code_signing_config_arn"] = code_signing_config_arn
+            if not isinstance(dead_letter_config, FunctionDeadLetterConfigArgs):
+                dead_letter_config = dead_letter_config or {}
+                def _setter(key, value):
+                    dead_letter_config[key] = value
+                FunctionDeadLetterConfigArgs._configure(_setter, **dead_letter_config)
             __props__.__dict__["dead_letter_config"] = dead_letter_config
             __props__.__dict__["description"] = description
+            if not isinstance(environment, FunctionEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                FunctionEnvironmentArgs._configure(_setter, **environment)
             __props__.__dict__["environment"] = environment
+            if not isinstance(ephemeral_storage, FunctionEphemeralStorageArgs):
+                ephemeral_storage = ephemeral_storage or {}
+                def _setter(key, value):
+                    ephemeral_storage[key] = value
+                FunctionEphemeralStorageArgs._configure(_setter, **ephemeral_storage)
             __props__.__dict__["ephemeral_storage"] = ephemeral_storage
             __props__.__dict__["file_system_configs"] = file_system_configs
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["handler"] = handler
+            if not isinstance(image_config, FunctionImageConfigArgs):
+                image_config = image_config or {}
+                def _setter(key, value):
+                    image_config[key] = value
+                FunctionImageConfigArgs._configure(_setter, **image_config)
             __props__.__dict__["image_config"] = image_config
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["layers"] = layers
@@ -538,11 +622,31 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
             __props__.__dict__["runtime"] = runtime
+            if not isinstance(runtime_management_config, FunctionRuntimeManagementConfigArgs):
+                runtime_management_config = runtime_management_config or {}
+                def _setter(key, value):
+                    runtime_management_config[key] = value
+                FunctionRuntimeManagementConfigArgs._configure(_setter, **runtime_management_config)
             __props__.__dict__["runtime_management_config"] = runtime_management_config
+            if not isinstance(snap_start, FunctionSnapStartArgs):
+                snap_start = snap_start or {}
+                def _setter(key, value):
+                    snap_start[key] = value
+                FunctionSnapStartArgs._configure(_setter, **snap_start)
             __props__.__dict__["snap_start"] = snap_start
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
+            if not isinstance(tracing_config, FunctionTracingConfigArgs):
+                tracing_config = tracing_config or {}
+                def _setter(key, value):
+                    tracing_config[key] = value
+                FunctionTracingConfigArgs._configure(_setter, **tracing_config)
             __props__.__dict__["tracing_config"] = tracing_config
+            if not isinstance(vpc_config, FunctionVpcConfigArgs):
+                vpc_config = vpc_config or {}
+                def _setter(key, value):
+                    vpc_config[key] = value
+                FunctionVpcConfigArgs._configure(_setter, **vpc_config)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["snap_start_response"] = None

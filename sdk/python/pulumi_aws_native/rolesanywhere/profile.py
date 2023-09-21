@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,21 +27,44 @@ class ProfileArgs:
         """
         The set of arguments for constructing a Profile resource.
         """
-        pulumi.set(__self__, "role_arns", role_arns)
+        ProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arns=role_arns,
+            duration_seconds=duration_seconds,
+            enabled=enabled,
+            managed_policy_arns=managed_policy_arns,
+            name=name,
+            require_instance_properties=require_instance_properties,
+            session_policy=session_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             duration_seconds: Optional[pulumi.Input[float]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             require_instance_properties: Optional[pulumi.Input[bool]] = None,
+             session_policy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arns", role_arns)
         if duration_seconds is not None:
-            pulumi.set(__self__, "duration_seconds", duration_seconds)
+            _setter("duration_seconds", duration_seconds)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if managed_policy_arns is not None:
-            pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
+            _setter("managed_policy_arns", managed_policy_arns)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if require_instance_properties is not None:
-            pulumi.set(__self__, "require_instance_properties", require_instance_properties)
+            _setter("require_instance_properties", require_instance_properties)
         if session_policy is not None:
-            pulumi.set(__self__, "session_policy", session_policy)
+            _setter("session_policy", session_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="roleArns")
@@ -155,6 +178,10 @@ class Profile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

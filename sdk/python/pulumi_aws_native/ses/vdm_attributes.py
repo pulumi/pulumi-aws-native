@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,10 +21,21 @@ class VdmAttributesArgs:
         """
         The set of arguments for constructing a VdmAttributes resource.
         """
+        VdmAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dashboard_attributes=dashboard_attributes,
+            guardian_attributes=guardian_attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dashboard_attributes: Optional[pulumi.Input['VdmAttributesDashboardAttributesArgs']] = None,
+             guardian_attributes: Optional[pulumi.Input['VdmAttributesGuardianAttributesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dashboard_attributes is not None:
-            pulumi.set(__self__, "dashboard_attributes", dashboard_attributes)
+            _setter("dashboard_attributes", dashboard_attributes)
         if guardian_attributes is not None:
-            pulumi.set(__self__, "guardian_attributes", guardian_attributes)
+            _setter("guardian_attributes", guardian_attributes)
 
     @property
     @pulumi.getter(name="dashboardAttributes")
@@ -78,6 +89,10 @@ class VdmAttributes(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VdmAttributesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -94,7 +109,17 @@ class VdmAttributes(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VdmAttributesArgs.__new__(VdmAttributesArgs)
 
+            if not isinstance(dashboard_attributes, VdmAttributesDashboardAttributesArgs):
+                dashboard_attributes = dashboard_attributes or {}
+                def _setter(key, value):
+                    dashboard_attributes[key] = value
+                VdmAttributesDashboardAttributesArgs._configure(_setter, **dashboard_attributes)
             __props__.__dict__["dashboard_attributes"] = dashboard_attributes
+            if not isinstance(guardian_attributes, VdmAttributesGuardianAttributesArgs):
+                guardian_attributes = guardian_attributes or {}
+                def _setter(key, value):
+                    guardian_attributes[key] = value
+                VdmAttributesGuardianAttributesArgs._configure(_setter, **guardian_attributes)
             __props__.__dict__["guardian_attributes"] = guardian_attributes
             __props__.__dict__["vdm_attributes_resource_id"] = None
         super(VdmAttributes, __self__).__init__(

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,30 +32,63 @@ class CrawlerArgs:
         """
         The set of arguments for constructing a Crawler resource.
         """
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "targets", targets)
+        CrawlerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role=role,
+            targets=targets,
+            classifiers=classifiers,
+            configuration=configuration,
+            crawler_security_configuration=crawler_security_configuration,
+            database_name=database_name,
+            description=description,
+            name=name,
+            recrawl_policy=recrawl_policy,
+            schedule=schedule,
+            schema_change_policy=schema_change_policy,
+            table_prefix=table_prefix,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role: pulumi.Input[str],
+             targets: pulumi.Input['CrawlerTargetsArgs'],
+             classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             configuration: Optional[pulumi.Input[str]] = None,
+             crawler_security_configuration: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             recrawl_policy: Optional[pulumi.Input['CrawlerRecrawlPolicyArgs']] = None,
+             schedule: Optional[pulumi.Input['CrawlerScheduleArgs']] = None,
+             schema_change_policy: Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']] = None,
+             table_prefix: Optional[pulumi.Input[str]] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role", role)
+        _setter("targets", targets)
         if classifiers is not None:
-            pulumi.set(__self__, "classifiers", classifiers)
+            _setter("classifiers", classifiers)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if crawler_security_configuration is not None:
-            pulumi.set(__self__, "crawler_security_configuration", crawler_security_configuration)
+            _setter("crawler_security_configuration", crawler_security_configuration)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recrawl_policy is not None:
-            pulumi.set(__self__, "recrawl_policy", recrawl_policy)
+            _setter("recrawl_policy", recrawl_policy)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if schema_change_policy is not None:
-            pulumi.set(__self__, "schema_change_policy", schema_change_policy)
+            _setter("schema_change_policy", schema_change_policy)
         if table_prefix is not None:
-            pulumi.set(__self__, "table_prefix", table_prefix)
+            _setter("table_prefix", table_prefix)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -224,6 +257,10 @@ class Crawler(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CrawlerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -258,14 +295,34 @@ class Crawler(pulumi.CustomResource):
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if not isinstance(recrawl_policy, CrawlerRecrawlPolicyArgs):
+                recrawl_policy = recrawl_policy or {}
+                def _setter(key, value):
+                    recrawl_policy[key] = value
+                CrawlerRecrawlPolicyArgs._configure(_setter, **recrawl_policy)
             __props__.__dict__["recrawl_policy"] = recrawl_policy
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
+            if not isinstance(schedule, CrawlerScheduleArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                CrawlerScheduleArgs._configure(_setter, **schedule)
             __props__.__dict__["schedule"] = schedule
+            if not isinstance(schema_change_policy, CrawlerSchemaChangePolicyArgs):
+                schema_change_policy = schema_change_policy or {}
+                def _setter(key, value):
+                    schema_change_policy[key] = value
+                CrawlerSchemaChangePolicyArgs._configure(_setter, **schema_change_policy)
             __props__.__dict__["schema_change_policy"] = schema_change_policy
             __props__.__dict__["table_prefix"] = table_prefix
             __props__.__dict__["tags"] = tags
+            if not isinstance(targets, CrawlerTargetsArgs):
+                targets = targets or {}
+                def _setter(key, value):
+                    targets[key] = value
+                CrawlerTargetsArgs._configure(_setter, **targets)
             if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,35 @@ class ConnectorProfileArgs:
         :param pulumi.Input[str] connector_profile_name: The maximum number of items to retrieve in a single batch.
         :param pulumi.Input[str] kms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
-        pulumi.set(__self__, "connection_mode", connection_mode)
-        pulumi.set(__self__, "connector_type", connector_type)
+        ConnectorProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_mode=connection_mode,
+            connector_type=connector_type,
+            connector_label=connector_label,
+            connector_profile_config=connector_profile_config,
+            connector_profile_name=connector_profile_name,
+            kms_arn=kms_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_mode: pulumi.Input['ConnectorProfileConnectionMode'],
+             connector_type: pulumi.Input['ConnectorProfileConnectorType'],
+             connector_label: Optional[pulumi.Input[str]] = None,
+             connector_profile_config: Optional[pulumi.Input['ConnectorProfileConfigArgs']] = None,
+             connector_profile_name: Optional[pulumi.Input[str]] = None,
+             kms_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_mode", connection_mode)
+        _setter("connector_type", connector_type)
         if connector_label is not None:
-            pulumi.set(__self__, "connector_label", connector_label)
+            _setter("connector_label", connector_label)
         if connector_profile_config is not None:
-            pulumi.set(__self__, "connector_profile_config", connector_profile_config)
+            _setter("connector_profile_config", connector_profile_config)
         if connector_profile_name is not None:
-            pulumi.set(__self__, "connector_profile_name", connector_profile_name)
+            _setter("connector_profile_name", connector_profile_name)
         if kms_arn is not None:
-            pulumi.set(__self__, "kms_arn", kms_arn)
+            _setter("kms_arn", kms_arn)
 
     @property
     @pulumi.getter(name="connectionMode")
@@ -159,6 +178,10 @@ class ConnectorProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectorProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -183,6 +206,11 @@ class ConnectorProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_mode'")
             __props__.__dict__["connection_mode"] = connection_mode
             __props__.__dict__["connector_label"] = connector_label
+            if not isinstance(connector_profile_config, ConnectorProfileConfigArgs):
+                connector_profile_config = connector_profile_config or {}
+                def _setter(key, value):
+                    connector_profile_config[key] = value
+                ConnectorProfileConfigArgs._configure(_setter, **connector_profile_config)
             __props__.__dict__["connector_profile_config"] = connector_profile_config
             __props__.__dict__["connector_profile_name"] = connector_profile_name
             if connector_type is None and not opts.urn:

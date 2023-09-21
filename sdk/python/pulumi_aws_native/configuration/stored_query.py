@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,12 +24,27 @@ class StoredQueryArgs:
         The set of arguments for constructing a StoredQuery resource.
         :param pulumi.Input[Sequence[pulumi.Input['StoredQueryTagArgs']]] tags: The tags for the stored query.
         """
-        pulumi.set(__self__, "query_expression", query_expression)
-        pulumi.set(__self__, "query_name", query_name)
+        StoredQueryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_expression=query_expression,
+            query_name=query_name,
+            query_description=query_description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_expression: pulumi.Input[str],
+             query_name: pulumi.Input[str],
+             query_description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StoredQueryTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("query_expression", query_expression)
+        _setter("query_name", query_name)
         if query_description is not None:
-            pulumi.set(__self__, "query_description", query_description)
+            _setter("query_description", query_description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="queryExpression")
@@ -107,6 +122,10 @@ class StoredQuery(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StoredQueryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

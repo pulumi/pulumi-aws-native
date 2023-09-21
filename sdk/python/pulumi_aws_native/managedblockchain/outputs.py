@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -37,8 +37,19 @@ class AccessorTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AccessorTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -84,12 +95,25 @@ class MemberApprovalThresholdPolicy(dict):
                  proposal_duration_in_hours: Optional[int] = None,
                  threshold_comparator: Optional[str] = None,
                  threshold_percentage: Optional[int] = None):
+        MemberApprovalThresholdPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            proposal_duration_in_hours=proposal_duration_in_hours,
+            threshold_comparator=threshold_comparator,
+            threshold_percentage=threshold_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             proposal_duration_in_hours: Optional[int] = None,
+             threshold_comparator: Optional[str] = None,
+             threshold_percentage: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if proposal_duration_in_hours is not None:
-            pulumi.set(__self__, "proposal_duration_in_hours", proposal_duration_in_hours)
+            _setter("proposal_duration_in_hours", proposal_duration_in_hours)
         if threshold_comparator is not None:
-            pulumi.set(__self__, "threshold_comparator", threshold_comparator)
+            _setter("threshold_comparator", threshold_comparator)
         if threshold_percentage is not None:
-            pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+            _setter("threshold_percentage", threshold_percentage)
 
     @property
     @pulumi.getter(name="proposalDurationInHours")
@@ -130,11 +154,24 @@ class MemberConfiguration(dict):
                  name: str,
                  description: Optional[str] = None,
                  member_framework_configuration: Optional['outputs.MemberFrameworkConfiguration'] = None):
-        pulumi.set(__self__, "name", name)
+        MemberConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            member_framework_configuration=member_framework_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             description: Optional[str] = None,
+             member_framework_configuration: Optional['outputs.MemberFrameworkConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if member_framework_configuration is not None:
-            pulumi.set(__self__, "member_framework_configuration", member_framework_configuration)
+            _setter("member_framework_configuration", member_framework_configuration)
 
     @property
     @pulumi.getter
@@ -176,8 +213,19 @@ class MemberFabricConfiguration(dict):
     def __init__(__self__, *,
                  admin_password: str,
                  admin_username: str):
-        pulumi.set(__self__, "admin_password", admin_password)
-        pulumi.set(__self__, "admin_username", admin_username)
+        MemberFabricConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_password=admin_password,
+            admin_username=admin_username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_password: str,
+             admin_username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_password", admin_password)
+        _setter("admin_username", admin_username)
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -211,8 +259,17 @@ class MemberFrameworkConfiguration(dict):
 
     def __init__(__self__, *,
                  member_fabric_configuration: Optional['outputs.MemberFabricConfiguration'] = None):
+        MemberFrameworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            member_fabric_configuration=member_fabric_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             member_fabric_configuration: Optional['outputs.MemberFabricConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if member_fabric_configuration is not None:
-            pulumi.set(__self__, "member_fabric_configuration", member_fabric_configuration)
+            _setter("member_fabric_configuration", member_fabric_configuration)
 
     @property
     @pulumi.getter(name="memberFabricConfiguration")
@@ -250,14 +307,33 @@ class MemberNetworkConfiguration(dict):
                  voting_policy: 'outputs.MemberVotingPolicy',
                  description: Optional[str] = None,
                  network_framework_configuration: Optional['outputs.MemberNetworkFrameworkConfiguration'] = None):
-        pulumi.set(__self__, "framework", framework)
-        pulumi.set(__self__, "framework_version", framework_version)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "voting_policy", voting_policy)
+        MemberNetworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            framework=framework,
+            framework_version=framework_version,
+            name=name,
+            voting_policy=voting_policy,
+            description=description,
+            network_framework_configuration=network_framework_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             framework: str,
+             framework_version: str,
+             name: str,
+             voting_policy: 'outputs.MemberVotingPolicy',
+             description: Optional[str] = None,
+             network_framework_configuration: Optional['outputs.MemberNetworkFrameworkConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("framework", framework)
+        _setter("framework_version", framework_version)
+        _setter("name", name)
+        _setter("voting_policy", voting_policy)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if network_framework_configuration is not None:
-            pulumi.set(__self__, "network_framework_configuration", network_framework_configuration)
+            _setter("network_framework_configuration", network_framework_configuration)
 
     @property
     @pulumi.getter
@@ -294,7 +370,16 @@ class MemberNetworkConfiguration(dict):
 class MemberNetworkFabricConfiguration(dict):
     def __init__(__self__, *,
                  edition: str):
-        pulumi.set(__self__, "edition", edition)
+        MemberNetworkFabricConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            edition=edition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             edition: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("edition", edition)
 
     @property
     @pulumi.getter
@@ -323,8 +408,17 @@ class MemberNetworkFrameworkConfiguration(dict):
 
     def __init__(__self__, *,
                  network_fabric_configuration: Optional['outputs.MemberNetworkFabricConfiguration'] = None):
+        MemberNetworkFrameworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_fabric_configuration=network_fabric_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_fabric_configuration: Optional['outputs.MemberNetworkFabricConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if network_fabric_configuration is not None:
-            pulumi.set(__self__, "network_fabric_configuration", network_fabric_configuration)
+            _setter("network_fabric_configuration", network_fabric_configuration)
 
     @property
     @pulumi.getter(name="networkFabricConfiguration")
@@ -353,8 +447,17 @@ class MemberVotingPolicy(dict):
 
     def __init__(__self__, *,
                  approval_threshold_policy: Optional['outputs.MemberApprovalThresholdPolicy'] = None):
+        MemberVotingPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approval_threshold_policy=approval_threshold_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approval_threshold_policy: Optional['outputs.MemberApprovalThresholdPolicy'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if approval_threshold_policy is not None:
-            pulumi.set(__self__, "approval_threshold_policy", approval_threshold_policy)
+            _setter("approval_threshold_policy", approval_threshold_policy)
 
     @property
     @pulumi.getter(name="approvalThresholdPolicy")
@@ -386,8 +489,19 @@ class NodeConfiguration(dict):
     def __init__(__self__, *,
                  availability_zone: str,
                  instance_type: str):
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        pulumi.set(__self__, "instance_type", instance_type)
+        NodeConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: str,
+             instance_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("availability_zone", availability_zone)
+        _setter("instance_type", instance_type)
 
     @property
     @pulumi.getter(name="availabilityZone")

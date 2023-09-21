@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,24 +29,49 @@ class WorkflowArgs:
         """
         The set of arguments for constructing a Workflow resource.
         """
+        WorkflowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accelerators=accelerators,
+            definition_uri=definition_uri,
+            description=description,
+            engine=engine,
+            main=main,
+            name=name,
+            parameter_template=parameter_template,
+            storage_capacity=storage_capacity,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accelerators: Optional[pulumi.Input['WorkflowAccelerators']] = None,
+             definition_uri: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             engine: Optional[pulumi.Input['WorkflowEngine']] = None,
+             main: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameter_template: Optional[pulumi.Input['WorkflowParameterTemplateArgs']] = None,
+             storage_capacity: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input['WorkflowTagMapArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accelerators is not None:
-            pulumi.set(__self__, "accelerators", accelerators)
+            _setter("accelerators", accelerators)
         if definition_uri is not None:
-            pulumi.set(__self__, "definition_uri", definition_uri)
+            _setter("definition_uri", definition_uri)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if main is not None:
-            pulumi.set(__self__, "main", main)
+            _setter("main", main)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameter_template is not None:
-            pulumi.set(__self__, "parameter_template", parameter_template)
+            _setter("parameter_template", parameter_template)
         if storage_capacity is not None:
-            pulumi.set(__self__, "storage_capacity", storage_capacity)
+            _setter("storage_capacity", storage_capacity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -170,6 +195,10 @@ class Workflow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkflowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,8 +228,18 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["engine"] = engine
             __props__.__dict__["main"] = main
             __props__.__dict__["name"] = name
+            if not isinstance(parameter_template, WorkflowParameterTemplateArgs):
+                parameter_template = parameter_template or {}
+                def _setter(key, value):
+                    parameter_template[key] = value
+                WorkflowParameterTemplateArgs._configure(_setter, **parameter_template)
             __props__.__dict__["parameter_template"] = parameter_template
             __props__.__dict__["storage_capacity"] = storage_capacity
+            if not isinstance(tags, WorkflowTagMapArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                WorkflowTagMapArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None

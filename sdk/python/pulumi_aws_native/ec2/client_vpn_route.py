@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClientVpnRouteArgs', 'ClientVpnRoute']
@@ -21,11 +21,26 @@ class ClientVpnRouteArgs:
         """
         The set of arguments for constructing a ClientVpnRoute resource.
         """
-        pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
-        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
-        pulumi.set(__self__, "target_vpc_subnet_id", target_vpc_subnet_id)
+        ClientVpnRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_vpn_endpoint_id=client_vpn_endpoint_id,
+            destination_cidr_block=destination_cidr_block,
+            target_vpc_subnet_id=target_vpc_subnet_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_vpn_endpoint_id: pulumi.Input[str],
+             destination_cidr_block: pulumi.Input[str],
+             target_vpc_subnet_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
+        _setter("destination_cidr_block", destination_cidr_block)
+        _setter("target_vpc_subnet_id", target_vpc_subnet_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
@@ -104,6 +119,10 @@ class ClientVpnRoute(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClientVpnRouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

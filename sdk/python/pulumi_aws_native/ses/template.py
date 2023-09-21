@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -20,8 +20,17 @@ class TemplateInitArgs:
         """
         The set of arguments for constructing a Template resource.
         """
+        TemplateInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            template=template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             template: Optional[pulumi.Input['TemplateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
 
     @property
     @pulumi.getter
@@ -65,6 +74,10 @@ class Template(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TemplateInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -80,6 +93,11 @@ class Template(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TemplateInitArgs.__new__(TemplateInitArgs)
 
+            if not isinstance(template, TemplateArgs):
+                template = template or {}
+                def _setter(key, value):
+                    template[key] = value
+                TemplateArgs._configure(_setter, **template)
             __props__.__dict__["template"] = template
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["template.template_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

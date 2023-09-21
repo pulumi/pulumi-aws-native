@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,9 +22,20 @@ class UserAccessLoggingSettingsArgs:
         The set of arguments for constructing a UserAccessLoggingSettings resource.
         :param pulumi.Input[str] kinesis_stream_arn: Kinesis stream ARN to which log events are published.
         """
-        pulumi.set(__self__, "kinesis_stream_arn", kinesis_stream_arn)
+        UserAccessLoggingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kinesis_stream_arn=kinesis_stream_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kinesis_stream_arn: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessLoggingSettingsTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kinesis_stream_arn", kinesis_stream_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="kinesisStreamArn")
@@ -82,6 +93,10 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserAccessLoggingSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -37,8 +37,19 @@ class CidrCollectionLocationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_list: A list of CIDR blocks.
         :param pulumi.Input[str] location_name: The name of the location that is associated with the CIDR collection.
         """
-        pulumi.set(__self__, "cidr_list", cidr_list)
-        pulumi.set(__self__, "location_name", location_name)
+        CidrCollectionLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr_list=cidr_list,
+            location_name=location_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             location_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cidr_list", cidr_list)
+        _setter("location_name", location_name)
 
     @property
     @pulumi.getter(name="cidrList")
@@ -75,8 +86,19 @@ class HealthCheckAlarmIdentifierArgs:
         :param pulumi.Input[str] name: The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
         :param pulumi.Input[str] region: For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "region", region)
+        HealthCheckAlarmIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             region: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("region", region)
 
     @property
     @pulumi.getter
@@ -126,39 +148,80 @@ class HealthCheckConfigPropertiesArgs:
         """
         A complex type that contains information about the health check.
         """
-        pulumi.set(__self__, "type", type)
+        HealthCheckConfigPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            alarm_identifier=alarm_identifier,
+            child_health_checks=child_health_checks,
+            enable_sni=enable_sni,
+            failure_threshold=failure_threshold,
+            fully_qualified_domain_name=fully_qualified_domain_name,
+            health_threshold=health_threshold,
+            insufficient_data_health_status=insufficient_data_health_status,
+            inverted=inverted,
+            ip_address=ip_address,
+            measure_latency=measure_latency,
+            port=port,
+            regions=regions,
+            request_interval=request_interval,
+            resource_path=resource_path,
+            routing_control_arn=routing_control_arn,
+            search_string=search_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input['HealthCheckConfigPropertiesType'],
+             alarm_identifier: Optional[pulumi.Input['HealthCheckAlarmIdentifierArgs']] = None,
+             child_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_sni: Optional[pulumi.Input[bool]] = None,
+             failure_threshold: Optional[pulumi.Input[int]] = None,
+             fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
+             health_threshold: Optional[pulumi.Input[int]] = None,
+             insufficient_data_health_status: Optional[pulumi.Input['HealthCheckConfigPropertiesInsufficientDataHealthStatus']] = None,
+             inverted: Optional[pulumi.Input[bool]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             measure_latency: Optional[pulumi.Input[bool]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             request_interval: Optional[pulumi.Input[int]] = None,
+             resource_path: Optional[pulumi.Input[str]] = None,
+             routing_control_arn: Optional[pulumi.Input[str]] = None,
+             search_string: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if alarm_identifier is not None:
-            pulumi.set(__self__, "alarm_identifier", alarm_identifier)
+            _setter("alarm_identifier", alarm_identifier)
         if child_health_checks is not None:
-            pulumi.set(__self__, "child_health_checks", child_health_checks)
+            _setter("child_health_checks", child_health_checks)
         if enable_sni is not None:
-            pulumi.set(__self__, "enable_sni", enable_sni)
+            _setter("enable_sni", enable_sni)
         if failure_threshold is not None:
-            pulumi.set(__self__, "failure_threshold", failure_threshold)
+            _setter("failure_threshold", failure_threshold)
         if fully_qualified_domain_name is not None:
-            pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+            _setter("fully_qualified_domain_name", fully_qualified_domain_name)
         if health_threshold is not None:
-            pulumi.set(__self__, "health_threshold", health_threshold)
+            _setter("health_threshold", health_threshold)
         if insufficient_data_health_status is not None:
-            pulumi.set(__self__, "insufficient_data_health_status", insufficient_data_health_status)
+            _setter("insufficient_data_health_status", insufficient_data_health_status)
         if inverted is not None:
-            pulumi.set(__self__, "inverted", inverted)
+            _setter("inverted", inverted)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if measure_latency is not None:
-            pulumi.set(__self__, "measure_latency", measure_latency)
+            _setter("measure_latency", measure_latency)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if request_interval is not None:
-            pulumi.set(__self__, "request_interval", request_interval)
+            _setter("request_interval", request_interval)
         if resource_path is not None:
-            pulumi.set(__self__, "resource_path", resource_path)
+            _setter("resource_path", resource_path)
         if routing_control_arn is not None:
-            pulumi.set(__self__, "routing_control_arn", routing_control_arn)
+            _setter("routing_control_arn", routing_control_arn)
         if search_string is not None:
-            pulumi.set(__self__, "search_string", search_string)
+            _setter("search_string", search_string)
 
     @property
     @pulumi.getter
@@ -324,8 +387,19 @@ class HealthCheckTagArgs:
         :param pulumi.Input[str] key: The key name of the tag.
         :param pulumi.Input[str] value: The value for the tag.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        HealthCheckTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -362,8 +436,17 @@ class HostedZoneConfigArgs:
         If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
         :param pulumi.Input[str] comment: Any comments that you want to include about the hosted zone.
         """
+        HostedZoneConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
 
     @property
     @pulumi.getter
@@ -386,7 +469,16 @@ class HostedZoneQueryLoggingConfigArgs:
         A complex type that contains information about a configuration for DNS query logging.
         :param pulumi.Input[str] cloud_watch_logs_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
         """
-        pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
+        HostedZoneQueryLoggingConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_logs_log_group_arn=cloud_watch_logs_log_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_logs_log_group_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
 
     @property
     @pulumi.getter(name="cloudWatchLogsLogGroupArn")
@@ -411,8 +503,19 @@ class HostedZoneTagArgs:
         :param pulumi.Input[str] key: The key name of the tag.
         :param pulumi.Input[str] value: The value for the tag.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        HostedZoneTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -449,8 +552,19 @@ class HostedZoneVpcArgs:
         :param pulumi.Input[str] vpc_id: The ID of an Amazon VPC.
         :param pulumi.Input[str] vpc_region: The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
         """
-        pulumi.set(__self__, "vpc_id", vpc_id)
-        pulumi.set(__self__, "vpc_region", vpc_region)
+        HostedZoneVpcArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_id=vpc_id,
+            vpc_region=vpc_region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_id: pulumi.Input[str],
+             vpc_region: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("vpc_id", vpc_id)
+        _setter("vpc_region", vpc_region)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -483,10 +597,23 @@ class RecordSetAliasTargetArgs:
                  dns_name: pulumi.Input[str],
                  hosted_zone_id: pulumi.Input[str],
                  evaluate_target_health: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        RecordSetAliasTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            hosted_zone_id=hosted_zone_id,
+            evaluate_target_health=evaluate_target_health,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: pulumi.Input[str],
+             hosted_zone_id: pulumi.Input[str],
+             evaluate_target_health: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dns_name", dns_name)
+        _setter("hosted_zone_id", hosted_zone_id)
         if evaluate_target_health is not None:
-            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+            _setter("evaluate_target_health", evaluate_target_health)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -521,8 +648,19 @@ class RecordSetCidrRoutingConfigArgs:
     def __init__(__self__, *,
                  collection_id: pulumi.Input[str],
                  location_name: pulumi.Input[str]):
-        pulumi.set(__self__, "collection_id", collection_id)
-        pulumi.set(__self__, "location_name", location_name)
+        RecordSetCidrRoutingConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collection_id=collection_id,
+            location_name=location_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collection_id: pulumi.Input[str],
+             location_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("collection_id", collection_id)
+        _setter("location_name", location_name)
 
     @property
     @pulumi.getter(name="collectionId")
@@ -549,12 +687,25 @@ class RecordSetGeoLocationArgs:
                  continent_code: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
                  subdivision_code: Optional[pulumi.Input[str]] = None):
+        RecordSetGeoLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            continent_code=continent_code,
+            country_code=country_code,
+            subdivision_code=subdivision_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             continent_code: Optional[pulumi.Input[str]] = None,
+             country_code: Optional[pulumi.Input[str]] = None,
+             subdivision_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if continent_code is not None:
-            pulumi.set(__self__, "continent_code", continent_code)
+            _setter("continent_code", continent_code)
         if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
+            _setter("country_code", country_code)
         if subdivision_code is not None:
-            pulumi.set(__self__, "subdivision_code", subdivision_code)
+            _setter("subdivision_code", subdivision_code)
 
     @property
     @pulumi.getter(name="continentCode")
@@ -590,10 +741,23 @@ class RecordSetGroupAliasTargetArgs:
                  dns_name: pulumi.Input[str],
                  hosted_zone_id: pulumi.Input[str],
                  evaluate_target_health: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        RecordSetGroupAliasTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            hosted_zone_id=hosted_zone_id,
+            evaluate_target_health=evaluate_target_health,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: pulumi.Input[str],
+             hosted_zone_id: pulumi.Input[str],
+             evaluate_target_health: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dns_name", dns_name)
+        _setter("hosted_zone_id", hosted_zone_id)
         if evaluate_target_health is not None:
-            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+            _setter("evaluate_target_health", evaluate_target_health)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -628,8 +792,19 @@ class RecordSetGroupCidrRoutingConfigArgs:
     def __init__(__self__, *,
                  collection_id: pulumi.Input[str],
                  location_name: pulumi.Input[str]):
-        pulumi.set(__self__, "collection_id", collection_id)
-        pulumi.set(__self__, "location_name", location_name)
+        RecordSetGroupCidrRoutingConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collection_id=collection_id,
+            location_name=location_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collection_id: pulumi.Input[str],
+             location_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("collection_id", collection_id)
+        _setter("location_name", location_name)
 
     @property
     @pulumi.getter(name="collectionId")
@@ -656,12 +831,25 @@ class RecordSetGroupGeoLocationArgs:
                  continent_code: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
                  subdivision_code: Optional[pulumi.Input[str]] = None):
+        RecordSetGroupGeoLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            continent_code=continent_code,
+            country_code=country_code,
+            subdivision_code=subdivision_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             continent_code: Optional[pulumi.Input[str]] = None,
+             country_code: Optional[pulumi.Input[str]] = None,
+             subdivision_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if continent_code is not None:
-            pulumi.set(__self__, "continent_code", continent_code)
+            _setter("continent_code", continent_code)
         if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
+            _setter("country_code", country_code)
         if subdivision_code is not None:
-            pulumi.set(__self__, "subdivision_code", subdivision_code)
+            _setter("subdivision_code", subdivision_code)
 
     @property
     @pulumi.getter(name="continentCode")
@@ -709,34 +897,71 @@ class RecordSetGroupRecordSetArgs:
                  set_identifier: Optional[pulumi.Input[str]] = None,
                  ttl: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        RecordSetGroupRecordSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            alias_target=alias_target,
+            cidr_routing_config=cidr_routing_config,
+            failover=failover,
+            geo_location=geo_location,
+            health_check_id=health_check_id,
+            hosted_zone_id=hosted_zone_id,
+            hosted_zone_name=hosted_zone_name,
+            multi_value_answer=multi_value_answer,
+            region=region,
+            resource_records=resource_records,
+            set_identifier=set_identifier,
+            ttl=ttl,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             alias_target: Optional[pulumi.Input['RecordSetGroupAliasTargetArgs']] = None,
+             cidr_routing_config: Optional[pulumi.Input['RecordSetGroupCidrRoutingConfigArgs']] = None,
+             failover: Optional[pulumi.Input[str]] = None,
+             geo_location: Optional[pulumi.Input['RecordSetGroupGeoLocationArgs']] = None,
+             health_check_id: Optional[pulumi.Input[str]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             hosted_zone_name: Optional[pulumi.Input[str]] = None,
+             multi_value_answer: Optional[pulumi.Input[bool]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             resource_records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             set_identifier: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
         if alias_target is not None:
-            pulumi.set(__self__, "alias_target", alias_target)
+            _setter("alias_target", alias_target)
         if cidr_routing_config is not None:
-            pulumi.set(__self__, "cidr_routing_config", cidr_routing_config)
+            _setter("cidr_routing_config", cidr_routing_config)
         if failover is not None:
-            pulumi.set(__self__, "failover", failover)
+            _setter("failover", failover)
         if geo_location is not None:
-            pulumi.set(__self__, "geo_location", geo_location)
+            _setter("geo_location", geo_location)
         if health_check_id is not None:
-            pulumi.set(__self__, "health_check_id", health_check_id)
+            _setter("health_check_id", health_check_id)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if hosted_zone_name is not None:
-            pulumi.set(__self__, "hosted_zone_name", hosted_zone_name)
+            _setter("hosted_zone_name", hosted_zone_name)
         if multi_value_answer is not None:
-            pulumi.set(__self__, "multi_value_answer", multi_value_answer)
+            _setter("multi_value_answer", multi_value_answer)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if resource_records is not None:
-            pulumi.set(__self__, "resource_records", resource_records)
+            _setter("resource_records", resource_records)
         if set_identifier is not None:
-            pulumi.set(__self__, "set_identifier", set_identifier)
+            _setter("set_identifier", set_identifier)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter

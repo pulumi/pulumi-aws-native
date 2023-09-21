@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,23 +31,52 @@ class UserSettingsArgs:
         """
         The set of arguments for constructing a UserSettings resource.
         """
-        pulumi.set(__self__, "copy_allowed", copy_allowed)
-        pulumi.set(__self__, "download_allowed", download_allowed)
-        pulumi.set(__self__, "paste_allowed", paste_allowed)
-        pulumi.set(__self__, "print_allowed", print_allowed)
-        pulumi.set(__self__, "upload_allowed", upload_allowed)
+        UserSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_allowed=copy_allowed,
+            download_allowed=download_allowed,
+            paste_allowed=paste_allowed,
+            print_allowed=print_allowed,
+            upload_allowed=upload_allowed,
+            additional_encryption_context=additional_encryption_context,
+            cookie_synchronization_configuration=cookie_synchronization_configuration,
+            customer_managed_key=customer_managed_key,
+            disconnect_timeout_in_minutes=disconnect_timeout_in_minutes,
+            idle_disconnect_timeout_in_minutes=idle_disconnect_timeout_in_minutes,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_allowed: pulumi.Input['UserSettingsEnabledType'],
+             download_allowed: pulumi.Input['UserSettingsEnabledType'],
+             paste_allowed: pulumi.Input['UserSettingsEnabledType'],
+             print_allowed: pulumi.Input['UserSettingsEnabledType'],
+             upload_allowed: pulumi.Input['UserSettingsEnabledType'],
+             additional_encryption_context: Optional[pulumi.Input['UserSettingsEncryptionContextMapArgs']] = None,
+             cookie_synchronization_configuration: Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']] = None,
+             customer_managed_key: Optional[pulumi.Input[str]] = None,
+             disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+             idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("copy_allowed", copy_allowed)
+        _setter("download_allowed", download_allowed)
+        _setter("paste_allowed", paste_allowed)
+        _setter("print_allowed", print_allowed)
+        _setter("upload_allowed", upload_allowed)
         if additional_encryption_context is not None:
-            pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
+            _setter("additional_encryption_context", additional_encryption_context)
         if cookie_synchronization_configuration is not None:
-            pulumi.set(__self__, "cookie_synchronization_configuration", cookie_synchronization_configuration)
+            _setter("cookie_synchronization_configuration", cookie_synchronization_configuration)
         if customer_managed_key is not None:
-            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+            _setter("customer_managed_key", customer_managed_key)
         if disconnect_timeout_in_minutes is not None:
-            pulumi.set(__self__, "disconnect_timeout_in_minutes", disconnect_timeout_in_minutes)
+            _setter("disconnect_timeout_in_minutes", disconnect_timeout_in_minutes)
         if idle_disconnect_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_disconnect_timeout_in_minutes", idle_disconnect_timeout_in_minutes)
+            _setter("idle_disconnect_timeout_in_minutes", idle_disconnect_timeout_in_minutes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="copyAllowed")
@@ -191,6 +220,10 @@ class UserSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -216,7 +249,17 @@ class UserSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserSettingsArgs.__new__(UserSettingsArgs)
 
+            if not isinstance(additional_encryption_context, UserSettingsEncryptionContextMapArgs):
+                additional_encryption_context = additional_encryption_context or {}
+                def _setter(key, value):
+                    additional_encryption_context[key] = value
+                UserSettingsEncryptionContextMapArgs._configure(_setter, **additional_encryption_context)
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
+            if not isinstance(cookie_synchronization_configuration, UserSettingsCookieSynchronizationConfigurationArgs):
+                cookie_synchronization_configuration = cookie_synchronization_configuration or {}
+                def _setter(key, value):
+                    cookie_synchronization_configuration[key] = value
+                UserSettingsCookieSynchronizationConfigurationArgs._configure(_setter, **cookie_synchronization_configuration)
             __props__.__dict__["cookie_synchronization_configuration"] = cookie_synchronization_configuration
             if copy_allowed is None and not opts.urn:
                 raise TypeError("Missing required property 'copy_allowed'")

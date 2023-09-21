@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,30 +33,65 @@ class MaintenanceWindowTaskArgs:
         """
         The set of arguments for constructing a MaintenanceWindowTask resource.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "task_arn", task_arn)
-        pulumi.set(__self__, "task_type", task_type)
-        pulumi.set(__self__, "window_id", window_id)
+        MaintenanceWindowTaskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            task_arn=task_arn,
+            task_type=task_type,
+            window_id=window_id,
+            cutoff_behavior=cutoff_behavior,
+            description=description,
+            logging_info=logging_info,
+            max_concurrency=max_concurrency,
+            max_errors=max_errors,
+            name=name,
+            service_role_arn=service_role_arn,
+            targets=targets,
+            task_invocation_parameters=task_invocation_parameters,
+            task_parameters=task_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: pulumi.Input[int],
+             task_arn: pulumi.Input[str],
+             task_type: pulumi.Input[str],
+             window_id: pulumi.Input[str],
+             cutoff_behavior: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             logging_info: Optional[pulumi.Input['MaintenanceWindowTaskLoggingInfoArgs']] = None,
+             max_concurrency: Optional[pulumi.Input[str]] = None,
+             max_errors: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             service_role_arn: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
+             task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None,
+             task_parameters: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("task_arn", task_arn)
+        _setter("task_type", task_type)
+        _setter("window_id", window_id)
         if cutoff_behavior is not None:
-            pulumi.set(__self__, "cutoff_behavior", cutoff_behavior)
+            _setter("cutoff_behavior", cutoff_behavior)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if logging_info is not None:
-            pulumi.set(__self__, "logging_info", logging_info)
+            _setter("logging_info", logging_info)
         if max_concurrency is not None:
-            pulumi.set(__self__, "max_concurrency", max_concurrency)
+            _setter("max_concurrency", max_concurrency)
         if max_errors is not None:
-            pulumi.set(__self__, "max_errors", max_errors)
+            _setter("max_errors", max_errors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service_role_arn is not None:
-            pulumi.set(__self__, "service_role_arn", service_role_arn)
+            _setter("service_role_arn", service_role_arn)
         if targets is not None:
-            pulumi.set(__self__, "targets", targets)
+            _setter("targets", targets)
         if task_invocation_parameters is not None:
-            pulumi.set(__self__, "task_invocation_parameters", task_invocation_parameters)
+            _setter("task_invocation_parameters", task_invocation_parameters)
         if task_parameters is not None:
-            pulumi.set(__self__, "task_parameters", task_parameters)
+            _setter("task_parameters", task_parameters)
 
     @property
     @pulumi.getter
@@ -235,6 +270,10 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MaintenanceWindowTaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -266,6 +305,11 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
             __props__.__dict__["cutoff_behavior"] = cutoff_behavior
             __props__.__dict__["description"] = description
+            if not isinstance(logging_info, MaintenanceWindowTaskLoggingInfoArgs):
+                logging_info = logging_info or {}
+                def _setter(key, value):
+                    logging_info[key] = value
+                MaintenanceWindowTaskLoggingInfoArgs._configure(_setter, **logging_info)
             __props__.__dict__["logging_info"] = logging_info
             __props__.__dict__["max_concurrency"] = max_concurrency
             __props__.__dict__["max_errors"] = max_errors
@@ -278,6 +322,11 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             if task_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'task_arn'")
             __props__.__dict__["task_arn"] = task_arn
+            if not isinstance(task_invocation_parameters, MaintenanceWindowTaskTaskInvocationParametersArgs):
+                task_invocation_parameters = task_invocation_parameters or {}
+                def _setter(key, value):
+                    task_invocation_parameters[key] = value
+                MaintenanceWindowTaskTaskInvocationParametersArgs._configure(_setter, **task_invocation_parameters)
             __props__.__dict__["task_invocation_parameters"] = task_invocation_parameters
             __props__.__dict__["task_parameters"] = task_parameters
             if task_type is None and not opts.urn:

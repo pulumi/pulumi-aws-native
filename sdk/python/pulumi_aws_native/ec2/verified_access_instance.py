@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,16 +29,33 @@ class VerifiedAccessInstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] verified_access_trust_provider_ids: The IDs of the AWS Verified Access trust providers.
         :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]] verified_access_trust_providers: AWS Verified Access trust providers.
         """
+        VerifiedAccessInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            logging_configurations=logging_configurations,
+            tags=tags,
+            verified_access_trust_provider_ids=verified_access_trust_provider_ids,
+            verified_access_trust_providers=verified_access_trust_providers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             logging_configurations: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceTagArgs']]]] = None,
+             verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if logging_configurations is not None:
-            pulumi.set(__self__, "logging_configurations", logging_configurations)
+            _setter("logging_configurations", logging_configurations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if verified_access_trust_provider_ids is not None:
-            pulumi.set(__self__, "verified_access_trust_provider_ids", verified_access_trust_provider_ids)
+            _setter("verified_access_trust_provider_ids", verified_access_trust_provider_ids)
         if verified_access_trust_providers is not None:
-            pulumi.set(__self__, "verified_access_trust_providers", verified_access_trust_providers)
+            _setter("verified_access_trust_providers", verified_access_trust_providers)
 
     @property
     @pulumi.getter
@@ -142,6 +159,10 @@ class VerifiedAccessInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VerifiedAccessInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -162,6 +183,11 @@ class VerifiedAccessInstance(pulumi.CustomResource):
             __props__ = VerifiedAccessInstanceArgs.__new__(VerifiedAccessInstanceArgs)
 
             __props__.__dict__["description"] = description
+            if not isinstance(logging_configurations, VerifiedAccessInstanceVerifiedAccessLogsArgs):
+                logging_configurations = logging_configurations or {}
+                def _setter(key, value):
+                    logging_configurations[key] = value
+                VerifiedAccessInstanceVerifiedAccessLogsArgs._configure(_setter, **logging_configurations)
             __props__.__dict__["logging_configurations"] = logging_configurations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["verified_access_trust_provider_ids"] = verified_access_trust_provider_ids

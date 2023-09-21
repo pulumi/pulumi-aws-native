@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,18 +25,37 @@ class VolumeArgs:
         """
         The set of arguments for constructing a Volume resource.
         """
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_id=backup_id,
+            name=name,
+            ontap_configuration=ontap_configuration,
+            open_zfs_configuration=open_zfs_configuration,
+            tags=tags,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ontap_configuration: Optional[pulumi.Input['VolumeOntapConfigurationArgs']] = None,
+             open_zfs_configuration: Optional[pulumi.Input['VolumeOpenZfsConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backup_id is not None:
-            pulumi.set(__self__, "backup_id", backup_id)
+            _setter("backup_id", backup_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ontap_configuration is not None:
-            pulumi.set(__self__, "ontap_configuration", ontap_configuration)
+            _setter("ontap_configuration", ontap_configuration)
         if open_zfs_configuration is not None:
-            pulumi.set(__self__, "open_zfs_configuration", open_zfs_configuration)
+            _setter("open_zfs_configuration", open_zfs_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="backupId")
@@ -135,6 +154,10 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -158,7 +181,17 @@ class Volume(pulumi.CustomResource):
 
             __props__.__dict__["backup_id"] = backup_id
             __props__.__dict__["name"] = name
+            if not isinstance(ontap_configuration, VolumeOntapConfigurationArgs):
+                ontap_configuration = ontap_configuration or {}
+                def _setter(key, value):
+                    ontap_configuration[key] = value
+                VolumeOntapConfigurationArgs._configure(_setter, **ontap_configuration)
             __props__.__dict__["ontap_configuration"] = ontap_configuration
+            if not isinstance(open_zfs_configuration, VolumeOpenZfsConfigurationArgs):
+                open_zfs_configuration = open_zfs_configuration or {}
+                def _setter(key, value):
+                    open_zfs_configuration[key] = value
+                VolumeOpenZfsConfigurationArgs._configure(_setter, **open_zfs_configuration)
             __props__.__dict__["open_zfs_configuration"] = open_zfs_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["volume_type"] = volume_type

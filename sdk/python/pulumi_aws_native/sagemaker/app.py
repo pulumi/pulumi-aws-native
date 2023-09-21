@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,15 +32,34 @@ class AppArgs:
         :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         :param pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]] tags: A list of tags to apply to the app.
         """
-        pulumi.set(__self__, "app_type", app_type)
-        pulumi.set(__self__, "domain_id", domain_id)
-        pulumi.set(__self__, "user_profile_name", user_profile_name)
+        AppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_type=app_type,
+            domain_id=domain_id,
+            user_profile_name=user_profile_name,
+            app_name=app_name,
+            resource_spec=resource_spec,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_type: pulumi.Input['AppType'],
+             domain_id: pulumi.Input[str],
+             user_profile_name: pulumi.Input[str],
+             app_name: Optional[pulumi.Input[str]] = None,
+             resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_type", app_type)
+        _setter("domain_id", domain_id)
+        _setter("user_profile_name", user_profile_name)
         if app_name is not None:
-            pulumi.set(__self__, "app_name", app_name)
+            _setter("app_name", app_name)
         if resource_spec is not None:
-            pulumi.set(__self__, "resource_spec", resource_spec)
+            _setter("resource_spec", resource_spec)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="appType")
@@ -158,6 +177,10 @@ class App(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -185,6 +208,11 @@ class App(pulumi.CustomResource):
             if domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_id'")
             __props__.__dict__["domain_id"] = domain_id
+            if not isinstance(resource_spec, AppResourceSpecArgs):
+                resource_spec = resource_spec or {}
+                def _setter(key, value):
+                    resource_spec[key] = value
+                AppResourceSpecArgs._configure(_setter, **resource_spec)
             __props__.__dict__["resource_spec"] = resource_spec
             __props__.__dict__["tags"] = tags
             if user_profile_name is None and not opts.urn:

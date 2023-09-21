@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,44 @@ class AddonArgs:
         :param pulumi.Input[str] service_account_role_arn: IAM role to bind to the add-on's service account
         :param pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
+        AddonArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            addon_name=addon_name,
+            addon_version=addon_version,
+            configuration_values=configuration_values,
+            preserve_on_delete=preserve_on_delete,
+            resolve_conflicts=resolve_conflicts,
+            service_account_role_arn=service_account_role_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             addon_name: Optional[pulumi.Input[str]] = None,
+             addon_version: Optional[pulumi.Input[str]] = None,
+             configuration_values: Optional[pulumi.Input[str]] = None,
+             preserve_on_delete: Optional[pulumi.Input[bool]] = None,
+             resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
+             service_account_role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
         if addon_name is not None:
-            pulumi.set(__self__, "addon_name", addon_name)
+            _setter("addon_name", addon_name)
         if addon_version is not None:
-            pulumi.set(__self__, "addon_version", addon_version)
+            _setter("addon_version", addon_version)
         if configuration_values is not None:
-            pulumi.set(__self__, "configuration_values", configuration_values)
+            _setter("configuration_values", configuration_values)
         if preserve_on_delete is not None:
-            pulumi.set(__self__, "preserve_on_delete", preserve_on_delete)
+            _setter("preserve_on_delete", preserve_on_delete)
         if resolve_conflicts is not None:
-            pulumi.set(__self__, "resolve_conflicts", resolve_conflicts)
+            _setter("resolve_conflicts", resolve_conflicts)
         if service_account_role_arn is not None:
-            pulumi.set(__self__, "service_account_role_arn", service_account_role_arn)
+            _setter("service_account_role_arn", service_account_role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -196,6 +219,10 @@ class Addon(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AddonArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

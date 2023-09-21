@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -37,25 +37,54 @@ class BotArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]] bot_tags: A list of tags to add to the bot, which can only be added at bot creation.
         :param pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]] test_bot_alias_tags: A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
         """
-        pulumi.set(__self__, "data_privacy", data_privacy)
-        pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
-        pulumi.set(__self__, "role_arn", role_arn)
+        BotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_privacy=data_privacy,
+            idle_session_ttl_in_seconds=idle_session_ttl_in_seconds,
+            role_arn=role_arn,
+            auto_build_bot_locales=auto_build_bot_locales,
+            bot_file_s3_location=bot_file_s3_location,
+            bot_locales=bot_locales,
+            bot_tags=bot_tags,
+            description=description,
+            name=name,
+            test_bot_alias_settings=test_bot_alias_settings,
+            test_bot_alias_tags=test_bot_alias_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_privacy: pulumi.Input['DataPrivacyPropertiesArgs'],
+             idle_session_ttl_in_seconds: pulumi.Input[int],
+             role_arn: pulumi.Input[str],
+             auto_build_bot_locales: Optional[pulumi.Input[bool]] = None,
+             bot_file_s3_location: Optional[pulumi.Input['BotS3LocationArgs']] = None,
+             bot_locales: Optional[pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]]] = None,
+             bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             test_bot_alias_settings: Optional[pulumi.Input['BotTestBotAliasSettingsArgs']] = None,
+             test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_privacy", data_privacy)
+        _setter("idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
+        _setter("role_arn", role_arn)
         if auto_build_bot_locales is not None:
-            pulumi.set(__self__, "auto_build_bot_locales", auto_build_bot_locales)
+            _setter("auto_build_bot_locales", auto_build_bot_locales)
         if bot_file_s3_location is not None:
-            pulumi.set(__self__, "bot_file_s3_location", bot_file_s3_location)
+            _setter("bot_file_s3_location", bot_file_s3_location)
         if bot_locales is not None:
-            pulumi.set(__self__, "bot_locales", bot_locales)
+            _setter("bot_locales", bot_locales)
         if bot_tags is not None:
-            pulumi.set(__self__, "bot_tags", bot_tags)
+            _setter("bot_tags", bot_tags)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if test_bot_alias_settings is not None:
-            pulumi.set(__self__, "test_bot_alias_settings", test_bot_alias_settings)
+            _setter("test_bot_alias_settings", test_bot_alias_settings)
         if test_bot_alias_tags is not None:
-            pulumi.set(__self__, "test_bot_alias_tags", test_bot_alias_tags)
+            _setter("test_bot_alias_tags", test_bot_alias_tags)
 
     @property
     @pulumi.getter(name="dataPrivacy")
@@ -223,6 +252,10 @@ class Bot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -249,9 +282,19 @@ class Bot(pulumi.CustomResource):
             __props__ = BotArgs.__new__(BotArgs)
 
             __props__.__dict__["auto_build_bot_locales"] = auto_build_bot_locales
+            if not isinstance(bot_file_s3_location, BotS3LocationArgs):
+                bot_file_s3_location = bot_file_s3_location or {}
+                def _setter(key, value):
+                    bot_file_s3_location[key] = value
+                BotS3LocationArgs._configure(_setter, **bot_file_s3_location)
             __props__.__dict__["bot_file_s3_location"] = bot_file_s3_location
             __props__.__dict__["bot_locales"] = bot_locales
             __props__.__dict__["bot_tags"] = bot_tags
+            if not isinstance(data_privacy, DataPrivacyPropertiesArgs):
+                data_privacy = data_privacy or {}
+                def _setter(key, value):
+                    data_privacy[key] = value
+                DataPrivacyPropertiesArgs._configure(_setter, **data_privacy)
             if data_privacy is None and not opts.urn:
                 raise TypeError("Missing required property 'data_privacy'")
             __props__.__dict__["data_privacy"] = data_privacy
@@ -263,6 +306,11 @@ class Bot(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            if not isinstance(test_bot_alias_settings, BotTestBotAliasSettingsArgs):
+                test_bot_alias_settings = test_bot_alias_settings or {}
+                def _setter(key, value):
+                    test_bot_alias_settings[key] = value
+                BotTestBotAliasSettingsArgs._configure(_setter, **test_bot_alias_settings)
             __props__.__dict__["test_bot_alias_settings"] = test_bot_alias_settings
             __props__.__dict__["test_bot_alias_tags"] = test_bot_alias_tags
             __props__.__dict__["arn"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,12 +22,25 @@ class ChannelGroupArgs:
         """
         The set of arguments for constructing a ChannelGroup resource.
         """
+        ChannelGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_group_name=channel_group_name,
+            description=description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_group_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if channel_group_name is not None:
-            pulumi.set(__self__, "channel_group_name", channel_group_name)
+            _setter("channel_group_name", channel_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="channelGroupName")
@@ -91,6 +104,10 @@ class ChannelGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

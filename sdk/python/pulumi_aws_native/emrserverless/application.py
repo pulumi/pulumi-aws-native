@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,28 +42,59 @@ class ApplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: Tag map with key and value
         :param pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs'] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         """
-        pulumi.set(__self__, "release_label", release_label)
-        pulumi.set(__self__, "type", type)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            release_label=release_label,
+            type=type,
+            architecture=architecture,
+            auto_start_configuration=auto_start_configuration,
+            auto_stop_configuration=auto_stop_configuration,
+            image_configuration=image_configuration,
+            initial_capacity=initial_capacity,
+            maximum_capacity=maximum_capacity,
+            name=name,
+            network_configuration=network_configuration,
+            tags=tags,
+            worker_type_specifications=worker_type_specifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             release_label: pulumi.Input[str],
+             type: pulumi.Input[str],
+             architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
+             auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
+             auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
+             image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']] = None,
+             initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityConfigKeyValuePairArgs']]]] = None,
+             maximum_capacity: Optional[pulumi.Input['ApplicationMaximumAllowedResourcesArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
+             worker_type_specifications: Optional[pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("release_label", release_label)
+        _setter("type", type)
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if auto_start_configuration is not None:
-            pulumi.set(__self__, "auto_start_configuration", auto_start_configuration)
+            _setter("auto_start_configuration", auto_start_configuration)
         if auto_stop_configuration is not None:
-            pulumi.set(__self__, "auto_stop_configuration", auto_stop_configuration)
+            _setter("auto_stop_configuration", auto_stop_configuration)
         if image_configuration is not None:
-            pulumi.set(__self__, "image_configuration", image_configuration)
+            _setter("image_configuration", image_configuration)
         if initial_capacity is not None:
-            pulumi.set(__self__, "initial_capacity", initial_capacity)
+            _setter("initial_capacity", initial_capacity)
         if maximum_capacity is not None:
-            pulumi.set(__self__, "maximum_capacity", maximum_capacity)
+            _setter("maximum_capacity", maximum_capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if worker_type_specifications is not None:
-            pulumi.set(__self__, "worker_type_specifications", worker_type_specifications)
+            _setter("worker_type_specifications", worker_type_specifications)
 
     @property
     @pulumi.getter(name="releaseLabel")
@@ -257,6 +288,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -284,12 +319,37 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["architecture"] = architecture
+            if not isinstance(auto_start_configuration, ApplicationAutoStartConfigurationArgs):
+                auto_start_configuration = auto_start_configuration or {}
+                def _setter(key, value):
+                    auto_start_configuration[key] = value
+                ApplicationAutoStartConfigurationArgs._configure(_setter, **auto_start_configuration)
             __props__.__dict__["auto_start_configuration"] = auto_start_configuration
+            if not isinstance(auto_stop_configuration, ApplicationAutoStopConfigurationArgs):
+                auto_stop_configuration = auto_stop_configuration or {}
+                def _setter(key, value):
+                    auto_stop_configuration[key] = value
+                ApplicationAutoStopConfigurationArgs._configure(_setter, **auto_stop_configuration)
             __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
+            if not isinstance(image_configuration, ApplicationImageConfigurationInputArgs):
+                image_configuration = image_configuration or {}
+                def _setter(key, value):
+                    image_configuration[key] = value
+                ApplicationImageConfigurationInputArgs._configure(_setter, **image_configuration)
             __props__.__dict__["image_configuration"] = image_configuration
             __props__.__dict__["initial_capacity"] = initial_capacity
+            if not isinstance(maximum_capacity, ApplicationMaximumAllowedResourcesArgs):
+                maximum_capacity = maximum_capacity or {}
+                def _setter(key, value):
+                    maximum_capacity[key] = value
+                ApplicationMaximumAllowedResourcesArgs._configure(_setter, **maximum_capacity)
             __props__.__dict__["maximum_capacity"] = maximum_capacity
             __props__.__dict__["name"] = name
+            if not isinstance(network_configuration, ApplicationNetworkConfigurationArgs):
+                network_configuration = network_configuration or {}
+                def _setter(key, value):
+                    network_configuration[key] = value
+                ApplicationNetworkConfigurationArgs._configure(_setter, **network_configuration)
             __props__.__dict__["network_configuration"] = network_configuration
             if release_label is None and not opts.urn:
                 raise TypeError("Missing required property 'release_label'")
@@ -298,6 +358,11 @@ class Application(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            if not isinstance(worker_type_specifications, ApplicationWorkerTypeSpecificationInputMapArgs):
+                worker_type_specifications = worker_type_specifications or {}
+                def _setter(key, value):
+                    worker_type_specifications[key] = value
+                ApplicationWorkerTypeSpecificationInputMapArgs._configure(_setter, **worker_type_specifications)
             __props__.__dict__["worker_type_specifications"] = worker_type_specifications
             __props__.__dict__["application_id"] = None
             __props__.__dict__["arn"] = None

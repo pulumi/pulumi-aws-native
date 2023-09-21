@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,27 @@ class LoggingConfigurationArgs:
         :param pulumi.Input['LoggingFilterPropertiesArgs'] logging_filter: Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]] redacted_fields: The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
         """
-        pulumi.set(__self__, "log_destination_configs", log_destination_configs)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        LoggingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_destination_configs=log_destination_configs,
+            resource_arn=resource_arn,
+            logging_filter=logging_filter,
+            redacted_fields=redacted_fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_destination_configs: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_arn: pulumi.Input[str],
+             logging_filter: Optional[pulumi.Input['LoggingFilterPropertiesArgs']] = None,
+             redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_destination_configs", log_destination_configs)
+        _setter("resource_arn", resource_arn)
         if logging_filter is not None:
-            pulumi.set(__self__, "logging_filter", logging_filter)
+            _setter("logging_filter", logging_filter)
         if redacted_fields is not None:
-            pulumi.set(__self__, "redacted_fields", redacted_fields)
+            _setter("redacted_fields", redacted_fields)
 
     @property
     @pulumi.getter(name="logDestinationConfigs")
@@ -123,6 +138,10 @@ class LoggingConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoggingConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,6 +163,11 @@ class LoggingConfiguration(pulumi.CustomResource):
             if log_destination_configs is None and not opts.urn:
                 raise TypeError("Missing required property 'log_destination_configs'")
             __props__.__dict__["log_destination_configs"] = log_destination_configs
+            if not isinstance(logging_filter, LoggingFilterPropertiesArgs):
+                logging_filter = logging_filter or {}
+                def _setter(key, value):
+                    logging_filter[key] = value
+                LoggingFilterPropertiesArgs._configure(_setter, **logging_filter)
             __props__.__dict__["logging_filter"] = logging_filter
             __props__.__dict__["redacted_fields"] = redacted_fields
             if resource_arn is None and not opts.urn:

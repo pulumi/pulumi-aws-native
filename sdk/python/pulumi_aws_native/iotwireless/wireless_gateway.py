@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,19 +33,40 @@ class WirelessGatewayArgs:
         :param pulumi.Input[str] thing_arn: Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
         :param pulumi.Input[str] thing_name: Thing Name. If there is a Thing created, this can be returned with a Get call.
         """
-        pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
+        WirelessGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lo_ra_wan=lo_ra_wan,
+            description=description,
+            last_uplink_received_at=last_uplink_received_at,
+            name=name,
+            tags=tags,
+            thing_arn=thing_arn,
+            thing_name=thing_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lo_ra_wan: pulumi.Input['WirelessGatewayLoRaWanGatewayArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             last_uplink_received_at: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessGatewayTagArgs']]]] = None,
+             thing_arn: Optional[pulumi.Input[str]] = None,
+             thing_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lo_ra_wan", lo_ra_wan)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if last_uplink_received_at is not None:
-            pulumi.set(__self__, "last_uplink_received_at", last_uplink_received_at)
+            _setter("last_uplink_received_at", last_uplink_received_at)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if thing_arn is not None:
-            pulumi.set(__self__, "thing_arn", thing_arn)
+            _setter("thing_arn", thing_arn)
         if thing_name is not None:
-            pulumi.set(__self__, "thing_name", thing_name)
+            _setter("thing_name", thing_name)
 
     @property
     @pulumi.getter(name="loRaWan")
@@ -177,6 +198,10 @@ class WirelessGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WirelessGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -200,6 +225,11 @@ class WirelessGateway(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["last_uplink_received_at"] = last_uplink_received_at
+            if not isinstance(lo_ra_wan, WirelessGatewayLoRaWanGatewayArgs):
+                lo_ra_wan = lo_ra_wan or {}
+                def _setter(key, value):
+                    lo_ra_wan[key] = value
+                WirelessGatewayLoRaWanGatewayArgs._configure(_setter, **lo_ra_wan)
             if lo_ra_wan is None and not opts.urn:
                 raise TypeError("Missing required property 'lo_ra_wan'")
             __props__.__dict__["lo_ra_wan"] = lo_ra_wan

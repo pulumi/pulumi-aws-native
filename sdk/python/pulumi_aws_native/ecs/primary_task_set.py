@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PrimaryTaskSetArgs', 'PrimaryTaskSet']
@@ -23,9 +23,22 @@ class PrimaryTaskSetArgs:
         :param pulumi.Input[str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         :param pulumi.Input[str] task_set_id: The ID or full Amazon Resource Name (ARN) of the task set.
         """
-        pulumi.set(__self__, "cluster", cluster)
-        pulumi.set(__self__, "service", service)
-        pulumi.set(__self__, "task_set_id", task_set_id)
+        PrimaryTaskSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster=cluster,
+            service=service,
+            task_set_id=task_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster: pulumi.Input[str],
+             service: pulumi.Input[str],
+             task_set_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster", cluster)
+        _setter("service", service)
+        _setter("task_set_id", task_set_id)
 
     @property
     @pulumi.getter
@@ -101,6 +114,10 @@ class PrimaryTaskSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrimaryTaskSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

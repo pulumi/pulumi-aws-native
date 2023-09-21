@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,20 +27,41 @@ class ConfigurationSetArgs:
         The set of arguments for constructing a ConfigurationSet resource.
         :param pulumi.Input[str] name: The name of the configuration set.
         """
+        ConfigurationSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_options=delivery_options,
+            name=name,
+            reputation_options=reputation_options,
+            sending_options=sending_options,
+            suppression_options=suppression_options,
+            tracking_options=tracking_options,
+            vdm_options=vdm_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             reputation_options: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']] = None,
+             sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
+             suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
+             tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
+             vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delivery_options is not None:
-            pulumi.set(__self__, "delivery_options", delivery_options)
+            _setter("delivery_options", delivery_options)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if reputation_options is not None:
-            pulumi.set(__self__, "reputation_options", reputation_options)
+            _setter("reputation_options", reputation_options)
         if sending_options is not None:
-            pulumi.set(__self__, "sending_options", sending_options)
+            _setter("sending_options", sending_options)
         if suppression_options is not None:
-            pulumi.set(__self__, "suppression_options", suppression_options)
+            _setter("suppression_options", suppression_options)
         if tracking_options is not None:
-            pulumi.set(__self__, "tracking_options", tracking_options)
+            _setter("tracking_options", tracking_options)
         if vdm_options is not None:
-            pulumi.set(__self__, "vdm_options", vdm_options)
+            _setter("vdm_options", vdm_options)
 
     @property
     @pulumi.getter(name="deliveryOptions")
@@ -148,6 +169,10 @@ class ConfigurationSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -169,12 +194,42 @@ class ConfigurationSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationSetArgs.__new__(ConfigurationSetArgs)
 
+            if not isinstance(delivery_options, ConfigurationSetDeliveryOptionsArgs):
+                delivery_options = delivery_options or {}
+                def _setter(key, value):
+                    delivery_options[key] = value
+                ConfigurationSetDeliveryOptionsArgs._configure(_setter, **delivery_options)
             __props__.__dict__["delivery_options"] = delivery_options
             __props__.__dict__["name"] = name
+            if not isinstance(reputation_options, ConfigurationSetReputationOptionsArgs):
+                reputation_options = reputation_options or {}
+                def _setter(key, value):
+                    reputation_options[key] = value
+                ConfigurationSetReputationOptionsArgs._configure(_setter, **reputation_options)
             __props__.__dict__["reputation_options"] = reputation_options
+            if not isinstance(sending_options, ConfigurationSetSendingOptionsArgs):
+                sending_options = sending_options or {}
+                def _setter(key, value):
+                    sending_options[key] = value
+                ConfigurationSetSendingOptionsArgs._configure(_setter, **sending_options)
             __props__.__dict__["sending_options"] = sending_options
+            if not isinstance(suppression_options, ConfigurationSetSuppressionOptionsArgs):
+                suppression_options = suppression_options or {}
+                def _setter(key, value):
+                    suppression_options[key] = value
+                ConfigurationSetSuppressionOptionsArgs._configure(_setter, **suppression_options)
             __props__.__dict__["suppression_options"] = suppression_options
+            if not isinstance(tracking_options, ConfigurationSetTrackingOptionsArgs):
+                tracking_options = tracking_options or {}
+                def _setter(key, value):
+                    tracking_options[key] = value
+                ConfigurationSetTrackingOptionsArgs._configure(_setter, **tracking_options)
             __props__.__dict__["tracking_options"] = tracking_options
+            if not isinstance(vdm_options, ConfigurationSetVdmOptionsArgs):
+                vdm_options = vdm_options or {}
+                def _setter(key, value):
+                    vdm_options[key] = value
+                ConfigurationSetVdmOptionsArgs._configure(_setter, **vdm_options)
             __props__.__dict__["vdm_options"] = vdm_options
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

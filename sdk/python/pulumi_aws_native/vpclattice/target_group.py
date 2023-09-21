@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -25,15 +25,32 @@ class TargetGroupArgs:
         """
         The set of arguments for constructing a TargetGroup resource.
         """
-        pulumi.set(__self__, "type", type)
+        TargetGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            config=config,
+            name=name,
+            tags=tags,
+            targets=targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input['TargetGroupType'],
+             config: Optional[pulumi.Input['TargetGroupConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTagArgs']]]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if targets is not None:
-            pulumi.set(__self__, "targets", targets)
+            _setter("targets", targets)
 
     @property
     @pulumi.getter
@@ -117,6 +134,10 @@ class TargetGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TargetGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -136,6 +157,11 @@ class TargetGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TargetGroupArgs.__new__(TargetGroupArgs)
 
+            if not isinstance(config, TargetGroupConfigArgs):
+                config = config or {}
+                def _setter(key, value):
+                    config[key] = value
+                TargetGroupConfigArgs._configure(_setter, **config)
             __props__.__dict__["config"] = config
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,18 +25,37 @@ class DataQualityRulesetArgs:
         """
         The set of arguments for constructing a DataQualityRuleset resource.
         """
+        DataQualityRulesetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_token=client_token,
+            description=description,
+            name=name,
+            ruleset=ruleset,
+            tags=tags,
+            target_table=target_table,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_token: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ruleset: Optional[pulumi.Input[str]] = None,
+             tags: Optional[Any] = None,
+             target_table: Optional[pulumi.Input['DataQualityRulesetDataQualityTargetTableArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_token is not None:
-            pulumi.set(__self__, "client_token", client_token)
+            _setter("client_token", client_token)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ruleset is not None:
-            pulumi.set(__self__, "ruleset", ruleset)
+            _setter("ruleset", ruleset)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_table is not None:
-            pulumi.set(__self__, "target_table", target_table)
+            _setter("target_table", target_table)
 
     @property
     @pulumi.getter(name="clientToken")
@@ -135,6 +154,10 @@ class DataQualityRuleset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataQualityRulesetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -161,6 +184,11 @@ class DataQualityRuleset(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["ruleset"] = ruleset
             __props__.__dict__["tags"] = tags
+            if not isinstance(target_table, DataQualityRulesetDataQualityTargetTableArgs):
+                target_table = target_table or {}
+                def _setter(key, value):
+                    target_table[key] = value
+                DataQualityRulesetDataQualityTargetTableArgs._configure(_setter, **target_table)
             __props__.__dict__["target_table"] = target_table
         super(DataQualityRuleset, __self__).__init__(
             'aws-native:glue:DataQualityRuleset',

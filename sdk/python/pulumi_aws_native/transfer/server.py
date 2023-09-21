@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,36 +34,73 @@ class ServerArgs:
         """
         The set of arguments for constructing a Server resource.
         """
+        ServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            domain=domain,
+            endpoint_details=endpoint_details,
+            endpoint_type=endpoint_type,
+            identity_provider_details=identity_provider_details,
+            identity_provider_type=identity_provider_type,
+            logging_role=logging_role,
+            post_authentication_login_banner=post_authentication_login_banner,
+            pre_authentication_login_banner=pre_authentication_login_banner,
+            protocol_details=protocol_details,
+            protocols=protocols,
+            security_policy_name=security_policy_name,
+            structured_log_destinations=structured_log_destinations,
+            tags=tags,
+            workflow_details=workflow_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArgs']] = None,
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             identity_provider_details: Optional[pulumi.Input['ServerIdentityProviderDetailsArgs']] = None,
+             identity_provider_type: Optional[pulumi.Input[str]] = None,
+             logging_role: Optional[pulumi.Input[str]] = None,
+             post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
+             pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
+             protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input['ServerProtocolArgs']]]] = None,
+             security_policy_name: Optional[pulumi.Input[str]] = None,
+             structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['ServerStructuredLogDestinationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServerTagArgs']]]] = None,
+             workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if endpoint_details is not None:
-            pulumi.set(__self__, "endpoint_details", endpoint_details)
+            _setter("endpoint_details", endpoint_details)
         if endpoint_type is not None:
-            pulumi.set(__self__, "endpoint_type", endpoint_type)
+            _setter("endpoint_type", endpoint_type)
         if identity_provider_details is not None:
-            pulumi.set(__self__, "identity_provider_details", identity_provider_details)
+            _setter("identity_provider_details", identity_provider_details)
         if identity_provider_type is not None:
-            pulumi.set(__self__, "identity_provider_type", identity_provider_type)
+            _setter("identity_provider_type", identity_provider_type)
         if logging_role is not None:
-            pulumi.set(__self__, "logging_role", logging_role)
+            _setter("logging_role", logging_role)
         if post_authentication_login_banner is not None:
-            pulumi.set(__self__, "post_authentication_login_banner", post_authentication_login_banner)
+            _setter("post_authentication_login_banner", post_authentication_login_banner)
         if pre_authentication_login_banner is not None:
-            pulumi.set(__self__, "pre_authentication_login_banner", pre_authentication_login_banner)
+            _setter("pre_authentication_login_banner", pre_authentication_login_banner)
         if protocol_details is not None:
-            pulumi.set(__self__, "protocol_details", protocol_details)
+            _setter("protocol_details", protocol_details)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if security_policy_name is not None:
-            pulumi.set(__self__, "security_policy_name", security_policy_name)
+            _setter("security_policy_name", security_policy_name)
         if structured_log_destinations is not None:
-            pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
+            _setter("structured_log_destinations", structured_log_destinations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workflow_details is not None:
-            pulumi.set(__self__, "workflow_details", workflow_details)
+            _setter("workflow_details", workflow_details)
 
     @property
     @pulumi.getter
@@ -252,6 +289,10 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -284,18 +325,38 @@ class Server(pulumi.CustomResource):
 
             __props__.__dict__["certificate"] = certificate
             __props__.__dict__["domain"] = domain
+            if not isinstance(endpoint_details, ServerEndpointDetailsArgs):
+                endpoint_details = endpoint_details or {}
+                def _setter(key, value):
+                    endpoint_details[key] = value
+                ServerEndpointDetailsArgs._configure(_setter, **endpoint_details)
             __props__.__dict__["endpoint_details"] = endpoint_details
             __props__.__dict__["endpoint_type"] = endpoint_type
+            if not isinstance(identity_provider_details, ServerIdentityProviderDetailsArgs):
+                identity_provider_details = identity_provider_details or {}
+                def _setter(key, value):
+                    identity_provider_details[key] = value
+                ServerIdentityProviderDetailsArgs._configure(_setter, **identity_provider_details)
             __props__.__dict__["identity_provider_details"] = identity_provider_details
             __props__.__dict__["identity_provider_type"] = identity_provider_type
             __props__.__dict__["logging_role"] = logging_role
             __props__.__dict__["post_authentication_login_banner"] = post_authentication_login_banner
             __props__.__dict__["pre_authentication_login_banner"] = pre_authentication_login_banner
+            if not isinstance(protocol_details, ServerProtocolDetailsArgs):
+                protocol_details = protocol_details or {}
+                def _setter(key, value):
+                    protocol_details[key] = value
+                ServerProtocolDetailsArgs._configure(_setter, **protocol_details)
             __props__.__dict__["protocol_details"] = protocol_details
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["structured_log_destinations"] = structured_log_destinations
             __props__.__dict__["tags"] = tags
+            if not isinstance(workflow_details, ServerWorkflowDetailsArgs):
+                workflow_details = workflow_details or {}
+                def _setter(key, value):
+                    workflow_details[key] = value
+                ServerWorkflowDetailsArgs._configure(_setter, **workflow_details)
             __props__.__dict__["workflow_details"] = workflow_details
             __props__.__dict__["arn"] = None
             __props__.__dict__["server_id"] = None

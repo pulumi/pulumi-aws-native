@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StackUserAssociationArgs', 'StackUserAssociation']
@@ -21,11 +21,26 @@ class StackUserAssociationArgs:
         """
         The set of arguments for constructing a StackUserAssociation resource.
         """
-        pulumi.set(__self__, "authentication_type", authentication_type)
-        pulumi.set(__self__, "stack_name", stack_name)
-        pulumi.set(__self__, "user_name", user_name)
+        StackUserAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            stack_name=stack_name,
+            user_name=user_name,
+            send_email_notification=send_email_notification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: pulumi.Input[str],
+             stack_name: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             send_email_notification: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication_type", authentication_type)
+        _setter("stack_name", stack_name)
+        _setter("user_name", user_name)
         if send_email_notification is not None:
-            pulumi.set(__self__, "send_email_notification", send_email_notification)
+            _setter("send_email_notification", send_email_notification)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -104,6 +119,10 @@ class StackUserAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StackUserAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

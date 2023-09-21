@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,19 +34,42 @@ class DetectorArgs:
         :param pulumi.Input['DetectorVersionStatus'] detector_version_status: The desired detector version status for the detector
         :param pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]] tags: Tags associated with this detector.
         """
-        pulumi.set(__self__, "detector_id", detector_id)
-        pulumi.set(__self__, "event_type", event_type)
-        pulumi.set(__self__, "rules", rules)
+        DetectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detector_id=detector_id,
+            event_type=event_type,
+            rules=rules,
+            associated_models=associated_models,
+            description=description,
+            detector_version_status=detector_version_status,
+            rule_execution_mode=rule_execution_mode,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detector_id: pulumi.Input[str],
+             event_type: pulumi.Input['DetectorEventTypeArgs'],
+             rules: pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]],
+             associated_models: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             detector_version_status: Optional[pulumi.Input['DetectorVersionStatus']] = None,
+             rule_execution_mode: Optional[pulumi.Input['DetectorRuleExecutionMode']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("detector_id", detector_id)
+        _setter("event_type", event_type)
+        _setter("rules", rules)
         if associated_models is not None:
-            pulumi.set(__self__, "associated_models", associated_models)
+            _setter("associated_models", associated_models)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if detector_version_status is not None:
-            pulumi.set(__self__, "detector_version_status", detector_version_status)
+            _setter("detector_version_status", detector_version_status)
         if rule_execution_mode is not None:
-            pulumi.set(__self__, "rule_execution_mode", rule_execution_mode)
+            _setter("rule_execution_mode", rule_execution_mode)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -184,6 +207,10 @@ class Detector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DetectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -212,6 +239,11 @@ class Detector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'detector_id'")
             __props__.__dict__["detector_id"] = detector_id
             __props__.__dict__["detector_version_status"] = detector_version_status
+            if not isinstance(event_type, DetectorEventTypeArgs):
+                event_type = event_type or {}
+                def _setter(key, value):
+                    event_type[key] = value
+                DetectorEventTypeArgs._configure(_setter, **event_type)
             if event_type is None and not opts.urn:
                 raise TypeError("Missing required property 'event_type'")
             __props__.__dict__["event_type"] = event_type

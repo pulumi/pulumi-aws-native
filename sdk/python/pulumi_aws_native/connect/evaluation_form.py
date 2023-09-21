@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,16 +34,37 @@ class EvaluationFormArgs:
         :param pulumi.Input['EvaluationFormScoringStrategyArgs'] scoring_strategy: The scoring strategy.
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormTagArgs']]] tags: One or more tags.
         """
-        pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "items", items)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "title", title)
+        EvaluationFormArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            items=items,
+            status=status,
+            title=title,
+            description=description,
+            scoring_strategy=scoring_strategy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: pulumi.Input[str],
+             items: pulumi.Input[Sequence[pulumi.Input['EvaluationFormBaseItemArgs']]],
+             status: pulumi.Input['EvaluationFormStatus'],
+             title: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             scoring_strategy: Optional[pulumi.Input['EvaluationFormScoringStrategyArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_arn", instance_arn)
+        _setter("items", items)
+        _setter("status", status)
+        _setter("title", title)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if scoring_strategy is not None:
-            pulumi.set(__self__, "scoring_strategy", scoring_strategy)
+            _setter("scoring_strategy", scoring_strategy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -175,6 +196,10 @@ class EvaluationForm(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EvaluationFormArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -203,6 +228,11 @@ class EvaluationForm(pulumi.CustomResource):
             if items is None and not opts.urn:
                 raise TypeError("Missing required property 'items'")
             __props__.__dict__["items"] = items
+            if not isinstance(scoring_strategy, EvaluationFormScoringStrategyArgs):
+                scoring_strategy = scoring_strategy or {}
+                def _setter(key, value):
+                    scoring_strategy[key] = value
+                EvaluationFormScoringStrategyArgs._configure(_setter, **scoring_strategy)
             __props__.__dict__["scoring_strategy"] = scoring_strategy
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")

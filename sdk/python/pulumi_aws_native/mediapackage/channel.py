@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,16 +29,33 @@ class ChannelArgs:
         :param pulumi.Input['ChannelLogConfigurationArgs'] ingress_access_logs: The configuration parameters for egress access logging.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]] tags: A collection of tags associated with a resource
         """
+        ChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            egress_access_logs=egress_access_logs,
+            hls_ingest=hls_ingest,
+            ingress_access_logs=ingress_access_logs,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             egress_access_logs: Optional[pulumi.Input['ChannelLogConfigurationArgs']] = None,
+             hls_ingest: Optional[pulumi.Input['ChannelHlsIngestArgs']] = None,
+             ingress_access_logs: Optional[pulumi.Input['ChannelLogConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if egress_access_logs is not None:
-            pulumi.set(__self__, "egress_access_logs", egress_access_logs)
+            _setter("egress_access_logs", egress_access_logs)
         if hls_ingest is not None:
-            pulumi.set(__self__, "hls_ingest", hls_ingest)
+            _setter("hls_ingest", hls_ingest)
         if ingress_access_logs is not None:
-            pulumi.set(__self__, "ingress_access_logs", ingress_access_logs)
+            _setter("ingress_access_logs", ingress_access_logs)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -142,6 +159,10 @@ class Channel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -162,8 +183,23 @@ class Channel(pulumi.CustomResource):
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
             __props__.__dict__["description"] = description
+            if not isinstance(egress_access_logs, ChannelLogConfigurationArgs):
+                egress_access_logs = egress_access_logs or {}
+                def _setter(key, value):
+                    egress_access_logs[key] = value
+                ChannelLogConfigurationArgs._configure(_setter, **egress_access_logs)
             __props__.__dict__["egress_access_logs"] = egress_access_logs
+            if not isinstance(hls_ingest, ChannelHlsIngestArgs):
+                hls_ingest = hls_ingest or {}
+                def _setter(key, value):
+                    hls_ingest[key] = value
+                ChannelHlsIngestArgs._configure(_setter, **hls_ingest)
             __props__.__dict__["hls_ingest"] = hls_ingest
+            if not isinstance(ingress_access_logs, ChannelLogConfigurationArgs):
+                ingress_access_logs = ingress_access_logs or {}
+                def _setter(key, value):
+                    ingress_access_logs[key] = value
+                ChannelLogConfigurationArgs._configure(_setter, **ingress_access_logs)
             __props__.__dict__["ingress_access_logs"] = ingress_access_logs
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,17 +30,36 @@ class RobotApplicationArgs:
         :param pulumi.Input[str] name: The name of the robot application.
         :param pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]] sources: The sources of the robot application.
         """
-        pulumi.set(__self__, "robot_software_suite", robot_software_suite)
+        RobotApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            robot_software_suite=robot_software_suite,
+            current_revision_id=current_revision_id,
+            environment=environment,
+            name=name,
+            sources=sources,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             robot_software_suite: pulumi.Input['RobotApplicationRobotSoftwareSuiteArgs'],
+             current_revision_id: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]]] = None,
+             tags: Optional[pulumi.Input['RobotApplicationTagsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("robot_software_suite", robot_software_suite)
         if current_revision_id is not None:
-            pulumi.set(__self__, "current_revision_id", current_revision_id)
+            _setter("current_revision_id", current_revision_id)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="robotSoftwareSuite")
@@ -150,6 +169,10 @@ class RobotApplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RobotApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -173,10 +196,20 @@ class RobotApplication(pulumi.CustomResource):
             __props__.__dict__["current_revision_id"] = current_revision_id
             __props__.__dict__["environment"] = environment
             __props__.__dict__["name"] = name
+            if not isinstance(robot_software_suite, RobotApplicationRobotSoftwareSuiteArgs):
+                robot_software_suite = robot_software_suite or {}
+                def _setter(key, value):
+                    robot_software_suite[key] = value
+                RobotApplicationRobotSoftwareSuiteArgs._configure(_setter, **robot_software_suite)
             if robot_software_suite is None and not opts.urn:
                 raise TypeError("Missing required property 'robot_software_suite'")
             __props__.__dict__["robot_software_suite"] = robot_software_suite
             __props__.__dict__["sources"] = sources
+            if not isinstance(tags, RobotApplicationTagsArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                RobotApplicationTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])

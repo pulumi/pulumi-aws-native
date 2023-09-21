@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -22,9 +22,20 @@ class PolicyStoreArgs:
         """
         The set of arguments for constructing a PolicyStore resource.
         """
-        pulumi.set(__self__, "validation_settings", validation_settings)
+        PolicyStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            validation_settings=validation_settings,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             validation_settings: pulumi.Input['PolicyStoreValidationSettingsArgs'],
+             schema: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("validation_settings", validation_settings)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
 
     @property
     @pulumi.getter(name="validationSettings")
@@ -78,6 +89,10 @@ class PolicyStore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyStoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -94,7 +109,17 @@ class PolicyStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyStoreArgs.__new__(PolicyStoreArgs)
 
+            if not isinstance(schema, PolicyStoreSchemaDefinitionArgs):
+                schema = schema or {}
+                def _setter(key, value):
+                    schema[key] = value
+                PolicyStoreSchemaDefinitionArgs._configure(_setter, **schema)
             __props__.__dict__["schema"] = schema
+            if not isinstance(validation_settings, PolicyStoreValidationSettingsArgs):
+                validation_settings = validation_settings or {}
+                def _setter(key, value):
+                    validation_settings[key] = value
+                PolicyStoreValidationSettingsArgs._configure(_setter, **validation_settings)
             if validation_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'validation_settings'")
             __props__.__dict__["validation_settings"] = validation_settings

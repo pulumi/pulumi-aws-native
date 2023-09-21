@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -74,54 +74,111 @@ class ClusterArgs:
                
                You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
         """
-        pulumi.set(__self__, "acl_name", acl_name)
-        pulumi.set(__self__, "node_type", node_type)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acl_name=acl_name,
+            node_type=node_type,
+            auto_minor_version_upgrade=auto_minor_version_upgrade,
+            cluster_endpoint=cluster_endpoint,
+            cluster_name=cluster_name,
+            data_tiering=data_tiering,
+            description=description,
+            engine_version=engine_version,
+            final_snapshot_name=final_snapshot_name,
+            kms_key_id=kms_key_id,
+            maintenance_window=maintenance_window,
+            num_replicas_per_shard=num_replicas_per_shard,
+            num_shards=num_shards,
+            parameter_group_name=parameter_group_name,
+            port=port,
+            security_group_ids=security_group_ids,
+            snapshot_arns=snapshot_arns,
+            snapshot_name=snapshot_name,
+            snapshot_retention_limit=snapshot_retention_limit,
+            snapshot_window=snapshot_window,
+            sns_topic_arn=sns_topic_arn,
+            sns_topic_status=sns_topic_status,
+            subnet_group_name=subnet_group_name,
+            tags=tags,
+            tls_enabled=tls_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acl_name: pulumi.Input[str],
+             node_type: pulumi.Input[str],
+             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             cluster_endpoint: Optional[pulumi.Input['ClusterEndpointArgs']] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             data_tiering: Optional[pulumi.Input['ClusterDataTieringStatus']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             final_snapshot_name: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             maintenance_window: Optional[pulumi.Input[str]] = None,
+             num_replicas_per_shard: Optional[pulumi.Input[int]] = None,
+             num_shards: Optional[pulumi.Input[int]] = None,
+             parameter_group_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
+             snapshot_window: Optional[pulumi.Input[str]] = None,
+             sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             sns_topic_status: Optional[pulumi.Input[str]] = None,
+             subnet_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
+             tls_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acl_name", acl_name)
+        _setter("node_type", node_type)
         if auto_minor_version_upgrade is not None:
-            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         if cluster_endpoint is not None:
-            pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+            _setter("cluster_endpoint", cluster_endpoint)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if data_tiering is not None:
-            pulumi.set(__self__, "data_tiering", data_tiering)
+            _setter("data_tiering", data_tiering)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if final_snapshot_name is not None:
-            pulumi.set(__self__, "final_snapshot_name", final_snapshot_name)
+            _setter("final_snapshot_name", final_snapshot_name)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if num_replicas_per_shard is not None:
-            pulumi.set(__self__, "num_replicas_per_shard", num_replicas_per_shard)
+            _setter("num_replicas_per_shard", num_replicas_per_shard)
         if num_shards is not None:
-            pulumi.set(__self__, "num_shards", num_shards)
+            _setter("num_shards", num_shards)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if snapshot_arns is not None:
-            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
+            _setter("snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+            _setter("snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            pulumi.set(__self__, "snapshot_window", snapshot_window)
+            _setter("snapshot_window", snapshot_window)
         if sns_topic_arn is not None:
-            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+            _setter("sns_topic_arn", sns_topic_arn)
         if sns_topic_status is not None:
-            pulumi.set(__self__, "sns_topic_status", sns_topic_status)
+            _setter("sns_topic_status", sns_topic_status)
         if subnet_group_name is not None:
-            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+            _setter("subnet_group_name", subnet_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tls_enabled is not None:
-            pulumi.set(__self__, "tls_enabled", tls_enabled)
+            _setter("tls_enabled", tls_enabled)
 
     @property
     @pulumi.getter(name="aclName")
@@ -513,6 +570,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -556,6 +617,11 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'acl_name'")
             __props__.__dict__["acl_name"] = acl_name
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            if not isinstance(cluster_endpoint, ClusterEndpointArgs):
+                cluster_endpoint = cluster_endpoint or {}
+                def _setter(key, value):
+                    cluster_endpoint[key] = value
+                ClusterEndpointArgs._configure(_setter, **cluster_endpoint)
             __props__.__dict__["cluster_endpoint"] = cluster_endpoint
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["data_tiering"] = data_tiering

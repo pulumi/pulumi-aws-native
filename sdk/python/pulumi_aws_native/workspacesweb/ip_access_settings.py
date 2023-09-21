@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,17 +25,36 @@ class IpAccessSettingsArgs:
         """
         The set of arguments for constructing a IpAccessSettings resource.
         """
-        pulumi.set(__self__, "ip_rules", ip_rules)
+        IpAccessSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_rules=ip_rules,
+            additional_encryption_context=additional_encryption_context,
+            customer_managed_key=customer_managed_key,
+            description=description,
+            display_name=display_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_rules: pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]],
+             additional_encryption_context: Optional[pulumi.Input['IpAccessSettingsEncryptionContextMapArgs']] = None,
+             customer_managed_key: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_rules", ip_rules)
         if additional_encryption_context is not None:
-            pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
+            _setter("additional_encryption_context", additional_encryption_context)
         if customer_managed_key is not None:
-            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+            _setter("customer_managed_key", customer_managed_key)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="ipRules")
@@ -129,6 +148,10 @@ class IpAccessSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IpAccessSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -149,6 +172,11 @@ class IpAccessSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IpAccessSettingsArgs.__new__(IpAccessSettingsArgs)
 
+            if not isinstance(additional_encryption_context, IpAccessSettingsEncryptionContextMapArgs):
+                additional_encryption_context = additional_encryption_context or {}
+                def _setter(key, value):
+                    additional_encryption_context[key] = value
+                IpAccessSettingsEncryptionContextMapArgs._configure(_setter, **additional_encryption_context)
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["description"] = description

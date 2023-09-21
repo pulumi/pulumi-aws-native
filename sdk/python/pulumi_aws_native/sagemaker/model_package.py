@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,52 +44,105 @@ class ModelPackageArgs:
         The set of arguments for constructing a ModelPackage resource.
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        ModelPackageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_inference_specifications=additional_inference_specifications,
+            additional_inference_specifications_to_add=additional_inference_specifications_to_add,
+            approval_description=approval_description,
+            certify_for_marketplace=certify_for_marketplace,
+            client_token=client_token,
+            customer_metadata_properties=customer_metadata_properties,
+            domain=domain,
+            drift_check_baselines=drift_check_baselines,
+            inference_specification=inference_specification,
+            last_modified_time=last_modified_time,
+            metadata_properties=metadata_properties,
+            model_approval_status=model_approval_status,
+            model_metrics=model_metrics,
+            model_package_description=model_package_description,
+            model_package_group_name=model_package_group_name,
+            model_package_name=model_package_name,
+            model_package_status_details=model_package_status_details,
+            model_package_version=model_package_version,
+            sample_payload_url=sample_payload_url,
+            source_algorithm_specification=source_algorithm_specification,
+            tags=tags,
+            task=task,
+            validation_specification=validation_specification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_inference_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]] = None,
+             additional_inference_specifications_to_add: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]] = None,
+             approval_description: Optional[pulumi.Input[str]] = None,
+             certify_for_marketplace: Optional[pulumi.Input[bool]] = None,
+             client_token: Optional[pulumi.Input[str]] = None,
+             customer_metadata_properties: Optional[pulumi.Input['ModelPackageCustomerMetadataPropertiesArgs']] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             drift_check_baselines: Optional[pulumi.Input['ModelPackageDriftCheckBaselinesArgs']] = None,
+             inference_specification: Optional[pulumi.Input['ModelPackageInferenceSpecificationArgs']] = None,
+             last_modified_time: Optional[pulumi.Input[str]] = None,
+             metadata_properties: Optional[pulumi.Input['ModelPackageMetadataPropertiesArgs']] = None,
+             model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
+             model_metrics: Optional[pulumi.Input['ModelPackageModelMetricsArgs']] = None,
+             model_package_description: Optional[pulumi.Input[str]] = None,
+             model_package_group_name: Optional[pulumi.Input[str]] = None,
+             model_package_name: Optional[pulumi.Input[str]] = None,
+             model_package_status_details: Optional[pulumi.Input['ModelPackageStatusDetailsArgs']] = None,
+             model_package_version: Optional[pulumi.Input[int]] = None,
+             sample_payload_url: Optional[pulumi.Input[str]] = None,
+             source_algorithm_specification: Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]]] = None,
+             task: Optional[pulumi.Input[str]] = None,
+             validation_specification: Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_inference_specifications is not None:
-            pulumi.set(__self__, "additional_inference_specifications", additional_inference_specifications)
+            _setter("additional_inference_specifications", additional_inference_specifications)
         if additional_inference_specifications_to_add is not None:
-            pulumi.set(__self__, "additional_inference_specifications_to_add", additional_inference_specifications_to_add)
+            _setter("additional_inference_specifications_to_add", additional_inference_specifications_to_add)
         if approval_description is not None:
-            pulumi.set(__self__, "approval_description", approval_description)
+            _setter("approval_description", approval_description)
         if certify_for_marketplace is not None:
-            pulumi.set(__self__, "certify_for_marketplace", certify_for_marketplace)
+            _setter("certify_for_marketplace", certify_for_marketplace)
         if client_token is not None:
-            pulumi.set(__self__, "client_token", client_token)
+            _setter("client_token", client_token)
         if customer_metadata_properties is not None:
-            pulumi.set(__self__, "customer_metadata_properties", customer_metadata_properties)
+            _setter("customer_metadata_properties", customer_metadata_properties)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if drift_check_baselines is not None:
-            pulumi.set(__self__, "drift_check_baselines", drift_check_baselines)
+            _setter("drift_check_baselines", drift_check_baselines)
         if inference_specification is not None:
-            pulumi.set(__self__, "inference_specification", inference_specification)
+            _setter("inference_specification", inference_specification)
         if last_modified_time is not None:
-            pulumi.set(__self__, "last_modified_time", last_modified_time)
+            _setter("last_modified_time", last_modified_time)
         if metadata_properties is not None:
-            pulumi.set(__self__, "metadata_properties", metadata_properties)
+            _setter("metadata_properties", metadata_properties)
         if model_approval_status is not None:
-            pulumi.set(__self__, "model_approval_status", model_approval_status)
+            _setter("model_approval_status", model_approval_status)
         if model_metrics is not None:
-            pulumi.set(__self__, "model_metrics", model_metrics)
+            _setter("model_metrics", model_metrics)
         if model_package_description is not None:
-            pulumi.set(__self__, "model_package_description", model_package_description)
+            _setter("model_package_description", model_package_description)
         if model_package_group_name is not None:
-            pulumi.set(__self__, "model_package_group_name", model_package_group_name)
+            _setter("model_package_group_name", model_package_group_name)
         if model_package_name is not None:
-            pulumi.set(__self__, "model_package_name", model_package_name)
+            _setter("model_package_name", model_package_name)
         if model_package_status_details is not None:
-            pulumi.set(__self__, "model_package_status_details", model_package_status_details)
+            _setter("model_package_status_details", model_package_status_details)
         if model_package_version is not None:
-            pulumi.set(__self__, "model_package_version", model_package_version)
+            _setter("model_package_version", model_package_version)
         if sample_payload_url is not None:
-            pulumi.set(__self__, "sample_payload_url", sample_payload_url)
+            _setter("sample_payload_url", sample_payload_url)
         if source_algorithm_specification is not None:
-            pulumi.set(__self__, "source_algorithm_specification", source_algorithm_specification)
+            _setter("source_algorithm_specification", source_algorithm_specification)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if task is not None:
-            pulumi.set(__self__, "task", task)
+            _setter("task", task)
         if validation_specification is not None:
-            pulumi.set(__self__, "validation_specification", validation_specification)
+            _setter("validation_specification", validation_specification)
 
     @property
     @pulumi.getter(name="additionalInferenceSpecifications")
@@ -357,6 +410,10 @@ class ModelPackage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ModelPackageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -399,23 +456,63 @@ class ModelPackage(pulumi.CustomResource):
             __props__.__dict__["approval_description"] = approval_description
             __props__.__dict__["certify_for_marketplace"] = certify_for_marketplace
             __props__.__dict__["client_token"] = client_token
+            if not isinstance(customer_metadata_properties, ModelPackageCustomerMetadataPropertiesArgs):
+                customer_metadata_properties = customer_metadata_properties or {}
+                def _setter(key, value):
+                    customer_metadata_properties[key] = value
+                ModelPackageCustomerMetadataPropertiesArgs._configure(_setter, **customer_metadata_properties)
             __props__.__dict__["customer_metadata_properties"] = customer_metadata_properties
             __props__.__dict__["domain"] = domain
+            if not isinstance(drift_check_baselines, ModelPackageDriftCheckBaselinesArgs):
+                drift_check_baselines = drift_check_baselines or {}
+                def _setter(key, value):
+                    drift_check_baselines[key] = value
+                ModelPackageDriftCheckBaselinesArgs._configure(_setter, **drift_check_baselines)
             __props__.__dict__["drift_check_baselines"] = drift_check_baselines
+            if not isinstance(inference_specification, ModelPackageInferenceSpecificationArgs):
+                inference_specification = inference_specification or {}
+                def _setter(key, value):
+                    inference_specification[key] = value
+                ModelPackageInferenceSpecificationArgs._configure(_setter, **inference_specification)
             __props__.__dict__["inference_specification"] = inference_specification
             __props__.__dict__["last_modified_time"] = last_modified_time
+            if not isinstance(metadata_properties, ModelPackageMetadataPropertiesArgs):
+                metadata_properties = metadata_properties or {}
+                def _setter(key, value):
+                    metadata_properties[key] = value
+                ModelPackageMetadataPropertiesArgs._configure(_setter, **metadata_properties)
             __props__.__dict__["metadata_properties"] = metadata_properties
             __props__.__dict__["model_approval_status"] = model_approval_status
+            if not isinstance(model_metrics, ModelPackageModelMetricsArgs):
+                model_metrics = model_metrics or {}
+                def _setter(key, value):
+                    model_metrics[key] = value
+                ModelPackageModelMetricsArgs._configure(_setter, **model_metrics)
             __props__.__dict__["model_metrics"] = model_metrics
             __props__.__dict__["model_package_description"] = model_package_description
             __props__.__dict__["model_package_group_name"] = model_package_group_name
             __props__.__dict__["model_package_name"] = model_package_name
+            if not isinstance(model_package_status_details, ModelPackageStatusDetailsArgs):
+                model_package_status_details = model_package_status_details or {}
+                def _setter(key, value):
+                    model_package_status_details[key] = value
+                ModelPackageStatusDetailsArgs._configure(_setter, **model_package_status_details)
             __props__.__dict__["model_package_status_details"] = model_package_status_details
             __props__.__dict__["model_package_version"] = model_package_version
             __props__.__dict__["sample_payload_url"] = sample_payload_url
+            if not isinstance(source_algorithm_specification, ModelPackageSourceAlgorithmSpecificationArgs):
+                source_algorithm_specification = source_algorithm_specification or {}
+                def _setter(key, value):
+                    source_algorithm_specification[key] = value
+                ModelPackageSourceAlgorithmSpecificationArgs._configure(_setter, **source_algorithm_specification)
             __props__.__dict__["source_algorithm_specification"] = source_algorithm_specification
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task"] = task
+            if not isinstance(validation_specification, ModelPackageValidationSpecificationArgs):
+                validation_specification = validation_specification or {}
+                def _setter(key, value):
+                    validation_specification[key] = value
+                ModelPackageValidationSpecificationArgs._configure(_setter, **validation_specification)
             __props__.__dict__["validation_specification"] = validation_specification
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["model_package_arn"] = None

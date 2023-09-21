@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,29 +43,60 @@ class EnvironmentArgs:
         :param pulumi.Input['EnvironmentTierArgs'] tier: Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
         :param pulumi.Input[str] version_label: The name of the application version to deploy.
         """
-        pulumi.set(__self__, "application_name", application_name)
+        EnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            cname_prefix=cname_prefix,
+            description=description,
+            environment_name=environment_name,
+            operations_role=operations_role,
+            option_settings=option_settings,
+            platform_arn=platform_arn,
+            solution_stack_name=solution_stack_name,
+            tags=tags,
+            template_name=template_name,
+            tier=tier,
+            version_label=version_label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: pulumi.Input[str],
+             cname_prefix: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment_name: Optional[pulumi.Input[str]] = None,
+             operations_role: Optional[pulumi.Input[str]] = None,
+             option_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentOptionSettingArgs']]]] = None,
+             platform_arn: Optional[pulumi.Input[str]] = None,
+             solution_stack_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input['EnvironmentTierArgs']] = None,
+             version_label: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_name", application_name)
         if cname_prefix is not None:
-            pulumi.set(__self__, "cname_prefix", cname_prefix)
+            _setter("cname_prefix", cname_prefix)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
+            _setter("environment_name", environment_name)
         if operations_role is not None:
-            pulumi.set(__self__, "operations_role", operations_role)
+            _setter("operations_role", operations_role)
         if option_settings is not None:
-            pulumi.set(__self__, "option_settings", option_settings)
+            _setter("option_settings", option_settings)
         if platform_arn is not None:
-            pulumi.set(__self__, "platform_arn", platform_arn)
+            _setter("platform_arn", platform_arn)
         if solution_stack_name is not None:
-            pulumi.set(__self__, "solution_stack_name", solution_stack_name)
+            _setter("solution_stack_name", solution_stack_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
+            _setter("template_name", template_name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
         if version_label is not None:
-            pulumi.set(__self__, "version_label", version_label)
+            _setter("version_label", version_label)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -267,6 +298,10 @@ class Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -305,6 +340,11 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["solution_stack_name"] = solution_stack_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_name"] = template_name
+            if not isinstance(tier, EnvironmentTierArgs):
+                tier = tier or {}
+                def _setter(key, value):
+                    tier[key] = value
+                EnvironmentTierArgs._configure(_setter, **tier)
             __props__.__dict__["tier"] = tier
             __props__.__dict__["version_label"] = version_label
             __props__.__dict__["endpoint_url"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,8 +21,19 @@ class DataCatalogEncryptionSettingsInitArgs:
         """
         The set of arguments for constructing a DataCatalogEncryptionSettings resource.
         """
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "data_catalog_encryption_settings", data_catalog_encryption_settings)
+        DataCatalogEncryptionSettingsInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            data_catalog_encryption_settings=data_catalog_encryption_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             data_catalog_encryption_settings: pulumi.Input['DataCatalogEncryptionSettingsArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("data_catalog_encryption_settings", data_catalog_encryption_settings)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -81,6 +92,10 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataCatalogEncryptionSettingsInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -101,6 +116,11 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             if catalog_id is None and not opts.urn:
                 raise TypeError("Missing required property 'catalog_id'")
             __props__.__dict__["catalog_id"] = catalog_id
+            if not isinstance(data_catalog_encryption_settings, DataCatalogEncryptionSettingsArgs):
+                data_catalog_encryption_settings = data_catalog_encryption_settings or {}
+                def _setter(key, value):
+                    data_catalog_encryption_settings[key] = value
+                DataCatalogEncryptionSettingsArgs._configure(_setter, **data_catalog_encryption_settings)
             if data_catalog_encryption_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'data_catalog_encryption_settings'")
             __props__.__dict__["data_catalog_encryption_settings"] = data_catalog_encryption_settings

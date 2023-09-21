@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StackSetConstraintArgs', 'StackSetConstraint']
@@ -26,16 +26,41 @@ class StackSetConstraintArgs:
         """
         The set of arguments for constructing a StackSetConstraint resource.
         """
-        pulumi.set(__self__, "account_list", account_list)
-        pulumi.set(__self__, "admin_role", admin_role)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "execution_role", execution_role)
-        pulumi.set(__self__, "portfolio_id", portfolio_id)
-        pulumi.set(__self__, "product_id", product_id)
-        pulumi.set(__self__, "region_list", region_list)
-        pulumi.set(__self__, "stack_instance_control", stack_instance_control)
+        StackSetConstraintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_list=account_list,
+            admin_role=admin_role,
+            description=description,
+            execution_role=execution_role,
+            portfolio_id=portfolio_id,
+            product_id=product_id,
+            region_list=region_list,
+            stack_instance_control=stack_instance_control,
+            accept_language=accept_language,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             admin_role: pulumi.Input[str],
+             description: pulumi.Input[str],
+             execution_role: pulumi.Input[str],
+             portfolio_id: pulumi.Input[str],
+             product_id: pulumi.Input[str],
+             region_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             stack_instance_control: pulumi.Input[str],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_list", account_list)
+        _setter("admin_role", admin_role)
+        _setter("description", description)
+        _setter("execution_role", execution_role)
+        _setter("portfolio_id", portfolio_id)
+        _setter("product_id", product_id)
+        _setter("region_list", region_list)
+        _setter("stack_instance_control", stack_instance_control)
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
 
     @property
     @pulumi.getter(name="accountList")
@@ -164,6 +189,10 @@ class StackSetConstraint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StackSetConstraintArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

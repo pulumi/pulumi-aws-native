@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -30,8 +30,17 @@ __all__ = [
 class ConfigurationSetDeliveryOptionsArgs:
     def __init__(__self__, *,
                  sending_pool_name: Optional[pulumi.Input[str]] = None):
+        ConfigurationSetDeliveryOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sending_pool_name=sending_pool_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sending_pool_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sending_pool_name is not None:
-            pulumi.set(__self__, "sending_pool_name", sending_pool_name)
+            _setter("sending_pool_name", sending_pool_name)
 
     @property
     @pulumi.getter(name="sendingPoolName")
@@ -47,8 +56,17 @@ class ConfigurationSetDeliveryOptionsArgs:
 class ConfigurationSetEventDestinationCloudWatchDestinationArgs:
     def __init__(__self__, *,
                  dimension_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]]] = None):
+        ConfigurationSetEventDestinationCloudWatchDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimension_configurations=dimension_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimension_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dimension_configurations is not None:
-            pulumi.set(__self__, "dimension_configurations", dimension_configurations)
+            _setter("dimension_configurations", dimension_configurations)
 
     @property
     @pulumi.getter(name="dimensionConfigurations")
@@ -66,9 +84,22 @@ class ConfigurationSetEventDestinationDimensionConfigurationArgs:
                  default_dimension_value: pulumi.Input[str],
                  dimension_name: pulumi.Input[str],
                  dimension_value_source: pulumi.Input[str]):
-        pulumi.set(__self__, "default_dimension_value", default_dimension_value)
-        pulumi.set(__self__, "dimension_name", dimension_name)
-        pulumi.set(__self__, "dimension_value_source", dimension_value_source)
+        ConfigurationSetEventDestinationDimensionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_dimension_value=default_dimension_value,
+            dimension_name=dimension_name,
+            dimension_value_source=dimension_value_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_dimension_value: pulumi.Input[str],
+             dimension_name: pulumi.Input[str],
+             dimension_value_source: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_dimension_value", default_dimension_value)
+        _setter("dimension_name", dimension_name)
+        _setter("dimension_value_source", dimension_value_source)
 
     @property
     @pulumi.getter(name="defaultDimensionValue")
@@ -107,17 +138,36 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
                  kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']] = None,
                  pinpoint_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationPinpointDestinationArgs']] = None,
                  sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']] = None):
-        pulumi.set(__self__, "matching_event_types", matching_event_types)
+        ConfigurationSetEventDestinationEventDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matching_event_types=matching_event_types,
+            cloud_watch_destination=cloud_watch_destination,
+            enabled=enabled,
+            kinesis_firehose_destination=kinesis_firehose_destination,
+            pinpoint_destination=pinpoint_destination,
+            sns_destination=sns_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matching_event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             cloud_watch_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']] = None,
+             pinpoint_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationPinpointDestinationArgs']] = None,
+             sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
-            pulumi.set(__self__, "cloud_watch_destination", cloud_watch_destination)
+            _setter("cloud_watch_destination", cloud_watch_destination)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if kinesis_firehose_destination is not None:
-            pulumi.set(__self__, "kinesis_firehose_destination", kinesis_firehose_destination)
+            _setter("kinesis_firehose_destination", kinesis_firehose_destination)
         if pinpoint_destination is not None:
-            pulumi.set(__self__, "pinpoint_destination", pinpoint_destination)
+            _setter("pinpoint_destination", pinpoint_destination)
         if sns_destination is not None:
-            pulumi.set(__self__, "sns_destination", sns_destination)
+            _setter("sns_destination", sns_destination)
 
     @property
     @pulumi.getter(name="matchingEventTypes")
@@ -179,8 +229,19 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs:
     def __init__(__self__, *,
                  delivery_stream_arn: pulumi.Input[str],
                  iam_role_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
-        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_stream_arn=delivery_stream_arn,
+            iam_role_arn=iam_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_stream_arn: pulumi.Input[str],
+             iam_role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("delivery_stream_arn", delivery_stream_arn)
+        _setter("iam_role_arn", iam_role_arn)
 
     @property
     @pulumi.getter(name="deliveryStreamArn")
@@ -205,8 +266,17 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs:
 class ConfigurationSetEventDestinationPinpointDestinationArgs:
     def __init__(__self__, *,
                  application_arn: Optional[pulumi.Input[str]] = None):
+        ConfigurationSetEventDestinationPinpointDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_arn=application_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_arn is not None:
-            pulumi.set(__self__, "application_arn", application_arn)
+            _setter("application_arn", application_arn)
 
     @property
     @pulumi.getter(name="applicationArn")
@@ -222,7 +292,16 @@ class ConfigurationSetEventDestinationPinpointDestinationArgs:
 class ConfigurationSetEventDestinationSnsDestinationArgs:
     def __init__(__self__, *,
                  topic_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "topic_arn", topic_arn)
+        ConfigurationSetEventDestinationSnsDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="topicArn")
@@ -238,8 +317,17 @@ class ConfigurationSetEventDestinationSnsDestinationArgs:
 class ConfigurationSetReputationOptionsArgs:
     def __init__(__self__, *,
                  reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None):
+        ConfigurationSetReputationOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reputation_metrics_enabled=reputation_metrics_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if reputation_metrics_enabled is not None:
-            pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
+            _setter("reputation_metrics_enabled", reputation_metrics_enabled)
 
     @property
     @pulumi.getter(name="reputationMetricsEnabled")
@@ -255,8 +343,17 @@ class ConfigurationSetReputationOptionsArgs:
 class ConfigurationSetSendingOptionsArgs:
     def __init__(__self__, *,
                  sending_enabled: Optional[pulumi.Input[bool]] = None):
+        ConfigurationSetSendingOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sending_enabled=sending_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sending_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sending_enabled is not None:
-            pulumi.set(__self__, "sending_enabled", sending_enabled)
+            _setter("sending_enabled", sending_enabled)
 
     @property
     @pulumi.getter(name="sendingEnabled")
@@ -273,10 +370,21 @@ class ConfigurationSetTagsArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        ConfigurationSetTagsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -301,8 +409,17 @@ class ConfigurationSetTagsArgs:
 class ConfigurationSetTrackingOptionsArgs:
     def __init__(__self__, *,
                  custom_redirect_domain: Optional[pulumi.Input[str]] = None):
+        ConfigurationSetTrackingOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_redirect_domain=custom_redirect_domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_redirect_domain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_redirect_domain is not None:
-            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+            _setter("custom_redirect_domain", custom_redirect_domain)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
@@ -319,10 +436,21 @@ class DedicatedIpPoolTagsArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        DedicatedIpPoolTagsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -348,10 +476,21 @@ class IdentityMailFromAttributesArgs:
     def __init__(__self__, *,
                  behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
                  mail_from_domain: Optional[pulumi.Input[str]] = None):
+        IdentityMailFromAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            behavior_on_mx_failure=behavior_on_mx_failure,
+            mail_from_domain=mail_from_domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
+             mail_from_domain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if behavior_on_mx_failure is not None:
-            pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
+            _setter("behavior_on_mx_failure", behavior_on_mx_failure)
         if mail_from_domain is not None:
-            pulumi.set(__self__, "mail_from_domain", mail_from_domain)
+            _setter("mail_from_domain", mail_from_domain)
 
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
@@ -377,10 +516,21 @@ class IdentityTagsArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        IdentityTagsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter

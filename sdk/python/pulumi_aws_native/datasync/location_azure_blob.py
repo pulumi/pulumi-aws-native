@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,20 +35,43 @@ class LocationAzureBlobArgs:
         :param pulumi.Input[str] subdirectory: The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
         :param pulumi.Input[Sequence[pulumi.Input['LocationAzureBlobTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "agent_arns", agent_arns)
-        pulumi.set(__self__, "azure_blob_authentication_type", azure_blob_authentication_type)
+        LocationAzureBlobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_arns=agent_arns,
+            azure_blob_authentication_type=azure_blob_authentication_type,
+            azure_access_tier=azure_access_tier,
+            azure_blob_container_url=azure_blob_container_url,
+            azure_blob_sas_configuration=azure_blob_sas_configuration,
+            azure_blob_type=azure_blob_type,
+            subdirectory=subdirectory,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             azure_blob_authentication_type: pulumi.Input['LocationAzureBlobAzureBlobAuthenticationType'],
+             azure_access_tier: Optional[pulumi.Input['LocationAzureBlobAzureAccessTier']] = None,
+             azure_blob_container_url: Optional[pulumi.Input[str]] = None,
+             azure_blob_sas_configuration: Optional[pulumi.Input['LocationAzureBlobAzureBlobSasConfigurationArgs']] = None,
+             azure_blob_type: Optional[pulumi.Input['LocationAzureBlobAzureBlobType']] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationAzureBlobTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_arns", agent_arns)
+        _setter("azure_blob_authentication_type", azure_blob_authentication_type)
         if azure_access_tier is not None:
-            pulumi.set(__self__, "azure_access_tier", azure_access_tier)
+            _setter("azure_access_tier", azure_access_tier)
         if azure_blob_container_url is not None:
-            pulumi.set(__self__, "azure_blob_container_url", azure_blob_container_url)
+            _setter("azure_blob_container_url", azure_blob_container_url)
         if azure_blob_sas_configuration is not None:
-            pulumi.set(__self__, "azure_blob_sas_configuration", azure_blob_sas_configuration)
+            _setter("azure_blob_sas_configuration", azure_blob_sas_configuration)
         if azure_blob_type is not None:
-            pulumi.set(__self__, "azure_blob_type", azure_blob_type)
+            _setter("azure_blob_type", azure_blob_type)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -190,6 +213,10 @@ class LocationAzureBlob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocationAzureBlobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -220,6 +247,11 @@ class LocationAzureBlob(pulumi.CustomResource):
                 raise TypeError("Missing required property 'azure_blob_authentication_type'")
             __props__.__dict__["azure_blob_authentication_type"] = azure_blob_authentication_type
             __props__.__dict__["azure_blob_container_url"] = azure_blob_container_url
+            if not isinstance(azure_blob_sas_configuration, LocationAzureBlobAzureBlobSasConfigurationArgs):
+                azure_blob_sas_configuration = azure_blob_sas_configuration or {}
+                def _setter(key, value):
+                    azure_blob_sas_configuration[key] = value
+                LocationAzureBlobAzureBlobSasConfigurationArgs._configure(_setter, **azure_blob_sas_configuration)
             __props__.__dict__["azure_blob_sas_configuration"] = azure_blob_sas_configuration
             __props__.__dict__["azure_blob_type"] = azure_blob_type
             __props__.__dict__["subdirectory"] = subdirectory

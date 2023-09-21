@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,16 +26,35 @@ class VehicleArgs:
         """
         The set of arguments for constructing a Vehicle resource.
         """
-        pulumi.set(__self__, "decoder_manifest_arn", decoder_manifest_arn)
-        pulumi.set(__self__, "model_manifest_arn", model_manifest_arn)
+        VehicleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            decoder_manifest_arn=decoder_manifest_arn,
+            model_manifest_arn=model_manifest_arn,
+            association_behavior=association_behavior,
+            attributes=attributes,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             decoder_manifest_arn: pulumi.Input[str],
+             model_manifest_arn: pulumi.Input[str],
+             association_behavior: Optional[pulumi.Input['VehicleAssociationBehavior']] = None,
+             attributes: Optional[pulumi.Input['VehicleattributesMapArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VehicleTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("decoder_manifest_arn", decoder_manifest_arn)
+        _setter("model_manifest_arn", model_manifest_arn)
         if association_behavior is not None:
-            pulumi.set(__self__, "association_behavior", association_behavior)
+            _setter("association_behavior", association_behavior)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="decoderManifestArn")
@@ -134,6 +153,10 @@ class Vehicle(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VehicleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -156,6 +179,11 @@ class Vehicle(pulumi.CustomResource):
             __props__ = VehicleArgs.__new__(VehicleArgs)
 
             __props__.__dict__["association_behavior"] = association_behavior
+            if not isinstance(attributes, VehicleattributesMapArgs):
+                attributes = attributes or {}
+                def _setter(key, value):
+                    attributes[key] = value
+                VehicleattributesMapArgs._configure(_setter, **attributes)
             __props__.__dict__["attributes"] = attributes
             if decoder_manifest_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'decoder_manifest_arn'")

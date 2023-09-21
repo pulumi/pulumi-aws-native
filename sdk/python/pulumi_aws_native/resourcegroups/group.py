@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,18 +28,37 @@ class GroupArgs:
         :param pulumi.Input[str] description: The description of the resource group
         :param pulumi.Input[str] name: The name of the resource group
         """
+        GroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            description=description,
+            name=name,
+            resource_query=resource_query,
+            resources=resources,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationItemArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_query: Optional[pulumi.Input['GroupResourceQueryArgs']] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_query is not None:
-            pulumi.set(__self__, "resource_query", resource_query)
+            _setter("resource_query", resource_query)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -141,6 +160,10 @@ class Group(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -164,6 +187,11 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if not isinstance(resource_query, GroupResourceQueryArgs):
+                resource_query = resource_query or {}
+                def _setter(key, value):
+                    resource_query[key] = value
+                GroupResourceQueryArgs._configure(_setter, **resource_query)
             __props__.__dict__["resource_query"] = resource_query
             __props__.__dict__["resources"] = resources
             __props__.__dict__["tags"] = tags

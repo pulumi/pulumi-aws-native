@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TopicInlinePolicyArgs', 'TopicInlinePolicy']
@@ -21,8 +21,19 @@ class TopicInlinePolicyArgs:
         :param Any policy_document: A policy document that contains permissions to add to the specified SNS topics.
         :param pulumi.Input[str] topic_arn: The Amazon Resource Name (ARN) of the topic to which you want to add the policy.
         """
-        pulumi.set(__self__, "policy_document", policy_document)
-        pulumi.set(__self__, "topic_arn", topic_arn)
+        TopicInlinePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_document=policy_document,
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_document: Any,
+             topic_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_document", policy_document)
+        _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -84,6 +95,10 @@ class TopicInlinePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicInlinePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

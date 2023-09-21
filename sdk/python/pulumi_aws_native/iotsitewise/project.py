@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,15 +29,32 @@ class ProjectArgs:
         :param pulumi.Input[str] project_name: A friendly name for the project.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]] tags: A list of key-value pairs that contain metadata for the project.
         """
-        pulumi.set(__self__, "portal_id", portal_id)
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            portal_id=portal_id,
+            asset_ids=asset_ids,
+            project_description=project_description,
+            project_name=project_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             portal_id: pulumi.Input[str],
+             asset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_description: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("portal_id", portal_id)
         if asset_ids is not None:
-            pulumi.set(__self__, "asset_ids", asset_ids)
+            _setter("asset_ids", asset_ids)
         if project_description is not None:
-            pulumi.set(__self__, "project_description", project_description)
+            _setter("project_description", project_description)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="portalId")
@@ -141,6 +158,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

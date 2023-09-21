@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,21 +38,46 @@ class ImageRecipeArgs:
         :param Any tags: The tags of the image recipe.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
-        pulumi.set(__self__, "components", components)
-        pulumi.set(__self__, "parent_image", parent_image)
-        pulumi.set(__self__, "version", version)
+        ImageRecipeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            components=components,
+            parent_image=parent_image,
+            version=version,
+            additional_instance_configuration=additional_instance_configuration,
+            block_device_mappings=block_device_mappings,
+            description=description,
+            name=name,
+            tags=tags,
+            working_directory=working_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             components: pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]],
+             parent_image: pulumi.Input[str],
+             version: pulumi.Input[str],
+             additional_instance_configuration: Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']] = None,
+             block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[Any] = None,
+             working_directory: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("components", components)
+        _setter("parent_image", parent_image)
+        _setter("version", version)
         if additional_instance_configuration is not None:
-            pulumi.set(__self__, "additional_instance_configuration", additional_instance_configuration)
+            _setter("additional_instance_configuration", additional_instance_configuration)
         if block_device_mappings is not None:
-            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+            _setter("block_device_mappings", block_device_mappings)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if working_directory is not None:
-            pulumi.set(__self__, "working_directory", working_directory)
+            _setter("working_directory", working_directory)
 
     @property
     @pulumi.getter
@@ -212,6 +237,10 @@ class ImageRecipe(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ImageRecipeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -235,6 +264,11 @@ class ImageRecipe(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ImageRecipeArgs.__new__(ImageRecipeArgs)
 
+            if not isinstance(additional_instance_configuration, ImageRecipeAdditionalInstanceConfigurationArgs):
+                additional_instance_configuration = additional_instance_configuration or {}
+                def _setter(key, value):
+                    additional_instance_configuration[key] = value
+                ImageRecipeAdditionalInstanceConfigurationArgs._configure(_setter, **additional_instance_configuration)
             __props__.__dict__["additional_instance_configuration"] = additional_instance_configuration
             __props__.__dict__["block_device_mappings"] = block_device_mappings
             if components is None and not opts.urn:

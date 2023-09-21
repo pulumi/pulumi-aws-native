@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,12 +25,25 @@ class AclArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AclTagArgs']]] tags: An array of key-value pairs to apply to this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_names: List of users associated to this acl.
         """
+        AclArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acl_name=acl_name,
+            tags=tags,
+            user_names=user_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acl_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AclTagArgs']]]] = None,
+             user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acl_name is not None:
-            pulumi.set(__self__, "acl_name", acl_name)
+            _setter("acl_name", acl_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_names is not None:
-            pulumi.set(__self__, "user_names", user_names)
+            _setter("user_names", user_names)
 
     @property
     @pulumi.getter(name="aclName")
@@ -106,6 +119,10 @@ class Acl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AclArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

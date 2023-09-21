@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,19 +27,42 @@ class DeploymentStrategyArgs:
         """
         The set of arguments for constructing a DeploymentStrategy resource.
         """
-        pulumi.set(__self__, "deployment_duration_in_minutes", deployment_duration_in_minutes)
-        pulumi.set(__self__, "growth_factor", growth_factor)
-        pulumi.set(__self__, "replicate_to", replicate_to)
+        DeploymentStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_duration_in_minutes=deployment_duration_in_minutes,
+            growth_factor=growth_factor,
+            replicate_to=replicate_to,
+            description=description,
+            final_bake_time_in_minutes=final_bake_time_in_minutes,
+            growth_type=growth_type,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_duration_in_minutes: pulumi.Input[float],
+             growth_factor: pulumi.Input[float],
+             replicate_to: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             final_bake_time_in_minutes: Optional[pulumi.Input[float]] = None,
+             growth_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentStrategyTagsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("deployment_duration_in_minutes", deployment_duration_in_minutes)
+        _setter("growth_factor", growth_factor)
+        _setter("replicate_to", replicate_to)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if final_bake_time_in_minutes is not None:
-            pulumi.set(__self__, "final_bake_time_in_minutes", final_bake_time_in_minutes)
+            _setter("final_bake_time_in_minutes", final_bake_time_in_minutes)
         if growth_type is not None:
-            pulumi.set(__self__, "growth_type", growth_type)
+            _setter("growth_type", growth_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="deploymentDurationInMinutes")
@@ -158,6 +181,10 @@ class DeploymentStrategy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentStrategyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -45,10 +45,21 @@ class DatabaseTag(dict):
         """
         You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
         """
+        DatabaseTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -93,9 +104,20 @@ class MagneticStoreWritePropertiesProperties(dict):
         :param bool enable_magnetic_store_writes: Boolean flag indicating whether magnetic store writes are enabled.
         :param 'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties' magnetic_store_rejected_data_location: Location to store information about records that were asynchronously rejected during magnetic store writes.
         """
-        pulumi.set(__self__, "enable_magnetic_store_writes", enable_magnetic_store_writes)
+        MagneticStoreWritePropertiesProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_magnetic_store_writes=enable_magnetic_store_writes,
+            magnetic_store_rejected_data_location=magnetic_store_rejected_data_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_magnetic_store_writes: bool,
+             magnetic_store_rejected_data_location: Optional['outputs.MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enable_magnetic_store_writes", enable_magnetic_store_writes)
         if magnetic_store_rejected_data_location is not None:
-            pulumi.set(__self__, "magnetic_store_rejected_data_location", magnetic_store_rejected_data_location)
+            _setter("magnetic_store_rejected_data_location", magnetic_store_rejected_data_location)
 
     @property
     @pulumi.getter(name="enableMagneticStoreWrites")
@@ -142,8 +164,17 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
         Location to store information about records that were asynchronously rejected during magnetic store writes.
         :param 'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties' s3_configuration: S3 configuration for location to store rejections from magnetic store writes
         """
+        MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_configuration=s3_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_configuration: Optional['outputs.MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_configuration is not None:
-            pulumi.set(__self__, "s3_configuration", s3_configuration)
+            _setter("s3_configuration", s3_configuration)
 
     @property
     @pulumi.getter(name="s3Configuration")
@@ -194,12 +225,27 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
         :param str kms_key_id: Must be provided if SSE_KMS is specified as the encryption option
         :param str object_key_prefix: String used to prefix all data in the bucket.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "encryption_option", encryption_option)
+        MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            encryption_option=encryption_option,
+            kms_key_id=kms_key_id,
+            object_key_prefix=object_key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: str,
+             encryption_option: str,
+             kms_key_id: Optional[str] = None,
+             object_key_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
+        _setter("encryption_option", encryption_option)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if object_key_prefix is not None:
-            pulumi.set(__self__, "object_key_prefix", object_key_prefix)
+            _setter("object_key_prefix", object_key_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -266,10 +312,21 @@ class RetentionPropertiesProperties(dict):
         :param str magnetic_store_retention_period_in_days: The duration for which data must be stored in the magnetic store.
         :param str memory_store_retention_period_in_hours: The duration for which data must be stored in the memory store.
         """
+        RetentionPropertiesProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            magnetic_store_retention_period_in_days=magnetic_store_retention_period_in_days,
+            memory_store_retention_period_in_hours=memory_store_retention_period_in_hours,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             magnetic_store_retention_period_in_days: Optional[str] = None,
+             memory_store_retention_period_in_hours: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if magnetic_store_retention_period_in_days is not None:
-            pulumi.set(__self__, "magnetic_store_retention_period_in_days", magnetic_store_retention_period_in_days)
+            _setter("magnetic_store_retention_period_in_days", magnetic_store_retention_period_in_days)
         if memory_store_retention_period_in_hours is not None:
-            pulumi.set(__self__, "memory_store_retention_period_in_hours", memory_store_retention_period_in_hours)
+            _setter("memory_store_retention_period_in_hours", memory_store_retention_period_in_hours)
 
     @property
     @pulumi.getter(name="magneticStoreRetentionPeriodInDays")
@@ -316,8 +373,19 @@ class ScheduledQueryDimensionMapping(dict):
         """
         This type is used to map column(s) from the query result to a dimension in the destination table.
         """
-        pulumi.set(__self__, "dimension_value_type", dimension_value_type)
-        pulumi.set(__self__, "name", name)
+        ScheduledQueryDimensionMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimension_value_type=dimension_value_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimension_value_type: 'ScheduledQueryDimensionValueType',
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dimension_value_type", dimension_value_type)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="dimensionValueType")
@@ -357,7 +425,16 @@ class ScheduledQueryErrorReportConfiguration(dict):
         """
         Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
         """
-        pulumi.set(__self__, "s3_configuration", s3_configuration)
+        ScheduledQueryErrorReportConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_configuration=s3_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_configuration: 'outputs.ScheduledQueryS3Configuration',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_configuration", s3_configuration)
 
     @property
     @pulumi.getter(name="s3Configuration")
@@ -404,15 +481,32 @@ class ScheduledQueryMixedMeasureMapping(dict):
         """
         MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
         """
-        pulumi.set(__self__, "measure_value_type", measure_value_type)
+        ScheduledQueryMixedMeasureMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            measure_value_type=measure_value_type,
+            measure_name=measure_name,
+            multi_measure_attribute_mappings=multi_measure_attribute_mappings,
+            source_column=source_column,
+            target_measure_name=target_measure_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             measure_value_type: 'ScheduledQueryMixedMeasureMappingMeasureValueType',
+             measure_name: Optional[str] = None,
+             multi_measure_attribute_mappings: Optional[Sequence['outputs.ScheduledQueryMultiMeasureAttributeMapping']] = None,
+             source_column: Optional[str] = None,
+             target_measure_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("measure_value_type", measure_value_type)
         if measure_name is not None:
-            pulumi.set(__self__, "measure_name", measure_name)
+            _setter("measure_name", measure_name)
         if multi_measure_attribute_mappings is not None:
-            pulumi.set(__self__, "multi_measure_attribute_mappings", multi_measure_attribute_mappings)
+            _setter("multi_measure_attribute_mappings", multi_measure_attribute_mappings)
         if source_column is not None:
-            pulumi.set(__self__, "source_column", source_column)
+            _setter("source_column", source_column)
         if target_measure_name is not None:
-            pulumi.set(__self__, "target_measure_name", target_measure_name)
+            _setter("target_measure_name", target_measure_name)
 
     @property
     @pulumi.getter(name="measureValueType")
@@ -473,10 +567,23 @@ class ScheduledQueryMultiMeasureAttributeMapping(dict):
         """
         An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
         """
-        pulumi.set(__self__, "measure_value_type", measure_value_type)
-        pulumi.set(__self__, "source_column", source_column)
+        ScheduledQueryMultiMeasureAttributeMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            measure_value_type=measure_value_type,
+            source_column=source_column,
+            target_multi_measure_attribute_name=target_multi_measure_attribute_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             measure_value_type: 'ScheduledQueryMultiMeasureAttributeMappingMeasureValueType',
+             source_column: str,
+             target_multi_measure_attribute_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("measure_value_type", measure_value_type)
+        _setter("source_column", source_column)
         if target_multi_measure_attribute_name is not None:
-            pulumi.set(__self__, "target_multi_measure_attribute_name", target_multi_measure_attribute_name)
+            _setter("target_multi_measure_attribute_name", target_multi_measure_attribute_name)
 
     @property
     @pulumi.getter(name="measureValueType")
@@ -524,9 +631,20 @@ class ScheduledQueryMultiMeasureMappings(dict):
         """
         Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
         """
-        pulumi.set(__self__, "multi_measure_attribute_mappings", multi_measure_attribute_mappings)
+        ScheduledQueryMultiMeasureMappings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            multi_measure_attribute_mappings=multi_measure_attribute_mappings,
+            target_multi_measure_name=target_multi_measure_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             multi_measure_attribute_mappings: Sequence['outputs.ScheduledQueryMultiMeasureAttributeMapping'],
+             target_multi_measure_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("multi_measure_attribute_mappings", multi_measure_attribute_mappings)
         if target_multi_measure_name is not None:
-            pulumi.set(__self__, "target_multi_measure_name", target_multi_measure_name)
+            _setter("target_multi_measure_name", target_multi_measure_name)
 
     @property
     @pulumi.getter(name="multiMeasureAttributeMappings")
@@ -566,7 +684,16 @@ class ScheduledQueryNotificationConfiguration(dict):
         """
         Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
         """
-        pulumi.set(__self__, "sns_configuration", sns_configuration)
+        ScheduledQueryNotificationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sns_configuration=sns_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sns_configuration: 'outputs.ScheduledQuerySnsConfiguration',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("sns_configuration", sns_configuration)
 
     @property
     @pulumi.getter(name="snsConfiguration")
@@ -607,11 +734,24 @@ class ScheduledQueryS3Configuration(dict):
         """
         Details on S3 location for error reports that result from running a query.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        ScheduledQueryS3Configuration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            encryption_option=encryption_option,
+            object_key_prefix=object_key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: str,
+             encryption_option: Optional['ScheduledQueryEncryptionOption'] = None,
+             object_key_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
         if encryption_option is not None:
-            pulumi.set(__self__, "encryption_option", encryption_option)
+            _setter("encryption_option", encryption_option)
         if object_key_prefix is not None:
-            pulumi.set(__self__, "object_key_prefix", object_key_prefix)
+            _setter("object_key_prefix", object_key_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -656,7 +796,16 @@ class ScheduledQueryScheduleConfiguration(dict):
         """
         Configuration for when the scheduled query is executed.
         """
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        ScheduledQueryScheduleConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedule_expression=schedule_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedule_expression: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -691,7 +840,16 @@ class ScheduledQuerySnsConfiguration(dict):
         """
         SNS configuration for notification upon scheduled query execution.
         """
-        pulumi.set(__self__, "topic_arn", topic_arn)
+        ScheduledQuerySnsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="topicArn")
@@ -710,8 +868,19 @@ class ScheduledQueryTag(dict):
         """
         A key-value pair to label the scheduled query.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ScheduledQueryTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -751,7 +920,16 @@ class ScheduledQueryTargetConfiguration(dict):
         """
         Configuration of target store where scheduled query results are written to.
         """
-        pulumi.set(__self__, "timestream_configuration", timestream_configuration)
+        ScheduledQueryTargetConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            timestream_configuration=timestream_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             timestream_configuration: 'outputs.ScheduledQueryTimestreamConfiguration',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("timestream_configuration", timestream_configuration)
 
     @property
     @pulumi.getter(name="timestreamConfiguration")
@@ -804,16 +982,37 @@ class ScheduledQueryTimestreamConfiguration(dict):
         """
         Configuration needed to write data into the Timestream database and table.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "dimension_mappings", dimension_mappings)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "time_column", time_column)
+        ScheduledQueryTimestreamConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            dimension_mappings=dimension_mappings,
+            table_name=table_name,
+            time_column=time_column,
+            measure_name_column=measure_name_column,
+            mixed_measure_mappings=mixed_measure_mappings,
+            multi_measure_mappings=multi_measure_mappings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             dimension_mappings: Sequence['outputs.ScheduledQueryDimensionMapping'],
+             table_name: str,
+             time_column: str,
+             measure_name_column: Optional[str] = None,
+             mixed_measure_mappings: Optional[Sequence['outputs.ScheduledQueryMixedMeasureMapping']] = None,
+             multi_measure_mappings: Optional['outputs.ScheduledQueryMultiMeasureMappings'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("dimension_mappings", dimension_mappings)
+        _setter("table_name", table_name)
+        _setter("time_column", time_column)
         if measure_name_column is not None:
-            pulumi.set(__self__, "measure_name_column", measure_name_column)
+            _setter("measure_name_column", measure_name_column)
         if mixed_measure_mappings is not None:
-            pulumi.set(__self__, "mixed_measure_mappings", mixed_measure_mappings)
+            _setter("mixed_measure_mappings", mixed_measure_mappings)
         if multi_measure_mappings is not None:
-            pulumi.set(__self__, "multi_measure_mappings", multi_measure_mappings)
+            _setter("multi_measure_mappings", multi_measure_mappings)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -878,8 +1077,17 @@ class SchemaProperties(dict):
         """
         A Schema specifies the expected data model of the table.
         """
+        SchemaProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            composite_partition_key=composite_partition_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             composite_partition_key: Optional[Sequence['outputs.TablePartitionKey']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if composite_partition_key is not None:
-            pulumi.set(__self__, "composite_partition_key", composite_partition_key)
+            _setter("composite_partition_key", composite_partition_key)
 
     @property
     @pulumi.getter(name="compositePartitionKey")
@@ -916,11 +1124,24 @@ class TablePartitionKey(dict):
         """
         An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
         """
-        pulumi.set(__self__, "type", type)
+        TablePartitionKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            enforcement_in_record=enforcement_in_record,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: 'TablePartitionKeyType',
+             enforcement_in_record: Optional['TablePartitionKeyEnforcementLevel'] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if enforcement_in_record is not None:
-            pulumi.set(__self__, "enforcement_in_record", enforcement_in_record)
+            _setter("enforcement_in_record", enforcement_in_record)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -949,10 +1170,21 @@ class TableTag(dict):
         """
         You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
         """
+        TableTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter

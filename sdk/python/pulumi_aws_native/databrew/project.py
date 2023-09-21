@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,15 +31,34 @@ class ProjectArgs:
         :param pulumi.Input[str] name: Project name
         :param pulumi.Input['ProjectSampleArgs'] sample: Sample
         """
-        pulumi.set(__self__, "dataset_name", dataset_name)
-        pulumi.set(__self__, "recipe_name", recipe_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dataset_name=dataset_name,
+            recipe_name=recipe_name,
+            role_arn=role_arn,
+            name=name,
+            sample=sample,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dataset_name: pulumi.Input[str],
+             recipe_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             sample: Optional[pulumi.Input['ProjectSampleArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dataset_name", dataset_name)
+        _setter("recipe_name", recipe_name)
+        _setter("role_arn", role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sample is not None:
-            pulumi.set(__self__, "sample", sample)
+            _setter("sample", sample)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="datasetName")
@@ -153,6 +172,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -183,6 +206,11 @@ class Project(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            if not isinstance(sample, ProjectSampleArgs):
+                sample = sample or {}
+                def _setter(key, value):
+                    sample[key] = value
+                ProjectSampleArgs._configure(_setter, **sample)
             __props__.__dict__["sample"] = sample
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]"])

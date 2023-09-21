@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StaticIpArgs', 'StaticIp']
@@ -21,10 +21,21 @@ class StaticIpArgs:
         :param pulumi.Input[str] attached_to: The instance where the static IP is attached.
         :param pulumi.Input[str] static_ip_name: The name of the static IP address.
         """
+        StaticIpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attached_to=attached_to,
+            static_ip_name=static_ip_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attached_to: Optional[pulumi.Input[str]] = None,
+             static_ip_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attached_to is not None:
-            pulumi.set(__self__, "attached_to", attached_to)
+            _setter("attached_to", attached_to)
         if static_ip_name is not None:
-            pulumi.set(__self__, "static_ip_name", static_ip_name)
+            _setter("static_ip_name", static_ip_name)
 
     @property
     @pulumi.getter(name="attachedTo")
@@ -86,6 +97,10 @@ class StaticIp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StaticIpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

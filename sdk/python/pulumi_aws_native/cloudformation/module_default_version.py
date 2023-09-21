@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ModuleDefaultVersionArgs', 'ModuleDefaultVersion']
@@ -23,12 +23,25 @@ class ModuleDefaultVersionArgs:
         :param pulumi.Input[str] module_name: The name of a module existing in the registry.
         :param pulumi.Input[str] version_id: The ID of an existing version of the named module to set as the default.
         """
+        ModuleDefaultVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            module_name=module_name,
+            version_id=version_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             module_name: Optional[pulumi.Input[str]] = None,
+             version_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if module_name is not None:
-            pulumi.set(__self__, "module_name", module_name)
+            _setter("module_name", module_name)
         if version_id is not None:
-            pulumi.set(__self__, "version_id", version_id)
+            _setter("version_id", version_id)
 
     @property
     @pulumi.getter
@@ -104,6 +117,10 @@ class ModuleDefaultVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ModuleDefaultVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

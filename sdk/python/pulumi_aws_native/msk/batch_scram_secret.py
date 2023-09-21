@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BatchScramSecretArgs', 'BatchScramSecret']
@@ -19,9 +19,20 @@ class BatchScramSecretArgs:
         """
         The set of arguments for constructing a BatchScramSecret resource.
         """
-        pulumi.set(__self__, "cluster_arn", cluster_arn)
+        BatchScramSecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_arn=cluster_arn,
+            secret_arn_list=secret_arn_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_arn: pulumi.Input[str],
+             secret_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_arn", cluster_arn)
         if secret_arn_list is not None:
-            pulumi.set(__self__, "secret_arn_list", secret_arn_list)
+            _setter("secret_arn_list", secret_arn_list)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -75,6 +86,10 @@ class BatchScramSecret(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BatchScramSecretArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

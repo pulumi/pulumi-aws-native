@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,13 +23,28 @@ class MemberArgs:
         """
         The set of arguments for constructing a Member resource.
         """
-        pulumi.set(__self__, "member_configuration", member_configuration)
+        MemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            member_configuration=member_configuration,
+            invitation_id=invitation_id,
+            network_configuration=network_configuration,
+            network_id=network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             member_configuration: pulumi.Input['MemberConfigurationArgs'],
+             invitation_id: Optional[pulumi.Input[str]] = None,
+             network_configuration: Optional[pulumi.Input['MemberNetworkConfigurationArgs']] = None,
+             network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("member_configuration", member_configuration)
         if invitation_id is not None:
-            pulumi.set(__self__, "invitation_id", invitation_id)
+            _setter("invitation_id", invitation_id)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if network_id is not None:
-            pulumi.set(__self__, "network_id", network_id)
+            _setter("network_id", network_id)
 
     @property
     @pulumi.getter(name="memberConfiguration")
@@ -108,6 +123,10 @@ class Member(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -128,9 +147,19 @@ class Member(pulumi.CustomResource):
             __props__ = MemberArgs.__new__(MemberArgs)
 
             __props__.__dict__["invitation_id"] = invitation_id
+            if not isinstance(member_configuration, MemberConfigurationArgs):
+                member_configuration = member_configuration or {}
+                def _setter(key, value):
+                    member_configuration[key] = value
+                MemberConfigurationArgs._configure(_setter, **member_configuration)
             if member_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'member_configuration'")
             __props__.__dict__["member_configuration"] = member_configuration
+            if not isinstance(network_configuration, MemberNetworkConfigurationArgs):
+                network_configuration = network_configuration or {}
+                def _setter(key, value):
+                    network_configuration[key] = value
+                MemberNetworkConfigurationArgs._configure(_setter, **network_configuration)
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["network_id"] = network_id
             __props__.__dict__["member_id"] = None

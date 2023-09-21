@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,25 +38,54 @@ class ScheduleArgs:
         :param pulumi.Input[str] schedule_expression_timezone: The timezone in which the scheduling expression is evaluated.
         :param pulumi.Input[str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
         """
-        pulumi.set(__self__, "flexible_time_window", flexible_time_window)
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
-        pulumi.set(__self__, "target", target)
+        ScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            flexible_time_window=flexible_time_window,
+            schedule_expression=schedule_expression,
+            target=target,
+            description=description,
+            end_date=end_date,
+            group_name=group_name,
+            kms_key_arn=kms_key_arn,
+            name=name,
+            schedule_expression_timezone=schedule_expression_timezone,
+            start_date=start_date,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             flexible_time_window: pulumi.Input['ScheduleFlexibleTimeWindowArgs'],
+             schedule_expression: pulumi.Input[str],
+             target: pulumi.Input['ScheduleTargetArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input['ScheduleState']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("flexible_time_window", flexible_time_window)
+        _setter("schedule_expression", schedule_expression)
+        _setter("target", target)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schedule_expression_timezone is not None:
-            pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
+            _setter("schedule_expression_timezone", schedule_expression_timezone)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="flexibleTimeWindow")
@@ -228,6 +257,10 @@ class Schedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -255,6 +288,11 @@ class Schedule(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["end_date"] = end_date
+            if not isinstance(flexible_time_window, ScheduleFlexibleTimeWindowArgs):
+                flexible_time_window = flexible_time_window or {}
+                def _setter(key, value):
+                    flexible_time_window[key] = value
+                ScheduleFlexibleTimeWindowArgs._configure(_setter, **flexible_time_window)
             if flexible_time_window is None and not opts.urn:
                 raise TypeError("Missing required property 'flexible_time_window'")
             __props__.__dict__["flexible_time_window"] = flexible_time_window
@@ -267,6 +305,11 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["schedule_expression_timezone"] = schedule_expression_timezone
             __props__.__dict__["start_date"] = start_date
             __props__.__dict__["state"] = state
+            if not isinstance(target, ScheduleTargetArgs):
+                target = target or {}
+                def _setter(key, value):
+                    target[key] = value
+                ScheduleTargetArgs._configure(_setter, **target)
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target

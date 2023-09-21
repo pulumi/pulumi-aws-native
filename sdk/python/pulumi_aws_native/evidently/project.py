@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,16 +25,33 @@ class ProjectArgs:
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_config_resource=app_config_resource,
+            data_delivery=data_delivery,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_config_resource: Optional[pulumi.Input['ProjectAppConfigResourceObjectArgs']] = None,
+             data_delivery: Optional[pulumi.Input['ProjectDataDeliveryObjectArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_config_resource is not None:
-            pulumi.set(__self__, "app_config_resource", app_config_resource)
+            _setter("app_config_resource", app_config_resource)
         if data_delivery is not None:
-            pulumi.set(__self__, "data_delivery", data_delivery)
+            _setter("data_delivery", data_delivery)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="appConfigResource")
@@ -122,6 +139,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -141,7 +162,17 @@ class Project(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
+            if not isinstance(app_config_resource, ProjectAppConfigResourceObjectArgs):
+                app_config_resource = app_config_resource or {}
+                def _setter(key, value):
+                    app_config_resource[key] = value
+                ProjectAppConfigResourceObjectArgs._configure(_setter, **app_config_resource)
             __props__.__dict__["app_config_resource"] = app_config_resource
+            if not isinstance(data_delivery, ProjectDataDeliveryObjectArgs):
+                data_delivery = data_delivery or {}
+                def _setter(key, value):
+                    data_delivery[key] = value
+                ProjectDataDeliveryObjectArgs._configure(_setter, **data_delivery)
             __props__.__dict__["data_delivery"] = data_delivery
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,38 @@ class VariableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]] tags: Tags associated with this variable.
         :param pulumi.Input['VariableType'] variable_type: The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "data_type", data_type)
-        pulumi.set(__self__, "default_value", default_value)
+        VariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source=data_source,
+            data_type=data_type,
+            default_value=default_value,
+            description=description,
+            name=name,
+            tags=tags,
+            variable_type=variable_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source: pulumi.Input['VariableDataSource'],
+             data_type: pulumi.Input['VariableDataType'],
+             default_value: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]]] = None,
+             variable_type: Optional[pulumi.Input['VariableType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_source", data_source)
+        _setter("data_type", data_type)
+        _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if variable_type is not None:
-            pulumi.set(__self__, "variable_type", variable_type)
+            _setter("variable_type", variable_type)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -176,6 +197,10 @@ class Variable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VariableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteArgs', 'Route']
@@ -29,28 +29,59 @@ class RouteArgs:
         """
         The set of arguments for constructing a Route resource.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "route_key", route_key)
+        RouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            route_key=route_key,
+            api_key_required=api_key_required,
+            authorization_scopes=authorization_scopes,
+            authorization_type=authorization_type,
+            authorizer_id=authorizer_id,
+            model_selection_expression=model_selection_expression,
+            operation_name=operation_name,
+            request_models=request_models,
+            request_parameters=request_parameters,
+            route_response_selection_expression=route_response_selection_expression,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             route_key: pulumi.Input[str],
+             api_key_required: Optional[pulumi.Input[bool]] = None,
+             authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authorization_type: Optional[pulumi.Input[str]] = None,
+             authorizer_id: Optional[pulumi.Input[str]] = None,
+             model_selection_expression: Optional[pulumi.Input[str]] = None,
+             operation_name: Optional[pulumi.Input[str]] = None,
+             request_models: Optional[Any] = None,
+             request_parameters: Optional[Any] = None,
+             route_response_selection_expression: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_id", api_id)
+        _setter("route_key", route_key)
         if api_key_required is not None:
-            pulumi.set(__self__, "api_key_required", api_key_required)
+            _setter("api_key_required", api_key_required)
         if authorization_scopes is not None:
-            pulumi.set(__self__, "authorization_scopes", authorization_scopes)
+            _setter("authorization_scopes", authorization_scopes)
         if authorization_type is not None:
-            pulumi.set(__self__, "authorization_type", authorization_type)
+            _setter("authorization_type", authorization_type)
         if authorizer_id is not None:
-            pulumi.set(__self__, "authorizer_id", authorizer_id)
+            _setter("authorizer_id", authorizer_id)
         if model_selection_expression is not None:
-            pulumi.set(__self__, "model_selection_expression", model_selection_expression)
+            _setter("model_selection_expression", model_selection_expression)
         if operation_name is not None:
-            pulumi.set(__self__, "operation_name", operation_name)
+            _setter("operation_name", operation_name)
         if request_models is not None:
-            pulumi.set(__self__, "request_models", request_models)
+            _setter("request_models", request_models)
         if request_parameters is not None:
-            pulumi.set(__self__, "request_parameters", request_parameters)
+            _setter("request_parameters", request_parameters)
         if route_response_selection_expression is not None:
-            pulumi.set(__self__, "route_response_selection_expression", route_response_selection_expression)
+            _setter("route_response_selection_expression", route_response_selection_expression)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter(name="apiId")
@@ -204,6 +235,10 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

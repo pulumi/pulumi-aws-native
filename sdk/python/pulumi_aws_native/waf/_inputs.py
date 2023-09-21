@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -32,13 +32,30 @@ class ByteMatchSetByteMatchTupleArgs:
                  text_transformation: pulumi.Input[str],
                  target_string: Optional[pulumi.Input[str]] = None,
                  target_string_base64: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "field_to_match", field_to_match)
-        pulumi.set(__self__, "positional_constraint", positional_constraint)
-        pulumi.set(__self__, "text_transformation", text_transformation)
+        ByteMatchSetByteMatchTupleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_to_match=field_to_match,
+            positional_constraint=positional_constraint,
+            text_transformation=text_transformation,
+            target_string=target_string,
+            target_string_base64=target_string_base64,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_to_match: pulumi.Input['ByteMatchSetFieldToMatchArgs'],
+             positional_constraint: pulumi.Input[str],
+             text_transformation: pulumi.Input[str],
+             target_string: Optional[pulumi.Input[str]] = None,
+             target_string_base64: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field_to_match", field_to_match)
+        _setter("positional_constraint", positional_constraint)
+        _setter("text_transformation", text_transformation)
         if target_string is not None:
-            pulumi.set(__self__, "target_string", target_string)
+            _setter("target_string", target_string)
         if target_string_base64 is not None:
-            pulumi.set(__self__, "target_string_base64", target_string_base64)
+            _setter("target_string_base64", target_string_base64)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -91,9 +108,20 @@ class ByteMatchSetFieldToMatchArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "type", type)
+        ByteMatchSetFieldToMatchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter
@@ -119,8 +147,19 @@ class IpSetIpSetDescriptorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        IpSetIpSetDescriptorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -147,9 +186,22 @@ class RulePredicateArgs:
                  data_id: pulumi.Input[str],
                  negated: pulumi.Input[bool],
                  type: pulumi.Input[str]):
-        pulumi.set(__self__, "data_id", data_id)
-        pulumi.set(__self__, "negated", negated)
-        pulumi.set(__self__, "type", type)
+        RulePredicateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_id=data_id,
+            negated=negated,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_id: pulumi.Input[str],
+             negated: pulumi.Input[bool],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_id", data_id)
+        _setter("negated", negated)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="dataId")
@@ -184,9 +236,20 @@ class SizeConstraintSetFieldToMatchArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "type", type)
+        SizeConstraintSetFieldToMatchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter
@@ -214,10 +277,25 @@ class SizeConstraintSetSizeConstraintArgs:
                  field_to_match: pulumi.Input['SizeConstraintSetFieldToMatchArgs'],
                  size: pulumi.Input[int],
                  text_transformation: pulumi.Input[str]):
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "field_to_match", field_to_match)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "text_transformation", text_transformation)
+        SizeConstraintSetSizeConstraintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            field_to_match=field_to_match,
+            size=size,
+            text_transformation=text_transformation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: pulumi.Input[str],
+             field_to_match: pulumi.Input['SizeConstraintSetFieldToMatchArgs'],
+             size: pulumi.Input[int],
+             text_transformation: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison_operator", comparison_operator)
+        _setter("field_to_match", field_to_match)
+        _setter("size", size)
+        _setter("text_transformation", text_transformation)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -261,9 +339,20 @@ class SqlInjectionMatchSetFieldToMatchArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "type", type)
+        SqlInjectionMatchSetFieldToMatchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter
@@ -289,8 +378,19 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleArgs:
     def __init__(__self__, *,
                  field_to_match: pulumi.Input['SqlInjectionMatchSetFieldToMatchArgs'],
                  text_transformation: pulumi.Input[str]):
-        pulumi.set(__self__, "field_to_match", field_to_match)
-        pulumi.set(__self__, "text_transformation", text_transformation)
+        SqlInjectionMatchSetSqlInjectionMatchTupleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_to_match=field_to_match,
+            text_transformation=text_transformation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_to_match: pulumi.Input['SqlInjectionMatchSetFieldToMatchArgs'],
+             text_transformation: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field_to_match", field_to_match)
+        _setter("text_transformation", text_transformation)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -317,10 +417,23 @@ class WebAclActivatedRuleArgs:
                  priority: pulumi.Input[int],
                  rule_id: pulumi.Input[str],
                  action: Optional[pulumi.Input['WebAclWafActionArgs']] = None):
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "rule_id", rule_id)
+        WebAclActivatedRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            rule_id=rule_id,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: pulumi.Input[int],
+             rule_id: pulumi.Input[str],
+             action: Optional[pulumi.Input['WebAclWafActionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("rule_id", rule_id)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter
@@ -354,7 +467,16 @@ class WebAclActivatedRuleArgs:
 class WebAclWafActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
-        pulumi.set(__self__, "type", type)
+        WebAclWafActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -371,9 +493,20 @@ class XssMatchSetFieldToMatchArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "type", type)
+        XssMatchSetFieldToMatchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter
@@ -399,8 +532,19 @@ class XssMatchSetXssMatchTupleArgs:
     def __init__(__self__, *,
                  field_to_match: pulumi.Input['XssMatchSetFieldToMatchArgs'],
                  text_transformation: pulumi.Input[str]):
-        pulumi.set(__self__, "field_to_match", field_to_match)
-        pulumi.set(__self__, "text_transformation", text_transformation)
+        XssMatchSetXssMatchTupleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_to_match=field_to_match,
+            text_transformation=text_transformation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_to_match: pulumi.Input['XssMatchSetFieldToMatchArgs'],
+             text_transformation: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field_to_match", field_to_match)
+        _setter("text_transformation", text_transformation)
 
     @property
     @pulumi.getter(name="fieldToMatch")

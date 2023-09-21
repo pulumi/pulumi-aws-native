@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ViewVersionArgs', 'ViewVersion']
@@ -23,11 +23,24 @@ class ViewVersionArgs:
         :param pulumi.Input[str] version_description: The description for the view version.
         :param pulumi.Input[str] view_content_sha256: The view content hash to be checked.
         """
-        pulumi.set(__self__, "view_arn", view_arn)
+        ViewVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            view_arn=view_arn,
+            version_description=version_description,
+            view_content_sha256=view_content_sha256,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             view_arn: pulumi.Input[str],
+             version_description: Optional[pulumi.Input[str]] = None,
+             view_content_sha256: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("view_arn", view_arn)
         if version_description is not None:
-            pulumi.set(__self__, "version_description", version_description)
+            _setter("version_description", version_description)
         if view_content_sha256 is not None:
-            pulumi.set(__self__, "view_content_sha256", view_content_sha256)
+            _setter("view_content_sha256", view_content_sha256)
 
     @property
     @pulumi.getter(name="viewArn")
@@ -103,6 +116,10 @@ class ViewVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ViewVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

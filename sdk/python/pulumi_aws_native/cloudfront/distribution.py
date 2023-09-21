@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,9 +21,20 @@ class DistributionArgs:
         """
         The set of arguments for constructing a Distribution resource.
         """
-        pulumi.set(__self__, "distribution_config", distribution_config)
+        DistributionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            distribution_config=distribution_config,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             distribution_config: pulumi.Input['DistributionConfigArgs'],
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("distribution_config", distribution_config)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="distributionConfig")
@@ -77,6 +88,10 @@ class Distribution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DistributionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -93,6 +108,11 @@ class Distribution(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DistributionArgs.__new__(DistributionArgs)
 
+            if not isinstance(distribution_config, DistributionConfigArgs):
+                distribution_config = distribution_config or {}
+                def _setter(key, value):
+                    distribution_config[key] = value
+                DistributionConfigArgs._configure(_setter, **distribution_config)
             if distribution_config is None and not opts.urn:
                 raise TypeError("Missing required property 'distribution_config'")
             __props__.__dict__["distribution_config"] = distribution_config

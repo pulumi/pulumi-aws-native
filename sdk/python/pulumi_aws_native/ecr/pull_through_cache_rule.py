@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PullThroughCacheRuleArgs', 'PullThroughCacheRule']
@@ -21,10 +21,21 @@ class PullThroughCacheRuleArgs:
         :param pulumi.Input[str] ecr_repository_prefix: The ECRRepositoryPrefix is a custom alias for upstream registry url.
         :param pulumi.Input[str] upstream_registry_url: The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
         """
+        PullThroughCacheRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ecr_repository_prefix=ecr_repository_prefix,
+            upstream_registry_url=upstream_registry_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ecr_repository_prefix: Optional[pulumi.Input[str]] = None,
+             upstream_registry_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ecr_repository_prefix is not None:
-            pulumi.set(__self__, "ecr_repository_prefix", ecr_repository_prefix)
+            _setter("ecr_repository_prefix", ecr_repository_prefix)
         if upstream_registry_url is not None:
-            pulumi.set(__self__, "upstream_registry_url", upstream_registry_url)
+            _setter("upstream_registry_url", upstream_registry_url)
 
     @property
     @pulumi.getter(name="ecrRepositoryPrefix")
@@ -86,6 +97,10 @@ class PullThroughCacheRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PullThroughCacheRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -19,8 +19,19 @@ class EnvironmentEc2RepositoryArgs:
     def __init__(__self__, *,
                  path_component: pulumi.Input[str],
                  repository_url: pulumi.Input[str]):
-        pulumi.set(__self__, "path_component", path_component)
-        pulumi.set(__self__, "repository_url", repository_url)
+        EnvironmentEc2RepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path_component=path_component,
+            repository_url=repository_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path_component: pulumi.Input[str],
+             repository_url: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path_component", path_component)
+        _setter("repository_url", repository_url)
 
     @property
     @pulumi.getter(name="pathComponent")
@@ -46,8 +57,19 @@ class EnvironmentEc2TagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EnvironmentEc2TagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

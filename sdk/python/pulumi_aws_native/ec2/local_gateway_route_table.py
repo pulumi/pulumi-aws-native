@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,24 @@ class LocalGatewayRouteTableArgs:
         :param pulumi.Input[str] mode: The mode of the local gateway route table.
         :param pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableTagArgs']]] tags: The tags for the local gateway route table.
         """
-        pulumi.set(__self__, "local_gateway_id", local_gateway_id)
+        LocalGatewayRouteTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            local_gateway_id=local_gateway_id,
+            mode=mode,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             local_gateway_id: pulumi.Input[str],
+             mode: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("local_gateway_id", local_gateway_id)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="localGatewayId")
@@ -105,6 +118,10 @@ class LocalGatewayRouteTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocalGatewayRouteTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

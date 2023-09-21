@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -81,26 +81,53 @@ class AppMonitorConfiguration(dict):
         :param float session_sample_rate: Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
         :param Sequence['AppMonitorTelemetry'] telemetries: An array that lists the types of telemetry data that this app monitor is to collect.
         """
+        AppMonitorConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_cookies=allow_cookies,
+            enable_x_ray=enable_x_ray,
+            excluded_pages=excluded_pages,
+            favorite_pages=favorite_pages,
+            guest_role_arn=guest_role_arn,
+            identity_pool_id=identity_pool_id,
+            included_pages=included_pages,
+            metric_destinations=metric_destinations,
+            session_sample_rate=session_sample_rate,
+            telemetries=telemetries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_cookies: Optional[bool] = None,
+             enable_x_ray: Optional[bool] = None,
+             excluded_pages: Optional[Sequence[str]] = None,
+             favorite_pages: Optional[Sequence[str]] = None,
+             guest_role_arn: Optional[str] = None,
+             identity_pool_id: Optional[str] = None,
+             included_pages: Optional[Sequence[str]] = None,
+             metric_destinations: Optional[Sequence['outputs.AppMonitorMetricDestination']] = None,
+             session_sample_rate: Optional[float] = None,
+             telemetries: Optional[Sequence['AppMonitorTelemetry']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_cookies is not None:
-            pulumi.set(__self__, "allow_cookies", allow_cookies)
+            _setter("allow_cookies", allow_cookies)
         if enable_x_ray is not None:
-            pulumi.set(__self__, "enable_x_ray", enable_x_ray)
+            _setter("enable_x_ray", enable_x_ray)
         if excluded_pages is not None:
-            pulumi.set(__self__, "excluded_pages", excluded_pages)
+            _setter("excluded_pages", excluded_pages)
         if favorite_pages is not None:
-            pulumi.set(__self__, "favorite_pages", favorite_pages)
+            _setter("favorite_pages", favorite_pages)
         if guest_role_arn is not None:
-            pulumi.set(__self__, "guest_role_arn", guest_role_arn)
+            _setter("guest_role_arn", guest_role_arn)
         if identity_pool_id is not None:
-            pulumi.set(__self__, "identity_pool_id", identity_pool_id)
+            _setter("identity_pool_id", identity_pool_id)
         if included_pages is not None:
-            pulumi.set(__self__, "included_pages", included_pages)
+            _setter("included_pages", included_pages)
         if metric_destinations is not None:
-            pulumi.set(__self__, "metric_destinations", metric_destinations)
+            _setter("metric_destinations", metric_destinations)
         if session_sample_rate is not None:
-            pulumi.set(__self__, "session_sample_rate", session_sample_rate)
+            _setter("session_sample_rate", session_sample_rate)
         if telemetries is not None:
-            pulumi.set(__self__, "telemetries", telemetries)
+            _setter("telemetries", telemetries)
 
     @property
     @pulumi.getter(name="allowCookies")
@@ -194,8 +221,17 @@ class AppMonitorCustomEvents(dict):
         AppMonitor custom events configuration
         :param 'AppMonitorCustomEventsStatus' status: Indicates whether AppMonitor accepts custom events.
         """
+        AppMonitorCustomEvents._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional['AppMonitorCustomEventsStatus'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -304,17 +340,36 @@ class AppMonitorMetricDefinition(dict):
                
                If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
         """
-        pulumi.set(__self__, "name", name)
+        AppMonitorMetricDefinition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dimension_keys=dimension_keys,
+            event_pattern=event_pattern,
+            namespace=namespace,
+            unit_label=unit_label,
+            value_key=value_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             dimension_keys: Optional[Any] = None,
+             event_pattern: Optional[str] = None,
+             namespace: Optional[str] = None,
+             unit_label: Optional[str] = None,
+             value_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dimension_keys is not None:
-            pulumi.set(__self__, "dimension_keys", dimension_keys)
+            _setter("dimension_keys", dimension_keys)
         if event_pattern is not None:
-            pulumi.set(__self__, "event_pattern", event_pattern)
+            _setter("event_pattern", event_pattern)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if unit_label is not None:
-            pulumi.set(__self__, "unit_label", unit_label)
+            _setter("unit_label", unit_label)
         if value_key is not None:
-            pulumi.set(__self__, "value_key", value_key)
+            _setter("value_key", value_key)
 
     @property
     @pulumi.getter
@@ -459,13 +514,28 @@ class AppMonitorMetricDestination(dict):
                This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
         :param Sequence['AppMonitorMetricDefinition'] metric_definitions: An array of structures which define the metrics that you want to send.
         """
-        pulumi.set(__self__, "destination", destination)
+        AppMonitorMetricDestination._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            destination_arn=destination_arn,
+            iam_role_arn=iam_role_arn,
+            metric_definitions=metric_definitions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: 'AppMonitorMetricDestinationDestination',
+             destination_arn: Optional[str] = None,
+             iam_role_arn: Optional[str] = None,
+             metric_definitions: Optional[Sequence['outputs.AppMonitorMetricDefinition']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination", destination)
         if destination_arn is not None:
-            pulumi.set(__self__, "destination_arn", destination_arn)
+            _setter("destination_arn", destination_arn)
         if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+            _setter("iam_role_arn", iam_role_arn)
         if metric_definitions is not None:
-            pulumi.set(__self__, "metric_definitions", metric_definitions)
+            _setter("metric_definitions", metric_definitions)
 
     @property
     @pulumi.getter
@@ -515,8 +585,19 @@ class AppMonitorTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AppMonitorTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

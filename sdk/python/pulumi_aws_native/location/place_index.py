@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -25,14 +25,31 @@ class PlaceIndexArgs:
         """
         The set of arguments for constructing a PlaceIndex resource.
         """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "index_name", index_name)
+        PlaceIndexArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source=data_source,
+            index_name=index_name,
+            data_source_configuration=data_source_configuration,
+            description=description,
+            pricing_plan=pricing_plan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source: pulumi.Input[str],
+             index_name: pulumi.Input[str],
+             data_source_configuration: Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_source", data_source)
+        _setter("index_name", index_name)
         if data_source_configuration is not None:
-            pulumi.set(__self__, "data_source_configuration", data_source_configuration)
+            _setter("data_source_configuration", data_source_configuration)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if pricing_plan is not None:
-            pulumi.set(__self__, "pricing_plan", pricing_plan)
+            _setter("pricing_plan", pricing_plan)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -116,6 +133,10 @@ class PlaceIndex(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PlaceIndexArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -138,6 +159,11 @@ class PlaceIndex(pulumi.CustomResource):
             if data_source is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source'")
             __props__.__dict__["data_source"] = data_source
+            if not isinstance(data_source_configuration, PlaceIndexDataSourceConfigurationArgs):
+                data_source_configuration = data_source_configuration or {}
+                def _setter(key, value):
+                    data_source_configuration[key] = value
+                PlaceIndexDataSourceConfigurationArgs._configure(_setter, **data_source_configuration)
             __props__.__dict__["data_source_configuration"] = data_source_configuration
             __props__.__dict__["description"] = description
             if index_name is None and not opts.urn:

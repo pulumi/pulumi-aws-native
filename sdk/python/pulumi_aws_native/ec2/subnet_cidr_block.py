@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SubnetCidrBlockArgs', 'SubnetCidrBlock']
@@ -21,8 +21,19 @@ class SubnetCidrBlockArgs:
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
         :param pulumi.Input[str] subnet_id: The ID of the subnet
         """
-        pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        SubnetCidrBlockArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv6_cidr_block=ipv6_cidr_block,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv6_cidr_block: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ipv6_cidr_block", ipv6_cidr_block)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
@@ -84,6 +95,10 @@ class SubnetCidrBlock(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubnetCidrBlockArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

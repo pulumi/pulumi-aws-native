@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -24,9 +24,20 @@ class HealthCheckArgs:
         :param pulumi.Input['HealthCheckConfigPropertiesArgs'] health_check_config: A complex type that contains information about the health check.
         :param pulumi.Input[Sequence[pulumi.Input['HealthCheckTagArgs']]] health_check_tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "health_check_config", health_check_config)
+        HealthCheckArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_check_config=health_check_config,
+            health_check_tags=health_check_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_check_config: pulumi.Input['HealthCheckConfigPropertiesArgs'],
+             health_check_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HealthCheckTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("health_check_config", health_check_config)
         if health_check_tags is not None:
-            pulumi.set(__self__, "health_check_tags", health_check_tags)
+            _setter("health_check_tags", health_check_tags)
 
     @property
     @pulumi.getter(name="healthCheckConfig")
@@ -88,6 +99,10 @@ class HealthCheck(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HealthCheckArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -104,6 +119,11 @@ class HealthCheck(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HealthCheckArgs.__new__(HealthCheckArgs)
 
+            if not isinstance(health_check_config, HealthCheckConfigPropertiesArgs):
+                health_check_config = health_check_config or {}
+                def _setter(key, value):
+                    health_check_config[key] = value
+                HealthCheckConfigPropertiesArgs._configure(_setter, **health_check_config)
             if health_check_config is None and not opts.urn:
                 raise TypeError("Missing required property 'health_check_config'")
             __props__.__dict__["health_check_config"] = health_check_config

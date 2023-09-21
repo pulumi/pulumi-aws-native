@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,20 +28,43 @@ class FlywheelArgs:
         """
         The set of arguments for constructing a Flywheel resource.
         """
-        pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
-        pulumi.set(__self__, "data_lake_s3_uri", data_lake_s3_uri)
+        FlywheelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_access_role_arn=data_access_role_arn,
+            data_lake_s3_uri=data_lake_s3_uri,
+            active_model_arn=active_model_arn,
+            data_security_config=data_security_config,
+            flywheel_name=flywheel_name,
+            model_type=model_type,
+            tags=tags,
+            task_config=task_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_access_role_arn: pulumi.Input[str],
+             data_lake_s3_uri: pulumi.Input[str],
+             active_model_arn: Optional[pulumi.Input[str]] = None,
+             data_security_config: Optional[pulumi.Input['FlywheelDataSecurityConfigArgs']] = None,
+             flywheel_name: Optional[pulumi.Input[str]] = None,
+             model_type: Optional[pulumi.Input['FlywheelModelType']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlywheelTagArgs']]]] = None,
+             task_config: Optional[pulumi.Input['FlywheelTaskConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_access_role_arn", data_access_role_arn)
+        _setter("data_lake_s3_uri", data_lake_s3_uri)
         if active_model_arn is not None:
-            pulumi.set(__self__, "active_model_arn", active_model_arn)
+            _setter("active_model_arn", active_model_arn)
         if data_security_config is not None:
-            pulumi.set(__self__, "data_security_config", data_security_config)
+            _setter("data_security_config", data_security_config)
         if flywheel_name is not None:
-            pulumi.set(__self__, "flywheel_name", flywheel_name)
+            _setter("flywheel_name", flywheel_name)
         if model_type is not None:
-            pulumi.set(__self__, "model_type", model_type)
+            _setter("model_type", model_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if task_config is not None:
-            pulumi.set(__self__, "task_config", task_config)
+            _setter("task_config", task_config)
 
     @property
     @pulumi.getter(name="dataAccessRoleArn")
@@ -155,6 +178,10 @@ class Flywheel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlywheelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -184,10 +211,20 @@ class Flywheel(pulumi.CustomResource):
             if data_lake_s3_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'data_lake_s3_uri'")
             __props__.__dict__["data_lake_s3_uri"] = data_lake_s3_uri
+            if not isinstance(data_security_config, FlywheelDataSecurityConfigArgs):
+                data_security_config = data_security_config or {}
+                def _setter(key, value):
+                    data_security_config[key] = value
+                FlywheelDataSecurityConfigArgs._configure(_setter, **data_security_config)
             __props__.__dict__["data_security_config"] = data_security_config
             __props__.__dict__["flywheel_name"] = flywheel_name
             __props__.__dict__["model_type"] = model_type
             __props__.__dict__["tags"] = tags
+            if not isinstance(task_config, FlywheelTaskConfigArgs):
+                task_config = task_config or {}
+                def _setter(key, value):
+                    task_config[key] = value
+                FlywheelTaskConfigArgs._configure(_setter, **task_config)
             __props__.__dict__["task_config"] = task_config
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_lake_s3_uri", "flywheel_name", "model_type", "task_config"])

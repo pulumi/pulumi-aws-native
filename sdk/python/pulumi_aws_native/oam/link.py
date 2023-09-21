@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -23,12 +23,27 @@ class LinkArgs:
         The set of arguments for constructing a Link resource.
         :param Any tags: Tags to apply to the link
         """
-        pulumi.set(__self__, "resource_types", resource_types)
-        pulumi.set(__self__, "sink_identifier", sink_identifier)
+        LinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_types=resource_types,
+            sink_identifier=sink_identifier,
+            label_template=label_template,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_types: pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]],
+             sink_identifier: pulumi.Input[str],
+             label_template: Optional[pulumi.Input[str]] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_types", resource_types)
+        _setter("sink_identifier", sink_identifier)
         if label_template is not None:
-            pulumi.set(__self__, "label_template", label_template)
+            _setter("label_template", label_template)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceTypes")
@@ -106,6 +121,10 @@ class Link(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

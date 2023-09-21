@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,12 +27,27 @@ class EventStreamArgs:
         :param pulumi.Input[str] event_stream_name: The name of the event stream.
         :param pulumi.Input[Sequence[pulumi.Input['EventStreamTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "uri", uri)
+        EventStreamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            uri=uri,
+            event_stream_name=event_stream_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             uri: pulumi.Input[str],
+             event_stream_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventStreamTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
+        _setter("uri", uri)
         if event_stream_name is not None:
-            pulumi.set(__self__, "event_stream_name", event_stream_name)
+            _setter("event_stream_name", event_stream_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="domainName")
@@ -118,6 +133,10 @@ class EventStream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventStreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

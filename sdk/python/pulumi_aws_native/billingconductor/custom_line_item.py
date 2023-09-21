@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,17 +27,36 @@ class CustomLineItemArgs:
         The set of arguments for constructing a CustomLineItem resource.
         :param pulumi.Input[str] billing_group_arn: Billing Group ARN
         """
-        pulumi.set(__self__, "billing_group_arn", billing_group_arn)
+        CustomLineItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_group_arn=billing_group_arn,
+            billing_period_range=billing_period_range,
+            custom_line_item_charge_details=custom_line_item_charge_details,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_group_arn: pulumi.Input[str],
+             billing_period_range: Optional[pulumi.Input['CustomLineItemBillingPeriodRangeArgs']] = None,
+             custom_line_item_charge_details: Optional[pulumi.Input['CustomLineItemChargeDetailsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("billing_group_arn", billing_group_arn)
         if billing_period_range is not None:
-            pulumi.set(__self__, "billing_period_range", billing_period_range)
+            _setter("billing_period_range", billing_period_range)
         if custom_line_item_charge_details is not None:
-            pulumi.set(__self__, "custom_line_item_charge_details", custom_line_item_charge_details)
+            _setter("custom_line_item_charge_details", custom_line_item_charge_details)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="billingGroupArn")
@@ -140,6 +159,10 @@ class CustomLineItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomLineItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -164,7 +187,17 @@ class CustomLineItem(pulumi.CustomResource):
             if billing_group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_group_arn'")
             __props__.__dict__["billing_group_arn"] = billing_group_arn
+            if not isinstance(billing_period_range, CustomLineItemBillingPeriodRangeArgs):
+                billing_period_range = billing_period_range or {}
+                def _setter(key, value):
+                    billing_period_range[key] = value
+                CustomLineItemBillingPeriodRangeArgs._configure(_setter, **billing_period_range)
             __props__.__dict__["billing_period_range"] = billing_period_range
+            if not isinstance(custom_line_item_charge_details, CustomLineItemChargeDetailsArgs):
+                custom_line_item_charge_details = custom_line_item_charge_details or {}
+                def _setter(key, value):
+                    custom_line_item_charge_details[key] = value
+                CustomLineItemChargeDetailsArgs._configure(_setter, **custom_line_item_charge_details)
             __props__.__dict__["custom_line_item_charge_details"] = custom_line_item_charge_details
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,15 +27,34 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
-        pulumi.set(__self__, "environment_identifier", environment_identifier)
-        pulumi.set(__self__, "proxy_type", proxy_type)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_identifier=environment_identifier,
+            proxy_type=proxy_type,
+            vpc_id=vpc_id,
+            api_gateway_proxy=api_gateway_proxy,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_identifier: pulumi.Input[str],
+             proxy_type: pulumi.Input['ApplicationProxyType'],
+             vpc_id: pulumi.Input[str],
+             api_gateway_proxy: Optional[pulumi.Input['ApplicationApiGatewayProxyInputArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment_identifier", environment_identifier)
+        _setter("proxy_type", proxy_type)
+        _setter("vpc_id", vpc_id)
         if api_gateway_proxy is not None:
-            pulumi.set(__self__, "api_gateway_proxy", api_gateway_proxy)
+            _setter("api_gateway_proxy", api_gateway_proxy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="environmentIdentifier")
@@ -133,6 +152,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -153,6 +176,11 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
+            if not isinstance(api_gateway_proxy, ApplicationApiGatewayProxyInputArgs):
+                api_gateway_proxy = api_gateway_proxy or {}
+                def _setter(key, value):
+                    api_gateway_proxy[key] = value
+                ApplicationApiGatewayProxyInputArgs._configure(_setter, **api_gateway_proxy)
             __props__.__dict__["api_gateway_proxy"] = api_gateway_proxy
             if environment_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_identifier'")

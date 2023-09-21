@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -24,12 +24,27 @@ class IdentityProviderArgs:
         """
         The set of arguments for constructing a IdentityProvider resource.
         """
-        pulumi.set(__self__, "identity_provider_details", identity_provider_details)
-        pulumi.set(__self__, "identity_provider_type", identity_provider_type)
+        IdentityProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_provider_details=identity_provider_details,
+            identity_provider_type=identity_provider_type,
+            identity_provider_name=identity_provider_name,
+            portal_arn=portal_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_provider_details: pulumi.Input['IdentityProviderDetailsArgs'],
+             identity_provider_type: pulumi.Input['IdentityProviderType'],
+             identity_provider_name: Optional[pulumi.Input[str]] = None,
+             portal_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_provider_details", identity_provider_details)
+        _setter("identity_provider_type", identity_provider_type)
         if identity_provider_name is not None:
-            pulumi.set(__self__, "identity_provider_name", identity_provider_name)
+            _setter("identity_provider_name", identity_provider_name)
         if portal_arn is not None:
-            pulumi.set(__self__, "portal_arn", portal_arn)
+            _setter("portal_arn", portal_arn)
 
     @property
     @pulumi.getter(name="identityProviderDetails")
@@ -103,6 +118,10 @@ class IdentityProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -121,6 +140,11 @@ class IdentityProvider(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IdentityProviderArgs.__new__(IdentityProviderArgs)
 
+            if not isinstance(identity_provider_details, IdentityProviderDetailsArgs):
+                identity_provider_details = identity_provider_details or {}
+                def _setter(key, value):
+                    identity_provider_details[key] = value
+                IdentityProviderDetailsArgs._configure(_setter, **identity_provider_details)
             if identity_provider_details is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_provider_details'")
             __props__.__dict__["identity_provider_details"] = identity_provider_details

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,9 +21,20 @@ class DirectoryRegistrationArgs:
         """
         The set of arguments for constructing a DirectoryRegistration resource.
         """
-        pulumi.set(__self__, "directory_id", directory_id)
+        DirectoryRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_id=directory_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_id: pulumi.Input[str],
+             tags: Optional[pulumi.Input['DirectoryRegistrationTagsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("directory_id", directory_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -77,6 +88,10 @@ class DirectoryRegistration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DirectoryRegistrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -96,6 +111,11 @@ class DirectoryRegistration(pulumi.CustomResource):
             if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
+            if not isinstance(tags, DirectoryRegistrationTagsArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                DirectoryRegistrationTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["directory_registration_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["directory_id"])

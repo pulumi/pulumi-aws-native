@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,24 +28,49 @@ class GameSessionQueueArgs:
         """
         The set of arguments for constructing a GameSessionQueue resource.
         """
+        GameSessionQueueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_event_data=custom_event_data,
+            destinations=destinations,
+            filter_configuration=filter_configuration,
+            name=name,
+            notification_target=notification_target,
+            player_latency_policies=player_latency_policies,
+            priority_configuration=priority_configuration,
+            tags=tags,
+            timeout_in_seconds=timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_event_data: Optional[pulumi.Input[str]] = None,
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueueDestinationArgs']]]] = None,
+             filter_configuration: Optional[pulumi.Input['GameSessionQueueFilterConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_target: Optional[pulumi.Input[str]] = None,
+             player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]] = None,
+             priority_configuration: Optional[pulumi.Input['GameSessionQueuePriorityConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueueTagArgs']]]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_event_data is not None:
-            pulumi.set(__self__, "custom_event_data", custom_event_data)
+            _setter("custom_event_data", custom_event_data)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if filter_configuration is not None:
-            pulumi.set(__self__, "filter_configuration", filter_configuration)
+            _setter("filter_configuration", filter_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_target is not None:
-            pulumi.set(__self__, "notification_target", notification_target)
+            _setter("notification_target", notification_target)
         if player_latency_policies is not None:
-            pulumi.set(__self__, "player_latency_policies", player_latency_policies)
+            _setter("player_latency_policies", player_latency_policies)
         if priority_configuration is not None:
-            pulumi.set(__self__, "priority_configuration", priority_configuration)
+            _setter("priority_configuration", priority_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="customEventData")
@@ -174,6 +199,10 @@ class GameSessionQueue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GameSessionQueueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -200,10 +229,20 @@ class GameSessionQueue(pulumi.CustomResource):
 
             __props__.__dict__["custom_event_data"] = custom_event_data
             __props__.__dict__["destinations"] = destinations
+            if not isinstance(filter_configuration, GameSessionQueueFilterConfigurationArgs):
+                filter_configuration = filter_configuration or {}
+                def _setter(key, value):
+                    filter_configuration[key] = value
+                GameSessionQueueFilterConfigurationArgs._configure(_setter, **filter_configuration)
             __props__.__dict__["filter_configuration"] = filter_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_target"] = notification_target
             __props__.__dict__["player_latency_policies"] = player_latency_policies
+            if not isinstance(priority_configuration, GameSessionQueuePriorityConfigurationArgs):
+                priority_configuration = priority_configuration or {}
+                def _setter(key, value):
+                    priority_configuration[key] = value
+                GameSessionQueuePriorityConfigurationArgs._configure(_setter, **priority_configuration)
             __props__.__dict__["priority_configuration"] = priority_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds

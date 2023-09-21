@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,22 +27,45 @@ class DomainNameArgs:
         """
         The set of arguments for constructing a DomainName resource.
         """
+        DomainNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            domain_name=domain_name,
+            endpoint_configuration=endpoint_configuration,
+            mutual_tls_authentication=mutual_tls_authentication,
+            ownership_verification_certificate_arn=ownership_verification_certificate_arn,
+            regional_certificate_arn=regional_certificate_arn,
+            security_policy=security_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
+             mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
+             ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
+             regional_certificate_arn: Optional[pulumi.Input[str]] = None,
+             security_policy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if endpoint_configuration is not None:
-            pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
+            _setter("endpoint_configuration", endpoint_configuration)
         if mutual_tls_authentication is not None:
-            pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
+            _setter("mutual_tls_authentication", mutual_tls_authentication)
         if ownership_verification_certificate_arn is not None:
-            pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
+            _setter("ownership_verification_certificate_arn", ownership_verification_certificate_arn)
         if regional_certificate_arn is not None:
-            pulumi.set(__self__, "regional_certificate_arn", regional_certificate_arn)
+            _setter("regional_certificate_arn", regional_certificate_arn)
         if security_policy is not None:
-            pulumi.set(__self__, "security_policy", security_policy)
+            _setter("security_policy", security_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -156,6 +179,10 @@ class DomainName(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainNameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,7 +207,17 @@ class DomainName(pulumi.CustomResource):
 
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["domain_name"] = domain_name
+            if not isinstance(endpoint_configuration, DomainNameEndpointConfigurationArgs):
+                endpoint_configuration = endpoint_configuration or {}
+                def _setter(key, value):
+                    endpoint_configuration[key] = value
+                DomainNameEndpointConfigurationArgs._configure(_setter, **endpoint_configuration)
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
+            if not isinstance(mutual_tls_authentication, DomainNameMutualTlsAuthenticationArgs):
+                mutual_tls_authentication = mutual_tls_authentication or {}
+                def _setter(key, value):
+                    mutual_tls_authentication[key] = value
+                DomainNameMutualTlsAuthenticationArgs._configure(_setter, **mutual_tls_authentication)
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
             __props__.__dict__["ownership_verification_certificate_arn"] = ownership_verification_certificate_arn
             __props__.__dict__["regional_certificate_arn"] = regional_certificate_arn

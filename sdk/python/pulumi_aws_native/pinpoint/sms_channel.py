@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SmsChannelArgs', 'SmsChannel']
@@ -21,13 +21,28 @@ class SmsChannelArgs:
         """
         The set of arguments for constructing a SmsChannel resource.
         """
-        pulumi.set(__self__, "application_id", application_id)
+        SmsChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            enabled=enabled,
+            sender_id=sender_id,
+            short_code=short_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             sender_id: Optional[pulumi.Input[str]] = None,
+             short_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_id", application_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if sender_id is not None:
-            pulumi.set(__self__, "sender_id", sender_id)
+            _setter("sender_id", sender_id)
         if short_code is not None:
-            pulumi.set(__self__, "short_code", short_code)
+            _setter("short_code", short_code)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -106,6 +121,10 @@ class SmsChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SmsChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LogStreamArgs', 'LogStream']
@@ -21,9 +21,20 @@ class LogStreamArgs:
         :param pulumi.Input[str] log_group_name: The name of the log group where the log stream is created.
         :param pulumi.Input[str] log_stream_name: The name of the log stream. The name must be unique wihtin the log group.
         """
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        LogStreamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            log_stream_name=log_stream_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: pulumi.Input[str],
+             log_stream_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_group_name", log_group_name)
         if log_stream_name is not None:
-            pulumi.set(__self__, "log_stream_name", log_stream_name)
+            _setter("log_stream_name", log_stream_name)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -85,6 +96,10 @@ class LogStream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogStreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

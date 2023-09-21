@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,8 +35,17 @@ class ApplicationAutoStartConfiguration(dict):
         Configuration for Auto Start of Application
         :param bool enabled: If set to true, the Application will automatically start. Defaults to true.
         """
+        ApplicationAutoStartConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -77,10 +86,21 @@ class ApplicationAutoStopConfiguration(dict):
         :param bool enabled: If set to true, the Application will automatically stop after being idle. Defaults to true.
         :param int idle_timeout_minutes: The amount of time [in minutes] to wait before auto stopping the Application when idle. Defaults to 15 minutes.
         """
+        ApplicationAutoStopConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            idle_timeout_minutes=idle_timeout_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             idle_timeout_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if idle_timeout_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_minutes", idle_timeout_minutes)
+            _setter("idle_timeout_minutes", idle_timeout_minutes)
 
     @property
     @pulumi.getter
@@ -127,8 +147,17 @@ class ApplicationImageConfigurationInput(dict):
         The image configuration.
         :param str image_uri: The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
         """
+        ApplicationImageConfigurationInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_uri=image_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if image_uri is not None:
-            pulumi.set(__self__, "image_uri", image_uri)
+            _setter("image_uri", image_uri)
 
     @property
     @pulumi.getter(name="imageUri")
@@ -166,8 +195,19 @@ class ApplicationInitialCapacityConfig(dict):
         """
         :param int worker_count: Initial count of workers to be initialized when an Application is started. This count will be continued to be maintained until the Application is stopped
         """
-        pulumi.set(__self__, "worker_configuration", worker_configuration)
-        pulumi.set(__self__, "worker_count", worker_count)
+        ApplicationInitialCapacityConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            worker_configuration=worker_configuration,
+            worker_count=worker_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             worker_configuration: 'outputs.ApplicationWorkerConfiguration',
+             worker_count: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("worker_configuration", worker_configuration)
+        _setter("worker_count", worker_count)
 
     @property
     @pulumi.getter(name="workerConfiguration")
@@ -191,8 +231,19 @@ class ApplicationInitialCapacityConfigKeyValuePair(dict):
         """
         :param str key: Worker type for an analytics framework.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ApplicationInitialCapacityConfigKeyValuePair._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: 'outputs.ApplicationInitialCapacityConfig',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -219,10 +270,23 @@ class ApplicationMaximumAllowedResources(dict):
         :param str memory: Per worker memory resource. GB is the only supported unit and specifying GB is optional.
         :param str disk: Per worker Disk resource. GB is the only supported unit and specifying GB is optional
         """
-        pulumi.set(__self__, "cpu", cpu)
-        pulumi.set(__self__, "memory", memory)
+        ApplicationMaximumAllowedResources._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            memory=memory,
+            disk=disk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: str,
+             memory: str,
+             disk: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cpu", cpu)
+        _setter("memory", memory)
         if disk is not None:
-            pulumi.set(__self__, "disk", disk)
+            _setter("disk", disk)
 
     @property
     @pulumi.getter
@@ -277,10 +341,21 @@ class ApplicationNetworkConfiguration(dict):
         :param Sequence[str] security_group_ids: The ID of the security groups in the VPC to which you want to connect your job or application.
         :param Sequence[str] subnet_ids: The ID of the subnets in the VPC to which you want to connect your job or application.
         """
+        ApplicationNetworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Optional[Sequence[str]] = None,
+             subnet_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -312,8 +387,19 @@ class ApplicationTag(dict):
         :param str key: The value for the tag. You can specify a value that is 1 to 128 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ApplicationTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -343,10 +429,23 @@ class ApplicationWorkerConfiguration(dict):
         :param str memory: Per worker memory resource. GB is the only supported unit and specifying GB is optional.
         :param str disk: Per worker Disk resource. GB is the only supported unit and specifying GB is optional
         """
-        pulumi.set(__self__, "cpu", cpu)
-        pulumi.set(__self__, "memory", memory)
+        ApplicationWorkerConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            memory=memory,
+            disk=disk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: str,
+             memory: str,
+             disk: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cpu", cpu)
+        _setter("memory", memory)
         if disk is not None:
-            pulumi.set(__self__, "disk", disk)
+            _setter("disk", disk)
 
     @property
     @pulumi.getter
@@ -376,6 +475,11 @@ class ApplicationWorkerConfiguration(dict):
 @pulumi.output_type
 class ApplicationWorkerTypeSpecificationInputMap(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 

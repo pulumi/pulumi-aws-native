@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,7 +21,16 @@ class GroupMembershipMemberIdArgs:
         An object containing the identifier of a group member.
         :param pulumi.Input[str] user_id: The identifier for a user in the identity store.
         """
-        pulumi.set(__self__, "user_id", user_id)
+        GroupMembershipMemberIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="userId")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -25,6 +25,11 @@ class AllowListCriteriaArgs:
         The regex or s3 object to use for the AllowList.
         """
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -37,8 +42,19 @@ class AllowListTagArgs:
         :param pulumi.Input[str] key: The tag's key.
         :param pulumi.Input[str] value: The tag's value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AllowListTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -72,14 +88,28 @@ class FindingsFilterCriterionArgs:
         Map of filter criteria.
         """
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class FindingsFilterFindingCriteriaArgs:
     def __init__(__self__, *,
                  criterion: Optional[pulumi.Input['FindingsFilterCriterionArgs']] = None):
+        FindingsFilterFindingCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criterion=criterion,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criterion: Optional[pulumi.Input['FindingsFilterCriterionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if criterion is not None:
-            pulumi.set(__self__, "criterion", criterion)
+            _setter("criterion", criterion)
 
     @property
     @pulumi.getter
@@ -101,8 +131,19 @@ class FindingsFilterTagArgs:
         :param pulumi.Input[str] key: The tag's key.
         :param pulumi.Input[str] value: The tag's value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        FindingsFilterTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -49,11 +49,24 @@ class PipelineField(dict):
         :param str ref_value: A field value that you specify as an identifier of another object in the same pipeline definition.
         :param str string_value: A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
         """
-        pulumi.set(__self__, "key", key)
+        PipelineField._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            ref_value=ref_value,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             ref_value: Optional[str] = None,
+             string_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if ref_value is not None:
-            pulumi.set(__self__, "ref_value", ref_value)
+            _setter("ref_value", ref_value)
         if string_value is not None:
-            pulumi.set(__self__, "string_value", string_value)
+            _setter("string_value", string_value)
 
     @property
     @pulumi.getter
@@ -91,9 +104,22 @@ class PipelineObject(dict):
         :param str id: The ID of the object.
         :param str name: The name of the object.
         """
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        PipelineObject._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fields=fields,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fields: Sequence['outputs.PipelineField'],
+             id: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fields", fields)
+        _setter("id", id)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -146,8 +172,19 @@ class PipelineParameterAttribute(dict):
         :param str key: The field identifier.
         :param str string_value: The field value, expressed as a String.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "string_value", string_value)
+        PipelineParameterAttribute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             string_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("string_value", string_value)
 
     @property
     @pulumi.getter
@@ -175,8 +212,19 @@ class PipelineParameterObject(dict):
         :param Sequence['PipelineParameterAttribute'] attributes: The attributes of the parameter object.
         :param str id: The ID of the parameter object.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "id", id)
+        PipelineParameterObject._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Sequence['outputs.PipelineParameterAttribute'],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -221,8 +269,19 @@ class PipelineParameterValue(dict):
         :param str id: The ID of the parameter value.
         :param str string_value: The field value, expressed as a String.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "string_value", string_value)
+        PipelineParameterValue._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             string_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("string_value", string_value)
 
     @property
     @pulumi.getter
@@ -250,8 +309,19 @@ class PipelineTag(dict):
         :param str key: The key name of a tag.
         :param str value: The value to associate with the key name.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        PipelineTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

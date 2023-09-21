@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,17 +31,36 @@ class IntegrationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]] tags: The tags (keys and values) associated with the integration
         :param pulumi.Input[str] uri: The URI of the S3 bucket or any other type of data source.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
+        IntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            flow_definition=flow_definition,
+            object_type_name=object_type_name,
+            object_type_names=object_type_names,
+            tags=tags,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             flow_definition: Optional[pulumi.Input['IntegrationFlowDefinitionArgs']] = None,
+             object_type_name: Optional[pulumi.Input[str]] = None,
+             object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
         if flow_definition is not None:
-            pulumi.set(__self__, "flow_definition", flow_definition)
+            _setter("flow_definition", flow_definition)
         if object_type_name is not None:
-            pulumi.set(__self__, "object_type_name", object_type_name)
+            _setter("object_type_name", object_type_name)
         if object_type_names is not None:
-            pulumi.set(__self__, "object_type_names", object_type_names)
+            _setter("object_type_names", object_type_names)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="domainName")
@@ -155,6 +174,10 @@ class Integration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -178,6 +201,11 @@ class Integration(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            if not isinstance(flow_definition, IntegrationFlowDefinitionArgs):
+                flow_definition = flow_definition or {}
+                def _setter(key, value):
+                    flow_definition[key] = value
+                IntegrationFlowDefinitionArgs._configure(_setter, **flow_definition)
             __props__.__dict__["flow_definition"] = flow_definition
             __props__.__dict__["object_type_name"] = object_type_name
             __props__.__dict__["object_type_names"] = object_type_names

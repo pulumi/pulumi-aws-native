@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DestinationArgs', 'Destination']
@@ -25,12 +25,27 @@ class DestinationArgs:
         :param pulumi.Input[str] destination_name: The name of the destination resource
         :param pulumi.Input[str] destination_policy: An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "target_arn", target_arn)
+        DestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            target_arn=target_arn,
+            destination_name=destination_name,
+            destination_policy=destination_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             target_arn: pulumi.Input[str],
+             destination_name: Optional[pulumi.Input[str]] = None,
+             destination_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
+        _setter("target_arn", target_arn)
         if destination_name is not None:
-            pulumi.set(__self__, "destination_name", destination_name)
+            _setter("destination_name", destination_name)
         if destination_policy is not None:
-            pulumi.set(__self__, "destination_policy", destination_policy)
+            _setter("destination_policy", destination_policy)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -120,6 +135,10 @@ class Destination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

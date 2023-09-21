@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,28 +31,59 @@ class AppArgs:
         """
         The set of arguments for constructing a App resource.
         """
-        pulumi.set(__self__, "stack_id", stack_id)
-        pulumi.set(__self__, "type", type)
+        AppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stack_id=stack_id,
+            type=type,
+            app_source=app_source,
+            attributes=attributes,
+            data_sources=data_sources,
+            description=description,
+            domains=domains,
+            enable_ssl=enable_ssl,
+            environment=environment,
+            name=name,
+            shortname=shortname,
+            ssl_configuration=ssl_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stack_id: pulumi.Input[str],
+             type: pulumi.Input[str],
+             app_source: Optional[pulumi.Input['AppSourceArgs']] = None,
+             attributes: Optional[Any] = None,
+             data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['AppDataSourceArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_ssl: Optional[pulumi.Input[bool]] = None,
+             environment: Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             shortname: Optional[pulumi.Input[str]] = None,
+             ssl_configuration: Optional[pulumi.Input['AppSslConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("stack_id", stack_id)
+        _setter("type", type)
         if app_source is not None:
-            pulumi.set(__self__, "app_source", app_source)
+            _setter("app_source", app_source)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if data_sources is not None:
-            pulumi.set(__self__, "data_sources", data_sources)
+            _setter("data_sources", data_sources)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if domains is not None:
-            pulumi.set(__self__, "domains", domains)
+            _setter("domains", domains)
         if enable_ssl is not None:
-            pulumi.set(__self__, "enable_ssl", enable_ssl)
+            _setter("enable_ssl", enable_ssl)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if shortname is not None:
-            pulumi.set(__self__, "shortname", shortname)
+            _setter("shortname", shortname)
         if ssl_configuration is not None:
-            pulumi.set(__self__, "ssl_configuration", ssl_configuration)
+            _setter("ssl_configuration", ssl_configuration)
 
     @property
     @pulumi.getter(name="stackId")
@@ -211,6 +242,10 @@ class App(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -238,6 +273,11 @@ class App(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppArgs.__new__(AppArgs)
 
+            if not isinstance(app_source, AppSourceArgs):
+                app_source = app_source or {}
+                def _setter(key, value):
+                    app_source[key] = value
+                AppSourceArgs._configure(_setter, **app_source)
             __props__.__dict__["app_source"] = app_source
             __props__.__dict__["attributes"] = attributes
             __props__.__dict__["data_sources"] = data_sources
@@ -247,6 +287,11 @@ class App(pulumi.CustomResource):
             __props__.__dict__["environment"] = environment
             __props__.__dict__["name"] = name
             __props__.__dict__["shortname"] = shortname
+            if not isinstance(ssl_configuration, AppSslConfigurationArgs):
+                ssl_configuration = ssl_configuration or {}
+                def _setter(key, value):
+                    ssl_configuration[key] = value
+                AppSslConfigurationArgs._configure(_setter, **ssl_configuration)
             __props__.__dict__["ssl_configuration"] = ssl_configuration
             if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")

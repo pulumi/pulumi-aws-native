@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,22 +29,47 @@ class NetworkInsightsPathArgs:
         """
         The set of arguments for constructing a NetworkInsightsPath resource.
         """
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "source", source)
+        NetworkInsightsPathArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            source=source,
+            destination=destination,
+            destination_ip=destination_ip,
+            destination_port=destination_port,
+            filter_at_destination=filter_at_destination,
+            filter_at_source=filter_at_source,
+            source_ip=source_ip,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: pulumi.Input['NetworkInsightsPathProtocol'],
+             source: pulumi.Input[str],
+             destination: Optional[pulumi.Input[str]] = None,
+             destination_ip: Optional[pulumi.Input[str]] = None,
+             destination_port: Optional[pulumi.Input[int]] = None,
+             filter_at_destination: Optional[pulumi.Input['NetworkInsightsPathPathFilterArgs']] = None,
+             filter_at_source: Optional[pulumi.Input['NetworkInsightsPathPathFilterArgs']] = None,
+             source_ip: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsPathTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("protocol", protocol)
+        _setter("source", source)
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if destination_ip is not None:
-            pulumi.set(__self__, "destination_ip", destination_ip)
+            _setter("destination_ip", destination_ip)
         if destination_port is not None:
-            pulumi.set(__self__, "destination_port", destination_port)
+            _setter("destination_port", destination_port)
         if filter_at_destination is not None:
-            pulumi.set(__self__, "filter_at_destination", filter_at_destination)
+            _setter("filter_at_destination", filter_at_destination)
         if filter_at_source is not None:
-            pulumi.set(__self__, "filter_at_source", filter_at_source)
+            _setter("filter_at_source", filter_at_source)
         if source_ip is not None:
-            pulumi.set(__self__, "source_ip", source_ip)
+            _setter("source_ip", source_ip)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -168,6 +193,10 @@ class NetworkInsightsPath(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInsightsPathArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -194,7 +223,17 @@ class NetworkInsightsPath(pulumi.CustomResource):
             __props__.__dict__["destination"] = destination
             __props__.__dict__["destination_ip"] = destination_ip
             __props__.__dict__["destination_port"] = destination_port
+            if not isinstance(filter_at_destination, NetworkInsightsPathPathFilterArgs):
+                filter_at_destination = filter_at_destination or {}
+                def _setter(key, value):
+                    filter_at_destination[key] = value
+                NetworkInsightsPathPathFilterArgs._configure(_setter, **filter_at_destination)
             __props__.__dict__["filter_at_destination"] = filter_at_destination
+            if not isinstance(filter_at_source, NetworkInsightsPathPathFilterArgs):
+                filter_at_source = filter_at_source or {}
+                def _setter(key, value):
+                    filter_at_source[key] = value
+                NetworkInsightsPathPathFilterArgs._configure(_setter, **filter_at_source)
             __props__.__dict__["filter_at_source"] = filter_at_source
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")

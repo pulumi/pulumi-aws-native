@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -33,12 +33,25 @@ class DetectorCfnDataSourceConfigurationsArgs:
                  kubernetes: Optional[pulumi.Input['DetectorCfnKubernetesConfigurationArgs']] = None,
                  malware_protection: Optional[pulumi.Input['DetectorCfnMalwareProtectionConfigurationArgs']] = None,
                  s3_logs: Optional[pulumi.Input['DetectorCfns3LogsConfigurationArgs']] = None):
+        DetectorCfnDataSourceConfigurationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kubernetes=kubernetes,
+            malware_protection=malware_protection,
+            s3_logs=s3_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kubernetes: Optional[pulumi.Input['DetectorCfnKubernetesConfigurationArgs']] = None,
+             malware_protection: Optional[pulumi.Input['DetectorCfnMalwareProtectionConfigurationArgs']] = None,
+             s3_logs: Optional[pulumi.Input['DetectorCfns3LogsConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kubernetes is not None:
-            pulumi.set(__self__, "kubernetes", kubernetes)
+            _setter("kubernetes", kubernetes)
         if malware_protection is not None:
-            pulumi.set(__self__, "malware_protection", malware_protection)
+            _setter("malware_protection", malware_protection)
         if s3_logs is not None:
-            pulumi.set(__self__, "s3_logs", s3_logs)
+            _setter("s3_logs", s3_logs)
 
     @property
     @pulumi.getter
@@ -73,10 +86,21 @@ class DetectorCfnFeatureAdditionalConfigurationArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
+        DetectorCfnFeatureAdditionalConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -103,10 +127,23 @@ class DetectorCfnFeatureConfigurationArgs:
                  name: pulumi.Input['DetectorCfnFeatureConfigurationName'],
                  status: pulumi.Input['DetectorCfnFeatureConfigurationStatus'],
                  additional_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureAdditionalConfigurationArgs']]]] = None):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        DetectorCfnFeatureConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            status=status,
+            additional_configuration=additional_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input['DetectorCfnFeatureConfigurationName'],
+             status: pulumi.Input['DetectorCfnFeatureConfigurationStatus'],
+             additional_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureAdditionalConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("status", status)
         if additional_configuration is not None:
-            pulumi.set(__self__, "additional_configuration", additional_configuration)
+            _setter("additional_configuration", additional_configuration)
 
     @property
     @pulumi.getter
@@ -140,7 +177,16 @@ class DetectorCfnFeatureConfigurationArgs:
 class DetectorCfnKubernetesAuditLogsConfigurationArgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool]):
-        pulumi.set(__self__, "enable", enable)
+        DetectorCfnKubernetesAuditLogsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable=enable,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enable", enable)
 
     @property
     @pulumi.getter
@@ -156,7 +202,16 @@ class DetectorCfnKubernetesAuditLogsConfigurationArgs:
 class DetectorCfnKubernetesConfigurationArgs:
     def __init__(__self__, *,
                  audit_logs: pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']):
-        pulumi.set(__self__, "audit_logs", audit_logs)
+        DetectorCfnKubernetesConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audit_logs=audit_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audit_logs: pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("audit_logs", audit_logs)
 
     @property
     @pulumi.getter(name="auditLogs")
@@ -172,8 +227,17 @@ class DetectorCfnKubernetesConfigurationArgs:
 class DetectorCfnMalwareProtectionConfigurationArgs:
     def __init__(__self__, *,
                  scan_ec2_instance_with_findings: Optional[pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs']] = None):
+        DetectorCfnMalwareProtectionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scan_ec2_instance_with_findings=scan_ec2_instance_with_findings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scan_ec2_instance_with_findings: Optional[pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if scan_ec2_instance_with_findings is not None:
-            pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
+            _setter("scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
     @property
     @pulumi.getter(name="scanEc2InstanceWithFindings")
@@ -189,8 +253,17 @@ class DetectorCfnMalwareProtectionConfigurationArgs:
 class DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs:
     def __init__(__self__, *,
                  ebs_volumes: Optional[pulumi.Input[bool]] = None):
+        DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ebs_volumes=ebs_volumes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ebs_volumes: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ebs_volumes is not None:
-            pulumi.set(__self__, "ebs_volumes", ebs_volumes)
+            _setter("ebs_volumes", ebs_volumes)
 
     @property
     @pulumi.getter(name="ebsVolumes")
@@ -206,7 +279,16 @@ class DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs:
 class DetectorCfns3LogsConfigurationArgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool]):
-        pulumi.set(__self__, "enable", enable)
+        DetectorCfns3LogsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable=enable,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enable", enable)
 
     @property
     @pulumi.getter
@@ -223,8 +305,19 @@ class DetectorTagItemArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        DetectorTagItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -260,30 +353,61 @@ class FilterConditionArgs:
                  lte: Optional[pulumi.Input[int]] = None,
                  neq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        FilterConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eq=eq,
+            equals=equals,
+            greater_than=greater_than,
+            greater_than_or_equal=greater_than_or_equal,
+            gt=gt,
+            gte=gte,
+            less_than=less_than,
+            less_than_or_equal=less_than_or_equal,
+            lt=lt,
+            lte=lte,
+            neq=neq,
+            not_equals=not_equals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             greater_than: Optional[pulumi.Input[int]] = None,
+             greater_than_or_equal: Optional[pulumi.Input[int]] = None,
+             gt: Optional[pulumi.Input[int]] = None,
+             gte: Optional[pulumi.Input[int]] = None,
+             less_than: Optional[pulumi.Input[int]] = None,
+             less_than_or_equal: Optional[pulumi.Input[int]] = None,
+             lt: Optional[pulumi.Input[int]] = None,
+             lte: Optional[pulumi.Input[int]] = None,
+             neq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if eq is not None:
-            pulumi.set(__self__, "eq", eq)
+            _setter("eq", eq)
         if equals is not None:
-            pulumi.set(__self__, "equals", equals)
+            _setter("equals", equals)
         if greater_than is not None:
-            pulumi.set(__self__, "greater_than", greater_than)
+            _setter("greater_than", greater_than)
         if greater_than_or_equal is not None:
-            pulumi.set(__self__, "greater_than_or_equal", greater_than_or_equal)
+            _setter("greater_than_or_equal", greater_than_or_equal)
         if gt is not None:
-            pulumi.set(__self__, "gt", gt)
+            _setter("gt", gt)
         if gte is not None:
-            pulumi.set(__self__, "gte", gte)
+            _setter("gte", gte)
         if less_than is not None:
-            pulumi.set(__self__, "less_than", less_than)
+            _setter("less_than", less_than)
         if less_than_or_equal is not None:
-            pulumi.set(__self__, "less_than_or_equal", less_than_or_equal)
+            _setter("less_than_or_equal", less_than_or_equal)
         if lt is not None:
-            pulumi.set(__self__, "lt", lt)
+            _setter("lt", lt)
         if lte is not None:
-            pulumi.set(__self__, "lte", lte)
+            _setter("lte", lte)
         if neq is not None:
-            pulumi.set(__self__, "neq", neq)
+            _setter("neq", neq)
         if not_equals is not None:
-            pulumi.set(__self__, "not_equals", not_equals)
+            _setter("not_equals", not_equals)
 
     @property
     @pulumi.getter
@@ -399,10 +523,21 @@ class FilterFindingCriteriaArgs:
     def __init__(__self__, *,
                  criterion: Optional[Any] = None,
                  item_type: Optional[pulumi.Input['FilterConditionArgs']] = None):
+        FilterFindingCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criterion=criterion,
+            item_type=item_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criterion: Optional[Any] = None,
+             item_type: Optional[pulumi.Input['FilterConditionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if criterion is not None:
-            pulumi.set(__self__, "criterion", criterion)
+            _setter("criterion", criterion)
         if item_type is not None:
-            pulumi.set(__self__, "item_type", item_type)
+            _setter("item_type", item_type)
 
     @property
     @pulumi.getter
@@ -428,8 +563,19 @@ class FilterTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        FilterTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -455,8 +601,19 @@ class IpSetTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        IpSetTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -482,8 +639,19 @@ class ThreatIntelSetTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ThreatIntelSetTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

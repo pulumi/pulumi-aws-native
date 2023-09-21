@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -24,8 +24,19 @@ class ModuleVersionArgs:
                Recommended module naming pattern: company_or_organization::service::type::MODULE.
         :param pulumi.Input[str] module_package: The url to the S3 bucket containing the schema and template fragment for the module you want to register.
         """
-        pulumi.set(__self__, "module_name", module_name)
-        pulumi.set(__self__, "module_package", module_package)
+        ModuleVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            module_name=module_name,
+            module_package=module_package,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             module_name: pulumi.Input[str],
+             module_package: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("module_name", module_name)
+        _setter("module_package", module_package)
 
     @property
     @pulumi.getter(name="moduleName")
@@ -91,6 +102,10 @@ class ModuleVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ModuleVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

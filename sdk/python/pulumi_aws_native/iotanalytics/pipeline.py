@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,11 +22,24 @@ class PipelineArgs:
         """
         The set of arguments for constructing a Pipeline resource.
         """
-        pulumi.set(__self__, "pipeline_activities", pipeline_activities)
+        PipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pipeline_activities=pipeline_activities,
+            pipeline_name=pipeline_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pipeline_activities: pulumi.Input[Sequence[pulumi.Input['PipelineActivityArgs']]],
+             pipeline_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("pipeline_activities", pipeline_activities)
         if pipeline_name is not None:
-            pulumi.set(__self__, "pipeline_name", pipeline_name)
+            _setter("pipeline_name", pipeline_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="pipelineActivities")
@@ -90,6 +103,10 @@ class Pipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

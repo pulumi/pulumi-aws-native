@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,8 +21,19 @@ class ApplicationOutputResourceArgs:
         """
         The set of arguments for constructing a ApplicationOutputResource resource.
         """
-        pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "output", output)
+        ApplicationOutputResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            output=output,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: pulumi.Input[str],
+             output: pulumi.Input['ApplicationOutputResourceOutputArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_name", application_name)
+        _setter("output", output)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -81,6 +92,10 @@ class ApplicationOutputResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationOutputResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -101,6 +116,11 @@ class ApplicationOutputResource(pulumi.CustomResource):
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
+            if not isinstance(output, ApplicationOutputResourceOutputArgs):
+                output = output or {}
+                def _setter(key, value):
+                    output[key] = value
+                ApplicationOutputResourceOutputArgs._configure(_setter, **output)
             if output is None and not opts.urn:
                 raise TypeError("Missing required property 'output'")
             __props__.__dict__["output"] = output

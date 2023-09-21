@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AuthorizerArgs', 'Authorizer']
@@ -37,24 +37,51 @@ class AuthorizerArgs:
         :param pulumi.Input[str] name: The name of the authorizer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provider_arns: A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
         """
-        pulumi.set(__self__, "rest_api_id", rest_api_id)
-        pulumi.set(__self__, "type", type)
+        AuthorizerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rest_api_id=rest_api_id,
+            type=type,
+            auth_type=auth_type,
+            authorizer_credentials=authorizer_credentials,
+            authorizer_result_ttl_in_seconds=authorizer_result_ttl_in_seconds,
+            authorizer_uri=authorizer_uri,
+            identity_source=identity_source,
+            identity_validation_expression=identity_validation_expression,
+            name=name,
+            provider_arns=provider_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rest_api_id: pulumi.Input[str],
+             type: pulumi.Input[str],
+             auth_type: Optional[pulumi.Input[str]] = None,
+             authorizer_credentials: Optional[pulumi.Input[str]] = None,
+             authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+             authorizer_uri: Optional[pulumi.Input[str]] = None,
+             identity_source: Optional[pulumi.Input[str]] = None,
+             identity_validation_expression: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rest_api_id", rest_api_id)
+        _setter("type", type)
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if authorizer_credentials is not None:
-            pulumi.set(__self__, "authorizer_credentials", authorizer_credentials)
+            _setter("authorizer_credentials", authorizer_credentials)
         if authorizer_result_ttl_in_seconds is not None:
-            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+            _setter("authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
         if authorizer_uri is not None:
-            pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+            _setter("authorizer_uri", authorizer_uri)
         if identity_source is not None:
-            pulumi.set(__self__, "identity_source", identity_source)
+            _setter("identity_source", identity_source)
         if identity_validation_expression is not None:
-            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+            _setter("identity_validation_expression", identity_validation_expression)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provider_arns is not None:
-            pulumi.set(__self__, "provider_arns", provider_arns)
+            _setter("provider_arns", provider_arns)
 
     @property
     @pulumi.getter(name="restApiId")
@@ -228,6 +255,10 @@ class Authorizer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthorizerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

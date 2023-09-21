@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -61,46 +61,95 @@ class AlarmArgs:
         :param pulumi.Input[str] treat_missing_data: Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
         :param pulumi.Input[str] unit: The unit of the metric associated with the alarm.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        AlarmArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            evaluation_periods=evaluation_periods,
+            actions_enabled=actions_enabled,
+            alarm_actions=alarm_actions,
+            alarm_description=alarm_description,
+            alarm_name=alarm_name,
+            datapoints_to_alarm=datapoints_to_alarm,
+            dimensions=dimensions,
+            evaluate_low_sample_count_percentile=evaluate_low_sample_count_percentile,
+            extended_statistic=extended_statistic,
+            insufficient_data_actions=insufficient_data_actions,
+            metric_name=metric_name,
+            metrics=metrics,
+            namespace=namespace,
+            ok_actions=ok_actions,
+            period=period,
+            statistic=statistic,
+            threshold=threshold,
+            threshold_metric_id=threshold_metric_id,
+            treat_missing_data=treat_missing_data,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: pulumi.Input[str],
+             evaluation_periods: pulumi.Input[int],
+             actions_enabled: Optional[pulumi.Input[bool]] = None,
+             alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             alarm_description: Optional[pulumi.Input[str]] = None,
+             alarm_name: Optional[pulumi.Input[str]] = None,
+             datapoints_to_alarm: Optional[pulumi.Input[int]] = None,
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmDimensionArgs']]]] = None,
+             evaluate_low_sample_count_percentile: Optional[pulumi.Input[str]] = None,
+             extended_statistic: Optional[pulumi.Input[str]] = None,
+             insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             metrics: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmMetricDataQueryArgs']]]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             period: Optional[pulumi.Input[int]] = None,
+             statistic: Optional[pulumi.Input[str]] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
+             threshold_metric_id: Optional[pulumi.Input[str]] = None,
+             treat_missing_data: Optional[pulumi.Input[str]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison_operator", comparison_operator)
+        _setter("evaluation_periods", evaluation_periods)
         if actions_enabled is not None:
-            pulumi.set(__self__, "actions_enabled", actions_enabled)
+            _setter("actions_enabled", actions_enabled)
         if alarm_actions is not None:
-            pulumi.set(__self__, "alarm_actions", alarm_actions)
+            _setter("alarm_actions", alarm_actions)
         if alarm_description is not None:
-            pulumi.set(__self__, "alarm_description", alarm_description)
+            _setter("alarm_description", alarm_description)
         if alarm_name is not None:
-            pulumi.set(__self__, "alarm_name", alarm_name)
+            _setter("alarm_name", alarm_name)
         if datapoints_to_alarm is not None:
-            pulumi.set(__self__, "datapoints_to_alarm", datapoints_to_alarm)
+            _setter("datapoints_to_alarm", datapoints_to_alarm)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if evaluate_low_sample_count_percentile is not None:
-            pulumi.set(__self__, "evaluate_low_sample_count_percentile", evaluate_low_sample_count_percentile)
+            _setter("evaluate_low_sample_count_percentile", evaluate_low_sample_count_percentile)
         if extended_statistic is not None:
-            pulumi.set(__self__, "extended_statistic", extended_statistic)
+            _setter("extended_statistic", extended_statistic)
         if insufficient_data_actions is not None:
-            pulumi.set(__self__, "insufficient_data_actions", insufficient_data_actions)
+            _setter("insufficient_data_actions", insufficient_data_actions)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
+            _setter("metrics", metrics)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if ok_actions is not None:
-            pulumi.set(__self__, "ok_actions", ok_actions)
+            _setter("ok_actions", ok_actions)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if statistic is not None:
-            pulumi.set(__self__, "statistic", statistic)
+            _setter("statistic", statistic)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
         if threshold_metric_id is not None:
-            pulumi.set(__self__, "threshold_metric_id", threshold_metric_id)
+            _setter("threshold_metric_id", threshold_metric_id)
         if treat_missing_data is not None:
-            pulumi.set(__self__, "treat_missing_data", treat_missing_data)
+            _setter("treat_missing_data", treat_missing_data)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -428,6 +477,10 @@ class Alarm(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AlarmArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

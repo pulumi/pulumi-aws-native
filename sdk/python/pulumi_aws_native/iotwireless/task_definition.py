@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,36 @@ class TaskDefinitionArgs:
         :param pulumi.Input['TaskDefinitionType'] task_definition_type: A filter to list only the wireless gateway task definitions that use this task definition type
         :param pulumi.Input['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs'] update: Information about the gateways to update.
         """
-        pulumi.set(__self__, "auto_create_tasks", auto_create_tasks)
+        TaskDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_create_tasks=auto_create_tasks,
+            lo_ra_wan_update_gateway_task_entry=lo_ra_wan_update_gateway_task_entry,
+            name=name,
+            tags=tags,
+            task_definition_type=task_definition_type,
+            update=update,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_create_tasks: pulumi.Input[bool],
+             lo_ra_wan_update_gateway_task_entry: Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]] = None,
+             task_definition_type: Optional[pulumi.Input['TaskDefinitionType']] = None,
+             update: Optional[pulumi.Input['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_create_tasks", auto_create_tasks)
         if lo_ra_wan_update_gateway_task_entry is not None:
-            pulumi.set(__self__, "lo_ra_wan_update_gateway_task_entry", lo_ra_wan_update_gateway_task_entry)
+            _setter("lo_ra_wan_update_gateway_task_entry", lo_ra_wan_update_gateway_task_entry)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if task_definition_type is not None:
-            pulumi.set(__self__, "task_definition_type", task_definition_type)
+            _setter("task_definition_type", task_definition_type)
         if update is not None:
-            pulumi.set(__self__, "update", update)
+            _setter("update", update)
 
     @property
     @pulumi.getter(name="autoCreateTasks")
@@ -160,6 +179,10 @@ class TaskDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TaskDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -183,10 +206,20 @@ class TaskDefinition(pulumi.CustomResource):
             if auto_create_tasks is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_create_tasks'")
             __props__.__dict__["auto_create_tasks"] = auto_create_tasks
+            if not isinstance(lo_ra_wan_update_gateway_task_entry, TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs):
+                lo_ra_wan_update_gateway_task_entry = lo_ra_wan_update_gateway_task_entry or {}
+                def _setter(key, value):
+                    lo_ra_wan_update_gateway_task_entry[key] = value
+                TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs._configure(_setter, **lo_ra_wan_update_gateway_task_entry)
             __props__.__dict__["lo_ra_wan_update_gateway_task_entry"] = lo_ra_wan_update_gateway_task_entry
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_definition_type"] = task_definition_type
+            if not isinstance(update, TaskDefinitionUpdateWirelessGatewayTaskCreateArgs):
+                update = update or {}
+                def _setter(key, value):
+                    update[key] = value
+                TaskDefinitionUpdateWirelessGatewayTaskCreateArgs._configure(_setter, **update)
             __props__.__dict__["update"] = update
             __props__.__dict__["arn"] = None
         super(TaskDefinition, __self__).__init__(

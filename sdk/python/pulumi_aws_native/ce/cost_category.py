@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,14 +26,31 @@ class CostCategoryArgs:
         :param pulumi.Input[str] default_value: The default value for the cost category
         :param pulumi.Input[str] split_charge_rules: Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         """
-        pulumi.set(__self__, "rule_version", rule_version)
-        pulumi.set(__self__, "rules", rules)
+        CostCategoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_version=rule_version,
+            rules=rules,
+            default_value=default_value,
+            name=name,
+            split_charge_rules=split_charge_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_version: pulumi.Input['CostCategoryRuleVersion'],
+             rules: pulumi.Input[str],
+             default_value: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             split_charge_rules: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_version", rule_version)
+        _setter("rules", rules)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if split_charge_rules is not None:
-            pulumi.set(__self__, "split_charge_rules", split_charge_rules)
+            _setter("split_charge_rules", split_charge_rules)
 
     @property
     @pulumi.getter(name="ruleVersion")
@@ -129,6 +146,10 @@ class CostCategory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CostCategoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

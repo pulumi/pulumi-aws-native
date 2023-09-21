@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -47,8 +47,17 @@ class CanaryArtifactConfig(dict):
         """
         :param 'CanaryS3Encryption' s3_encryption: Encryption configuration for uploading artifacts to S3
         """
+        CanaryArtifactConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_encryption=s3_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_encryption: Optional['outputs.CanaryS3Encryption'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_encryption is not None:
-            pulumi.set(__self__, "s3_encryption", s3_encryption)
+            _setter("s3_encryption", s3_encryption)
 
     @property
     @pulumi.getter(name="s3Encryption")
@@ -87,9 +96,20 @@ class CanaryBaseScreenshot(dict):
         :param str screenshot_name: Name of the screenshot to be used as base reference for visual testing
         :param Sequence[str] ignore_coordinates: List of coordinates of rectangles to be ignored during visual testing
         """
-        pulumi.set(__self__, "screenshot_name", screenshot_name)
+        CanaryBaseScreenshot._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            screenshot_name=screenshot_name,
+            ignore_coordinates=ignore_coordinates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             screenshot_name: str,
+             ignore_coordinates: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("screenshot_name", screenshot_name)
         if ignore_coordinates is not None:
-            pulumi.set(__self__, "ignore_coordinates", ignore_coordinates)
+            _setter("ignore_coordinates", ignore_coordinates)
 
     @property
     @pulumi.getter(name="screenshotName")
@@ -140,17 +160,36 @@ class CanaryCode(dict):
                  s3_object_version: Optional[str] = None,
                  script: Optional[str] = None,
                  source_location_arn: Optional[str] = None):
-        pulumi.set(__self__, "handler", handler)
+        CanaryCode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            handler=handler,
+            s3_bucket=s3_bucket,
+            s3_key=s3_key,
+            s3_object_version=s3_object_version,
+            script=script,
+            source_location_arn=source_location_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             handler: str,
+             s3_bucket: Optional[str] = None,
+             s3_key: Optional[str] = None,
+             s3_object_version: Optional[str] = None,
+             script: Optional[str] = None,
+             source_location_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("handler", handler)
         if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+            _setter("s3_bucket", s3_bucket)
         if s3_key is not None:
-            pulumi.set(__self__, "s3_key", s3_key)
+            _setter("s3_key", s3_key)
         if s3_object_version is not None:
-            pulumi.set(__self__, "s3_object_version", s3_object_version)
+            _setter("s3_object_version", s3_object_version)
         if script is not None:
-            pulumi.set(__self__, "script", script)
+            _setter("script", script)
         if source_location_arn is not None:
-            pulumi.set(__self__, "source_location_arn", source_location_arn)
+            _setter("source_location_arn", source_location_arn)
 
     @property
     @pulumi.getter
@@ -219,14 +258,29 @@ class CanaryRunConfig(dict):
         :param int memory_in_mb: Provide maximum memory available for canary in MB
         :param int timeout_in_seconds: Provide maximum canary timeout per run in seconds
         """
+        CanaryRunConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_tracing=active_tracing,
+            environment_variables=environment_variables,
+            memory_in_mb=memory_in_mb,
+            timeout_in_seconds=timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_tracing: Optional[bool] = None,
+             environment_variables: Optional[Any] = None,
+             memory_in_mb: Optional[int] = None,
+             timeout_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if active_tracing is not None:
-            pulumi.set(__self__, "active_tracing", active_tracing)
+            _setter("active_tracing", active_tracing)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if memory_in_mb is not None:
-            pulumi.set(__self__, "memory_in_mb", memory_in_mb)
+            _setter("memory_in_mb", memory_in_mb)
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="activeTracing")
@@ -289,10 +343,21 @@ class CanaryS3Encryption(dict):
         :param str encryption_mode: Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
         :param str kms_key_arn: KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
         """
+        CanaryS3Encryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_mode=encryption_mode,
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_mode: Optional[str] = None,
+             kms_key_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_mode is not None:
-            pulumi.set(__self__, "encryption_mode", encryption_mode)
+            _setter("encryption_mode", encryption_mode)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="encryptionMode")
@@ -333,9 +398,20 @@ class CanarySchedule(dict):
     def __init__(__self__, *,
                  expression: str,
                  duration_in_seconds: Optional[str] = None):
-        pulumi.set(__self__, "expression", expression)
+        CanarySchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            duration_in_seconds=duration_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: str,
+             duration_in_seconds: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expression", expression)
         if duration_in_seconds is not None:
-            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+            _setter("duration_in_seconds", duration_in_seconds)
 
     @property
     @pulumi.getter
@@ -361,8 +437,19 @@ class CanaryTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        CanaryTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -409,9 +496,20 @@ class CanaryVisualReference(dict):
         :param str base_canary_run_id: Canary run id to be used as base reference for visual testing
         :param Sequence['CanaryBaseScreenshot'] base_screenshots: List of screenshots used as base reference for visual testing
         """
-        pulumi.set(__self__, "base_canary_run_id", base_canary_run_id)
+        CanaryVisualReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_canary_run_id=base_canary_run_id,
+            base_screenshots=base_screenshots,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_canary_run_id: str,
+             base_screenshots: Optional[Sequence['outputs.CanaryBaseScreenshot']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("base_canary_run_id", base_canary_run_id)
         if base_screenshots is not None:
-            pulumi.set(__self__, "base_screenshots", base_screenshots)
+            _setter("base_screenshots", base_screenshots)
 
     @property
     @pulumi.getter(name="baseCanaryRunId")
@@ -457,10 +555,23 @@ class CanaryVpcConfig(dict):
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
                  vpc_id: Optional[str] = None):
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        CanaryVpcConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Sequence[str],
+             subnet_ids: Sequence[str],
+             vpc_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("security_group_ids", security_group_ids)
+        _setter("subnet_ids", subnet_ids)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -491,8 +602,19 @@ class GroupTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        GroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

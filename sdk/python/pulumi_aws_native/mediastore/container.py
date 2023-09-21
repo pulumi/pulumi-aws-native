@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,20 +26,41 @@ class ContainerArgs:
         """
         The set of arguments for constructing a Container resource.
         """
+        ContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_logging_enabled=access_logging_enabled,
+            container_name=container_name,
+            cors_policy=cors_policy,
+            lifecycle_policy=lifecycle_policy,
+            metric_policy=metric_policy,
+            policy=policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_logging_enabled: Optional[pulumi.Input[bool]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             cors_policy: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerCorsRuleArgs']]]] = None,
+             lifecycle_policy: Optional[pulumi.Input[str]] = None,
+             metric_policy: Optional[pulumi.Input['ContainerMetricPolicyArgs']] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_logging_enabled is not None:
-            pulumi.set(__self__, "access_logging_enabled", access_logging_enabled)
+            _setter("access_logging_enabled", access_logging_enabled)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if cors_policy is not None:
-            pulumi.set(__self__, "cors_policy", cors_policy)
+            _setter("cors_policy", cors_policy)
         if lifecycle_policy is not None:
-            pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
+            _setter("lifecycle_policy", lifecycle_policy)
         if metric_policy is not None:
-            pulumi.set(__self__, "metric_policy", metric_policy)
+            _setter("metric_policy", metric_policy)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accessLoggingEnabled")
@@ -148,6 +169,10 @@ class Container(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -174,6 +199,11 @@ class Container(pulumi.CustomResource):
             __props__.__dict__["container_name"] = container_name
             __props__.__dict__["cors_policy"] = cors_policy
             __props__.__dict__["lifecycle_policy"] = lifecycle_policy
+            if not isinstance(metric_policy, ContainerMetricPolicyArgs):
+                metric_policy = metric_policy or {}
+                def _setter(key, value):
+                    metric_policy[key] = value
+                ContainerMetricPolicyArgs._configure(_setter, **metric_policy)
             __props__.__dict__["metric_policy"] = metric_policy
             __props__.__dict__["policy"] = policy
             __props__.__dict__["tags"] = tags

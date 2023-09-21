@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,23 +39,50 @@ class DistributionArgs:
         :param pulumi.Input[bool] is_enabled: Indicates whether the distribution is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "bundle_id", bundle_id)
-        pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
-        pulumi.set(__self__, "origin", origin)
+        DistributionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bundle_id=bundle_id,
+            default_cache_behavior=default_cache_behavior,
+            origin=origin,
+            cache_behavior_settings=cache_behavior_settings,
+            cache_behaviors=cache_behaviors,
+            certificate_name=certificate_name,
+            distribution_name=distribution_name,
+            ip_address_type=ip_address_type,
+            is_enabled=is_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bundle_id: pulumi.Input[str],
+             default_cache_behavior: pulumi.Input['DistributionCacheBehaviorArgs'],
+             origin: pulumi.Input['DistributionInputOriginArgs'],
+             cache_behavior_settings: Optional[pulumi.Input['DistributionCacheSettingsArgs']] = None,
+             cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorPerPathArgs']]]] = None,
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             distribution_name: Optional[pulumi.Input[str]] = None,
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bundle_id", bundle_id)
+        _setter("default_cache_behavior", default_cache_behavior)
+        _setter("origin", origin)
         if cache_behavior_settings is not None:
-            pulumi.set(__self__, "cache_behavior_settings", cache_behavior_settings)
+            _setter("cache_behavior_settings", cache_behavior_settings)
         if cache_behaviors is not None:
-            pulumi.set(__self__, "cache_behaviors", cache_behaviors)
+            _setter("cache_behaviors", cache_behaviors)
         if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
+            _setter("certificate_name", certificate_name)
         if distribution_name is not None:
-            pulumi.set(__self__, "distribution_name", distribution_name)
+            _setter("distribution_name", distribution_name)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="bundleId")
@@ -234,6 +261,10 @@ class Distribution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DistributionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -262,15 +293,30 @@ class Distribution(pulumi.CustomResource):
             if bundle_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bundle_id'")
             __props__.__dict__["bundle_id"] = bundle_id
+            if not isinstance(cache_behavior_settings, DistributionCacheSettingsArgs):
+                cache_behavior_settings = cache_behavior_settings or {}
+                def _setter(key, value):
+                    cache_behavior_settings[key] = value
+                DistributionCacheSettingsArgs._configure(_setter, **cache_behavior_settings)
             __props__.__dict__["cache_behavior_settings"] = cache_behavior_settings
             __props__.__dict__["cache_behaviors"] = cache_behaviors
             __props__.__dict__["certificate_name"] = certificate_name
+            if not isinstance(default_cache_behavior, DistributionCacheBehaviorArgs):
+                default_cache_behavior = default_cache_behavior or {}
+                def _setter(key, value):
+                    default_cache_behavior[key] = value
+                DistributionCacheBehaviorArgs._configure(_setter, **default_cache_behavior)
             if default_cache_behavior is None and not opts.urn:
                 raise TypeError("Missing required property 'default_cache_behavior'")
             __props__.__dict__["default_cache_behavior"] = default_cache_behavior
             __props__.__dict__["distribution_name"] = distribution_name
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["is_enabled"] = is_enabled
+            if not isinstance(origin, DistributionInputOriginArgs):
+                origin = origin or {}
+                def _setter(key, value):
+                    origin[key] = value
+                DistributionInputOriginArgs._configure(_setter, **origin)
             if origin is None and not opts.urn:
                 raise TypeError("Missing required property 'origin'")
             __props__.__dict__["origin"] = origin

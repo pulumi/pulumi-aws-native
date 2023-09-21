@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,30 +32,61 @@ class FileSystemArgs:
         The set of arguments for constructing a FileSystem resource.
         :param pulumi.Input[bool] bypass_policy_lockout_safety_check: Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
         """
+        FileSystemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone_name=availability_zone_name,
+            backup_policy=backup_policy,
+            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
+            encrypted=encrypted,
+            file_system_policy=file_system_policy,
+            file_system_tags=file_system_tags,
+            kms_key_id=kms_key_id,
+            lifecycle_policies=lifecycle_policies,
+            performance_mode=performance_mode,
+            provisioned_throughput_in_mibps=provisioned_throughput_in_mibps,
+            replication_configuration=replication_configuration,
+            throughput_mode=throughput_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone_name: Optional[pulumi.Input[str]] = None,
+             backup_policy: Optional[pulumi.Input['FileSystemBackupPolicyArgs']] = None,
+             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
+             encrypted: Optional[pulumi.Input[bool]] = None,
+             file_system_policy: Optional[Any] = None,
+             file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemElasticFileSystemTagArgs']]]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]] = None,
+             performance_mode: Optional[pulumi.Input[str]] = None,
+             provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
+             replication_configuration: Optional[pulumi.Input['FileSystemReplicationConfigurationArgs']] = None,
+             throughput_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone_name is not None:
-            pulumi.set(__self__, "availability_zone_name", availability_zone_name)
+            _setter("availability_zone_name", availability_zone_name)
         if backup_policy is not None:
-            pulumi.set(__self__, "backup_policy", backup_policy)
+            _setter("backup_policy", backup_policy)
         if bypass_policy_lockout_safety_check is not None:
-            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if file_system_policy is not None:
-            pulumi.set(__self__, "file_system_policy", file_system_policy)
+            _setter("file_system_policy", file_system_policy)
         if file_system_tags is not None:
-            pulumi.set(__self__, "file_system_tags", file_system_tags)
+            _setter("file_system_tags", file_system_tags)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if lifecycle_policies is not None:
-            pulumi.set(__self__, "lifecycle_policies", lifecycle_policies)
+            _setter("lifecycle_policies", lifecycle_policies)
         if performance_mode is not None:
-            pulumi.set(__self__, "performance_mode", performance_mode)
+            _setter("performance_mode", performance_mode)
         if provisioned_throughput_in_mibps is not None:
-            pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
+            _setter("provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
         if replication_configuration is not None:
-            pulumi.set(__self__, "replication_configuration", replication_configuration)
+            _setter("replication_configuration", replication_configuration)
         if throughput_mode is not None:
-            pulumi.set(__self__, "throughput_mode", throughput_mode)
+            _setter("throughput_mode", throughput_mode)
 
     @property
     @pulumi.getter(name="availabilityZoneName")
@@ -213,6 +244,10 @@ class FileSystem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileSystemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -240,6 +275,11 @@ class FileSystem(pulumi.CustomResource):
             __props__ = FileSystemArgs.__new__(FileSystemArgs)
 
             __props__.__dict__["availability_zone_name"] = availability_zone_name
+            if not isinstance(backup_policy, FileSystemBackupPolicyArgs):
+                backup_policy = backup_policy or {}
+                def _setter(key, value):
+                    backup_policy[key] = value
+                FileSystemBackupPolicyArgs._configure(_setter, **backup_policy)
             __props__.__dict__["backup_policy"] = backup_policy
             __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
             __props__.__dict__["encrypted"] = encrypted
@@ -249,6 +289,11 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["lifecycle_policies"] = lifecycle_policies
             __props__.__dict__["performance_mode"] = performance_mode
             __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
+            if not isinstance(replication_configuration, FileSystemReplicationConfigurationArgs):
+                replication_configuration = replication_configuration or {}
+                def _setter(key, value):
+                    replication_configuration[key] = value
+                FileSystemReplicationConfigurationArgs._configure(_setter, **replication_configuration)
             __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["throughput_mode"] = throughput_mode
             __props__.__dict__["arn"] = None

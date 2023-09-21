@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,28 +31,59 @@ class DataSourceArgs:
         """
         The set of arguments for constructing a DataSource resource.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "type", type)
+        DataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            type=type,
+            description=description,
+            dynamo_db_config=dynamo_db_config,
+            elasticsearch_config=elasticsearch_config,
+            event_bridge_config=event_bridge_config,
+            http_config=http_config,
+            lambda_config=lambda_config,
+            name=name,
+            open_search_service_config=open_search_service_config,
+            relational_database_config=relational_database_config,
+            service_role_arn=service_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             type: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             dynamo_db_config: Optional[pulumi.Input['DataSourceDynamoDbConfigArgs']] = None,
+             elasticsearch_config: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']] = None,
+             event_bridge_config: Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']] = None,
+             http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
+             lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             open_search_service_config: Optional[pulumi.Input['DataSourceOpenSearchServiceConfigArgs']] = None,
+             relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
+             service_role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_id", api_id)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dynamo_db_config is not None:
-            pulumi.set(__self__, "dynamo_db_config", dynamo_db_config)
+            _setter("dynamo_db_config", dynamo_db_config)
         if elasticsearch_config is not None:
-            pulumi.set(__self__, "elasticsearch_config", elasticsearch_config)
+            _setter("elasticsearch_config", elasticsearch_config)
         if event_bridge_config is not None:
-            pulumi.set(__self__, "event_bridge_config", event_bridge_config)
+            _setter("event_bridge_config", event_bridge_config)
         if http_config is not None:
-            pulumi.set(__self__, "http_config", http_config)
+            _setter("http_config", http_config)
         if lambda_config is not None:
-            pulumi.set(__self__, "lambda_config", lambda_config)
+            _setter("lambda_config", lambda_config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if open_search_service_config is not None:
-            pulumi.set(__self__, "open_search_service_config", open_search_service_config)
+            _setter("open_search_service_config", open_search_service_config)
         if relational_database_config is not None:
-            pulumi.set(__self__, "relational_database_config", relational_database_config)
+            _setter("relational_database_config", relational_database_config)
         if service_role_arn is not None:
-            pulumi.set(__self__, "service_role_arn", service_role_arn)
+            _setter("service_role_arn", service_role_arn)
 
     @property
     @pulumi.getter(name="apiId")
@@ -211,6 +242,10 @@ class DataSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -242,13 +277,48 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["description"] = description
+            if not isinstance(dynamo_db_config, DataSourceDynamoDbConfigArgs):
+                dynamo_db_config = dynamo_db_config or {}
+                def _setter(key, value):
+                    dynamo_db_config[key] = value
+                DataSourceDynamoDbConfigArgs._configure(_setter, **dynamo_db_config)
             __props__.__dict__["dynamo_db_config"] = dynamo_db_config
+            if not isinstance(elasticsearch_config, DataSourceElasticsearchConfigArgs):
+                elasticsearch_config = elasticsearch_config or {}
+                def _setter(key, value):
+                    elasticsearch_config[key] = value
+                DataSourceElasticsearchConfigArgs._configure(_setter, **elasticsearch_config)
             __props__.__dict__["elasticsearch_config"] = elasticsearch_config
+            if not isinstance(event_bridge_config, DataSourceEventBridgeConfigArgs):
+                event_bridge_config = event_bridge_config or {}
+                def _setter(key, value):
+                    event_bridge_config[key] = value
+                DataSourceEventBridgeConfigArgs._configure(_setter, **event_bridge_config)
             __props__.__dict__["event_bridge_config"] = event_bridge_config
+            if not isinstance(http_config, DataSourceHttpConfigArgs):
+                http_config = http_config or {}
+                def _setter(key, value):
+                    http_config[key] = value
+                DataSourceHttpConfigArgs._configure(_setter, **http_config)
             __props__.__dict__["http_config"] = http_config
+            if not isinstance(lambda_config, DataSourceLambdaConfigArgs):
+                lambda_config = lambda_config or {}
+                def _setter(key, value):
+                    lambda_config[key] = value
+                DataSourceLambdaConfigArgs._configure(_setter, **lambda_config)
             __props__.__dict__["lambda_config"] = lambda_config
             __props__.__dict__["name"] = name
+            if not isinstance(open_search_service_config, DataSourceOpenSearchServiceConfigArgs):
+                open_search_service_config = open_search_service_config or {}
+                def _setter(key, value):
+                    open_search_service_config[key] = value
+                DataSourceOpenSearchServiceConfigArgs._configure(_setter, **open_search_service_config)
             __props__.__dict__["open_search_service_config"] = open_search_service_config
+            if not isinstance(relational_database_config, DataSourceRelationalDatabaseConfigArgs):
+                relational_database_config = relational_database_config or {}
+                def _setter(key, value):
+                    relational_database_config[key] = value
+                DataSourceRelationalDatabaseConfigArgs._configure(_setter, **relational_database_config)
             __props__.__dict__["relational_database_config"] = relational_database_config
             __props__.__dict__["service_role_arn"] = service_role_arn
             if type is None and not opts.urn:

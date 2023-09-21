@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,11 +22,24 @@ class ConfigurationRecorderArgs:
         """
         The set of arguments for constructing a ConfigurationRecorder resource.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
+        ConfigurationRecorderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            name=name,
+            recording_group=recording_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             recording_group: Optional[pulumi.Input['ConfigurationRecorderRecordingGroupArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recording_group is not None:
-            pulumi.set(__self__, "recording_group", recording_group)
+            _setter("recording_group", recording_group)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -95,6 +108,10 @@ class ConfigurationRecorder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationRecorderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -114,6 +131,11 @@ class ConfigurationRecorder(pulumi.CustomResource):
             __props__ = ConfigurationRecorderArgs.__new__(ConfigurationRecorderArgs)
 
             __props__.__dict__["name"] = name
+            if not isinstance(recording_group, ConfigurationRecorderRecordingGroupArgs):
+                recording_group = recording_group or {}
+                def _setter(key, value):
+                    recording_group[key] = value
+                ConfigurationRecorderRecordingGroupArgs._configure(_setter, **recording_group)
             __props__.__dict__["recording_group"] = recording_group
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

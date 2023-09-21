@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GrantArgs', 'Grant']
@@ -26,18 +26,37 @@ class GrantArgs:
         :param pulumi.Input[str] home_region: Home region for the created grant.
         :param pulumi.Input[str] license_arn: License Arn for the grant.
         """
+        GrantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_operations=allowed_operations,
+            grant_name=grant_name,
+            home_region=home_region,
+            license_arn=license_arn,
+            principals=principals,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_operations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             grant_name: Optional[pulumi.Input[str]] = None,
+             home_region: Optional[pulumi.Input[str]] = None,
+             license_arn: Optional[pulumi.Input[str]] = None,
+             principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_operations is not None:
-            pulumi.set(__self__, "allowed_operations", allowed_operations)
+            _setter("allowed_operations", allowed_operations)
         if grant_name is not None:
-            pulumi.set(__self__, "grant_name", grant_name)
+            _setter("grant_name", grant_name)
         if home_region is not None:
-            pulumi.set(__self__, "home_region", home_region)
+            _setter("home_region", home_region)
         if license_arn is not None:
-            pulumi.set(__self__, "license_arn", license_arn)
+            _setter("license_arn", license_arn)
         if principals is not None:
-            pulumi.set(__self__, "principals", principals)
+            _setter("principals", principals)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="allowedOperations")
@@ -143,6 +162,10 @@ class Grant(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GrantArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

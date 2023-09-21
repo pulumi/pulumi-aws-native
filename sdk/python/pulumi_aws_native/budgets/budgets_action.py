@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,15 +28,38 @@ class BudgetsActionArgs:
         """
         The set of arguments for constructing a BudgetsAction resource.
         """
-        pulumi.set(__self__, "action_threshold", action_threshold)
-        pulumi.set(__self__, "action_type", action_type)
-        pulumi.set(__self__, "budget_name", budget_name)
-        pulumi.set(__self__, "definition", definition)
-        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
-        pulumi.set(__self__, "notification_type", notification_type)
-        pulumi.set(__self__, "subscribers", subscribers)
+        BudgetsActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_threshold=action_threshold,
+            action_type=action_type,
+            budget_name=budget_name,
+            definition=definition,
+            execution_role_arn=execution_role_arn,
+            notification_type=notification_type,
+            subscribers=subscribers,
+            approval_model=approval_model,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_threshold: pulumi.Input['BudgetsActionActionThresholdArgs'],
+             action_type: pulumi.Input['BudgetsActionActionType'],
+             budget_name: pulumi.Input[str],
+             definition: pulumi.Input['BudgetsActionDefinitionArgs'],
+             execution_role_arn: pulumi.Input[str],
+             notification_type: pulumi.Input['BudgetsActionNotificationType'],
+             subscribers: pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]],
+             approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_threshold", action_threshold)
+        _setter("action_type", action_type)
+        _setter("budget_name", budget_name)
+        _setter("definition", definition)
+        _setter("execution_role_arn", execution_role_arn)
+        _setter("notification_type", notification_type)
+        _setter("subscribers", subscribers)
         if approval_model is not None:
-            pulumi.set(__self__, "approval_model", approval_model)
+            _setter("approval_model", approval_model)
 
     @property
     @pulumi.getter(name="actionThreshold")
@@ -150,6 +173,10 @@ class BudgetsAction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BudgetsActionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -172,6 +199,11 @@ class BudgetsAction(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BudgetsActionArgs.__new__(BudgetsActionArgs)
 
+            if not isinstance(action_threshold, BudgetsActionActionThresholdArgs):
+                action_threshold = action_threshold or {}
+                def _setter(key, value):
+                    action_threshold[key] = value
+                BudgetsActionActionThresholdArgs._configure(_setter, **action_threshold)
             if action_threshold is None and not opts.urn:
                 raise TypeError("Missing required property 'action_threshold'")
             __props__.__dict__["action_threshold"] = action_threshold
@@ -182,6 +214,11 @@ class BudgetsAction(pulumi.CustomResource):
             if budget_name is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_name'")
             __props__.__dict__["budget_name"] = budget_name
+            if not isinstance(definition, BudgetsActionDefinitionArgs):
+                definition = definition or {}
+                def _setter(key, value):
+                    definition[key] = value
+                BudgetsActionDefinitionArgs._configure(_setter, **definition)
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition

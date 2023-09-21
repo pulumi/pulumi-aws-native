@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,48 @@ class GlobalReplicationGroupArgs:
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. 
         :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]] regional_configurations: Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
         """
-        pulumi.set(__self__, "members", members)
+        GlobalReplicationGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            members=members,
+            automatic_failover_enabled=automatic_failover_enabled,
+            cache_node_type=cache_node_type,
+            cache_parameter_group_name=cache_parameter_group_name,
+            engine_version=engine_version,
+            global_node_group_count=global_node_group_count,
+            global_replication_group_description=global_replication_group_description,
+            global_replication_group_id_suffix=global_replication_group_id_suffix,
+            regional_configurations=regional_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             members: pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupMemberArgs']]],
+             automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
+             cache_node_type: Optional[pulumi.Input[str]] = None,
+             cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             global_node_group_count: Optional[pulumi.Input[int]] = None,
+             global_replication_group_description: Optional[pulumi.Input[str]] = None,
+             global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+             regional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("members", members)
         if automatic_failover_enabled is not None:
-            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
+            _setter("automatic_failover_enabled", automatic_failover_enabled)
         if cache_node_type is not None:
-            pulumi.set(__self__, "cache_node_type", cache_node_type)
+            _setter("cache_node_type", cache_node_type)
         if cache_parameter_group_name is not None:
-            pulumi.set(__self__, "cache_parameter_group_name", cache_parameter_group_name)
+            _setter("cache_parameter_group_name", cache_parameter_group_name)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if global_node_group_count is not None:
-            pulumi.set(__self__, "global_node_group_count", global_node_group_count)
+            _setter("global_node_group_count", global_node_group_count)
         if global_replication_group_description is not None:
-            pulumi.set(__self__, "global_replication_group_description", global_replication_group_description)
+            _setter("global_replication_group_description", global_replication_group_description)
         if global_replication_group_id_suffix is not None:
-            pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
+            _setter("global_replication_group_id_suffix", global_replication_group_id_suffix)
         if regional_configurations is not None:
-            pulumi.set(__self__, "regional_configurations", regional_configurations)
+            _setter("regional_configurations", regional_configurations)
 
     @property
     @pulumi.getter
@@ -214,6 +239,10 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GlobalReplicationGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

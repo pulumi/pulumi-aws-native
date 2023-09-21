@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,19 @@ class TagAssociationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TagAssociationLfTagPairArgs']]] lf_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
         :param pulumi.Input['TagAssociationResourceArgs'] resource: Resource to tag with the Lake Formation Tags
         """
-        pulumi.set(__self__, "lf_tags", lf_tags)
-        pulumi.set(__self__, "resource", resource)
+        TagAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lf_tags=lf_tags,
+            resource=resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lf_tags: pulumi.Input[Sequence[pulumi.Input['TagAssociationLfTagPairArgs']]],
+             resource: pulumi.Input['TagAssociationResourceArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lf_tags", lf_tags)
+        _setter("resource", resource)
 
     @property
     @pulumi.getter(name="lfTags")
@@ -86,6 +97,10 @@ class TagAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -105,6 +120,11 @@ class TagAssociation(pulumi.CustomResource):
             if lf_tags is None and not opts.urn:
                 raise TypeError("Missing required property 'lf_tags'")
             __props__.__dict__["lf_tags"] = lf_tags
+            if not isinstance(resource, TagAssociationResourceArgs):
+                resource = resource or {}
+                def _setter(key, value):
+                    resource[key] = value
+                TagAssociationResourceArgs._configure(_setter, **resource)
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__.__dict__["resource"] = resource

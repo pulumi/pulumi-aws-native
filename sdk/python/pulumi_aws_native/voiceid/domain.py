@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,13 +23,28 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
         """
-        pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+        DomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_side_encryption_configuration=server_side_encryption_configuration,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_side_encryption_configuration: pulumi.Input['DomainServerSideEncryptionConfigurationArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("server_side_encryption_configuration", server_side_encryption_configuration)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
@@ -103,6 +118,10 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -123,6 +142,11 @@ class Domain(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if not isinstance(server_side_encryption_configuration, DomainServerSideEncryptionConfigurationArgs):
+                server_side_encryption_configuration = server_side_encryption_configuration or {}
+                def _setter(key, value):
+                    server_side_encryption_configuration[key] = value
+                DomainServerSideEncryptionConfigurationArgs._configure(_setter, **server_side_encryption_configuration)
             if server_side_encryption_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'server_side_encryption_configuration'")
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration

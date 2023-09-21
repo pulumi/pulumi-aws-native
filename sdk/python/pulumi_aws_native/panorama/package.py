@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,12 +22,25 @@ class PackageArgs:
         """
         The set of arguments for constructing a Package resource.
         """
+        PackageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            package_name=package_name,
+            storage_location=storage_location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             package_name: Optional[pulumi.Input[str]] = None,
+             storage_location: Optional[pulumi.Input['PackageStorageLocationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackageTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if package_name is not None:
-            pulumi.set(__self__, "package_name", package_name)
+            _setter("package_name", package_name)
         if storage_location is not None:
-            pulumi.set(__self__, "storage_location", storage_location)
+            _setter("storage_location", storage_location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="packageName")
@@ -91,6 +104,10 @@ class Package(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PackageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -109,6 +126,11 @@ class Package(pulumi.CustomResource):
             __props__ = PackageArgs.__new__(PackageArgs)
 
             __props__.__dict__["package_name"] = package_name
+            if not isinstance(storage_location, PackageStorageLocationArgs):
+                storage_location = storage_location or {}
+                def _setter(key, value):
+                    storage_location[key] = value
+                PackageStorageLocationArgs._configure(_setter, **storage_location)
             __props__.__dict__["storage_location"] = storage_location
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

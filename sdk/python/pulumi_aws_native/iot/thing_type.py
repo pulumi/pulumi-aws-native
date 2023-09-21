@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,14 +24,29 @@ class ThingTypeArgs:
         The set of arguments for constructing a ThingType resource.
         :param pulumi.Input[Sequence[pulumi.Input['ThingTypeTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        ThingTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deprecate_thing_type=deprecate_thing_type,
+            tags=tags,
+            thing_type_name=thing_type_name,
+            thing_type_properties=thing_type_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deprecate_thing_type: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypeTagArgs']]]] = None,
+             thing_type_name: Optional[pulumi.Input[str]] = None,
+             thing_type_properties: Optional[pulumi.Input['ThingTypePropertiesPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deprecate_thing_type is not None:
-            pulumi.set(__self__, "deprecate_thing_type", deprecate_thing_type)
+            _setter("deprecate_thing_type", deprecate_thing_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if thing_type_name is not None:
-            pulumi.set(__self__, "thing_type_name", thing_type_name)
+            _setter("thing_type_name", thing_type_name)
         if thing_type_properties is not None:
-            pulumi.set(__self__, "thing_type_properties", thing_type_properties)
+            _setter("thing_type_properties", thing_type_properties)
 
     @property
     @pulumi.getter(name="deprecateThingType")
@@ -109,6 +124,10 @@ class ThingType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ThingTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -130,6 +149,11 @@ class ThingType(pulumi.CustomResource):
             __props__.__dict__["deprecate_thing_type"] = deprecate_thing_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["thing_type_name"] = thing_type_name
+            if not isinstance(thing_type_properties, ThingTypePropertiesPropertiesArgs):
+                thing_type_properties = thing_type_properties or {}
+                def _setter(key, value):
+                    thing_type_properties[key] = value
+                ThingTypePropertiesPropertiesArgs._configure(_setter, **thing_type_properties)
             __props__.__dict__["thing_type_properties"] = thing_type_properties
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["thing_type_name", "thing_type_properties"])

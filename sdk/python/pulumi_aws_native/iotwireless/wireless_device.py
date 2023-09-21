@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,43 @@ class WirelessDeviceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WirelessDeviceTagArgs']]] tags: A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         :param pulumi.Input[str] thing_arn: Thing arn. Passed into update to associate Thing with Wireless device.
         """
-        pulumi.set(__self__, "destination_name", destination_name)
-        pulumi.set(__self__, "type", type)
+        WirelessDeviceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_name=destination_name,
+            type=type,
+            description=description,
+            last_uplink_received_at=last_uplink_received_at,
+            lo_ra_wan=lo_ra_wan,
+            name=name,
+            tags=tags,
+            thing_arn=thing_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_name: pulumi.Input[str],
+             type: pulumi.Input['WirelessDeviceType'],
+             description: Optional[pulumi.Input[str]] = None,
+             last_uplink_received_at: Optional[pulumi.Input[str]] = None,
+             lo_ra_wan: Optional[pulumi.Input['WirelessDeviceLoRaWanDeviceArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceTagArgs']]]] = None,
+             thing_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_name", destination_name)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if last_uplink_received_at is not None:
-            pulumi.set(__self__, "last_uplink_received_at", last_uplink_received_at)
+            _setter("last_uplink_received_at", last_uplink_received_at)
         if lo_ra_wan is not None:
-            pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
+            _setter("lo_ra_wan", lo_ra_wan)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if thing_arn is not None:
-            pulumi.set(__self__, "thing_arn", thing_arn)
+            _setter("thing_arn", thing_arn)
 
     @property
     @pulumi.getter(name="destinationName")
@@ -195,6 +218,10 @@ class WirelessDevice(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WirelessDeviceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -222,6 +249,11 @@ class WirelessDevice(pulumi.CustomResource):
                 raise TypeError("Missing required property 'destination_name'")
             __props__.__dict__["destination_name"] = destination_name
             __props__.__dict__["last_uplink_received_at"] = last_uplink_received_at
+            if not isinstance(lo_ra_wan, WirelessDeviceLoRaWanDeviceArgs):
+                lo_ra_wan = lo_ra_wan or {}
+                def _setter(key, value):
+                    lo_ra_wan[key] = value
+                WirelessDeviceLoRaWanDeviceArgs._configure(_setter, **lo_ra_wan)
             __props__.__dict__["lo_ra_wan"] = lo_ra_wan
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

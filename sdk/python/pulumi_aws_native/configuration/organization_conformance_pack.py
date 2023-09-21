@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,20 +33,41 @@ class OrganizationConformancePackArgs:
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body.
         :param pulumi.Input[str] template_s3_uri: Location of file containing the template body.
         """
+        OrganizationConformancePackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conformance_pack_input_parameters=conformance_pack_input_parameters,
+            delivery_s3_bucket=delivery_s3_bucket,
+            delivery_s3_key_prefix=delivery_s3_key_prefix,
+            excluded_accounts=excluded_accounts,
+            organization_conformance_pack_name=organization_conformance_pack_name,
+            template_body=template_body,
+            template_s3_uri=template_s3_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConformancePackConformancePackInputParameterArgs']]]] = None,
+             delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
+             delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             organization_conformance_pack_name: Optional[pulumi.Input[str]] = None,
+             template_body: Optional[pulumi.Input[str]] = None,
+             template_s3_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if conformance_pack_input_parameters is not None:
-            pulumi.set(__self__, "conformance_pack_input_parameters", conformance_pack_input_parameters)
+            _setter("conformance_pack_input_parameters", conformance_pack_input_parameters)
         if delivery_s3_bucket is not None:
-            pulumi.set(__self__, "delivery_s3_bucket", delivery_s3_bucket)
+            _setter("delivery_s3_bucket", delivery_s3_bucket)
         if delivery_s3_key_prefix is not None:
-            pulumi.set(__self__, "delivery_s3_key_prefix", delivery_s3_key_prefix)
+            _setter("delivery_s3_key_prefix", delivery_s3_key_prefix)
         if excluded_accounts is not None:
-            pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+            _setter("excluded_accounts", excluded_accounts)
         if organization_conformance_pack_name is not None:
-            pulumi.set(__self__, "organization_conformance_pack_name", organization_conformance_pack_name)
+            _setter("organization_conformance_pack_name", organization_conformance_pack_name)
         if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
+            _setter("template_body", template_body)
         if template_s3_uri is not None:
-            pulumi.set(__self__, "template_s3_uri", template_s3_uri)
+            _setter("template_s3_uri", template_s3_uri)
 
     @property
     @pulumi.getter(name="conformancePackInputParameters")
@@ -178,6 +199,10 @@ class OrganizationConformancePack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationConformancePackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

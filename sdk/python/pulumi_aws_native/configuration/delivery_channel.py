@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,17 +25,36 @@ class DeliveryChannelArgs:
         """
         The set of arguments for constructing a DeliveryChannel resource.
         """
-        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        DeliveryChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket_name=s3_bucket_name,
+            config_snapshot_delivery_properties=config_snapshot_delivery_properties,
+            name=name,
+            s3_key_prefix=s3_key_prefix,
+            s3_kms_key_arn=s3_kms_key_arn,
+            sns_topic_arn=sns_topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket_name: pulumi.Input[str],
+             config_snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
+             sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_bucket_name", s3_bucket_name)
         if config_snapshot_delivery_properties is not None:
-            pulumi.set(__self__, "config_snapshot_delivery_properties", config_snapshot_delivery_properties)
+            _setter("config_snapshot_delivery_properties", config_snapshot_delivery_properties)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if s3_key_prefix is not None:
-            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+            _setter("s3_key_prefix", s3_key_prefix)
         if s3_kms_key_arn is not None:
-            pulumi.set(__self__, "s3_kms_key_arn", s3_kms_key_arn)
+            _setter("s3_kms_key_arn", s3_kms_key_arn)
         if sns_topic_arn is not None:
-            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+            _setter("sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -134,6 +153,10 @@ class DeliveryChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeliveryChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -155,6 +178,11 @@ class DeliveryChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeliveryChannelArgs.__new__(DeliveryChannelArgs)
 
+            if not isinstance(config_snapshot_delivery_properties, DeliveryChannelConfigSnapshotDeliveryPropertiesArgs):
+                config_snapshot_delivery_properties = config_snapshot_delivery_properties or {}
+                def _setter(key, value):
+                    config_snapshot_delivery_properties[key] = value
+                DeliveryChannelConfigSnapshotDeliveryPropertiesArgs._configure(_setter, **config_snapshot_delivery_properties)
             __props__.__dict__["config_snapshot_delivery_properties"] = config_snapshot_delivery_properties
             __props__.__dict__["name"] = name
             if s3_bucket_name is None and not opts.urn:

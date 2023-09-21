@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,11 +23,26 @@ class InsightRuleArgs:
         """
         The set of arguments for constructing a InsightRule resource.
         """
-        pulumi.set(__self__, "rule_body", rule_body)
-        pulumi.set(__self__, "rule_name", rule_name)
-        pulumi.set(__self__, "rule_state", rule_state)
+        InsightRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_body=rule_body,
+            rule_name=rule_name,
+            rule_state=rule_state,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_body: pulumi.Input[str],
+             rule_name: pulumi.Input[str],
+             rule_state: pulumi.Input[str],
+             tags: Optional[pulumi.Input['InsightRuleTagsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_body", rule_body)
+        _setter("rule_name", rule_name)
+        _setter("rule_state", rule_state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="ruleBody")
@@ -106,6 +121,10 @@ class InsightRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InsightRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -134,6 +153,11 @@ class InsightRule(pulumi.CustomResource):
             if rule_state is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_state'")
             __props__.__dict__["rule_state"] = rule_state
+            if not isinstance(tags, InsightRuleTagsArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                InsightRuleTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["rule_name"])

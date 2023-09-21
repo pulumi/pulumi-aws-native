@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,10 +23,23 @@ class LoggingConfigurationInitArgs:
         """
         The set of arguments for constructing a LoggingConfiguration resource.
         """
-        pulumi.set(__self__, "firewall_arn", firewall_arn)
-        pulumi.set(__self__, "logging_configuration", logging_configuration)
+        LoggingConfigurationInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_arn=firewall_arn,
+            logging_configuration=logging_configuration,
+            firewall_name=firewall_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_arn: pulumi.Input[str],
+             logging_configuration: pulumi.Input['LoggingConfigurationArgs'],
+             firewall_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("firewall_arn", firewall_arn)
+        _setter("logging_configuration", logging_configuration)
         if firewall_name is not None:
-            pulumi.set(__self__, "firewall_name", firewall_name)
+            _setter("firewall_name", firewall_name)
 
     @property
     @pulumi.getter(name="firewallArn")
@@ -90,6 +103,10 @@ class LoggingConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoggingConfigurationInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -111,6 +128,11 @@ class LoggingConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'firewall_arn'")
             __props__.__dict__["firewall_arn"] = firewall_arn
             __props__.__dict__["firewall_name"] = firewall_name
+            if not isinstance(logging_configuration, LoggingConfigurationArgs):
+                logging_configuration = logging_configuration or {}
+                def _setter(key, value):
+                    logging_configuration[key] = value
+                LoggingConfigurationArgs._configure(_setter, **logging_configuration)
             if logging_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'logging_configuration'")
             __props__.__dict__["logging_configuration"] = logging_configuration

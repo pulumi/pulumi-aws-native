@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,15 +30,34 @@ class StudioArgs:
         :param pulumi.Input[str] user_role_arn: <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
         :param pulumi.Input[str] studio_name: <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
         """
-        pulumi.set(__self__, "admin_role_arn", admin_role_arn)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "user_role_arn", user_role_arn)
+        StudioArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_role_arn=admin_role_arn,
+            display_name=display_name,
+            user_role_arn=user_role_arn,
+            studio_encryption_configuration=studio_encryption_configuration,
+            studio_name=studio_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_role_arn: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             user_role_arn: pulumi.Input[str],
+             studio_encryption_configuration: Optional[pulumi.Input['StudioEncryptionConfigurationArgs']] = None,
+             studio_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input['StudioTagsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_role_arn", admin_role_arn)
+        _setter("display_name", display_name)
+        _setter("user_role_arn", user_role_arn)
         if studio_encryption_configuration is not None:
-            pulumi.set(__self__, "studio_encryption_configuration", studio_encryption_configuration)
+            _setter("studio_encryption_configuration", studio_encryption_configuration)
         if studio_name is not None:
-            pulumi.set(__self__, "studio_name", studio_name)
+            _setter("studio_name", studio_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="adminRoleArn")
@@ -148,6 +167,10 @@ class Studio(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StudioArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -174,8 +197,18 @@ class Studio(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            if not isinstance(studio_encryption_configuration, StudioEncryptionConfigurationArgs):
+                studio_encryption_configuration = studio_encryption_configuration or {}
+                def _setter(key, value):
+                    studio_encryption_configuration[key] = value
+                StudioEncryptionConfigurationArgs._configure(_setter, **studio_encryption_configuration)
             __props__.__dict__["studio_encryption_configuration"] = studio_encryption_configuration
             __props__.__dict__["studio_name"] = studio_name
+            if not isinstance(tags, StudioTagsArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                StudioTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             if user_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'user_role_arn'")

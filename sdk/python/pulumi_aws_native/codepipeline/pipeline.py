@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,20 +27,43 @@ class PipelineArgs:
         """
         The set of arguments for constructing a Pipeline resource.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "stages", stages)
+        PipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            stages=stages,
+            artifact_store=artifact_store,
+            artifact_stores=artifact_stores,
+            disable_inbound_stage_transitions=disable_inbound_stage_transitions,
+            name=name,
+            restart_execution_on_update=restart_execution_on_update,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             stages: pulumi.Input[Sequence[pulumi.Input['PipelineStageDeclarationArgs']]],
+             artifact_store: Optional[pulumi.Input['PipelineArtifactStoreArgs']] = None,
+             artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreMapArgs']]]] = None,
+             disable_inbound_stage_transitions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageTransitionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             restart_execution_on_update: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
+        _setter("stages", stages)
         if artifact_store is not None:
-            pulumi.set(__self__, "artifact_store", artifact_store)
+            _setter("artifact_store", artifact_store)
         if artifact_stores is not None:
-            pulumi.set(__self__, "artifact_stores", artifact_stores)
+            _setter("artifact_stores", artifact_stores)
         if disable_inbound_stage_transitions is not None:
-            pulumi.set(__self__, "disable_inbound_stage_transitions", disable_inbound_stage_transitions)
+            _setter("disable_inbound_stage_transitions", disable_inbound_stage_transitions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if restart_execution_on_update is not None:
-            pulumi.set(__self__, "restart_execution_on_update", restart_execution_on_update)
+            _setter("restart_execution_on_update", restart_execution_on_update)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -159,6 +182,10 @@ class Pipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,6 +209,11 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
+            if not isinstance(artifact_store, PipelineArtifactStoreArgs):
+                artifact_store = artifact_store or {}
+                def _setter(key, value):
+                    artifact_store[key] = value
+                PipelineArtifactStoreArgs._configure(_setter, **artifact_store)
             __props__.__dict__["artifact_store"] = artifact_store
             __props__.__dict__["artifact_stores"] = artifact_stores
             __props__.__dict__["disable_inbound_stage_transitions"] = disable_inbound_stage_transitions

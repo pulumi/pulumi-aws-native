@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,27 +30,56 @@ class DbInstanceArgs:
         """
         The set of arguments for constructing a DbInstance resource.
         """
-        pulumi.set(__self__, "db_instance_class", db_instance_class)
+        DbInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_instance_class=db_instance_class,
+            allow_major_version_upgrade=allow_major_version_upgrade,
+            auto_minor_version_upgrade=auto_minor_version_upgrade,
+            availability_zone=availability_zone,
+            db_cluster_identifier=db_cluster_identifier,
+            db_instance_identifier=db_instance_identifier,
+            db_parameter_group_name=db_parameter_group_name,
+            db_snapshot_identifier=db_snapshot_identifier,
+            db_subnet_group_name=db_subnet_group_name,
+            preferred_maintenance_window=preferred_maintenance_window,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_instance_class: pulumi.Input[str],
+             allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             db_instance_identifier: Optional[pulumi.Input[str]] = None,
+             db_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("db_instance_class", db_instance_class)
         if allow_major_version_upgrade is not None:
-            pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
+            _setter("allow_major_version_upgrade", allow_major_version_upgrade)
         if auto_minor_version_upgrade is not None:
-            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if db_cluster_identifier is not None:
-            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+            _setter("db_cluster_identifier", db_cluster_identifier)
         if db_instance_identifier is not None:
-            pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+            _setter("db_instance_identifier", db_instance_identifier)
         if db_parameter_group_name is not None:
-            pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
+            _setter("db_parameter_group_name", db_parameter_group_name)
         if db_snapshot_identifier is not None:
-            pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
+            _setter("db_snapshot_identifier", db_snapshot_identifier)
         if db_subnet_group_name is not None:
-            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+            _setter("db_subnet_group_name", db_subnet_group_name)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dbInstanceClass")
@@ -199,6 +228,10 @@ class DbInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DbInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

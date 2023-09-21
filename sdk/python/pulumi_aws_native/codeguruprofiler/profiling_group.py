@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,16 +30,33 @@ class ProfilingGroupArgs:
         :param pulumi.Input[str] profiling_group_name: The name of the profiling group.
         :param pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]] tags: The tags associated with a profiling group.
         """
+        ProfilingGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_permissions=agent_permissions,
+            anomaly_detection_notification_configuration=anomaly_detection_notification_configuration,
+            compute_platform=compute_platform,
+            profiling_group_name=profiling_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_permissions: Optional[pulumi.Input['AgentPermissionsPropertiesArgs']] = None,
+             anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupChannelArgs']]]] = None,
+             compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
+             profiling_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if agent_permissions is not None:
-            pulumi.set(__self__, "agent_permissions", agent_permissions)
+            _setter("agent_permissions", agent_permissions)
         if anomaly_detection_notification_configuration is not None:
-            pulumi.set(__self__, "anomaly_detection_notification_configuration", anomaly_detection_notification_configuration)
+            _setter("anomaly_detection_notification_configuration", anomaly_detection_notification_configuration)
         if compute_platform is not None:
-            pulumi.set(__self__, "compute_platform", compute_platform)
+            _setter("compute_platform", compute_platform)
         if profiling_group_name is not None:
-            pulumi.set(__self__, "profiling_group_name", profiling_group_name)
+            _setter("profiling_group_name", profiling_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="agentPermissions")
@@ -143,6 +160,10 @@ class ProfilingGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfilingGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -162,6 +183,11 @@ class ProfilingGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProfilingGroupArgs.__new__(ProfilingGroupArgs)
 
+            if not isinstance(agent_permissions, AgentPermissionsPropertiesArgs):
+                agent_permissions = agent_permissions or {}
+                def _setter(key, value):
+                    agent_permissions[key] = value
+                AgentPermissionsPropertiesArgs._configure(_setter, **agent_permissions)
             __props__.__dict__["agent_permissions"] = agent_permissions
             __props__.__dict__["anomaly_detection_notification_configuration"] = anomaly_detection_notification_configuration
             __props__.__dict__["compute_platform"] = compute_platform

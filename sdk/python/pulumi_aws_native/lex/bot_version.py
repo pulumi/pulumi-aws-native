@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,10 +22,23 @@ class BotVersionArgs:
         """
         The set of arguments for constructing a BotVersion resource.
         """
-        pulumi.set(__self__, "bot_id", bot_id)
-        pulumi.set(__self__, "bot_version_locale_specification", bot_version_locale_specification)
+        BotVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_id=bot_id,
+            bot_version_locale_specification=bot_version_locale_specification,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_id: pulumi.Input[str],
+             bot_version_locale_specification: pulumi.Input[Sequence[pulumi.Input['BotVersionLocaleSpecificationArgs']]],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bot_id", bot_id)
+        _setter("bot_version_locale_specification", bot_version_locale_specification)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="botId")
@@ -89,6 +102,10 @@ class BotVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BotVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

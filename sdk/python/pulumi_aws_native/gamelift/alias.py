@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,11 +26,24 @@ class AliasArgs:
         :param pulumi.Input[str] description: A human-readable description of the alias.
         :param pulumi.Input[str] name: A descriptive label that is associated with an alias. Alias names do not need to be unique.
         """
-        pulumi.set(__self__, "routing_strategy", routing_strategy)
+        AliasArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            routing_strategy=routing_strategy,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             routing_strategy: pulumi.Input['AliasRoutingStrategyArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("routing_strategy", routing_strategy)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="routingStrategy")
@@ -106,6 +119,10 @@ class Alias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -125,6 +142,11 @@ class Alias(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if not isinstance(routing_strategy, AliasRoutingStrategyArgs):
+                routing_strategy = routing_strategy or {}
+                def _setter(key, value):
+                    routing_strategy[key] = value
+                AliasRoutingStrategyArgs._configure(_setter, **routing_strategy)
             if routing_strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'routing_strategy'")
             __props__.__dict__["routing_strategy"] = routing_strategy

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -55,39 +55,82 @@ class NodegroupArgs:
         :param pulumi.Input['NodegroupUpdateConfigArgs'] update_config: The node group update configuration.
         :param pulumi.Input[str] version: The Kubernetes version to use for your managed nodes.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "node_role", node_role)
-        pulumi.set(__self__, "subnets", subnets)
+        NodegroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            node_role=node_role,
+            subnets=subnets,
+            ami_type=ami_type,
+            capacity_type=capacity_type,
+            disk_size=disk_size,
+            force_update_enabled=force_update_enabled,
+            instance_types=instance_types,
+            labels=labels,
+            launch_template=launch_template,
+            nodegroup_name=nodegroup_name,
+            release_version=release_version,
+            remote_access=remote_access,
+            scaling_config=scaling_config,
+            tags=tags,
+            taints=taints,
+            update_config=update_config,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             node_role: pulumi.Input[str],
+             subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             ami_type: Optional[pulumi.Input[str]] = None,
+             capacity_type: Optional[pulumi.Input[str]] = None,
+             disk_size: Optional[pulumi.Input[int]] = None,
+             force_update_enabled: Optional[pulumi.Input[bool]] = None,
+             instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             labels: Optional[Any] = None,
+             launch_template: Optional[pulumi.Input['NodegroupLaunchTemplateSpecificationArgs']] = None,
+             nodegroup_name: Optional[pulumi.Input[str]] = None,
+             release_version: Optional[pulumi.Input[str]] = None,
+             remote_access: Optional[pulumi.Input['NodegroupRemoteAccessArgs']] = None,
+             scaling_config: Optional[pulumi.Input['NodegroupScalingConfigArgs']] = None,
+             tags: Optional[Any] = None,
+             taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodegroupTaintArgs']]]] = None,
+             update_config: Optional[pulumi.Input['NodegroupUpdateConfigArgs']] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("node_role", node_role)
+        _setter("subnets", subnets)
         if ami_type is not None:
-            pulumi.set(__self__, "ami_type", ami_type)
+            _setter("ami_type", ami_type)
         if capacity_type is not None:
-            pulumi.set(__self__, "capacity_type", capacity_type)
+            _setter("capacity_type", capacity_type)
         if disk_size is not None:
-            pulumi.set(__self__, "disk_size", disk_size)
+            _setter("disk_size", disk_size)
         if force_update_enabled is not None:
-            pulumi.set(__self__, "force_update_enabled", force_update_enabled)
+            _setter("force_update_enabled", force_update_enabled)
         if instance_types is not None:
-            pulumi.set(__self__, "instance_types", instance_types)
+            _setter("instance_types", instance_types)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if launch_template is not None:
-            pulumi.set(__self__, "launch_template", launch_template)
+            _setter("launch_template", launch_template)
         if nodegroup_name is not None:
-            pulumi.set(__self__, "nodegroup_name", nodegroup_name)
+            _setter("nodegroup_name", nodegroup_name)
         if release_version is not None:
-            pulumi.set(__self__, "release_version", release_version)
+            _setter("release_version", release_version)
         if remote_access is not None:
-            pulumi.set(__self__, "remote_access", remote_access)
+            _setter("remote_access", remote_access)
         if scaling_config is not None:
-            pulumi.set(__self__, "scaling_config", scaling_config)
+            _setter("scaling_config", scaling_config)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if taints is not None:
-            pulumi.set(__self__, "taints", taints)
+            _setter("taints", taints)
         if update_config is not None:
-            pulumi.set(__self__, "update_config", update_config)
+            _setter("update_config", update_config)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -373,6 +416,10 @@ class Nodegroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NodegroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -414,19 +461,39 @@ class Nodegroup(pulumi.CustomResource):
             __props__.__dict__["force_update_enabled"] = force_update_enabled
             __props__.__dict__["instance_types"] = instance_types
             __props__.__dict__["labels"] = labels
+            if not isinstance(launch_template, NodegroupLaunchTemplateSpecificationArgs):
+                launch_template = launch_template or {}
+                def _setter(key, value):
+                    launch_template[key] = value
+                NodegroupLaunchTemplateSpecificationArgs._configure(_setter, **launch_template)
             __props__.__dict__["launch_template"] = launch_template
             if node_role is None and not opts.urn:
                 raise TypeError("Missing required property 'node_role'")
             __props__.__dict__["node_role"] = node_role
             __props__.__dict__["nodegroup_name"] = nodegroup_name
             __props__.__dict__["release_version"] = release_version
+            if not isinstance(remote_access, NodegroupRemoteAccessArgs):
+                remote_access = remote_access or {}
+                def _setter(key, value):
+                    remote_access[key] = value
+                NodegroupRemoteAccessArgs._configure(_setter, **remote_access)
             __props__.__dict__["remote_access"] = remote_access
+            if not isinstance(scaling_config, NodegroupScalingConfigArgs):
+                scaling_config = scaling_config or {}
+                def _setter(key, value):
+                    scaling_config[key] = value
+                NodegroupScalingConfigArgs._configure(_setter, **scaling_config)
             __props__.__dict__["scaling_config"] = scaling_config
             if subnets is None and not opts.urn:
                 raise TypeError("Missing required property 'subnets'")
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
             __props__.__dict__["taints"] = taints
+            if not isinstance(update_config, NodegroupUpdateConfigArgs):
+                update_config = update_config or {}
+                def _setter(key, value):
+                    update_config[key] = value
+                NodegroupUpdateConfigArgs._configure(_setter, **update_config)
             __props__.__dict__["update_config"] = update_config
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None

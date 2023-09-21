@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,14 +23,29 @@ class BrowserSettingsArgs:
         """
         The set of arguments for constructing a BrowserSettings resource.
         """
+        BrowserSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_encryption_context=additional_encryption_context,
+            browser_policy=browser_policy,
+            customer_managed_key=customer_managed_key,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_encryption_context: Optional[pulumi.Input['BrowserSettingsEncryptionContextMapArgs']] = None,
+             browser_policy: Optional[pulumi.Input[str]] = None,
+             customer_managed_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserSettingsTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_encryption_context is not None:
-            pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
+            _setter("additional_encryption_context", additional_encryption_context)
         if browser_policy is not None:
-            pulumi.set(__self__, "browser_policy", browser_policy)
+            _setter("browser_policy", browser_policy)
         if customer_managed_key is not None:
-            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+            _setter("customer_managed_key", customer_managed_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="additionalEncryptionContext")
@@ -104,6 +119,10 @@ class BrowserSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BrowserSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -122,6 +141,11 @@ class BrowserSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BrowserSettingsArgs.__new__(BrowserSettingsArgs)
 
+            if not isinstance(additional_encryption_context, BrowserSettingsEncryptionContextMapArgs):
+                additional_encryption_context = additional_encryption_context or {}
+                def _setter(key, value):
+                    additional_encryption_context[key] = value
+                BrowserSettingsEncryptionContextMapArgs._configure(_setter, **additional_encryption_context)
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
             __props__.__dict__["browser_policy"] = browser_policy
             __props__.__dict__["customer_managed_key"] = customer_managed_key

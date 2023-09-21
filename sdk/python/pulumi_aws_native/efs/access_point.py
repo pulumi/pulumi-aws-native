@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,15 +28,32 @@ class AccessPointArgs:
         :param pulumi.Input['AccessPointPosixUserArgs'] posix_user: The operating system user and group applied to all file system requests made using the access point.
         :param pulumi.Input['AccessPointRootDirectoryArgs'] root_directory: Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory>Path specified does not exist, EFS creates it and applies the CreationInfo settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationInfo is optional.
         """
-        pulumi.set(__self__, "file_system_id", file_system_id)
+        AccessPointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_system_id=file_system_id,
+            access_point_tags=access_point_tags,
+            client_token=client_token,
+            posix_user=posix_user,
+            root_directory=root_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_system_id: pulumi.Input[str],
+             access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointTagArgs']]]] = None,
+             client_token: Optional[pulumi.Input[str]] = None,
+             posix_user: Optional[pulumi.Input['AccessPointPosixUserArgs']] = None,
+             root_directory: Optional[pulumi.Input['AccessPointRootDirectoryArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("file_system_id", file_system_id)
         if access_point_tags is not None:
-            pulumi.set(__self__, "access_point_tags", access_point_tags)
+            _setter("access_point_tags", access_point_tags)
         if client_token is not None:
-            pulumi.set(__self__, "client_token", client_token)
+            _setter("client_token", client_token)
         if posix_user is not None:
-            pulumi.set(__self__, "posix_user", posix_user)
+            _setter("posix_user", posix_user)
         if root_directory is not None:
-            pulumi.set(__self__, "root_directory", root_directory)
+            _setter("root_directory", root_directory)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -136,6 +153,10 @@ class AccessPoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessPointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -160,7 +181,17 @@ class AccessPoint(pulumi.CustomResource):
             if file_system_id is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_id'")
             __props__.__dict__["file_system_id"] = file_system_id
+            if not isinstance(posix_user, AccessPointPosixUserArgs):
+                posix_user = posix_user or {}
+                def _setter(key, value):
+                    posix_user[key] = value
+                AccessPointPosixUserArgs._configure(_setter, **posix_user)
             __props__.__dict__["posix_user"] = posix_user
+            if not isinstance(root_directory, AccessPointRootDirectoryArgs):
+                root_directory = root_directory or {}
+                def _setter(key, value):
+                    root_directory[key] = value
+                AccessPointRootDirectoryArgs._configure(_setter, **root_directory)
             __props__.__dict__["root_directory"] = root_directory
             __props__.__dict__["access_point_id"] = None
             __props__.__dict__["arn"] = None

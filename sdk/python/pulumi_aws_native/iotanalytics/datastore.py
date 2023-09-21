@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,18 +25,37 @@ class DatastoreArgs:
         """
         The set of arguments for constructing a Datastore resource.
         """
+        DatastoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datastore_name=datastore_name,
+            datastore_partitions=datastore_partitions,
+            datastore_storage=datastore_storage,
+            file_format_configuration=file_format_configuration,
+            retention_period=retention_period,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datastore_name: Optional[pulumi.Input[str]] = None,
+             datastore_partitions: Optional[pulumi.Input['DatastorePartitionsArgs']] = None,
+             datastore_storage: Optional[pulumi.Input['DatastoreStorageArgs']] = None,
+             file_format_configuration: Optional[pulumi.Input['DatastoreFileFormatConfigurationArgs']] = None,
+             retention_period: Optional[pulumi.Input['DatastoreRetentionPeriodArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatastoreTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if datastore_name is not None:
-            pulumi.set(__self__, "datastore_name", datastore_name)
+            _setter("datastore_name", datastore_name)
         if datastore_partitions is not None:
-            pulumi.set(__self__, "datastore_partitions", datastore_partitions)
+            _setter("datastore_partitions", datastore_partitions)
         if datastore_storage is not None:
-            pulumi.set(__self__, "datastore_storage", datastore_storage)
+            _setter("datastore_storage", datastore_storage)
         if file_format_configuration is not None:
-            pulumi.set(__self__, "file_format_configuration", file_format_configuration)
+            _setter("file_format_configuration", file_format_configuration)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="datastoreName")
@@ -130,6 +149,10 @@ class Datastore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatastoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -151,9 +174,29 @@ class Datastore(pulumi.CustomResource):
             __props__ = DatastoreArgs.__new__(DatastoreArgs)
 
             __props__.__dict__["datastore_name"] = datastore_name
+            if not isinstance(datastore_partitions, DatastorePartitionsArgs):
+                datastore_partitions = datastore_partitions or {}
+                def _setter(key, value):
+                    datastore_partitions[key] = value
+                DatastorePartitionsArgs._configure(_setter, **datastore_partitions)
             __props__.__dict__["datastore_partitions"] = datastore_partitions
+            if not isinstance(datastore_storage, DatastoreStorageArgs):
+                datastore_storage = datastore_storage or {}
+                def _setter(key, value):
+                    datastore_storage[key] = value
+                DatastoreStorageArgs._configure(_setter, **datastore_storage)
             __props__.__dict__["datastore_storage"] = datastore_storage
+            if not isinstance(file_format_configuration, DatastoreFileFormatConfigurationArgs):
+                file_format_configuration = file_format_configuration or {}
+                def _setter(key, value):
+                    file_format_configuration[key] = value
+                DatastoreFileFormatConfigurationArgs._configure(_setter, **file_format_configuration)
             __props__.__dict__["file_format_configuration"] = file_format_configuration
+            if not isinstance(retention_period, DatastoreRetentionPeriodArgs):
+                retention_period = retention_period or {}
+                def _setter(key, value):
+                    retention_period[key] = value
+                DatastoreRetentionPeriodArgs._configure(_setter, **retention_period)
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastore_name"])

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,22 +40,49 @@ class FlowArgs:
         :param pulumi.Input['FlowMetadataCatalogConfigArgs'] metadata_catalog_config: Configurations of metadata catalog of the flow.
         :param pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]] tags: List of Tags.
         """
-        pulumi.set(__self__, "destination_flow_config_list", destination_flow_config_list)
-        pulumi.set(__self__, "source_flow_config", source_flow_config)
-        pulumi.set(__self__, "tasks", tasks)
-        pulumi.set(__self__, "trigger_config", trigger_config)
+        FlowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_flow_config_list=destination_flow_config_list,
+            source_flow_config=source_flow_config,
+            tasks=tasks,
+            trigger_config=trigger_config,
+            description=description,
+            flow_name=flow_name,
+            flow_status=flow_status,
+            kms_arn=kms_arn,
+            metadata_catalog_config=metadata_catalog_config,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_flow_config_list: pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]],
+             source_flow_config: pulumi.Input['FlowSourceFlowConfigArgs'],
+             tasks: pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]],
+             trigger_config: pulumi.Input['FlowTriggerConfigArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             flow_name: Optional[pulumi.Input[str]] = None,
+             flow_status: Optional[pulumi.Input['FlowStatus']] = None,
+             kms_arn: Optional[pulumi.Input[str]] = None,
+             metadata_catalog_config: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_flow_config_list", destination_flow_config_list)
+        _setter("source_flow_config", source_flow_config)
+        _setter("tasks", tasks)
+        _setter("trigger_config", trigger_config)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if flow_name is not None:
-            pulumi.set(__self__, "flow_name", flow_name)
+            _setter("flow_name", flow_name)
         if flow_status is not None:
-            pulumi.set(__self__, "flow_status", flow_status)
+            _setter("flow_status", flow_status)
         if kms_arn is not None:
-            pulumi.set(__self__, "kms_arn", kms_arn)
+            _setter("kms_arn", kms_arn)
         if metadata_catalog_config is not None:
-            pulumi.set(__self__, "metadata_catalog_config", metadata_catalog_config)
+            _setter("metadata_catalog_config", metadata_catalog_config)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="destinationFlowConfigList")
@@ -229,6 +256,10 @@ class Flow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -260,7 +291,17 @@ class Flow(pulumi.CustomResource):
             __props__.__dict__["flow_name"] = flow_name
             __props__.__dict__["flow_status"] = flow_status
             __props__.__dict__["kms_arn"] = kms_arn
+            if not isinstance(metadata_catalog_config, FlowMetadataCatalogConfigArgs):
+                metadata_catalog_config = metadata_catalog_config or {}
+                def _setter(key, value):
+                    metadata_catalog_config[key] = value
+                FlowMetadataCatalogConfigArgs._configure(_setter, **metadata_catalog_config)
             __props__.__dict__["metadata_catalog_config"] = metadata_catalog_config
+            if not isinstance(source_flow_config, FlowSourceFlowConfigArgs):
+                source_flow_config = source_flow_config or {}
+                def _setter(key, value):
+                    source_flow_config[key] = value
+                FlowSourceFlowConfigArgs._configure(_setter, **source_flow_config)
             if source_flow_config is None and not opts.urn:
                 raise TypeError("Missing required property 'source_flow_config'")
             __props__.__dict__["source_flow_config"] = source_flow_config
@@ -268,6 +309,11 @@ class Flow(pulumi.CustomResource):
             if tasks is None and not opts.urn:
                 raise TypeError("Missing required property 'tasks'")
             __props__.__dict__["tasks"] = tasks
+            if not isinstance(trigger_config, FlowTriggerConfigArgs):
+                trigger_config = trigger_config or {}
+                def _setter(key, value):
+                    trigger_config[key] = value
+                FlowTriggerConfigArgs._configure(_setter, **trigger_config)
             if trigger_config is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger_config'")
             __props__.__dict__["trigger_config"] = trigger_config

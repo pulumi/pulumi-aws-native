@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,42 @@ class DataIntegrationArgs:
         :param pulumi.Input['DataIntegrationObjectConfigurationArgs'] object_configuration: The configuration for what data should be pulled from the source.
         :param pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]] tags: The tags (keys and values) associated with the data integration.
         """
-        pulumi.set(__self__, "kms_key", kms_key)
-        pulumi.set(__self__, "schedule_config", schedule_config)
-        pulumi.set(__self__, "source_uri", source_uri)
+        DataIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key=kms_key,
+            schedule_config=schedule_config,
+            source_uri=source_uri,
+            description=description,
+            file_configuration=file_configuration,
+            name=name,
+            object_configuration=object_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key: pulumi.Input[str],
+             schedule_config: pulumi.Input['DataIntegrationScheduleConfigArgs'],
+             source_uri: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             file_configuration: Optional[pulumi.Input['DataIntegrationFileConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             object_configuration: Optional[pulumi.Input['DataIntegrationObjectConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kms_key", kms_key)
+        _setter("schedule_config", schedule_config)
+        _setter("source_uri", source_uri)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if file_configuration is not None:
-            pulumi.set(__self__, "file_configuration", file_configuration)
+            _setter("file_configuration", file_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if object_configuration is not None:
-            pulumi.set(__self__, "object_configuration", object_configuration)
+            _setter("object_configuration", object_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="kmsKey")
@@ -193,6 +216,10 @@ class DataIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -216,12 +243,27 @@ class DataIntegration(pulumi.CustomResource):
             __props__ = DataIntegrationArgs.__new__(DataIntegrationArgs)
 
             __props__.__dict__["description"] = description
+            if not isinstance(file_configuration, DataIntegrationFileConfigurationArgs):
+                file_configuration = file_configuration or {}
+                def _setter(key, value):
+                    file_configuration[key] = value
+                DataIntegrationFileConfigurationArgs._configure(_setter, **file_configuration)
             __props__.__dict__["file_configuration"] = file_configuration
             if kms_key is None and not opts.urn:
                 raise TypeError("Missing required property 'kms_key'")
             __props__.__dict__["kms_key"] = kms_key
             __props__.__dict__["name"] = name
+            if not isinstance(object_configuration, DataIntegrationObjectConfigurationArgs):
+                object_configuration = object_configuration or {}
+                def _setter(key, value):
+                    object_configuration[key] = value
+                DataIntegrationObjectConfigurationArgs._configure(_setter, **object_configuration)
             __props__.__dict__["object_configuration"] = object_configuration
+            if not isinstance(schedule_config, DataIntegrationScheduleConfigArgs):
+                schedule_config = schedule_config or {}
+                def _setter(key, value):
+                    schedule_config[key] = value
+                DataIntegrationScheduleConfigArgs._configure(_setter, **schedule_config)
             if schedule_config is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_config'")
             __props__.__dict__["schedule_config"] = schedule_config

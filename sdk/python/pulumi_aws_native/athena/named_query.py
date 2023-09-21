@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NamedQueryArgs', 'NamedQuery']
@@ -27,14 +27,31 @@ class NamedQueryArgs:
         :param pulumi.Input[str] name: The query name.
         :param pulumi.Input[str] work_group: The name of the workgroup that contains the named query.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "query_string", query_string)
+        NamedQueryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            query_string=query_string,
+            description=description,
+            name=name,
+            work_group=work_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: pulumi.Input[str],
+             query_string: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             work_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("query_string", query_string)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if work_group is not None:
-            pulumi.set(__self__, "work_group", work_group)
+            _setter("work_group", work_group)
 
     @property
     @pulumi.getter
@@ -138,6 +155,10 @@ class NamedQuery(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamedQueryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

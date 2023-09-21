@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -25,16 +25,33 @@ class SignalCatalogArgs:
         """
         The set of arguments for constructing a SignalCatalog resource.
         """
+        SignalCatalogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            node_counts=node_counts,
+            nodes=nodes,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_counts: Optional[pulumi.Input['SignalCatalogNodeCountsArgs']] = None,
+             nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignalCatalogNode0PropertiesArgs', 'SignalCatalogNode1PropertiesArgs', 'SignalCatalogNode2PropertiesArgs', 'SignalCatalogNode3PropertiesArgs']]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SignalCatalogTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_counts is not None:
-            pulumi.set(__self__, "node_counts", node_counts)
+            _setter("node_counts", node_counts)
         if nodes is not None:
-            pulumi.set(__self__, "nodes", nodes)
+            _setter("nodes", nodes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -123,6 +140,10 @@ class SignalCatalog(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SignalCatalogArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -145,6 +166,11 @@ class SignalCatalog(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if not isinstance(node_counts, SignalCatalogNodeCountsArgs):
+                node_counts = node_counts or {}
+                def _setter(key, value):
+                    node_counts[key] = value
+                SignalCatalogNodeCountsArgs._configure(_setter, **node_counts)
             __props__.__dict__["node_counts"] = node_counts
             __props__.__dict__["nodes"] = nodes
             __props__.__dict__["tags"] = tags

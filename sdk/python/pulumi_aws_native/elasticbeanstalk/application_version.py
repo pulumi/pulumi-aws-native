@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,23 @@ class ApplicationVersionArgs:
         :param pulumi.Input['ApplicationVersionSourceBundleArgs'] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
         :param pulumi.Input[str] description: A description of this application version.
         """
-        pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "source_bundle", source_bundle)
+        ApplicationVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            source_bundle=source_bundle,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: pulumi.Input[str],
+             source_bundle: pulumi.Input['ApplicationVersionSourceBundleArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_name", application_name)
+        _setter("source_bundle", source_bundle)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -104,6 +117,10 @@ class ApplicationVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -125,6 +142,11 @@ class ApplicationVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["description"] = description
+            if not isinstance(source_bundle, ApplicationVersionSourceBundleArgs):
+                source_bundle = source_bundle or {}
+                def _setter(key, value):
+                    source_bundle[key] = value
+                ApplicationVersionSourceBundleArgs._configure(_setter, **source_bundle)
             if source_bundle is None and not opts.urn:
                 raise TypeError("Missing required property 'source_bundle'")
             __props__.__dict__["source_bundle"] = source_bundle

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,19 +27,40 @@ class KnowledgeBaseArgs:
         """
         The set of arguments for constructing a KnowledgeBase resource.
         """
-        pulumi.set(__self__, "knowledge_base_type", knowledge_base_type)
+        KnowledgeBaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            knowledge_base_type=knowledge_base_type,
+            description=description,
+            name=name,
+            rendering_configuration=rendering_configuration,
+            server_side_encryption_configuration=server_side_encryption_configuration,
+            source_configuration=source_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             knowledge_base_type: pulumi.Input['KnowledgeBaseType'],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rendering_configuration: Optional[pulumi.Input['KnowledgeBaseRenderingConfigurationArgs']] = None,
+             server_side_encryption_configuration: Optional[pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs']] = None,
+             source_configuration: Optional[pulumi.Input['KnowledgeBaseSourceConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("knowledge_base_type", knowledge_base_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rendering_configuration is not None:
-            pulumi.set(__self__, "rendering_configuration", rendering_configuration)
+            _setter("rendering_configuration", rendering_configuration)
         if server_side_encryption_configuration is not None:
-            pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+            _setter("server_side_encryption_configuration", server_side_encryption_configuration)
         if source_configuration is not None:
-            pulumi.set(__self__, "source_configuration", source_configuration)
+            _setter("source_configuration", source_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="knowledgeBaseType")
@@ -143,6 +164,10 @@ class KnowledgeBase(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KnowledgeBaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -169,8 +194,23 @@ class KnowledgeBase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'knowledge_base_type'")
             __props__.__dict__["knowledge_base_type"] = knowledge_base_type
             __props__.__dict__["name"] = name
+            if not isinstance(rendering_configuration, KnowledgeBaseRenderingConfigurationArgs):
+                rendering_configuration = rendering_configuration or {}
+                def _setter(key, value):
+                    rendering_configuration[key] = value
+                KnowledgeBaseRenderingConfigurationArgs._configure(_setter, **rendering_configuration)
             __props__.__dict__["rendering_configuration"] = rendering_configuration
+            if not isinstance(server_side_encryption_configuration, KnowledgeBaseServerSideEncryptionConfigurationArgs):
+                server_side_encryption_configuration = server_side_encryption_configuration or {}
+                def _setter(key, value):
+                    server_side_encryption_configuration[key] = value
+                KnowledgeBaseServerSideEncryptionConfigurationArgs._configure(_setter, **server_side_encryption_configuration)
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
+            if not isinstance(source_configuration, KnowledgeBaseSourceConfigurationArgs):
+                source_configuration = source_configuration or {}
+                def _setter(key, value):
+                    source_configuration[key] = value
+                KnowledgeBaseSourceConfigurationArgs._configure(_setter, **source_configuration)
             __props__.__dict__["source_configuration"] = source_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["knowledge_base_arn"] = None

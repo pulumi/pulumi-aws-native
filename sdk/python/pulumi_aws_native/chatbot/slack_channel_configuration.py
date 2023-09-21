@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SlackChannelConfigurationArgs', 'SlackChannelConfiguration']
@@ -33,18 +33,41 @@ class SlackChannelConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
         :param pulumi.Input[bool] user_role_required: Enables use of a user role requirement in your chat configuration
         """
-        pulumi.set(__self__, "configuration_name", configuration_name)
-        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
-        pulumi.set(__self__, "slack_channel_id", slack_channel_id)
-        pulumi.set(__self__, "slack_workspace_id", slack_workspace_id)
+        SlackChannelConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_name=configuration_name,
+            iam_role_arn=iam_role_arn,
+            slack_channel_id=slack_channel_id,
+            slack_workspace_id=slack_workspace_id,
+            guardrail_policies=guardrail_policies,
+            logging_level=logging_level,
+            sns_topic_arns=sns_topic_arns,
+            user_role_required=user_role_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_name: pulumi.Input[str],
+             iam_role_arn: pulumi.Input[str],
+             slack_channel_id: pulumi.Input[str],
+             slack_workspace_id: pulumi.Input[str],
+             guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             logging_level: Optional[pulumi.Input[str]] = None,
+             sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_role_required: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("configuration_name", configuration_name)
+        _setter("iam_role_arn", iam_role_arn)
+        _setter("slack_channel_id", slack_channel_id)
+        _setter("slack_workspace_id", slack_workspace_id)
         if guardrail_policies is not None:
-            pulumi.set(__self__, "guardrail_policies", guardrail_policies)
+            _setter("guardrail_policies", guardrail_policies)
         if logging_level is not None:
-            pulumi.set(__self__, "logging_level", logging_level)
+            _setter("logging_level", logging_level)
         if sns_topic_arns is not None:
-            pulumi.set(__self__, "sns_topic_arns", sns_topic_arns)
+            _setter("sns_topic_arns", sns_topic_arns)
         if user_role_required is not None:
-            pulumi.set(__self__, "user_role_required", user_role_required)
+            _setter("user_role_required", user_role_required)
 
     @property
     @pulumi.getter(name="configurationName")
@@ -190,6 +213,10 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SlackChannelConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

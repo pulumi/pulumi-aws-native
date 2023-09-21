@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,38 @@ class StorageSystemArgs:
         :param pulumi.Input[str] name: A familiar name for the on-premises storage system.
         :param pulumi.Input[Sequence[pulumi.Input['StorageSystemTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "agent_arns", agent_arns)
-        pulumi.set(__self__, "server_configuration", server_configuration)
-        pulumi.set(__self__, "system_type", system_type)
+        StorageSystemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_arns=agent_arns,
+            server_configuration=server_configuration,
+            system_type=system_type,
+            cloud_watch_log_group_arn=cloud_watch_log_group_arn,
+            name=name,
+            server_credentials=server_credentials,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             server_configuration: pulumi.Input['StorageSystemServerConfigurationArgs'],
+             system_type: pulumi.Input['StorageSystemSystemType'],
+             cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             server_credentials: Optional[pulumi.Input['StorageSystemServerCredentialsArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageSystemTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_arns", agent_arns)
+        _setter("server_configuration", server_configuration)
+        _setter("system_type", system_type)
         if cloud_watch_log_group_arn is not None:
-            pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+            _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if server_credentials is not None:
-            pulumi.set(__self__, "server_credentials", server_credentials)
+            _setter("server_credentials", server_credentials)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -166,6 +187,10 @@ class StorageSystem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageSystemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -192,9 +217,19 @@ class StorageSystem(pulumi.CustomResource):
             __props__.__dict__["agent_arns"] = agent_arns
             __props__.__dict__["cloud_watch_log_group_arn"] = cloud_watch_log_group_arn
             __props__.__dict__["name"] = name
+            if not isinstance(server_configuration, StorageSystemServerConfigurationArgs):
+                server_configuration = server_configuration or {}
+                def _setter(key, value):
+                    server_configuration[key] = value
+                StorageSystemServerConfigurationArgs._configure(_setter, **server_configuration)
             if server_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'server_configuration'")
             __props__.__dict__["server_configuration"] = server_configuration
+            if not isinstance(server_credentials, StorageSystemServerCredentialsArgs):
+                server_credentials = server_credentials or {}
+                def _setter(key, value):
+                    server_credentials[key] = value
+                StorageSystemServerCredentialsArgs._configure(_setter, **server_credentials)
             __props__.__dict__["server_credentials"] = server_credentials
             if system_type is None and not opts.urn:
                 raise TypeError("Missing required property 'system_type'")

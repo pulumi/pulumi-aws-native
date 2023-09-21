@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,12 +32,27 @@ class ResourceVersionArgs:
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
         :param pulumi.Input['ResourceVersionLoggingConfigArgs'] logging_config: Specifies logging configuration information for a type.
         """
-        pulumi.set(__self__, "schema_handler_package", schema_handler_package)
-        pulumi.set(__self__, "type_name", type_name)
+        ResourceVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_handler_package=schema_handler_package,
+            type_name=type_name,
+            execution_role_arn=execution_role_arn,
+            logging_config=logging_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_handler_package: pulumi.Input[str],
+             type_name: pulumi.Input[str],
+             execution_role_arn: Optional[pulumi.Input[str]] = None,
+             logging_config: Optional[pulumi.Input['ResourceVersionLoggingConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schema_handler_package", schema_handler_package)
+        _setter("type_name", type_name)
         if execution_role_arn is not None:
-            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+            _setter("execution_role_arn", execution_role_arn)
         if logging_config is not None:
-            pulumi.set(__self__, "logging_config", logging_config)
+            _setter("logging_config", logging_config)
 
     @property
     @pulumi.getter(name="schemaHandlerPackage")
@@ -135,6 +150,10 @@ class ResourceVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -154,6 +173,11 @@ class ResourceVersion(pulumi.CustomResource):
             __props__ = ResourceVersionArgs.__new__(ResourceVersionArgs)
 
             __props__.__dict__["execution_role_arn"] = execution_role_arn
+            if not isinstance(logging_config, ResourceVersionLoggingConfigArgs):
+                logging_config = logging_config or {}
+                def _setter(key, value):
+                    logging_config[key] = value
+                ResourceVersionLoggingConfigArgs._configure(_setter, **logging_config)
             __props__.__dict__["logging_config"] = logging_config
             if schema_handler_package is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_handler_package'")

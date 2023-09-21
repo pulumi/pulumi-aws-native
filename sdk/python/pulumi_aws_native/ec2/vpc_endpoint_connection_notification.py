@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcEndpointConnectionNotificationArgs', 'VpcEndpointConnectionNotification']
@@ -21,12 +21,27 @@ class VpcEndpointConnectionNotificationArgs:
         """
         The set of arguments for constructing a VpcEndpointConnectionNotification resource.
         """
-        pulumi.set(__self__, "connection_events", connection_events)
-        pulumi.set(__self__, "connection_notification_arn", connection_notification_arn)
+        VpcEndpointConnectionNotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_events=connection_events,
+            connection_notification_arn=connection_notification_arn,
+            service_id=service_id,
+            vpc_endpoint_id=vpc_endpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_events: pulumi.Input[Sequence[pulumi.Input[str]]],
+             connection_notification_arn: pulumi.Input[str],
+             service_id: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_events", connection_events)
+        _setter("connection_notification_arn", connection_notification_arn)
         if service_id is not None:
-            pulumi.set(__self__, "service_id", service_id)
+            _setter("service_id", service_id)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter(name="connectionEvents")
@@ -100,6 +115,10 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcEndpointConnectionNotificationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

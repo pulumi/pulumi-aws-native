@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationResponseArgs', 'IntegrationResponse']
@@ -31,17 +31,38 @@ class IntegrationResponseArgs:
         :param Any response_templates: The collection of response templates for the integration response as a string-to-string map of key-value pairs
         :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration response. Supported only for WebSocket APIs
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "integration_id", integration_id)
-        pulumi.set(__self__, "integration_response_key", integration_response_key)
+        IntegrationResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            integration_id=integration_id,
+            integration_response_key=integration_response_key,
+            content_handling_strategy=content_handling_strategy,
+            response_parameters=response_parameters,
+            response_templates=response_templates,
+            template_selection_expression=template_selection_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             integration_id: pulumi.Input[str],
+             integration_response_key: pulumi.Input[str],
+             content_handling_strategy: Optional[pulumi.Input[str]] = None,
+             response_parameters: Optional[Any] = None,
+             response_templates: Optional[Any] = None,
+             template_selection_expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_id", api_id)
+        _setter("integration_id", integration_id)
+        _setter("integration_response_key", integration_response_key)
         if content_handling_strategy is not None:
-            pulumi.set(__self__, "content_handling_strategy", content_handling_strategy)
+            _setter("content_handling_strategy", content_handling_strategy)
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
         if response_templates is not None:
-            pulumi.set(__self__, "response_templates", response_templates)
+            _setter("response_templates", response_templates)
         if template_selection_expression is not None:
-            pulumi.set(__self__, "template_selection_expression", template_selection_expression)
+            _setter("template_selection_expression", template_selection_expression)
 
     @property
     @pulumi.getter(name="apiId")
@@ -173,6 +194,10 @@ class IntegrationResponse(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationResponseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

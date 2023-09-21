@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,13 +28,28 @@ class FlowArgs:
         :param pulumi.Input[str] name: The name of the flow.
         :param pulumi.Input['FlowFailoverConfigArgs'] source_failover_config: The source failover config of the flow.
         """
-        pulumi.set(__self__, "source", source)
+        FlowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+            availability_zone=availability_zone,
+            name=name,
+            source_failover_config=source_failover_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: pulumi.Input['FlowSourceArgs'],
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_failover_config: Optional[pulumi.Input['FlowFailoverConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source", source)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_failover_config is not None:
-            pulumi.set(__self__, "source_failover_config", source_failover_config)
+            _setter("source_failover_config", source_failover_config)
 
     @property
     @pulumi.getter
@@ -124,6 +139,10 @@ class Flow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,9 +163,19 @@ class Flow(pulumi.CustomResource):
 
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["name"] = name
+            if not isinstance(source, FlowSourceArgs):
+                source = source or {}
+                def _setter(key, value):
+                    source[key] = value
+                FlowSourceArgs._configure(_setter, **source)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
+            if not isinstance(source_failover_config, FlowFailoverConfigArgs):
+                source_failover_config = source_failover_config or {}
+                def _setter(key, value):
+                    source_failover_config[key] = value
+                FlowFailoverConfigArgs._configure(_setter, **source_failover_config)
             __props__.__dict__["source_failover_config"] = source_failover_config
             __props__.__dict__["flow_arn"] = None
             __props__.__dict__["flow_availability_zone"] = None

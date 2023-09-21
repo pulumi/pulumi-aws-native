@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FlowVpcInterfaceArgs', 'FlowVpcInterface']
@@ -27,12 +27,29 @@ class FlowVpcInterfaceArgs:
         :param pulumi.Input[str] subnet_id: Subnet must be in the AZ of the Flow
         :param pulumi.Input[str] name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
         """
-        pulumi.set(__self__, "flow_arn", flow_arn)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        FlowVpcInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            flow_arn=flow_arn,
+            role_arn=role_arn,
+            security_group_ids=security_group_ids,
+            subnet_id=subnet_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             flow_arn: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnet_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("flow_arn", flow_arn)
+        _setter("role_arn", role_arn)
+        _setter("security_group_ids", security_group_ids)
+        _setter("subnet_id", subnet_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="flowArn")
@@ -136,6 +153,10 @@ class FlowVpcInterface(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlowVpcInterfaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

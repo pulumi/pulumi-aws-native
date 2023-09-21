@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -34,12 +34,25 @@ class AutomationRuleDateFilterArgs:
                  date_range: Optional[pulumi.Input['AutomationRuleDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        AutomationRuleDateFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            date_range=date_range,
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             date_range: Optional[pulumi.Input['AutomationRuleDateRangeArgs']] = None,
+             end: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if date_range is not None:
-            pulumi.set(__self__, "date_range", date_range)
+            _setter("date_range", date_range)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -74,8 +87,19 @@ class AutomationRuleDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input['AutomationRuleDateRangeUnit'],
                  value: pulumi.Input[float]):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        AutomationRuleDateRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: pulumi.Input['AutomationRuleDateRangeUnit'],
+             value: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -102,9 +126,22 @@ class AutomationRuleMapFilterArgs:
                  comparison: pulumi.Input['AutomationRuleMapFilterComparison'],
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "comparison", comparison)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AutomationRuleMapFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison=comparison,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison: pulumi.Input['AutomationRuleMapFilterComparison'],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison", comparison)
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -139,8 +176,19 @@ class AutomationRuleNoteUpdateArgs:
     def __init__(__self__, *,
                  text: pulumi.Input[str],
                  updated_by: pulumi.Input[str]):
-        pulumi.set(__self__, "text", text)
-        pulumi.set(__self__, "updated_by", updated_by)
+        AutomationRuleNoteUpdateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text=text,
+            updated_by=updated_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text: pulumi.Input[str],
+             updated_by: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text", text)
+        _setter("updated_by", updated_by)
 
     @property
     @pulumi.getter
@@ -167,12 +215,25 @@ class AutomationRuleNumberFilterArgs:
                  eq: Optional[pulumi.Input[float]] = None,
                  gte: Optional[pulumi.Input[float]] = None,
                  lte: Optional[pulumi.Input[float]] = None):
+        AutomationRuleNumberFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eq=eq,
+            gte=gte,
+            lte=lte,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eq: Optional[pulumi.Input[float]] = None,
+             gte: Optional[pulumi.Input[float]] = None,
+             lte: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if eq is not None:
-            pulumi.set(__self__, "eq", eq)
+            _setter("eq", eq)
         if gte is not None:
-            pulumi.set(__self__, "gte", gte)
+            _setter("gte", gte)
         if lte is not None:
-            pulumi.set(__self__, "lte", lte)
+            _setter("lte", lte)
 
     @property
     @pulumi.getter
@@ -207,8 +268,19 @@ class AutomationRuleRelatedFindingArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  product_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "product_arn", product_arn)
+        AutomationRuleRelatedFindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            product_arn=product_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             product_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("product_arn", product_arn)
 
     @property
     @pulumi.getter
@@ -235,12 +307,25 @@ class AutomationRuleSeverityUpdateArgs:
                  label: Optional[pulumi.Input['AutomationRuleSeverityUpdateLabel']] = None,
                  normalized: Optional[pulumi.Input[int]] = None,
                  product: Optional[pulumi.Input[float]] = None):
+        AutomationRuleSeverityUpdateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            normalized=normalized,
+            product=product,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: Optional[pulumi.Input['AutomationRuleSeverityUpdateLabel']] = None,
+             normalized: Optional[pulumi.Input[int]] = None,
+             product: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if normalized is not None:
-            pulumi.set(__self__, "normalized", normalized)
+            _setter("normalized", normalized)
         if product is not None:
-            pulumi.set(__self__, "product", product)
+            _setter("product", product)
 
     @property
     @pulumi.getter
@@ -275,8 +360,19 @@ class AutomationRuleStringFilterArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input['AutomationRuleStringFilterComparison'],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "comparison", comparison)
-        pulumi.set(__self__, "value", value)
+        AutomationRuleStringFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison=comparison,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison: pulumi.Input['AutomationRuleStringFilterComparison'],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison", comparison)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -304,13 +400,27 @@ class AutomationRuleTagsArgs:
         A key-value pair to associate with a resource.
         """
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class AutomationRuleWorkflowUpdateArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['AutomationRuleWorkflowUpdateStatus']):
-        pulumi.set(__self__, "status", status)
+        AutomationRuleWorkflowUpdateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: pulumi.Input['AutomationRuleWorkflowUpdateStatus'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -326,6 +436,11 @@ class AutomationRuleWorkflowUpdateArgs:
 class AutomationRulemapArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -333,8 +448,19 @@ class AutomationRulesActionArgs:
     def __init__(__self__, *,
                  finding_fields_update: pulumi.Input['AutomationRulesFindingFieldsUpdateArgs'],
                  type: pulumi.Input['AutomationRulesActionType']):
-        pulumi.set(__self__, "finding_fields_update", finding_fields_update)
-        pulumi.set(__self__, "type", type)
+        AutomationRulesActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            finding_fields_update=finding_fields_update,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             finding_fields_update: pulumi.Input['AutomationRulesFindingFieldsUpdateArgs'],
+             type: pulumi.Input['AutomationRulesActionType'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("finding_fields_update", finding_fields_update)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="findingFieldsUpdate")
@@ -372,24 +498,49 @@ class AutomationRulesFindingFieldsUpdateArgs:
         :param pulumi.Input['AutomationRuleSeverityUpdateArgs'] severity: Severity of the finding
         :param pulumi.Input['AutomationRuleWorkflowUpdateArgs'] workflow: Workflow status set for the finding
         """
+        AutomationRulesFindingFieldsUpdateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            confidence=confidence,
+            criticality=criticality,
+            note=note,
+            related_findings=related_findings,
+            severity=severity,
+            types=types,
+            user_defined_fields=user_defined_fields,
+            verification_state=verification_state,
+            workflow=workflow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             confidence: Optional[pulumi.Input[int]] = None,
+             criticality: Optional[pulumi.Input[int]] = None,
+             note: Optional[pulumi.Input['AutomationRuleNoteUpdateArgs']] = None,
+             related_findings: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleRelatedFindingArgs']]]] = None,
+             severity: Optional[pulumi.Input['AutomationRuleSeverityUpdateArgs']] = None,
+             types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_defined_fields: Optional[pulumi.Input['AutomationRulemapArgs']] = None,
+             verification_state: Optional[pulumi.Input['AutomationRulesFindingFieldsUpdateVerificationState']] = None,
+             workflow: Optional[pulumi.Input['AutomationRuleWorkflowUpdateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if confidence is not None:
-            pulumi.set(__self__, "confidence", confidence)
+            _setter("confidence", confidence)
         if criticality is not None:
-            pulumi.set(__self__, "criticality", criticality)
+            _setter("criticality", criticality)
         if note is not None:
-            pulumi.set(__self__, "note", note)
+            _setter("note", note)
         if related_findings is not None:
-            pulumi.set(__self__, "related_findings", related_findings)
+            _setter("related_findings", related_findings)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if types is not None:
-            pulumi.set(__self__, "types", types)
+            _setter("types", types)
         if user_defined_fields is not None:
-            pulumi.set(__self__, "user_defined_fields", user_defined_fields)
+            _setter("user_defined_fields", user_defined_fields)
         if verification_state is not None:
-            pulumi.set(__self__, "verification_state", verification_state)
+            _setter("verification_state", verification_state)
         if workflow is not None:
-            pulumi.set(__self__, "workflow", workflow)
+            _setter("workflow", workflow)
 
     @property
     @pulumi.getter
@@ -520,76 +671,153 @@ class AutomationRulesFindingFiltersArgs:
                  user_defined_fields: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]]] = None,
                  verification_state: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
                  workflow_status: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None):
+        AutomationRulesFindingFiltersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_account_id=aws_account_id,
+            company_name=company_name,
+            compliance_associated_standards_id=compliance_associated_standards_id,
+            compliance_security_control_id=compliance_security_control_id,
+            compliance_status=compliance_status,
+            confidence=confidence,
+            created_at=created_at,
+            criticality=criticality,
+            description=description,
+            first_observed_at=first_observed_at,
+            generator_id=generator_id,
+            id=id,
+            last_observed_at=last_observed_at,
+            note_text=note_text,
+            note_updated_at=note_updated_at,
+            note_updated_by=note_updated_by,
+            product_arn=product_arn,
+            product_name=product_name,
+            record_state=record_state,
+            related_findings_id=related_findings_id,
+            related_findings_product_arn=related_findings_product_arn,
+            resource_details_other=resource_details_other,
+            resource_id=resource_id,
+            resource_partition=resource_partition,
+            resource_region=resource_region,
+            resource_tags=resource_tags,
+            resource_type=resource_type,
+            severity_label=severity_label,
+            source_url=source_url,
+            title=title,
+            type=type,
+            updated_at=updated_at,
+            user_defined_fields=user_defined_fields,
+            verification_state=verification_state,
+            workflow_status=workflow_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_account_id: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             company_name: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             compliance_associated_standards_id: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             compliance_security_control_id: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             compliance_status: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             confidence: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgs']]]] = None,
+             created_at: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]]] = None,
+             criticality: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgs']]]] = None,
+             description: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             first_observed_at: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]]] = None,
+             generator_id: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             id: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             last_observed_at: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]]] = None,
+             note_text: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             note_updated_at: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]]] = None,
+             note_updated_by: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             product_arn: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             product_name: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             record_state: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             related_findings_id: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             related_findings_product_arn: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             resource_details_other: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]]] = None,
+             resource_id: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             resource_partition: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             resource_region: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]]] = None,
+             resource_type: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             severity_label: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             source_url: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             title: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             type: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             updated_at: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]]] = None,
+             user_defined_fields: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]]] = None,
+             verification_state: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             workflow_status: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
+            _setter("company_name", company_name)
         if compliance_associated_standards_id is not None:
-            pulumi.set(__self__, "compliance_associated_standards_id", compliance_associated_standards_id)
+            _setter("compliance_associated_standards_id", compliance_associated_standards_id)
         if compliance_security_control_id is not None:
-            pulumi.set(__self__, "compliance_security_control_id", compliance_security_control_id)
+            _setter("compliance_security_control_id", compliance_security_control_id)
         if compliance_status is not None:
-            pulumi.set(__self__, "compliance_status", compliance_status)
+            _setter("compliance_status", compliance_status)
         if confidence is not None:
-            pulumi.set(__self__, "confidence", confidence)
+            _setter("confidence", confidence)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if criticality is not None:
-            pulumi.set(__self__, "criticality", criticality)
+            _setter("criticality", criticality)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if first_observed_at is not None:
-            pulumi.set(__self__, "first_observed_at", first_observed_at)
+            _setter("first_observed_at", first_observed_at)
         if generator_id is not None:
-            pulumi.set(__self__, "generator_id", generator_id)
+            _setter("generator_id", generator_id)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if last_observed_at is not None:
-            pulumi.set(__self__, "last_observed_at", last_observed_at)
+            _setter("last_observed_at", last_observed_at)
         if note_text is not None:
-            pulumi.set(__self__, "note_text", note_text)
+            _setter("note_text", note_text)
         if note_updated_at is not None:
-            pulumi.set(__self__, "note_updated_at", note_updated_at)
+            _setter("note_updated_at", note_updated_at)
         if note_updated_by is not None:
-            pulumi.set(__self__, "note_updated_by", note_updated_by)
+            _setter("note_updated_by", note_updated_by)
         if product_arn is not None:
-            pulumi.set(__self__, "product_arn", product_arn)
+            _setter("product_arn", product_arn)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
         if record_state is not None:
-            pulumi.set(__self__, "record_state", record_state)
+            _setter("record_state", record_state)
         if related_findings_id is not None:
-            pulumi.set(__self__, "related_findings_id", related_findings_id)
+            _setter("related_findings_id", related_findings_id)
         if related_findings_product_arn is not None:
-            pulumi.set(__self__, "related_findings_product_arn", related_findings_product_arn)
+            _setter("related_findings_product_arn", related_findings_product_arn)
         if resource_details_other is not None:
-            pulumi.set(__self__, "resource_details_other", resource_details_other)
+            _setter("resource_details_other", resource_details_other)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_partition is not None:
-            pulumi.set(__self__, "resource_partition", resource_partition)
+            _setter("resource_partition", resource_partition)
         if resource_region is not None:
-            pulumi.set(__self__, "resource_region", resource_region)
+            _setter("resource_region", resource_region)
         if resource_tags is not None:
-            pulumi.set(__self__, "resource_tags", resource_tags)
+            _setter("resource_tags", resource_tags)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if severity_label is not None:
-            pulumi.set(__self__, "severity_label", severity_label)
+            _setter("severity_label", severity_label)
         if source_url is not None:
-            pulumi.set(__self__, "source_url", source_url)
+            _setter("source_url", source_url)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
         if user_defined_fields is not None:
-            pulumi.set(__self__, "user_defined_fields", user_defined_fields)
+            _setter("user_defined_fields", user_defined_fields)
         if verification_state is not None:
-            pulumi.set(__self__, "verification_state", verification_state)
+            _setter("verification_state", verification_state)
         if workflow_status is not None:
-            pulumi.set(__self__, "workflow_status", workflow_status)
+            _setter("workflow_status", workflow_status)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -917,9 +1145,20 @@ class StandardsControlArgs:
         :param pulumi.Input[str] standards_control_arn: the Arn for the standard control.
         :param pulumi.Input[str] reason: the reason the standard control is disabled
         """
-        pulumi.set(__self__, "standards_control_arn", standards_control_arn)
+        StandardsControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            standards_control_arn=standards_control_arn,
+            reason=reason,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             standards_control_arn: pulumi.Input[str],
+             reason: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("standards_control_arn", standards_control_arn)
         if reason is not None:
-            pulumi.set(__self__, "reason", reason)
+            _setter("reason", reason)
 
     @property
     @pulumi.getter(name="standardsControlArn")

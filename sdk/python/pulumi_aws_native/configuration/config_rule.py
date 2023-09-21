@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,44 @@ class ConfigRuleArgs:
         :param pulumi.Input[str] maximum_execution_frequency: Maximum frequency at which the rule has to be evaluated
         :param pulumi.Input['ConfigRuleScopeArgs'] scope: Scope to constrain which resources can trigger the AWS Config rule
         """
-        pulumi.set(__self__, "source", source)
+        ConfigRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+            compliance=compliance,
+            config_rule_name=config_rule_name,
+            description=description,
+            evaluation_modes=evaluation_modes,
+            input_parameters=input_parameters,
+            maximum_execution_frequency=maximum_execution_frequency,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: pulumi.Input['ConfigRuleSourceArgs'],
+             compliance: Optional[pulumi.Input['CompliancePropertiesArgs']] = None,
+             config_rule_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleEvaluationModeConfigurationArgs']]]] = None,
+             input_parameters: Optional[pulumi.Input[str]] = None,
+             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['ConfigRuleScopeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source", source)
         if compliance is not None:
-            pulumi.set(__self__, "compliance", compliance)
+            _setter("compliance", compliance)
         if config_rule_name is not None:
-            pulumi.set(__self__, "config_rule_name", config_rule_name)
+            _setter("config_rule_name", config_rule_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if evaluation_modes is not None:
-            pulumi.set(__self__, "evaluation_modes", evaluation_modes)
+            _setter("evaluation_modes", evaluation_modes)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+            _setter("maximum_execution_frequency", maximum_execution_frequency)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -195,6 +218,10 @@ class ConfigRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -217,13 +244,28 @@ class ConfigRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigRuleArgs.__new__(ConfigRuleArgs)
 
+            if not isinstance(compliance, CompliancePropertiesArgs):
+                compliance = compliance or {}
+                def _setter(key, value):
+                    compliance[key] = value
+                CompliancePropertiesArgs._configure(_setter, **compliance)
             __props__.__dict__["compliance"] = compliance
             __props__.__dict__["config_rule_name"] = config_rule_name
             __props__.__dict__["description"] = description
             __props__.__dict__["evaluation_modes"] = evaluation_modes
             __props__.__dict__["input_parameters"] = input_parameters
             __props__.__dict__["maximum_execution_frequency"] = maximum_execution_frequency
+            if not isinstance(scope, ConfigRuleScopeArgs):
+                scope = scope or {}
+                def _setter(key, value):
+                    scope[key] = value
+                ConfigRuleScopeArgs._configure(_setter, **scope)
             __props__.__dict__["scope"] = scope
+            if not isinstance(source, ConfigRuleSourceArgs):
+                source = source or {}
+                def _setter(key, value):
+                    source[key] = value
+                ConfigRuleSourceArgs._configure(_setter, **source)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

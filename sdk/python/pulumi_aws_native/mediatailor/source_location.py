@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,17 +28,36 @@ class SourceLocationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]] segment_delivery_configurations: <p>A list of the segment delivery configurations associated with this resource.</p>
         :param pulumi.Input[Sequence[pulumi.Input['SourceLocationTagArgs']]] tags: The tags to assign to the source location.
         """
-        pulumi.set(__self__, "http_configuration", http_configuration)
+        SourceLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_configuration=http_configuration,
+            access_configuration=access_configuration,
+            default_segment_delivery_configuration=default_segment_delivery_configuration,
+            segment_delivery_configurations=segment_delivery_configurations,
+            source_location_name=source_location_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_configuration: pulumi.Input['SourceLocationHttpConfigurationArgs'],
+             access_configuration: Optional[pulumi.Input['SourceLocationAccessConfigurationArgs']] = None,
+             default_segment_delivery_configuration: Optional[pulumi.Input['SourceLocationDefaultSegmentDeliveryConfigurationArgs']] = None,
+             segment_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]]] = None,
+             source_location_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SourceLocationTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("http_configuration", http_configuration)
         if access_configuration is not None:
-            pulumi.set(__self__, "access_configuration", access_configuration)
+            _setter("access_configuration", access_configuration)
         if default_segment_delivery_configuration is not None:
-            pulumi.set(__self__, "default_segment_delivery_configuration", default_segment_delivery_configuration)
+            _setter("default_segment_delivery_configuration", default_segment_delivery_configuration)
         if segment_delivery_configurations is not None:
-            pulumi.set(__self__, "segment_delivery_configurations", segment_delivery_configurations)
+            _setter("segment_delivery_configurations", segment_delivery_configurations)
         if source_location_name is not None:
-            pulumi.set(__self__, "source_location_name", source_location_name)
+            _setter("source_location_name", source_location_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="httpConfiguration")
@@ -140,6 +159,10 @@ class SourceLocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SourceLocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -160,8 +183,23 @@ class SourceLocation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SourceLocationArgs.__new__(SourceLocationArgs)
 
+            if not isinstance(access_configuration, SourceLocationAccessConfigurationArgs):
+                access_configuration = access_configuration or {}
+                def _setter(key, value):
+                    access_configuration[key] = value
+                SourceLocationAccessConfigurationArgs._configure(_setter, **access_configuration)
             __props__.__dict__["access_configuration"] = access_configuration
+            if not isinstance(default_segment_delivery_configuration, SourceLocationDefaultSegmentDeliveryConfigurationArgs):
+                default_segment_delivery_configuration = default_segment_delivery_configuration or {}
+                def _setter(key, value):
+                    default_segment_delivery_configuration[key] = value
+                SourceLocationDefaultSegmentDeliveryConfigurationArgs._configure(_setter, **default_segment_delivery_configuration)
             __props__.__dict__["default_segment_delivery_configuration"] = default_segment_delivery_configuration
+            if not isinstance(http_configuration, SourceLocationHttpConfigurationArgs):
+                http_configuration = http_configuration or {}
+                def _setter(key, value):
+                    http_configuration[key] = value
+                SourceLocationHttpConfigurationArgs._configure(_setter, **http_configuration)
             if http_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'http_configuration'")
             __props__.__dict__["http_configuration"] = http_configuration

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,23 +33,52 @@ class ModelBiasJobDefinitionArgs:
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['ModelBiasJobDefinitionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "job_resources", job_resources)
-        pulumi.set(__self__, "model_bias_app_specification", model_bias_app_specification)
-        pulumi.set(__self__, "model_bias_job_input", model_bias_job_input)
-        pulumi.set(__self__, "model_bias_job_output_config", model_bias_job_output_config)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ModelBiasJobDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_resources=job_resources,
+            model_bias_app_specification=model_bias_app_specification,
+            model_bias_job_input=model_bias_job_input,
+            model_bias_job_output_config=model_bias_job_output_config,
+            role_arn=role_arn,
+            endpoint_name=endpoint_name,
+            job_definition_name=job_definition_name,
+            model_bias_baseline_config=model_bias_baseline_config,
+            network_config=network_config,
+            stopping_condition=stopping_condition,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_resources: pulumi.Input['ModelBiasJobDefinitionMonitoringResourcesArgs'],
+             model_bias_app_specification: pulumi.Input['ModelBiasJobDefinitionModelBiasAppSpecificationArgs'],
+             model_bias_job_input: pulumi.Input['ModelBiasJobDefinitionModelBiasJobInputArgs'],
+             model_bias_job_output_config: pulumi.Input['ModelBiasJobDefinitionMonitoringOutputConfigArgs'],
+             role_arn: pulumi.Input[str],
+             endpoint_name: Optional[pulumi.Input[str]] = None,
+             job_definition_name: Optional[pulumi.Input[str]] = None,
+             model_bias_baseline_config: Optional[pulumi.Input['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']] = None,
+             network_config: Optional[pulumi.Input['ModelBiasJobDefinitionNetworkConfigArgs']] = None,
+             stopping_condition: Optional[pulumi.Input['ModelBiasJobDefinitionStoppingConditionArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelBiasJobDefinitionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("job_resources", job_resources)
+        _setter("model_bias_app_specification", model_bias_app_specification)
+        _setter("model_bias_job_input", model_bias_job_input)
+        _setter("model_bias_job_output_config", model_bias_job_output_config)
+        _setter("role_arn", role_arn)
         if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
+            _setter("endpoint_name", endpoint_name)
         if job_definition_name is not None:
-            pulumi.set(__self__, "job_definition_name", job_definition_name)
+            _setter("job_definition_name", job_definition_name)
         if model_bias_baseline_config is not None:
-            pulumi.set(__self__, "model_bias_baseline_config", model_bias_baseline_config)
+            _setter("model_bias_baseline_config", model_bias_baseline_config)
         if network_config is not None:
-            pulumi.set(__self__, "network_config", network_config)
+            _setter("network_config", network_config)
         if stopping_condition is not None:
-            pulumi.set(__self__, "stopping_condition", stopping_condition)
+            _setter("stopping_condition", stopping_condition)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="jobResources")
@@ -201,6 +230,10 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ModelBiasJobDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -228,23 +261,58 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
 
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["job_definition_name"] = job_definition_name
+            if not isinstance(job_resources, ModelBiasJobDefinitionMonitoringResourcesArgs):
+                job_resources = job_resources or {}
+                def _setter(key, value):
+                    job_resources[key] = value
+                ModelBiasJobDefinitionMonitoringResourcesArgs._configure(_setter, **job_resources)
             if job_resources is None and not opts.urn:
                 raise TypeError("Missing required property 'job_resources'")
             __props__.__dict__["job_resources"] = job_resources
+            if not isinstance(model_bias_app_specification, ModelBiasJobDefinitionModelBiasAppSpecificationArgs):
+                model_bias_app_specification = model_bias_app_specification or {}
+                def _setter(key, value):
+                    model_bias_app_specification[key] = value
+                ModelBiasJobDefinitionModelBiasAppSpecificationArgs._configure(_setter, **model_bias_app_specification)
             if model_bias_app_specification is None and not opts.urn:
                 raise TypeError("Missing required property 'model_bias_app_specification'")
             __props__.__dict__["model_bias_app_specification"] = model_bias_app_specification
+            if not isinstance(model_bias_baseline_config, ModelBiasJobDefinitionModelBiasBaselineConfigArgs):
+                model_bias_baseline_config = model_bias_baseline_config or {}
+                def _setter(key, value):
+                    model_bias_baseline_config[key] = value
+                ModelBiasJobDefinitionModelBiasBaselineConfigArgs._configure(_setter, **model_bias_baseline_config)
             __props__.__dict__["model_bias_baseline_config"] = model_bias_baseline_config
+            if not isinstance(model_bias_job_input, ModelBiasJobDefinitionModelBiasJobInputArgs):
+                model_bias_job_input = model_bias_job_input or {}
+                def _setter(key, value):
+                    model_bias_job_input[key] = value
+                ModelBiasJobDefinitionModelBiasJobInputArgs._configure(_setter, **model_bias_job_input)
             if model_bias_job_input is None and not opts.urn:
                 raise TypeError("Missing required property 'model_bias_job_input'")
             __props__.__dict__["model_bias_job_input"] = model_bias_job_input
+            if not isinstance(model_bias_job_output_config, ModelBiasJobDefinitionMonitoringOutputConfigArgs):
+                model_bias_job_output_config = model_bias_job_output_config or {}
+                def _setter(key, value):
+                    model_bias_job_output_config[key] = value
+                ModelBiasJobDefinitionMonitoringOutputConfigArgs._configure(_setter, **model_bias_job_output_config)
             if model_bias_job_output_config is None and not opts.urn:
                 raise TypeError("Missing required property 'model_bias_job_output_config'")
             __props__.__dict__["model_bias_job_output_config"] = model_bias_job_output_config
+            if not isinstance(network_config, ModelBiasJobDefinitionNetworkConfigArgs):
+                network_config = network_config or {}
+                def _setter(key, value):
+                    network_config[key] = value
+                ModelBiasJobDefinitionNetworkConfigArgs._configure(_setter, **network_config)
             __props__.__dict__["network_config"] = network_config
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            if not isinstance(stopping_condition, ModelBiasJobDefinitionStoppingConditionArgs):
+                stopping_condition = stopping_condition or {}
+                def _setter(key, value):
+                    stopping_condition[key] = value
+                ModelBiasJobDefinitionStoppingConditionArgs._configure(_setter, **stopping_condition)
             __props__.__dict__["stopping_condition"] = stopping_condition
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,12 +25,25 @@ class CellArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
         :param pulumi.Input[Sequence[pulumi.Input['CellTagArgs']]] tags: A collection of tags associated with a resource
         """
+        CellArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cell_name=cell_name,
+            cells=cells,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cell_name: Optional[pulumi.Input[str]] = None,
+             cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CellTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cell_name is not None:
-            pulumi.set(__self__, "cell_name", cell_name)
+            _setter("cell_name", cell_name)
         if cells is not None:
-            pulumi.set(__self__, "cells", cells)
+            _setter("cells", cells)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="cellName")
@@ -106,6 +119,10 @@ class Cell(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CellArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

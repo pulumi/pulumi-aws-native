@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,39 +39,86 @@ class BrokerArgs:
         """
         The set of arguments for constructing a Broker resource.
         """
-        pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
-        pulumi.set(__self__, "deployment_mode", deployment_mode)
-        pulumi.set(__self__, "engine_type", engine_type)
-        pulumi.set(__self__, "engine_version", engine_version)
-        pulumi.set(__self__, "host_instance_type", host_instance_type)
-        pulumi.set(__self__, "publicly_accessible", publicly_accessible)
-        pulumi.set(__self__, "users", users)
+        BrokerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_minor_version_upgrade=auto_minor_version_upgrade,
+            deployment_mode=deployment_mode,
+            engine_type=engine_type,
+            engine_version=engine_version,
+            host_instance_type=host_instance_type,
+            publicly_accessible=publicly_accessible,
+            users=users,
+            authentication_strategy=authentication_strategy,
+            broker_name=broker_name,
+            configuration=configuration,
+            data_replication_mode=data_replication_mode,
+            data_replication_primary_broker_arn=data_replication_primary_broker_arn,
+            encryption_options=encryption_options,
+            ldap_server_metadata=ldap_server_metadata,
+            logs=logs,
+            maintenance_window_start_time=maintenance_window_start_time,
+            security_groups=security_groups,
+            storage_type=storage_type,
+            subnet_ids=subnet_ids,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_minor_version_upgrade: pulumi.Input[bool],
+             deployment_mode: pulumi.Input[str],
+             engine_type: pulumi.Input[str],
+             engine_version: pulumi.Input[str],
+             host_instance_type: pulumi.Input[str],
+             publicly_accessible: pulumi.Input[bool],
+             users: pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]],
+             authentication_strategy: Optional[pulumi.Input[str]] = None,
+             broker_name: Optional[pulumi.Input[str]] = None,
+             configuration: Optional[pulumi.Input['BrokerConfigurationIdArgs']] = None,
+             data_replication_mode: Optional[pulumi.Input[str]] = None,
+             data_replication_primary_broker_arn: Optional[pulumi.Input[str]] = None,
+             encryption_options: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']] = None,
+             ldap_server_metadata: Optional[pulumi.Input['BrokerLdapServerMetadataArgs']] = None,
+             logs: Optional[pulumi.Input['BrokerLogListArgs']] = None,
+             maintenance_window_start_time: Optional[pulumi.Input['BrokerMaintenanceWindowArgs']] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerTagsEntryArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+        _setter("deployment_mode", deployment_mode)
+        _setter("engine_type", engine_type)
+        _setter("engine_version", engine_version)
+        _setter("host_instance_type", host_instance_type)
+        _setter("publicly_accessible", publicly_accessible)
+        _setter("users", users)
         if authentication_strategy is not None:
-            pulumi.set(__self__, "authentication_strategy", authentication_strategy)
+            _setter("authentication_strategy", authentication_strategy)
         if broker_name is not None:
-            pulumi.set(__self__, "broker_name", broker_name)
+            _setter("broker_name", broker_name)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if data_replication_mode is not None:
-            pulumi.set(__self__, "data_replication_mode", data_replication_mode)
+            _setter("data_replication_mode", data_replication_mode)
         if data_replication_primary_broker_arn is not None:
-            pulumi.set(__self__, "data_replication_primary_broker_arn", data_replication_primary_broker_arn)
+            _setter("data_replication_primary_broker_arn", data_replication_primary_broker_arn)
         if encryption_options is not None:
-            pulumi.set(__self__, "encryption_options", encryption_options)
+            _setter("encryption_options", encryption_options)
         if ldap_server_metadata is not None:
-            pulumi.set(__self__, "ldap_server_metadata", ldap_server_metadata)
+            _setter("ldap_server_metadata", ldap_server_metadata)
         if logs is not None:
-            pulumi.set(__self__, "logs", logs)
+            _setter("logs", logs)
         if maintenance_window_start_time is not None:
-            pulumi.set(__self__, "maintenance_window_start_time", maintenance_window_start_time)
+            _setter("maintenance_window_start_time", maintenance_window_start_time)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
@@ -310,6 +357,10 @@ class Broker(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BrokerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -350,12 +401,22 @@ class Broker(pulumi.CustomResource):
                 raise TypeError("Missing required property 'auto_minor_version_upgrade'")
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["broker_name"] = broker_name
+            if not isinstance(configuration, BrokerConfigurationIdArgs):
+                configuration = configuration or {}
+                def _setter(key, value):
+                    configuration[key] = value
+                BrokerConfigurationIdArgs._configure(_setter, **configuration)
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["data_replication_mode"] = data_replication_mode
             __props__.__dict__["data_replication_primary_broker_arn"] = data_replication_primary_broker_arn
             if deployment_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_mode'")
             __props__.__dict__["deployment_mode"] = deployment_mode
+            if not isinstance(encryption_options, BrokerEncryptionOptionsArgs):
+                encryption_options = encryption_options or {}
+                def _setter(key, value):
+                    encryption_options[key] = value
+                BrokerEncryptionOptionsArgs._configure(_setter, **encryption_options)
             __props__.__dict__["encryption_options"] = encryption_options
             if engine_type is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_type'")
@@ -366,8 +427,23 @@ class Broker(pulumi.CustomResource):
             if host_instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'host_instance_type'")
             __props__.__dict__["host_instance_type"] = host_instance_type
+            if not isinstance(ldap_server_metadata, BrokerLdapServerMetadataArgs):
+                ldap_server_metadata = ldap_server_metadata or {}
+                def _setter(key, value):
+                    ldap_server_metadata[key] = value
+                BrokerLdapServerMetadataArgs._configure(_setter, **ldap_server_metadata)
             __props__.__dict__["ldap_server_metadata"] = ldap_server_metadata
+            if not isinstance(logs, BrokerLogListArgs):
+                logs = logs or {}
+                def _setter(key, value):
+                    logs[key] = value
+                BrokerLogListArgs._configure(_setter, **logs)
             __props__.__dict__["logs"] = logs
+            if not isinstance(maintenance_window_start_time, BrokerMaintenanceWindowArgs):
+                maintenance_window_start_time = maintenance_window_start_time or {}
+                def _setter(key, value):
+                    maintenance_window_start_time[key] = value
+                BrokerMaintenanceWindowArgs._configure(_setter, **maintenance_window_start_time)
             __props__.__dict__["maintenance_window_start_time"] = maintenance_window_start_time
             if publicly_accessible is None and not opts.urn:
                 raise TypeError("Missing required property 'publicly_accessible'")

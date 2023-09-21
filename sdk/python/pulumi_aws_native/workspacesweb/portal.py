@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,28 +31,57 @@ class PortalArgs:
         """
         The set of arguments for constructing a Portal resource.
         """
+        PortalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_encryption_context=additional_encryption_context,
+            authentication_type=authentication_type,
+            browser_settings_arn=browser_settings_arn,
+            customer_managed_key=customer_managed_key,
+            display_name=display_name,
+            ip_access_settings_arn=ip_access_settings_arn,
+            network_settings_arn=network_settings_arn,
+            tags=tags,
+            trust_store_arn=trust_store_arn,
+            user_access_logging_settings_arn=user_access_logging_settings_arn,
+            user_settings_arn=user_settings_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_encryption_context: Optional[pulumi.Input['PortalEncryptionContextMapArgs']] = None,
+             authentication_type: Optional[pulumi.Input['PortalAuthenticationType']] = None,
+             browser_settings_arn: Optional[pulumi.Input[str]] = None,
+             customer_managed_key: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
+             network_settings_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]] = None,
+             trust_store_arn: Optional[pulumi.Input[str]] = None,
+             user_access_logging_settings_arn: Optional[pulumi.Input[str]] = None,
+             user_settings_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_encryption_context is not None:
-            pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
+            _setter("additional_encryption_context", additional_encryption_context)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if browser_settings_arn is not None:
-            pulumi.set(__self__, "browser_settings_arn", browser_settings_arn)
+            _setter("browser_settings_arn", browser_settings_arn)
         if customer_managed_key is not None:
-            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+            _setter("customer_managed_key", customer_managed_key)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if ip_access_settings_arn is not None:
-            pulumi.set(__self__, "ip_access_settings_arn", ip_access_settings_arn)
+            _setter("ip_access_settings_arn", ip_access_settings_arn)
         if network_settings_arn is not None:
-            pulumi.set(__self__, "network_settings_arn", network_settings_arn)
+            _setter("network_settings_arn", network_settings_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trust_store_arn is not None:
-            pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+            _setter("trust_store_arn", trust_store_arn)
         if user_access_logging_settings_arn is not None:
-            pulumi.set(__self__, "user_access_logging_settings_arn", user_access_logging_settings_arn)
+            _setter("user_access_logging_settings_arn", user_access_logging_settings_arn)
         if user_settings_arn is not None:
-            pulumi.set(__self__, "user_settings_arn", user_settings_arn)
+            _setter("user_settings_arn", user_settings_arn)
 
     @property
     @pulumi.getter(name="additionalEncryptionContext")
@@ -196,6 +225,10 @@ class Portal(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PortalArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -221,6 +254,11 @@ class Portal(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PortalArgs.__new__(PortalArgs)
 
+            if not isinstance(additional_encryption_context, PortalEncryptionContextMapArgs):
+                additional_encryption_context = additional_encryption_context or {}
+                def _setter(key, value):
+                    additional_encryption_context[key] = value
+                PortalEncryptionContextMapArgs._configure(_setter, **additional_encryption_context)
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
             __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["browser_settings_arn"] = browser_settings_arn

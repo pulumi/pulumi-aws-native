@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -45,8 +45,19 @@ class AnalyzerArchiveRule(dict):
         An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
         :param str rule_name: The archive rule name
         """
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "rule_name", rule_name)
+        AnalyzerArchiveRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter=filter,
+            rule_name=rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter: Sequence['outputs.AnalyzerFilter'],
+             rule_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filter", filter)
+        _setter("rule_name", rule_name)
 
     @property
     @pulumi.getter
@@ -70,15 +81,32 @@ class AnalyzerFilter(dict):
                  eq: Optional[Sequence[str]] = None,
                  exists: Optional[bool] = None,
                  neq: Optional[Sequence[str]] = None):
-        pulumi.set(__self__, "property", property)
+        AnalyzerFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            property=property,
+            contains=contains,
+            eq=eq,
+            exists=exists,
+            neq=neq,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             property: str,
+             contains: Optional[Sequence[str]] = None,
+             eq: Optional[Sequence[str]] = None,
+             exists: Optional[bool] = None,
+             neq: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("property", property)
         if contains is not None:
-            pulumi.set(__self__, "contains", contains)
+            _setter("contains", contains)
         if eq is not None:
-            pulumi.set(__self__, "eq", eq)
+            _setter("eq", eq)
         if exists is not None:
-            pulumi.set(__self__, "exists", exists)
+            _setter("exists", exists)
         if neq is not None:
-            pulumi.set(__self__, "neq", neq)
+            _setter("neq", neq)
 
     @property
     @pulumi.getter
@@ -119,8 +147,19 @@ class AnalyzerTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AnalyzerTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

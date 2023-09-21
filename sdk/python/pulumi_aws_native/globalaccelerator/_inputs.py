@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -27,8 +27,19 @@ class AcceleratorTagArgs:
         :param pulumi.Input[str] key: Key of the tag. Value can be 1 to 127 characters.
         :param pulumi.Input[str] value: Value for the tag. Value can be 1 to 255 characters.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AcceleratorTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -67,11 +78,24 @@ class EndpointGroupEndpointConfigurationArgs:
         :param pulumi.Input[bool] client_ip_preservation_enabled: true if client ip should be preserved
         :param pulumi.Input[int] weight: The weight for the endpoint.
         """
-        pulumi.set(__self__, "endpoint_id", endpoint_id)
+        EndpointGroupEndpointConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_id=endpoint_id,
+            client_ip_preservation_enabled=client_ip_preservation_enabled,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_id: pulumi.Input[str],
+             client_ip_preservation_enabled: Optional[pulumi.Input[bool]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_id", endpoint_id)
         if client_ip_preservation_enabled is not None:
-            pulumi.set(__self__, "client_ip_preservation_enabled", client_ip_preservation_enabled)
+            _setter("client_ip_preservation_enabled", client_ip_preservation_enabled)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="endpointId")
@@ -118,8 +142,19 @@ class EndpointGroupPortOverrideArgs:
         """
         listener to endpoint port mapping.
         """
-        pulumi.set(__self__, "endpoint_port", endpoint_port)
-        pulumi.set(__self__, "listener_port", listener_port)
+        EndpointGroupPortOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_port=endpoint_port,
+            listener_port=listener_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_port: pulumi.Input[int],
+             listener_port: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_port", endpoint_port)
+        _setter("listener_port", listener_port)
 
     @property
     @pulumi.getter(name="endpointPort")
@@ -148,8 +183,19 @@ class ListenerPortRangeArgs:
         """
         A port range to support for connections from  clients to your accelerator.
         """
-        pulumi.set(__self__, "from_port", from_port)
-        pulumi.set(__self__, "to_port", to_port)
+        ListenerPortRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_port=from_port,
+            to_port=to_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_port: pulumi.Input[int],
+             to_port: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("from_port", from_port)
+        _setter("to_port", to_port)
 
     @property
     @pulumi.getter(name="fromPort")

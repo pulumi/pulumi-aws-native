@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,11 +22,24 @@ class CodeRepositoryArgs:
         """
         The set of arguments for constructing a CodeRepository resource.
         """
-        pulumi.set(__self__, "git_config", git_config)
+        CodeRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            git_config=git_config,
+            code_repository_name=code_repository_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             git_config: pulumi.Input['CodeRepositoryGitConfigArgs'],
+             code_repository_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CodeRepositoryTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("git_config", git_config)
         if code_repository_name is not None:
-            pulumi.set(__self__, "code_repository_name", code_repository_name)
+            _setter("code_repository_name", code_repository_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="gitConfig")
@@ -95,6 +108,10 @@ class CodeRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CodeRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -114,6 +131,11 @@ class CodeRepository(pulumi.CustomResource):
             __props__ = CodeRepositoryArgs.__new__(CodeRepositoryArgs)
 
             __props__.__dict__["code_repository_name"] = code_repository_name
+            if not isinstance(git_config, CodeRepositoryGitConfigArgs):
+                git_config = git_config or {}
+                def _setter(key, value):
+                    git_config[key] = value
+                CodeRepositoryGitConfigArgs._configure(_setter, **git_config)
             if git_config is None and not opts.urn:
                 raise TypeError("Missing required property 'git_config'")
             __props__.__dict__["git_config"] = git_config

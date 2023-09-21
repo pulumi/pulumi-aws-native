@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,23 +28,48 @@ class NatGatewayArgs:
         """
         The set of arguments for constructing a NatGateway resource.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        NatGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+            allocation_id=allocation_id,
+            connectivity_type=connectivity_type,
+            max_drain_duration_seconds=max_drain_duration_seconds,
+            private_ip_address=private_ip_address,
+            secondary_allocation_ids=secondary_allocation_ids,
+            secondary_private_ip_address_count=secondary_private_ip_address_count,
+            secondary_private_ip_addresses=secondary_private_ip_addresses,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: pulumi.Input[str],
+             allocation_id: Optional[pulumi.Input[str]] = None,
+             connectivity_type: Optional[pulumi.Input[str]] = None,
+             max_drain_duration_seconds: Optional[pulumi.Input[int]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             secondary_allocation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
+             secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_id", subnet_id)
         if allocation_id is not None:
-            pulumi.set(__self__, "allocation_id", allocation_id)
+            _setter("allocation_id", allocation_id)
         if connectivity_type is not None:
-            pulumi.set(__self__, "connectivity_type", connectivity_type)
+            _setter("connectivity_type", connectivity_type)
         if max_drain_duration_seconds is not None:
-            pulumi.set(__self__, "max_drain_duration_seconds", max_drain_duration_seconds)
+            _setter("max_drain_duration_seconds", max_drain_duration_seconds)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if secondary_allocation_ids is not None:
-            pulumi.set(__self__, "secondary_allocation_ids", secondary_allocation_ids)
+            _setter("secondary_allocation_ids", secondary_allocation_ids)
         if secondary_private_ip_address_count is not None:
-            pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+            _setter("secondary_private_ip_address_count", secondary_private_ip_address_count)
         if secondary_private_ip_addresses is not None:
-            pulumi.set(__self__, "secondary_private_ip_addresses", secondary_private_ip_addresses)
+            _setter("secondary_private_ip_addresses", secondary_private_ip_addresses)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -168,6 +193,10 @@ class NatGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NatGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

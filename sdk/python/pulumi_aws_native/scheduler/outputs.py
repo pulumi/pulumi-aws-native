@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -64,11 +64,24 @@ class ScheduleAwsVpcConfiguration(dict):
         :param Sequence[str] subnets: Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
         :param Sequence[str] security_groups: Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
         """
-        pulumi.set(__self__, "subnets", subnets)
+        ScheduleAwsVpcConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnets=subnets,
+            assign_public_ip=assign_public_ip,
+            security_groups=security_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnets: Sequence[str],
+             assign_public_ip: Optional['ScheduleAssignPublicIp'] = None,
+             security_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnets", subnets)
         if assign_public_ip is not None:
-            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+            _setter("assign_public_ip", assign_public_ip)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
 
     @property
     @pulumi.getter
@@ -124,11 +137,24 @@ class ScheduleCapacityProviderStrategyItem(dict):
         :param float base: The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
         :param float weight: The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
         """
-        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        ScheduleCapacityProviderStrategyItem._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_provider=capacity_provider,
+            base=base,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_provider: str,
+             base: Optional[float] = None,
+             weight: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity_provider", capacity_provider)
         if base is not None:
-            pulumi.set(__self__, "base", base)
+            _setter("base", base)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="capacityProvider")
@@ -166,8 +192,17 @@ class ScheduleDeadLetterConfig(dict):
         A DeadLetterConfig object that contains information about a dead-letter queue configuration.
         :param str arn: The ARN of the SQS queue specified as the target for the dead-letter queue.
         """
+        ScheduleDeadLetterConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
 
     @property
     @pulumi.getter
@@ -251,33 +286,68 @@ class ScheduleEcsParameters(dict):
         :param Sequence['ScheduleTagMap'] tags: The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
         :param float task_count: The number of tasks to create based on TaskDefinition. The default is 1.
         """
-        pulumi.set(__self__, "task_definition_arn", task_definition_arn)
+        ScheduleEcsParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_definition_arn=task_definition_arn,
+            capacity_provider_strategy=capacity_provider_strategy,
+            enable_ecs_managed_tags=enable_ecs_managed_tags,
+            enable_execute_command=enable_execute_command,
+            group=group,
+            launch_type=launch_type,
+            network_configuration=network_configuration,
+            placement_constraints=placement_constraints,
+            placement_strategy=placement_strategy,
+            platform_version=platform_version,
+            propagate_tags=propagate_tags,
+            reference_id=reference_id,
+            tags=tags,
+            task_count=task_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_definition_arn: str,
+             capacity_provider_strategy: Optional[Sequence['outputs.ScheduleCapacityProviderStrategyItem']] = None,
+             enable_ecs_managed_tags: Optional[bool] = None,
+             enable_execute_command: Optional[bool] = None,
+             group: Optional[str] = None,
+             launch_type: Optional['ScheduleLaunchType'] = None,
+             network_configuration: Optional['outputs.ScheduleNetworkConfiguration'] = None,
+             placement_constraints: Optional[Sequence['outputs.SchedulePlacementConstraint']] = None,
+             placement_strategy: Optional[Sequence['outputs.SchedulePlacementStrategy']] = None,
+             platform_version: Optional[str] = None,
+             propagate_tags: Optional['SchedulePropagateTags'] = None,
+             reference_id: Optional[str] = None,
+             tags: Optional[Sequence['outputs.ScheduleTagMap']] = None,
+             task_count: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("task_definition_arn", task_definition_arn)
         if capacity_provider_strategy is not None:
-            pulumi.set(__self__, "capacity_provider_strategy", capacity_provider_strategy)
+            _setter("capacity_provider_strategy", capacity_provider_strategy)
         if enable_ecs_managed_tags is not None:
-            pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
+            _setter("enable_ecs_managed_tags", enable_ecs_managed_tags)
         if enable_execute_command is not None:
-            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
+            _setter("enable_execute_command", enable_execute_command)
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
         if launch_type is not None:
-            pulumi.set(__self__, "launch_type", launch_type)
+            _setter("launch_type", launch_type)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if placement_constraints is not None:
-            pulumi.set(__self__, "placement_constraints", placement_constraints)
+            _setter("placement_constraints", placement_constraints)
         if placement_strategy is not None:
-            pulumi.set(__self__, "placement_strategy", placement_strategy)
+            _setter("placement_strategy", placement_strategy)
         if platform_version is not None:
-            pulumi.set(__self__, "platform_version", platform_version)
+            _setter("platform_version", platform_version)
         if propagate_tags is not None:
-            pulumi.set(__self__, "propagate_tags", propagate_tags)
+            _setter("propagate_tags", propagate_tags)
         if reference_id is not None:
-            pulumi.set(__self__, "reference_id", reference_id)
+            _setter("reference_id", reference_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if task_count is not None:
-            pulumi.set(__self__, "task_count", task_count)
+            _setter("task_count", task_count)
 
     @property
     @pulumi.getter(name="taskDefinitionArn")
@@ -413,8 +483,19 @@ class ScheduleEventBridgeParameters(dict):
         :param str detail_type: Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
         :param str source: The source of the event.
         """
-        pulumi.set(__self__, "detail_type", detail_type)
-        pulumi.set(__self__, "source", source)
+        ScheduleEventBridgeParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detail_type=detail_type,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detail_type: str,
+             source: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("detail_type", detail_type)
+        _setter("source", source)
 
     @property
     @pulumi.getter(name="detailType")
@@ -462,9 +543,20 @@ class ScheduleFlexibleTimeWindow(dict):
         Flexible time window allows configuration of a window within which a schedule can be invoked
         :param float maximum_window_in_minutes: The maximum time window during which a schedule can be invoked.
         """
-        pulumi.set(__self__, "mode", mode)
+        ScheduleFlexibleTimeWindow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            maximum_window_in_minutes=maximum_window_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: 'ScheduleFlexibleTimeWindowMode',
+             maximum_window_in_minutes: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
         if maximum_window_in_minutes is not None:
-            pulumi.set(__self__, "maximum_window_in_minutes", maximum_window_in_minutes)
+            _setter("maximum_window_in_minutes", maximum_window_in_minutes)
 
     @property
     @pulumi.getter
@@ -493,8 +585,19 @@ class ScheduleGroupTag(dict):
         :param str key: Key for the tag
         :param str value: Value for the tag
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ScheduleGroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -541,7 +644,16 @@ class ScheduleKinesisParameters(dict):
         The custom parameter you can use to control the shard to which EventBridge Scheduler sends the event.
         :param str partition_key: The custom parameter used as the Kinesis partition key. For more information, see Amazon Kinesis Streams Key Concepts in the Amazon Kinesis Streams Developer Guide.
         """
-        pulumi.set(__self__, "partition_key", partition_key)
+        ScheduleKinesisParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partition_key=partition_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partition_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("partition_key", partition_key)
 
     @property
     @pulumi.getter(name="partitionKey")
@@ -579,8 +691,17 @@ class ScheduleNetworkConfiguration(dict):
         """
         This structure specifies the network configuration for an ECS task.
         """
+        ScheduleNetworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            awsvpc_configuration=awsvpc_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             awsvpc_configuration: Optional['outputs.ScheduleAwsVpcConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if awsvpc_configuration is not None:
-            pulumi.set(__self__, "awsvpc_configuration", awsvpc_configuration)
+            _setter("awsvpc_configuration", awsvpc_configuration)
 
     @property
     @pulumi.getter(name="awsvpcConfiguration")
@@ -600,10 +721,21 @@ class SchedulePlacementConstraint(dict):
         An object representing a constraint on task placement.
         :param str expression: A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. To learn more, see Cluster Query Language in the Amazon Elastic Container Service Developer Guide.
         """
+        SchedulePlacementConstraint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: Optional[str] = None,
+             type: Optional['SchedulePlacementConstraintType'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -631,10 +763,21 @@ class SchedulePlacementStrategy(dict):
         The task placement strategy for a task or service.
         :param str field: The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used.
         """
+        SchedulePlacementStrategy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: Optional[str] = None,
+             type: Optional['SchedulePlacementStrategyType'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -682,10 +825,21 @@ class ScheduleRetryPolicy(dict):
         :param float maximum_event_age_in_seconds: The maximum amount of time, in seconds, to continue to make retry attempts.
         :param float maximum_retry_attempts: The maximum number of retry attempts to make before the request fails. Retry attempts with exponential backoff continue until either the maximum number of attempts is made or until the duration of the MaximumEventAgeInSeconds is reached.
         """
+        ScheduleRetryPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_event_age_in_seconds=maximum_event_age_in_seconds,
+            maximum_retry_attempts=maximum_retry_attempts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_event_age_in_seconds: Optional[float] = None,
+             maximum_retry_attempts: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if maximum_event_age_in_seconds is not None:
-            pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
+            _setter("maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
-            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+            _setter("maximum_retry_attempts", maximum_retry_attempts)
 
     @property
     @pulumi.getter(name="maximumEventAgeInSeconds")
@@ -717,8 +871,19 @@ class ScheduleSageMakerPipelineParameter(dict):
         :param str name: Name of parameter to start execution of a SageMaker Model Building Pipeline.
         :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ScheduleSageMakerPipelineParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -765,8 +930,17 @@ class ScheduleSageMakerPipelineParameters(dict):
         These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on AWS EventBridge Scheduler schedules.
         :param Sequence['ScheduleSageMakerPipelineParameter'] pipeline_parameter_list: List of Parameter names and values for SageMaker Model Building Pipeline execution.
         """
+        ScheduleSageMakerPipelineParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pipeline_parameter_list=pipeline_parameter_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pipeline_parameter_list: Optional[Sequence['outputs.ScheduleSageMakerPipelineParameter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if pipeline_parameter_list is not None:
-            pulumi.set(__self__, "pipeline_parameter_list", pipeline_parameter_list)
+            _setter("pipeline_parameter_list", pipeline_parameter_list)
 
     @property
     @pulumi.getter(name="pipelineParameterList")
@@ -805,8 +979,17 @@ class ScheduleSqsParameters(dict):
         Contains the message group ID to use when the target is a FIFO queue. If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
         :param str message_group_id: The FIFO message group ID to use as the target.
         """
+        ScheduleSqsParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_group_id=message_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_group_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if message_group_id is not None:
-            pulumi.set(__self__, "message_group_id", message_group_id)
+            _setter("message_group_id", message_group_id)
 
     @property
     @pulumi.getter(name="messageGroupId")
@@ -820,6 +1003,11 @@ class ScheduleSqsParameters(dict):
 @pulumi.output_type
 class ScheduleTagMap(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -876,24 +1064,51 @@ class ScheduleTarget(dict):
         :param str role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the schedule is triggered.
         :param str input: The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ScheduleTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            role_arn=role_arn,
+            dead_letter_config=dead_letter_config,
+            ecs_parameters=ecs_parameters,
+            event_bridge_parameters=event_bridge_parameters,
+            input=input,
+            kinesis_parameters=kinesis_parameters,
+            retry_policy=retry_policy,
+            sage_maker_pipeline_parameters=sage_maker_pipeline_parameters,
+            sqs_parameters=sqs_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             role_arn: str,
+             dead_letter_config: Optional['outputs.ScheduleDeadLetterConfig'] = None,
+             ecs_parameters: Optional['outputs.ScheduleEcsParameters'] = None,
+             event_bridge_parameters: Optional['outputs.ScheduleEventBridgeParameters'] = None,
+             input: Optional[str] = None,
+             kinesis_parameters: Optional['outputs.ScheduleKinesisParameters'] = None,
+             retry_policy: Optional['outputs.ScheduleRetryPolicy'] = None,
+             sage_maker_pipeline_parameters: Optional['outputs.ScheduleSageMakerPipelineParameters'] = None,
+             sqs_parameters: Optional['outputs.ScheduleSqsParameters'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("role_arn", role_arn)
         if dead_letter_config is not None:
-            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
+            _setter("dead_letter_config", dead_letter_config)
         if ecs_parameters is not None:
-            pulumi.set(__self__, "ecs_parameters", ecs_parameters)
+            _setter("ecs_parameters", ecs_parameters)
         if event_bridge_parameters is not None:
-            pulumi.set(__self__, "event_bridge_parameters", event_bridge_parameters)
+            _setter("event_bridge_parameters", event_bridge_parameters)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if kinesis_parameters is not None:
-            pulumi.set(__self__, "kinesis_parameters", kinesis_parameters)
+            _setter("kinesis_parameters", kinesis_parameters)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
         if sage_maker_pipeline_parameters is not None:
-            pulumi.set(__self__, "sage_maker_pipeline_parameters", sage_maker_pipeline_parameters)
+            _setter("sage_maker_pipeline_parameters", sage_maker_pipeline_parameters)
         if sqs_parameters is not None:
-            pulumi.set(__self__, "sqs_parameters", sqs_parameters)
+            _setter("sqs_parameters", sqs_parameters)
 
     @property
     @pulumi.getter

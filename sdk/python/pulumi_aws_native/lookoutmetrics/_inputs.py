@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -35,10 +35,21 @@ class AlertActionArgs:
     def __init__(__self__, *,
                  lambda_configuration: Optional[pulumi.Input['AlertLambdaConfigurationArgs']] = None,
                  sns_configuration: Optional[pulumi.Input['AlertSnsConfigurationArgs']] = None):
+        AlertActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_configuration=lambda_configuration,
+            sns_configuration=sns_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_configuration: Optional[pulumi.Input['AlertLambdaConfigurationArgs']] = None,
+             sns_configuration: Optional[pulumi.Input['AlertSnsConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lambda_configuration is not None:
-            pulumi.set(__self__, "lambda_configuration", lambda_configuration)
+            _setter("lambda_configuration", lambda_configuration)
         if sns_configuration is not None:
-            pulumi.set(__self__, "sns_configuration", sns_configuration)
+            _setter("sns_configuration", sns_configuration)
 
     @property
     @pulumi.getter(name="lambdaConfiguration")
@@ -69,8 +80,19 @@ class AlertLambdaConfigurationArgs:
         :param pulumi.Input[str] lambda_arn: ARN of a Lambda to send alert notifications to.
         :param pulumi.Input[str] role_arn: ARN of an IAM role that LookoutMetrics should assume to access the Lambda function.
         """
-        pulumi.set(__self__, "lambda_arn", lambda_arn)
-        pulumi.set(__self__, "role_arn", role_arn)
+        AlertLambdaConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_arn=lambda_arn,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_arn: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lambda_arn", lambda_arn)
+        _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="lambdaArn")
@@ -107,8 +129,19 @@ class AlertSnsConfigurationArgs:
         :param pulumi.Input[str] role_arn: ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
         :param pulumi.Input[str] sns_topic_arn: ARN of an SNS topic to send alert notifications to.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        AlertSnsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            sns_topic_arn=sns_topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             sns_topic_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
+        _setter("sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -140,8 +173,19 @@ class AnomalyDetectorAppFlowConfigArgs:
     def __init__(__self__, *,
                  flow_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "flow_name", flow_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        AnomalyDetectorAppFlowConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            flow_name=flow_name,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             flow_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("flow_name", flow_name)
+        _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="flowName")
@@ -166,7 +210,16 @@ class AnomalyDetectorAppFlowConfigArgs:
 class AnomalyDetectorCloudwatchConfigArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "role_arn", role_arn)
+        AnomalyDetectorCloudwatchConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -185,7 +238,16 @@ class AnomalyDetectorConfigArgs:
         """
         :param pulumi.Input['AnomalyDetectorFrequency'] anomaly_detector_frequency: Frequency of anomaly detection
         """
-        pulumi.set(__self__, "anomaly_detector_frequency", anomaly_detector_frequency)
+        AnomalyDetectorConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            anomaly_detector_frequency=anomaly_detector_frequency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             anomaly_detector_frequency: pulumi.Input['AnomalyDetectorFrequency'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("anomaly_detector_frequency", anomaly_detector_frequency)
 
     @property
     @pulumi.getter(name="anomalyDetectorFrequency")
@@ -209,18 +271,37 @@ class AnomalyDetectorCsvFormatDescriptorArgs:
                  file_compression: Optional[pulumi.Input['AnomalyDetectorCsvFormatDescriptorFileCompression']] = None,
                  header_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  quote_symbol: Optional[pulumi.Input[str]] = None):
+        AnomalyDetectorCsvFormatDescriptorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            charset=charset,
+            contains_header=contains_header,
+            delimiter=delimiter,
+            file_compression=file_compression,
+            header_list=header_list,
+            quote_symbol=quote_symbol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             charset: Optional[pulumi.Input[str]] = None,
+             contains_header: Optional[pulumi.Input[bool]] = None,
+             delimiter: Optional[pulumi.Input[str]] = None,
+             file_compression: Optional[pulumi.Input['AnomalyDetectorCsvFormatDescriptorFileCompression']] = None,
+             header_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             quote_symbol: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if charset is not None:
-            pulumi.set(__self__, "charset", charset)
+            _setter("charset", charset)
         if contains_header is not None:
-            pulumi.set(__self__, "contains_header", contains_header)
+            _setter("contains_header", contains_header)
         if delimiter is not None:
-            pulumi.set(__self__, "delimiter", delimiter)
+            _setter("delimiter", delimiter)
         if file_compression is not None:
-            pulumi.set(__self__, "file_compression", file_compression)
+            _setter("file_compression", file_compression)
         if header_list is not None:
-            pulumi.set(__self__, "header_list", header_list)
+            _setter("header_list", header_list)
         if quote_symbol is not None:
-            pulumi.set(__self__, "quote_symbol", quote_symbol)
+            _setter("quote_symbol", quote_symbol)
 
     @property
     @pulumi.getter
@@ -282,10 +363,21 @@ class AnomalyDetectorFileFormatDescriptorArgs:
     def __init__(__self__, *,
                  csv_format_descriptor: Optional[pulumi.Input['AnomalyDetectorCsvFormatDescriptorArgs']] = None,
                  json_format_descriptor: Optional[pulumi.Input['AnomalyDetectorJsonFormatDescriptorArgs']] = None):
+        AnomalyDetectorFileFormatDescriptorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            csv_format_descriptor=csv_format_descriptor,
+            json_format_descriptor=json_format_descriptor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             csv_format_descriptor: Optional[pulumi.Input['AnomalyDetectorCsvFormatDescriptorArgs']] = None,
+             json_format_descriptor: Optional[pulumi.Input['AnomalyDetectorJsonFormatDescriptorArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if csv_format_descriptor is not None:
-            pulumi.set(__self__, "csv_format_descriptor", csv_format_descriptor)
+            _setter("csv_format_descriptor", csv_format_descriptor)
         if json_format_descriptor is not None:
-            pulumi.set(__self__, "json_format_descriptor", json_format_descriptor)
+            _setter("json_format_descriptor", json_format_descriptor)
 
     @property
     @pulumi.getter(name="csvFormatDescriptor")
@@ -311,10 +403,21 @@ class AnomalyDetectorJsonFormatDescriptorArgs:
     def __init__(__self__, *,
                  charset: Optional[pulumi.Input[str]] = None,
                  file_compression: Optional[pulumi.Input['AnomalyDetectorJsonFormatDescriptorFileCompression']] = None):
+        AnomalyDetectorJsonFormatDescriptorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            charset=charset,
+            file_compression=file_compression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             charset: Optional[pulumi.Input[str]] = None,
+             file_compression: Optional[pulumi.Input['AnomalyDetectorJsonFormatDescriptorFileCompression']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if charset is not None:
-            pulumi.set(__self__, "charset", charset)
+            _setter("charset", charset)
         if file_compression is not None:
-            pulumi.set(__self__, "file_compression", file_compression)
+            _setter("file_compression", file_compression)
 
     @property
     @pulumi.getter
@@ -355,21 +458,46 @@ class AnomalyDetectorMetricSetArgs:
         :param pulumi.Input['AnomalyDetectorMetricSetMetricSetFrequency'] metric_set_frequency: A frequency period to aggregate the data
         :param pulumi.Input[int] offset: Offset, in seconds, between the frequency interval and the time at which the metrics are available.
         """
-        pulumi.set(__self__, "metric_list", metric_list)
-        pulumi.set(__self__, "metric_set_name", metric_set_name)
-        pulumi.set(__self__, "metric_source", metric_source)
+        AnomalyDetectorMetricSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_list=metric_list,
+            metric_set_name=metric_set_name,
+            metric_source=metric_source,
+            dimension_list=dimension_list,
+            metric_set_description=metric_set_description,
+            metric_set_frequency=metric_set_frequency,
+            offset=offset,
+            timestamp_column=timestamp_column,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_list: pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricArgs']]],
+             metric_set_name: pulumi.Input[str],
+             metric_source: pulumi.Input['AnomalyDetectorMetricSourceArgs'],
+             dimension_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             metric_set_description: Optional[pulumi.Input[str]] = None,
+             metric_set_frequency: Optional[pulumi.Input['AnomalyDetectorMetricSetMetricSetFrequency']] = None,
+             offset: Optional[pulumi.Input[int]] = None,
+             timestamp_column: Optional[pulumi.Input['AnomalyDetectorTimestampColumnArgs']] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_list", metric_list)
+        _setter("metric_set_name", metric_set_name)
+        _setter("metric_source", metric_source)
         if dimension_list is not None:
-            pulumi.set(__self__, "dimension_list", dimension_list)
+            _setter("dimension_list", dimension_list)
         if metric_set_description is not None:
-            pulumi.set(__self__, "metric_set_description", metric_set_description)
+            _setter("metric_set_description", metric_set_description)
         if metric_set_frequency is not None:
-            pulumi.set(__self__, "metric_set_frequency", metric_set_frequency)
+            _setter("metric_set_frequency", metric_set_frequency)
         if offset is not None:
-            pulumi.set(__self__, "offset", offset)
+            _setter("offset", offset)
         if timestamp_column is not None:
-            pulumi.set(__self__, "timestamp_column", timestamp_column)
+            _setter("timestamp_column", timestamp_column)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter(name="metricList")
@@ -479,16 +607,33 @@ class AnomalyDetectorMetricSourceArgs:
                  rds_source_config: Optional[pulumi.Input['AnomalyDetectorRdsSourceConfigArgs']] = None,
                  redshift_source_config: Optional[pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgs']] = None,
                  s3_source_config: Optional[pulumi.Input['AnomalyDetectorS3SourceConfigArgs']] = None):
+        AnomalyDetectorMetricSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_flow_config=app_flow_config,
+            cloudwatch_config=cloudwatch_config,
+            rds_source_config=rds_source_config,
+            redshift_source_config=redshift_source_config,
+            s3_source_config=s3_source_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_flow_config: Optional[pulumi.Input['AnomalyDetectorAppFlowConfigArgs']] = None,
+             cloudwatch_config: Optional[pulumi.Input['AnomalyDetectorCloudwatchConfigArgs']] = None,
+             rds_source_config: Optional[pulumi.Input['AnomalyDetectorRdsSourceConfigArgs']] = None,
+             redshift_source_config: Optional[pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgs']] = None,
+             s3_source_config: Optional[pulumi.Input['AnomalyDetectorS3SourceConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_flow_config is not None:
-            pulumi.set(__self__, "app_flow_config", app_flow_config)
+            _setter("app_flow_config", app_flow_config)
         if cloudwatch_config is not None:
-            pulumi.set(__self__, "cloudwatch_config", cloudwatch_config)
+            _setter("cloudwatch_config", cloudwatch_config)
         if rds_source_config is not None:
-            pulumi.set(__self__, "rds_source_config", rds_source_config)
+            _setter("rds_source_config", rds_source_config)
         if redshift_source_config is not None:
-            pulumi.set(__self__, "redshift_source_config", redshift_source_config)
+            _setter("redshift_source_config", redshift_source_config)
         if s3_source_config is not None:
-            pulumi.set(__self__, "s3_source_config", s3_source_config)
+            _setter("s3_source_config", s3_source_config)
 
     @property
     @pulumi.getter(name="appFlowConfig")
@@ -545,10 +690,23 @@ class AnomalyDetectorMetricArgs:
         """
         :param pulumi.Input['AnomalyDetectorMetricAggregationFunction'] aggregation_function: Operator used to aggregate metric values
         """
-        pulumi.set(__self__, "aggregation_function", aggregation_function)
-        pulumi.set(__self__, "metric_name", metric_name)
+        AnomalyDetectorMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation_function=aggregation_function,
+            metric_name=metric_name,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation_function: pulumi.Input['AnomalyDetectorMetricAggregationFunction'],
+             metric_name: pulumi.Input[str],
+             namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aggregation_function", aggregation_function)
+        _setter("metric_name", metric_name)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
 
     @property
     @pulumi.getter(name="aggregationFunction")
@@ -592,14 +750,37 @@ class AnomalyDetectorRdsSourceConfigArgs:
                  secret_manager_arn: pulumi.Input[str],
                  table_name: pulumi.Input[str],
                  vpc_configuration: pulumi.Input['AnomalyDetectorVpcConfigurationArgs']):
-        pulumi.set(__self__, "database_host", database_host)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "database_port", database_port)
-        pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+        AnomalyDetectorRdsSourceConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_host=database_host,
+            database_name=database_name,
+            database_port=database_port,
+            db_instance_identifier=db_instance_identifier,
+            role_arn=role_arn,
+            secret_manager_arn=secret_manager_arn,
+            table_name=table_name,
+            vpc_configuration=vpc_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_host: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             database_port: pulumi.Input[int],
+             db_instance_identifier: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             secret_manager_arn: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             vpc_configuration: pulumi.Input['AnomalyDetectorVpcConfigurationArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_host", database_host)
+        _setter("database_name", database_name)
+        _setter("database_port", database_port)
+        _setter("db_instance_identifier", db_instance_identifier)
+        _setter("role_arn", role_arn)
+        _setter("secret_manager_arn", secret_manager_arn)
+        _setter("table_name", table_name)
+        _setter("vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="databaseHost")
@@ -685,14 +866,37 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
                  secret_manager_arn: pulumi.Input[str],
                  table_name: pulumi.Input[str],
                  vpc_configuration: pulumi.Input['AnomalyDetectorVpcConfigurationArgs']):
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
-        pulumi.set(__self__, "database_host", database_host)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "database_port", database_port)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+        AnomalyDetectorRedshiftSourceConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_identifier=cluster_identifier,
+            database_host=database_host,
+            database_name=database_name,
+            database_port=database_port,
+            role_arn=role_arn,
+            secret_manager_arn=secret_manager_arn,
+            table_name=table_name,
+            vpc_configuration=vpc_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_identifier: pulumi.Input[str],
+             database_host: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             database_port: pulumi.Input[int],
+             role_arn: pulumi.Input[str],
+             secret_manager_arn: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             vpc_configuration: pulumi.Input['AnomalyDetectorVpcConfigurationArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_identifier", cluster_identifier)
+        _setter("database_host", database_host)
+        _setter("database_name", database_name)
+        _setter("database_port", database_port)
+        _setter("role_arn", role_arn)
+        _setter("secret_manager_arn", secret_manager_arn)
+        _setter("table_name", table_name)
+        _setter("vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -774,12 +978,27 @@ class AnomalyDetectorS3SourceConfigArgs:
                  role_arn: pulumi.Input[str],
                  historical_data_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  templated_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "file_format_descriptor", file_format_descriptor)
-        pulumi.set(__self__, "role_arn", role_arn)
+        AnomalyDetectorS3SourceConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_format_descriptor=file_format_descriptor,
+            role_arn=role_arn,
+            historical_data_path_list=historical_data_path_list,
+            templated_path_list=templated_path_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_format_descriptor: pulumi.Input['AnomalyDetectorFileFormatDescriptorArgs'],
+             role_arn: pulumi.Input[str],
+             historical_data_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             templated_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("file_format_descriptor", file_format_descriptor)
+        _setter("role_arn", role_arn)
         if historical_data_path_list is not None:
-            pulumi.set(__self__, "historical_data_path_list", historical_data_path_list)
+            _setter("historical_data_path_list", historical_data_path_list)
         if templated_path_list is not None:
-            pulumi.set(__self__, "templated_path_list", templated_path_list)
+            _setter("templated_path_list", templated_path_list)
 
     @property
     @pulumi.getter(name="fileFormatDescriptor")
@@ -826,10 +1045,21 @@ class AnomalyDetectorTimestampColumnArgs:
         """
         :param pulumi.Input[str] column_format: A timestamp format for the timestamps in the dataset
         """
+        AnomalyDetectorTimestampColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_format=column_format,
+            column_name=column_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_format: Optional[pulumi.Input[str]] = None,
+             column_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if column_format is not None:
-            pulumi.set(__self__, "column_format", column_format)
+            _setter("column_format", column_format)
         if column_name is not None:
-            pulumi.set(__self__, "column_name", column_name)
+            _setter("column_name", column_name)
 
     @property
     @pulumi.getter(name="columnFormat")
@@ -858,8 +1088,19 @@ class AnomalyDetectorVpcConfigurationArgs:
     def __init__(__self__, *,
                  security_group_id_list: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_id_list: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "security_group_id_list", security_group_id_list)
-        pulumi.set(__self__, "subnet_id_list", subnet_id_list)
+        AnomalyDetectorVpcConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_id_list=security_group_id_list,
+            subnet_id_list=subnet_id_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_id_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnet_id_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("security_group_id_list", security_group_id_list)
+        _setter("subnet_id_list", subnet_id_list)
 
     @property
     @pulumi.getter(name="securityGroupIdList")

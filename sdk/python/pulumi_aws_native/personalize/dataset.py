@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,13 +29,30 @@ class DatasetArgs:
         :param pulumi.Input[str] schema_arn: The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
         :param pulumi.Input[str] name: The name for the dataset
         """
-        pulumi.set(__self__, "dataset_group_arn", dataset_group_arn)
-        pulumi.set(__self__, "dataset_type", dataset_type)
-        pulumi.set(__self__, "schema_arn", schema_arn)
+        DatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dataset_group_arn=dataset_group_arn,
+            dataset_type=dataset_type,
+            schema_arn=schema_arn,
+            dataset_import_job=dataset_import_job,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dataset_group_arn: pulumi.Input[str],
+             dataset_type: pulumi.Input['DatasetType'],
+             schema_arn: pulumi.Input[str],
+             dataset_import_job: Optional[pulumi.Input['DatasetImportJobArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dataset_group_arn", dataset_group_arn)
+        _setter("dataset_type", dataset_type)
+        _setter("schema_arn", schema_arn)
         if dataset_import_job is not None:
-            pulumi.set(__self__, "dataset_import_job", dataset_import_job)
+            _setter("dataset_import_job", dataset_import_job)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="datasetGroupArn")
@@ -135,6 +152,10 @@ class Dataset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatasetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -157,6 +178,11 @@ class Dataset(pulumi.CustomResource):
             if dataset_group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset_group_arn'")
             __props__.__dict__["dataset_group_arn"] = dataset_group_arn
+            if not isinstance(dataset_import_job, DatasetImportJobArgs):
+                dataset_import_job = dataset_import_job or {}
+                def _setter(key, value):
+                    dataset_import_job[key] = value
+                DatasetImportJobArgs._configure(_setter, **dataset_import_job)
             __props__.__dict__["dataset_import_job"] = dataset_import_job
             if dataset_type is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset_type'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,15 +34,36 @@ class RuleArgs:
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]] tags: One or more tags.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "function", function)
-        pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "publish_status", publish_status)
-        pulumi.set(__self__, "trigger_event_source", trigger_event_source)
+        RuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            function=function,
+            instance_arn=instance_arn,
+            publish_status=publish_status,
+            trigger_event_source=trigger_event_source,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input['RuleActionsArgs'],
+             function: pulumi.Input[str],
+             instance_arn: pulumi.Input[str],
+             publish_status: pulumi.Input['RulePublishStatus'],
+             trigger_event_source: pulumi.Input['RuleTriggerEventSourceArgs'],
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("function", function)
+        _setter("instance_arn", instance_arn)
+        _setter("publish_status", publish_status)
+        _setter("trigger_event_source", trigger_event_source)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -174,6 +195,10 @@ class Rule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -195,6 +220,11 @@ class Rule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RuleArgs.__new__(RuleArgs)
 
+            if not isinstance(actions, RuleActionsArgs):
+                actions = actions or {}
+                def _setter(key, value):
+                    actions[key] = value
+                RuleActionsArgs._configure(_setter, **actions)
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
@@ -209,6 +239,11 @@ class Rule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'publish_status'")
             __props__.__dict__["publish_status"] = publish_status
             __props__.__dict__["tags"] = tags
+            if not isinstance(trigger_event_source, RuleTriggerEventSourceArgs):
+                trigger_event_source = trigger_event_source or {}
+                def _setter(key, value):
+                    trigger_event_source[key] = value
+                RuleTriggerEventSourceArgs._configure(_setter, **trigger_event_source)
             if trigger_event_source is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger_event_source'")
             __props__.__dict__["trigger_event_source"] = trigger_event_source

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -53,8 +53,19 @@ class GlobalTableAttributeDefinitionArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  attribute_type: pulumi.Input[str]):
-        pulumi.set(__self__, "attribute_name", attribute_name)
-        pulumi.set(__self__, "attribute_type", attribute_type)
+        GlobalTableAttributeDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_name=attribute_name,
+            attribute_type=attribute_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_name: pulumi.Input[str],
+             attribute_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_name", attribute_name)
+        _setter("attribute_type", attribute_type)
 
     @property
     @pulumi.getter(name="attributeName")
@@ -82,11 +93,26 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
                  min_capacity: pulumi.Input[int],
                  target_tracking_scaling_policy_configuration: pulumi.Input['GlobalTableTargetTrackingScalingPolicyConfigurationArgs'],
                  seed_capacity: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "max_capacity", max_capacity)
-        pulumi.set(__self__, "min_capacity", min_capacity)
-        pulumi.set(__self__, "target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
+        GlobalTableCapacityAutoScalingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_capacity=max_capacity,
+            min_capacity=min_capacity,
+            target_tracking_scaling_policy_configuration=target_tracking_scaling_policy_configuration,
+            seed_capacity=seed_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_capacity: pulumi.Input[int],
+             min_capacity: pulumi.Input[int],
+             target_tracking_scaling_policy_configuration: pulumi.Input['GlobalTableTargetTrackingScalingPolicyConfigurationArgs'],
+             seed_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_capacity", max_capacity)
+        _setter("min_capacity", min_capacity)
+        _setter("target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
         if seed_capacity is not None:
-            pulumi.set(__self__, "seed_capacity", seed_capacity)
+            _setter("seed_capacity", seed_capacity)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -129,7 +155,16 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
 class GlobalTableContributorInsightsSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
-        pulumi.set(__self__, "enabled", enabled)
+        GlobalTableContributorInsightsSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -148,11 +183,26 @@ class GlobalTableGlobalSecondaryIndexArgs:
                  key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
                  projection: pulumi.Input['GlobalTableProjectionArgs'],
                  write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
-        pulumi.set(__self__, "index_name", index_name)
-        pulumi.set(__self__, "key_schema", key_schema)
-        pulumi.set(__self__, "projection", projection)
+        GlobalTableGlobalSecondaryIndexArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index_name=index_name,
+            key_schema=key_schema,
+            projection=projection,
+            write_provisioned_throughput_settings=write_provisioned_throughput_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index_name: pulumi.Input[str],
+             key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
+             projection: pulumi.Input['GlobalTableProjectionArgs'],
+             write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("index_name", index_name)
+        _setter("key_schema", key_schema)
+        _setter("projection", projection)
         if write_provisioned_throughput_settings is not None:
-            pulumi.set(__self__, "write_provisioned_throughput_settings", write_provisioned_throughput_settings)
+            _setter("write_provisioned_throughput_settings", write_provisioned_throughput_settings)
 
     @property
     @pulumi.getter(name="indexName")
@@ -196,8 +246,19 @@ class GlobalTableKeySchemaArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  key_type: pulumi.Input[str]):
-        pulumi.set(__self__, "attribute_name", attribute_name)
-        pulumi.set(__self__, "key_type", key_type)
+        GlobalTableKeySchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_name=attribute_name,
+            key_type=key_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_name: pulumi.Input[str],
+             key_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_name", attribute_name)
+        _setter("key_type", key_type)
 
     @property
     @pulumi.getter(name="attributeName")
@@ -222,7 +283,16 @@ class GlobalTableKeySchemaArgs:
 class GlobalTableKinesisStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "stream_arn", stream_arn)
+        GlobalTableKinesisStreamSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stream_arn=stream_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stream_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -240,9 +310,22 @@ class GlobalTableLocalSecondaryIndexArgs:
                  index_name: pulumi.Input[str],
                  key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
                  projection: pulumi.Input['GlobalTableProjectionArgs']):
-        pulumi.set(__self__, "index_name", index_name)
-        pulumi.set(__self__, "key_schema", key_schema)
-        pulumi.set(__self__, "projection", projection)
+        GlobalTableLocalSecondaryIndexArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index_name=index_name,
+            key_schema=key_schema,
+            projection=projection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index_name: pulumi.Input[str],
+             key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
+             projection: pulumi.Input['GlobalTableProjectionArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("index_name", index_name)
+        _setter("key_schema", key_schema)
+        _setter("projection", projection)
 
     @property
     @pulumi.getter(name="indexName")
@@ -276,8 +359,17 @@ class GlobalTableLocalSecondaryIndexArgs:
 class GlobalTablePointInTimeRecoverySpecificationArgs:
     def __init__(__self__, *,
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None):
+        GlobalTablePointInTimeRecoverySpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            point_in_time_recovery_enabled=point_in_time_recovery_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if point_in_time_recovery_enabled is not None:
-            pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
+            _setter("point_in_time_recovery_enabled", point_in_time_recovery_enabled)
 
     @property
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
@@ -294,10 +386,21 @@ class GlobalTableProjectionArgs:
     def __init__(__self__, *,
                  non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  projection_type: Optional[pulumi.Input[str]] = None):
+        GlobalTableProjectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            non_key_attributes=non_key_attributes,
+            projection_type=projection_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             projection_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if non_key_attributes is not None:
-            pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+            _setter("non_key_attributes", non_key_attributes)
         if projection_type is not None:
-            pulumi.set(__self__, "projection_type", projection_type)
+            _setter("projection_type", projection_type)
 
     @property
     @pulumi.getter(name="nonKeyAttributes")
@@ -323,10 +426,21 @@ class GlobalTableReadProvisionedThroughputSettingsArgs:
     def __init__(__self__, *,
                  read_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None,
                  read_capacity_units: Optional[pulumi.Input[int]] = None):
+        GlobalTableReadProvisionedThroughputSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            read_capacity_auto_scaling_settings=read_capacity_auto_scaling_settings,
+            read_capacity_units=read_capacity_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             read_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None,
+             read_capacity_units: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if read_capacity_auto_scaling_settings is not None:
-            pulumi.set(__self__, "read_capacity_auto_scaling_settings", read_capacity_auto_scaling_settings)
+            _setter("read_capacity_auto_scaling_settings", read_capacity_auto_scaling_settings)
         if read_capacity_units is not None:
-            pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+            _setter("read_capacity_units", read_capacity_units)
 
     @property
     @pulumi.getter(name="readCapacityAutoScalingSettings")
@@ -353,11 +467,24 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
                  index_name: pulumi.Input[str],
                  contributor_insights_specification: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']] = None,
                  read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None):
-        pulumi.set(__self__, "index_name", index_name)
+        GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index_name=index_name,
+            contributor_insights_specification=contributor_insights_specification,
+            read_provisioned_throughput_settings=read_provisioned_throughput_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index_name: pulumi.Input[str],
+             contributor_insights_specification: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']] = None,
+             read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("index_name", index_name)
         if contributor_insights_specification is not None:
-            pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
+            _setter("contributor_insights_specification", contributor_insights_specification)
         if read_provisioned_throughput_settings is not None:
-            pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
+            _setter("read_provisioned_throughput_settings", read_provisioned_throughput_settings)
 
     @property
     @pulumi.getter(name="indexName")
@@ -400,25 +527,52 @@ class GlobalTableReplicaSpecificationArgs:
                  sse_specification: Optional[pulumi.Input['GlobalTableReplicaSseSpecificationArgs']] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]] = None):
-        pulumi.set(__self__, "region", region)
+        GlobalTableReplicaSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            region=region,
+            contributor_insights_specification=contributor_insights_specification,
+            deletion_protection_enabled=deletion_protection_enabled,
+            global_secondary_indexes=global_secondary_indexes,
+            kinesis_stream_specification=kinesis_stream_specification,
+            point_in_time_recovery_specification=point_in_time_recovery_specification,
+            read_provisioned_throughput_settings=read_provisioned_throughput_settings,
+            sse_specification=sse_specification,
+            table_class=table_class,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             region: pulumi.Input[str],
+             contributor_insights_specification: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']] = None,
+             deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]] = None,
+             kinesis_stream_specification: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationArgs']] = None,
+             point_in_time_recovery_specification: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']] = None,
+             read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None,
+             sse_specification: Optional[pulumi.Input['GlobalTableReplicaSseSpecificationArgs']] = None,
+             table_class: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("region", region)
         if contributor_insights_specification is not None:
-            pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
+            _setter("contributor_insights_specification", contributor_insights_specification)
         if deletion_protection_enabled is not None:
-            pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
+            _setter("deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
-            pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+            _setter("global_secondary_indexes", global_secondary_indexes)
         if kinesis_stream_specification is not None:
-            pulumi.set(__self__, "kinesis_stream_specification", kinesis_stream_specification)
+            _setter("kinesis_stream_specification", kinesis_stream_specification)
         if point_in_time_recovery_specification is not None:
-            pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
+            _setter("point_in_time_recovery_specification", point_in_time_recovery_specification)
         if read_provisioned_throughput_settings is not None:
-            pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
+            _setter("read_provisioned_throughput_settings", read_provisioned_throughput_settings)
         if sse_specification is not None:
-            pulumi.set(__self__, "sse_specification", sse_specification)
+            _setter("sse_specification", sse_specification)
         if table_class is not None:
-            pulumi.set(__self__, "table_class", table_class)
+            _setter("table_class", table_class)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -515,7 +669,16 @@ class GlobalTableReplicaSpecificationArgs:
 class GlobalTableReplicaSseSpecificationArgs:
     def __init__(__self__, *,
                  kms_master_key_id: pulumi.Input[str]):
-        pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+        GlobalTableReplicaSseSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_master_key_id=kms_master_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_master_key_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kms_master_key_id", kms_master_key_id)
 
     @property
     @pulumi.getter(name="kmsMasterKeyId")
@@ -532,9 +695,20 @@ class GlobalTableSseSpecificationArgs:
     def __init__(__self__, *,
                  sse_enabled: pulumi.Input[bool],
                  sse_type: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "sse_enabled", sse_enabled)
+        GlobalTableSseSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sse_enabled=sse_enabled,
+            sse_type=sse_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sse_enabled: pulumi.Input[bool],
+             sse_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("sse_enabled", sse_enabled)
         if sse_type is not None:
-            pulumi.set(__self__, "sse_type", sse_type)
+            _setter("sse_type", sse_type)
 
     @property
     @pulumi.getter(name="sseEnabled")
@@ -559,7 +733,16 @@ class GlobalTableSseSpecificationArgs:
 class GlobalTableStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_view_type: pulumi.Input[str]):
-        pulumi.set(__self__, "stream_view_type", stream_view_type)
+        GlobalTableStreamSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stream_view_type=stream_view_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stream_view_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("stream_view_type", stream_view_type)
 
     @property
     @pulumi.getter(name="streamViewType")
@@ -576,8 +759,19 @@ class GlobalTableTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        GlobalTableTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -605,13 +799,28 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
                  disable_scale_in: Optional[pulumi.Input[bool]] = None,
                  scale_in_cooldown: Optional[pulumi.Input[int]] = None,
                  scale_out_cooldown: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "target_value", target_value)
+        GlobalTableTargetTrackingScalingPolicyConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_value=target_value,
+            disable_scale_in=disable_scale_in,
+            scale_in_cooldown=scale_in_cooldown,
+            scale_out_cooldown=scale_out_cooldown,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_value: pulumi.Input[float],
+             disable_scale_in: Optional[pulumi.Input[bool]] = None,
+             scale_in_cooldown: Optional[pulumi.Input[int]] = None,
+             scale_out_cooldown: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_value", target_value)
         if disable_scale_in is not None:
-            pulumi.set(__self__, "disable_scale_in", disable_scale_in)
+            _setter("disable_scale_in", disable_scale_in)
         if scale_in_cooldown is not None:
-            pulumi.set(__self__, "scale_in_cooldown", scale_in_cooldown)
+            _setter("scale_in_cooldown", scale_in_cooldown)
         if scale_out_cooldown is not None:
-            pulumi.set(__self__, "scale_out_cooldown", scale_out_cooldown)
+            _setter("scale_out_cooldown", scale_out_cooldown)
 
     @property
     @pulumi.getter(name="targetValue")
@@ -655,9 +864,20 @@ class GlobalTableTimeToLiveSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  attribute_name: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "enabled", enabled)
+        GlobalTableTimeToLiveSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            attribute_name=attribute_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             attribute_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if attribute_name is not None:
-            pulumi.set(__self__, "attribute_name", attribute_name)
+            _setter("attribute_name", attribute_name)
 
     @property
     @pulumi.getter
@@ -682,8 +902,17 @@ class GlobalTableTimeToLiveSpecificationArgs:
 class GlobalTableWriteProvisionedThroughputSettingsArgs:
     def __init__(__self__, *,
                  write_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None):
+        GlobalTableWriteProvisionedThroughputSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            write_capacity_auto_scaling_settings=write_capacity_auto_scaling_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             write_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if write_capacity_auto_scaling_settings is not None:
-            pulumi.set(__self__, "write_capacity_auto_scaling_settings", write_capacity_auto_scaling_settings)
+            _setter("write_capacity_auto_scaling_settings", write_capacity_auto_scaling_settings)
 
     @property
     @pulumi.getter(name="writeCapacityAutoScalingSettings")
@@ -700,8 +929,19 @@ class TableAttributeDefinitionArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  attribute_type: pulumi.Input[str]):
-        pulumi.set(__self__, "attribute_name", attribute_name)
-        pulumi.set(__self__, "attribute_type", attribute_type)
+        TableAttributeDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_name=attribute_name,
+            attribute_type=attribute_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_name: pulumi.Input[str],
+             attribute_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_name", attribute_name)
+        _setter("attribute_type", attribute_type)
 
     @property
     @pulumi.getter(name="attributeName")
@@ -726,7 +966,16 @@ class TableAttributeDefinitionArgs:
 class TableContributorInsightsSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
-        pulumi.set(__self__, "enabled", enabled)
+        TableContributorInsightsSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -743,10 +992,21 @@ class TableCsvArgs:
     def __init__(__self__, *,
                  delimiter: Optional[pulumi.Input[str]] = None,
                  header_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        TableCsvArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delimiter=delimiter,
+            header_list=header_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delimiter: Optional[pulumi.Input[str]] = None,
+             header_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delimiter is not None:
-            pulumi.set(__self__, "delimiter", delimiter)
+            _setter("delimiter", delimiter)
         if header_list is not None:
-            pulumi.set(__self__, "header_list", header_list)
+            _setter("header_list", header_list)
 
     @property
     @pulumi.getter
@@ -775,13 +1035,30 @@ class TableGlobalSecondaryIndexArgs:
                  projection: pulumi.Input['TableProjectionArgs'],
                  contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None):
-        pulumi.set(__self__, "index_name", index_name)
-        pulumi.set(__self__, "key_schema", key_schema)
-        pulumi.set(__self__, "projection", projection)
+        TableGlobalSecondaryIndexArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index_name=index_name,
+            key_schema=key_schema,
+            projection=projection,
+            contributor_insights_specification=contributor_insights_specification,
+            provisioned_throughput=provisioned_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index_name: pulumi.Input[str],
+             key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]],
+             projection: pulumi.Input['TableProjectionArgs'],
+             contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
+             provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("index_name", index_name)
+        _setter("key_schema", key_schema)
+        _setter("projection", projection)
         if contributor_insights_specification is not None:
-            pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
+            _setter("contributor_insights_specification", contributor_insights_specification)
         if provisioned_throughput is not None:
-            pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
+            _setter("provisioned_throughput", provisioned_throughput)
 
     @property
     @pulumi.getter(name="indexName")
@@ -836,12 +1113,27 @@ class TableImportSourceSpecificationArgs:
                  s3_bucket_source: pulumi.Input['TableS3BucketSourceArgs'],
                  input_compression_type: Optional[pulumi.Input[str]] = None,
                  input_format_options: Optional[pulumi.Input['TableInputFormatOptionsArgs']] = None):
-        pulumi.set(__self__, "input_format", input_format)
-        pulumi.set(__self__, "s3_bucket_source", s3_bucket_source)
+        TableImportSourceSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_format=input_format,
+            s3_bucket_source=s3_bucket_source,
+            input_compression_type=input_compression_type,
+            input_format_options=input_format_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_format: pulumi.Input[str],
+             s3_bucket_source: pulumi.Input['TableS3BucketSourceArgs'],
+             input_compression_type: Optional[pulumi.Input[str]] = None,
+             input_format_options: Optional[pulumi.Input['TableInputFormatOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("input_format", input_format)
+        _setter("s3_bucket_source", s3_bucket_source)
         if input_compression_type is not None:
-            pulumi.set(__self__, "input_compression_type", input_compression_type)
+            _setter("input_compression_type", input_compression_type)
         if input_format_options is not None:
-            pulumi.set(__self__, "input_format_options", input_format_options)
+            _setter("input_format_options", input_format_options)
 
     @property
     @pulumi.getter(name="inputFormat")
@@ -884,8 +1176,17 @@ class TableImportSourceSpecificationArgs:
 class TableInputFormatOptionsArgs:
     def __init__(__self__, *,
                  csv: Optional[pulumi.Input['TableCsvArgs']] = None):
+        TableInputFormatOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            csv=csv,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             csv: Optional[pulumi.Input['TableCsvArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if csv is not None:
-            pulumi.set(__self__, "csv", csv)
+            _setter("csv", csv)
 
     @property
     @pulumi.getter
@@ -902,8 +1203,19 @@ class TableKeySchemaArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  key_type: pulumi.Input[str]):
-        pulumi.set(__self__, "attribute_name", attribute_name)
-        pulumi.set(__self__, "key_type", key_type)
+        TableKeySchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_name=attribute_name,
+            key_type=key_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_name: pulumi.Input[str],
+             key_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_name", attribute_name)
+        _setter("key_type", key_type)
 
     @property
     @pulumi.getter(name="attributeName")
@@ -928,7 +1240,16 @@ class TableKeySchemaArgs:
 class TableKinesisStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "stream_arn", stream_arn)
+        TableKinesisStreamSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stream_arn=stream_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stream_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -946,9 +1267,22 @@ class TableLocalSecondaryIndexArgs:
                  index_name: pulumi.Input[str],
                  key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]],
                  projection: pulumi.Input['TableProjectionArgs']):
-        pulumi.set(__self__, "index_name", index_name)
-        pulumi.set(__self__, "key_schema", key_schema)
-        pulumi.set(__self__, "projection", projection)
+        TableLocalSecondaryIndexArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index_name=index_name,
+            key_schema=key_schema,
+            projection=projection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index_name: pulumi.Input[str],
+             key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]],
+             projection: pulumi.Input['TableProjectionArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("index_name", index_name)
+        _setter("key_schema", key_schema)
+        _setter("projection", projection)
 
     @property
     @pulumi.getter(name="indexName")
@@ -982,8 +1316,17 @@ class TableLocalSecondaryIndexArgs:
 class TablePointInTimeRecoverySpecificationArgs:
     def __init__(__self__, *,
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None):
+        TablePointInTimeRecoverySpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            point_in_time_recovery_enabled=point_in_time_recovery_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if point_in_time_recovery_enabled is not None:
-            pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
+            _setter("point_in_time_recovery_enabled", point_in_time_recovery_enabled)
 
     @property
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
@@ -1000,10 +1343,21 @@ class TableProjectionArgs:
     def __init__(__self__, *,
                  non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  projection_type: Optional[pulumi.Input[str]] = None):
+        TableProjectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            non_key_attributes=non_key_attributes,
+            projection_type=projection_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             projection_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if non_key_attributes is not None:
-            pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+            _setter("non_key_attributes", non_key_attributes)
         if projection_type is not None:
-            pulumi.set(__self__, "projection_type", projection_type)
+            _setter("projection_type", projection_type)
 
     @property
     @pulumi.getter(name="nonKeyAttributes")
@@ -1029,8 +1383,19 @@ class TableProvisionedThroughputArgs:
     def __init__(__self__, *,
                  read_capacity_units: pulumi.Input[int],
                  write_capacity_units: pulumi.Input[int]):
-        pulumi.set(__self__, "read_capacity_units", read_capacity_units)
-        pulumi.set(__self__, "write_capacity_units", write_capacity_units)
+        TableProvisionedThroughputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            read_capacity_units=read_capacity_units,
+            write_capacity_units=write_capacity_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             read_capacity_units: pulumi.Input[int],
+             write_capacity_units: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("read_capacity_units", read_capacity_units)
+        _setter("write_capacity_units", write_capacity_units)
 
     @property
     @pulumi.getter(name="readCapacityUnits")
@@ -1057,11 +1422,24 @@ class TableS3BucketSourceArgs:
                  s3_bucket: pulumi.Input[str],
                  s3_bucket_owner: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        TableS3BucketSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket=s3_bucket,
+            s3_bucket_owner=s3_bucket_owner,
+            s3_key_prefix=s3_key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket: pulumi.Input[str],
+             s3_bucket_owner: Optional[pulumi.Input[str]] = None,
+             s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_bucket", s3_bucket)
         if s3_bucket_owner is not None:
-            pulumi.set(__self__, "s3_bucket_owner", s3_bucket_owner)
+            _setter("s3_bucket_owner", s3_bucket_owner)
         if s3_key_prefix is not None:
-            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+            _setter("s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -1097,11 +1475,24 @@ class TableSseSpecificationArgs:
                  sse_enabled: pulumi.Input[bool],
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  sse_type: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "sse_enabled", sse_enabled)
+        TableSseSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sse_enabled=sse_enabled,
+            kms_master_key_id=kms_master_key_id,
+            sse_type=sse_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sse_enabled: pulumi.Input[bool],
+             kms_master_key_id: Optional[pulumi.Input[str]] = None,
+             sse_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("sse_enabled", sse_enabled)
         if kms_master_key_id is not None:
-            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+            _setter("kms_master_key_id", kms_master_key_id)
         if sse_type is not None:
-            pulumi.set(__self__, "sse_type", sse_type)
+            _setter("sse_type", sse_type)
 
     @property
     @pulumi.getter(name="sseEnabled")
@@ -1135,7 +1526,16 @@ class TableSseSpecificationArgs:
 class TableStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_view_type: pulumi.Input[str]):
-        pulumi.set(__self__, "stream_view_type", stream_view_type)
+        TableStreamSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stream_view_type=stream_view_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stream_view_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("stream_view_type", stream_view_type)
 
     @property
     @pulumi.getter(name="streamViewType")
@@ -1152,8 +1552,19 @@ class TableTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        TableTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1179,9 +1590,20 @@ class TableTimeToLiveSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  attribute_name: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "enabled", enabled)
+        TableTimeToLiveSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            attribute_name=attribute_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             attribute_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if attribute_name is not None:
-            pulumi.set(__self__, "attribute_name", attribute_name)
+            _setter("attribute_name", attribute_name)
 
     @property
     @pulumi.getter

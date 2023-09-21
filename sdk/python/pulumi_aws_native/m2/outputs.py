@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -40,7 +40,16 @@ class ApplicationDefinition0Properties(dict):
 
     def __init__(__self__, *,
                  s3_location: str):
-        pulumi.set(__self__, "s3_location", s3_location)
+        ApplicationDefinition0Properties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_location=s3_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_location: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_location", s3_location)
 
     @property
     @pulumi.getter(name="s3Location")
@@ -52,7 +61,16 @@ class ApplicationDefinition0Properties(dict):
 class ApplicationDefinition1Properties(dict):
     def __init__(__self__, *,
                  content: str):
-        pulumi.set(__self__, "content", content)
+        ApplicationDefinition1Properties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
 
     @property
     @pulumi.getter
@@ -63,6 +81,11 @@ class ApplicationDefinition1Properties(dict):
 @pulumi.output_type
 class ApplicationTagMap(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -93,7 +116,16 @@ class EnvironmentHighAvailabilityConfig(dict):
         """
         Defines the details of a high availability configuration.
         """
-        pulumi.set(__self__, "desired_capacity", desired_capacity)
+        EnvironmentHighAvailabilityConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            desired_capacity=desired_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             desired_capacity: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("desired_capacity", desired_capacity)
 
     @property
     @pulumi.getter(name="desiredCapacity")
@@ -111,6 +143,11 @@ class EnvironmentStorageConfiguration(dict):
         Defines the storage configuration for an environment.
         """
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -122,6 +159,11 @@ class EnvironmentTagMap(dict):
         """
         Defines tags associated to an environment.
         """
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 

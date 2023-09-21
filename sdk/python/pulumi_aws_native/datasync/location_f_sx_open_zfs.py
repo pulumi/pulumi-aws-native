@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,14 +29,31 @@ class LocationFSxOpenZfsArgs:
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
         :param pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZfsTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "security_group_arns", security_group_arns)
+        LocationFSxOpenZfsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            security_group_arns=security_group_arns,
+            fsx_filesystem_arn=fsx_filesystem_arn,
+            subdirectory=subdirectory,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: pulumi.Input['LocationFSxOpenZfsProtocolArgs'],
+             security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZfsTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("protocol", protocol)
+        _setter("security_group_arns", security_group_arns)
         if fsx_filesystem_arn is not None:
-            pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
+            _setter("fsx_filesystem_arn", fsx_filesystem_arn)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -136,6 +153,10 @@ class LocationFSxOpenZfs(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocationFSxOpenZfsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -156,6 +177,11 @@ class LocationFSxOpenZfs(pulumi.CustomResource):
             __props__ = LocationFSxOpenZfsArgs.__new__(LocationFSxOpenZfsArgs)
 
             __props__.__dict__["fsx_filesystem_arn"] = fsx_filesystem_arn
+            if not isinstance(protocol, LocationFSxOpenZfsProtocolArgs):
+                protocol = protocol or {}
+                def _setter(key, value):
+                    protocol[key] = value
+                LocationFSxOpenZfsProtocolArgs._configure(_setter, **protocol)
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol

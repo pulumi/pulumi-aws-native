@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,25 +30,54 @@ class AppBlockBuilderArgs:
         """
         The set of arguments for constructing a AppBlockBuilder resource.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "platform", platform)
-        pulumi.set(__self__, "vpc_config", vpc_config)
+        AppBlockBuilderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            platform=platform,
+            vpc_config=vpc_config,
+            access_endpoints=access_endpoints,
+            app_block_arns=app_block_arns,
+            description=description,
+            display_name=display_name,
+            enable_default_internet_access=enable_default_internet_access,
+            iam_role_arn=iam_role_arn,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             platform: pulumi.Input[str],
+             vpc_config: pulumi.Input['AppBlockBuilderVpcConfigArgs'],
+             access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]]] = None,
+             app_block_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enable_default_internet_access: Optional[pulumi.Input[bool]] = None,
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", instance_type)
+        _setter("platform", platform)
+        _setter("vpc_config", vpc_config)
         if access_endpoints is not None:
-            pulumi.set(__self__, "access_endpoints", access_endpoints)
+            _setter("access_endpoints", access_endpoints)
         if app_block_arns is not None:
-            pulumi.set(__self__, "app_block_arns", app_block_arns)
+            _setter("app_block_arns", app_block_arns)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enable_default_internet_access is not None:
-            pulumi.set(__self__, "enable_default_internet_access", enable_default_internet_access)
+            _setter("enable_default_internet_access", enable_default_internet_access)
         if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+            _setter("iam_role_arn", iam_role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -192,6 +221,10 @@ class AppBlockBuilder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppBlockBuilderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -231,6 +264,11 @@ class AppBlockBuilder(pulumi.CustomResource):
                 raise TypeError("Missing required property 'platform'")
             __props__.__dict__["platform"] = platform
             __props__.__dict__["tags"] = tags
+            if not isinstance(vpc_config, AppBlockBuilderVpcConfigArgs):
+                vpc_config = vpc_config or {}
+                def _setter(key, value):
+                    vpc_config[key] = value
+                AppBlockBuilderVpcConfigArgs._configure(_setter, **vpc_config)
             if vpc_config is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_config'")
             __props__.__dict__["vpc_config"] = vpc_config

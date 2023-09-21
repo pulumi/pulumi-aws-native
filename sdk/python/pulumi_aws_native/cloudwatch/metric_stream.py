@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,21 +37,46 @@ class MetricStreamArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]] statistics_configurations: By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]] tags: A set of tags to assign to the delivery stream.
         """
-        pulumi.set(__self__, "firehose_arn", firehose_arn)
-        pulumi.set(__self__, "output_format", output_format)
-        pulumi.set(__self__, "role_arn", role_arn)
+        MetricStreamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firehose_arn=firehose_arn,
+            output_format=output_format,
+            role_arn=role_arn,
+            exclude_filters=exclude_filters,
+            include_filters=include_filters,
+            include_linked_accounts_metrics=include_linked_accounts_metrics,
+            name=name,
+            statistics_configurations=statistics_configurations,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firehose_arn: pulumi.Input[str],
+             output_format: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
+             include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
+             include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("firehose_arn", firehose_arn)
+        _setter("output_format", output_format)
+        _setter("role_arn", role_arn)
         if exclude_filters is not None:
-            pulumi.set(__self__, "exclude_filters", exclude_filters)
+            _setter("exclude_filters", exclude_filters)
         if include_filters is not None:
-            pulumi.set(__self__, "include_filters", include_filters)
+            _setter("include_filters", include_filters)
         if include_linked_accounts_metrics is not None:
-            pulumi.set(__self__, "include_linked_accounts_metrics", include_linked_accounts_metrics)
+            _setter("include_linked_accounts_metrics", include_linked_accounts_metrics)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if statistics_configurations is not None:
-            pulumi.set(__self__, "statistics_configurations", statistics_configurations)
+            _setter("statistics_configurations", statistics_configurations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="firehoseArn")
@@ -211,6 +236,10 @@ class MetricStream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MetricStreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

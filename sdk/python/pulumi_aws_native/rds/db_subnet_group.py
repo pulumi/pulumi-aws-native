@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,12 +24,27 @@ class DbSubnetGroupArgs:
         The set of arguments for constructing a DbSubnetGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['DbSubnetGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "db_subnet_group_description", db_subnet_group_description)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        DbSubnetGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_subnet_group_description=db_subnet_group_description,
+            subnet_ids=subnet_ids,
+            db_subnet_group_name=db_subnet_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_subnet_group_description: pulumi.Input[str],
+             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbSubnetGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("db_subnet_group_description", db_subnet_group_description)
+        _setter("subnet_ids", subnet_ids)
         if db_subnet_group_name is not None:
-            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+            _setter("db_subnet_group_name", db_subnet_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dbSubnetGroupDescription")
@@ -107,6 +122,10 @@ class DbSubnetGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DbSubnetGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

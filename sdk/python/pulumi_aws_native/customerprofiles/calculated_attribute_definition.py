@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,18 +28,41 @@ class CalculatedAttributeDefinitionArgs:
         """
         The set of arguments for constructing a CalculatedAttributeDefinition resource.
         """
-        pulumi.set(__self__, "attribute_details", attribute_details)
-        pulumi.set(__self__, "calculated_attribute_name", calculated_attribute_name)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "statistic", statistic)
+        CalculatedAttributeDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_details=attribute_details,
+            calculated_attribute_name=calculated_attribute_name,
+            domain_name=domain_name,
+            statistic=statistic,
+            conditions=conditions,
+            description=description,
+            display_name=display_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_details: pulumi.Input['CalculatedAttributeDefinitionAttributeDetailsArgs'],
+             calculated_attribute_name: pulumi.Input[str],
+             domain_name: pulumi.Input[str],
+             statistic: pulumi.Input['CalculatedAttributeDefinitionStatistic'],
+             conditions: Optional[pulumi.Input['CalculatedAttributeDefinitionConditionsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_details", attribute_details)
+        _setter("calculated_attribute_name", calculated_attribute_name)
+        _setter("domain_name", domain_name)
+        _setter("statistic", statistic)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="attributeDetails")
@@ -153,6 +176,10 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CalculatedAttributeDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -175,12 +202,22 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CalculatedAttributeDefinitionArgs.__new__(CalculatedAttributeDefinitionArgs)
 
+            if not isinstance(attribute_details, CalculatedAttributeDefinitionAttributeDetailsArgs):
+                attribute_details = attribute_details or {}
+                def _setter(key, value):
+                    attribute_details[key] = value
+                CalculatedAttributeDefinitionAttributeDetailsArgs._configure(_setter, **attribute_details)
             if attribute_details is None and not opts.urn:
                 raise TypeError("Missing required property 'attribute_details'")
             __props__.__dict__["attribute_details"] = attribute_details
             if calculated_attribute_name is None and not opts.urn:
                 raise TypeError("Missing required property 'calculated_attribute_name'")
             __props__.__dict__["calculated_attribute_name"] = calculated_attribute_name
+            if not isinstance(conditions, CalculatedAttributeDefinitionConditionsArgs):
+                conditions = conditions or {}
+                def _setter(key, value):
+                    conditions[key] = value
+                CalculatedAttributeDefinitionConditionsArgs._configure(_setter, **conditions)
             __props__.__dict__["conditions"] = conditions
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name

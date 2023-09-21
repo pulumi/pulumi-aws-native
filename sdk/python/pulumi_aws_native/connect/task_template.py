@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -37,25 +37,52 @@ class TaskTemplateArgs:
         :param pulumi.Input[str] name: The name of the task template.
         :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateTagArgs']]] tags: One or more tags.
         """
-        pulumi.set(__self__, "instance_arn", instance_arn)
+        TaskTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            client_token=client_token,
+            constraints=constraints,
+            contact_flow_arn=contact_flow_arn,
+            defaults=defaults,
+            description=description,
+            fields=fields,
+            name=name,
+            status=status,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: pulumi.Input[str],
+             client_token: Optional[pulumi.Input[str]] = None,
+             constraints: Optional[pulumi.Input['ConstraintsPropertiesArgs']] = None,
+             contact_flow_arn: Optional[pulumi.Input[str]] = None,
+             defaults: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateDefaultFieldValueArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateFieldArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input['TaskTemplateStatus']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_arn", instance_arn)
         if client_token is not None:
-            pulumi.set(__self__, "client_token", client_token)
+            _setter("client_token", client_token)
         if constraints is not None:
-            pulumi.set(__self__, "constraints", constraints)
+            _setter("constraints", constraints)
         if contact_flow_arn is not None:
-            pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
+            _setter("contact_flow_arn", contact_flow_arn)
         if defaults is not None:
-            pulumi.set(__self__, "defaults", defaults)
+            _setter("defaults", defaults)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if fields is not None:
-            pulumi.set(__self__, "fields", fields)
+            _setter("fields", fields)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -217,6 +244,10 @@ class TaskTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TaskTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -242,6 +273,11 @@ class TaskTemplate(pulumi.CustomResource):
             __props__ = TaskTemplateArgs.__new__(TaskTemplateArgs)
 
             __props__.__dict__["client_token"] = client_token
+            if not isinstance(constraints, ConstraintsPropertiesArgs):
+                constraints = constraints or {}
+                def _setter(key, value):
+                    constraints[key] = value
+                ConstraintsPropertiesArgs._configure(_setter, **constraints)
             __props__.__dict__["constraints"] = constraints
             __props__.__dict__["contact_flow_arn"] = contact_flow_arn
             __props__.__dict__["defaults"] = defaults

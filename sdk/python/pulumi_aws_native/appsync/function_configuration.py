@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,32 +33,67 @@ class FunctionConfigurationArgs:
         """
         The set of arguments for constructing a FunctionConfiguration resource.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "data_source_name", data_source_name)
+        FunctionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            data_source_name=data_source_name,
+            code=code,
+            code_s3_location=code_s3_location,
+            description=description,
+            function_version=function_version,
+            max_batch_size=max_batch_size,
+            name=name,
+            request_mapping_template=request_mapping_template,
+            request_mapping_template_s3_location=request_mapping_template_s3_location,
+            response_mapping_template=response_mapping_template,
+            response_mapping_template_s3_location=response_mapping_template_s3_location,
+            runtime=runtime,
+            sync_config=sync_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             data_source_name: pulumi.Input[str],
+             code: Optional[pulumi.Input[str]] = None,
+             code_s3_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             function_version: Optional[pulumi.Input[str]] = None,
+             max_batch_size: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             request_mapping_template: Optional[pulumi.Input[str]] = None,
+             request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
+             response_mapping_template: Optional[pulumi.Input[str]] = None,
+             response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
+             runtime: Optional[pulumi.Input['FunctionConfigurationAppSyncRuntimeArgs']] = None,
+             sync_config: Optional[pulumi.Input['FunctionConfigurationSyncConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_id", api_id)
+        _setter("data_source_name", data_source_name)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if code_s3_location is not None:
-            pulumi.set(__self__, "code_s3_location", code_s3_location)
+            _setter("code_s3_location", code_s3_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if function_version is not None:
-            pulumi.set(__self__, "function_version", function_version)
+            _setter("function_version", function_version)
         if max_batch_size is not None:
-            pulumi.set(__self__, "max_batch_size", max_batch_size)
+            _setter("max_batch_size", max_batch_size)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if request_mapping_template is not None:
-            pulumi.set(__self__, "request_mapping_template", request_mapping_template)
+            _setter("request_mapping_template", request_mapping_template)
         if request_mapping_template_s3_location is not None:
-            pulumi.set(__self__, "request_mapping_template_s3_location", request_mapping_template_s3_location)
+            _setter("request_mapping_template_s3_location", request_mapping_template_s3_location)
         if response_mapping_template is not None:
-            pulumi.set(__self__, "response_mapping_template", response_mapping_template)
+            _setter("response_mapping_template", response_mapping_template)
         if response_mapping_template_s3_location is not None:
-            pulumi.set(__self__, "response_mapping_template_s3_location", response_mapping_template_s3_location)
+            _setter("response_mapping_template_s3_location", response_mapping_template_s3_location)
         if runtime is not None:
-            pulumi.set(__self__, "runtime", runtime)
+            _setter("runtime", runtime)
         if sync_config is not None:
-            pulumi.set(__self__, "sync_config", sync_config)
+            _setter("sync_config", sync_config)
 
     @property
     @pulumi.getter(name="apiId")
@@ -237,6 +272,10 @@ class FunctionConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FunctionConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -282,7 +321,17 @@ class FunctionConfiguration(pulumi.CustomResource):
             __props__.__dict__["request_mapping_template_s3_location"] = request_mapping_template_s3_location
             __props__.__dict__["response_mapping_template"] = response_mapping_template
             __props__.__dict__["response_mapping_template_s3_location"] = response_mapping_template_s3_location
+            if not isinstance(runtime, FunctionConfigurationAppSyncRuntimeArgs):
+                runtime = runtime or {}
+                def _setter(key, value):
+                    runtime[key] = value
+                FunctionConfigurationAppSyncRuntimeArgs._configure(_setter, **runtime)
             __props__.__dict__["runtime"] = runtime
+            if not isinstance(sync_config, FunctionConfigurationSyncConfigArgs):
+                sync_config = sync_config or {}
+                def _setter(key, value):
+                    sync_config[key] = value
+                FunctionConfigurationSyncConfigArgs._configure(_setter, **sync_config)
             __props__.__dict__["sync_config"] = sync_config
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["function_id"] = None

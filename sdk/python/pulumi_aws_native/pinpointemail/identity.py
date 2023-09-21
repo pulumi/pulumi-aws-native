@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,16 +24,33 @@ class IdentityArgs:
         """
         The set of arguments for constructing a Identity resource.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dkim_signing_enabled=dkim_signing_enabled,
+            feedback_forwarding_enabled=feedback_forwarding_enabled,
+            mail_from_attributes=mail_from_attributes,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dkim_signing_enabled: Optional[pulumi.Input[bool]] = None,
+             feedback_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
+             mail_from_attributes: Optional[pulumi.Input['IdentityMailFromAttributesArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityTagsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dkim_signing_enabled is not None:
-            pulumi.set(__self__, "dkim_signing_enabled", dkim_signing_enabled)
+            _setter("dkim_signing_enabled", dkim_signing_enabled)
         if feedback_forwarding_enabled is not None:
-            pulumi.set(__self__, "feedback_forwarding_enabled", feedback_forwarding_enabled)
+            _setter("feedback_forwarding_enabled", feedback_forwarding_enabled)
         if mail_from_attributes is not None:
-            pulumi.set(__self__, "mail_from_attributes", mail_from_attributes)
+            _setter("mail_from_attributes", mail_from_attributes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dkimSigningEnabled")
@@ -122,6 +139,10 @@ class Identity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,6 +165,11 @@ class Identity(pulumi.CustomResource):
 
             __props__.__dict__["dkim_signing_enabled"] = dkim_signing_enabled
             __props__.__dict__["feedback_forwarding_enabled"] = feedback_forwarding_enabled
+            if not isinstance(mail_from_attributes, IdentityMailFromAttributesArgs):
+                mail_from_attributes = mail_from_attributes or {}
+                def _setter(key, value):
+                    mail_from_attributes[key] = value
+                IdentityMailFromAttributesArgs._configure(_setter, **mail_from_attributes)
             __props__.__dict__["mail_from_attributes"] = mail_from_attributes
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,12 +23,25 @@ class RefreshScheduleArgs:
         """
         The set of arguments for constructing a RefreshSchedule resource.
         """
+        RefreshScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_account_id=aws_account_id,
+            data_set_id=data_set_id,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             data_set_id: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['RefreshScheduleMapArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if data_set_id is not None:
-            pulumi.set(__self__, "data_set_id", data_set_id)
+            _setter("data_set_id", data_set_id)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -92,6 +105,10 @@ class RefreshSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RefreshScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -111,6 +128,11 @@ class RefreshSchedule(pulumi.CustomResource):
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["data_set_id"] = data_set_id
+            if not isinstance(schedule, RefreshScheduleMapArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                RefreshScheduleMapArgs._configure(_setter, **schedule)
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["aws_account_id", "data_set_id", "schedule.schedule_id"])

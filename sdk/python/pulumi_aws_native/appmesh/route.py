@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,15 +25,34 @@ class RouteArgs:
         """
         The set of arguments for constructing a Route resource.
         """
-        pulumi.set(__self__, "mesh_name", mesh_name)
-        pulumi.set(__self__, "spec", spec)
-        pulumi.set(__self__, "virtual_router_name", virtual_router_name)
+        RouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mesh_name=mesh_name,
+            spec=spec,
+            virtual_router_name=virtual_router_name,
+            mesh_owner=mesh_owner,
+            route_name=route_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mesh_name: pulumi.Input[str],
+             spec: pulumi.Input['RouteSpecArgs'],
+             virtual_router_name: pulumi.Input[str],
+             mesh_owner: Optional[pulumi.Input[str]] = None,
+             route_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mesh_name", mesh_name)
+        _setter("spec", spec)
+        _setter("virtual_router_name", virtual_router_name)
         if mesh_owner is not None:
-            pulumi.set(__self__, "mesh_owner", mesh_owner)
+            _setter("mesh_owner", mesh_owner)
         if route_name is not None:
-            pulumi.set(__self__, "route_name", route_name)
+            _setter("route_name", route_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="meshName")
@@ -132,6 +151,10 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -158,6 +181,11 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["mesh_name"] = mesh_name
             __props__.__dict__["mesh_owner"] = mesh_owner
             __props__.__dict__["route_name"] = route_name
+            if not isinstance(spec, RouteSpecArgs):
+                spec = spec or {}
+                def _setter(key, value):
+                    spec[key] = value
+                RouteSpecArgs._configure(_setter, **spec)
             if spec is None and not opts.urn:
                 raise TypeError("Missing required property 'spec'")
             __props__.__dict__["spec"] = spec

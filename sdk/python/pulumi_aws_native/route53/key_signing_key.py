@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,11 +26,26 @@ class KeySigningKeyArgs:
         :param pulumi.Input['KeySigningKeyStatus'] status: A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
         :param pulumi.Input[str] name: An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
         """
-        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
-        pulumi.set(__self__, "key_management_service_arn", key_management_service_arn)
-        pulumi.set(__self__, "status", status)
+        KeySigningKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosted_zone_id=hosted_zone_id,
+            key_management_service_arn=key_management_service_arn,
+            status=status,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosted_zone_id: pulumi.Input[str],
+             key_management_service_arn: pulumi.Input[str],
+             status: pulumi.Input['KeySigningKeyStatus'],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hosted_zone_id", hosted_zone_id)
+        _setter("key_management_service_arn", key_management_service_arn)
+        _setter("status", status)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -120,6 +135,10 @@ class KeySigningKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KeySigningKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

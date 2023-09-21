@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,11 +22,24 @@ class ProjectArgs:
         """
         The set of arguments for constructing a Project resource.
         """
-        pulumi.set(__self__, "placement_template", placement_template)
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            placement_template=placement_template,
+            description=description,
+            project_name=project_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             placement_template: pulumi.Input['ProjectPlacementTemplateArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("placement_template", placement_template)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
 
     @property
     @pulumi.getter(name="placementTemplate")
@@ -95,6 +108,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -114,6 +131,11 @@ class Project(pulumi.CustomResource):
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
             __props__.__dict__["description"] = description
+            if not isinstance(placement_template, ProjectPlacementTemplateArgs):
+                placement_template = placement_template or {}
+                def _setter(key, value):
+                    placement_template[key] = value
+                ProjectPlacementTemplateArgs._configure(_setter, **placement_template)
             if placement_template is None and not opts.urn:
                 raise TypeError("Missing required property 'placement_template'")
             __props__.__dict__["placement_template"] = placement_template

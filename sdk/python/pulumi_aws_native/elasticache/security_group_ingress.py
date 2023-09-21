@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecurityGroupIngressArgs', 'SecurityGroupIngress']
@@ -20,10 +20,23 @@ class SecurityGroupIngressArgs:
         """
         The set of arguments for constructing a SecurityGroupIngress resource.
         """
-        pulumi.set(__self__, "cache_security_group_name", cache_security_group_name)
-        pulumi.set(__self__, "ec2_security_group_name", ec2_security_group_name)
+        SecurityGroupIngressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_security_group_name=cache_security_group_name,
+            ec2_security_group_name=ec2_security_group_name,
+            ec2_security_group_owner_id=ec2_security_group_owner_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_security_group_name: pulumi.Input[str],
+             ec2_security_group_name: pulumi.Input[str],
+             ec2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cache_security_group_name", cache_security_group_name)
+        _setter("ec2_security_group_name", ec2_security_group_name)
         if ec2_security_group_owner_id is not None:
-            pulumi.set(__self__, "ec2_security_group_owner_id", ec2_security_group_owner_id)
+            _setter("ec2_security_group_owner_id", ec2_security_group_owner_id)
 
     @property
     @pulumi.getter(name="cacheSecurityGroupName")
@@ -92,6 +105,10 @@ class SecurityGroupIngress(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityGroupIngressArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,26 +31,55 @@ class DashboardArgs:
         """
         The set of arguments for constructing a Dashboard resource.
         """
-        pulumi.set(__self__, "aws_account_id", aws_account_id)
-        pulumi.set(__self__, "dashboard_id", dashboard_id)
+        DashboardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_account_id=aws_account_id,
+            dashboard_id=dashboard_id,
+            dashboard_publish_options=dashboard_publish_options,
+            definition=definition,
+            name=name,
+            parameters=parameters,
+            permissions=permissions,
+            source_entity=source_entity,
+            tags=tags,
+            theme_arn=theme_arn,
+            version_description=version_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_account_id: pulumi.Input[str],
+             dashboard_id: pulumi.Input[str],
+             dashboard_publish_options: Optional[pulumi.Input['DashboardPublishOptionsArgs']] = None,
+             definition: Optional[pulumi.Input['DashboardVersionDefinitionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input['DashboardParametersArgs']] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]] = None,
+             source_entity: Optional[pulumi.Input['DashboardSourceEntityArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None,
+             theme_arn: Optional[pulumi.Input[str]] = None,
+             version_description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aws_account_id", aws_account_id)
+        _setter("dashboard_id", dashboard_id)
         if dashboard_publish_options is not None:
-            pulumi.set(__self__, "dashboard_publish_options", dashboard_publish_options)
+            _setter("dashboard_publish_options", dashboard_publish_options)
         if definition is not None:
-            pulumi.set(__self__, "definition", definition)
+            _setter("definition", definition)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if source_entity is not None:
-            pulumi.set(__self__, "source_entity", source_entity)
+            _setter("source_entity", source_entity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if theme_arn is not None:
-            pulumi.set(__self__, "theme_arn", theme_arn)
+            _setter("theme_arn", theme_arn)
         if version_description is not None:
-            pulumi.set(__self__, "version_description", version_description)
+            _setter("version_description", version_description)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -194,6 +223,10 @@ class Dashboard(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DashboardArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -225,11 +258,31 @@ class Dashboard(pulumi.CustomResource):
             if dashboard_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dashboard_id'")
             __props__.__dict__["dashboard_id"] = dashboard_id
+            if not isinstance(dashboard_publish_options, DashboardPublishOptionsArgs):
+                dashboard_publish_options = dashboard_publish_options or {}
+                def _setter(key, value):
+                    dashboard_publish_options[key] = value
+                DashboardPublishOptionsArgs._configure(_setter, **dashboard_publish_options)
             __props__.__dict__["dashboard_publish_options"] = dashboard_publish_options
+            if not isinstance(definition, DashboardVersionDefinitionArgs):
+                definition = definition or {}
+                def _setter(key, value):
+                    definition[key] = value
+                DashboardVersionDefinitionArgs._configure(_setter, **definition)
             __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
+            if not isinstance(parameters, DashboardParametersArgs):
+                parameters = parameters or {}
+                def _setter(key, value):
+                    parameters[key] = value
+                DashboardParametersArgs._configure(_setter, **parameters)
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
+            if not isinstance(source_entity, DashboardSourceEntityArgs):
+                source_entity = source_entity or {}
+                def _setter(key, value):
+                    source_entity[key] = value
+                DashboardSourceEntityArgs._configure(_setter, **source_entity)
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn

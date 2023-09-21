@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,10 +21,21 @@ class XssMatchSetArgs:
         """
         The set of arguments for constructing a XssMatchSet resource.
         """
+        XssMatchSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            xss_match_tuples=xss_match_tuples,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             xss_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if xss_match_tuples is not None:
-            pulumi.set(__self__, "xss_match_tuples", xss_match_tuples)
+            _setter("xss_match_tuples", xss_match_tuples)
 
     @property
     @pulumi.getter
@@ -83,6 +94,10 @@ class XssMatchSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            XssMatchSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

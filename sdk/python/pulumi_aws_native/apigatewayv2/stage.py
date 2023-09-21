@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,29 +31,60 @@ class StageArgs:
         """
         The set of arguments for constructing a Stage resource.
         """
-        pulumi.set(__self__, "api_id", api_id)
+        StageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            access_log_settings=access_log_settings,
+            access_policy_id=access_policy_id,
+            auto_deploy=auto_deploy,
+            client_certificate_id=client_certificate_id,
+            default_route_settings=default_route_settings,
+            deployment_id=deployment_id,
+            description=description,
+            route_settings=route_settings,
+            stage_name=stage_name,
+            stage_variables=stage_variables,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             access_log_settings: Optional[pulumi.Input['StageAccessLogSettingsArgs']] = None,
+             access_policy_id: Optional[pulumi.Input[str]] = None,
+             auto_deploy: Optional[pulumi.Input[bool]] = None,
+             client_certificate_id: Optional[pulumi.Input[str]] = None,
+             default_route_settings: Optional[pulumi.Input['StageRouteSettingsArgs']] = None,
+             deployment_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             route_settings: Optional[Any] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             stage_variables: Optional[Any] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_id", api_id)
         if access_log_settings is not None:
-            pulumi.set(__self__, "access_log_settings", access_log_settings)
+            _setter("access_log_settings", access_log_settings)
         if access_policy_id is not None:
-            pulumi.set(__self__, "access_policy_id", access_policy_id)
+            _setter("access_policy_id", access_policy_id)
         if auto_deploy is not None:
-            pulumi.set(__self__, "auto_deploy", auto_deploy)
+            _setter("auto_deploy", auto_deploy)
         if client_certificate_id is not None:
-            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+            _setter("client_certificate_id", client_certificate_id)
         if default_route_settings is not None:
-            pulumi.set(__self__, "default_route_settings", default_route_settings)
+            _setter("default_route_settings", default_route_settings)
         if deployment_id is not None:
-            pulumi.set(__self__, "deployment_id", deployment_id)
+            _setter("deployment_id", deployment_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if route_settings is not None:
-            pulumi.set(__self__, "route_settings", route_settings)
+            _setter("route_settings", route_settings)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
         if stage_variables is not None:
-            pulumi.set(__self__, "stage_variables", stage_variables)
+            _setter("stage_variables", stage_variables)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="apiId")
@@ -212,6 +243,10 @@ class Stage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -239,6 +274,11 @@ class Stage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StageArgs.__new__(StageArgs)
 
+            if not isinstance(access_log_settings, StageAccessLogSettingsArgs):
+                access_log_settings = access_log_settings or {}
+                def _setter(key, value):
+                    access_log_settings[key] = value
+                StageAccessLogSettingsArgs._configure(_setter, **access_log_settings)
             __props__.__dict__["access_log_settings"] = access_log_settings
             __props__.__dict__["access_policy_id"] = access_policy_id
             if api_id is None and not opts.urn:
@@ -246,6 +286,11 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["auto_deploy"] = auto_deploy
             __props__.__dict__["client_certificate_id"] = client_certificate_id
+            if not isinstance(default_route_settings, StageRouteSettingsArgs):
+                default_route_settings = default_route_settings or {}
+                def _setter(key, value):
+                    default_route_settings[key] = value
+                StageRouteSettingsArgs._configure(_setter, **default_route_settings)
             __props__.__dict__["default_route_settings"] = default_route_settings
             __props__.__dict__["deployment_id"] = deployment_id
             __props__.__dict__["description"] = description

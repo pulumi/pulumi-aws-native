@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,14 +29,31 @@ class RobotArgs:
         :param pulumi.Input[str] fleet: The Amazon Resource Name (ARN) of the fleet.
         :param pulumi.Input[str] name: The name for the robot.
         """
-        pulumi.set(__self__, "architecture", architecture)
-        pulumi.set(__self__, "greengrass_group_id", greengrass_group_id)
+        RobotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            architecture=architecture,
+            greengrass_group_id=greengrass_group_id,
+            fleet=fleet,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             architecture: pulumi.Input['RobotArchitecture'],
+             greengrass_group_id: pulumi.Input[str],
+             fleet: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input['RobotTagsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("architecture", architecture)
+        _setter("greengrass_group_id", greengrass_group_id)
         if fleet is not None:
-            pulumi.set(__self__, "fleet", fleet)
+            _setter("fleet", fleet)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -136,6 +153,10 @@ class Robot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RobotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -163,6 +184,11 @@ class Robot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'greengrass_group_id'")
             __props__.__dict__["greengrass_group_id"] = greengrass_group_id
             __props__.__dict__["name"] = name
+            if not isinstance(tags, RobotTagsArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                RobotTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["architecture", "fleet", "greengrass_group_id", "name"])

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedPolicyArgs', 'ManagedPolicy']
@@ -31,19 +31,40 @@ class ManagedPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The name (friendly name, not ARN) of the role to attach the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The name (friendly name, not ARN) of the IAM user to attach the policy to.
         """
-        pulumi.set(__self__, "policy_document", policy_document)
+        ManagedPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_document=policy_document,
+            description=description,
+            groups=groups,
+            managed_policy_name=managed_policy_name,
+            path=path,
+            roles=roles,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_document: Any,
+             description: Optional[pulumi.Input[str]] = None,
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             managed_policy_name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_document", policy_document)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if managed_policy_name is not None:
-            pulumi.set(__self__, "managed_policy_name", managed_policy_name)
+            _setter("managed_policy_name", managed_policy_name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -175,6 +196,10 @@ class ManagedPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,12 +26,27 @@ class VpcIngressConnectionArgs:
         :param pulumi.Input[str] service_arn: The Amazon Resource Name (ARN) of the service.
         :param pulumi.Input[str] vpc_ingress_connection_name: The customer-provided Vpc Ingress Connection name.
         """
-        pulumi.set(__self__, "ingress_vpc_configuration", ingress_vpc_configuration)
-        pulumi.set(__self__, "service_arn", service_arn)
+        VpcIngressConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ingress_vpc_configuration=ingress_vpc_configuration,
+            service_arn=service_arn,
+            tags=tags,
+            vpc_ingress_connection_name=vpc_ingress_connection_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ingress_vpc_configuration: pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs'],
+             service_arn: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIngressConnectionTagArgs']]]] = None,
+             vpc_ingress_connection_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ingress_vpc_configuration", ingress_vpc_configuration)
+        _setter("service_arn", service_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_ingress_connection_name is not None:
-            pulumi.set(__self__, "vpc_ingress_connection_name", vpc_ingress_connection_name)
+            _setter("vpc_ingress_connection_name", vpc_ingress_connection_name)
 
     @property
     @pulumi.getter(name="ingressVpcConfiguration")
@@ -113,6 +128,10 @@ class VpcIngressConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcIngressConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -131,6 +150,11 @@ class VpcIngressConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpcIngressConnectionArgs.__new__(VpcIngressConnectionArgs)
 
+            if not isinstance(ingress_vpc_configuration, VpcIngressConnectionIngressVpcConfigurationArgs):
+                ingress_vpc_configuration = ingress_vpc_configuration or {}
+                def _setter(key, value):
+                    ingress_vpc_configuration[key] = value
+                VpcIngressConnectionIngressVpcConfigurationArgs._configure(_setter, **ingress_vpc_configuration)
             if ingress_vpc_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'ingress_vpc_configuration'")
             __props__.__dict__["ingress_vpc_configuration"] = ingress_vpc_configuration

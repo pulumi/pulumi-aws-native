@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -50,66 +50,135 @@ class EndpointArgs:
         """
         The set of arguments for constructing a Endpoint resource.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-        pulumi.set(__self__, "engine_name", engine_name)
+        EndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            engine_name=engine_name,
+            certificate_arn=certificate_arn,
+            database_name=database_name,
+            doc_db_settings=doc_db_settings,
+            dynamo_db_settings=dynamo_db_settings,
+            elasticsearch_settings=elasticsearch_settings,
+            endpoint_identifier=endpoint_identifier,
+            extra_connection_attributes=extra_connection_attributes,
+            gcp_my_sql_settings=gcp_my_sql_settings,
+            ibm_db2_settings=ibm_db2_settings,
+            kafka_settings=kafka_settings,
+            kinesis_settings=kinesis_settings,
+            kms_key_id=kms_key_id,
+            microsoft_sql_server_settings=microsoft_sql_server_settings,
+            mongo_db_settings=mongo_db_settings,
+            my_sql_settings=my_sql_settings,
+            neptune_settings=neptune_settings,
+            oracle_settings=oracle_settings,
+            password=password,
+            port=port,
+            postgre_sql_settings=postgre_sql_settings,
+            redis_settings=redis_settings,
+            redshift_settings=redshift_settings,
+            resource_identifier=resource_identifier,
+            s3_settings=s3_settings,
+            server_name=server_name,
+            ssl_mode=ssl_mode,
+            sybase_settings=sybase_settings,
+            tags=tags,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             engine_name: pulumi.Input[str],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             doc_db_settings: Optional[pulumi.Input['EndpointDocDbSettingsArgs']] = None,
+             dynamo_db_settings: Optional[pulumi.Input['EndpointDynamoDbSettingsArgs']] = None,
+             elasticsearch_settings: Optional[pulumi.Input['EndpointElasticsearchSettingsArgs']] = None,
+             endpoint_identifier: Optional[pulumi.Input[str]] = None,
+             extra_connection_attributes: Optional[pulumi.Input[str]] = None,
+             gcp_my_sql_settings: Optional[pulumi.Input['EndpointGcpMySqlSettingsArgs']] = None,
+             ibm_db2_settings: Optional[pulumi.Input['EndpointIbmDb2SettingsArgs']] = None,
+             kafka_settings: Optional[pulumi.Input['EndpointKafkaSettingsArgs']] = None,
+             kinesis_settings: Optional[pulumi.Input['EndpointKinesisSettingsArgs']] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             microsoft_sql_server_settings: Optional[pulumi.Input['EndpointMicrosoftSqlServerSettingsArgs']] = None,
+             mongo_db_settings: Optional[pulumi.Input['EndpointMongoDbSettingsArgs']] = None,
+             my_sql_settings: Optional[pulumi.Input['EndpointMySqlSettingsArgs']] = None,
+             neptune_settings: Optional[pulumi.Input['EndpointNeptuneSettingsArgs']] = None,
+             oracle_settings: Optional[pulumi.Input['EndpointOracleSettingsArgs']] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             postgre_sql_settings: Optional[pulumi.Input['EndpointPostgreSqlSettingsArgs']] = None,
+             redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
+             redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
+             resource_identifier: Optional[pulumi.Input[str]] = None,
+             s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             ssl_mode: Optional[pulumi.Input[str]] = None,
+             sybase_settings: Optional[pulumi.Input['EndpointSybaseSettingsArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointTagArgs']]]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", endpoint_type)
+        _setter("engine_name", engine_name)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if doc_db_settings is not None:
-            pulumi.set(__self__, "doc_db_settings", doc_db_settings)
+            _setter("doc_db_settings", doc_db_settings)
         if dynamo_db_settings is not None:
-            pulumi.set(__self__, "dynamo_db_settings", dynamo_db_settings)
+            _setter("dynamo_db_settings", dynamo_db_settings)
         if elasticsearch_settings is not None:
-            pulumi.set(__self__, "elasticsearch_settings", elasticsearch_settings)
+            _setter("elasticsearch_settings", elasticsearch_settings)
         if endpoint_identifier is not None:
-            pulumi.set(__self__, "endpoint_identifier", endpoint_identifier)
+            _setter("endpoint_identifier", endpoint_identifier)
         if extra_connection_attributes is not None:
-            pulumi.set(__self__, "extra_connection_attributes", extra_connection_attributes)
+            _setter("extra_connection_attributes", extra_connection_attributes)
         if gcp_my_sql_settings is not None:
-            pulumi.set(__self__, "gcp_my_sql_settings", gcp_my_sql_settings)
+            _setter("gcp_my_sql_settings", gcp_my_sql_settings)
         if ibm_db2_settings is not None:
-            pulumi.set(__self__, "ibm_db2_settings", ibm_db2_settings)
+            _setter("ibm_db2_settings", ibm_db2_settings)
         if kafka_settings is not None:
-            pulumi.set(__self__, "kafka_settings", kafka_settings)
+            _setter("kafka_settings", kafka_settings)
         if kinesis_settings is not None:
-            pulumi.set(__self__, "kinesis_settings", kinesis_settings)
+            _setter("kinesis_settings", kinesis_settings)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if microsoft_sql_server_settings is not None:
-            pulumi.set(__self__, "microsoft_sql_server_settings", microsoft_sql_server_settings)
+            _setter("microsoft_sql_server_settings", microsoft_sql_server_settings)
         if mongo_db_settings is not None:
-            pulumi.set(__self__, "mongo_db_settings", mongo_db_settings)
+            _setter("mongo_db_settings", mongo_db_settings)
         if my_sql_settings is not None:
-            pulumi.set(__self__, "my_sql_settings", my_sql_settings)
+            _setter("my_sql_settings", my_sql_settings)
         if neptune_settings is not None:
-            pulumi.set(__self__, "neptune_settings", neptune_settings)
+            _setter("neptune_settings", neptune_settings)
         if oracle_settings is not None:
-            pulumi.set(__self__, "oracle_settings", oracle_settings)
+            _setter("oracle_settings", oracle_settings)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if postgre_sql_settings is not None:
-            pulumi.set(__self__, "postgre_sql_settings", postgre_sql_settings)
+            _setter("postgre_sql_settings", postgre_sql_settings)
         if redis_settings is not None:
-            pulumi.set(__self__, "redis_settings", redis_settings)
+            _setter("redis_settings", redis_settings)
         if redshift_settings is not None:
-            pulumi.set(__self__, "redshift_settings", redshift_settings)
+            _setter("redshift_settings", redshift_settings)
         if resource_identifier is not None:
-            pulumi.set(__self__, "resource_identifier", resource_identifier)
+            _setter("resource_identifier", resource_identifier)
         if s3_settings is not None:
-            pulumi.set(__self__, "s3_settings", s3_settings)
+            _setter("s3_settings", s3_settings)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
+            _setter("ssl_mode", ssl_mode)
         if sybase_settings is not None:
-            pulumi.set(__self__, "sybase_settings", sybase_settings)
+            _setter("sybase_settings", sybase_settings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -458,6 +527,10 @@ class Endpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -506,8 +579,23 @@ class Endpoint(pulumi.CustomResource):
 
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["database_name"] = database_name
+            if not isinstance(doc_db_settings, EndpointDocDbSettingsArgs):
+                doc_db_settings = doc_db_settings or {}
+                def _setter(key, value):
+                    doc_db_settings[key] = value
+                EndpointDocDbSettingsArgs._configure(_setter, **doc_db_settings)
             __props__.__dict__["doc_db_settings"] = doc_db_settings
+            if not isinstance(dynamo_db_settings, EndpointDynamoDbSettingsArgs):
+                dynamo_db_settings = dynamo_db_settings or {}
+                def _setter(key, value):
+                    dynamo_db_settings[key] = value
+                EndpointDynamoDbSettingsArgs._configure(_setter, **dynamo_db_settings)
             __props__.__dict__["dynamo_db_settings"] = dynamo_db_settings
+            if not isinstance(elasticsearch_settings, EndpointElasticsearchSettingsArgs):
+                elasticsearch_settings = elasticsearch_settings or {}
+                def _setter(key, value):
+                    elasticsearch_settings[key] = value
+                EndpointElasticsearchSettingsArgs._configure(_setter, **elasticsearch_settings)
             __props__.__dict__["elasticsearch_settings"] = elasticsearch_settings
             __props__.__dict__["endpoint_identifier"] = endpoint_identifier
             if endpoint_type is None and not opts.urn:
@@ -517,25 +605,95 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'engine_name'")
             __props__.__dict__["engine_name"] = engine_name
             __props__.__dict__["extra_connection_attributes"] = extra_connection_attributes
+            if not isinstance(gcp_my_sql_settings, EndpointGcpMySqlSettingsArgs):
+                gcp_my_sql_settings = gcp_my_sql_settings or {}
+                def _setter(key, value):
+                    gcp_my_sql_settings[key] = value
+                EndpointGcpMySqlSettingsArgs._configure(_setter, **gcp_my_sql_settings)
             __props__.__dict__["gcp_my_sql_settings"] = gcp_my_sql_settings
+            if not isinstance(ibm_db2_settings, EndpointIbmDb2SettingsArgs):
+                ibm_db2_settings = ibm_db2_settings or {}
+                def _setter(key, value):
+                    ibm_db2_settings[key] = value
+                EndpointIbmDb2SettingsArgs._configure(_setter, **ibm_db2_settings)
             __props__.__dict__["ibm_db2_settings"] = ibm_db2_settings
+            if not isinstance(kafka_settings, EndpointKafkaSettingsArgs):
+                kafka_settings = kafka_settings or {}
+                def _setter(key, value):
+                    kafka_settings[key] = value
+                EndpointKafkaSettingsArgs._configure(_setter, **kafka_settings)
             __props__.__dict__["kafka_settings"] = kafka_settings
+            if not isinstance(kinesis_settings, EndpointKinesisSettingsArgs):
+                kinesis_settings = kinesis_settings or {}
+                def _setter(key, value):
+                    kinesis_settings[key] = value
+                EndpointKinesisSettingsArgs._configure(_setter, **kinesis_settings)
             __props__.__dict__["kinesis_settings"] = kinesis_settings
             __props__.__dict__["kms_key_id"] = kms_key_id
+            if not isinstance(microsoft_sql_server_settings, EndpointMicrosoftSqlServerSettingsArgs):
+                microsoft_sql_server_settings = microsoft_sql_server_settings or {}
+                def _setter(key, value):
+                    microsoft_sql_server_settings[key] = value
+                EndpointMicrosoftSqlServerSettingsArgs._configure(_setter, **microsoft_sql_server_settings)
             __props__.__dict__["microsoft_sql_server_settings"] = microsoft_sql_server_settings
+            if not isinstance(mongo_db_settings, EndpointMongoDbSettingsArgs):
+                mongo_db_settings = mongo_db_settings or {}
+                def _setter(key, value):
+                    mongo_db_settings[key] = value
+                EndpointMongoDbSettingsArgs._configure(_setter, **mongo_db_settings)
             __props__.__dict__["mongo_db_settings"] = mongo_db_settings
+            if not isinstance(my_sql_settings, EndpointMySqlSettingsArgs):
+                my_sql_settings = my_sql_settings or {}
+                def _setter(key, value):
+                    my_sql_settings[key] = value
+                EndpointMySqlSettingsArgs._configure(_setter, **my_sql_settings)
             __props__.__dict__["my_sql_settings"] = my_sql_settings
+            if not isinstance(neptune_settings, EndpointNeptuneSettingsArgs):
+                neptune_settings = neptune_settings or {}
+                def _setter(key, value):
+                    neptune_settings[key] = value
+                EndpointNeptuneSettingsArgs._configure(_setter, **neptune_settings)
             __props__.__dict__["neptune_settings"] = neptune_settings
+            if not isinstance(oracle_settings, EndpointOracleSettingsArgs):
+                oracle_settings = oracle_settings or {}
+                def _setter(key, value):
+                    oracle_settings[key] = value
+                EndpointOracleSettingsArgs._configure(_setter, **oracle_settings)
             __props__.__dict__["oracle_settings"] = oracle_settings
             __props__.__dict__["password"] = password
             __props__.__dict__["port"] = port
+            if not isinstance(postgre_sql_settings, EndpointPostgreSqlSettingsArgs):
+                postgre_sql_settings = postgre_sql_settings or {}
+                def _setter(key, value):
+                    postgre_sql_settings[key] = value
+                EndpointPostgreSqlSettingsArgs._configure(_setter, **postgre_sql_settings)
             __props__.__dict__["postgre_sql_settings"] = postgre_sql_settings
+            if not isinstance(redis_settings, EndpointRedisSettingsArgs):
+                redis_settings = redis_settings or {}
+                def _setter(key, value):
+                    redis_settings[key] = value
+                EndpointRedisSettingsArgs._configure(_setter, **redis_settings)
             __props__.__dict__["redis_settings"] = redis_settings
+            if not isinstance(redshift_settings, EndpointRedshiftSettingsArgs):
+                redshift_settings = redshift_settings or {}
+                def _setter(key, value):
+                    redshift_settings[key] = value
+                EndpointRedshiftSettingsArgs._configure(_setter, **redshift_settings)
             __props__.__dict__["redshift_settings"] = redshift_settings
             __props__.__dict__["resource_identifier"] = resource_identifier
+            if not isinstance(s3_settings, EndpointS3SettingsArgs):
+                s3_settings = s3_settings or {}
+                def _setter(key, value):
+                    s3_settings[key] = value
+                EndpointS3SettingsArgs._configure(_setter, **s3_settings)
             __props__.__dict__["s3_settings"] = s3_settings
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["ssl_mode"] = ssl_mode
+            if not isinstance(sybase_settings, EndpointSybaseSettingsArgs):
+                sybase_settings = sybase_settings or {}
+                def _setter(key, value):
+                    sybase_settings[key] = value
+                EndpointSybaseSettingsArgs._configure(_setter, **sybase_settings)
             __props__.__dict__["sybase_settings"] = sybase_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["username"] = username

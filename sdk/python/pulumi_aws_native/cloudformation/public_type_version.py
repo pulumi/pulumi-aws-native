@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,16 +30,33 @@ class PublicTypeVersionArgs:
                
                We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
+        PublicTypeVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            log_delivery_bucket=log_delivery_bucket,
+            public_version_number=public_version_number,
+            type=type,
+            type_name=type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             log_delivery_bucket: Optional[pulumi.Input[str]] = None,
+             public_version_number: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['PublicTypeVersionType']] = None,
+             type_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if log_delivery_bucket is not None:
-            pulumi.set(__self__, "log_delivery_bucket", log_delivery_bucket)
+            _setter("log_delivery_bucket", log_delivery_bucket)
         if public_version_number is not None:
-            pulumi.set(__self__, "public_version_number", public_version_number)
+            _setter("public_version_number", public_version_number)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
 
     @property
     @pulumi.getter
@@ -147,6 +164,10 @@ class PublicTypeVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PublicTypeVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

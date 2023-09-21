@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -48,32 +48,67 @@ class FlowOutputArgs:
         :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this output.
         """
-        pulumi.set(__self__, "flow_arn", flow_arn)
-        pulumi.set(__self__, "protocol", protocol)
+        FlowOutputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            flow_arn=flow_arn,
+            protocol=protocol,
+            cidr_allow_list=cidr_allow_list,
+            description=description,
+            destination=destination,
+            encryption=encryption,
+            max_latency=max_latency,
+            min_latency=min_latency,
+            name=name,
+            port=port,
+            remote_id=remote_id,
+            smoothing_latency=smoothing_latency,
+            stream_id=stream_id,
+            vpc_interface_attachment=vpc_interface_attachment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             flow_arn: pulumi.Input[str],
+             protocol: pulumi.Input['FlowOutputProtocol'],
+             cidr_allow_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             destination: Optional[pulumi.Input[str]] = None,
+             encryption: Optional[pulumi.Input['FlowOutputEncryptionArgs']] = None,
+             max_latency: Optional[pulumi.Input[int]] = None,
+             min_latency: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             remote_id: Optional[pulumi.Input[str]] = None,
+             smoothing_latency: Optional[pulumi.Input[int]] = None,
+             stream_id: Optional[pulumi.Input[str]] = None,
+             vpc_interface_attachment: Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("flow_arn", flow_arn)
+        _setter("protocol", protocol)
         if cidr_allow_list is not None:
-            pulumi.set(__self__, "cidr_allow_list", cidr_allow_list)
+            _setter("cidr_allow_list", cidr_allow_list)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if max_latency is not None:
-            pulumi.set(__self__, "max_latency", max_latency)
+            _setter("max_latency", max_latency)
         if min_latency is not None:
-            pulumi.set(__self__, "min_latency", min_latency)
+            _setter("min_latency", min_latency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if remote_id is not None:
-            pulumi.set(__self__, "remote_id", remote_id)
+            _setter("remote_id", remote_id)
         if smoothing_latency is not None:
-            pulumi.set(__self__, "smoothing_latency", smoothing_latency)
+            _setter("smoothing_latency", smoothing_latency)
         if stream_id is not None:
-            pulumi.set(__self__, "stream_id", stream_id)
+            _setter("stream_id", stream_id)
         if vpc_interface_attachment is not None:
-            pulumi.set(__self__, "vpc_interface_attachment", vpc_interface_attachment)
+            _setter("vpc_interface_attachment", vpc_interface_attachment)
 
     @property
     @pulumi.getter(name="flowArn")
@@ -303,6 +338,10 @@ class FlowOutput(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlowOutputArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -334,6 +373,11 @@ class FlowOutput(pulumi.CustomResource):
             __props__.__dict__["cidr_allow_list"] = cidr_allow_list
             __props__.__dict__["description"] = description
             __props__.__dict__["destination"] = destination
+            if not isinstance(encryption, FlowOutputEncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                FlowOutputEncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
             if flow_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'flow_arn'")
@@ -348,6 +392,11 @@ class FlowOutput(pulumi.CustomResource):
             __props__.__dict__["remote_id"] = remote_id
             __props__.__dict__["smoothing_latency"] = smoothing_latency
             __props__.__dict__["stream_id"] = stream_id
+            if not isinstance(vpc_interface_attachment, FlowOutputVpcInterfaceAttachmentArgs):
+                vpc_interface_attachment = vpc_interface_attachment or {}
+                def _setter(key, value):
+                    vpc_interface_attachment[key] = value
+                FlowOutputVpcInterfaceAttachmentArgs._configure(_setter, **vpc_interface_attachment)
             __props__.__dict__["vpc_interface_attachment"] = vpc_interface_attachment
             __props__.__dict__["output_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])

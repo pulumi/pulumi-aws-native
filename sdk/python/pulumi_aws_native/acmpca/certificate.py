@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,16 +33,37 @@ class CertificateArgs:
         :param pulumi.Input[str] template_arn: Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
         :param pulumi.Input['CertificateValidityArgs'] validity_not_before: The time after which the Certificate will be valid.
         """
-        pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
-        pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
-        pulumi.set(__self__, "signing_algorithm", signing_algorithm)
-        pulumi.set(__self__, "validity", validity)
+        CertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_authority_arn=certificate_authority_arn,
+            certificate_signing_request=certificate_signing_request,
+            signing_algorithm=signing_algorithm,
+            validity=validity,
+            api_passthrough=api_passthrough,
+            template_arn=template_arn,
+            validity_not_before=validity_not_before,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_authority_arn: pulumi.Input[str],
+             certificate_signing_request: pulumi.Input[str],
+             signing_algorithm: pulumi.Input[str],
+             validity: pulumi.Input['CertificateValidityArgs'],
+             api_passthrough: Optional[pulumi.Input['CertificateApiPassthroughArgs']] = None,
+             template_arn: Optional[pulumi.Input[str]] = None,
+             validity_not_before: Optional[pulumi.Input['CertificateValidityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_authority_arn", certificate_authority_arn)
+        _setter("certificate_signing_request", certificate_signing_request)
+        _setter("signing_algorithm", signing_algorithm)
+        _setter("validity", validity)
         if api_passthrough is not None:
-            pulumi.set(__self__, "api_passthrough", api_passthrough)
+            _setter("api_passthrough", api_passthrough)
         if template_arn is not None:
-            pulumi.set(__self__, "template_arn", template_arn)
+            _setter("template_arn", template_arn)
         if validity_not_before is not None:
-            pulumi.set(__self__, "validity_not_before", validity_not_before)
+            _setter("validity_not_before", validity_not_before)
 
     @property
     @pulumi.getter(name="certificateAuthorityArn")
@@ -174,6 +195,10 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -195,6 +220,11 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateArgs.__new__(CertificateArgs)
 
+            if not isinstance(api_passthrough, CertificateApiPassthroughArgs):
+                api_passthrough = api_passthrough or {}
+                def _setter(key, value):
+                    api_passthrough[key] = value
+                CertificateApiPassthroughArgs._configure(_setter, **api_passthrough)
             __props__.__dict__["api_passthrough"] = api_passthrough
             if certificate_authority_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_authority_arn'")
@@ -206,9 +236,19 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'signing_algorithm'")
             __props__.__dict__["signing_algorithm"] = signing_algorithm
             __props__.__dict__["template_arn"] = template_arn
+            if not isinstance(validity, CertificateValidityArgs):
+                validity = validity or {}
+                def _setter(key, value):
+                    validity[key] = value
+                CertificateValidityArgs._configure(_setter, **validity)
             if validity is None and not opts.urn:
                 raise TypeError("Missing required property 'validity'")
             __props__.__dict__["validity"] = validity
+            if not isinstance(validity_not_before, CertificateValidityArgs):
+                validity_not_before = validity_not_before or {}
+                def _setter(key, value):
+                    validity_not_before[key] = value
+                CertificateValidityArgs._configure(_setter, **validity_not_before)
             __props__.__dict__["validity_not_before"] = validity_not_before
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate"] = None

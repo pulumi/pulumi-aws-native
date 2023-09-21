@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -39,22 +39,47 @@ class AlarmModelArgs:
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
-        pulumi.set(__self__, "alarm_rule", alarm_rule)
-        pulumi.set(__self__, "role_arn", role_arn)
+        AlarmModelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarm_rule=alarm_rule,
+            role_arn=role_arn,
+            alarm_capabilities=alarm_capabilities,
+            alarm_event_actions=alarm_event_actions,
+            alarm_model_description=alarm_model_description,
+            alarm_model_name=alarm_model_name,
+            key=key,
+            severity=severity,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarm_rule: pulumi.Input['AlarmModelAlarmRuleArgs'],
+             role_arn: pulumi.Input[str],
+             alarm_capabilities: Optional[pulumi.Input['AlarmModelAlarmCapabilitiesArgs']] = None,
+             alarm_event_actions: Optional[pulumi.Input['AlarmModelAlarmEventActionsArgs']] = None,
+             alarm_model_description: Optional[pulumi.Input[str]] = None,
+             alarm_model_name: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmModelTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alarm_rule", alarm_rule)
+        _setter("role_arn", role_arn)
         if alarm_capabilities is not None:
-            pulumi.set(__self__, "alarm_capabilities", alarm_capabilities)
+            _setter("alarm_capabilities", alarm_capabilities)
         if alarm_event_actions is not None:
-            pulumi.set(__self__, "alarm_event_actions", alarm_event_actions)
+            _setter("alarm_event_actions", alarm_event_actions)
         if alarm_model_description is not None:
-            pulumi.set(__self__, "alarm_model_description", alarm_model_description)
+            _setter("alarm_model_description", alarm_model_description)
         if alarm_model_name is not None:
-            pulumi.set(__self__, "alarm_model_name", alarm_model_name)
+            _setter("alarm_model_name", alarm_model_name)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="alarmRule")
@@ -214,6 +239,10 @@ class AlarmModel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AlarmModelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -237,10 +266,25 @@ class AlarmModel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlarmModelArgs.__new__(AlarmModelArgs)
 
+            if not isinstance(alarm_capabilities, AlarmModelAlarmCapabilitiesArgs):
+                alarm_capabilities = alarm_capabilities or {}
+                def _setter(key, value):
+                    alarm_capabilities[key] = value
+                AlarmModelAlarmCapabilitiesArgs._configure(_setter, **alarm_capabilities)
             __props__.__dict__["alarm_capabilities"] = alarm_capabilities
+            if not isinstance(alarm_event_actions, AlarmModelAlarmEventActionsArgs):
+                alarm_event_actions = alarm_event_actions or {}
+                def _setter(key, value):
+                    alarm_event_actions[key] = value
+                AlarmModelAlarmEventActionsArgs._configure(_setter, **alarm_event_actions)
             __props__.__dict__["alarm_event_actions"] = alarm_event_actions
             __props__.__dict__["alarm_model_description"] = alarm_model_description
             __props__.__dict__["alarm_model_name"] = alarm_model_name
+            if not isinstance(alarm_rule, AlarmModelAlarmRuleArgs):
+                alarm_rule = alarm_rule or {}
+                def _setter(key, value):
+                    alarm_rule[key] = value
+                AlarmModelAlarmRuleArgs._configure(_setter, **alarm_rule)
             if alarm_rule is None and not opts.urn:
                 raise TypeError("Missing required property 'alarm_rule'")
             __props__.__dict__["alarm_rule"] = alarm_rule

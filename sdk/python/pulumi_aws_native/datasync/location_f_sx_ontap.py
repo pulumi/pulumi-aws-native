@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,14 +29,31 @@ class LocationFSxOntapArgs:
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
         :param pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "security_group_arns", security_group_arns)
-        pulumi.set(__self__, "storage_virtual_machine_arn", storage_virtual_machine_arn)
+        LocationFSxOntapArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_arns=security_group_arns,
+            storage_virtual_machine_arn=storage_virtual_machine_arn,
+            protocol=protocol,
+            subdirectory=subdirectory,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             storage_virtual_machine_arn: pulumi.Input[str],
+             protocol: Optional[pulumi.Input['LocationFSxOntapProtocolArgs']] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("security_group_arns", security_group_arns)
+        _setter("storage_virtual_machine_arn", storage_virtual_machine_arn)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="securityGroupArns")
@@ -136,6 +153,10 @@ class LocationFSxOntap(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocationFSxOntapArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -155,6 +176,11 @@ class LocationFSxOntap(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LocationFSxOntapArgs.__new__(LocationFSxOntapArgs)
 
+            if not isinstance(protocol, LocationFSxOntapProtocolArgs):
+                protocol = protocol or {}
+                def _setter(key, value):
+                    protocol[key] = value
+                LocationFSxOntapProtocolArgs._configure(_setter, **protocol)
             __props__.__dict__["protocol"] = protocol
             if security_group_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_arns'")

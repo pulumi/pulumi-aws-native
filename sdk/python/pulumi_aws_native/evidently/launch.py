@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,21 +30,46 @@ class LaunchArgs:
         :param pulumi.Input['LaunchExecutionStatusObjectArgs'] execution_status: Start or Stop Launch Launch. Default is not started.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "groups", groups)
-        pulumi.set(__self__, "project", project)
-        pulumi.set(__self__, "scheduled_splits_config", scheduled_splits_config)
+        LaunchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            project=project,
+            scheduled_splits_config=scheduled_splits_config,
+            description=description,
+            execution_status=execution_status,
+            metric_monitors=metric_monitors,
+            name=name,
+            randomization_salt=randomization_salt,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: pulumi.Input[Sequence[pulumi.Input['LaunchGroupObjectArgs']]],
+             project: pulumi.Input[str],
+             scheduled_splits_config: pulumi.Input[Sequence[pulumi.Input['LaunchStepConfigArgs']]],
+             description: Optional[pulumi.Input[str]] = None,
+             execution_status: Optional[pulumi.Input['LaunchExecutionStatusObjectArgs']] = None,
+             metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricDefinitionObjectArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             randomization_salt: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("groups", groups)
+        _setter("project", project)
+        _setter("scheduled_splits_config", scheduled_splits_config)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if execution_status is not None:
-            pulumi.set(__self__, "execution_status", execution_status)
+            _setter("execution_status", execution_status)
         if metric_monitors is not None:
-            pulumi.set(__self__, "metric_monitors", metric_monitors)
+            _setter("metric_monitors", metric_monitors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if randomization_salt is not None:
-            pulumi.set(__self__, "randomization_salt", randomization_salt)
+            _setter("randomization_salt", randomization_salt)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -176,6 +201,10 @@ class Launch(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LaunchArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -200,6 +229,11 @@ class Launch(pulumi.CustomResource):
             __props__ = LaunchArgs.__new__(LaunchArgs)
 
             __props__.__dict__["description"] = description
+            if not isinstance(execution_status, LaunchExecutionStatusObjectArgs):
+                execution_status = execution_status or {}
+                def _setter(key, value):
+                    execution_status[key] = value
+                LaunchExecutionStatusObjectArgs._configure(_setter, **execution_status)
             __props__.__dict__["execution_status"] = execution_status
             if groups is None and not opts.urn:
                 raise TypeError("Missing required property 'groups'")

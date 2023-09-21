@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,20 +34,41 @@ class PartnerAccountArgs:
         :param pulumi.Input['PartnerAccountSidewalkUpdateAccountArgs'] sidewalk_update: The Sidewalk account credentials.
         :param pulumi.Input[Sequence[pulumi.Input['PartnerAccountTagArgs']]] tags: A list of key-value pairs that contain metadata for the destination.
         """
+        PartnerAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_linked=account_linked,
+            partner_account_id=partner_account_id,
+            partner_type=partner_type,
+            sidewalk=sidewalk,
+            sidewalk_response=sidewalk_response,
+            sidewalk_update=sidewalk_update,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_linked: Optional[pulumi.Input[bool]] = None,
+             partner_account_id: Optional[pulumi.Input[str]] = None,
+             partner_type: Optional[pulumi.Input['PartnerAccountPartnerType']] = None,
+             sidewalk: Optional[pulumi.Input['PartnerAccountSidewalkAccountInfoArgs']] = None,
+             sidewalk_response: Optional[pulumi.Input['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']] = None,
+             sidewalk_update: Optional[pulumi.Input['PartnerAccountSidewalkUpdateAccountArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerAccountTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_linked is not None:
-            pulumi.set(__self__, "account_linked", account_linked)
+            _setter("account_linked", account_linked)
         if partner_account_id is not None:
-            pulumi.set(__self__, "partner_account_id", partner_account_id)
+            _setter("partner_account_id", partner_account_id)
         if partner_type is not None:
-            pulumi.set(__self__, "partner_type", partner_type)
+            _setter("partner_type", partner_type)
         if sidewalk is not None:
-            pulumi.set(__self__, "sidewalk", sidewalk)
+            _setter("sidewalk", sidewalk)
         if sidewalk_response is not None:
-            pulumi.set(__self__, "sidewalk_response", sidewalk_response)
+            _setter("sidewalk_response", sidewalk_response)
         if sidewalk_update is not None:
-            pulumi.set(__self__, "sidewalk_update", sidewalk_update)
+            _setter("sidewalk_update", sidewalk_update)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountLinked")
@@ -184,6 +205,10 @@ class PartnerAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PartnerAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -209,8 +234,23 @@ class PartnerAccount(pulumi.CustomResource):
             __props__.__dict__["account_linked"] = account_linked
             __props__.__dict__["partner_account_id"] = partner_account_id
             __props__.__dict__["partner_type"] = partner_type
+            if not isinstance(sidewalk, PartnerAccountSidewalkAccountInfoArgs):
+                sidewalk = sidewalk or {}
+                def _setter(key, value):
+                    sidewalk[key] = value
+                PartnerAccountSidewalkAccountInfoArgs._configure(_setter, **sidewalk)
             __props__.__dict__["sidewalk"] = sidewalk
+            if not isinstance(sidewalk_response, PartnerAccountSidewalkAccountInfoWithFingerprintArgs):
+                sidewalk_response = sidewalk_response or {}
+                def _setter(key, value):
+                    sidewalk_response[key] = value
+                PartnerAccountSidewalkAccountInfoWithFingerprintArgs._configure(_setter, **sidewalk_response)
             __props__.__dict__["sidewalk_response"] = sidewalk_response
+            if not isinstance(sidewalk_update, PartnerAccountSidewalkUpdateAccountArgs):
+                sidewalk_update = sidewalk_update or {}
+                def _setter(key, value):
+                    sidewalk_update[key] = value
+                PartnerAccountSidewalkUpdateAccountArgs._configure(_setter, **sidewalk_update)
             __props__.__dict__["sidewalk_update"] = sidewalk_update
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

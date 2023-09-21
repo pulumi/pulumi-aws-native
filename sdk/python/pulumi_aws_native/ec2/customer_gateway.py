@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,30 @@ class CustomerGatewayArgs:
         :param pulumi.Input[str] device_name: A name for the customer gateway device.
         :param pulumi.Input[Sequence[pulumi.Input['CustomerGatewayTagArgs']]] tags: One or more tags for the customer gateway.
         """
-        pulumi.set(__self__, "bgp_asn", bgp_asn)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "type", type)
+        CustomerGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bgp_asn=bgp_asn,
+            ip_address=ip_address,
+            type=type,
+            device_name=device_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bgp_asn: pulumi.Input[int],
+             ip_address: pulumi.Input[str],
+             type: pulumi.Input[str],
+             device_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerGatewayTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bgp_asn", bgp_asn)
+        _setter("ip_address", ip_address)
+        _setter("type", type)
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="bgpAsn")
@@ -139,6 +156,10 @@ class CustomerGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomerGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
