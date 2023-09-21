@@ -22,8 +22,8 @@ require (
 	github.com/lestrrat-go/jsschema v0.0.0-20181205002244-5c81c58ffcc3
 	github.com/mattbaird/jsonpatch v0.0.0-20200820163806-098863c1fc24
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v3 v3.82.1
-	github.com/pulumi/pulumi/sdk/v3 v3.82.1
+	github.com/pulumi/pulumi/pkg/v3 v3.84.0
+	github.com/pulumi/pulumi/sdk/v3 v3.84.0
 	github.com/stretchr/testify v1.8.3
 	github.com/zclconf/go-cty v1.13.2
 	google.golang.org/grpc v1.57.0
