@@ -27,14 +27,19 @@
       "type" : "string"
     }
   },
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "required" : [ "DomainName", "CertificateArn" ],
   "primaryIdentifier" : [ "/properties/DomainName" ],
   "readOnlyProperties" : [ "/properties/AppSyncDomainName", "/properties/HostedZoneId" ],
   "createOnlyProperties" : [ "/properties/DomainName", "/properties/CertificateArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "appsync:CreateDomainName", "acm:DescribeCertificate", "cloudfront:UpdateDistribution" ]
+      "permissions" : [ "appsync:CreateDomainName", "appsync:GetDomainName", "acm:DescribeCertificate", "cloudfront:UpdateDistribution" ]
     },
     "delete" : {
       "permissions" : [ "appsync:GetDomainName", "appsync:DeleteDomainName" ]
