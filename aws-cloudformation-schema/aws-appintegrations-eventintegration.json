@@ -108,7 +108,7 @@
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "app-integrations:CreateEventIntegration" ]
+      "permissions" : [ "app-integrations:CreateEventIntegration", "app-integrations:TagResource" ]
     },
     "read" : {
       "permissions" : [ "app-integrations:GetEventIntegration", "app-integrations:ListTagsForResource" ]

@@ -12,7 +12,7 @@
     },
     "LoadBalancerNames" : {
       "type" : "array",
-      "uniqueItems" : false,
+      "uniqueItems" : true,
       "items" : {
         "type" : "string"
       }
@@ -25,7 +25,7 @@
     },
     "TargetGroupARNs" : {
       "type" : "array",
-      "uniqueItems" : false,
+      "uniqueItems" : true,
       "items" : {
         "type" : "string"
       }
@@ -75,6 +75,9 @@
     "Context" : {
       "type" : "string"
     },
+    "LaunchTemplateSpecification" : {
+      "type" : "string"
+    },
     "CapacityRebalance" : {
       "type" : "boolean"
     },
@@ -95,9 +98,6 @@
         "$ref" : "#/definitions/MetricsCollection"
       }
     },
-    "InstanceMaintenancePolicy" : {
-      "$ref" : "#/definitions/InstanceMaintenancePolicy"
-    },
     "MaxSize" : {
       "type" : "string"
     },
@@ -106,7 +106,7 @@
     },
     "TerminationPolicies" : {
       "type" : "array",
-      "uniqueItems" : false,
+      "uniqueItems" : true,
       "items" : {
         "type" : "string"
       }
@@ -232,10 +232,10 @@
       "additionalProperties" : false,
       "properties" : {
         "Max" : {
-          "type" : "number"
+          "type" : "integer"
         },
         "Min" : {
-          "type" : "number"
+          "type" : "integer"
         }
       }
     },
@@ -244,11 +244,7 @@
       "additionalProperties" : false,
       "properties" : {
         "TopicARN" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
+          "type" : "string"
         },
         "NotificationTypes" : {
           "type" : "array",
@@ -282,10 +278,10 @@
       "additionalProperties" : false,
       "properties" : {
         "Max" : {
-          "type" : "number"
+          "type" : "integer"
         },
         "Min" : {
-          "type" : "number"
+          "type" : "integer"
         }
       }
     },
@@ -297,18 +293,6 @@
           "type" : "integer"
         },
         "Min" : {
-          "type" : "integer"
-        }
-      }
-    },
-    "InstanceMaintenancePolicy" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "MinHealthyPercentage" : {
-          "type" : "integer"
-        },
-        "MaxHealthyPercentage" : {
           "type" : "integer"
         }
       }
@@ -370,7 +354,7 @@
         },
         "Overrides" : {
           "type" : "array",
-          "uniqueItems" : false,
+          "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/LaunchTemplateOverrides"
           }
@@ -532,5 +516,5 @@
   "required" : [ "MinSize", "MaxSize" ],
   "createOnlyProperties" : [ "/properties/InstanceId", "/properties/AutoScalingGroupName" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "readOnlyProperties" : [ "/properties/Id", "/properties/LaunchTemplateSpecification" ]
 }
