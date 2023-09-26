@@ -15,7 +15,7 @@
             "type" : "string",
             "maxLength" : 1024,
             "minLength" : 1,
-            "pattern" : "^subnet-[0-9a-z]*$"
+            "pattern" : "^subnet-[0-9a-z]*|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
           },
           "maxItems" : 16,
           "minItems" : 0
@@ -26,7 +26,7 @@
             "type" : "string",
             "maxLength" : 1024,
             "minLength" : 1,
-            "pattern" : "^sg-[0-9a-zA-Z]*$"
+            "pattern" : "^sg-[0-9a-zA-Z]*|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
           },
           "maxItems" : 5,
           "minItems" : 0
@@ -174,7 +174,7 @@
           "type" : "string",
           "maxLength" : 1600,
           "minLength" : 1,
-          "pattern" : "^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)$"
+          "pattern" : "^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.+)$"
         }
       },
       "additionalProperties" : false
@@ -315,7 +315,7 @@
           "type" : "string",
           "maxLength" : 1600,
           "minLength" : 1,
-          "pattern" : "^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)$"
+          "pattern" : "^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.+)|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
         },
         "InferenceAcceleratorOverrides" : {
           "type" : "array",
@@ -330,7 +330,7 @@
           "type" : "string",
           "maxLength" : 1600,
           "minLength" : 1,
-          "pattern" : "^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)$"
+          "pattern" : "^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.+)|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
         }
       },
       "additionalProperties" : false
@@ -363,11 +363,11 @@
     "HeaderParametersMap" : {
       "type" : "object",
       "patternProperties" : {
-        "^[!#$%&'*+-.^_`|~0-9a-zA-Z]+$" : {
+        "^[!#$%&'*+-.^_`|~0-9a-zA-Z]+|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$" : {
           "type" : "string",
           "maxLength" : 512,
           "minLength" : 0,
-          "pattern" : "^[ \\t]*[\\x20-\\x7E]+([ \\t]+[\\x20-\\x7E]+)*[ \\t]*$"
+          "pattern" : "^[ \\t]*[\\x20-\\x7E]+([ \\t]+[\\x20-\\x7E]+)*[ \\t]*|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
         }
       },
       "additionalProperties" : false
@@ -389,7 +389,7 @@
             "type" : "string",
             "maxLength" : 1600,
             "minLength" : 1,
-            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:[a-z0-9-.]+:.*)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)$",
+            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}):(\\d{12}):secret:.+)$",
             "description" : "Optional SecretManager ARN which stores the database credentials"
           }
         },
@@ -406,7 +406,7 @@
             "type" : "string",
             "maxLength" : 1600,
             "minLength" : 1,
-            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:[a-z0-9-.]+:.*)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)$",
+            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}):(\\d{12}):secret:.+)$",
             "description" : "Optional SecretManager ARN which stores the database credentials"
           }
         },
@@ -420,7 +420,7 @@
             "type" : "string",
             "maxLength" : 1600,
             "minLength" : 1,
-            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:[a-z0-9-.]+:.*)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)$",
+            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}):(\\d{12}):secret:.+)$",
             "description" : "Optional SecretManager ARN which stores the database credentials"
           }
         },
@@ -452,10 +452,8 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "pattern" : "^(?!\\s*$).+$"
-          },
-          "maxItems" : 1,
-          "minItems" : 0
+            "pattern" : "^(?!\\s*$).+|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
+          }
         },
         "HeaderParameters" : {
           "$ref" : "#/definitions/HeaderParametersMap"
@@ -470,7 +468,9 @@
       "type" : "object",
       "properties" : {
         "InputTemplate" : {
-          "type" : "string"
+          "type" : "string",
+          "maxLength" : 8192,
+          "minLength" : 0
         },
         "HttpParameters" : {
           "$ref" : "#/definitions/PipeEnrichmentHttpParameters"
@@ -509,7 +509,7 @@
       "properties" : {
         "BatchSize" : {
           "type" : "integer",
-          "maximum" : 1000,
+          "maximum" : 10000,
           "minimum" : 1
         },
         "DeadLetterConfig" : {
@@ -733,7 +733,7 @@
           "type" : "string",
           "maxLength" : 1600,
           "minLength" : 1,
-          "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:[a-z0-9-.]+:.*)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)$",
+          "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}):(\\d{12}):secret:.+)$",
           "description" : "Optional SecretManager ARN which stores the database credentials"
         },
         "Vpc" : {
@@ -820,7 +820,7 @@
           "type" : "string",
           "maxLength" : 1600,
           "minLength" : 1,
-          "pattern" : "^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)$"
+          "pattern" : "^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.+)|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
         },
         "TaskCount" : {
           "type" : "integer",
@@ -909,7 +909,7 @@
           "type" : "string",
           "maxLength" : 256,
           "minLength" : 1,
-          "pattern" : "(?=[/\\.\\-_A-Za-z0-9]+)((?!aws\\.).*)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)"
+          "pattern" : "(?=[/\\.\\-_A-Za-z0-9]+)((?!aws\\.).*)|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)"
         },
         "Resources" : {
           "type" : "array",
@@ -917,7 +917,7 @@
             "type" : "string",
             "maxLength" : 1600,
             "minLength" : 1,
-            "pattern" : "^arn:aws([a-z]|\\-)*:(.*)|^\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*$"
+            "pattern" : "^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.+)|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
           },
           "maxItems" : 10,
           "minItems" : 0
@@ -926,7 +926,7 @@
           "type" : "string",
           "maxLength" : 256,
           "minLength" : 1,
-          "pattern" : "^\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*$"
+          "pattern" : "^\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*$"
         }
       },
       "additionalProperties" : false
@@ -938,10 +938,8 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "pattern" : "^(?!\\s*$).+$"
-          },
-          "maxItems" : 1,
-          "minItems" : 0
+            "pattern" : "^(?!\\s*$).+|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
+          }
         },
         "HeaderParameters" : {
           "$ref" : "#/definitions/HeaderParametersMap"
@@ -981,7 +979,9 @@
       "type" : "object",
       "properties" : {
         "InputTemplate" : {
-          "type" : "string"
+          "type" : "string",
+          "maxLength" : 8192,
+          "minLength" : 0
         },
         "LambdaFunctionParameters" : {
           "$ref" : "#/definitions/PipeTargetLambdaFunctionParameters"
@@ -1026,7 +1026,7 @@
           "type" : "string",
           "maxLength" : 1600,
           "minLength" : 1,
-          "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:[a-z0-9-.]+:.*)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)$",
+          "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}):(\\d{12}):secret:.+)|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$",
           "description" : "Optional SecretManager ARN which stores the database credentials"
         },
         "Database" : {
@@ -1059,6 +1059,7 @@
             "minLength" : 1,
             "description" : "A single Redshift SQL"
           },
+          "maxItems" : 40,
           "minItems" : 1,
           "description" : "A list of SQLs."
         }
@@ -1148,11 +1149,11 @@
     "QueryStringParametersMap" : {
       "type" : "object",
       "patternProperties" : {
-        "^[^\\x00-\\x1F\\x7F]+$" : {
+        "^[^\\x00-\\x1F\\x7F]+|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$" : {
           "type" : "string",
           "maxLength" : 512,
           "minLength" : 0,
-          "pattern" : "^[^\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F]+$"
+          "pattern" : "^[^\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F]+|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
         }
       },
       "additionalProperties" : false
@@ -1168,7 +1169,7 @@
           "type" : "string",
           "maxLength" : 256,
           "minLength" : 1,
-          "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$"
+          "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9])*|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
         },
         "Value" : {
           "type" : "string",
@@ -1188,7 +1189,7 @@
             "type" : "string",
             "maxLength" : 1600,
             "minLength" : 1,
-            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:[a-z0-9-.]+:.*)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)$",
+            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}):(\\d{12}):secret:.+)$",
             "description" : "Optional SecretManager ARN which stores the database credentials"
           }
         },
@@ -1202,7 +1203,7 @@
             "type" : "string",
             "maxLength" : 1600,
             "minLength" : 1,
-            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:[a-z0-9-.]+:.*)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)$",
+            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}):(\\d{12}):secret:.+)$",
             "description" : "Optional SecretManager ARN which stores the database credentials"
           }
         },
@@ -1216,7 +1217,7 @@
             "type" : "string",
             "maxLength" : 1600,
             "minLength" : 1,
-            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:[a-z0-9-.]+:.*)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)$",
+            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}):(\\d{12}):secret:.+)$",
             "description" : "Optional SecretManager ARN which stores the database credentials"
           }
         },
@@ -1230,7 +1231,7 @@
             "type" : "string",
             "maxLength" : 1600,
             "minLength" : 1,
-            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:[a-z0-9-.]+:.*)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)$",
+            "pattern" : "^(^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}):(\\d{12}):secret:.+)$",
             "description" : "Optional SecretManager ARN which stores the database credentials"
           }
         },
@@ -1307,7 +1308,8 @@
     "Arn" : {
       "type" : "string",
       "maxLength" : 1600,
-      "minLength" : 1
+      "minLength" : 1,
+      "pattern" : "^arn:aws([a-z]|\\-)*:([a-zA-Z0-9\\-]+):([a-z]|\\d|\\-)*:([0-9]{12})?:(.+)$"
     },
     "CreationTime" : {
       "type" : "string",
@@ -1328,7 +1330,8 @@
     "Enrichment" : {
       "type" : "string",
       "maxLength" : 1600,
-      "minLength" : 0
+      "minLength" : 0,
+      "pattern" : "^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.+)$"
     },
     "EnrichmentParameters" : {
       "$ref" : "#/definitions/PipeEnrichmentParameters"
@@ -1346,12 +1349,14 @@
     "RoleArn" : {
       "type" : "string",
       "maxLength" : 1600,
-      "minLength" : 1
+      "minLength" : 1,
+      "pattern" : "^arn:(aws[a-zA-Z-]*)?:iam::\\d{12}:role/?[a-zA-Z0-9+=,.@\\-_/]+$"
     },
     "Source" : {
       "type" : "string",
       "maxLength" : 1600,
-      "minLength" : 1
+      "minLength" : 1,
+      "pattern" : "^smk://(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9]):[0-9]{1,5}|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.+)$"
     },
     "SourceParameters" : {
       "$ref" : "#/definitions/PipeSourceParameters"
@@ -1368,7 +1373,8 @@
     "Target" : {
       "type" : "string",
       "maxLength" : 1600,
-      "minLength" : 1
+      "minLength" : 1,
+      "pattern" : "^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.+)$"
     },
     "TargetParameters" : {
       "$ref" : "#/definitions/PipeTargetParameters"
