@@ -32,16 +32,16 @@
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "resolverdnssec:CreateConfig" ]
+      "permissions" : [ "resolverdnssec:CreateConfig", "route53resolver:UpdateResolverDnssecConfig", "route53resolver:GetResolverDnssecConfig", "ec2:*" ]
     },
     "read" : {
-      "permissions" : [ "resolverdnssec:GetConfig" ]
+      "permissions" : [ "resolverdnssec:GetConfig", "route53resolver:ListResolverDnssecConfigs" ]
     },
     "delete" : {
-      "permissions" : [ "resolverdnssec:DeleteConfig" ]
+      "permissions" : [ "resolverdnssec:DeleteConfig", "route53resolver:UpdateResolverDnssecConfig", "route53resolver:ListResolverDnssecConfigs", "ec2:*" ]
     },
     "list" : {
-      "permissions" : [ "resolverdnssec:ListConfig" ]
+      "permissions" : [ "resolverdnssec:ListConfig", "route53resolver:ListResolverDnssecConfigs" ]
     }
   }
 }

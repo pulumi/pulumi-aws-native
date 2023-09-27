@@ -160,6 +160,7 @@ AWS::Connect::QuickConnect
 AWS::Connect::RoutingProfile
 AWS::Connect::Rule
 AWS::Connect::SecurityKey
+AWS::Connect::SecurityProfile
 AWS::Connect::TaskTemplate
 AWS::Connect::TrafficDistributionGroup
 AWS::Connect::User
@@ -368,6 +369,7 @@ AWS::GroundStation::Config
 AWS::GroundStation::DataflowEndpointGroup
 AWS::GroundStation::MissionProfile
 AWS::GuardDuty::Detector
+AWS::HealthImaging::Datastore
 AWS::HealthLake::FHIRDatastore
 AWS::IAM::GroupPolicy
 AWS::IAM::InstanceProfile
@@ -695,6 +697,7 @@ AWS::Route53Resolver::ResolverRule
 AWS::Route53Resolver::ResolverRuleAssociation
 AWS::S3::AccessPoint
 AWS::S3::Bucket
+AWS::S3::BucketPolicy
 AWS::S3::MultiRegionAccessPoint
 AWS::S3::MultiRegionAccessPointPolicy
 AWS::S3::StorageLens
@@ -904,6 +907,7 @@ MongoDB::Atlas::CloudBackupSchedule
 MongoDB::Atlas::CloudBackupSnapshot
 MongoDB::Atlas::CloudBackupSnapshotExportBucket
 MongoDB::Atlas::Cluster
+MongoDB::Atlas::ClusterOutageSimulation
 MongoDB::Atlas::CustomDBRole
 MongoDB::Atlas::CustomDnsConfigurationClusterAws
 MongoDB::Atlas::DataLakePipeline
@@ -921,6 +925,7 @@ MongoDB::Atlas::NetworkContainer
 MongoDB::Atlas::NetworkPeering
 MongoDB::Atlas::OnlineArchive
 MongoDB::Atlas::OrgInvitation
+MongoDB::Atlas::Organization
 MongoDB::Atlas::PrivateEndPointRegionalMode
 MongoDB::Atlas::PrivateEndpoint
 MongoDB::Atlas::PrivateEndpointADL

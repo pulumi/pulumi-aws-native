@@ -4,22 +4,22 @@
     "OriginAccessControlConfig" : {
       "additionalProperties" : false,
       "properties" : {
-        "Name" : {
-          "type" : "string"
-        },
         "Description" : {
           "type" : "string"
         },
-        "SigningProtocol" : {
-          "pattern" : "^(sigv4)$",
+        "Name" : {
+          "type" : "string"
+        },
+        "OriginAccessControlOriginType" : {
+          "pattern" : "^(s3|mediastore)$",
           "type" : "string"
         },
         "SigningBehavior" : {
           "pattern" : "^(never|no-override|always)$",
           "type" : "string"
         },
-        "OriginAccessControlOriginType" : {
-          "pattern" : "^(s3|mediastore)$",
+        "SigningProtocol" : {
+          "pattern" : "^(sigv4)$",
           "type" : "string"
         }
       },
@@ -33,7 +33,7 @@
       "permissions" : [ "cloudfront:CreateOriginAccessControl" ]
     },
     "delete" : {
-      "permissions" : [ "cloudfront:DeleteOriginAccessControl" ]
+      "permissions" : [ "cloudfront:DeleteOriginAccessControl", "cloudfront:GetOriginAccessControl" ]
     },
     "list" : {
       "permissions" : [ "cloudfront:ListOriginAccessControls" ]
@@ -42,20 +42,25 @@
       "permissions" : [ "cloudfront:GetOriginAccessControl" ]
     },
     "update" : {
-      "permissions" : [ "cloudfront:UpdateOriginAccessControl" ]
+      "permissions" : [ "cloudfront:UpdateOriginAccessControl", "cloudfront:GetOriginAccessControl" ]
     }
   },
   "primaryIdentifier" : [ "/properties/Id" ],
   "properties" : {
-    "OriginAccessControlConfig" : {
-      "$ref" : "#/definitions/OriginAccessControlConfig"
-    },
     "Id" : {
       "type" : "string"
+    },
+    "OriginAccessControlConfig" : {
+      "$ref" : "#/definitions/OriginAccessControlConfig"
     }
   },
   "readOnlyProperties" : [ "/properties/Id" ],
   "required" : [ "OriginAccessControlConfig" ],
-  "taggable" : false,
+  "tagging" : {
+    "cloudFormationSystemTags" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "taggable" : false
+  },
   "typeName" : "AWS::CloudFront::OriginAccessControl"
 }

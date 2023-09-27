@@ -82,7 +82,7 @@
   "createOnlyProperties" : [ "/properties/IpamId", "/properties/IpamResourceDiscoveryId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:AssociateIpamResourceDiscovery", "ec2:CreateTags" ]
+      "permissions" : [ "ec2:AssociateIpamResourceDiscovery", "ec2:DescribeIpamResourceDiscoveryAssociations", "ec2:CreateTags" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeIpamResourceDiscoveryAssociations" ]
@@ -91,7 +91,7 @@
       "permissions" : [ "ec2:DescribeIpamResourceDiscoveryAssociations", "ec2:CreateTags", "ec2:DeleteTags" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DisassociateIpamResourceDiscovery", "ec2:DeleteTags" ]
+      "permissions" : [ "ec2:DisassociateIpamResourceDiscovery", "ec2:DescribeIpamResourceDiscoveryAssociations", "ec2:DeleteTags" ]
     },
     "list" : {
       "permissions" : [ "ec2:DescribeIpamResourceDiscoveryAssociations" ]

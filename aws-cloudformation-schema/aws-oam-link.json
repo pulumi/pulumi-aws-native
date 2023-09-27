@@ -4,7 +4,7 @@
   "definitions" : {
     "ResourceType" : {
       "type" : "string",
-      "enum" : [ "AWS::CloudWatch::Metric", "AWS::Logs::LogGroup", "AWS::XRay::Trace" ]
+      "enum" : [ "AWS::CloudWatch::Metric", "AWS::Logs::LogGroup", "AWS::XRay::Trace", "AWS::ApplicationInsights::Application" ]
     }
   },
   "properties" : {
@@ -63,13 +63,13 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "oam:CreateLink", "oam:GetLink", "cloudwatch:Link", "logs:Link", "xray:Link" ]
+      "permissions" : [ "oam:CreateLink", "oam:GetLink", "cloudwatch:Link", "logs:Link", "xray:Link", "applicationinsights:Link" ]
     },
     "read" : {
       "permissions" : [ "oam:GetLink" ]
     },
     "update" : {
-      "permissions" : [ "oam:GetLink", "oam:UpdateLink", "cloudwatch:Link", "logs:Link", "xray:Link", "oam:TagResource", "oam:UntagResource" ]
+      "permissions" : [ "oam:GetLink", "oam:UpdateLink", "cloudwatch:Link", "logs:Link", "xray:Link", "applicationinsights:Link", "oam:TagResource", "oam:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "oam:DeleteLink", "oam:GetLink" ]

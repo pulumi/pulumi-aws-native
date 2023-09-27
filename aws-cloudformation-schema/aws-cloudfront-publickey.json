@@ -27,7 +27,7 @@
       "permissions" : [ "cloudfront:CreatePublicKey" ]
     },
     "delete" : {
-      "permissions" : [ "cloudfront:DeletePublicKey" ]
+      "permissions" : [ "cloudfront:DeletePublicKey", "cloudfront:GetPublicKey" ]
     },
     "list" : {
       "permissions" : [ "cloudfront:ListPublicKeys" ]
@@ -36,7 +36,7 @@
       "permissions" : [ "cloudfront:GetPublicKey" ]
     },
     "update" : {
-      "permissions" : [ "cloudfront:UpdatePublicKey" ]
+      "permissions" : [ "cloudfront:UpdatePublicKey", "cloudfront:GetPublicKey" ]
     }
   },
   "primaryIdentifier" : [ "/properties/Id" ],
@@ -53,5 +53,11 @@
   },
   "readOnlyProperties" : [ "/properties/Id", "/properties/CreatedTime" ],
   "required" : [ "PublicKeyConfig" ],
+  "tagging" : {
+    "cloudFormationSystemTags" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "taggable" : false
+  },
   "typeName" : "AWS::CloudFront::PublicKey"
 }
