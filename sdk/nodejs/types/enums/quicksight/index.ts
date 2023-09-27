@@ -492,6 +492,13 @@ export const AnalysisPivotTableMetricPlacement = {
 
 export type AnalysisPivotTableMetricPlacement = (typeof AnalysisPivotTableMetricPlacement)[keyof typeof AnalysisPivotTableMetricPlacement];
 
+export const AnalysisPivotTableRowsLayout = {
+    Tabular: "TABULAR",
+    Hierarchy: "HIERARCHY",
+} as const;
+
+export type AnalysisPivotTableRowsLayout = (typeof AnalysisPivotTableRowsLayout)[keyof typeof AnalysisPivotTableRowsLayout];
+
 export const AnalysisPivotTableSubtotalLevel = {
     All: "ALL",
     Custom: "CUSTOM",
@@ -668,6 +675,20 @@ export const AnalysisSimpleNumericalAggregationFunction = {
 
 export type AnalysisSimpleNumericalAggregationFunction = (typeof AnalysisSimpleNumericalAggregationFunction)[keyof typeof AnalysisSimpleNumericalAggregationFunction];
 
+export const AnalysisSmallMultiplesAxisPlacement = {
+    Outside: "OUTSIDE",
+    Inside: "INSIDE",
+} as const;
+
+export type AnalysisSmallMultiplesAxisPlacement = (typeof AnalysisSmallMultiplesAxisPlacement)[keyof typeof AnalysisSmallMultiplesAxisPlacement];
+
+export const AnalysisSmallMultiplesAxisScale = {
+    Shared: "SHARED",
+    Independent: "INDEPENDENT",
+} as const;
+
+export type AnalysisSmallMultiplesAxisScale = (typeof AnalysisSmallMultiplesAxisScale)[keyof typeof AnalysisSmallMultiplesAxisScale];
+
 export const AnalysisSortDirection = {
     Asc: "ASC",
     Desc: "DESC",
@@ -682,6 +703,14 @@ export const AnalysisSpecialValue = {
 } as const;
 
 export type AnalysisSpecialValue = (typeof AnalysisSpecialValue)[keyof typeof AnalysisSpecialValue];
+
+export const AnalysisStyledCellType = {
+    Total: "TOTAL",
+    MetricHeader: "METRIC_HEADER",
+    Value: "VALUE",
+} as const;
+
+export type AnalysisStyledCellType = (typeof AnalysisStyledCellType)[keyof typeof AnalysisStyledCellType];
 
 export const AnalysisTableBorderStyle = {
     None: "NONE",
@@ -792,6 +821,7 @@ export const AnalysisVerticalTextAlignment = {
     Top: "TOP",
     Middle: "MIDDLE",
     Bottom: "BOTTOM",
+    Auto: "AUTO",
 } as const;
 
 export type AnalysisVerticalTextAlignment = (typeof AnalysisVerticalTextAlignment)[keyof typeof AnalysisVerticalTextAlignment];
@@ -1351,6 +1381,13 @@ export const DashboardPivotTableMetricPlacement = {
 
 export type DashboardPivotTableMetricPlacement = (typeof DashboardPivotTableMetricPlacement)[keyof typeof DashboardPivotTableMetricPlacement];
 
+export const DashboardPivotTableRowsLayout = {
+    Tabular: "TABULAR",
+    Hierarchy: "HIERARCHY",
+} as const;
+
+export type DashboardPivotTableRowsLayout = (typeof DashboardPivotTableRowsLayout)[keyof typeof DashboardPivotTableRowsLayout];
+
 export const DashboardPivotTableSubtotalLevel = {
     All: "ALL",
     Custom: "CUSTOM",
@@ -1527,6 +1564,20 @@ export const DashboardSimpleNumericalAggregationFunction = {
 
 export type DashboardSimpleNumericalAggregationFunction = (typeof DashboardSimpleNumericalAggregationFunction)[keyof typeof DashboardSimpleNumericalAggregationFunction];
 
+export const DashboardSmallMultiplesAxisPlacement = {
+    Outside: "OUTSIDE",
+    Inside: "INSIDE",
+} as const;
+
+export type DashboardSmallMultiplesAxisPlacement = (typeof DashboardSmallMultiplesAxisPlacement)[keyof typeof DashboardSmallMultiplesAxisPlacement];
+
+export const DashboardSmallMultiplesAxisScale = {
+    Shared: "SHARED",
+    Independent: "INDEPENDENT",
+} as const;
+
+export type DashboardSmallMultiplesAxisScale = (typeof DashboardSmallMultiplesAxisScale)[keyof typeof DashboardSmallMultiplesAxisScale];
+
 export const DashboardSortDirection = {
     Asc: "ASC",
     Desc: "DESC",
@@ -1541,6 +1592,14 @@ export const DashboardSpecialValue = {
 } as const;
 
 export type DashboardSpecialValue = (typeof DashboardSpecialValue)[keyof typeof DashboardSpecialValue];
+
+export const DashboardStyledCellType = {
+    Total: "TOTAL",
+    MetricHeader: "METRIC_HEADER",
+    Value: "VALUE",
+} as const;
+
+export type DashboardStyledCellType = (typeof DashboardStyledCellType)[keyof typeof DashboardStyledCellType];
 
 export const DashboardTableBorderStyle = {
     None: "NONE",
@@ -1658,6 +1717,7 @@ export const DashboardVerticalTextAlignment = {
     Top: "TOP",
     Middle: "MIDDLE",
     Bottom: "BOTTOM",
+    Auto: "AUTO",
 } as const;
 
 export type DashboardVerticalTextAlignment = (typeof DashboardVerticalTextAlignment)[keyof typeof DashboardVerticalTextAlignment];
@@ -2364,6 +2424,13 @@ export const TemplatePivotTableMetricPlacement = {
 
 export type TemplatePivotTableMetricPlacement = (typeof TemplatePivotTableMetricPlacement)[keyof typeof TemplatePivotTableMetricPlacement];
 
+export const TemplatePivotTableRowsLayout = {
+    Tabular: "TABULAR",
+    Hierarchy: "HIERARCHY",
+} as const;
+
+export type TemplatePivotTableRowsLayout = (typeof TemplatePivotTableRowsLayout)[keyof typeof TemplatePivotTableRowsLayout];
+
 export const TemplatePivotTableSubtotalLevel = {
     All: "ALL",
     Custom: "CUSTOM",
@@ -2540,6 +2607,20 @@ export const TemplateSimpleNumericalAggregationFunction = {
 
 export type TemplateSimpleNumericalAggregationFunction = (typeof TemplateSimpleNumericalAggregationFunction)[keyof typeof TemplateSimpleNumericalAggregationFunction];
 
+export const TemplateSmallMultiplesAxisPlacement = {
+    Outside: "OUTSIDE",
+    Inside: "INSIDE",
+} as const;
+
+export type TemplateSmallMultiplesAxisPlacement = (typeof TemplateSmallMultiplesAxisPlacement)[keyof typeof TemplateSmallMultiplesAxisPlacement];
+
+export const TemplateSmallMultiplesAxisScale = {
+    Shared: "SHARED",
+    Independent: "INDEPENDENT",
+} as const;
+
+export type TemplateSmallMultiplesAxisScale = (typeof TemplateSmallMultiplesAxisScale)[keyof typeof TemplateSmallMultiplesAxisScale];
+
 export const TemplateSortDirection = {
     Asc: "ASC",
     Desc: "DESC",
@@ -2554,6 +2635,14 @@ export const TemplateSpecialValue = {
 } as const;
 
 export type TemplateSpecialValue = (typeof TemplateSpecialValue)[keyof typeof TemplateSpecialValue];
+
+export const TemplateStyledCellType = {
+    Total: "TOTAL",
+    MetricHeader: "METRIC_HEADER",
+    Value: "VALUE",
+} as const;
+
+export type TemplateStyledCellType = (typeof TemplateStyledCellType)[keyof typeof TemplateStyledCellType];
 
 export const TemplateTableBorderStyle = {
     None: "NONE",
@@ -2664,6 +2753,7 @@ export const TemplateVerticalTextAlignment = {
     Top: "TOP",
     Middle: "MIDDLE",
     Bottom: "BOTTOM",
+    Auto: "AUTO",
 } as const;
 
 export type TemplateVerticalTextAlignment = (typeof TemplateVerticalTextAlignment)[keyof typeof TemplateVerticalTextAlignment];

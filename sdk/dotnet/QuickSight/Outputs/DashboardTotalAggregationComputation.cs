@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly string ComputationId;
         public readonly string? Name;
-        public readonly Outputs.DashboardMeasureField Value;
+        public readonly Outputs.DashboardMeasureField? Value;
 
         [OutputConstructor]
         private DashboardTotalAggregationComputation(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? name,
 
-            Outputs.DashboardMeasureField value)
+            Outputs.DashboardMeasureField? value)
         {
             ComputationId = computationId;
             Name = name;

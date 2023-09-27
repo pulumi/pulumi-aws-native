@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public static class GetRoute
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGatewayV2::Route
+        /// The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws-native:apigatewayv2:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGatewayV2::Route
+        /// The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:apigatewayv2:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetRouteArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
 
@@ -41,6 +44,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
@@ -57,15 +63,42 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [OutputType]
     public sealed class GetRouteResult
     {
+        /// <summary>
+        /// Specifies whether an API key is required for the route. Supported only for WebSocket APIs.
+        /// </summary>
         public readonly bool? ApiKeyRequired;
+        /// <summary>
+        /// The authorization scopes supported by this route.
+        /// </summary>
         public readonly ImmutableArray<string> AuthorizationScopes;
+        /// <summary>
+        /// The authorization type for the route. For WebSocket APIs, valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, and ``CUSTOM`` for using a Lambda authorizer. For HTTP APIs, valid values are ``NONE`` for open access, ``JWT`` for using JSON Web Tokens, ``AWS_IAM`` for using AWS IAM permissions, and ``CUSTOM`` for using a Lambda authorizer.
+        /// </summary>
         public readonly string? AuthorizationType;
+        /// <summary>
+        /// The model selection expression for the route. Supported only for WebSocket APIs.
+        /// </summary>
         public readonly string? ModelSelectionExpression;
+        /// <summary>
+        /// The operation name for the route.
+        /// </summary>
         public readonly string? OperationName;
+        /// <summary>
+        /// The request models for the route. Supported only for WebSocket APIs.
+        /// </summary>
         public readonly object? RequestModels;
         public readonly string? RouteId;
+        /// <summary>
+        /// The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
+        /// </summary>
         public readonly string? RouteKey;
+        /// <summary>
+        /// The route response selection expression for the route. Supported only for WebSocket APIs.
+        /// </summary>
         public readonly string? RouteResponseSelectionExpression;
+        /// <summary>
+        /// The target for the route.
+        /// </summary>
         public readonly string? Target;
 
         [OutputConstructor]

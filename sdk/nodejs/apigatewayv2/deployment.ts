@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGatewayV2::Deployment
+ * The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
  */
 export class Deployment extends pulumi.CustomResource {
     /**
@@ -34,9 +34,18 @@ export class Deployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Deployment.__pulumiType;
     }
 
+    /**
+     * The API identifier.
+     */
     public readonly apiId!: pulumi.Output<string>;
     public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    /**
+     * The description for the deployment resource.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of an existing stage to associate with the deployment.
+     */
     public readonly stageName!: pulumi.Output<string | undefined>;
 
     /**
@@ -74,7 +83,16 @@ export class Deployment extends pulumi.CustomResource {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
+    /**
+     * The API identifier.
+     */
     apiId: pulumi.Input<string>;
+    /**
+     * The description for the deployment resource.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of an existing stage to associate with the deployment.
+     */
     stageName?: pulumi.Input<string>;
 }

@@ -165,6 +165,7 @@ import * as greengrass from "./greengrass";
 import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
 import * as guardduty from "./guardduty";
+import * as healthimaging from "./healthimaging";
 import * as healthlake from "./healthlake";
 import * as iam from "./iam";
 import * as identitystore from "./identitystore";
@@ -394,6 +395,7 @@ export {
     greengrassv2,
     groundstation,
     guardduty,
+    healthimaging,
     healthlake,
     iam,
     identitystore,

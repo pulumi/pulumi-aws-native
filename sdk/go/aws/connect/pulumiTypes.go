@@ -7605,6 +7605,139 @@ func (o RuleTriggerEventSourceOutput) IntegrationAssociationArn() pulumi.StringP
 	return o.ApplyT(func(v RuleTriggerEventSource) *string { return v.IntegrationAssociationArn }).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
+type SecurityProfileTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// SecurityProfileTagInput is an input type that accepts SecurityProfileTagArgs and SecurityProfileTagOutput values.
+// You can construct a concrete instance of `SecurityProfileTagInput` via:
+//
+//	SecurityProfileTagArgs{...}
+type SecurityProfileTagInput interface {
+	pulumi.Input
+
+	ToSecurityProfileTagOutput() SecurityProfileTagOutput
+	ToSecurityProfileTagOutputWithContext(context.Context) SecurityProfileTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type SecurityProfileTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SecurityProfileTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileTag)(nil)).Elem()
+}
+
+func (i SecurityProfileTagArgs) ToSecurityProfileTagOutput() SecurityProfileTagOutput {
+	return i.ToSecurityProfileTagOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileTagArgs) ToSecurityProfileTagOutputWithContext(ctx context.Context) SecurityProfileTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileTagOutput)
+}
+
+func (i SecurityProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[SecurityProfileTag] {
+	return pulumix.Output[SecurityProfileTag]{
+		OutputState: i.ToSecurityProfileTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// SecurityProfileTagArrayInput is an input type that accepts SecurityProfileTagArray and SecurityProfileTagArrayOutput values.
+// You can construct a concrete instance of `SecurityProfileTagArrayInput` via:
+//
+//	SecurityProfileTagArray{ SecurityProfileTagArgs{...} }
+type SecurityProfileTagArrayInput interface {
+	pulumi.Input
+
+	ToSecurityProfileTagArrayOutput() SecurityProfileTagArrayOutput
+	ToSecurityProfileTagArrayOutputWithContext(context.Context) SecurityProfileTagArrayOutput
+}
+
+type SecurityProfileTagArray []SecurityProfileTagInput
+
+func (SecurityProfileTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityProfileTag)(nil)).Elem()
+}
+
+func (i SecurityProfileTagArray) ToSecurityProfileTagArrayOutput() SecurityProfileTagArrayOutput {
+	return i.ToSecurityProfileTagArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileTagArray) ToSecurityProfileTagArrayOutputWithContext(ctx context.Context) SecurityProfileTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileTagArrayOutput)
+}
+
+func (i SecurityProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SecurityProfileTag] {
+	return pulumix.Output[[]SecurityProfileTag]{
+		OutputState: i.ToSecurityProfileTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type SecurityProfileTagOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileTag)(nil)).Elem()
+}
+
+func (o SecurityProfileTagOutput) ToSecurityProfileTagOutput() SecurityProfileTagOutput {
+	return o
+}
+
+func (o SecurityProfileTagOutput) ToSecurityProfileTagOutputWithContext(ctx context.Context) SecurityProfileTagOutput {
+	return o
+}
+
+func (o SecurityProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[SecurityProfileTag] {
+	return pulumix.Output[SecurityProfileTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SecurityProfileTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityProfileTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SecurityProfileTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityProfileTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SecurityProfileTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityProfileTag)(nil)).Elem()
+}
+
+func (o SecurityProfileTagArrayOutput) ToSecurityProfileTagArrayOutput() SecurityProfileTagArrayOutput {
+	return o
+}
+
+func (o SecurityProfileTagArrayOutput) ToSecurityProfileTagArrayOutputWithContext(ctx context.Context) SecurityProfileTagArrayOutput {
+	return o
+}
+
+func (o SecurityProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SecurityProfileTag] {
+	return pulumix.Output[[]SecurityProfileTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SecurityProfileTagArrayOutput) Index(i pulumi.IntInput) SecurityProfileTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityProfileTag {
+		return vs[0].([]SecurityProfileTag)[vs[1].(int)]
+	}).(SecurityProfileTagOutput)
+}
+
 // the default value for the task template's field
 type TaskTemplateDefaultFieldValue struct {
 	DefaultValue string                      `pulumi:"defaultValue"`
@@ -9300,6 +9433,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTaskActionInput)(nil)).Elem(), RuleTaskActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTaskActionArrayInput)(nil)).Elem(), RuleTaskActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceInput)(nil)).Elem(), RuleTriggerEventSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileTagInput)(nil)).Elem(), SecurityProfileTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileTagArrayInput)(nil)).Elem(), SecurityProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateDefaultFieldValueInput)(nil)).Elem(), TaskTemplateDefaultFieldValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateDefaultFieldValueArrayInput)(nil)).Elem(), TaskTemplateDefaultFieldValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldInput)(nil)).Elem(), TaskTemplateFieldArgs{})
@@ -9417,6 +9552,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleTaskActionOutput{})
 	pulumi.RegisterOutputType(RuleTaskActionArrayOutput{})
 	pulumi.RegisterOutputType(RuleTriggerEventSourceOutput{})
+	pulumi.RegisterOutputType(SecurityProfileTagOutput{})
+	pulumi.RegisterOutputType(SecurityProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskTemplateDefaultFieldValueOutput{})
 	pulumi.RegisterOutputType(TaskTemplateDefaultFieldValueArrayOutput{})
 	pulumi.RegisterOutputType(TaskTemplateFieldOutput{})

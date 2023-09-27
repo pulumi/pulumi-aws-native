@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+// The “AWS::ApiGatewayV2::RouteResponse“ resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
 func LookupRouteResponse(ctx *pulumi.Context, args *LookupRouteResponseArgs, opts ...pulumi.InvokeOption) (*LookupRouteResponseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteResponseResult
@@ -24,17 +24,23 @@ func LookupRouteResponse(ctx *pulumi.Context, args *LookupRouteResponseArgs, opt
 }
 
 type LookupRouteResponseArgs struct {
-	ApiId           string `pulumi:"apiId"`
+	// The API identifier.
+	ApiId string `pulumi:"apiId"`
+	// The route ID.
 	RouteId         string `pulumi:"routeId"`
 	RouteResponseId string `pulumi:"routeResponseId"`
 }
 
 type LookupRouteResponseResult struct {
-	ModelSelectionExpression *string                       `pulumi:"modelSelectionExpression"`
-	ResponseModels           interface{}                   `pulumi:"responseModels"`
-	ResponseParameters       *RouteResponseRouteParameters `pulumi:"responseParameters"`
-	RouteResponseId          *string                       `pulumi:"routeResponseId"`
-	RouteResponseKey         *string                       `pulumi:"routeResponseKey"`
+	// The model selection expression for the route response. Supported only for WebSocket APIs.
+	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
+	// The response models for the route response.
+	ResponseModels interface{} `pulumi:"responseModels"`
+	// The route response parameters.
+	ResponseParameters *RouteResponseRouteParameters `pulumi:"responseParameters"`
+	RouteResponseId    *string                       `pulumi:"routeResponseId"`
+	// The route response key.
+	RouteResponseKey *string `pulumi:"routeResponseKey"`
 }
 
 func LookupRouteResponseOutput(ctx *pulumi.Context, args LookupRouteResponseOutputArgs, opts ...pulumi.InvokeOption) LookupRouteResponseResultOutput {
@@ -51,7 +57,9 @@ func LookupRouteResponseOutput(ctx *pulumi.Context, args LookupRouteResponseOutp
 }
 
 type LookupRouteResponseOutputArgs struct {
-	ApiId           pulumi.StringInput `pulumi:"apiId"`
+	// The API identifier.
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// The route ID.
 	RouteId         pulumi.StringInput `pulumi:"routeId"`
 	RouteResponseId pulumi.StringInput `pulumi:"routeResponseId"`
 }
@@ -80,14 +88,17 @@ func (o LookupRouteResponseResultOutput) ToOutput(ctx context.Context) pulumix.O
 	}
 }
 
+// The model selection expression for the route response. Supported only for WebSocket APIs.
 func (o LookupRouteResponseResultOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResponseResult) *string { return v.ModelSelectionExpression }).(pulumi.StringPtrOutput)
 }
 
+// The response models for the route response.
 func (o LookupRouteResponseResultOutput) ResponseModels() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRouteResponseResult) interface{} { return v.ResponseModels }).(pulumi.AnyOutput)
 }
 
+// The route response parameters.
 func (o LookupRouteResponseResultOutput) ResponseParameters() RouteResponseRouteParametersPtrOutput {
 	return o.ApplyT(func(v LookupRouteResponseResult) *RouteResponseRouteParameters { return v.ResponseParameters }).(RouteResponseRouteParametersPtrOutput)
 }
@@ -96,6 +107,7 @@ func (o LookupRouteResponseResultOutput) RouteResponseId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupRouteResponseResult) *string { return v.RouteResponseId }).(pulumi.StringPtrOutput)
 }
 
+// The route response key.
 func (o LookupRouteResponseResultOutput) RouteResponseKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResponseResult) *string { return v.RouteResponseKey }).(pulumi.StringPtrOutput)
 }

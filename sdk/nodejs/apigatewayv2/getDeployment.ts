@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGatewayV2::Deployment
+ * The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
 
@@ -17,22 +17,31 @@ export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetDeploymentArgs {
+    /**
+     * The API identifier.
+     */
     apiId: string;
     deploymentId: string;
 }
 
 export interface GetDeploymentResult {
     readonly deploymentId?: string;
+    /**
+     * The description for the deployment resource.
+     */
     readonly description?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGatewayV2::Deployment
+ * The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
 }
 
 export interface GetDeploymentOutputArgs {
+    /**
+     * The API identifier.
+     */
     apiId: pulumi.Input<string>;
     deploymentId: pulumi.Input<string>;
 }

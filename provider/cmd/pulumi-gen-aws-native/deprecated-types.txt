@@ -1,4 +1,3 @@
-AWS::AutoScaling::AutoScalingGroup
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::Lambda::EventInvokeConfig

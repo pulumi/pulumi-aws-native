@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Schema for AWS::ApiGatewayV2::ApiMapping
+ * The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
  */
 export function getApiMapping(args: GetApiMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetApiMappingResult> {
 
@@ -22,14 +22,14 @@ export interface GetApiMappingArgs {
      */
     apiMappingId: string;
     /**
-     * The domain name
+     * The domain name.
      */
     domainName: string;
 }
 
 export interface GetApiMappingResult {
     /**
-     * The API identifier
+     * The identifier of the API.
      */
     readonly apiId?: string;
     /**
@@ -37,16 +37,16 @@ export interface GetApiMappingResult {
      */
     readonly apiMappingId?: string;
     /**
-     * The API mapping key
+     * The API mapping key.
      */
     readonly apiMappingKey?: string;
     /**
-     * The API stage
+     * The API stage.
      */
     readonly stage?: string;
 }
 /**
- * Schema for AWS::ApiGatewayV2::ApiMapping
+ * The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
  */
 export function getApiMappingOutput(args: GetApiMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiMappingResult> {
     return pulumi.output(args).apply((a: any) => getApiMapping(a, opts))
@@ -58,7 +58,7 @@ export interface GetApiMappingOutputArgs {
      */
     apiMappingId: pulumi.Input<string>;
     /**
-     * The domain name
+     * The domain name.
      */
     domainName: pulumi.Input<string>;
 }

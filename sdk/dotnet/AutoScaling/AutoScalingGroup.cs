@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("newInstancesProtectedFromScaleIn")]
         public Output<bool?> NewInstancesProtectedFromScaleIn { get; private set; } = null!;
 
+        [Output("notificationConfiguration")]
+        public Output<Outputs.AutoScalingGroupNotificationConfiguration?> NotificationConfiguration { get; private set; } = null!;
+
         [Output("notificationConfigurations")]
         public Output<ImmutableArray<Outputs.AutoScalingGroupNotificationConfiguration>> NotificationConfigurations { get; private set; } = null!;
 
@@ -237,6 +240,9 @@ namespace Pulumi.AwsNative.AutoScaling
 
         [Input("newInstancesProtectedFromScaleIn")]
         public Input<bool>? NewInstancesProtectedFromScaleIn { get; set; }
+
+        [Input("notificationConfiguration")]
+        public Input<Inputs.AutoScalingGroupNotificationConfigurationArgs>? NotificationConfiguration { get; set; }
 
         [Input("notificationConfigurations")]
         private InputList<Inputs.AutoScalingGroupNotificationConfigurationArgs>? _notificationConfigurations;

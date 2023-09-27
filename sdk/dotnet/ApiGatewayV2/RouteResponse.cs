@@ -10,29 +10,47 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+    /// The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigatewayv2:RouteResponse")]
     public partial class RouteResponse : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// The model selection expression for the route response. Supported only for WebSocket APIs.
+        /// </summary>
         [Output("modelSelectionExpression")]
         public Output<string?> ModelSelectionExpression { get; private set; } = null!;
 
+        /// <summary>
+        /// The response models for the route response.
+        /// </summary>
         [Output("responseModels")]
         public Output<object?> ResponseModels { get; private set; } = null!;
 
+        /// <summary>
+        /// The route response parameters.
+        /// </summary>
         [Output("responseParameters")]
         public Output<Outputs.RouteResponseRouteParameters?> ResponseParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The route ID.
+        /// </summary>
         [Output("routeId")]
         public Output<string> RouteId { get; private set; } = null!;
 
         [Output("routeResponseId")]
         public Output<string> RouteResponseId { get; private set; } = null!;
 
+        /// <summary>
+        /// The route response key.
+        /// </summary>
         [Output("routeResponseKey")]
         public Output<string> RouteResponseKey { get; private set; } = null!;
 
@@ -86,21 +104,39 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class RouteResponseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The model selection expression for the route response. Supported only for WebSocket APIs.
+        /// </summary>
         [Input("modelSelectionExpression")]
         public Input<string>? ModelSelectionExpression { get; set; }
 
+        /// <summary>
+        /// The response models for the route response.
+        /// </summary>
         [Input("responseModels")]
         public Input<object>? ResponseModels { get; set; }
 
+        /// <summary>
+        /// The route response parameters.
+        /// </summary>
         [Input("responseParameters")]
         public Input<Inputs.RouteResponseRouteParametersArgs>? ResponseParameters { get; set; }
 
+        /// <summary>
+        /// The route ID.
+        /// </summary>
         [Input("routeId", required: true)]
         public Input<string> RouteId { get; set; } = null!;
 
+        /// <summary>
+        /// The route response key.
+        /// </summary>
         [Input("routeResponseKey", required: true)]
         public Input<string> RouteResponseKey { get; set; } = null!;
 

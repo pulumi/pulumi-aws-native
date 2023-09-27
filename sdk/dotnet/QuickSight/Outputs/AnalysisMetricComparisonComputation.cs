@@ -14,22 +14,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisMetricComparisonComputation
     {
         public readonly string ComputationId;
-        public readonly Outputs.AnalysisMeasureField FromValue;
+        public readonly Outputs.AnalysisMeasureField? FromValue;
         public readonly string? Name;
-        public readonly Outputs.AnalysisMeasureField TargetValue;
-        public readonly Outputs.AnalysisDimensionField Time;
+        public readonly Outputs.AnalysisMeasureField? TargetValue;
+        public readonly Outputs.AnalysisDimensionField? Time;
 
         [OutputConstructor]
         private AnalysisMetricComparisonComputation(
             string computationId,
 
-            Outputs.AnalysisMeasureField fromValue,
+            Outputs.AnalysisMeasureField? fromValue,
 
             string? name,
 
-            Outputs.AnalysisMeasureField targetValue,
+            Outputs.AnalysisMeasureField? targetValue,
 
-            Outputs.AnalysisDimensionField time)
+            Outputs.AnalysisDimensionField? time)
         {
             ComputationId = computationId;
             FromValue = fromValue;

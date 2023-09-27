@@ -42,6 +42,7 @@ export class DataSource extends pulumi.CustomResource {
     public readonly dataSourceConfiguration!: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly indexId!: pulumi.Output<string>;
+    public readonly languageCode!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
     public readonly schedule!: pulumi.Output<string | undefined>;
@@ -72,6 +73,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["indexId"] = args ? args.indexId : undefined;
+            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
@@ -84,6 +86,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["dataSourceConfiguration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["indexId"] = undefined /*out*/;
+            resourceInputs["languageCode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["schedule"] = undefined /*out*/;
@@ -105,6 +108,7 @@ export interface DataSourceArgs {
     dataSourceConfiguration?: pulumi.Input<inputs.kendra.DataSourceConfigurationArgs>;
     description?: pulumi.Input<string>;
     indexId: pulumi.Input<string>;
+    languageCode?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     roleArn?: pulumi.Input<string>;
     schedule?: pulumi.Input<string>;

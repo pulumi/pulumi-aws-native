@@ -38,11 +38,17 @@ class GetModelResult:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[str]:
+        """
+        The content-type for the model, for example, "application/json".
+        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the model.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -53,11 +59,17 @@ class GetModelResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the model.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[Any]:
+        """
+        The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+        """
         return pulumi.get(self, "schema")
 
 
@@ -78,7 +90,10 @@ def get_model(api_id: Optional[str] = None,
               model_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelResult:
     """
-    Resource Type definition for AWS::ApiGatewayV2::Model
+    The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
+
+
+    :param str api_id: The API identifier.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -99,6 +114,9 @@ def get_model_output(api_id: Optional[pulumi.Input[str]] = None,
                      model_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelResult]:
     """
-    Resource Type definition for AWS::ApiGatewayV2::Model
+    The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
+
+
+    :param str api_id: The API identifier.
     """
     ...

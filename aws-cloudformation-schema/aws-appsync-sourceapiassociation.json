@@ -86,16 +86,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "appsync:AssociateSourceGraphqlApi", "appsync:AssociateMergedGraphqlApi" ]
+      "permissions" : [ "appsync:AssociateSourceGraphqlApi", "appsync:AssociateMergedGraphqlApi", "appsync:GetSourceApiAssociation" ]
     },
     "read" : {
-      "permissions" : [ "appsync:GetSourceApiAssociation" ]
+      "permissions" : [ "appsync:GetSourceApiAssociation", "appsync:ListSourceApiAssociations" ]
     },
     "update" : {
-      "permissions" : [ "appsync:GetSourceApiAssociation", "appsync:UpdateSourceApiAssociation" ]
+      "permissions" : [ "appsync:GetSourceApiAssociation", "appsync:UpdateSourceApiAssociation", "appsync:GetSourceApiAssociation" ]
     },
     "delete" : {
-      "permissions" : [ "appsync:GetSourceApiAssociation", "appsync:DisassociateSourceGraphqlApi", "appsync:DisassociateMergedGraphqlApi" ]
+      "permissions" : [ "appsync:GetSourceApiAssociation", "appsync:DisassociateSourceGraphqlApi", "appsync:DisassociateMergedGraphqlApi", "appsync:ListSourceApiAssociations" ]
     },
     "list" : {
       "handlerSchema" : {

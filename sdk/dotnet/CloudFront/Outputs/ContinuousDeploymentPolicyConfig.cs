@@ -14,20 +14,32 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     public sealed class ContinuousDeploymentPolicyConfig
     {
         public readonly bool Enabled;
+        public readonly Outputs.ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties? SingleHeaderPolicyConfig;
+        public readonly Outputs.ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties? SingleWeightPolicyConfig;
         public readonly ImmutableArray<string> StagingDistributionDnsNames;
         public readonly Outputs.ContinuousDeploymentPolicyTrafficConfig? TrafficConfig;
+        public readonly Pulumi.AwsNative.CloudFront.ContinuousDeploymentPolicyConfigType? Type;
 
         [OutputConstructor]
         private ContinuousDeploymentPolicyConfig(
             bool enabled,
 
+            Outputs.ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties? singleHeaderPolicyConfig,
+
+            Outputs.ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties? singleWeightPolicyConfig,
+
             ImmutableArray<string> stagingDistributionDnsNames,
 
-            Outputs.ContinuousDeploymentPolicyTrafficConfig? trafficConfig)
+            Outputs.ContinuousDeploymentPolicyTrafficConfig? trafficConfig,
+
+            Pulumi.AwsNative.CloudFront.ContinuousDeploymentPolicyConfigType? type)
         {
             Enabled = enabled;
+            SingleHeaderPolicyConfig = singleHeaderPolicyConfig;
+            SingleWeightPolicyConfig = singleWeightPolicyConfig;
             StagingDistributionDnsNames = stagingDistributionDnsNames;
             TrafficConfig = trafficConfig;
+            Type = type;
         }
     }
 }

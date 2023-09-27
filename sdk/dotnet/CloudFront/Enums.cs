@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.CloudFront
 {
     [EnumType]
+    public readonly struct ContinuousDeploymentPolicyConfigType : IEquatable<ContinuousDeploymentPolicyConfigType>
+    {
+        private readonly string _value;
+
+        private ContinuousDeploymentPolicyConfigType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContinuousDeploymentPolicyConfigType SingleWeight { get; } = new ContinuousDeploymentPolicyConfigType("SingleWeight");
+        public static ContinuousDeploymentPolicyConfigType SingleHeader { get; } = new ContinuousDeploymentPolicyConfigType("SingleHeader");
+
+        public static bool operator ==(ContinuousDeploymentPolicyConfigType left, ContinuousDeploymentPolicyConfigType right) => left.Equals(right);
+        public static bool operator !=(ContinuousDeploymentPolicyConfigType left, ContinuousDeploymentPolicyConfigType right) => !left.Equals(right);
+
+        public static explicit operator string(ContinuousDeploymentPolicyConfigType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContinuousDeploymentPolicyConfigType other && Equals(other);
+        public bool Equals(ContinuousDeploymentPolicyConfigType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ContinuousDeploymentPolicyTrafficConfigType : IEquatable<ContinuousDeploymentPolicyTrafficConfigType>
     {
         private readonly string _value;

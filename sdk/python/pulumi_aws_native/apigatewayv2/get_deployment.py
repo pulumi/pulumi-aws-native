@@ -34,6 +34,9 @@ class GetDeploymentResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description for the deployment resource.
+        """
         return pulumi.get(self, "description")
 
 
@@ -51,7 +54,10 @@ def get_deployment(api_id: Optional[str] = None,
                    deployment_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
-    Resource Type definition for AWS::ApiGatewayV2::Deployment
+    The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
+
+
+    :param str api_id: The API identifier.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -69,6 +75,9 @@ def get_deployment_output(api_id: Optional[pulumi.Input[str]] = None,
                           deployment_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
     """
-    Resource Type definition for AWS::ApiGatewayV2::Deployment
+    The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
+
+
+    :param str api_id: The API identifier.
     """
     ...

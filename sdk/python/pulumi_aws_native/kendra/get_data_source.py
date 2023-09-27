@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSourceResult:
-    def __init__(__self__, arn=None, custom_document_enrichment_configuration=None, data_source_configuration=None, description=None, id=None, index_id=None, name=None, role_arn=None, schedule=None, tags=None):
+    def __init__(__self__, arn=None, custom_document_enrichment_configuration=None, data_source_configuration=None, description=None, id=None, index_id=None, language_code=None, name=None, role_arn=None, schedule=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetDataSourceResult:
         if index_id and not isinstance(index_id, str):
             raise TypeError("Expected argument 'index_id' to be a str")
         pulumi.set(__self__, "index_id", index_id)
+        if language_code and not isinstance(language_code, str):
+            raise TypeError("Expected argument 'language_code' to be a str")
+        pulumi.set(__self__, "language_code", language_code)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -83,6 +86,11 @@ class GetDataSourceResult:
         return pulumi.get(self, "index_id")
 
     @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> Optional[str]:
+        return pulumi.get(self, "language_code")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
@@ -118,6 +126,7 @@ class AwaitableGetDataSourceResult(GetDataSourceResult):
             description=self.description,
             id=self.id,
             index_id=self.index_id,
+            language_code=self.language_code,
             name=self.name,
             role_arn=self.role_arn,
             schedule=self.schedule,
@@ -143,6 +152,7 @@ def get_data_source(id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         index_id=pulumi.get(__ret__, 'index_id'),
+        language_code=pulumi.get(__ret__, 'language_code'),
         name=pulumi.get(__ret__, 'name'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         schedule=pulumi.get(__ret__, 'schedule'),

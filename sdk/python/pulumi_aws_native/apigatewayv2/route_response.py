@@ -24,6 +24,12 @@ class RouteResponseArgs:
                  response_parameters: Optional[pulumi.Input['RouteResponseRouteParametersArgs']] = None):
         """
         The set of arguments for constructing a RouteResponse resource.
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] route_id: The route ID.
+        :param pulumi.Input[str] route_response_key: The route response key.
+        :param pulumi.Input[str] model_selection_expression: The model selection expression for the route response. Supported only for WebSocket APIs.
+        :param Any response_models: The response models for the route response.
+        :param pulumi.Input['RouteResponseRouteParametersArgs'] response_parameters: The route response parameters.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "route_id", route_id)
@@ -38,6 +44,9 @@ class RouteResponseArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
+        """
+        The API identifier.
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -47,6 +56,9 @@ class RouteResponseArgs:
     @property
     @pulumi.getter(name="routeId")
     def route_id(self) -> pulumi.Input[str]:
+        """
+        The route ID.
+        """
         return pulumi.get(self, "route_id")
 
     @route_id.setter
@@ -56,6 +68,9 @@ class RouteResponseArgs:
     @property
     @pulumi.getter(name="routeResponseKey")
     def route_response_key(self) -> pulumi.Input[str]:
+        """
+        The route response key.
+        """
         return pulumi.get(self, "route_response_key")
 
     @route_response_key.setter
@@ -65,6 +80,9 @@ class RouteResponseArgs:
     @property
     @pulumi.getter(name="modelSelectionExpression")
     def model_selection_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The model selection expression for the route response. Supported only for WebSocket APIs.
+        """
         return pulumi.get(self, "model_selection_expression")
 
     @model_selection_expression.setter
@@ -74,6 +92,9 @@ class RouteResponseArgs:
     @property
     @pulumi.getter(name="responseModels")
     def response_models(self) -> Optional[Any]:
+        """
+        The response models for the route response.
+        """
         return pulumi.get(self, "response_models")
 
     @response_models.setter
@@ -83,6 +104,9 @@ class RouteResponseArgs:
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[pulumi.Input['RouteResponseRouteParametersArgs']]:
+        """
+        The route response parameters.
+        """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
@@ -103,10 +127,16 @@ class RouteResponse(pulumi.CustomResource):
                  route_response_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+        The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] model_selection_expression: The model selection expression for the route response. Supported only for WebSocket APIs.
+        :param Any response_models: The response models for the route response.
+        :param pulumi.Input[pulumi.InputType['RouteResponseRouteParametersArgs']] response_parameters: The route response parameters.
+        :param pulumi.Input[str] route_id: The route ID.
+        :param pulumi.Input[str] route_response_key: The route response key.
         """
         ...
     @overload
@@ -115,7 +145,7 @@ class RouteResponse(pulumi.CustomResource):
                  args: RouteResponseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+        The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param RouteResponseArgs args: The arguments to use to populate this resource's properties.
@@ -196,26 +226,41 @@ class RouteResponse(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
+        """
+        The API identifier.
+        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter(name="modelSelectionExpression")
     def model_selection_expression(self) -> pulumi.Output[Optional[str]]:
+        """
+        The model selection expression for the route response. Supported only for WebSocket APIs.
+        """
         return pulumi.get(self, "model_selection_expression")
 
     @property
     @pulumi.getter(name="responseModels")
     def response_models(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The response models for the route response.
+        """
         return pulumi.get(self, "response_models")
 
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> pulumi.Output[Optional['outputs.RouteResponseRouteParameters']]:
+        """
+        The route response parameters.
+        """
         return pulumi.get(self, "response_parameters")
 
     @property
     @pulumi.getter(name="routeId")
     def route_id(self) -> pulumi.Output[str]:
+        """
+        The route ID.
+        """
         return pulumi.get(self, "route_id")
 
     @property
@@ -226,5 +271,8 @@ class RouteResponse(pulumi.CustomResource):
     @property
     @pulumi.getter(name="routeResponseKey")
     def route_response_key(self) -> pulumi.Output[str]:
+        """
+        The route response key.
+        """
         return pulumi.get(self, "route_response_key")
 

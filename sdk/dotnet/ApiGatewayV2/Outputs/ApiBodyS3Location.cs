@@ -10,12 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Outputs
 {
 
+    /// <summary>
+    /// The ``BodyS3Location`` property specifies an S3 location from which to import an OpenAPI definition. Supported only for HTTP APIs.
+    /// </summary>
     [OutputType]
     public sealed class ApiBodyS3Location
     {
+        /// <summary>
+        /// The S3 bucket that contains the OpenAPI definition to import. Required if you specify a ``BodyS3Location`` for an API.
+        /// </summary>
         public readonly string? Bucket;
+        /// <summary>
+        /// The Etag of the S3 object.
+        /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// The key of the S3 object. Required if you specify a ``BodyS3Location`` for an API.
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// The version of the S3 object.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

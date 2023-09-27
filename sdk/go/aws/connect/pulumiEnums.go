@@ -4566,6 +4566,7 @@ const (
 	RuleTriggerEventSourceEventSourceNameOnZendeskTicketCreate           = RuleTriggerEventSourceEventSourceName("OnZendeskTicketCreate")
 	RuleTriggerEventSourceEventSourceNameOnZendeskTicketStatusUpdate     = RuleTriggerEventSourceEventSourceName("OnZendeskTicketStatusUpdate")
 	RuleTriggerEventSourceEventSourceNameOnSalesforceCaseCreate          = RuleTriggerEventSourceEventSourceName("OnSalesforceCaseCreate")
+	RuleTriggerEventSourceEventSourceNameOnMetricDataUpdate              = RuleTriggerEventSourceEventSourceName("OnMetricDataUpdate")
 )
 
 func (RuleTriggerEventSourceEventSourceName) ElementType() reflect.Type {

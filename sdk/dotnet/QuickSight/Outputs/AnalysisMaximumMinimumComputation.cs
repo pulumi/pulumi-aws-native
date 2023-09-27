@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly string ComputationId;
         public readonly string? Name;
-        public readonly Outputs.AnalysisDimensionField Time;
+        public readonly Outputs.AnalysisDimensionField? Time;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisMaximumMinimumComputationType Type;
         public readonly Outputs.AnalysisMeasureField? Value;
 
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? name,
 
-            Outputs.AnalysisDimensionField time,
+            Outputs.AnalysisDimensionField? time,
 
             Pulumi.AwsNative.QuickSight.AnalysisMaximumMinimumComputationType type,
 

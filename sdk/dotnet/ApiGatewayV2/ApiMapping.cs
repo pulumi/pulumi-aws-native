@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2
 {
     /// <summary>
-    /// Schema for AWS::ApiGatewayV2::ApiMapping
+    /// The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigatewayv2:ApiMapping")]
     public partial class ApiMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API identifier
+        /// The identifier of the API.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -28,19 +28,19 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Output<string> ApiMappingId { get; private set; } = null!;
 
         /// <summary>
-        /// The API mapping key
+        /// The API mapping key.
         /// </summary>
         [Output("apiMappingKey")]
         public Output<string?> ApiMappingKey { get; private set; } = null!;
 
         /// <summary>
-        /// The domain name
+        /// The domain name.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The API stage
+        /// The API stage.
         /// </summary>
         [Output("stage")]
         public Output<string> Stage { get; private set; } = null!;
@@ -95,25 +95,25 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public sealed class ApiMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier
+        /// The identifier of the API.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The API mapping key
+        /// The API mapping key.
         /// </summary>
         [Input("apiMappingKey")]
         public Input<string>? ApiMappingKey { get; set; }
 
         /// <summary>
-        /// The domain name
+        /// The domain name.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The API stage
+        /// The API stage.
         /// </summary>
         [Input("stage", required: true)]
         public Input<string> Stage { get; set; } = null!;

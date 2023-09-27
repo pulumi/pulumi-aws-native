@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSliderControlDisplayOptions
     {
+        public readonly Outputs.TemplateSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
         public readonly Outputs.TemplateLabelOptions? TitleOptions;
 
         [OutputConstructor]
-        private TemplateSliderControlDisplayOptions(Outputs.TemplateLabelOptions? titleOptions)
+        private TemplateSliderControlDisplayOptions(
+            Outputs.TemplateSheetControlInfoIconLabelOptions? infoIconLabelOptions,
+
+            Outputs.TemplateLabelOptions? titleOptions)
         {
+            InfoIconLabelOptions = infoIconLabelOptions;
             TitleOptions = titleOptions;
         }
     }

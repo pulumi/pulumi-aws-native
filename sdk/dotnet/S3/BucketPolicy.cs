@@ -12,13 +12,18 @@ namespace Pulumi.AwsNative.S3
     /// <summary>
     /// Resource Type definition for AWS::S3::BucketPolicy
     /// </summary>
-    [Obsolete(@"BucketPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:s3:BucketPolicy")]
     public partial class BucketPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the Amazon S3 bucket to which the policy applies.
+        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
+        /// <summary>
+        /// A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+        /// </summary>
         [Output("policyDocument")]
         public Output<object> PolicyDocument { get; private set; } = null!;
 
@@ -71,9 +76,15 @@ namespace Pulumi.AwsNative.S3
 
     public sealed class BucketPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Amazon S3 bucket to which the policy applies.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+        /// </summary>
         [Input("policyDocument", required: true)]
         public Input<object> PolicyDocument { get; set; } = null!;
 

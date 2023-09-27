@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGatewayV2::Deployment
+// The “AWS::ApiGatewayV2::Deployment“ resource creates a deployment for an API.
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeploymentResult
@@ -24,13 +24,15 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 }
 
 type LookupDeploymentArgs struct {
+	// The API identifier.
 	ApiId        string `pulumi:"apiId"`
 	DeploymentId string `pulumi:"deploymentId"`
 }
 
 type LookupDeploymentResult struct {
 	DeploymentId *string `pulumi:"deploymentId"`
-	Description  *string `pulumi:"description"`
+	// The description for the deployment resource.
+	Description *string `pulumi:"description"`
 }
 
 func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentResultOutput {
@@ -47,6 +49,7 @@ func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs
 }
 
 type LookupDeploymentOutputArgs struct {
+	// The API identifier.
 	ApiId        pulumi.StringInput `pulumi:"apiId"`
 	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
 }
@@ -79,6 +82,7 @@ func (o LookupDeploymentResultOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }
 
+// The description for the deployment resource.
 func (o LookupDeploymentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

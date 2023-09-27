@@ -57,6 +57,12 @@ namespace Pulumi.AwsNative.Macie
         [Output("regex")]
         public Output<string> Regex { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.CustomDataIdentifierTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CustomDataIdentifier resource with the given unique name, arguments, and options.
@@ -158,6 +164,18 @@ namespace Pulumi.AwsNative.Macie
         /// </summary>
         [Input("regex", required: true)]
         public Input<string> Regex { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Inputs.CustomDataIdentifierTagArgs>? _tags;
+
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        public InputList<Inputs.CustomDataIdentifierTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.CustomDataIdentifierTagArgs>());
+            set => _tags = value;
+        }
 
         public CustomDataIdentifierArgs()
         {

@@ -31,6 +31,7 @@ export interface GetDataSourceResult {
     readonly description?: string;
     readonly id?: string;
     readonly indexId?: string;
+    readonly languageCode?: string;
     readonly name?: string;
     readonly roleArn?: string;
     readonly schedule?: string;

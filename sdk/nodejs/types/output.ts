@@ -1049,19 +1049,55 @@ export namespace apigateway {
 }
 
 export namespace apigatewayv2 {
+    /**
+     * The ``BodyS3Location`` property specifies an S3 location from which to import an OpenAPI definition. Supported only for HTTP APIs.
+     */
     export interface ApiBodyS3Location {
+        /**
+         * The S3 bucket that contains the OpenAPI definition to import. Required if you specify a ``BodyS3Location`` for an API.
+         */
         bucket?: string;
+        /**
+         * The Etag of the S3 object.
+         */
         etag?: string;
+        /**
+         * The key of the S3 object. Required if you specify a ``BodyS3Location`` for an API.
+         */
         key?: string;
+        /**
+         * The version of the S3 object.
+         */
         version?: string;
     }
 
+    /**
+     * The ``Cors`` property specifies a CORS configuration for an API. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
+     */
     export interface ApiCors {
+        /**
+         * Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.
+         */
         allowCredentials?: boolean;
+        /**
+         * Represents a collection of allowed headers. Supported only for HTTP APIs.
+         */
         allowHeaders?: string[];
+        /**
+         * Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.
+         */
         allowMethods?: string[];
+        /**
+         * Represents a collection of allowed origins. Supported only for HTTP APIs.
+         */
         allowOrigins?: string[];
+        /**
+         * Represents a collection of exposed headers. Supported only for HTTP APIs.
+         */
         exposeHeaders?: string[];
+        /**
+         * The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
+         */
         maxAge?: number;
     }
 
@@ -1613,13 +1649,17 @@ export namespace appflow {
 
     export interface ConnectorProfileServiceNowConnectorProfileCredentials {
         /**
+         * The OAuth 2.0 credentials required to authenticate the user.
+         */
+        oAuth2Credentials?: outputs.appflow.ConnectorProfileOAuth2Credentials;
+        /**
          * The password that corresponds to the username.
          */
-        password: string;
+        password?: string;
         /**
          * The name of the user.
          */
-        username: string;
+        username?: string;
     }
 
     export interface ConnectorProfileServiceNowConnectorProfileProperties {
@@ -4363,7 +4403,7 @@ export namespace autoscaling {
 
     export interface AutoScalingGroupNotificationConfiguration {
         notificationTypes?: string[];
-        topicArn: string[];
+        topicArn: string;
     }
 
     export interface AutoScalingGroupTagProperty {
@@ -5719,8 +5759,21 @@ export namespace cloudfront {
 
     export interface ContinuousDeploymentPolicyConfig {
         enabled: boolean;
+        singleHeaderPolicyConfig?: outputs.cloudfront.ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties;
+        singleWeightPolicyConfig?: outputs.cloudfront.ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties;
         stagingDistributionDnsNames: string[];
         trafficConfig?: outputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig;
+        type?: enums.cloudfront.ContinuousDeploymentPolicyConfigType;
+    }
+
+    export interface ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties {
+        header: string;
+        value: string;
+    }
+
+    export interface ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties {
+        sessionStickinessConfig?: outputs.cloudfront.ContinuousDeploymentPolicySessionStickinessConfig;
+        weight: number;
     }
 
     export interface ContinuousDeploymentPolicySessionStickinessConfig {
@@ -9055,6 +9108,20 @@ export namespace connect {
          * The Amazon Resource Name (ARN) for the AppIntegration association.
          */
         integrationAssociationArn?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface SecurityProfileTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
     /**
@@ -18953,6 +19020,15 @@ export namespace guardduty {
 
 }
 
+export namespace healthimaging {
+    /**
+     * A Map of key value pairs for Tags.
+     */
+    export interface DatastoreTags {
+    }
+
+}
+
 export namespace healthlake {
     /**
      * The time that a Data Store was created.
@@ -27507,6 +27583,20 @@ export namespace macie {
     }
 
     /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CustomDataIdentifierTag {
+        /**
+         * The tag's key.
+         */
+        key: string;
+        /**
+         * The tag's value.
+         */
+        value: string;
+    }
+
+    /**
      * Map of filter criteria.
      */
     export interface FindingsFilterCriterion {
@@ -33639,6 +33729,9 @@ export namespace quicksight {
         sortDirection: enums.quicksight.AnalysisSortDirection;
     }
 
+    export interface AnalysisAllSheetsFilterScopeConfiguration {
+    }
+
     export interface AnalysisAnchorDateConfiguration {
         anchorOption?: enums.quicksight.AnalysisAnchorOption;
         parameterName?: string;
@@ -34267,6 +34360,7 @@ export namespace quicksight {
 
     export interface AnalysisDateTimePickerControlDisplayOptions {
         dateTimeFormat?: string;
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
 
@@ -34373,6 +34467,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisDropDownControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         selectAllOptions?: outputs.quicksight.AnalysisListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
@@ -34569,6 +34664,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisFilterScopeConfiguration {
+        allSheets?: outputs.quicksight.AnalysisAllSheetsFilterScopeConfiguration;
         selectedSheets?: outputs.quicksight.AnalysisSelectedSheetsFilterScopeConfiguration;
     }
 
@@ -34627,7 +34723,7 @@ export namespace quicksight {
         periodsForward?: number;
         predictionInterval?: number;
         seasonality?: enums.quicksight.AnalysisForecastComputationSeasonality;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         upperBoundary?: number;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
@@ -34904,7 +35000,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodSize?: number;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
@@ -35198,6 +35294,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisListControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         searchOptions?: outputs.quicksight.AnalysisListControlSearchOptions;
         selectAllOptions?: outputs.quicksight.AnalysisListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
@@ -35236,7 +35333,7 @@ export namespace quicksight {
     export interface AnalysisMaximumMinimumComputation {
         computationId: string;
         name?: string;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         type: enums.quicksight.AnalysisMaximumMinimumComputationType;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
@@ -35250,10 +35347,10 @@ export namespace quicksight {
 
     export interface AnalysisMetricComparisonComputation {
         computationId: string;
-        fromValue: outputs.quicksight.AnalysisMeasureField;
+        fromValue?: outputs.quicksight.AnalysisMeasureField;
         name?: string;
-        targetValue: outputs.quicksight.AnalysisMeasureField;
-        time: outputs.quicksight.AnalysisDimensionField;
+        targetValue?: outputs.quicksight.AnalysisMeasureField;
+        time?: outputs.quicksight.AnalysisDimensionField;
     }
 
     export interface AnalysisMinimumLabelType {
@@ -35484,7 +35581,7 @@ export namespace quicksight {
     export interface AnalysisPeriodOverPeriodComputation {
         computationId: string;
         name?: string;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
@@ -35492,7 +35589,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodTimeGranularity?: enums.quicksight.AnalysisTimeGranularity;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
@@ -35618,10 +35715,16 @@ export namespace quicksight {
         collapsedRowDimensionsVisibility?: enums.quicksight.AnalysisVisibility;
         columnHeaderStyle?: outputs.quicksight.AnalysisTableCellStyle;
         columnNamesVisibility?: enums.quicksight.AnalysisVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        defaultCellWidth?: string;
         metricPlacement?: enums.quicksight.AnalysisPivotTableMetricPlacement;
         rowAlternateColorOptions?: outputs.quicksight.AnalysisRowAlternateColorOptions;
         rowFieldNamesStyle?: outputs.quicksight.AnalysisTableCellStyle;
         rowHeaderStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        rowsLabelOptions?: outputs.quicksight.AnalysisPivotTableRowsLabelOptions;
+        rowsLayout?: enums.quicksight.AnalysisPivotTableRowsLayout;
         singleMetricVisibility?: enums.quicksight.AnalysisVisibility;
         toggleButtonsVisibility?: enums.quicksight.AnalysisVisibility;
     }
@@ -35629,6 +35732,11 @@ export namespace quicksight {
     export interface AnalysisPivotTablePaginatedReportOptions {
         overflowColumnHeaderVisibility?: enums.quicksight.AnalysisVisibility;
         verticalOverflowVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisPivotTableRowsLabelOptions {
+        customLabel?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
     }
 
     export interface AnalysisPivotTableSortBy {
@@ -35781,6 +35889,7 @@ export namespace quicksight {
 
     export interface AnalysisRelativeDateTimeControlDisplayOptions {
         dateTimeFormat?: string;
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
 
@@ -35811,6 +35920,7 @@ export namespace quicksight {
     export interface AnalysisRowAlternateColorOptions {
         rowAlternateColors?: string[];
         status?: enums.quicksight.AnalysisWidgetStatus;
+        usePrimaryBackgroundColor?: enums.quicksight.AnalysisWidgetStatus;
     }
 
     export interface AnalysisSameSheetTargetVisualConfiguration {
@@ -35959,6 +36069,11 @@ export namespace quicksight {
         sheetId?: string;
     }
 
+    export interface AnalysisSheetControlInfoIconLabelOptions {
+        infoIconText?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
     export interface AnalysisSheetControlLayout {
         configuration: outputs.quicksight.AnalysisSheetControlLayoutConfiguration;
     }
@@ -36011,13 +36126,21 @@ export namespace quicksight {
     }
 
     export interface AnalysisSliderControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
+    }
+
+    export interface AnalysisSmallMultiplesAxisProperties {
+        placement?: enums.quicksight.AnalysisSmallMultiplesAxisPlacement;
+        scale?: enums.quicksight.AnalysisSmallMultiplesAxisScale;
     }
 
     export interface AnalysisSmallMultiplesOptions {
         maxVisibleColumns?: number;
         maxVisibleRows?: number;
         panelConfiguration?: outputs.quicksight.AnalysisPanelConfiguration;
+        xAxis?: outputs.quicksight.AnalysisSmallMultiplesAxisProperties;
+        yAxis?: outputs.quicksight.AnalysisSmallMultiplesAxisProperties;
     }
 
     export interface AnalysisSourceEntity {
@@ -36081,6 +36204,7 @@ export namespace quicksight {
         fieldLevel?: enums.quicksight.AnalysisPivotTableSubtotalLevel;
         fieldLevelOptions?: outputs.quicksight.AnalysisPivotTableFieldSubtotalOptions[];
         metricHeaderCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        styleTargets?: outputs.quicksight.AnalysisTableStyleTarget[];
         totalCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
         totalsVisibility?: enums.quicksight.AnalysisVisibility;
         valueCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
@@ -36220,6 +36344,10 @@ export namespace quicksight {
         rowSort?: outputs.quicksight.AnalysisFieldSortOptions[];
     }
 
+    export interface AnalysisTableStyleTarget {
+        cellType: enums.quicksight.AnalysisStyledCellType;
+    }
+
     export interface AnalysisTableUnaggregatedFieldWells {
         values?: outputs.quicksight.AnalysisUnaggregatedField[];
     }
@@ -36239,6 +36367,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisTextAreaControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.AnalysisTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
@@ -36254,6 +36383,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisTextFieldControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.AnalysisTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
@@ -36326,18 +36456,18 @@ export namespace quicksight {
     }
 
     export interface AnalysisTopBottomMoversComputation {
-        category: outputs.quicksight.AnalysisDimensionField;
+        category?: outputs.quicksight.AnalysisDimensionField;
         computationId: string;
         moverSize?: number;
         name?: string;
         sortOrder?: enums.quicksight.AnalysisTopBottomSortOrder;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         type: enums.quicksight.AnalysisTopBottomComputationType;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
     export interface AnalysisTopBottomRankedComputation {
-        category: outputs.quicksight.AnalysisDimensionField;
+        category?: outputs.quicksight.AnalysisDimensionField;
         computationId: string;
         name?: string;
         resultSize?: number;
@@ -36348,7 +36478,7 @@ export namespace quicksight {
     export interface AnalysisTotalAggregationComputation {
         computationId: string;
         name?: string;
-        value: outputs.quicksight.AnalysisMeasureField;
+        value?: outputs.quicksight.AnalysisMeasureField;
     }
 
     export interface AnalysisTotalOptions {
@@ -36406,7 +36536,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisUniqueValuesComputation {
-        category: outputs.quicksight.AnalysisDimensionField;
+        category?: outputs.quicksight.AnalysisDimensionField;
         computationId: string;
         name?: string;
     }
@@ -36577,6 +36707,9 @@ export namespace quicksight {
         aggregationFunction?: outputs.quicksight.DashboardAggregationFunction;
         column: outputs.quicksight.DashboardColumnIdentifier;
         sortDirection: enums.quicksight.DashboardSortDirection;
+    }
+
+    export interface DashboardAllSheetsFilterScopeConfiguration {
     }
 
     export interface DashboardAnalysisDefaults {
@@ -37223,6 +37356,7 @@ export namespace quicksight {
 
     export interface DashboardDateTimePickerControlDisplayOptions {
         dateTimeFormat?: string;
+        infoIconLabelOptions?: outputs.quicksight.DashboardSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.DashboardLabelOptions;
     }
 
@@ -37315,6 +37449,7 @@ export namespace quicksight {
     }
 
     export interface DashboardDropDownControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.DashboardSheetControlInfoIconLabelOptions;
         selectAllOptions?: outputs.quicksight.DashboardListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.DashboardLabelOptions;
     }
@@ -37523,6 +37658,7 @@ export namespace quicksight {
     }
 
     export interface DashboardFilterScopeConfiguration {
+        allSheets?: outputs.quicksight.DashboardAllSheetsFilterScopeConfiguration;
         selectedSheets?: outputs.quicksight.DashboardSelectedSheetsFilterScopeConfiguration;
     }
 
@@ -37581,7 +37717,7 @@ export namespace quicksight {
         periodsForward?: number;
         predictionInterval?: number;
         seasonality?: enums.quicksight.DashboardForecastComputationSeasonality;
-        time: outputs.quicksight.DashboardDimensionField;
+        time?: outputs.quicksight.DashboardDimensionField;
         upperBoundary?: number;
         value?: outputs.quicksight.DashboardMeasureField;
     }
@@ -37858,7 +37994,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodSize?: number;
-        time: outputs.quicksight.DashboardDimensionField;
+        time?: outputs.quicksight.DashboardDimensionField;
         value?: outputs.quicksight.DashboardMeasureField;
     }
 
@@ -38152,6 +38288,7 @@ export namespace quicksight {
     }
 
     export interface DashboardListControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.DashboardSheetControlInfoIconLabelOptions;
         searchOptions?: outputs.quicksight.DashboardListControlSearchOptions;
         selectAllOptions?: outputs.quicksight.DashboardListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.DashboardLabelOptions;
@@ -38190,7 +38327,7 @@ export namespace quicksight {
     export interface DashboardMaximumMinimumComputation {
         computationId: string;
         name?: string;
-        time: outputs.quicksight.DashboardDimensionField;
+        time?: outputs.quicksight.DashboardDimensionField;
         type: enums.quicksight.DashboardMaximumMinimumComputationType;
         value?: outputs.quicksight.DashboardMeasureField;
     }
@@ -38204,10 +38341,10 @@ export namespace quicksight {
 
     export interface DashboardMetricComparisonComputation {
         computationId: string;
-        fromValue: outputs.quicksight.DashboardMeasureField;
+        fromValue?: outputs.quicksight.DashboardMeasureField;
         name?: string;
-        targetValue: outputs.quicksight.DashboardMeasureField;
-        time: outputs.quicksight.DashboardDimensionField;
+        targetValue?: outputs.quicksight.DashboardMeasureField;
+        time?: outputs.quicksight.DashboardDimensionField;
     }
 
     export interface DashboardMinimumLabelType {
@@ -38438,7 +38575,7 @@ export namespace quicksight {
     export interface DashboardPeriodOverPeriodComputation {
         computationId: string;
         name?: string;
-        time: outputs.quicksight.DashboardDimensionField;
+        time?: outputs.quicksight.DashboardDimensionField;
         value?: outputs.quicksight.DashboardMeasureField;
     }
 
@@ -38446,7 +38583,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodTimeGranularity?: enums.quicksight.DashboardTimeGranularity;
-        time: outputs.quicksight.DashboardDimensionField;
+        time?: outputs.quicksight.DashboardDimensionField;
         value?: outputs.quicksight.DashboardMeasureField;
     }
 
@@ -38572,10 +38709,16 @@ export namespace quicksight {
         collapsedRowDimensionsVisibility?: enums.quicksight.DashboardVisibility;
         columnHeaderStyle?: outputs.quicksight.DashboardTableCellStyle;
         columnNamesVisibility?: enums.quicksight.DashboardVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        defaultCellWidth?: string;
         metricPlacement?: enums.quicksight.DashboardPivotTableMetricPlacement;
         rowAlternateColorOptions?: outputs.quicksight.DashboardRowAlternateColorOptions;
         rowFieldNamesStyle?: outputs.quicksight.DashboardTableCellStyle;
         rowHeaderStyle?: outputs.quicksight.DashboardTableCellStyle;
+        rowsLabelOptions?: outputs.quicksight.DashboardPivotTableRowsLabelOptions;
+        rowsLayout?: enums.quicksight.DashboardPivotTableRowsLayout;
         singleMetricVisibility?: enums.quicksight.DashboardVisibility;
         toggleButtonsVisibility?: enums.quicksight.DashboardVisibility;
     }
@@ -38583,6 +38726,11 @@ export namespace quicksight {
     export interface DashboardPivotTablePaginatedReportOptions {
         overflowColumnHeaderVisibility?: enums.quicksight.DashboardVisibility;
         verticalOverflowVisibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardPivotTableRowsLabelOptions {
+        customLabel?: string;
+        visibility?: enums.quicksight.DashboardVisibility;
     }
 
     export interface DashboardPivotTableSortBy {
@@ -38749,6 +38897,7 @@ export namespace quicksight {
 
     export interface DashboardRelativeDateTimeControlDisplayOptions {
         dateTimeFormat?: string;
+        infoIconLabelOptions?: outputs.quicksight.DashboardSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.DashboardLabelOptions;
     }
 
@@ -38779,6 +38928,7 @@ export namespace quicksight {
     export interface DashboardRowAlternateColorOptions {
         rowAlternateColors?: string[];
         status?: enums.quicksight.DashboardWidgetStatus;
+        usePrimaryBackgroundColor?: enums.quicksight.DashboardWidgetStatus;
     }
 
     export interface DashboardSameSheetTargetVisualConfiguration {
@@ -38927,6 +39077,11 @@ export namespace quicksight {
         sheetId?: string;
     }
 
+    export interface DashboardSheetControlInfoIconLabelOptions {
+        infoIconText?: string;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
     export interface DashboardSheetControlLayout {
         configuration: outputs.quicksight.DashboardSheetControlLayoutConfiguration;
     }
@@ -38987,13 +39142,21 @@ export namespace quicksight {
     }
 
     export interface DashboardSliderControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.DashboardSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.DashboardLabelOptions;
+    }
+
+    export interface DashboardSmallMultiplesAxisProperties {
+        placement?: enums.quicksight.DashboardSmallMultiplesAxisPlacement;
+        scale?: enums.quicksight.DashboardSmallMultiplesAxisScale;
     }
 
     export interface DashboardSmallMultiplesOptions {
         maxVisibleColumns?: number;
         maxVisibleRows?: number;
         panelConfiguration?: outputs.quicksight.DashboardPanelConfiguration;
+        xAxis?: outputs.quicksight.DashboardSmallMultiplesAxisProperties;
+        yAxis?: outputs.quicksight.DashboardSmallMultiplesAxisProperties;
     }
 
     export interface DashboardSourceEntity {
@@ -39057,6 +39220,7 @@ export namespace quicksight {
         fieldLevel?: enums.quicksight.DashboardPivotTableSubtotalLevel;
         fieldLevelOptions?: outputs.quicksight.DashboardPivotTableFieldSubtotalOptions[];
         metricHeaderCellStyle?: outputs.quicksight.DashboardTableCellStyle;
+        styleTargets?: outputs.quicksight.DashboardTableStyleTarget[];
         totalCellStyle?: outputs.quicksight.DashboardTableCellStyle;
         totalsVisibility?: enums.quicksight.DashboardVisibility;
         valueCellStyle?: outputs.quicksight.DashboardTableCellStyle;
@@ -39196,6 +39360,10 @@ export namespace quicksight {
         rowSort?: outputs.quicksight.DashboardFieldSortOptions[];
     }
 
+    export interface DashboardTableStyleTarget {
+        cellType: enums.quicksight.DashboardStyledCellType;
+    }
+
     export interface DashboardTableUnaggregatedFieldWells {
         values?: outputs.quicksight.DashboardUnaggregatedField[];
     }
@@ -39215,6 +39383,7 @@ export namespace quicksight {
     }
 
     export interface DashboardTextAreaControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.DashboardSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.DashboardTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.DashboardLabelOptions;
     }
@@ -39230,6 +39399,7 @@ export namespace quicksight {
     }
 
     export interface DashboardTextFieldControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.DashboardSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.DashboardTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.DashboardLabelOptions;
     }
@@ -39302,18 +39472,18 @@ export namespace quicksight {
     }
 
     export interface DashboardTopBottomMoversComputation {
-        category: outputs.quicksight.DashboardDimensionField;
+        category?: outputs.quicksight.DashboardDimensionField;
         computationId: string;
         moverSize?: number;
         name?: string;
         sortOrder?: enums.quicksight.DashboardTopBottomSortOrder;
-        time: outputs.quicksight.DashboardDimensionField;
+        time?: outputs.quicksight.DashboardDimensionField;
         type: enums.quicksight.DashboardTopBottomComputationType;
         value?: outputs.quicksight.DashboardMeasureField;
     }
 
     export interface DashboardTopBottomRankedComputation {
-        category: outputs.quicksight.DashboardDimensionField;
+        category?: outputs.quicksight.DashboardDimensionField;
         computationId: string;
         name?: string;
         resultSize?: number;
@@ -39324,7 +39494,7 @@ export namespace quicksight {
     export interface DashboardTotalAggregationComputation {
         computationId: string;
         name?: string;
-        value: outputs.quicksight.DashboardMeasureField;
+        value?: outputs.quicksight.DashboardMeasureField;
     }
 
     export interface DashboardTotalOptions {
@@ -39382,7 +39552,7 @@ export namespace quicksight {
     }
 
     export interface DashboardUniqueValuesComputation {
-        category: outputs.quicksight.DashboardDimensionField;
+        category?: outputs.quicksight.DashboardDimensionField;
         computationId: string;
         name?: string;
     }
@@ -40374,6 +40544,9 @@ export namespace quicksight {
         sortDirection: enums.quicksight.TemplateSortDirection;
     }
 
+    export interface TemplateAllSheetsFilterScopeConfiguration {
+    }
+
     export interface TemplateAnalysisDefaults {
         defaultNewSheetConfiguration: outputs.quicksight.TemplateDefaultNewSheetConfiguration;
     }
@@ -41021,6 +41194,7 @@ export namespace quicksight {
 
     export interface TemplateDateTimePickerControlDisplayOptions {
         dateTimeFormat?: string;
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
 
@@ -41108,6 +41282,7 @@ export namespace quicksight {
     }
 
     export interface TemplateDropDownControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         selectAllOptions?: outputs.quicksight.TemplateListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
@@ -41304,6 +41479,7 @@ export namespace quicksight {
     }
 
     export interface TemplateFilterScopeConfiguration {
+        allSheets?: outputs.quicksight.TemplateAllSheetsFilterScopeConfiguration;
         selectedSheets?: outputs.quicksight.TemplateSelectedSheetsFilterScopeConfiguration;
     }
 
@@ -41362,7 +41538,7 @@ export namespace quicksight {
         periodsForward?: number;
         predictionInterval?: number;
         seasonality?: enums.quicksight.TemplateForecastComputationSeasonality;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         upperBoundary?: number;
         value?: outputs.quicksight.TemplateMeasureField;
     }
@@ -41639,7 +41815,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodSize?: number;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
@@ -41928,6 +42104,7 @@ export namespace quicksight {
     }
 
     export interface TemplateListControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         searchOptions?: outputs.quicksight.TemplateListControlSearchOptions;
         selectAllOptions?: outputs.quicksight.TemplateListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
@@ -41966,7 +42143,7 @@ export namespace quicksight {
     export interface TemplateMaximumMinimumComputation {
         computationId: string;
         name?: string;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         type: enums.quicksight.TemplateMaximumMinimumComputationType;
         value?: outputs.quicksight.TemplateMeasureField;
     }
@@ -41980,10 +42157,10 @@ export namespace quicksight {
 
     export interface TemplateMetricComparisonComputation {
         computationId: string;
-        fromValue: outputs.quicksight.TemplateMeasureField;
+        fromValue?: outputs.quicksight.TemplateMeasureField;
         name?: string;
-        targetValue: outputs.quicksight.TemplateMeasureField;
-        time: outputs.quicksight.TemplateDimensionField;
+        targetValue?: outputs.quicksight.TemplateMeasureField;
+        time?: outputs.quicksight.TemplateDimensionField;
     }
 
     export interface TemplateMinimumLabelType {
@@ -42207,7 +42384,7 @@ export namespace quicksight {
     export interface TemplatePeriodOverPeriodComputation {
         computationId: string;
         name?: string;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
@@ -42215,7 +42392,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodTimeGranularity?: enums.quicksight.TemplateTimeGranularity;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
@@ -42341,10 +42518,16 @@ export namespace quicksight {
         collapsedRowDimensionsVisibility?: enums.quicksight.TemplateVisibility;
         columnHeaderStyle?: outputs.quicksight.TemplateTableCellStyle;
         columnNamesVisibility?: enums.quicksight.TemplateVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        defaultCellWidth?: string;
         metricPlacement?: enums.quicksight.TemplatePivotTableMetricPlacement;
         rowAlternateColorOptions?: outputs.quicksight.TemplateRowAlternateColorOptions;
         rowFieldNamesStyle?: outputs.quicksight.TemplateTableCellStyle;
         rowHeaderStyle?: outputs.quicksight.TemplateTableCellStyle;
+        rowsLabelOptions?: outputs.quicksight.TemplatePivotTableRowsLabelOptions;
+        rowsLayout?: enums.quicksight.TemplatePivotTableRowsLayout;
         singleMetricVisibility?: enums.quicksight.TemplateVisibility;
         toggleButtonsVisibility?: enums.quicksight.TemplateVisibility;
     }
@@ -42352,6 +42535,11 @@ export namespace quicksight {
     export interface TemplatePivotTablePaginatedReportOptions {
         overflowColumnHeaderVisibility?: enums.quicksight.TemplateVisibility;
         verticalOverflowVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplatePivotTableRowsLabelOptions {
+        customLabel?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
     }
 
     export interface TemplatePivotTableSortBy {
@@ -42504,6 +42692,7 @@ export namespace quicksight {
 
     export interface TemplateRelativeDateTimeControlDisplayOptions {
         dateTimeFormat?: string;
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
 
@@ -42534,6 +42723,7 @@ export namespace quicksight {
     export interface TemplateRowAlternateColorOptions {
         rowAlternateColors?: string[];
         status?: enums.quicksight.TemplateWidgetStatus;
+        usePrimaryBackgroundColor?: enums.quicksight.TemplateWidgetStatus;
     }
 
     export interface TemplateSameSheetTargetVisualConfiguration {
@@ -42682,6 +42872,11 @@ export namespace quicksight {
         sheetId?: string;
     }
 
+    export interface TemplateSheetControlInfoIconLabelOptions {
+        infoIconText?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
     export interface TemplateSheetControlLayout {
         configuration: outputs.quicksight.TemplateSheetControlLayoutConfiguration;
     }
@@ -42734,13 +42929,21 @@ export namespace quicksight {
     }
 
     export interface TemplateSliderControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
+    }
+
+    export interface TemplateSmallMultiplesAxisProperties {
+        placement?: enums.quicksight.TemplateSmallMultiplesAxisPlacement;
+        scale?: enums.quicksight.TemplateSmallMultiplesAxisScale;
     }
 
     export interface TemplateSmallMultiplesOptions {
         maxVisibleColumns?: number;
         maxVisibleRows?: number;
         panelConfiguration?: outputs.quicksight.TemplatePanelConfiguration;
+        xAxis?: outputs.quicksight.TemplateSmallMultiplesAxisProperties;
+        yAxis?: outputs.quicksight.TemplateSmallMultiplesAxisProperties;
     }
 
     export interface TemplateSourceAnalysis {
@@ -42804,6 +43007,7 @@ export namespace quicksight {
         fieldLevel?: enums.quicksight.TemplatePivotTableSubtotalLevel;
         fieldLevelOptions?: outputs.quicksight.TemplatePivotTableFieldSubtotalOptions[];
         metricHeaderCellStyle?: outputs.quicksight.TemplateTableCellStyle;
+        styleTargets?: outputs.quicksight.TemplateTableStyleTarget[];
         totalCellStyle?: outputs.quicksight.TemplateTableCellStyle;
         totalsVisibility?: enums.quicksight.TemplateVisibility;
         valueCellStyle?: outputs.quicksight.TemplateTableCellStyle;
@@ -42943,6 +43147,10 @@ export namespace quicksight {
         rowSort?: outputs.quicksight.TemplateFieldSortOptions[];
     }
 
+    export interface TemplateTableStyleTarget {
+        cellType: enums.quicksight.TemplateStyledCellType;
+    }
+
     export interface TemplateTableUnaggregatedFieldWells {
         values?: outputs.quicksight.TemplateUnaggregatedField[];
     }
@@ -42962,6 +43170,7 @@ export namespace quicksight {
     }
 
     export interface TemplateTextAreaControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.TemplateTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
@@ -42977,6 +43186,7 @@ export namespace quicksight {
     }
 
     export interface TemplateTextFieldControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.TemplateTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
@@ -43049,18 +43259,18 @@ export namespace quicksight {
     }
 
     export interface TemplateTopBottomMoversComputation {
-        category: outputs.quicksight.TemplateDimensionField;
+        category?: outputs.quicksight.TemplateDimensionField;
         computationId: string;
         moverSize?: number;
         name?: string;
         sortOrder?: enums.quicksight.TemplateTopBottomSortOrder;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         type: enums.quicksight.TemplateTopBottomComputationType;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
     export interface TemplateTopBottomRankedComputation {
-        category: outputs.quicksight.TemplateDimensionField;
+        category?: outputs.quicksight.TemplateDimensionField;
         computationId: string;
         name?: string;
         resultSize?: number;
@@ -43071,7 +43281,7 @@ export namespace quicksight {
     export interface TemplateTotalAggregationComputation {
         computationId: string;
         name?: string;
-        value: outputs.quicksight.TemplateMeasureField;
+        value?: outputs.quicksight.TemplateMeasureField;
     }
 
     export interface TemplateTotalOptions {
@@ -43129,7 +43339,7 @@ export namespace quicksight {
     }
 
     export interface TemplateUniqueValuesComputation {
-        category: outputs.quicksight.TemplateDimensionField;
+        category?: outputs.quicksight.TemplateDimensionField;
         computationId: string;
         name?: string;
     }

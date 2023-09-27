@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDropDownControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("infoIconLabelOptions")]
+        public Input<Inputs.DashboardSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
+
         [Input("selectAllOptions")]
         public Input<Inputs.DashboardListControlSelectAllOptionsArgs>? SelectAllOptions { get; set; }
 

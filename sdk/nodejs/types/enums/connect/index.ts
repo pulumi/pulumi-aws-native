@@ -296,6 +296,7 @@ export const RuleTriggerEventSourceEventSourceName = {
     OnZendeskTicketCreate: "OnZendeskTicketCreate",
     OnZendeskTicketStatusUpdate: "OnZendeskTicketStatusUpdate",
     OnSalesforceCaseCreate: "OnSalesforceCaseCreate",
+    OnMetricDataUpdate: "OnMetricDataUpdate",
 } as const;
 
 /**

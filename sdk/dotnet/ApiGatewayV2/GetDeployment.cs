@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public static class GetDeployment
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGatewayV2::Deployment
+        /// The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("aws-native:apigatewayv2:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGatewayV2::Deployment
+        /// The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("aws-native:apigatewayv2:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetDeploymentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
 
@@ -41,6 +44,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetDeploymentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
@@ -58,6 +64,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public sealed class GetDeploymentResult
     {
         public readonly string? DeploymentId;
+        /// <summary>
+        /// The description for the deployment resource.
+        /// </summary>
         public readonly string? Description;
 
         [OutputConstructor]

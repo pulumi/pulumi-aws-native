@@ -23,13 +23,16 @@ class IntegrationResponseArgs:
                  template_selection_expression: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IntegrationResponse resource.
-        :param pulumi.Input[str] api_id: The API identifier
-        :param pulumi.Input[str] integration_id: The integration ID
-        :param pulumi.Input[str] integration_response_key: The integration response key
-        :param pulumi.Input[str] content_handling_strategy:  Specifies how to handle response payload content type conversions
-        :param Any response_parameters: A key-value map specifying response parameters that are passed to the method response from the backend
-        :param Any response_templates: The collection of response templates for the integration response as a string-to-string map of key-value pairs
-        :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration response. Supported only for WebSocket APIs
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] integration_id: The integration ID.
+        :param pulumi.Input[str] integration_response_key: The integration response key.
+        :param pulumi.Input[str] content_handling_strategy: Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+                 ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
+                 ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
+                If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
+        :param Any response_parameters: A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
+        :param Any response_templates: The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
+        :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration response. Supported only for WebSocket APIs.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "integration_id", integration_id)
@@ -47,7 +50,7 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
         """
-        The API identifier
+        The API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -59,7 +62,7 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="integrationId")
     def integration_id(self) -> pulumi.Input[str]:
         """
-        The integration ID
+        The integration ID.
         """
         return pulumi.get(self, "integration_id")
 
@@ -71,7 +74,7 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="integrationResponseKey")
     def integration_response_key(self) -> pulumi.Input[str]:
         """
-        The integration response key
+        The integration response key.
         """
         return pulumi.get(self, "integration_response_key")
 
@@ -83,7 +86,10 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="contentHandlingStrategy")
     def content_handling_strategy(self) -> Optional[pulumi.Input[str]]:
         """
-         Specifies how to handle response payload content type conversions
+        Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+          ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
+          ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
+         If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
         """
         return pulumi.get(self, "content_handling_strategy")
 
@@ -95,7 +101,7 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[Any]:
         """
-        A key-value map specifying response parameters that are passed to the method response from the backend
+        A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
         """
         return pulumi.get(self, "response_parameters")
 
@@ -107,7 +113,7 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[Any]:
         """
-        The collection of response templates for the integration response as a string-to-string map of key-value pairs
+        The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
         """
         return pulumi.get(self, "response_templates")
 
@@ -119,7 +125,7 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="templateSelectionExpression")
     def template_selection_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        The template selection expression for the integration response. Supported only for WebSocket APIs
+        The template selection expression for the integration response. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "template_selection_expression")
 
@@ -142,17 +148,20 @@ class IntegrationResponse(pulumi.CustomResource):
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Schema for ApiGatewayV2 Integration Response
+        The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API identifier
-        :param pulumi.Input[str] content_handling_strategy:  Specifies how to handle response payload content type conversions
-        :param pulumi.Input[str] integration_id: The integration ID
-        :param pulumi.Input[str] integration_response_key: The integration response key
-        :param Any response_parameters: A key-value map specifying response parameters that are passed to the method response from the backend
-        :param Any response_templates: The collection of response templates for the integration response as a string-to-string map of key-value pairs
-        :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration response. Supported only for WebSocket APIs
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] content_handling_strategy: Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+                 ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
+                 ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
+                If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
+        :param pulumi.Input[str] integration_id: The integration ID.
+        :param pulumi.Input[str] integration_response_key: The integration response key.
+        :param Any response_parameters: A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
+        :param Any response_templates: The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
+        :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration response. Supported only for WebSocket APIs.
         """
         ...
     @overload
@@ -161,7 +170,7 @@ class IntegrationResponse(pulumi.CustomResource):
                  args: IntegrationResponseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Schema for ApiGatewayV2 Integration Response
+        The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param IntegrationResponseArgs args: The arguments to use to populate this resource's properties.
@@ -246,7 +255,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         """
-        The API identifier
+        The API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -254,7 +263,10 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="contentHandlingStrategy")
     def content_handling_strategy(self) -> pulumi.Output[Optional[str]]:
         """
-         Specifies how to handle response payload content type conversions
+        Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+          ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
+          ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
+         If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
         """
         return pulumi.get(self, "content_handling_strategy")
 
@@ -262,7 +274,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="integrationId")
     def integration_id(self) -> pulumi.Output[str]:
         """
-        The integration ID
+        The integration ID.
         """
         return pulumi.get(self, "integration_id")
 
@@ -278,7 +290,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="integrationResponseKey")
     def integration_response_key(self) -> pulumi.Output[str]:
         """
-        The integration response key
+        The integration response key.
         """
         return pulumi.get(self, "integration_response_key")
 
@@ -286,7 +298,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> pulumi.Output[Optional[Any]]:
         """
-        A key-value map specifying response parameters that are passed to the method response from the backend
+        A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
         """
         return pulumi.get(self, "response_parameters")
 
@@ -294,7 +306,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> pulumi.Output[Optional[Any]]:
         """
-        The collection of response templates for the integration response as a string-to-string map of key-value pairs
+        The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
         """
         return pulumi.get(self, "response_templates")
 
@@ -302,7 +314,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="templateSelectionExpression")
     def template_selection_expression(self) -> pulumi.Output[Optional[str]]:
         """
-        The template selection expression for the integration response. Supported only for WebSocket APIs
+        The template selection expression for the integration response. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "template_selection_expression")
 

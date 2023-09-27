@@ -13,18 +13,18 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTopBottomMoversComputation
     {
-        public readonly Outputs.DashboardDimensionField Category;
+        public readonly Outputs.DashboardDimensionField? Category;
         public readonly string ComputationId;
         public readonly double? MoverSize;
         public readonly string? Name;
         public readonly Pulumi.AwsNative.QuickSight.DashboardTopBottomSortOrder? SortOrder;
-        public readonly Outputs.DashboardDimensionField Time;
+        public readonly Outputs.DashboardDimensionField? Time;
         public readonly Pulumi.AwsNative.QuickSight.DashboardTopBottomComputationType Type;
         public readonly Outputs.DashboardMeasureField? Value;
 
         [OutputConstructor]
         private DashboardTopBottomMoversComputation(
-            Outputs.DashboardDimensionField category,
+            Outputs.DashboardDimensionField? category,
 
             string computationId,
 
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.DashboardTopBottomSortOrder? sortOrder,
 
-            Outputs.DashboardDimensionField time,
+            Outputs.DashboardDimensionField? time,
 
             Pulumi.AwsNative.QuickSight.DashboardTopBottomComputationType type,
 

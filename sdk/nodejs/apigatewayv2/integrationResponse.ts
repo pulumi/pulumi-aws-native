@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Schema for ApiGatewayV2 Integration Response
+ * The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
  */
 export class IntegrationResponse extends pulumi.CustomResource {
     /**
@@ -35,15 +35,18 @@ export class IntegrationResponse extends pulumi.CustomResource {
     }
 
     /**
-     * The API identifier
+     * The API identifier.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
-     *  Specifies how to handle response payload content type conversions
+     * Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+     *   ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
+     *   ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
+     *  If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
      */
     public readonly contentHandlingStrategy!: pulumi.Output<string | undefined>;
     /**
-     * The integration ID
+     * The integration ID.
      */
     public readonly integrationId!: pulumi.Output<string>;
     /**
@@ -51,19 +54,19 @@ export class IntegrationResponse extends pulumi.CustomResource {
      */
     public /*out*/ readonly integrationResponseId!: pulumi.Output<string>;
     /**
-     * The integration response key
+     * The integration response key.
      */
     public readonly integrationResponseKey!: pulumi.Output<string>;
     /**
-     * A key-value map specifying response parameters that are passed to the method response from the backend
+     * A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
      */
     public readonly responseParameters!: pulumi.Output<any | undefined>;
     /**
-     * The collection of response templates for the integration response as a string-to-string map of key-value pairs
+     * The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
      */
     public readonly responseTemplates!: pulumi.Output<any | undefined>;
     /**
-     * The template selection expression for the integration response. Supported only for WebSocket APIs
+     * The template selection expression for the integration response. Supported only for WebSocket APIs.
      */
     public readonly templateSelectionExpression!: pulumi.Output<string | undefined>;
 
@@ -117,31 +120,34 @@ export class IntegrationResponse extends pulumi.CustomResource {
  */
 export interface IntegrationResponseArgs {
     /**
-     * The API identifier
+     * The API identifier.
      */
     apiId: pulumi.Input<string>;
     /**
-     *  Specifies how to handle response payload content type conversions
+     * Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+     *   ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
+     *   ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
+     *  If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
      */
     contentHandlingStrategy?: pulumi.Input<string>;
     /**
-     * The integration ID
+     * The integration ID.
      */
     integrationId: pulumi.Input<string>;
     /**
-     * The integration response key
+     * The integration response key.
      */
     integrationResponseKey: pulumi.Input<string>;
     /**
-     * A key-value map specifying response parameters that are passed to the method response from the backend
+     * A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
      */
     responseParameters?: any;
     /**
-     * The collection of response templates for the integration response as a string-to-string map of key-value pairs
+     * The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
      */
     responseTemplates?: any;
     /**
-     * The template selection expression for the integration response. Supported only for WebSocket APIs
+     * The template selection expression for the integration response. Supported only for WebSocket APIs.
      */
     templateSelectionExpression?: pulumi.Input<string>;
 }

@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        [Input("singleHeaderPolicyConfig")]
+        public Input<Inputs.ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs>? SingleHeaderPolicyConfig { get; set; }
+
+        [Input("singleWeightPolicyConfig")]
+        public Input<Inputs.ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesArgs>? SingleWeightPolicyConfig { get; set; }
+
         [Input("stagingDistributionDnsNames", required: true)]
         private InputList<string>? _stagingDistributionDnsNames;
         public InputList<string> StagingDistributionDnsNames
@@ -25,6 +31,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         [Input("trafficConfig")]
         public Input<Inputs.ContinuousDeploymentPolicyTrafficConfigArgs>? TrafficConfig { get; set; }
+
+        [Input("type")]
+        public Input<Pulumi.AwsNative.CloudFront.ContinuousDeploymentPolicyConfigType>? Type { get; set; }
 
         public ContinuousDeploymentPolicyConfigArgs()
         {

@@ -520,7 +520,6 @@
     },
     "ServiceNowConnectorProfileCredentials" : {
       "type" : "object",
-      "required" : [ "Username", "Password" ],
       "properties" : {
         "Username" : {
           "description" : "The name of the user.",
@@ -529,6 +528,10 @@
         "Password" : {
           "description" : "The password that corresponds to the username.",
           "$ref" : "#/definitions/Password"
+        },
+        "OAuth2Credentials" : {
+          "description" : "The OAuth 2.0 credentials required to authenticate the user.",
+          "$ref" : "#/definitions/OAuth2Credentials"
         }
       }
     },

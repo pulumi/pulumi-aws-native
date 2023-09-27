@@ -13,16 +13,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGatewayV2::Model
+// The “AWS::ApiGatewayV2::Model“ resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
 type Model struct {
 	pulumi.CustomResourceState
 
-	ApiId       pulumi.StringOutput    `pulumi:"apiId"`
+	// The API identifier.
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+	// The content-type for the model, for example, "application/json".
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
+	// The description of the model.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	ModelId     pulumi.StringOutput    `pulumi:"modelId"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	Schema      pulumi.AnyOutput       `pulumi:"schema"`
+	// The name of the model.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+	Schema pulumi.AnyOutput `pulumi:"schema"`
 }
 
 // NewModel registers a new resource with the given unique name, arguments, and options.
@@ -75,20 +80,30 @@ func (ModelState) ElementType() reflect.Type {
 }
 
 type modelArgs struct {
-	ApiId       string      `pulumi:"apiId"`
-	ContentType *string     `pulumi:"contentType"`
-	Description *string     `pulumi:"description"`
-	Name        *string     `pulumi:"name"`
-	Schema      interface{} `pulumi:"schema"`
+	// The API identifier.
+	ApiId string `pulumi:"apiId"`
+	// The content-type for the model, for example, "application/json".
+	ContentType *string `pulumi:"contentType"`
+	// The description of the model.
+	Description *string `pulumi:"description"`
+	// The name of the model.
+	Name *string `pulumi:"name"`
+	// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+	Schema interface{} `pulumi:"schema"`
 }
 
 // The set of arguments for constructing a Model resource.
 type ModelArgs struct {
-	ApiId       pulumi.StringInput
+	// The API identifier.
+	ApiId pulumi.StringInput
+	// The content-type for the model, for example, "application/json".
 	ContentType pulumi.StringPtrInput
+	// The description of the model.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Schema      pulumi.Input
+	// The name of the model.
+	Name pulumi.StringPtrInput
+	// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+	Schema pulumi.Input
 }
 
 func (ModelArgs) ElementType() reflect.Type {
@@ -140,14 +155,17 @@ func (o ModelOutput) ToOutput(ctx context.Context) pulumix.Output[*Model] {
 	}
 }
 
+// The API identifier.
 func (o ModelOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// The content-type for the model, for example, "application/json".
 func (o ModelOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
+// The description of the model.
 func (o ModelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -156,10 +174,12 @@ func (o ModelOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ModelId }).(pulumi.StringOutput)
 }
 
+// The name of the model.
 func (o ModelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
 func (o ModelOutput) Schema() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Model) pulumi.AnyOutput { return v.Schema }).(pulumi.AnyOutput)
 }

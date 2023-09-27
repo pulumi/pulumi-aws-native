@@ -14,22 +14,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardMetricComparisonComputation
     {
         public readonly string ComputationId;
-        public readonly Outputs.DashboardMeasureField FromValue;
+        public readonly Outputs.DashboardMeasureField? FromValue;
         public readonly string? Name;
-        public readonly Outputs.DashboardMeasureField TargetValue;
-        public readonly Outputs.DashboardDimensionField Time;
+        public readonly Outputs.DashboardMeasureField? TargetValue;
+        public readonly Outputs.DashboardDimensionField? Time;
 
         [OutputConstructor]
         private DashboardMetricComparisonComputation(
             string computationId,
 
-            Outputs.DashboardMeasureField fromValue,
+            Outputs.DashboardMeasureField? fromValue,
 
             string? name,
 
-            Outputs.DashboardMeasureField targetValue,
+            Outputs.DashboardMeasureField? targetValue,
 
-            Outputs.DashboardDimensionField time)
+            Outputs.DashboardDimensionField? time)
         {
             ComputationId = computationId;
             FromValue = fromValue;

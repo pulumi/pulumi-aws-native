@@ -39,6 +39,7 @@ type AutoScalingGroup struct {
 	MinSize                          pulumi.StringOutput                                   `pulumi:"minSize"`
 	MixedInstancesPolicy             AutoScalingGroupMixedInstancesPolicyPtrOutput         `pulumi:"mixedInstancesPolicy"`
 	NewInstancesProtectedFromScaleIn pulumi.BoolPtrOutput                                  `pulumi:"newInstancesProtectedFromScaleIn"`
+	NotificationConfiguration        AutoScalingGroupNotificationConfigurationPtrOutput    `pulumi:"notificationConfiguration"`
 	NotificationConfigurations       AutoScalingGroupNotificationConfigurationArrayOutput  `pulumi:"notificationConfigurations"`
 	PlacementGroup                   pulumi.StringPtrOutput                                `pulumi:"placementGroup"`
 	ServiceLinkedRoleArn             pulumi.StringPtrOutput                                `pulumi:"serviceLinkedRoleArn"`
@@ -121,6 +122,7 @@ type autoScalingGroupArgs struct {
 	MinSize                          string                                       `pulumi:"minSize"`
 	MixedInstancesPolicy             *AutoScalingGroupMixedInstancesPolicy        `pulumi:"mixedInstancesPolicy"`
 	NewInstancesProtectedFromScaleIn *bool                                        `pulumi:"newInstancesProtectedFromScaleIn"`
+	NotificationConfiguration        *AutoScalingGroupNotificationConfiguration   `pulumi:"notificationConfiguration"`
 	NotificationConfigurations       []AutoScalingGroupNotificationConfiguration  `pulumi:"notificationConfigurations"`
 	PlacementGroup                   *string                                      `pulumi:"placementGroup"`
 	ServiceLinkedRoleArn             *string                                      `pulumi:"serviceLinkedRoleArn"`
@@ -154,6 +156,7 @@ type AutoScalingGroupArgs struct {
 	MinSize                          pulumi.StringInput
 	MixedInstancesPolicy             AutoScalingGroupMixedInstancesPolicyPtrInput
 	NewInstancesProtectedFromScaleIn pulumi.BoolPtrInput
+	NotificationConfiguration        AutoScalingGroupNotificationConfigurationPtrInput
 	NotificationConfigurations       AutoScalingGroupNotificationConfigurationArrayInput
 	PlacementGroup                   pulumi.StringPtrInput
 	ServiceLinkedRoleArn             pulumi.StringPtrInput
@@ -304,6 +307,12 @@ func (o AutoScalingGroupOutput) MixedInstancesPolicy() AutoScalingGroupMixedInst
 
 func (o AutoScalingGroupOutput) NewInstancesProtectedFromScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.BoolPtrOutput { return v.NewInstancesProtectedFromScaleIn }).(pulumi.BoolPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) NotificationConfiguration() AutoScalingGroupNotificationConfigurationPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupNotificationConfigurationPtrOutput {
+		return v.NotificationConfiguration
+	}).(AutoScalingGroupNotificationConfigurationPtrOutput)
 }
 
 func (o AutoScalingGroupOutput) NotificationConfigurations() AutoScalingGroupNotificationConfigurationArrayOutput {

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetCustomDataIdentifierResult',
@@ -18,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetCustomDataIdentifierResult:
-    def __init__(__self__, arn=None, id=None):
+    def __init__(__self__, arn=None, id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -42,6 +46,14 @@ class GetCustomDataIdentifierResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.CustomDataIdentifierTag']]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetCustomDataIdentifierResult(GetCustomDataIdentifierResult):
     # pylint: disable=using-constant-test
@@ -50,7 +62,8 @@ class AwaitableGetCustomDataIdentifierResult(GetCustomDataIdentifierResult):
             yield self
         return GetCustomDataIdentifierResult(
             arn=self.arn,
-            id=self.id)
+            id=self.id,
+            tags=self.tags)
 
 
 def get_custom_data_identifier(id: Optional[str] = None,
@@ -68,7 +81,8 @@ def get_custom_data_identifier(id: Optional[str] = None,
 
     return AwaitableGetCustomDataIdentifierResult(
         arn=pulumi.get(__ret__, 'arn'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_custom_data_identifier)

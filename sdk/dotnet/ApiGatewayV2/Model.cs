@@ -10,26 +10,41 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGatewayV2::Model
+    /// The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigatewayv2:Model")]
     public partial class Model : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// The content-type for the model, for example, "application/json".
+        /// </summary>
         [Output("contentType")]
         public Output<string?> ContentType { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the model.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("modelId")]
         public Output<string> ModelId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the model.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+        /// </summary>
         [Output("schema")]
         public Output<object> Schema { get; private set; } = null!;
 
@@ -82,18 +97,33 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class ModelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The content-type for the model, for example, "application/json".
+        /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
+        /// <summary>
+        /// The description of the model.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the model.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<object> Schema { get; set; } = null!;
 

@@ -14,9 +14,10 @@ import (
 type LinkResourceType string
 
 const (
-	LinkResourceTypeAwsCloudWatchMetric = LinkResourceType("AWS::CloudWatch::Metric")
-	LinkResourceTypeAwsLogsLogGroup     = LinkResourceType("AWS::Logs::LogGroup")
-	LinkResourceTypeAwsxRayTrace        = LinkResourceType("AWS::XRay::Trace")
+	LinkResourceTypeAwsCloudWatchMetric               = LinkResourceType("AWS::CloudWatch::Metric")
+	LinkResourceTypeAwsLogsLogGroup                   = LinkResourceType("AWS::Logs::LogGroup")
+	LinkResourceTypeAwsxRayTrace                      = LinkResourceType("AWS::XRay::Trace")
+	LinkResourceTypeAwsApplicationInsightsApplication = LinkResourceType("AWS::ApplicationInsights::Application")
 )
 
 func (LinkResourceType) ElementType() reflect.Type {

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly string ComputationId;
         public readonly string? Name;
         public readonly double? PeriodSize;
-        public readonly Outputs.DashboardDimensionField Time;
+        public readonly Outputs.DashboardDimensionField? Time;
         public readonly Outputs.DashboardMeasureField? Value;
 
         [OutputConstructor]
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             double? periodSize,
 
-            Outputs.DashboardDimensionField time,
+            Outputs.DashboardDimensionField? time,
 
             Outputs.DashboardMeasureField? value)
         {

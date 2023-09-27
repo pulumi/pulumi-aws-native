@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+ * The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
  */
 export function getRouteResponse(args: GetRouteResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResponseResult> {
 
@@ -21,27 +21,51 @@ export function getRouteResponse(args: GetRouteResponseArgs, opts?: pulumi.Invok
 }
 
 export interface GetRouteResponseArgs {
+    /**
+     * The API identifier.
+     */
     apiId: string;
+    /**
+     * The route ID.
+     */
     routeId: string;
     routeResponseId: string;
 }
 
 export interface GetRouteResponseResult {
+    /**
+     * The model selection expression for the route response. Supported only for WebSocket APIs.
+     */
     readonly modelSelectionExpression?: string;
+    /**
+     * The response models for the route response.
+     */
     readonly responseModels?: any;
+    /**
+     * The route response parameters.
+     */
     readonly responseParameters?: outputs.apigatewayv2.RouteResponseRouteParameters;
     readonly routeResponseId?: string;
+    /**
+     * The route response key.
+     */
     readonly routeResponseKey?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+ * The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
  */
 export function getRouteResponseOutput(args: GetRouteResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResponseResult> {
     return pulumi.output(args).apply((a: any) => getRouteResponse(a, opts))
 }
 
 export interface GetRouteResponseOutputArgs {
+    /**
+     * The API identifier.
+     */
     apiId: pulumi.Input<string>;
+    /**
+     * The route ID.
+     */
     routeId: pulumi.Input<string>;
     routeResponseId: pulumi.Input<string>;
 }

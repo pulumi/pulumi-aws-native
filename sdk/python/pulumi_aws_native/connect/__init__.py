@@ -24,6 +24,7 @@ from .get_quick_connect import *
 from .get_routing_profile import *
 from .get_rule import *
 from .get_security_key import *
+from .get_security_profile import *
 from .get_task_template import *
 from .get_traffic_distribution_group import *
 from .get_user import *
@@ -41,6 +42,7 @@ from .quick_connect import *
 from .routing_profile import *
 from .rule import *
 from .security_key import *
+from .security_profile import *
 from .task_template import *
 from .traffic_distribution_group import *
 from .user import *

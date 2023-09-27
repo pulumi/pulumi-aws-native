@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTopBottomRankedComputation
     {
-        public readonly Outputs.DashboardDimensionField Category;
+        public readonly Outputs.DashboardDimensionField? Category;
         public readonly string ComputationId;
         public readonly string? Name;
         public readonly double? ResultSize;
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DashboardTopBottomRankedComputation(
-            Outputs.DashboardDimensionField category,
+            Outputs.DashboardDimensionField? category,
 
             string computationId,
 

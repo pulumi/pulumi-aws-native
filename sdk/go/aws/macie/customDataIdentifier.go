@@ -31,6 +31,8 @@ type CustomDataIdentifier struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Regular expression for custom data identifier.
 	Regex pulumi.StringOutput `pulumi:"regex"`
+	// A collection of tags associated with a resource
+	Tags CustomDataIdentifierTagArrayOutput `pulumi:"tags"`
 }
 
 // NewCustomDataIdentifier registers a new resource with the given unique name, arguments, and options.
@@ -97,6 +99,8 @@ type customDataIdentifierArgs struct {
 	Name *string `pulumi:"name"`
 	// Regular expression for custom data identifier.
 	Regex string `pulumi:"regex"`
+	// A collection of tags associated with a resource
+	Tags []CustomDataIdentifierTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomDataIdentifier resource.
@@ -113,6 +117,8 @@ type CustomDataIdentifierArgs struct {
 	Name pulumi.StringPtrInput
 	// Regular expression for custom data identifier.
 	Regex pulumi.StringInput
+	// A collection of tags associated with a resource
+	Tags CustomDataIdentifierTagArrayInput
 }
 
 func (CustomDataIdentifierArgs) ElementType() reflect.Type {
@@ -197,6 +203,11 @@ func (o CustomDataIdentifierOutput) Name() pulumi.StringOutput {
 // Regular expression for custom data identifier.
 func (o CustomDataIdentifierOutput) Regex() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringOutput { return v.Regex }).(pulumi.StringOutput)
+}
+
+// A collection of tags associated with a resource
+func (o CustomDataIdentifierOutput) Tags() CustomDataIdentifierTagArrayOutput {
+	return o.ApplyT(func(v *CustomDataIdentifier) CustomDataIdentifierTagArrayOutput { return v.Tags }).(CustomDataIdentifierTagArrayOutput)
 }
 
 func init() {

@@ -29,11 +29,21 @@ __all__ = [
 
 @pulumi.output_type
 class ApiBodyS3Location(dict):
+    """
+    The ``BodyS3Location`` property specifies an S3 location from which to import an OpenAPI definition. Supported only for HTTP APIs.
+    """
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  etag: Optional[str] = None,
                  key: Optional[str] = None,
                  version: Optional[str] = None):
+        """
+        The ``BodyS3Location`` property specifies an S3 location from which to import an OpenAPI definition. Supported only for HTTP APIs.
+        :param str bucket: The S3 bucket that contains the OpenAPI definition to import. Required if you specify a ``BodyS3Location`` for an API.
+        :param str etag: The Etag of the S3 object.
+        :param str key: The key of the S3 object. Required if you specify a ``BodyS3Location`` for an API.
+        :param str version: The version of the S3 object.
+        """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if etag is not None:
@@ -46,26 +56,41 @@ class ApiBodyS3Location(dict):
     @property
     @pulumi.getter
     def bucket(self) -> Optional[str]:
+        """
+        The S3 bucket that contains the OpenAPI definition to import. Required if you specify a ``BodyS3Location`` for an API.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def etag(self) -> Optional[str]:
+        """
+        The Etag of the S3 object.
+        """
         return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        The key of the S3 object. Required if you specify a ``BodyS3Location`` for an API.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        The version of the S3 object.
+        """
         return pulumi.get(self, "version")
 
 
 @pulumi.output_type
 class ApiCors(dict):
+    """
+    The ``Cors`` property specifies a CORS configuration for an API. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -100,6 +125,15 @@ class ApiCors(dict):
                  allow_origins: Optional[Sequence[str]] = None,
                  expose_headers: Optional[Sequence[str]] = None,
                  max_age: Optional[int] = None):
+        """
+        The ``Cors`` property specifies a CORS configuration for an API. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
+        :param bool allow_credentials: Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.
+        :param Sequence[str] allow_headers: Represents a collection of allowed headers. Supported only for HTTP APIs.
+        :param Sequence[str] allow_methods: Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.
+        :param Sequence[str] allow_origins: Represents a collection of allowed origins. Supported only for HTTP APIs.
+        :param Sequence[str] expose_headers: Represents a collection of exposed headers. Supported only for HTTP APIs.
+        :param int max_age: The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
+        """
         if allow_credentials is not None:
             pulumi.set(__self__, "allow_credentials", allow_credentials)
         if allow_headers is not None:
@@ -116,31 +150,49 @@ class ApiCors(dict):
     @property
     @pulumi.getter(name="allowCredentials")
     def allow_credentials(self) -> Optional[bool]:
+        """
+        Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.
+        """
         return pulumi.get(self, "allow_credentials")
 
     @property
     @pulumi.getter(name="allowHeaders")
     def allow_headers(self) -> Optional[Sequence[str]]:
+        """
+        Represents a collection of allowed headers. Supported only for HTTP APIs.
+        """
         return pulumi.get(self, "allow_headers")
 
     @property
     @pulumi.getter(name="allowMethods")
     def allow_methods(self) -> Optional[Sequence[str]]:
+        """
+        Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.
+        """
         return pulumi.get(self, "allow_methods")
 
     @property
     @pulumi.getter(name="allowOrigins")
     def allow_origins(self) -> Optional[Sequence[str]]:
+        """
+        Represents a collection of allowed origins. Supported only for HTTP APIs.
+        """
         return pulumi.get(self, "allow_origins")
 
     @property
     @pulumi.getter(name="exposeHeaders")
     def expose_headers(self) -> Optional[Sequence[str]]:
+        """
+        Represents a collection of exposed headers. Supported only for HTTP APIs.
+        """
         return pulumi.get(self, "expose_headers")
 
     @property
     @pulumi.getter(name="maxAge")
     def max_age(self) -> Optional[int]:
+        """
+        The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
+        """
         return pulumi.get(self, "max_age")
 
 

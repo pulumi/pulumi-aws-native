@@ -13,17 +13,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+// The “AWS::ApiGatewayV2::RouteResponse“ resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
 type RouteResponse struct {
 	pulumi.CustomResourceState
 
-	ApiId                    pulumi.StringOutput                   `pulumi:"apiId"`
-	ModelSelectionExpression pulumi.StringPtrOutput                `pulumi:"modelSelectionExpression"`
-	ResponseModels           pulumi.AnyOutput                      `pulumi:"responseModels"`
-	ResponseParameters       RouteResponseRouteParametersPtrOutput `pulumi:"responseParameters"`
-	RouteId                  pulumi.StringOutput                   `pulumi:"routeId"`
-	RouteResponseId          pulumi.StringOutput                   `pulumi:"routeResponseId"`
-	RouteResponseKey         pulumi.StringOutput                   `pulumi:"routeResponseKey"`
+	// The API identifier.
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+	// The model selection expression for the route response. Supported only for WebSocket APIs.
+	ModelSelectionExpression pulumi.StringPtrOutput `pulumi:"modelSelectionExpression"`
+	// The response models for the route response.
+	ResponseModels pulumi.AnyOutput `pulumi:"responseModels"`
+	// The route response parameters.
+	ResponseParameters RouteResponseRouteParametersPtrOutput `pulumi:"responseParameters"`
+	// The route ID.
+	RouteId         pulumi.StringOutput `pulumi:"routeId"`
+	RouteResponseId pulumi.StringOutput `pulumi:"routeResponseId"`
+	// The route response key.
+	RouteResponseKey pulumi.StringOutput `pulumi:"routeResponseKey"`
 }
 
 // NewRouteResponse registers a new resource with the given unique name, arguments, and options.
@@ -80,22 +86,34 @@ func (RouteResponseState) ElementType() reflect.Type {
 }
 
 type routeResponseArgs struct {
-	ApiId                    string                        `pulumi:"apiId"`
-	ModelSelectionExpression *string                       `pulumi:"modelSelectionExpression"`
-	ResponseModels           interface{}                   `pulumi:"responseModels"`
-	ResponseParameters       *RouteResponseRouteParameters `pulumi:"responseParameters"`
-	RouteId                  string                        `pulumi:"routeId"`
-	RouteResponseKey         string                        `pulumi:"routeResponseKey"`
+	// The API identifier.
+	ApiId string `pulumi:"apiId"`
+	// The model selection expression for the route response. Supported only for WebSocket APIs.
+	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
+	// The response models for the route response.
+	ResponseModels interface{} `pulumi:"responseModels"`
+	// The route response parameters.
+	ResponseParameters *RouteResponseRouteParameters `pulumi:"responseParameters"`
+	// The route ID.
+	RouteId string `pulumi:"routeId"`
+	// The route response key.
+	RouteResponseKey string `pulumi:"routeResponseKey"`
 }
 
 // The set of arguments for constructing a RouteResponse resource.
 type RouteResponseArgs struct {
-	ApiId                    pulumi.StringInput
+	// The API identifier.
+	ApiId pulumi.StringInput
+	// The model selection expression for the route response. Supported only for WebSocket APIs.
 	ModelSelectionExpression pulumi.StringPtrInput
-	ResponseModels           pulumi.Input
-	ResponseParameters       RouteResponseRouteParametersPtrInput
-	RouteId                  pulumi.StringInput
-	RouteResponseKey         pulumi.StringInput
+	// The response models for the route response.
+	ResponseModels pulumi.Input
+	// The route response parameters.
+	ResponseParameters RouteResponseRouteParametersPtrInput
+	// The route ID.
+	RouteId pulumi.StringInput
+	// The route response key.
+	RouteResponseKey pulumi.StringInput
 }
 
 func (RouteResponseArgs) ElementType() reflect.Type {
@@ -147,22 +165,27 @@ func (o RouteResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*Route
 	}
 }
 
+// The API identifier.
 func (o RouteResponseOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// The model selection expression for the route response. Supported only for WebSocket APIs.
 func (o RouteResponseOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringPtrOutput { return v.ModelSelectionExpression }).(pulumi.StringPtrOutput)
 }
 
+// The response models for the route response.
 func (o RouteResponseOutput) ResponseModels() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.AnyOutput { return v.ResponseModels }).(pulumi.AnyOutput)
 }
 
+// The route response parameters.
 func (o RouteResponseOutput) ResponseParameters() RouteResponseRouteParametersPtrOutput {
 	return o.ApplyT(func(v *RouteResponse) RouteResponseRouteParametersPtrOutput { return v.ResponseParameters }).(RouteResponseRouteParametersPtrOutput)
 }
 
+// The route ID.
 func (o RouteResponseOutput) RouteId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteId }).(pulumi.StringOutput)
 }
@@ -171,6 +194,7 @@ func (o RouteResponseOutput) RouteResponseId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteResponseId }).(pulumi.StringOutput)
 }
 
+// The route response key.
 func (o RouteResponseOutput) RouteResponseKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteResponseKey }).(pulumi.StringOutput)
 }

@@ -5,9 +5,15 @@
 from enum import Enum
 
 __all__ = [
+    'ContinuousDeploymentPolicyConfigType',
     'ContinuousDeploymentPolicyTrafficConfigType',
     'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus',
 ]
+
+
+class ContinuousDeploymentPolicyConfigType(str, Enum):
+    SINGLE_WEIGHT = "SingleWeight"
+    SINGLE_HEADER = "SingleHeader"
 
 
 class ContinuousDeploymentPolicyTrafficConfigType(str, Enum):

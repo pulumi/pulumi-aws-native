@@ -10,20 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGatewayV2::Deployment
+    /// The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigatewayv2:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
         [Output("deploymentId")]
         public Output<string> DeploymentId { get; private set; } = null!;
 
+        /// <summary>
+        /// The description for the deployment resource.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of an existing stage to associate with the deployment.
+        /// </summary>
         [Output("stageName")]
         public Output<string?> StageName { get; private set; } = null!;
 
@@ -76,12 +85,21 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The description for the deployment resource.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of an existing stage to associate with the deployment.
+        /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
 

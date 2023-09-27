@@ -859,6 +859,7 @@ namespace Pulumi.AwsNative.Connect
         public static RuleTriggerEventSourceEventSourceName OnZendeskTicketCreate { get; } = new RuleTriggerEventSourceEventSourceName("OnZendeskTicketCreate");
         public static RuleTriggerEventSourceEventSourceName OnZendeskTicketStatusUpdate { get; } = new RuleTriggerEventSourceEventSourceName("OnZendeskTicketStatusUpdate");
         public static RuleTriggerEventSourceEventSourceName OnSalesforceCaseCreate { get; } = new RuleTriggerEventSourceEventSourceName("OnSalesforceCaseCreate");
+        public static RuleTriggerEventSourceEventSourceName OnMetricDataUpdate { get; } = new RuleTriggerEventSourceEventSourceName("OnMetricDataUpdate");
 
         public static bool operator ==(RuleTriggerEventSourceEventSourceName left, RuleTriggerEventSourceEventSourceName right) => left.Equals(right);
         public static bool operator !=(RuleTriggerEventSourceEventSourceName left, RuleTriggerEventSourceEventSourceName right) => !left.Equals(right);

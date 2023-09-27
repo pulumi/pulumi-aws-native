@@ -13,16 +13,22 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class ConnectorProfileServiceNowConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The OAuth 2.0 credentials required to authenticate the user.
+        /// </summary>
+        [Input("oAuth2Credentials")]
+        public Input<Inputs.ConnectorProfileOAuth2CredentialsArgs>? OAuth2Credentials { get; set; }
+
+        /// <summary>
         /// The password that corresponds to the username.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// The name of the user.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public ConnectorProfileServiceNowConnectorProfileCredentialsArgs()
         {

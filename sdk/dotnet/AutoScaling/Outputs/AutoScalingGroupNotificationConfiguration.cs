@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     public sealed class AutoScalingGroupNotificationConfiguration
     {
         public readonly ImmutableArray<string> NotificationTypes;
-        public readonly ImmutableArray<string> TopicArn;
+        public readonly string TopicArn;
 
         [OutputConstructor]
         private AutoScalingGroupNotificationConfiguration(
             ImmutableArray<string> notificationTypes,
 
-            ImmutableArray<string> topicArn)
+            string topicArn)
         {
             NotificationTypes = notificationTypes;
             TopicArn = topicArn;

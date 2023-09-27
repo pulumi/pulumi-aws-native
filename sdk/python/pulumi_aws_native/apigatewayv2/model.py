@@ -21,6 +21,11 @@ class ModelArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Model resource.
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param Any schema: The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+        :param pulumi.Input[str] content_type: The content-type for the model, for example, "application/json".
+        :param pulumi.Input[str] description: The description of the model.
+        :param pulumi.Input[str] name: The name of the model.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "schema", schema)
@@ -34,6 +39,9 @@ class ModelArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
+        """
+        The API identifier.
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -43,6 +51,9 @@ class ModelArgs:
     @property
     @pulumi.getter
     def schema(self) -> Any:
+        """
+        The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -52,6 +63,9 @@ class ModelArgs:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content-type for the model, for example, "application/json".
+        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -61,6 +75,9 @@ class ModelArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the model.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -70,6 +87,9 @@ class ModelArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the model.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -89,10 +109,15 @@ class Model(pulumi.CustomResource):
                  schema: Optional[Any] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::Model
+        The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] content_type: The content-type for the model, for example, "application/json".
+        :param pulumi.Input[str] description: The description of the model.
+        :param pulumi.Input[str] name: The name of the model.
+        :param Any schema: The schema for the model. For application/json models, this should be JSON schema draft 4 model.
         """
         ...
     @overload
@@ -101,7 +126,7 @@ class Model(pulumi.CustomResource):
                  args: ModelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::Model
+        The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.
@@ -177,16 +202,25 @@ class Model(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
+        """
+        The API identifier.
+        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The content-type for the model, for example, "application/json".
+        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the model.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -197,10 +231,16 @@ class Model(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the model.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output[Any]:
+        """
+        The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+        """
         return pulumi.get(self, "schema")
 

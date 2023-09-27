@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Schema for AWS::ApiGatewayV2::ApiMapping
+ * The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
  */
 export class ApiMapping extends pulumi.CustomResource {
     /**
@@ -35,7 +35,7 @@ export class ApiMapping extends pulumi.CustomResource {
     }
 
     /**
-     * The API identifier
+     * The identifier of the API.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
@@ -43,15 +43,15 @@ export class ApiMapping extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiMappingId!: pulumi.Output<string>;
     /**
-     * The API mapping key
+     * The API mapping key.
      */
     public readonly apiMappingKey!: pulumi.Output<string | undefined>;
     /**
-     * The domain name
+     * The domain name.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * The API stage
+     * The API stage.
      */
     public readonly stage!: pulumi.Output<string>;
 
@@ -99,19 +99,19 @@ export class ApiMapping extends pulumi.CustomResource {
  */
 export interface ApiMappingArgs {
     /**
-     * The API identifier
+     * The identifier of the API.
      */
     apiId: pulumi.Input<string>;
     /**
-     * The API mapping key
+     * The API mapping key.
      */
     apiMappingKey?: pulumi.Input<string>;
     /**
-     * The domain name
+     * The domain name.
      */
     domainName: pulumi.Input<string>;
     /**
-     * The API stage
+     * The API stage.
      */
     stage: pulumi.Input<string>;
 }

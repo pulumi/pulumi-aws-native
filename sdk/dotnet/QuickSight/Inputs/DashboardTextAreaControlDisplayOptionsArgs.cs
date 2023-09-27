@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardTextAreaControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("infoIconLabelOptions")]
+        public Input<Inputs.DashboardSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
+
         [Input("placeholderOptions")]
         public Input<Inputs.DashboardTextControlPlaceholderOptionsArgs>? PlaceholderOptions { get; set; }
 

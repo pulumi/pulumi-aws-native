@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::S3::BucketPolicy
- *
- * @deprecated BucketPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class BucketPolicy extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class BucketPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BucketPolicy {
-        pulumi.log.warn("BucketPolicy is deprecated: BucketPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new BucketPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,7 +34,13 @@ export class BucketPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketPolicy.__pulumiType;
     }
 
+    /**
+     * The name of the Amazon S3 bucket to which the policy applies.
+     */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+     */
     public readonly policyDocument!: pulumi.Output<any>;
 
     /**
@@ -47,9 +50,7 @@ export class BucketPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated BucketPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: BucketPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BucketPolicy is deprecated: BucketPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -76,6 +77,12 @@ export class BucketPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a BucketPolicy resource.
  */
 export interface BucketPolicyArgs {
+    /**
+     * The name of the Amazon S3 bucket to which the policy applies.
+     */
     bucket: pulumi.Input<string>;
+    /**
+     * A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+     */
     policyDocument: any;
 }

@@ -221,6 +221,8 @@ if typing.TYPE_CHECKING:
     groundstation = __groundstation
     import pulumi_aws_native.guardduty as __guardduty
     guardduty = __guardduty
+    import pulumi_aws_native.healthimaging as __healthimaging
+    healthimaging = __healthimaging
     import pulumi_aws_native.healthlake as __healthlake
     healthlake = __healthlake
     import pulumi_aws_native.iam as __iam
@@ -574,6 +576,7 @@ else:
     greengrassv2 = _utilities.lazy_import('pulumi_aws_native.greengrassv2')
     groundstation = _utilities.lazy_import('pulumi_aws_native.groundstation')
     guardduty = _utilities.lazy_import('pulumi_aws_native.guardduty')
+    healthimaging = _utilities.lazy_import('pulumi_aws_native.healthimaging')
     healthlake = _utilities.lazy_import('pulumi_aws_native.healthlake')
     iam = _utilities.lazy_import('pulumi_aws_native.iam')
     identitystore = _utilities.lazy_import('pulumi_aws_native.identitystore')
@@ -1299,6 +1302,7 @@ _utilities.register(
    "aws-native:connect:RoutingProfile": "RoutingProfile",
    "aws-native:connect:Rule": "Rule",
    "aws-native:connect:SecurityKey": "SecurityKey",
+   "aws-native:connect:SecurityProfile": "SecurityProfile",
    "aws-native:connect:TaskTemplate": "TaskTemplate",
    "aws-native:connect:TrafficDistributionGroup": "TrafficDistributionGroup",
    "aws-native:connect:User": "User",
@@ -1939,6 +1943,14 @@ _utilities.register(
    "aws-native:guardduty:Master": "Master",
    "aws-native:guardduty:Member": "Member",
    "aws-native:guardduty:ThreatIntelSet": "ThreatIntelSet"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "healthimaging",
+  "fqn": "pulumi_aws_native.healthimaging",
+  "classes": {
+   "aws-native:healthimaging:Datastore": "Datastore"
   }
  },
  {

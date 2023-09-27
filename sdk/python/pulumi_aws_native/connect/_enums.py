@@ -284,6 +284,7 @@ class RuleTriggerEventSourceEventSourceName(str, Enum):
     ON_ZENDESK_TICKET_CREATE = "OnZendeskTicketCreate"
     ON_ZENDESK_TICKET_STATUS_UPDATE = "OnZendeskTicketStatusUpdate"
     ON_SALESFORCE_CASE_CREATE = "OnSalesforceCaseCreate"
+    ON_METRIC_DATA_UPDATE = "OnMetricDataUpdate"
 
 
 class TaskTemplateFieldType(str, Enum):

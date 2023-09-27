@@ -53,31 +53,49 @@ class GetRouteResult:
     @property
     @pulumi.getter(name="apiKeyRequired")
     def api_key_required(self) -> Optional[bool]:
+        """
+        Specifies whether an API key is required for the route. Supported only for WebSocket APIs.
+        """
         return pulumi.get(self, "api_key_required")
 
     @property
     @pulumi.getter(name="authorizationScopes")
     def authorization_scopes(self) -> Optional[Sequence[str]]:
+        """
+        The authorization scopes supported by this route.
+        """
         return pulumi.get(self, "authorization_scopes")
 
     @property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> Optional[str]:
+        """
+        The authorization type for the route. For WebSocket APIs, valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, and ``CUSTOM`` for using a Lambda authorizer. For HTTP APIs, valid values are ``NONE`` for open access, ``JWT`` for using JSON Web Tokens, ``AWS_IAM`` for using AWS IAM permissions, and ``CUSTOM`` for using a Lambda authorizer.
+        """
         return pulumi.get(self, "authorization_type")
 
     @property
     @pulumi.getter(name="modelSelectionExpression")
     def model_selection_expression(self) -> Optional[str]:
+        """
+        The model selection expression for the route. Supported only for WebSocket APIs.
+        """
         return pulumi.get(self, "model_selection_expression")
 
     @property
     @pulumi.getter(name="operationName")
     def operation_name(self) -> Optional[str]:
+        """
+        The operation name for the route.
+        """
         return pulumi.get(self, "operation_name")
 
     @property
     @pulumi.getter(name="requestModels")
     def request_models(self) -> Optional[Any]:
+        """
+        The request models for the route. Supported only for WebSocket APIs.
+        """
         return pulumi.get(self, "request_models")
 
     @property
@@ -88,16 +106,25 @@ class GetRouteResult:
     @property
     @pulumi.getter(name="routeKey")
     def route_key(self) -> Optional[str]:
+        """
+        The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
+        """
         return pulumi.get(self, "route_key")
 
     @property
     @pulumi.getter(name="routeResponseSelectionExpression")
     def route_response_selection_expression(self) -> Optional[str]:
+        """
+        The route response selection expression for the route. Supported only for WebSocket APIs.
+        """
         return pulumi.get(self, "route_response_selection_expression")
 
     @property
     @pulumi.getter
     def target(self) -> Optional[str]:
+        """
+        The target for the route.
+        """
         return pulumi.get(self, "target")
 
 
@@ -123,7 +150,10 @@ def get_route(api_id: Optional[str] = None,
               route_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
-    Resource Type definition for AWS::ApiGatewayV2::Route
+    The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
+
+
+    :param str api_id: The API identifier.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -149,6 +179,9 @@ def get_route_output(api_id: Optional[pulumi.Input[str]] = None,
                      route_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
-    Resource Type definition for AWS::ApiGatewayV2::Route
+    The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
+
+
+    :param str api_id: The API identifier.
     """
     ...

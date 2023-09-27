@@ -65,15 +65,22 @@ namespace Pulumi.AwsNative.Macie
         /// Custom data identifier ID.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CustomDataIdentifierTag> Tags;
 
         [OutputConstructor]
         private GetCustomDataIdentifierResult(
             string? arn,
 
-            string? id)
+            string? id,
+
+            ImmutableArray<Outputs.CustomDataIdentifierTag> tags)
         {
             Arn = arn;
             Id = id;
+            Tags = tags;
         }
     }
 }

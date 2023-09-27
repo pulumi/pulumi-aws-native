@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.S3
 
     public sealed class GetBucketPolicyArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the Amazon S3 bucket to which the policy applies.
+        /// </summary>
+        [Input("bucket", required: true)]
+        public string Bucket { get; set; } = null!;
 
         public GetBucketPolicyArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.S3
 
     public sealed class GetBucketPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the Amazon S3 bucket to which the policy applies.
+        /// </summary>
+        [Input("bucket", required: true)]
+        public Input<string> Bucket { get; set; } = null!;
 
         public GetBucketPolicyInvokeArgs()
         {
@@ -51,16 +57,14 @@ namespace Pulumi.AwsNative.S3
     [OutputType]
     public sealed class GetBucketPolicyResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+        /// </summary>
         public readonly object? PolicyDocument;
 
         [OutputConstructor]
-        private GetBucketPolicyResult(
-            string? id,
-
-            object? policyDocument)
+        private GetBucketPolicyResult(object? policyDocument)
         {
-            Id = id;
             PolicyDocument = policyDocument;
         }
     }

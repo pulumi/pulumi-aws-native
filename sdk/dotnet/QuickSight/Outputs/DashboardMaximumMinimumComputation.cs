@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly string ComputationId;
         public readonly string? Name;
-        public readonly Outputs.DashboardDimensionField Time;
+        public readonly Outputs.DashboardDimensionField? Time;
         public readonly Pulumi.AwsNative.QuickSight.DashboardMaximumMinimumComputationType Type;
         public readonly Outputs.DashboardMeasureField? Value;
 
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? name,
 
-            Outputs.DashboardDimensionField time,
+            Outputs.DashboardDimensionField? time,
 
             Pulumi.AwsNative.QuickSight.DashboardMaximumMinimumComputationType type,
 

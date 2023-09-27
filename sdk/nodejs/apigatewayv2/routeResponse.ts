@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+ * The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
  */
 export class RouteResponse extends pulumi.CustomResource {
     /**
@@ -37,12 +37,30 @@ export class RouteResponse extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteResponse.__pulumiType;
     }
 
+    /**
+     * The API identifier.
+     */
     public readonly apiId!: pulumi.Output<string>;
+    /**
+     * The model selection expression for the route response. Supported only for WebSocket APIs.
+     */
     public readonly modelSelectionExpression!: pulumi.Output<string | undefined>;
+    /**
+     * The response models for the route response.
+     */
     public readonly responseModels!: pulumi.Output<any | undefined>;
+    /**
+     * The route response parameters.
+     */
     public readonly responseParameters!: pulumi.Output<outputs.apigatewayv2.RouteResponseRouteParameters | undefined>;
+    /**
+     * The route ID.
+     */
     public readonly routeId!: pulumi.Output<string>;
     public /*out*/ readonly routeResponseId!: pulumi.Output<string>;
+    /**
+     * The route response key.
+     */
     public readonly routeResponseKey!: pulumi.Output<string>;
 
     /**
@@ -92,10 +110,28 @@ export class RouteResponse extends pulumi.CustomResource {
  * The set of arguments for constructing a RouteResponse resource.
  */
 export interface RouteResponseArgs {
+    /**
+     * The API identifier.
+     */
     apiId: pulumi.Input<string>;
+    /**
+     * The model selection expression for the route response. Supported only for WebSocket APIs.
+     */
     modelSelectionExpression?: pulumi.Input<string>;
+    /**
+     * The response models for the route response.
+     */
     responseModels?: any;
+    /**
+     * The route response parameters.
+     */
     responseParameters?: pulumi.Input<inputs.apigatewayv2.RouteResponseRouteParametersArgs>;
+    /**
+     * The route ID.
+     */
     routeId: pulumi.Input<string>;
+    /**
+     * The route response key.
+     */
     routeResponseKey: pulumi.Input<string>;
 }

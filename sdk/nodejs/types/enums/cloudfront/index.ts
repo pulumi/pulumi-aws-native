@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ContinuousDeploymentPolicyConfigType = {
+    SingleWeight: "SingleWeight",
+    SingleHeader: "SingleHeader",
+} as const;
+
+export type ContinuousDeploymentPolicyConfigType = (typeof ContinuousDeploymentPolicyConfigType)[keyof typeof ContinuousDeploymentPolicyConfigType];
+
 export const ContinuousDeploymentPolicyTrafficConfigType = {
     SingleWeight: "SingleWeight",
     SingleHeader: "SingleHeader",

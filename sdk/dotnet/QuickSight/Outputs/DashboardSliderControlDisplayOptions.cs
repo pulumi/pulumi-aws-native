@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSliderControlDisplayOptions
     {
+        public readonly Outputs.DashboardSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
         public readonly Outputs.DashboardLabelOptions? TitleOptions;
 
         [OutputConstructor]
-        private DashboardSliderControlDisplayOptions(Outputs.DashboardLabelOptions? titleOptions)
+        private DashboardSliderControlDisplayOptions(
+            Outputs.DashboardSheetControlInfoIconLabelOptions? infoIconLabelOptions,
+
+            Outputs.DashboardLabelOptions? titleOptions)
         {
+            InfoIconLabelOptions = infoIconLabelOptions;
             TitleOptions = titleOptions;
         }
     }

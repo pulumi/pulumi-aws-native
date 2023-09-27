@@ -33,6 +33,8 @@ type LookupCustomDataIdentifierResult struct {
 	Arn *string `pulumi:"arn"`
 	// Custom data identifier ID.
 	Id *string `pulumi:"id"`
+	// A collection of tags associated with a resource
+	Tags []CustomDataIdentifierTag `pulumi:"tags"`
 }
 
 func LookupCustomDataIdentifierOutput(ctx *pulumi.Context, args LookupCustomDataIdentifierOutputArgs, opts ...pulumi.InvokeOption) LookupCustomDataIdentifierResultOutput {
@@ -85,6 +87,11 @@ func (o LookupCustomDataIdentifierResultOutput) Arn() pulumi.StringPtrOutput {
 // Custom data identifier ID.
 func (o LookupCustomDataIdentifierResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCustomDataIdentifierResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A collection of tags associated with a resource
+func (o LookupCustomDataIdentifierResultOutput) Tags() CustomDataIdentifierTagArrayOutput {
+	return o.ApplyT(func(v LookupCustomDataIdentifierResult) []CustomDataIdentifierTag { return v.Tags }).(CustomDataIdentifierTagArrayOutput)
 }
 
 func init() {

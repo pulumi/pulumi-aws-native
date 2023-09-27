@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFilterScopeConfiguration
     {
+        public readonly Outputs.DashboardAllSheetsFilterScopeConfiguration? AllSheets;
         public readonly Outputs.DashboardSelectedSheetsFilterScopeConfiguration? SelectedSheets;
 
         [OutputConstructor]
-        private DashboardFilterScopeConfiguration(Outputs.DashboardSelectedSheetsFilterScopeConfiguration? selectedSheets)
+        private DashboardFilterScopeConfiguration(
+            Outputs.DashboardAllSheetsFilterScopeConfiguration? allSheets,
+
+            Outputs.DashboardSelectedSheetsFilterScopeConfiguration? selectedSheets)
         {
+            AllSheets = allSheets;
             SelectedSheets = selectedSheets;
         }
     }

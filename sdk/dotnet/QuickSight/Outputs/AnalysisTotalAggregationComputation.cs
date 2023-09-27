@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly string ComputationId;
         public readonly string? Name;
-        public readonly Outputs.AnalysisMeasureField Value;
+        public readonly Outputs.AnalysisMeasureField? Value;
 
         [OutputConstructor]
         private AnalysisTotalAggregationComputation(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? name,
 
-            Outputs.AnalysisMeasureField value)
+            Outputs.AnalysisMeasureField? value)
         {
             ComputationId = computationId;
             Name = name;

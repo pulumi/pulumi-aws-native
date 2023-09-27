@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGatewayV2::Model
+ * The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
  */
 export function getModel(args: GetModelArgs, opts?: pulumi.InvokeOptions): Promise<GetModelResult> {
 
@@ -17,25 +17,43 @@ export function getModel(args: GetModelArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetModelArgs {
+    /**
+     * The API identifier.
+     */
     apiId: string;
     modelId: string;
 }
 
 export interface GetModelResult {
+    /**
+     * The content-type for the model, for example, "application/json".
+     */
     readonly contentType?: string;
+    /**
+     * The description of the model.
+     */
     readonly description?: string;
     readonly modelId?: string;
+    /**
+     * The name of the model.
+     */
     readonly name?: string;
+    /**
+     * The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+     */
     readonly schema?: any;
 }
 /**
- * Resource Type definition for AWS::ApiGatewayV2::Model
+ * The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
  */
 export function getModelOutput(args: GetModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelResult> {
     return pulumi.output(args).apply((a: any) => getModel(a, opts))
 }
 
 export interface GetModelOutputArgs {
+    /**
+     * The API identifier.
+     */
     apiId: pulumi.Input<string>;
     modelId: pulumi.Input<string>;
 }

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -62,6 +65,10 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
      * Regular expression for custom data identifier.
      */
     public readonly regex!: pulumi.Output<string>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    public readonly tags!: pulumi.Output<outputs.macie.CustomDataIdentifierTag[] | undefined>;
 
     /**
      * Create a CustomDataIdentifier resource with the given unique name, arguments, and options.
@@ -83,6 +90,7 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
             resourceInputs["maximumMatchDistance"] = args ? args.maximumMatchDistance : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["regex"] = args ? args.regex : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -92,6 +100,7 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
             resourceInputs["maximumMatchDistance"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["regex"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["description", "ignoreWords[*]", "keywords[*]", "maximumMatchDistance", "name", "regex"] };
@@ -128,4 +137,8 @@ export interface CustomDataIdentifierArgs {
      * Regular expression for custom data identifier.
      */
     regex: pulumi.Input<string>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.macie.CustomDataIdentifierTagArgs>[]>;
 }

@@ -2,7 +2,6 @@
   "typeName" : "AWS::EC2::IPAM",
   "description" : "Resource Schema of AWS::EC2::IPAM Type",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ipam.git",
-  "taggable" : true,
   "definitions" : {
     "IpamOperatingRegion" : {
       "description" : "The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring",
@@ -99,19 +98,26 @@
   "readOnlyProperties" : [ "/properties/IpamId", "/properties/Arn", "/properties/PublicDefaultScopeId", "/properties/PrivateDefaultScopeId", "/properties/ScopeCount", "/properties/ResourceDiscoveryAssociationCount", "/properties/DefaultResourceDiscoveryId", "/properties/DefaultResourceDiscoveryAssociationId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateIpam", "iam:CreateServiceLinkedRole", "ec2:CreateTags" ]
+      "permissions" : [ "ec2:CreateIpam", "iam:CreateServiceLinkedRole", "ec2:CreateTags", "ec2:DescribeIpams" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeIpams" ]
     },
     "update" : {
-      "permissions" : [ "ec2:ModifyIpam", "ec2:CreateTags", "ec2:DeleteTags" ]
+      "permissions" : [ "ec2:ModifyIpam", "ec2:CreateTags", "ec2:DeleteTags", "ec2:DescribeIpams" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DeleteIpam", "ec2:DeleteTags" ]
+      "permissions" : [ "ec2:DeleteIpam", "ec2:DeleteTags", "ec2:DescribeIpams" ]
     },
     "list" : {
       "permissions" : [ "ec2:DescribeIpams" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
   }
 }

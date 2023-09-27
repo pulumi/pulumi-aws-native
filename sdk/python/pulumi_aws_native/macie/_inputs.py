@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AllowListCriteriaArgs',
     'AllowListTagArgs',
+    'CustomDataIdentifierTagArgs',
     'FindingsFilterCriterionArgs',
     'FindingsFilterFindingCriteriaArgs',
     'FindingsFilterTagArgs',
@@ -29,6 +30,44 @@ class AllowListCriteriaArgs:
 
 @pulumi.input_type
 class AllowListTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The tag's key.
+        :param pulumi.Input[str] value: The tag's value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The tag's key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The tag's value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class CustomDataIdentifierTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

@@ -14,10 +14,15 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The “BodyS3Location“ property specifies an S3 location from which to import an OpenAPI definition. Supported only for HTTP APIs.
 type ApiBodyS3Location struct {
-	Bucket  *string `pulumi:"bucket"`
-	Etag    *string `pulumi:"etag"`
-	Key     *string `pulumi:"key"`
+	// The S3 bucket that contains the OpenAPI definition to import. Required if you specify a ``BodyS3Location`` for an API.
+	Bucket *string `pulumi:"bucket"`
+	// The Etag of the S3 object.
+	Etag *string `pulumi:"etag"`
+	// The key of the S3 object. Required if you specify a ``BodyS3Location`` for an API.
+	Key *string `pulumi:"key"`
+	// The version of the S3 object.
 	Version *string `pulumi:"version"`
 }
 
@@ -32,10 +37,15 @@ type ApiBodyS3LocationInput interface {
 	ToApiBodyS3LocationOutputWithContext(context.Context) ApiBodyS3LocationOutput
 }
 
+// The “BodyS3Location“ property specifies an S3 location from which to import an OpenAPI definition. Supported only for HTTP APIs.
 type ApiBodyS3LocationArgs struct {
-	Bucket  pulumi.StringPtrInput `pulumi:"bucket"`
-	Etag    pulumi.StringPtrInput `pulumi:"etag"`
-	Key     pulumi.StringPtrInput `pulumi:"key"`
+	// The S3 bucket that contains the OpenAPI definition to import. Required if you specify a ``BodyS3Location`` for an API.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// The Etag of the S3 object.
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// The key of the S3 object. Required if you specify a ``BodyS3Location`` for an API.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The version of the S3 object.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -104,6 +114,7 @@ func (i *apiBodyS3LocationPtrType) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
+// The “BodyS3Location“ property specifies an S3 location from which to import an OpenAPI definition. Supported only for HTTP APIs.
 type ApiBodyS3LocationOutput struct{ *pulumi.OutputState }
 
 func (ApiBodyS3LocationOutput) ElementType() reflect.Type {
@@ -134,18 +145,22 @@ func (o ApiBodyS3LocationOutput) ToOutput(ctx context.Context) pulumix.Output[Ap
 	}
 }
 
+// The S3 bucket that contains the OpenAPI definition to import. Required if you specify a “BodyS3Location“ for an API.
 func (o ApiBodyS3LocationOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiBodyS3Location) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
+// The Etag of the S3 object.
 func (o ApiBodyS3LocationOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiBodyS3Location) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+// The key of the S3 object. Required if you specify a “BodyS3Location“ for an API.
 func (o ApiBodyS3LocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiBodyS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The version of the S3 object.
 func (o ApiBodyS3LocationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiBodyS3Location) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -180,6 +195,7 @@ func (o ApiBodyS3LocationPtrOutput) Elem() ApiBodyS3LocationOutput {
 	}).(ApiBodyS3LocationOutput)
 }
 
+// The S3 bucket that contains the OpenAPI definition to import. Required if you specify a “BodyS3Location“ for an API.
 func (o ApiBodyS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiBodyS3Location) *string {
 		if v == nil {
@@ -189,6 +205,7 @@ func (o ApiBodyS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Etag of the S3 object.
 func (o ApiBodyS3LocationPtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiBodyS3Location) *string {
 		if v == nil {
@@ -198,6 +215,7 @@ func (o ApiBodyS3LocationPtrOutput) Etag() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The key of the S3 object. Required if you specify a “BodyS3Location“ for an API.
 func (o ApiBodyS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiBodyS3Location) *string {
 		if v == nil {
@@ -207,6 +225,7 @@ func (o ApiBodyS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the S3 object.
 func (o ApiBodyS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiBodyS3Location) *string {
 		if v == nil {
@@ -216,13 +235,20 @@ func (o ApiBodyS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The “Cors“ property specifies a CORS configuration for an API. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
 type ApiCors struct {
-	AllowCredentials *bool    `pulumi:"allowCredentials"`
-	AllowHeaders     []string `pulumi:"allowHeaders"`
-	AllowMethods     []string `pulumi:"allowMethods"`
-	AllowOrigins     []string `pulumi:"allowOrigins"`
-	ExposeHeaders    []string `pulumi:"exposeHeaders"`
-	MaxAge           *int     `pulumi:"maxAge"`
+	// Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.
+	AllowCredentials *bool `pulumi:"allowCredentials"`
+	// Represents a collection of allowed headers. Supported only for HTTP APIs.
+	AllowHeaders []string `pulumi:"allowHeaders"`
+	// Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.
+	AllowMethods []string `pulumi:"allowMethods"`
+	// Represents a collection of allowed origins. Supported only for HTTP APIs.
+	AllowOrigins []string `pulumi:"allowOrigins"`
+	// Represents a collection of exposed headers. Supported only for HTTP APIs.
+	ExposeHeaders []string `pulumi:"exposeHeaders"`
+	// The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
+	MaxAge *int `pulumi:"maxAge"`
 }
 
 // ApiCorsInput is an input type that accepts ApiCorsArgs and ApiCorsOutput values.
@@ -236,13 +262,20 @@ type ApiCorsInput interface {
 	ToApiCorsOutputWithContext(context.Context) ApiCorsOutput
 }
 
+// The “Cors“ property specifies a CORS configuration for an API. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
 type ApiCorsArgs struct {
-	AllowCredentials pulumi.BoolPtrInput     `pulumi:"allowCredentials"`
-	AllowHeaders     pulumi.StringArrayInput `pulumi:"allowHeaders"`
-	AllowMethods     pulumi.StringArrayInput `pulumi:"allowMethods"`
-	AllowOrigins     pulumi.StringArrayInput `pulumi:"allowOrigins"`
-	ExposeHeaders    pulumi.StringArrayInput `pulumi:"exposeHeaders"`
-	MaxAge           pulumi.IntPtrInput      `pulumi:"maxAge"`
+	// Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.
+	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
+	// Represents a collection of allowed headers. Supported only for HTTP APIs.
+	AllowHeaders pulumi.StringArrayInput `pulumi:"allowHeaders"`
+	// Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.
+	AllowMethods pulumi.StringArrayInput `pulumi:"allowMethods"`
+	// Represents a collection of allowed origins. Supported only for HTTP APIs.
+	AllowOrigins pulumi.StringArrayInput `pulumi:"allowOrigins"`
+	// Represents a collection of exposed headers. Supported only for HTTP APIs.
+	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
+	// The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
+	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
 }
 
 func (ApiCorsArgs) ElementType() reflect.Type {
@@ -310,6 +343,7 @@ func (i *apiCorsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiCors] 
 	}
 }
 
+// The “Cors“ property specifies a CORS configuration for an API. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
 type ApiCorsOutput struct{ *pulumi.OutputState }
 
 func (ApiCorsOutput) ElementType() reflect.Type {
@@ -340,26 +374,32 @@ func (o ApiCorsOutput) ToOutput(ctx context.Context) pulumix.Output[ApiCors] {
 	}
 }
 
+// Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.
 func (o ApiCorsOutput) AllowCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApiCors) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
 }
 
+// Represents a collection of allowed headers. Supported only for HTTP APIs.
 func (o ApiCorsOutput) AllowHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiCors) []string { return v.AllowHeaders }).(pulumi.StringArrayOutput)
 }
 
+// Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.
 func (o ApiCorsOutput) AllowMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiCors) []string { return v.AllowMethods }).(pulumi.StringArrayOutput)
 }
 
+// Represents a collection of allowed origins. Supported only for HTTP APIs.
 func (o ApiCorsOutput) AllowOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiCors) []string { return v.AllowOrigins }).(pulumi.StringArrayOutput)
 }
 
+// Represents a collection of exposed headers. Supported only for HTTP APIs.
 func (o ApiCorsOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiCors) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
 }
 
+// The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
 func (o ApiCorsOutput) MaxAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApiCors) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
 }
@@ -394,6 +434,7 @@ func (o ApiCorsPtrOutput) Elem() ApiCorsOutput {
 	}).(ApiCorsOutput)
 }
 
+// Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.
 func (o ApiCorsPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiCors) *bool {
 		if v == nil {
@@ -403,6 +444,7 @@ func (o ApiCorsPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Represents a collection of allowed headers. Supported only for HTTP APIs.
 func (o ApiCorsPtrOutput) AllowHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiCors) []string {
 		if v == nil {
@@ -412,6 +454,7 @@ func (o ApiCorsPtrOutput) AllowHeaders() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.
 func (o ApiCorsPtrOutput) AllowMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiCors) []string {
 		if v == nil {
@@ -421,6 +464,7 @@ func (o ApiCorsPtrOutput) AllowMethods() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Represents a collection of allowed origins. Supported only for HTTP APIs.
 func (o ApiCorsPtrOutput) AllowOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiCors) []string {
 		if v == nil {
@@ -430,6 +474,7 @@ func (o ApiCorsPtrOutput) AllowOrigins() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Represents a collection of exposed headers. Supported only for HTTP APIs.
 func (o ApiCorsPtrOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiCors) []string {
 		if v == nil {
@@ -439,6 +484,7 @@ func (o ApiCorsPtrOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
 func (o ApiCorsPtrOutput) MaxAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApiCors) *int {
 		if v == nil {

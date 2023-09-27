@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardDateTimePickerControlDisplayOptions
     {
         public readonly string? DateTimeFormat;
+        public readonly Outputs.DashboardSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
         public readonly Outputs.DashboardLabelOptions? TitleOptions;
 
         [OutputConstructor]
         private DashboardDateTimePickerControlDisplayOptions(
             string? dateTimeFormat,
 
+            Outputs.DashboardSheetControlInfoIconLabelOptions? infoIconLabelOptions,
+
             Outputs.DashboardLabelOptions? titleOptions)
         {
             DateTimeFormat = dateTimeFormat;
+            InfoIconLabelOptions = infoIconLabelOptions;
             TitleOptions = titleOptions;
         }
     }

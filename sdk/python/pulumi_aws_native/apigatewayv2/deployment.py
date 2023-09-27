@@ -19,6 +19,9 @@ class DeploymentArgs:
                  stage_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] description: The description for the deployment resource.
+        :param pulumi.Input[str] stage_name: The name of an existing stage to associate with the deployment.
         """
         pulumi.set(__self__, "api_id", api_id)
         if description is not None:
@@ -29,6 +32,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
+        """
+        The API identifier.
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -38,6 +44,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for the deployment resource.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -47,6 +56,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an existing stage to associate with the deployment.
+        """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
@@ -64,10 +76,13 @@ class Deployment(pulumi.CustomResource):
                  stage_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::Deployment
+        The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] description: The description for the deployment resource.
+        :param pulumi.Input[str] stage_name: The name of an existing stage to associate with the deployment.
         """
         ...
     @overload
@@ -76,7 +91,7 @@ class Deployment(pulumi.CustomResource):
                  args: DeploymentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::Deployment
+        The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
@@ -144,6 +159,9 @@ class Deployment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
+        """
+        The API identifier.
+        """
         return pulumi.get(self, "api_id")
 
     @property
@@ -154,10 +172,16 @@ class Deployment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description for the deployment resource.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of an existing stage to associate with the deployment.
+        """
         return pulumi.get(self, "stage_name")
 

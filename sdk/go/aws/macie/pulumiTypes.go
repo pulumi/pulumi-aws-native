@@ -235,6 +235,139 @@ func (o AllowListTagArrayOutput) Index(i pulumi.IntInput) AllowListTagOutput {
 	}).(AllowListTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type CustomDataIdentifierTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
+// CustomDataIdentifierTagInput is an input type that accepts CustomDataIdentifierTagArgs and CustomDataIdentifierTagOutput values.
+// You can construct a concrete instance of `CustomDataIdentifierTagInput` via:
+//
+//	CustomDataIdentifierTagArgs{...}
+type CustomDataIdentifierTagInput interface {
+	pulumi.Input
+
+	ToCustomDataIdentifierTagOutput() CustomDataIdentifierTagOutput
+	ToCustomDataIdentifierTagOutputWithContext(context.Context) CustomDataIdentifierTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type CustomDataIdentifierTagArgs struct {
+	// The tag's key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag's value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CustomDataIdentifierTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDataIdentifierTag)(nil)).Elem()
+}
+
+func (i CustomDataIdentifierTagArgs) ToCustomDataIdentifierTagOutput() CustomDataIdentifierTagOutput {
+	return i.ToCustomDataIdentifierTagOutputWithContext(context.Background())
+}
+
+func (i CustomDataIdentifierTagArgs) ToCustomDataIdentifierTagOutputWithContext(ctx context.Context) CustomDataIdentifierTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDataIdentifierTagOutput)
+}
+
+func (i CustomDataIdentifierTagArgs) ToOutput(ctx context.Context) pulumix.Output[CustomDataIdentifierTag] {
+	return pulumix.Output[CustomDataIdentifierTag]{
+		OutputState: i.ToCustomDataIdentifierTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// CustomDataIdentifierTagArrayInput is an input type that accepts CustomDataIdentifierTagArray and CustomDataIdentifierTagArrayOutput values.
+// You can construct a concrete instance of `CustomDataIdentifierTagArrayInput` via:
+//
+//	CustomDataIdentifierTagArray{ CustomDataIdentifierTagArgs{...} }
+type CustomDataIdentifierTagArrayInput interface {
+	pulumi.Input
+
+	ToCustomDataIdentifierTagArrayOutput() CustomDataIdentifierTagArrayOutput
+	ToCustomDataIdentifierTagArrayOutputWithContext(context.Context) CustomDataIdentifierTagArrayOutput
+}
+
+type CustomDataIdentifierTagArray []CustomDataIdentifierTagInput
+
+func (CustomDataIdentifierTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDataIdentifierTag)(nil)).Elem()
+}
+
+func (i CustomDataIdentifierTagArray) ToCustomDataIdentifierTagArrayOutput() CustomDataIdentifierTagArrayOutput {
+	return i.ToCustomDataIdentifierTagArrayOutputWithContext(context.Background())
+}
+
+func (i CustomDataIdentifierTagArray) ToCustomDataIdentifierTagArrayOutputWithContext(ctx context.Context) CustomDataIdentifierTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDataIdentifierTagArrayOutput)
+}
+
+func (i CustomDataIdentifierTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomDataIdentifierTag] {
+	return pulumix.Output[[]CustomDataIdentifierTag]{
+		OutputState: i.ToCustomDataIdentifierTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type CustomDataIdentifierTagOutput struct{ *pulumi.OutputState }
+
+func (CustomDataIdentifierTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDataIdentifierTag)(nil)).Elem()
+}
+
+func (o CustomDataIdentifierTagOutput) ToCustomDataIdentifierTagOutput() CustomDataIdentifierTagOutput {
+	return o
+}
+
+func (o CustomDataIdentifierTagOutput) ToCustomDataIdentifierTagOutputWithContext(ctx context.Context) CustomDataIdentifierTagOutput {
+	return o
+}
+
+func (o CustomDataIdentifierTagOutput) ToOutput(ctx context.Context) pulumix.Output[CustomDataIdentifierTag] {
+	return pulumix.Output[CustomDataIdentifierTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The tag's key.
+func (o CustomDataIdentifierTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDataIdentifierTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag's value.
+func (o CustomDataIdentifierTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDataIdentifierTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CustomDataIdentifierTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomDataIdentifierTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDataIdentifierTag)(nil)).Elem()
+}
+
+func (o CustomDataIdentifierTagArrayOutput) ToCustomDataIdentifierTagArrayOutput() CustomDataIdentifierTagArrayOutput {
+	return o
+}
+
+func (o CustomDataIdentifierTagArrayOutput) ToCustomDataIdentifierTagArrayOutputWithContext(ctx context.Context) CustomDataIdentifierTagArrayOutput {
+	return o
+}
+
+func (o CustomDataIdentifierTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomDataIdentifierTag] {
+	return pulumix.Output[[]CustomDataIdentifierTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomDataIdentifierTagArrayOutput) Index(i pulumi.IntInput) CustomDataIdentifierTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDataIdentifierTag {
+		return vs[0].([]CustomDataIdentifierTag)[vs[1].(int)]
+	}).(CustomDataIdentifierTagOutput)
+}
+
 // Map of filter criteria.
 type FindingsFilterCriterion struct {
 }
@@ -617,6 +750,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListCriteriaInput)(nil)).Elem(), AllowListCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListTagInput)(nil)).Elem(), AllowListTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListTagArrayInput)(nil)).Elem(), AllowListTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierTagInput)(nil)).Elem(), CustomDataIdentifierTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierTagArrayInput)(nil)).Elem(), CustomDataIdentifierTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionPtrInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
@@ -626,6 +761,8 @@ func init() {
 	pulumi.RegisterOutputType(AllowListCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(AllowListTagOutput{})
 	pulumi.RegisterOutputType(AllowListTagArrayOutput{})
+	pulumi.RegisterOutputType(CustomDataIdentifierTagOutput{})
+	pulumi.RegisterOutputType(CustomDataIdentifierTagArrayOutput{})
 	pulumi.RegisterOutputType(FindingsFilterCriterionOutput{})
 	pulumi.RegisterOutputType(FindingsFilterCriterionPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})

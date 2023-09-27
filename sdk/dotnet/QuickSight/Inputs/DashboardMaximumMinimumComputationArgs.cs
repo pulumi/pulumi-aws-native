@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("time", required: true)]
-        public Input<Inputs.DashboardDimensionFieldArgs> Time { get; set; } = null!;
+        [Input("time")]
+        public Input<Inputs.DashboardDimensionFieldArgs>? Time { get; set; }
 
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DashboardMaximumMinimumComputationType> Type { get; set; } = null!;

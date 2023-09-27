@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGatewayV2::Model
+ * The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
  */
 export class Model extends pulumi.CustomResource {
     /**
@@ -34,11 +34,26 @@ export class Model extends pulumi.CustomResource {
         return obj['__pulumiType'] === Model.__pulumiType;
     }
 
+    /**
+     * The API identifier.
+     */
     public readonly apiId!: pulumi.Output<string>;
+    /**
+     * The content-type for the model, for example, "application/json".
+     */
     public readonly contentType!: pulumi.Output<string | undefined>;
+    /**
+     * The description of the model.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly modelId!: pulumi.Output<string>;
+    /**
+     * The name of the model.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+     */
     public readonly schema!: pulumi.Output<any>;
 
     /**
@@ -83,9 +98,24 @@ export class Model extends pulumi.CustomResource {
  * The set of arguments for constructing a Model resource.
  */
 export interface ModelArgs {
+    /**
+     * The API identifier.
+     */
     apiId: pulumi.Input<string>;
+    /**
+     * The content-type for the model, for example, "application/json".
+     */
     contentType?: pulumi.Input<string>;
+    /**
+     * The description of the model.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the model.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+     */
     schema: any;
 }

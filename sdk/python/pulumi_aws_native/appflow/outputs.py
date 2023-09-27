@@ -2182,19 +2182,50 @@ class ConnectorProfileSapoDataConnectorProfileProperties(dict):
 
 @pulumi.output_type
 class ConnectorProfileServiceNowConnectorProfileCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oAuth2Credentials":
+            suggest = "o_auth2_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileServiceNowConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileServiceNowConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileServiceNowConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 password: str,
-                 username: str):
+                 o_auth2_credentials: Optional['outputs.ConnectorProfileOAuth2Credentials'] = None,
+                 password: Optional[str] = None,
+                 username: Optional[str] = None):
         """
+        :param 'ConnectorProfileOAuth2Credentials' o_auth2_credentials: The OAuth 2.0 credentials required to authenticate the user.
         :param str password: The password that corresponds to the username.
         :param str username: The name of the user.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        if o_auth2_credentials is not None:
+            pulumi.set(__self__, "o_auth2_credentials", o_auth2_credentials)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="oAuth2Credentials")
+    def o_auth2_credentials(self) -> Optional['outputs.ConnectorProfileOAuth2Credentials']:
+        """
+        The OAuth 2.0 credentials required to authenticate the user.
+        """
+        return pulumi.get(self, "o_auth2_credentials")
 
     @property
     @pulumi.getter
-    def password(self) -> str:
+    def password(self) -> Optional[str]:
         """
         The password that corresponds to the username.
         """
@@ -2202,7 +2233,7 @@ class ConnectorProfileServiceNowConnectorProfileCredentials(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def username(self) -> Optional[str]:
         """
         The name of the user.
         """

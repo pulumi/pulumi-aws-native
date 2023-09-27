@@ -39,16 +39,25 @@ class GetRouteResponseResult:
     @property
     @pulumi.getter(name="modelSelectionExpression")
     def model_selection_expression(self) -> Optional[str]:
+        """
+        The model selection expression for the route response. Supported only for WebSocket APIs.
+        """
         return pulumi.get(self, "model_selection_expression")
 
     @property
     @pulumi.getter(name="responseModels")
     def response_models(self) -> Optional[Any]:
+        """
+        The response models for the route response.
+        """
         return pulumi.get(self, "response_models")
 
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional['outputs.RouteResponseRouteParameters']:
+        """
+        The route response parameters.
+        """
         return pulumi.get(self, "response_parameters")
 
     @property
@@ -59,6 +68,9 @@ class GetRouteResponseResult:
     @property
     @pulumi.getter(name="routeResponseKey")
     def route_response_key(self) -> Optional[str]:
+        """
+        The route response key.
+        """
         return pulumi.get(self, "route_response_key")
 
 
@@ -80,7 +92,11 @@ def get_route_response(api_id: Optional[str] = None,
                        route_response_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResponseResult:
     """
-    Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+    The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
+
+
+    :param str api_id: The API identifier.
+    :param str route_id: The route ID.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -103,6 +119,10 @@ def get_route_response_output(api_id: Optional[pulumi.Input[str]] = None,
                               route_response_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResponseResult]:
     """
-    Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+    The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
+
+
+    :param str api_id: The API identifier.
+    :param str route_id: The route ID.
     """
     ...

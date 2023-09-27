@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGatewayV2::Api
+ * The ``AWS::ApiGatewayV2::Api`` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
  */
 export class Api extends pulumi.CustomResource {
     /**
@@ -39,25 +39,73 @@ export class Api extends pulumi.CustomResource {
 
     public /*out*/ readonly apiEndpoint!: pulumi.Output<string>;
     public /*out*/ readonly apiId!: pulumi.Output<string>;
+    /**
+     * An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
+     */
     public readonly apiKeySelectionExpression!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies how to interpret the base path of the API during import. Valid values are ``ignore``, ``prepend``, and ``split``. The default value is ``ignore``. To learn more, see [Set the OpenAPI basePath Property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html). Supported only for HTTP APIs.
+     */
     public readonly basePath!: pulumi.Output<string | undefined>;
+    /**
+     * The OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a ``Body`` or ``BodyS3Location``. If you specify a ``Body`` or ``BodyS3Location``, don't specify CloudFormation resources such as ``AWS::ApiGatewayV2::Authorizer`` or ``AWS::ApiGatewayV2::Route``. API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
+     */
     public readonly body!: pulumi.Output<any | undefined>;
+    /**
+     * The S3 location of an OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a ``Body`` or ``BodyS3Location``. If you specify a ``Body`` or ``BodyS3Location``, don't specify CloudFormation resources such as ``AWS::ApiGatewayV2::Authorizer`` or ``AWS::ApiGatewayV2::Route``. API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
+     */
     public readonly bodyS3Location!: pulumi.Output<outputs.apigatewayv2.ApiBodyS3Location | undefined>;
+    /**
+     * A CORS configuration. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
+     */
     public readonly corsConfiguration!: pulumi.Output<outputs.apigatewayv2.ApiCors | undefined>;
+    /**
+     * This property is part of quick create. It specifies the credentials required for the integration, if any. For a Lambda integration, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify ``arn:aws:iam::*:user/*``. To use resource-based permissions on supported AWS services, specify ``null``. Currently, this property is not used for HTTP integrations. Supported only for HTTP APIs.
+     */
     public readonly credentialsArn!: pulumi.Output<string | undefined>;
+    /**
+     * The description of the API.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+     */
     public readonly disableExecuteApiEndpoint!: pulumi.Output<boolean | undefined>;
+    /**
+     * Avoid validating models when creating a deployment. Supported only for WebSocket APIs.
+     */
     public readonly disableSchemaValidation!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
+     */
     public readonly failOnWarnings!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The API protocol. Valid values are ``WEBSOCKET`` or ``HTTP``. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
+     */
     public readonly protocolType!: pulumi.Output<string | undefined>;
+    /**
+     * This property is part of quick create. If you don't specify a ``routeKey``, a default route of ``$default`` is created. The ``$default`` route acts as a catch-all for any request made to your API, for a particular stage. The ``$default`` route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.
+     */
     public readonly routeKey!: pulumi.Output<string | undefined>;
+    /**
+     * The route selection expression for the API. For HTTP APIs, the ``routeSelectionExpression`` must be ``${request.method} ${request.path}``. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
+     */
     public readonly routeSelectionExpression!: pulumi.Output<string | undefined>;
     /**
-     * This resource type use map for Tags, suggest to use List of Tag
+     * The collection of tags. Each tag element is associated with a given resource.
      */
     public readonly tags!: pulumi.Output<any | undefined>;
+    /**
+     * This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.
+     */
     public readonly target!: pulumi.Output<string | undefined>;
+    /**
+     * A version identifier for the API.
+     */
     public readonly version!: pulumi.Output<string | undefined>;
 
     /**
@@ -122,24 +170,72 @@ export class Api extends pulumi.CustomResource {
  * The set of arguments for constructing a Api resource.
  */
 export interface ApiArgs {
+    /**
+     * An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
+     */
     apiKeySelectionExpression?: pulumi.Input<string>;
+    /**
+     * Specifies how to interpret the base path of the API during import. Valid values are ``ignore``, ``prepend``, and ``split``. The default value is ``ignore``. To learn more, see [Set the OpenAPI basePath Property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html). Supported only for HTTP APIs.
+     */
     basePath?: pulumi.Input<string>;
+    /**
+     * The OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a ``Body`` or ``BodyS3Location``. If you specify a ``Body`` or ``BodyS3Location``, don't specify CloudFormation resources such as ``AWS::ApiGatewayV2::Authorizer`` or ``AWS::ApiGatewayV2::Route``. API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
+     */
     body?: any;
+    /**
+     * The S3 location of an OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a ``Body`` or ``BodyS3Location``. If you specify a ``Body`` or ``BodyS3Location``, don't specify CloudFormation resources such as ``AWS::ApiGatewayV2::Authorizer`` or ``AWS::ApiGatewayV2::Route``. API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
+     */
     bodyS3Location?: pulumi.Input<inputs.apigatewayv2.ApiBodyS3LocationArgs>;
+    /**
+     * A CORS configuration. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
+     */
     corsConfiguration?: pulumi.Input<inputs.apigatewayv2.ApiCorsArgs>;
+    /**
+     * This property is part of quick create. It specifies the credentials required for the integration, if any. For a Lambda integration, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify ``arn:aws:iam::*:user/*``. To use resource-based permissions on supported AWS services, specify ``null``. Currently, this property is not used for HTTP integrations. Supported only for HTTP APIs.
+     */
     credentialsArn?: pulumi.Input<string>;
+    /**
+     * The description of the API.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+     */
     disableExecuteApiEndpoint?: pulumi.Input<boolean>;
+    /**
+     * Avoid validating models when creating a deployment. Supported only for WebSocket APIs.
+     */
     disableSchemaValidation?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
+     */
     failOnWarnings?: pulumi.Input<boolean>;
+    /**
+     * The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The API protocol. Valid values are ``WEBSOCKET`` or ``HTTP``. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
+     */
     protocolType?: pulumi.Input<string>;
+    /**
+     * This property is part of quick create. If you don't specify a ``routeKey``, a default route of ``$default`` is created. The ``$default`` route acts as a catch-all for any request made to your API, for a particular stage. The ``$default`` route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.
+     */
     routeKey?: pulumi.Input<string>;
+    /**
+     * The route selection expression for the API. For HTTP APIs, the ``routeSelectionExpression`` must be ``${request.method} ${request.path}``. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
+     */
     routeSelectionExpression?: pulumi.Input<string>;
     /**
-     * This resource type use map for Tags, suggest to use List of Tag
+     * The collection of tags. Each tag element is associated with a given resource.
      */
     tags?: any;
+    /**
+     * This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.
+     */
     target?: pulumi.Input<string>;
+    /**
+     * A version identifier for the API.
+     */
     version?: pulumi.Input<string>;
 }

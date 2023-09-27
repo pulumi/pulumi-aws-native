@@ -14,20 +14,27 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class ConnectorProfileServiceNowConnectorProfileCredentials
     {
         /// <summary>
+        /// The OAuth 2.0 credentials required to authenticate the user.
+        /// </summary>
+        public readonly Outputs.ConnectorProfileOAuth2Credentials? OAuth2Credentials;
+        /// <summary>
         /// The password that corresponds to the username.
         /// </summary>
-        public readonly string Password;
+        public readonly string? Password;
         /// <summary>
         /// The name of the user.
         /// </summary>
-        public readonly string Username;
+        public readonly string? Username;
 
         [OutputConstructor]
         private ConnectorProfileServiceNowConnectorProfileCredentials(
-            string password,
+            Outputs.ConnectorProfileOAuth2Credentials? oAuth2Credentials,
 
-            string username)
+            string? password,
+
+            string? username)
         {
+            OAuth2Credentials = oAuth2Credentials;
             Password = password;
             Username = username;
         }

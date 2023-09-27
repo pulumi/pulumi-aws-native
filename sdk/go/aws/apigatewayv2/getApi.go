@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGatewayV2::Api
+// The “AWS::ApiGatewayV2::Api“ resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
 func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOption) (*LookupApiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApiResult
@@ -28,17 +28,24 @@ type LookupApiArgs struct {
 }
 
 type LookupApiResult struct {
-	ApiEndpoint               *string  `pulumi:"apiEndpoint"`
-	ApiId                     *string  `pulumi:"apiId"`
-	ApiKeySelectionExpression *string  `pulumi:"apiKeySelectionExpression"`
-	CorsConfiguration         *ApiCors `pulumi:"corsConfiguration"`
-	Description               *string  `pulumi:"description"`
-	DisableExecuteApiEndpoint *bool    `pulumi:"disableExecuteApiEndpoint"`
-	Name                      *string  `pulumi:"name"`
-	RouteSelectionExpression  *string  `pulumi:"routeSelectionExpression"`
-	// This resource type use map for Tags, suggest to use List of Tag
-	Tags    interface{} `pulumi:"tags"`
-	Version *string     `pulumi:"version"`
+	ApiEndpoint *string `pulumi:"apiEndpoint"`
+	ApiId       *string `pulumi:"apiId"`
+	// An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
+	ApiKeySelectionExpression *string `pulumi:"apiKeySelectionExpression"`
+	// A CORS configuration. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
+	CorsConfiguration *ApiCors `pulumi:"corsConfiguration"`
+	// The description of the API.
+	Description *string `pulumi:"description"`
+	// Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
+	// The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
+	Name *string `pulumi:"name"`
+	// The route selection expression for the API. For HTTP APIs, the ``routeSelectionExpression`` must be ``${request.method} ${request.path}``. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
+	RouteSelectionExpression *string `pulumi:"routeSelectionExpression"`
+	// The collection of tags. Each tag element is associated with a given resource.
+	Tags interface{} `pulumi:"tags"`
+	// A version identifier for the API.
+	Version *string `pulumi:"version"`
 }
 
 func LookupApiOutput(ctx *pulumi.Context, args LookupApiOutputArgs, opts ...pulumi.InvokeOption) LookupApiResultOutput {
@@ -90,35 +97,42 @@ func (o LookupApiResultOutput) ApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiId }).(pulumi.StringPtrOutput)
 }
 
+// An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
 func (o LookupApiResultOutput) ApiKeySelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiKeySelectionExpression }).(pulumi.StringPtrOutput)
 }
 
+// A CORS configuration. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
 func (o LookupApiResultOutput) CorsConfiguration() ApiCorsPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *ApiCors { return v.CorsConfiguration }).(ApiCorsPtrOutput)
 }
 
+// The description of the API.
 func (o LookupApiResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether clients can invoke your API by using the default “execute-api“ endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
 func (o LookupApiResultOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *bool { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the API. Required unless you specify an OpenAPI definition for “Body“ or “S3BodyLocation“.
 func (o LookupApiResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The route selection expression for the API. For HTTP APIs, the “routeSelectionExpression“ must be “${request.method} ${request.path}“. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
 func (o LookupApiResultOutput) RouteSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.RouteSelectionExpression }).(pulumi.StringPtrOutput)
 }
 
-// This resource type use map for Tags, suggest to use List of Tag
+// The collection of tags. Each tag element is associated with a given resource.
 func (o LookupApiResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupApiResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }
 
+// A version identifier for the API.
 func (o LookupApiResultOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }

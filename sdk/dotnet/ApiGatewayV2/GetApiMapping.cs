@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public static class GetApiMapping
     {
         /// <summary>
-        /// Schema for AWS::ApiGatewayV2::ApiMapping
+        /// The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
         /// </summary>
         public static Task<GetApiMappingResult> InvokeAsync(GetApiMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiMappingResult>("aws-native:apigatewayv2:getApiMapping", args ?? new GetApiMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Schema for AWS::ApiGatewayV2::ApiMapping
+        /// The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
         /// </summary>
         public static Output<GetApiMappingResult> Invoke(GetApiMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiMappingResult>("aws-native:apigatewayv2:getApiMapping", args ?? new GetApiMappingInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public string ApiMappingId { get; set; } = null!;
 
         /// <summary>
-        /// The domain name
+        /// The domain name.
         /// </summary>
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Input<string> ApiMappingId { get; set; } = null!;
 
         /// <summary>
-        /// The domain name
+        /// The domain name.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public sealed class GetApiMappingResult
     {
         /// <summary>
-        /// The API identifier
+        /// The identifier of the API.
         /// </summary>
         public readonly string? ApiId;
         /// <summary>
@@ -78,11 +78,11 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         public readonly string? ApiMappingId;
         /// <summary>
-        /// The API mapping key
+        /// The API mapping key.
         /// </summary>
         public readonly string? ApiMappingKey;
         /// <summary>
-        /// The API stage
+        /// The API stage.
         /// </summary>
         public readonly string? Stage;
 

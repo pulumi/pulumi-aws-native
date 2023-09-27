@@ -2026,37 +2026,55 @@ class ConnectorProfileSapoDataConnectorProfilePropertiesArgs:
 @pulumi.input_type
 class ConnectorProfileServiceNowConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
-                 password: pulumi.Input[str],
-                 username: pulumi.Input[str]):
+                 o_auth2_credentials: Optional[pulumi.Input['ConnectorProfileOAuth2CredentialsArgs']] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input['ConnectorProfileOAuth2CredentialsArgs'] o_auth2_credentials: The OAuth 2.0 credentials required to authenticate the user.
         :param pulumi.Input[str] password: The password that corresponds to the username.
         :param pulumi.Input[str] username: The name of the user.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        if o_auth2_credentials is not None:
+            pulumi.set(__self__, "o_auth2_credentials", o_auth2_credentials)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="oAuth2Credentials")
+    def o_auth2_credentials(self) -> Optional[pulumi.Input['ConnectorProfileOAuth2CredentialsArgs']]:
+        """
+        The OAuth 2.0 credentials required to authenticate the user.
+        """
+        return pulumi.get(self, "o_auth2_credentials")
+
+    @o_auth2_credentials.setter
+    def o_auth2_credentials(self, value: Optional[pulumi.Input['ConnectorProfileOAuth2CredentialsArgs']]):
+        pulumi.set(self, "o_auth2_credentials", value)
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
+    def password(self) -> Optional[pulumi.Input[str]]:
         """
         The password that corresponds to the username.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: pulumi.Input[str]):
+    def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
+    def username(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the user.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[str]):
+    def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
 

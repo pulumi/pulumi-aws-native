@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("value", required: true)]
-        public Input<Inputs.DashboardMeasureFieldArgs> Value { get; set; } = null!;
+        [Input("value")]
+        public Input<Inputs.DashboardMeasureFieldArgs>? Value { get; set; }
 
         public DashboardTotalAggregationComputationArgs()
         {

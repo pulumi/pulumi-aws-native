@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTextFieldControlDisplayOptions
     {
+        public readonly Outputs.DashboardSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
         public readonly Outputs.DashboardTextControlPlaceholderOptions? PlaceholderOptions;
         public readonly Outputs.DashboardLabelOptions? TitleOptions;
 
         [OutputConstructor]
         private DashboardTextFieldControlDisplayOptions(
+            Outputs.DashboardSheetControlInfoIconLabelOptions? infoIconLabelOptions,
+
             Outputs.DashboardTextControlPlaceholderOptions? placeholderOptions,
 
             Outputs.DashboardLabelOptions? titleOptions)
         {
+            InfoIconLabelOptions = infoIconLabelOptions;
             PlaceholderOptions = placeholderOptions;
             TitleOptions = titleOptions;
         }

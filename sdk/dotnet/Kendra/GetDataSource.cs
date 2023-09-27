@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.Kendra
         public readonly string? Description;
         public readonly string? Id;
         public readonly string? IndexId;
+        public readonly string? LanguageCode;
         public readonly string? Name;
         public readonly string? RoleArn;
         public readonly string? Schedule;
@@ -85,6 +86,8 @@ namespace Pulumi.AwsNative.Kendra
 
             string? indexId,
 
+            string? languageCode,
+
             string? name,
 
             string? roleArn,
@@ -99,6 +102,7 @@ namespace Pulumi.AwsNative.Kendra
             Description = description;
             Id = id;
             IndexId = indexId;
+            LanguageCode = languageCode;
             Name = name;
             RoleArn = roleArn;
             Schedule = schedule;

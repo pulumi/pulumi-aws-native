@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public static class GetModel
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGatewayV2::Model
+        /// The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Task<GetModelResult> InvokeAsync(GetModelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws-native:apigatewayv2:getModel", args ?? new GetModelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGatewayV2::Model
+        /// The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:apigatewayv2:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetModelArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
 
@@ -41,6 +44,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetModelInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
@@ -57,10 +63,22 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [OutputType]
     public sealed class GetModelResult
     {
+        /// <summary>
+        /// The content-type for the model, for example, "application/json".
+        /// </summary>
         public readonly string? ContentType;
+        /// <summary>
+        /// The description of the model.
+        /// </summary>
         public readonly string? Description;
         public readonly string? ModelId;
+        /// <summary>
+        /// The name of the model.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+        /// </summary>
         public readonly object? Schema;
 
         [OutputConstructor]

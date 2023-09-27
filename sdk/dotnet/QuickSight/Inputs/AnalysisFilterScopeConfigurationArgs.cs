@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisFilterScopeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allSheets")]
+        public Input<Inputs.AnalysisAllSheetsFilterScopeConfigurationArgs>? AllSheets { get; set; }
+
         [Input("selectedSheets")]
         public Input<Inputs.AnalysisSelectedSheetsFilterScopeConfigurationArgs>? SelectedSheets { get; set; }
 

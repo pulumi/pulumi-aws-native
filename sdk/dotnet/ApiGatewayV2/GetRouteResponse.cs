@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public static class GetRouteResponse
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+        /// The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Task<GetRouteResponseResult> InvokeAsync(GetRouteResponseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResponseResult>("aws-native:apigatewayv2:getRouteResponse", args ?? new GetRouteResponseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGatewayV2::RouteResponse
+        /// The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Output<GetRouteResponseResult> Invoke(GetRouteResponseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResponseResult>("aws-native:apigatewayv2:getRouteResponse", args ?? new GetRouteResponseInvokeArgs(), options.WithDefaults());
@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetRouteResponseArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The route ID.
+        /// </summary>
         [Input("routeId", required: true)]
         public string RouteId { get; set; } = null!;
 
@@ -44,9 +50,15 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetRouteResponseInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The route ID.
+        /// </summary>
         [Input("routeId", required: true)]
         public Input<string> RouteId { get; set; } = null!;
 
@@ -63,10 +75,22 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [OutputType]
     public sealed class GetRouteResponseResult
     {
+        /// <summary>
+        /// The model selection expression for the route response. Supported only for WebSocket APIs.
+        /// </summary>
         public readonly string? ModelSelectionExpression;
+        /// <summary>
+        /// The response models for the route response.
+        /// </summary>
         public readonly object? ResponseModels;
+        /// <summary>
+        /// The route response parameters.
+        /// </summary>
         public readonly Outputs.RouteResponseRouteParameters? ResponseParameters;
         public readonly string? RouteResponseId;
+        /// <summary>
+        /// The route response key.
+        /// </summary>
         public readonly string? RouteResponseKey;
 
         [OutputConstructor]

@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Rule{}
 	case "aws-native:connect:SecurityKey":
 		r = &SecurityKey{}
+	case "aws-native:connect:SecurityProfile":
+		r = &SecurityProfile{}
 	case "aws-native:connect:TaskTemplate":
 		r = &TaskTemplate{}
 	case "aws-native:connect:TrafficDistributionGroup":

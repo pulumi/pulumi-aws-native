@@ -95,6 +95,11 @@ export const getSecurityKey: typeof import("./getSecurityKey").getSecurityKey = 
 export const getSecurityKeyOutput: typeof import("./getSecurityKey").getSecurityKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityKey","getSecurityKeyOutput"], () => require("./getSecurityKey"));
 
+export { GetSecurityProfileArgs, GetSecurityProfileResult, GetSecurityProfileOutputArgs } from "./getSecurityProfile";
+export const getSecurityProfile: typeof import("./getSecurityProfile").getSecurityProfile = null as any;
+export const getSecurityProfileOutput: typeof import("./getSecurityProfile").getSecurityProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityProfile","getSecurityProfileOutput"], () => require("./getSecurityProfile"));
+
 export { GetTaskTemplateArgs, GetTaskTemplateResult, GetTaskTemplateOutputArgs } from "./getTaskTemplate";
 export const getTaskTemplate: typeof import("./getTaskTemplate").getTaskTemplate = null as any;
 export const getTaskTemplateOutput: typeof import("./getTaskTemplate").getTaskTemplateOutput = null as any;
@@ -180,6 +185,11 @@ export type SecurityKey = import("./securityKey").SecurityKey;
 export const SecurityKey: typeof import("./securityKey").SecurityKey = null as any;
 utilities.lazyLoad(exports, ["SecurityKey"], () => require("./securityKey"));
 
+export { SecurityProfileArgs } from "./securityProfile";
+export type SecurityProfile = import("./securityProfile").SecurityProfile;
+export const SecurityProfile: typeof import("./securityProfile").SecurityProfile = null as any;
+utilities.lazyLoad(exports, ["SecurityProfile"], () => require("./securityProfile"));
+
 export { TaskTemplateArgs } from "./taskTemplate";
 export type TaskTemplate = import("./taskTemplate").TaskTemplate;
 export const TaskTemplate: typeof import("./taskTemplate").TaskTemplate = null as any;
@@ -248,6 +258,8 @@ const _module = {
                 return new Rule(name, <any>undefined, { urn })
             case "aws-native:connect:SecurityKey":
                 return new SecurityKey(name, <any>undefined, { urn })
+            case "aws-native:connect:SecurityProfile":
+                return new SecurityProfile(name, <any>undefined, { urn })
             case "aws-native:connect:TaskTemplate":
                 return new TaskTemplate(name, <any>undefined, { urn })
             case "aws-native:connect:TrafficDistributionGroup":

@@ -16,6 +16,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly double? MaxVisibleColumns;
         public readonly double? MaxVisibleRows;
         public readonly Outputs.DashboardPanelConfiguration? PanelConfiguration;
+        public readonly Outputs.DashboardSmallMultiplesAxisProperties? XAxis;
+        public readonly Outputs.DashboardSmallMultiplesAxisProperties? YAxis;
 
         [OutputConstructor]
         private DashboardSmallMultiplesOptions(
@@ -23,11 +25,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             double? maxVisibleRows,
 
-            Outputs.DashboardPanelConfiguration? panelConfiguration)
+            Outputs.DashboardPanelConfiguration? panelConfiguration,
+
+            Outputs.DashboardSmallMultiplesAxisProperties? xAxis,
+
+            Outputs.DashboardSmallMultiplesAxisProperties? yAxis)
         {
             MaxVisibleColumns = maxVisibleColumns;
             MaxVisibleRows = maxVisibleRows;
             PanelConfiguration = panelConfiguration;
+            XAxis = xAxis;
+            YAxis = yAxis;
         }
     }
 }

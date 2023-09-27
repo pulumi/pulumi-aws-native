@@ -20,10 +20,10 @@ class ApiMappingArgs:
                  api_mapping_key: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiMapping resource.
-        :param pulumi.Input[str] api_id: The API identifier
-        :param pulumi.Input[str] domain_name: The domain name
-        :param pulumi.Input[str] stage: The API stage
-        :param pulumi.Input[str] api_mapping_key: The API mapping key
+        :param pulumi.Input[str] api_id: The identifier of the API.
+        :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input[str] stage: The API stage.
+        :param pulumi.Input[str] api_mapping_key: The API mapping key.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -35,7 +35,7 @@ class ApiMappingArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
         """
-        The API identifier
+        The identifier of the API.
         """
         return pulumi.get(self, "api_id")
 
@@ -47,7 +47,7 @@ class ApiMappingArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        The domain name
+        The domain name.
         """
         return pulumi.get(self, "domain_name")
 
@@ -59,7 +59,7 @@ class ApiMappingArgs:
     @pulumi.getter
     def stage(self) -> pulumi.Input[str]:
         """
-        The API stage
+        The API stage.
         """
         return pulumi.get(self, "stage")
 
@@ -71,7 +71,7 @@ class ApiMappingArgs:
     @pulumi.getter(name="apiMappingKey")
     def api_mapping_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The API mapping key
+        The API mapping key.
         """
         return pulumi.get(self, "api_mapping_key")
 
@@ -91,14 +91,14 @@ class ApiMapping(pulumi.CustomResource):
                  stage: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Schema for AWS::ApiGatewayV2::ApiMapping
+        The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API identifier
-        :param pulumi.Input[str] api_mapping_key: The API mapping key
-        :param pulumi.Input[str] domain_name: The domain name
-        :param pulumi.Input[str] stage: The API stage
+        :param pulumi.Input[str] api_id: The identifier of the API.
+        :param pulumi.Input[str] api_mapping_key: The API mapping key.
+        :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input[str] stage: The API stage.
         """
         ...
     @overload
@@ -107,7 +107,7 @@ class ApiMapping(pulumi.CustomResource):
                  args: ApiMappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Schema for AWS::ApiGatewayV2::ApiMapping
+        The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
 
         :param str resource_name: The name of the resource.
         :param ApiMappingArgs args: The arguments to use to populate this resource's properties.
@@ -183,7 +183,7 @@ class ApiMapping(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         """
-        The API identifier
+        The identifier of the API.
         """
         return pulumi.get(self, "api_id")
 
@@ -199,7 +199,7 @@ class ApiMapping(pulumi.CustomResource):
     @pulumi.getter(name="apiMappingKey")
     def api_mapping_key(self) -> pulumi.Output[Optional[str]]:
         """
-        The API mapping key
+        The API mapping key.
         """
         return pulumi.get(self, "api_mapping_key")
 
@@ -207,7 +207,7 @@ class ApiMapping(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        The domain name
+        The domain name.
         """
         return pulumi.get(self, "domain_name")
 
@@ -215,7 +215,7 @@ class ApiMapping(pulumi.CustomResource):
     @pulumi.getter
     def stage(self) -> pulumi.Output[str]:
         """
-        The API stage
+        The API stage.
         """
         return pulumi.get(self, "stage")
 

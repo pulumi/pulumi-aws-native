@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.AutoScaling
 
     public sealed class GetAutoScalingGroupArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("autoScalingGroupName", required: true)]
+        public string AutoScalingGroupName { get; set; } = null!;
 
         public GetAutoScalingGroupArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.AutoScaling
 
     public sealed class GetAutoScalingGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("autoScalingGroupName", required: true)]
+        public Input<string> AutoScalingGroupName { get; set; } = null!;
 
         public GetAutoScalingGroupInvokeArgs()
         {
@@ -60,7 +60,6 @@ namespace Pulumi.AwsNative.AutoScaling
         public readonly string? DesiredCapacityType;
         public readonly int? HealthCheckGracePeriod;
         public readonly string? HealthCheckType;
-        public readonly string? Id;
         public readonly Outputs.AutoScalingGroupInstanceMaintenancePolicy? InstanceMaintenancePolicy;
         public readonly string? LaunchConfigurationName;
         public readonly Outputs.AutoScalingGroupLaunchTemplateSpecification? LaunchTemplate;
@@ -72,6 +71,7 @@ namespace Pulumi.AwsNative.AutoScaling
         public readonly string? MinSize;
         public readonly Outputs.AutoScalingGroupMixedInstancesPolicy? MixedInstancesPolicy;
         public readonly bool? NewInstancesProtectedFromScaleIn;
+        public readonly Outputs.AutoScalingGroupNotificationConfiguration? NotificationConfiguration;
         public readonly ImmutableArray<Outputs.AutoScalingGroupNotificationConfiguration> NotificationConfigurations;
         public readonly string? PlacementGroup;
         public readonly string? ServiceLinkedRoleArn;
@@ -100,8 +100,6 @@ namespace Pulumi.AwsNative.AutoScaling
 
             string? healthCheckType,
 
-            string? id,
-
             Outputs.AutoScalingGroupInstanceMaintenancePolicy? instanceMaintenancePolicy,
 
             string? launchConfigurationName,
@@ -123,6 +121,8 @@ namespace Pulumi.AwsNative.AutoScaling
             Outputs.AutoScalingGroupMixedInstancesPolicy? mixedInstancesPolicy,
 
             bool? newInstancesProtectedFromScaleIn,
+
+            Outputs.AutoScalingGroupNotificationConfiguration? notificationConfiguration,
 
             ImmutableArray<Outputs.AutoScalingGroupNotificationConfiguration> notificationConfigurations,
 
@@ -147,7 +147,6 @@ namespace Pulumi.AwsNative.AutoScaling
             DesiredCapacityType = desiredCapacityType;
             HealthCheckGracePeriod = healthCheckGracePeriod;
             HealthCheckType = healthCheckType;
-            Id = id;
             InstanceMaintenancePolicy = instanceMaintenancePolicy;
             LaunchConfigurationName = launchConfigurationName;
             LaunchTemplate = launchTemplate;
@@ -159,6 +158,7 @@ namespace Pulumi.AwsNative.AutoScaling
             MinSize = minSize;
             MixedInstancesPolicy = mixedInstancesPolicy;
             NewInstancesProtectedFromScaleIn = newInstancesProtectedFromScaleIn;
+            NotificationConfiguration = notificationConfiguration;
             NotificationConfigurations = notificationConfigurations;
             PlacementGroup = placementGroup;
             ServiceLinkedRoleArn = serviceLinkedRoleArn;

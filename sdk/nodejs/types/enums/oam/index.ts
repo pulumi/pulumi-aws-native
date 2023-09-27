@@ -6,6 +6,7 @@ export const LinkResourceType = {
     AwsCloudWatchMetric: "AWS::CloudWatch::Metric",
     AwsLogsLogGroup: "AWS::Logs::LogGroup",
     AwsxRayTrace: "AWS::XRay::Trace",
+    AwsApplicationInsightsApplication: "AWS::ApplicationInsights::Application",
 } as const;
 
 export type LinkResourceType = (typeof LinkResourceType)[keyof typeof LinkResourceType];

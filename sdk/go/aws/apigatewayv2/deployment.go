@@ -13,14 +13,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGatewayV2::Deployment
+// The “AWS::ApiGatewayV2::Deployment“ resource creates a deployment for an API.
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	ApiId        pulumi.StringOutput    `pulumi:"apiId"`
-	DeploymentId pulumi.StringOutput    `pulumi:"deploymentId"`
-	Description  pulumi.StringPtrOutput `pulumi:"description"`
-	StageName    pulumi.StringPtrOutput `pulumi:"stageName"`
+	// The API identifier.
+	ApiId        pulumi.StringOutput `pulumi:"apiId"`
+	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
+	// The description for the deployment resource.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of an existing stage to associate with the deployment.
+	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -70,16 +73,22 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	ApiId       string  `pulumi:"apiId"`
+	// The API identifier.
+	ApiId string `pulumi:"apiId"`
+	// The description for the deployment resource.
 	Description *string `pulumi:"description"`
-	StageName   *string `pulumi:"stageName"`
+	// The name of an existing stage to associate with the deployment.
+	StageName *string `pulumi:"stageName"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	ApiId       pulumi.StringInput
+	// The API identifier.
+	ApiId pulumi.StringInput
+	// The description for the deployment resource.
 	Description pulumi.StringPtrInput
-	StageName   pulumi.StringPtrInput
+	// The name of an existing stage to associate with the deployment.
+	StageName pulumi.StringPtrInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {
@@ -131,6 +140,7 @@ func (o DeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*Deployme
 	}
 }
 
+// The API identifier.
 func (o DeploymentOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
@@ -139,10 +149,12 @@ func (o DeploymentOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
 }
 
+// The description for the deployment resource.
 func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of an existing stage to associate with the deployment.
 func (o DeploymentOutput) StageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageName }).(pulumi.StringPtrOutput)
 }

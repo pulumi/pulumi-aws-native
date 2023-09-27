@@ -36,8 +36,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("seasonality")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardForecastComputationSeasonality>? Seasonality { get; set; }
 
-        [Input("time", required: true)]
-        public Input<Inputs.DashboardDimensionFieldArgs> Time { get; set; } = null!;
+        [Input("time")]
+        public Input<Inputs.DashboardDimensionFieldArgs>? Time { get; set; }
 
         [Input("upperBoundary")]
         public Input<double>? UpperBoundary { get; set; }

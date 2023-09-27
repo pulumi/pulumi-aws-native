@@ -22,6 +22,7 @@ class DataSourceArgs:
                  custom_document_enrichment_configuration: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs']] = None,
                  data_source_configuration: Optional[pulumi.Input['DataSourceConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,8 @@ class DataSourceArgs:
             pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if language_code is not None:
+            pulumi.set(__self__, "language_code", language_code)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if role_arn is not None:
@@ -93,6 +96,15 @@ class DataSourceArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "language_code")
+
+    @language_code.setter
+    def language_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "language_code", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
@@ -141,6 +153,7 @@ class DataSource(pulumi.CustomResource):
                  data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
+                 language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
@@ -182,6 +195,7 @@ class DataSource(pulumi.CustomResource):
                  data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
+                 language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
@@ -202,6 +216,7 @@ class DataSource(pulumi.CustomResource):
             if index_id is None and not opts.urn:
                 raise TypeError("Missing required property 'index_id'")
             __props__.__dict__["index_id"] = index_id
+            __props__.__dict__["language_code"] = language_code
             __props__.__dict__["name"] = name
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["schedule"] = schedule
@@ -239,6 +254,7 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["data_source_configuration"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["index_id"] = None
+        __props__.__dict__["language_code"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["schedule"] = None
@@ -270,6 +286,11 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "index_id")
+
+    @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "language_code")
 
     @property
     @pulumi.getter

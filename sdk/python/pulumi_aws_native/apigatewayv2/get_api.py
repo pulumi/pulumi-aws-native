@@ -64,44 +64,65 @@ class GetApiResult:
     @property
     @pulumi.getter(name="apiKeySelectionExpression")
     def api_key_selection_expression(self) -> Optional[str]:
+        """
+        An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
+        """
         return pulumi.get(self, "api_key_selection_expression")
 
     @property
     @pulumi.getter(name="corsConfiguration")
     def cors_configuration(self) -> Optional['outputs.ApiCors']:
+        """
+        A CORS configuration. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
+        """
         return pulumi.get(self, "cors_configuration")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the API.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="disableExecuteApiEndpoint")
     def disable_execute_api_endpoint(self) -> Optional[bool]:
+        """
+        Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+        """
         return pulumi.get(self, "disable_execute_api_endpoint")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="routeSelectionExpression")
     def route_selection_expression(self) -> Optional[str]:
+        """
+        The route selection expression for the API. For HTTP APIs, the ``routeSelectionExpression`` must be ``${request.method} ${request.path}``. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
+        """
         return pulumi.get(self, "route_selection_expression")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         """
-        This resource type use map for Tags, suggest to use List of Tag
+        The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        A version identifier for the API.
+        """
         return pulumi.get(self, "version")
 
 
@@ -126,7 +147,7 @@ class AwaitableGetApiResult(GetApiResult):
 def get_api(api_id: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiResult:
     """
-    Resource Type definition for AWS::ApiGatewayV2::Api
+    The ``AWS::ApiGatewayV2::Api`` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -150,6 +171,6 @@ def get_api(api_id: Optional[str] = None,
 def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiResult]:
     """
-    Resource Type definition for AWS::ApiGatewayV2::Api
+    The ``AWS::ApiGatewayV2::Api`` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
     """
     ...

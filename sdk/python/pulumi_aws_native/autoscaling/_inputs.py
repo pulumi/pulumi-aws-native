@@ -909,7 +909,7 @@ class AutoScalingGroupNetworkInterfaceCountRequestArgs:
 @pulumi.input_type
 class AutoScalingGroupNotificationConfigurationArgs:
     def __init__(__self__, *,
-                 topic_arn: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 topic_arn: pulumi.Input[str],
                  notification_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "topic_arn", topic_arn)
         if notification_types is not None:
@@ -917,11 +917,11 @@ class AutoScalingGroupNotificationConfigurationArgs:
 
     @property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def topic_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
-    def topic_arn(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def topic_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "topic_arn", value)
 
     @property

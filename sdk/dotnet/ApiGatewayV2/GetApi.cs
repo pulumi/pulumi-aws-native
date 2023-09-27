@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public static class GetApi
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGatewayV2::Api
+        /// The ``AWS::ApiGatewayV2::Api`` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("aws-native:apigatewayv2:getApi", args ?? new GetApiArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGatewayV2::Api
+        /// The ``AWS::ApiGatewayV2::Api`` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("aws-native:apigatewayv2:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
@@ -53,16 +53,37 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     {
         public readonly string? ApiEndpoint;
         public readonly string? ApiId;
+        /// <summary>
+        /// An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
+        /// </summary>
         public readonly string? ApiKeySelectionExpression;
+        /// <summary>
+        /// A CORS configuration. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
+        /// </summary>
         public readonly Outputs.ApiCors? CorsConfiguration;
+        /// <summary>
+        /// The description of the API.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+        /// </summary>
         public readonly bool? DisableExecuteApiEndpoint;
+        /// <summary>
+        /// The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The route selection expression for the API. For HTTP APIs, the ``routeSelectionExpression`` must be ``${request.method} ${request.path}``. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
+        /// </summary>
         public readonly string? RouteSelectionExpression;
         /// <summary>
-        /// This resource type use map for Tags, suggest to use List of Tag
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         public readonly object? Tags;
+        /// <summary>
+        /// A version identifier for the API.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

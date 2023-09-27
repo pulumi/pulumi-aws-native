@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['CustomDataIdentifierArgs', 'CustomDataIdentifier']
 
@@ -19,7 +21,8 @@ class CustomDataIdentifierArgs:
                  ignore_words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  keywords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  maximum_match_distance: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDataIdentifierTagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomDataIdentifier resource.
         :param pulumi.Input[str] regex: Regular expression for custom data identifier.
@@ -28,6 +31,7 @@ class CustomDataIdentifierArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: Keywords to be matched against.
         :param pulumi.Input[int] maximum_match_distance: Maximum match distance.
         :param pulumi.Input[str] name: Name of custom data identifier.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDataIdentifierTagArgs']]] tags: A collection of tags associated with a resource
         """
         pulumi.set(__self__, "regex", regex)
         if description is not None:
@@ -40,6 +44,8 @@ class CustomDataIdentifierArgs:
             pulumi.set(__self__, "maximum_match_distance", maximum_match_distance)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -113,6 +119,18 @@ class CustomDataIdentifierArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDataIdentifierTagArgs']]]]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDataIdentifierTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class CustomDataIdentifier(pulumi.CustomResource):
     @overload
@@ -125,6 +143,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
                  maximum_match_distance: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDataIdentifierTagArgs']]]]] = None,
                  __props__=None):
         """
         Macie CustomDataIdentifier resource schema
@@ -137,6 +156,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
         :param pulumi.Input[int] maximum_match_distance: Maximum match distance.
         :param pulumi.Input[str] name: Name of custom data identifier.
         :param pulumi.Input[str] regex: Regular expression for custom data identifier.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDataIdentifierTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -168,6 +188,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
                  maximum_match_distance: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDataIdentifierTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -185,6 +206,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
             if regex is None and not opts.urn:
                 raise TypeError("Missing required property 'regex'")
             __props__.__dict__["regex"] = regex
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "ignore_words[*]", "keywords[*]", "maximum_match_distance", "name", "regex"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -217,6 +239,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
         __props__.__dict__["maximum_match_distance"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["regex"] = None
+        __props__.__dict__["tags"] = None
         return CustomDataIdentifier(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -274,4 +297,12 @@ class CustomDataIdentifier(pulumi.CustomResource):
         Regular expression for custom data identifier.
         """
         return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CustomDataIdentifierTag']]]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
 

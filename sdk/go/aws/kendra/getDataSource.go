@@ -35,6 +35,7 @@ type LookupDataSourceResult struct {
 	Description                           *string                                          `pulumi:"description"`
 	Id                                    *string                                          `pulumi:"id"`
 	IndexId                               *string                                          `pulumi:"indexId"`
+	LanguageCode                          *string                                          `pulumi:"languageCode"`
 	Name                                  *string                                          `pulumi:"name"`
 	RoleArn                               *string                                          `pulumi:"roleArn"`
 	Schedule                              *string                                          `pulumi:"schedule"`
@@ -108,6 +109,10 @@ func (o LookupDataSourceResultOutput) Id() pulumi.StringPtrOutput {
 
 func (o LookupDataSourceResultOutput) IndexId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.IndexId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDataSourceResultOutput) LanguageCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDataSourceResultOutput) Name() pulumi.StringPtrOutput {

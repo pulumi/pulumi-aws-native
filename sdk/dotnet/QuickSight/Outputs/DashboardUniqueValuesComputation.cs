@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardUniqueValuesComputation
     {
-        public readonly Outputs.DashboardDimensionField Category;
+        public readonly Outputs.DashboardDimensionField? Category;
         public readonly string ComputationId;
         public readonly string? Name;
 
         [OutputConstructor]
         private DashboardUniqueValuesComputation(
-            Outputs.DashboardDimensionField category,
+            Outputs.DashboardDimensionField? category,
 
             string computationId,
 

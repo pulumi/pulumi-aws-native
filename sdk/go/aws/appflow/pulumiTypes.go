@@ -7048,10 +7048,12 @@ func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) PrivateLink
 }
 
 type ConnectorProfileServiceNowConnectorProfileCredentials struct {
+	// The OAuth 2.0 credentials required to authenticate the user.
+	OAuth2Credentials *ConnectorProfileOAuth2Credentials `pulumi:"oAuth2Credentials"`
 	// The password that corresponds to the username.
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// The name of the user.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // ConnectorProfileServiceNowConnectorProfileCredentialsInput is an input type that accepts ConnectorProfileServiceNowConnectorProfileCredentialsArgs and ConnectorProfileServiceNowConnectorProfileCredentialsOutput values.
@@ -7066,10 +7068,12 @@ type ConnectorProfileServiceNowConnectorProfileCredentialsInput interface {
 }
 
 type ConnectorProfileServiceNowConnectorProfileCredentialsArgs struct {
+	// The OAuth 2.0 credentials required to authenticate the user.
+	OAuth2Credentials ConnectorProfileOAuth2CredentialsPtrInput `pulumi:"oAuth2Credentials"`
 	// The password that corresponds to the username.
-	Password pulumi.StringInput `pulumi:"password"`
+	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The name of the user.
-	Username pulumi.StringInput `pulumi:"username"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (ConnectorProfileServiceNowConnectorProfileCredentialsArgs) ElementType() reflect.Type {
@@ -7167,14 +7171,21 @@ func (o ConnectorProfileServiceNowConnectorProfileCredentialsOutput) ToOutput(ct
 	}
 }
 
+// The OAuth 2.0 credentials required to authenticate the user.
+func (o ConnectorProfileServiceNowConnectorProfileCredentialsOutput) OAuth2Credentials() ConnectorProfileOAuth2CredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileServiceNowConnectorProfileCredentials) *ConnectorProfileOAuth2Credentials {
+		return v.OAuth2Credentials
+	}).(ConnectorProfileOAuth2CredentialsPtrOutput)
+}
+
 // The password that corresponds to the username.
-func (o ConnectorProfileServiceNowConnectorProfileCredentialsOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorProfileServiceNowConnectorProfileCredentials) string { return v.Password }).(pulumi.StringOutput)
+func (o ConnectorProfileServiceNowConnectorProfileCredentialsOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileServiceNowConnectorProfileCredentials) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The name of the user.
-func (o ConnectorProfileServiceNowConnectorProfileCredentialsOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorProfileServiceNowConnectorProfileCredentials) string { return v.Username }).(pulumi.StringOutput)
+func (o ConnectorProfileServiceNowConnectorProfileCredentialsOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileServiceNowConnectorProfileCredentials) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput struct{ *pulumi.OutputState }
@@ -7207,13 +7218,23 @@ func (o ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput) Elem() C
 	}).(ConnectorProfileServiceNowConnectorProfileCredentialsOutput)
 }
 
+// The OAuth 2.0 credentials required to authenticate the user.
+func (o ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput) OAuth2Credentials() ConnectorProfileOAuth2CredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileServiceNowConnectorProfileCredentials) *ConnectorProfileOAuth2Credentials {
+		if v == nil {
+			return nil
+		}
+		return v.OAuth2Credentials
+	}).(ConnectorProfileOAuth2CredentialsPtrOutput)
+}
+
 // The password that corresponds to the username.
 func (o ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileServiceNowConnectorProfileCredentials) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Password
+		return v.Password
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7223,7 +7244,7 @@ func (o ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput) Username
 		if v == nil {
 			return nil
 		}
-		return &v.Username
+		return v.Username
 	}).(pulumi.StringPtrOutput)
 }
 

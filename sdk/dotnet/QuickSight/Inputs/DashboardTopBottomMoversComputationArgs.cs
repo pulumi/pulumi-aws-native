@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardTopBottomMoversComputationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("category", required: true)]
-        public Input<Inputs.DashboardDimensionFieldArgs> Category { get; set; } = null!;
+        [Input("category")]
+        public Input<Inputs.DashboardDimensionFieldArgs>? Category { get; set; }
 
         [Input("computationId", required: true)]
         public Input<string> ComputationId { get; set; } = null!;
@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("sortOrder")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardTopBottomSortOrder>? SortOrder { get; set; }
 
-        [Input("time", required: true)]
-        public Input<Inputs.DashboardDimensionFieldArgs> Time { get; set; } = null!;
+        [Input("time")]
+        public Input<Inputs.DashboardDimensionFieldArgs>? Time { get; set; }
 
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DashboardTopBottomComputationType> Type { get; set; } = null!;

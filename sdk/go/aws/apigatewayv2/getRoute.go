@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGatewayV2::Route
+// The “AWS::ApiGatewayV2::Route“ resource creates a route for an API.
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteResult
@@ -24,21 +24,31 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 }
 
 type LookupRouteArgs struct {
+	// The API identifier.
 	ApiId   string `pulumi:"apiId"`
 	RouteId string `pulumi:"routeId"`
 }
 
 type LookupRouteResult struct {
-	ApiKeyRequired                   *bool       `pulumi:"apiKeyRequired"`
-	AuthorizationScopes              []string    `pulumi:"authorizationScopes"`
-	AuthorizationType                *string     `pulumi:"authorizationType"`
-	ModelSelectionExpression         *string     `pulumi:"modelSelectionExpression"`
-	OperationName                    *string     `pulumi:"operationName"`
-	RequestModels                    interface{} `pulumi:"requestModels"`
-	RouteId                          *string     `pulumi:"routeId"`
-	RouteKey                         *string     `pulumi:"routeKey"`
-	RouteResponseSelectionExpression *string     `pulumi:"routeResponseSelectionExpression"`
-	Target                           *string     `pulumi:"target"`
+	// Specifies whether an API key is required for the route. Supported only for WebSocket APIs.
+	ApiKeyRequired *bool `pulumi:"apiKeyRequired"`
+	// The authorization scopes supported by this route.
+	AuthorizationScopes []string `pulumi:"authorizationScopes"`
+	// The authorization type for the route. For WebSocket APIs, valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, and ``CUSTOM`` for using a Lambda authorizer. For HTTP APIs, valid values are ``NONE`` for open access, ``JWT`` for using JSON Web Tokens, ``AWS_IAM`` for using AWS IAM permissions, and ``CUSTOM`` for using a Lambda authorizer.
+	AuthorizationType *string `pulumi:"authorizationType"`
+	// The model selection expression for the route. Supported only for WebSocket APIs.
+	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
+	// The operation name for the route.
+	OperationName *string `pulumi:"operationName"`
+	// The request models for the route. Supported only for WebSocket APIs.
+	RequestModels interface{} `pulumi:"requestModels"`
+	RouteId       *string     `pulumi:"routeId"`
+	// The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
+	RouteKey *string `pulumi:"routeKey"`
+	// The route response selection expression for the route. Supported only for WebSocket APIs.
+	RouteResponseSelectionExpression *string `pulumi:"routeResponseSelectionExpression"`
+	// The target for the route.
+	Target *string `pulumi:"target"`
 }
 
 func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...pulumi.InvokeOption) LookupRouteResultOutput {
@@ -55,6 +65,7 @@ func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...
 }
 
 type LookupRouteOutputArgs struct {
+	// The API identifier.
 	ApiId   pulumi.StringInput `pulumi:"apiId"`
 	RouteId pulumi.StringInput `pulumi:"routeId"`
 }
@@ -83,26 +94,32 @@ func (o LookupRouteResultOutput) ToOutput(ctx context.Context) pulumix.Output[Lo
 	}
 }
 
+// Specifies whether an API key is required for the route. Supported only for WebSocket APIs.
 func (o LookupRouteResultOutput) ApiKeyRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *bool { return v.ApiKeyRequired }).(pulumi.BoolPtrOutput)
 }
 
+// The authorization scopes supported by this route.
 func (o LookupRouteResultOutput) AuthorizationScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRouteResult) []string { return v.AuthorizationScopes }).(pulumi.StringArrayOutput)
 }
 
+// The authorization type for the route. For WebSocket APIs, valid values are “NONE“ for open access, “AWS_IAM“ for using AWS IAM permissions, and “CUSTOM“ for using a Lambda authorizer. For HTTP APIs, valid values are “NONE“ for open access, “JWT“ for using JSON Web Tokens, “AWS_IAM“ for using AWS IAM permissions, and “CUSTOM“ for using a Lambda authorizer.
 func (o LookupRouteResultOutput) AuthorizationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.AuthorizationType }).(pulumi.StringPtrOutput)
 }
 
+// The model selection expression for the route. Supported only for WebSocket APIs.
 func (o LookupRouteResultOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.ModelSelectionExpression }).(pulumi.StringPtrOutput)
 }
 
+// The operation name for the route.
 func (o LookupRouteResultOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.OperationName }).(pulumi.StringPtrOutput)
 }
 
+// The request models for the route. Supported only for WebSocket APIs.
 func (o LookupRouteResultOutput) RequestModels() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRouteResult) interface{} { return v.RequestModels }).(pulumi.AnyOutput)
 }
@@ -111,14 +128,17 @@ func (o LookupRouteResultOutput) RouteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.RouteId }).(pulumi.StringPtrOutput)
 }
 
+// The route key for the route. For HTTP APIs, the route key can be either “$default“, or a combination of an HTTP method and resource path, for example, “GET /pets“.
 func (o LookupRouteResultOutput) RouteKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.RouteKey }).(pulumi.StringPtrOutput)
 }
 
+// The route response selection expression for the route. Supported only for WebSocket APIs.
 func (o LookupRouteResultOutput) RouteResponseSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.RouteResponseSelectionExpression }).(pulumi.StringPtrOutput)
 }
 
+// The target for the route.
 func (o LookupRouteResultOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.Target }).(pulumi.StringPtrOutput)
 }

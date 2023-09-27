@@ -10,25 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2
 {
     /// <summary>
-    /// Schema for ApiGatewayV2 Integration Response
+    /// The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigatewayv2:IntegrationResponse")]
     public partial class IntegrationResponse : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API identifier
+        /// The API identifier.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
         /// <summary>
-        ///  Specifies how to handle response payload content type conversions
+        /// Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+        ///   ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
+        ///   ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
+        ///  If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
         /// </summary>
         [Output("contentHandlingStrategy")]
         public Output<string?> ContentHandlingStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// The integration ID
+        /// The integration ID.
         /// </summary>
         [Output("integrationId")]
         public Output<string> IntegrationId { get; private set; } = null!;
@@ -40,25 +43,25 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Output<string> IntegrationResponseId { get; private set; } = null!;
 
         /// <summary>
-        /// The integration response key
+        /// The integration response key.
         /// </summary>
         [Output("integrationResponseKey")]
         public Output<string> IntegrationResponseKey { get; private set; } = null!;
 
         /// <summary>
-        /// A key-value map specifying response parameters that are passed to the method response from the backend
+        /// A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
         /// </summary>
         [Output("responseParameters")]
         public Output<object?> ResponseParameters { get; private set; } = null!;
 
         /// <summary>
-        /// The collection of response templates for the integration response as a string-to-string map of key-value pairs
+        /// The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
         /// </summary>
         [Output("responseTemplates")]
         public Output<object?> ResponseTemplates { get; private set; } = null!;
 
         /// <summary>
-        /// The template selection expression for the integration response. Supported only for WebSocket APIs
+        /// The template selection expression for the integration response. Supported only for WebSocket APIs.
         /// </summary>
         [Output("templateSelectionExpression")]
         public Output<string?> TemplateSelectionExpression { get; private set; } = null!;
@@ -114,43 +117,46 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public sealed class IntegrationResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier
+        /// The API identifier.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        ///  Specifies how to handle response payload content type conversions
+        /// Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+        ///   ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
+        ///   ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
+        ///  If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
         /// </summary>
         [Input("contentHandlingStrategy")]
         public Input<string>? ContentHandlingStrategy { get; set; }
 
         /// <summary>
-        /// The integration ID
+        /// The integration ID.
         /// </summary>
         [Input("integrationId", required: true)]
         public Input<string> IntegrationId { get; set; } = null!;
 
         /// <summary>
-        /// The integration response key
+        /// The integration response key.
         /// </summary>
         [Input("integrationResponseKey", required: true)]
         public Input<string> IntegrationResponseKey { get; set; } = null!;
 
         /// <summary>
-        /// A key-value map specifying response parameters that are passed to the method response from the backend
+        /// A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
         /// </summary>
         [Input("responseParameters")]
         public Input<object>? ResponseParameters { get; set; }
 
         /// <summary>
-        /// The collection of response templates for the integration response as a string-to-string map of key-value pairs
+        /// The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
         /// </summary>
         [Input("responseTemplates")]
         public Input<object>? ResponseTemplates { get; set; }
 
         /// <summary>
-        /// The template selection expression for the integration response. Supported only for WebSocket APIs
+        /// The template selection expression for the integration response. Supported only for WebSocket APIs.
         /// </summary>
         [Input("templateSelectionExpression")]
         public Input<string>? TemplateSelectionExpression { get; set; }

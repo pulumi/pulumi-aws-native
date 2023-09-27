@@ -18,6 +18,8 @@ class BucketPolicyArgs:
                  policy_document: Any):
         """
         The set of arguments for constructing a BucketPolicy resource.
+        :param pulumi.Input[str] bucket: The name of the Amazon S3 bucket to which the policy applies.
+        :param Any policy_document: A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "policy_document", policy_document)
@@ -25,6 +27,9 @@ class BucketPolicyArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the Amazon S3 bucket to which the policy applies.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -34,6 +39,9 @@ class BucketPolicyArgs:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Any:
+        """
+        A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -41,12 +49,7 @@ class BucketPolicyArgs:
         pulumi.set(self, "policy_document", value)
 
 
-warnings.warn("""BucketPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class BucketPolicy(pulumi.CustomResource):
-    warnings.warn("""BucketPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -59,6 +62,8 @@ class BucketPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: The name of the Amazon S3 bucket to which the policy applies.
+        :param Any policy_document: A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
         """
         ...
     @overload
@@ -87,7 +92,6 @@ class BucketPolicy(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""BucketPolicy is deprecated: BucketPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -133,10 +137,16 @@ class BucketPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
+        """
+        The name of the Amazon S3 bucket to which the policy applies.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[Any]:
+        """
+        A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+        """
         return pulumi.get(self, "policy_document")
 

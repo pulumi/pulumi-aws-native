@@ -24,6 +24,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("columnNamesVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? ColumnNamesVisibility { get; set; }
 
+        /// <summary>
+        /// String based length that is composed of value and unit in px
+        /// </summary>
+        [Input("defaultCellWidth")]
+        public Input<string>? DefaultCellWidth { get; set; }
+
         [Input("metricPlacement")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisPivotTableMetricPlacement>? MetricPlacement { get; set; }
 
@@ -35,6 +41,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("rowHeaderStyle")]
         public Input<Inputs.AnalysisTableCellStyleArgs>? RowHeaderStyle { get; set; }
+
+        [Input("rowsLabelOptions")]
+        public Input<Inputs.AnalysisPivotTableRowsLabelOptionsArgs>? RowsLabelOptions { get; set; }
+
+        [Input("rowsLayout")]
+        public Input<Pulumi.AwsNative.QuickSight.AnalysisPivotTableRowsLayout>? RowsLayout { get; set; }
 
         [Input("singleMetricVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? SingleMetricVisibility { get; set; }

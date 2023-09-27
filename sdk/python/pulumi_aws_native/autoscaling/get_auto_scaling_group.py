@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutoScalingGroupResult:
-    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, id=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
+    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -47,9 +47,6 @@ class GetAutoScalingGroupResult:
         if health_check_type and not isinstance(health_check_type, str):
             raise TypeError("Expected argument 'health_check_type' to be a str")
         pulumi.set(__self__, "health_check_type", health_check_type)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if instance_maintenance_policy and not isinstance(instance_maintenance_policy, dict):
             raise TypeError("Expected argument 'instance_maintenance_policy' to be a dict")
         pulumi.set(__self__, "instance_maintenance_policy", instance_maintenance_policy)
@@ -83,6 +80,9 @@ class GetAutoScalingGroupResult:
         if new_instances_protected_from_scale_in and not isinstance(new_instances_protected_from_scale_in, bool):
             raise TypeError("Expected argument 'new_instances_protected_from_scale_in' to be a bool")
         pulumi.set(__self__, "new_instances_protected_from_scale_in", new_instances_protected_from_scale_in)
+        if notification_configuration and not isinstance(notification_configuration, dict):
+            raise TypeError("Expected argument 'notification_configuration' to be a dict")
+        pulumi.set(__self__, "notification_configuration", notification_configuration)
         if notification_configurations and not isinstance(notification_configurations, list):
             raise TypeError("Expected argument 'notification_configurations' to be a list")
         pulumi.set(__self__, "notification_configurations", notification_configurations)
@@ -151,11 +151,6 @@ class GetAutoScalingGroupResult:
         return pulumi.get(self, "health_check_type")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="instanceMaintenancePolicy")
     def instance_maintenance_policy(self) -> Optional['outputs.AutoScalingGroupInstanceMaintenancePolicy']:
         return pulumi.get(self, "instance_maintenance_policy")
@@ -211,6 +206,11 @@ class GetAutoScalingGroupResult:
         return pulumi.get(self, "new_instances_protected_from_scale_in")
 
     @property
+    @pulumi.getter(name="notificationConfiguration")
+    def notification_configuration(self) -> Optional['outputs.AutoScalingGroupNotificationConfiguration']:
+        return pulumi.get(self, "notification_configuration")
+
+    @property
     @pulumi.getter(name="notificationConfigurations")
     def notification_configurations(self) -> Optional[Sequence['outputs.AutoScalingGroupNotificationConfiguration']]:
         return pulumi.get(self, "notification_configurations")
@@ -261,7 +261,6 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
             desired_capacity_type=self.desired_capacity_type,
             health_check_grace_period=self.health_check_grace_period,
             health_check_type=self.health_check_type,
-            id=self.id,
             instance_maintenance_policy=self.instance_maintenance_policy,
             launch_configuration_name=self.launch_configuration_name,
             launch_template=self.launch_template,
@@ -273,6 +272,7 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
             min_size=self.min_size,
             mixed_instances_policy=self.mixed_instances_policy,
             new_instances_protected_from_scale_in=self.new_instances_protected_from_scale_in,
+            notification_configuration=self.notification_configuration,
             notification_configurations=self.notification_configurations,
             placement_group=self.placement_group,
             service_linked_role_arn=self.service_linked_role_arn,
@@ -282,13 +282,13 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
             vpc_zone_identifier=self.vpc_zone_identifier)
 
 
-def get_auto_scaling_group(id: Optional[str] = None,
+def get_auto_scaling_group(auto_scaling_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutoScalingGroupResult:
     """
     Resource Type definition for AWS::AutoScaling::AutoScalingGroup
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['autoScalingGroupName'] = auto_scaling_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:autoscaling:getAutoScalingGroup', __args__, opts=opts, typ=GetAutoScalingGroupResult).value
 
@@ -302,7 +302,6 @@ def get_auto_scaling_group(id: Optional[str] = None,
         desired_capacity_type=pulumi.get(__ret__, 'desired_capacity_type'),
         health_check_grace_period=pulumi.get(__ret__, 'health_check_grace_period'),
         health_check_type=pulumi.get(__ret__, 'health_check_type'),
-        id=pulumi.get(__ret__, 'id'),
         instance_maintenance_policy=pulumi.get(__ret__, 'instance_maintenance_policy'),
         launch_configuration_name=pulumi.get(__ret__, 'launch_configuration_name'),
         launch_template=pulumi.get(__ret__, 'launch_template'),
@@ -314,6 +313,7 @@ def get_auto_scaling_group(id: Optional[str] = None,
         min_size=pulumi.get(__ret__, 'min_size'),
         mixed_instances_policy=pulumi.get(__ret__, 'mixed_instances_policy'),
         new_instances_protected_from_scale_in=pulumi.get(__ret__, 'new_instances_protected_from_scale_in'),
+        notification_configuration=pulumi.get(__ret__, 'notification_configuration'),
         notification_configurations=pulumi.get(__ret__, 'notification_configurations'),
         placement_group=pulumi.get(__ret__, 'placement_group'),
         service_linked_role_arn=pulumi.get(__ret__, 'service_linked_role_arn'),
@@ -324,7 +324,7 @@ def get_auto_scaling_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_auto_scaling_group)
-def get_auto_scaling_group_output(id: Optional[pulumi.Input[str]] = None,
+def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoScalingGroupResult]:
     """
     Resource Type definition for AWS::AutoScaling::AutoScalingGroup

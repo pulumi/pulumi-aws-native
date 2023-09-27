@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGatewayV2::Route
+ * The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
 
@@ -17,30 +17,63 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetRouteArgs {
+    /**
+     * The API identifier.
+     */
     apiId: string;
     routeId: string;
 }
 
 export interface GetRouteResult {
+    /**
+     * Specifies whether an API key is required for the route. Supported only for WebSocket APIs.
+     */
     readonly apiKeyRequired?: boolean;
+    /**
+     * The authorization scopes supported by this route.
+     */
     readonly authorizationScopes?: string[];
+    /**
+     * The authorization type for the route. For WebSocket APIs, valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, and ``CUSTOM`` for using a Lambda authorizer. For HTTP APIs, valid values are ``NONE`` for open access, ``JWT`` for using JSON Web Tokens, ``AWS_IAM`` for using AWS IAM permissions, and ``CUSTOM`` for using a Lambda authorizer.
+     */
     readonly authorizationType?: string;
+    /**
+     * The model selection expression for the route. Supported only for WebSocket APIs.
+     */
     readonly modelSelectionExpression?: string;
+    /**
+     * The operation name for the route.
+     */
     readonly operationName?: string;
+    /**
+     * The request models for the route. Supported only for WebSocket APIs.
+     */
     readonly requestModels?: any;
     readonly routeId?: string;
+    /**
+     * The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
+     */
     readonly routeKey?: string;
+    /**
+     * The route response selection expression for the route. Supported only for WebSocket APIs.
+     */
     readonly routeResponseSelectionExpression?: string;
+    /**
+     * The target for the route.
+     */
     readonly target?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGatewayV2::Route
+ * The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
     return pulumi.output(args).apply((a: any) => getRoute(a, opts))
 }
 
 export interface GetRouteOutputArgs {
+    /**
+     * The API identifier.
+     */
     apiId: pulumi.Input<string>;
     routeId: pulumi.Input<string>;
 }

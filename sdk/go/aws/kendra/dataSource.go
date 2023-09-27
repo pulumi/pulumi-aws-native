@@ -22,6 +22,7 @@ type DataSource struct {
 	DataSourceConfiguration               DataSourceConfigurationPtrOutput                         `pulumi:"dataSourceConfiguration"`
 	Description                           pulumi.StringPtrOutput                                   `pulumi:"description"`
 	IndexId                               pulumi.StringOutput                                      `pulumi:"indexId"`
+	LanguageCode                          pulumi.StringPtrOutput                                   `pulumi:"languageCode"`
 	Name                                  pulumi.StringOutput                                      `pulumi:"name"`
 	RoleArn                               pulumi.StringPtrOutput                                   `pulumi:"roleArn"`
 	Schedule                              pulumi.StringPtrOutput                                   `pulumi:"schedule"`
@@ -84,6 +85,7 @@ type dataSourceArgs struct {
 	DataSourceConfiguration               *DataSourceConfiguration                         `pulumi:"dataSourceConfiguration"`
 	Description                           *string                                          `pulumi:"description"`
 	IndexId                               string                                           `pulumi:"indexId"`
+	LanguageCode                          *string                                          `pulumi:"languageCode"`
 	Name                                  *string                                          `pulumi:"name"`
 	RoleArn                               *string                                          `pulumi:"roleArn"`
 	Schedule                              *string                                          `pulumi:"schedule"`
@@ -98,6 +100,7 @@ type DataSourceArgs struct {
 	DataSourceConfiguration               DataSourceConfigurationPtrInput
 	Description                           pulumi.StringPtrInput
 	IndexId                               pulumi.StringInput
+	LanguageCode                          pulumi.StringPtrInput
 	Name                                  pulumi.StringPtrInput
 	RoleArn                               pulumi.StringPtrInput
 	Schedule                              pulumi.StringPtrInput
@@ -175,6 +178,10 @@ func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
 
 func (o DataSourceOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) LanguageCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
 
 func (o DataSourceOutput) Name() pulumi.StringOutput {
