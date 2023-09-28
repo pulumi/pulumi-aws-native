@@ -137,6 +137,7 @@ AWS::CodePipeline::CustomActionType
 AWS::CodeStarConnections::Connection
 AWS::CodeStarNotifications::NotificationRule
 AWS::Cognito::IdentityPoolPrincipalTag
+AWS::Cognito::UserPoolUser
 AWS::Comprehend::DocumentClassifier
 AWS::Comprehend::Flywheel
 AWS::Config::AggregationAuthorization
@@ -328,6 +329,7 @@ AWS::Events::ApiDestination
 AWS::Events::Archive
 AWS::Events::Connection
 AWS::Events::Endpoint
+AWS::Events::Rule
 AWS::Evidently::Experiment
 AWS::Evidently::Feature
 AWS::Evidently::Launch
@@ -721,6 +723,7 @@ AWS::SQS::Queue
 AWS::SQS::QueueInlinePolicy
 AWS::SSM::Association
 AWS::SSM::Document
+AWS::SSM::Parameter
 AWS::SSM::ResourceDataSync
 AWS::SSM::ResourcePolicy
 AWS::SSMContacts::Contact
