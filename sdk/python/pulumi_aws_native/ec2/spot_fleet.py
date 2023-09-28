@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -21,7 +21,16 @@ class SpotFleetArgs:
         """
         The set of arguments for constructing a SpotFleet resource.
         """
-        pulumi.set(__self__, "spot_fleet_request_config_data", spot_fleet_request_config_data)
+        SpotFleetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            spot_fleet_request_config_data=spot_fleet_request_config_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             spot_fleet_request_config_data: pulumi.Input['SpotFleetRequestConfigDataArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("spot_fleet_request_config_data", spot_fleet_request_config_data)
 
     @property
     @pulumi.getter(name="spotFleetRequestConfigData")
@@ -65,6 +74,10 @@ class SpotFleet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpotFleetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -80,6 +93,11 @@ class SpotFleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpotFleetArgs.__new__(SpotFleetArgs)
 
+            if spot_fleet_request_config_data is not None and not isinstance(spot_fleet_request_config_data, SpotFleetRequestConfigDataArgs):
+                spot_fleet_request_config_data = spot_fleet_request_config_data or {}
+                def _setter(key, value):
+                    spot_fleet_request_config_data[key] = value
+                SpotFleetRequestConfigDataArgs._configure(_setter, **spot_fleet_request_config_data)
             if spot_fleet_request_config_data is None and not opts.urn:
                 raise TypeError("Missing required property 'spot_fleet_request_config_data'")
             __props__.__dict__["spot_fleet_request_config_data"] = spot_fleet_request_config_data

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,24 +29,49 @@ class VpcConnectionArgs:
         """
         The set of arguments for constructing a VpcConnection resource.
         """
+        VpcConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_status=availability_status,
+            aws_account_id=aws_account_id,
+            dns_resolvers=dns_resolvers,
+            name=name,
+            role_arn=role_arn,
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            vpc_connection_id=vpc_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_status: Optional[pulumi.Input['VpcConnectionVpcConnectionAvailabilityStatus']] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             dns_resolvers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcConnectionTagArgs']]]] = None,
+             vpc_connection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_status is not None:
-            pulumi.set(__self__, "availability_status", availability_status)
+            _setter("availability_status", availability_status)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if dns_resolvers is not None:
-            pulumi.set(__self__, "dns_resolvers", dns_resolvers)
+            _setter("dns_resolvers", dns_resolvers)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_connection_id is not None:
-            pulumi.set(__self__, "vpc_connection_id", vpc_connection_id)
+            _setter("vpc_connection_id", vpc_connection_id)
 
     @property
     @pulumi.getter(name="availabilityStatus")
@@ -170,6 +195,10 @@ class VpcConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

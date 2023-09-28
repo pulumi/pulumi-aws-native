@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,23 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs:
         :param pulumi.Input[str] local_gateway_virtual_interface_group_id: The ID of the local gateway route table virtual interface group.
         :param pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs']]] tags: The tags for the local gateway route table virtual interface group association.
         """
-        pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
-        pulumi.set(__self__, "local_gateway_virtual_interface_group_id", local_gateway_virtual_interface_group_id)
+        LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            local_gateway_route_table_id=local_gateway_route_table_id,
+            local_gateway_virtual_interface_group_id=local_gateway_virtual_interface_group_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             local_gateway_route_table_id: pulumi.Input[str],
+             local_gateway_virtual_interface_group_id: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("local_gateway_route_table_id", local_gateway_route_table_id)
+        _setter("local_gateway_virtual_interface_group_id", local_gateway_virtual_interface_group_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="localGatewayRouteTableId")
@@ -104,6 +117,10 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(pulumi.CustomResour
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

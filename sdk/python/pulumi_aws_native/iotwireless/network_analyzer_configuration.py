@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,18 +32,37 @@ class NetworkAnalyzerConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] wireless_devices: List of wireless gateway resources that have been added to the network analyzer configuration
         :param pulumi.Input[Sequence[pulumi.Input[str]]] wireless_gateways: List of wireless gateway resources that have been added to the network analyzer configuration
         """
+        NetworkAnalyzerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            tags=tags,
+            trace_content=trace_content,
+            wireless_devices=wireless_devices,
+            wireless_gateways=wireless_gateways,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAnalyzerConfigurationTagArgs']]]] = None,
+             trace_content: Optional[pulumi.Input['TraceContentPropertiesArgs']] = None,
+             wireless_devices: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wireless_gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trace_content is not None:
-            pulumi.set(__self__, "trace_content", trace_content)
+            _setter("trace_content", trace_content)
         if wireless_devices is not None:
-            pulumi.set(__self__, "wireless_devices", wireless_devices)
+            _setter("wireless_devices", wireless_devices)
         if wireless_gateways is not None:
-            pulumi.set(__self__, "wireless_gateways", wireless_gateways)
+            _setter("wireless_gateways", wireless_gateways)
 
     @property
     @pulumi.getter
@@ -161,6 +180,10 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkAnalyzerConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -184,6 +207,11 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            if trace_content is not None and not isinstance(trace_content, TraceContentPropertiesArgs):
+                trace_content = trace_content or {}
+                def _setter(key, value):
+                    trace_content[key] = value
+                TraceContentPropertiesArgs._configure(_setter, **trace_content)
             __props__.__dict__["trace_content"] = trace_content
             __props__.__dict__["wireless_devices"] = wireless_devices
             __props__.__dict__["wireless_gateways"] = wireless_gateways

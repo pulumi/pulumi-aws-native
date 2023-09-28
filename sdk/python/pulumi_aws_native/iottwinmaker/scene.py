@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SceneArgs', 'Scene']
@@ -31,17 +31,38 @@ class SceneArgs:
         :param Any scene_metadata: A key-value pair of scene metadata for the scene.
         :param Any tags: A key-value pair to associate with a resource.
         """
-        pulumi.set(__self__, "content_location", content_location)
-        pulumi.set(__self__, "scene_id", scene_id)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        SceneArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_location=content_location,
+            scene_id=scene_id,
+            workspace_id=workspace_id,
+            capabilities=capabilities,
+            description=description,
+            scene_metadata=scene_metadata,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_location: pulumi.Input[str],
+             scene_id: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             scene_metadata: Optional[Any] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content_location", content_location)
+        _setter("scene_id", scene_id)
+        _setter("workspace_id", workspace_id)
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if scene_metadata is not None:
-            pulumi.set(__self__, "scene_metadata", scene_metadata)
+            _setter("scene_metadata", scene_metadata)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="contentLocation")
@@ -173,6 +194,10 @@ class Scene(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SceneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

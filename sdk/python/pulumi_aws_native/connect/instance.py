@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,27 @@ class InstanceArgs:
         :param pulumi.Input[str] directory_id: Existing directoryId user wants to map to the new Connect instance.
         :param pulumi.Input[str] instance_alias: Alias of the new directory created as part of new instance creation.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "identity_management_type", identity_management_type)
+        InstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            identity_management_type=identity_management_type,
+            directory_id=directory_id,
+            instance_alias=instance_alias,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: pulumi.Input['InstanceAttributesArgs'],
+             identity_management_type: pulumi.Input['InstanceIdentityManagementType'],
+             directory_id: Optional[pulumi.Input[str]] = None,
+             instance_alias: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("identity_management_type", identity_management_type)
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if instance_alias is not None:
-            pulumi.set(__self__, "instance_alias", instance_alias)
+            _setter("instance_alias", instance_alias)
 
     @property
     @pulumi.getter
@@ -123,6 +138,10 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -141,6 +160,11 @@ class Instance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InstanceArgs.__new__(InstanceArgs)
 
+            if attributes is not None and not isinstance(attributes, InstanceAttributesArgs):
+                attributes = attributes or {}
+                def _setter(key, value):
+                    attributes[key] = value
+                InstanceAttributesArgs._configure(_setter, **attributes)
             if attributes is None and not opts.urn:
                 raise TypeError("Missing required property 'attributes'")
             __props__.__dict__["attributes"] = attributes

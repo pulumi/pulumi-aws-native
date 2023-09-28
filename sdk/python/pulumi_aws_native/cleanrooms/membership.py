@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -25,12 +25,27 @@ class MembershipArgs:
         The set of arguments for constructing a Membership resource.
         :param pulumi.Input[Sequence[pulumi.Input['MembershipTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """
-        pulumi.set(__self__, "collaboration_identifier", collaboration_identifier)
-        pulumi.set(__self__, "query_log_status", query_log_status)
+        MembershipArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collaboration_identifier=collaboration_identifier,
+            query_log_status=query_log_status,
+            default_result_configuration=default_result_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collaboration_identifier: pulumi.Input[str],
+             query_log_status: pulumi.Input['MembershipQueryLogStatus'],
+             default_result_configuration: Optional[pulumi.Input['MembershipProtectedQueryResultConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['MembershipTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("collaboration_identifier", collaboration_identifier)
+        _setter("query_log_status", query_log_status)
         if default_result_configuration is not None:
-            pulumi.set(__self__, "default_result_configuration", default_result_configuration)
+            _setter("default_result_configuration", default_result_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="collaborationIdentifier")
@@ -108,6 +123,10 @@ class Membership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -129,6 +148,11 @@ class Membership(pulumi.CustomResource):
             if collaboration_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'collaboration_identifier'")
             __props__.__dict__["collaboration_identifier"] = collaboration_identifier
+            if default_result_configuration is not None and not isinstance(default_result_configuration, MembershipProtectedQueryResultConfigurationArgs):
+                default_result_configuration = default_result_configuration or {}
+                def _setter(key, value):
+                    default_result_configuration[key] = value
+                MembershipProtectedQueryResultConfigurationArgs._configure(_setter, **default_result_configuration)
             __props__.__dict__["default_result_configuration"] = default_result_configuration
             if query_log_status is None and not opts.urn:
                 raise TypeError("Missing required property 'query_log_status'")

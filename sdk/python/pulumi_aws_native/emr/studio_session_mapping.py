@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,10 +26,25 @@ class StudioSessionMappingArgs:
         :param pulumi.Input[str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
         :param pulumi.Input[str] studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
-        pulumi.set(__self__, "identity_name", identity_name)
-        pulumi.set(__self__, "identity_type", identity_type)
-        pulumi.set(__self__, "session_policy_arn", session_policy_arn)
-        pulumi.set(__self__, "studio_id", studio_id)
+        StudioSessionMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_name=identity_name,
+            identity_type=identity_type,
+            session_policy_arn=session_policy_arn,
+            studio_id=studio_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_name: pulumi.Input[str],
+             identity_type: pulumi.Input['StudioSessionMappingIdentityType'],
+             session_policy_arn: pulumi.Input[str],
+             studio_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_name", identity_name)
+        _setter("identity_type", identity_type)
+        _setter("session_policy_arn", session_policy_arn)
+        _setter("studio_id", studio_id)
 
     @property
     @pulumi.getter(name="identityName")
@@ -119,6 +134,10 @@ class StudioSessionMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StudioSessionMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

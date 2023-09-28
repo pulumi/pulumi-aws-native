@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,12 +23,25 @@ class DatastoreArgs:
         """
         The set of arguments for constructing a Datastore resource.
         """
+        DatastoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datastore_name=datastore_name,
+            kms_key_arn=kms_key_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datastore_name: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input['DatastoreTagsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if datastore_name is not None:
-            pulumi.set(__self__, "datastore_name", datastore_name)
+            _setter("datastore_name", datastore_name)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="datastoreName")
@@ -92,6 +105,10 @@ class Datastore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatastoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -111,6 +128,11 @@ class Datastore(pulumi.CustomResource):
 
             __props__.__dict__["datastore_name"] = datastore_name
             __props__.__dict__["kms_key_arn"] = kms_key_arn
+            if tags is not None and not isinstance(tags, DatastoreTagsArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                DatastoreTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
             __props__.__dict__["datastore_arn"] = None

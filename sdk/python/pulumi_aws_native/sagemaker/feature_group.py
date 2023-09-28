@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,46 @@ class FeatureGroupArgs:
         :param pulumi.Input[str] role_arn: Role Arn
         :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]] tags: An array of key-value pair to apply to this resource.
         """
-        pulumi.set(__self__, "event_time_feature_name", event_time_feature_name)
-        pulumi.set(__self__, "feature_definitions", feature_definitions)
-        pulumi.set(__self__, "record_identifier_feature_name", record_identifier_feature_name)
+        FeatureGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_time_feature_name=event_time_feature_name,
+            feature_definitions=feature_definitions,
+            record_identifier_feature_name=record_identifier_feature_name,
+            description=description,
+            feature_group_name=feature_group_name,
+            offline_store_config=offline_store_config,
+            online_store_config=online_store_config,
+            role_arn=role_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_time_feature_name: pulumi.Input[str],
+             feature_definitions: pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]],
+             record_identifier_feature_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             feature_group_name: Optional[pulumi.Input[str]] = None,
+             offline_store_config: Optional[pulumi.Input['OfflineStoreConfigPropertiesArgs']] = None,
+             online_store_config: Optional[pulumi.Input['OnlineStoreConfigPropertiesArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_time_feature_name", event_time_feature_name)
+        _setter("feature_definitions", feature_definitions)
+        _setter("record_identifier_feature_name", record_identifier_feature_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if feature_group_name is not None:
-            pulumi.set(__self__, "feature_group_name", feature_group_name)
+            _setter("feature_group_name", feature_group_name)
         if offline_store_config is not None:
-            pulumi.set(__self__, "offline_store_config", offline_store_config)
+            _setter("offline_store_config", offline_store_config)
         if online_store_config is not None:
-            pulumi.set(__self__, "online_store_config", online_store_config)
+            _setter("online_store_config", online_store_config)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="eventTimeFeatureName")
@@ -202,6 +227,10 @@ class FeatureGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FeatureGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -233,7 +262,17 @@ class FeatureGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'feature_definitions'")
             __props__.__dict__["feature_definitions"] = feature_definitions
             __props__.__dict__["feature_group_name"] = feature_group_name
+            if offline_store_config is not None and not isinstance(offline_store_config, OfflineStoreConfigPropertiesArgs):
+                offline_store_config = offline_store_config or {}
+                def _setter(key, value):
+                    offline_store_config[key] = value
+                OfflineStoreConfigPropertiesArgs._configure(_setter, **offline_store_config)
             __props__.__dict__["offline_store_config"] = offline_store_config
+            if online_store_config is not None and not isinstance(online_store_config, OnlineStoreConfigPropertiesArgs):
+                online_store_config = online_store_config or {}
+                def _setter(key, value):
+                    online_store_config[key] = value
+                OnlineStoreConfigPropertiesArgs._configure(_setter, **online_store_config)
             __props__.__dict__["online_store_config"] = online_store_config
             if record_identifier_feature_name is None and not opts.urn:
                 raise TypeError("Missing required property 'record_identifier_feature_name'")

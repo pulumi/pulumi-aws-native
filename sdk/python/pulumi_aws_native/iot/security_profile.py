@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,20 +34,41 @@ class SecurityProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]] tags: Metadata that can be used to manage the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: A set of target ARNs that the security profile is attached to.
         """
+        SecurityProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_metrics_to_retain_v2=additional_metrics_to_retain_v2,
+            alert_targets=alert_targets,
+            behaviors=behaviors,
+            security_profile_description=security_profile_description,
+            security_profile_name=security_profile_name,
+            tags=tags,
+            target_arns=target_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_metrics_to_retain_v2: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileMetricToRetainArgs']]]] = None,
+             alert_targets: Optional[Any] = None,
+             behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileBehaviorArgs']]]] = None,
+             security_profile_description: Optional[pulumi.Input[str]] = None,
+             security_profile_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
+             target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_metrics_to_retain_v2 is not None:
-            pulumi.set(__self__, "additional_metrics_to_retain_v2", additional_metrics_to_retain_v2)
+            _setter("additional_metrics_to_retain_v2", additional_metrics_to_retain_v2)
         if alert_targets is not None:
-            pulumi.set(__self__, "alert_targets", alert_targets)
+            _setter("alert_targets", alert_targets)
         if behaviors is not None:
-            pulumi.set(__self__, "behaviors", behaviors)
+            _setter("behaviors", behaviors)
         if security_profile_description is not None:
-            pulumi.set(__self__, "security_profile_description", security_profile_description)
+            _setter("security_profile_description", security_profile_description)
         if security_profile_name is not None:
-            pulumi.set(__self__, "security_profile_name", security_profile_name)
+            _setter("security_profile_name", security_profile_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_arns is not None:
-            pulumi.set(__self__, "target_arns", target_arns)
+            _setter("target_arns", target_arns)
 
     @property
     @pulumi.getter(name="additionalMetricsToRetainV2")
@@ -179,6 +200,10 @@ class SecurityProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

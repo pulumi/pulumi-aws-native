@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,14 +23,29 @@ class ViewArgs:
         """
         The set of arguments for constructing a View resource.
         """
+        ViewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filters=filters,
+            included_properties=included_properties,
+            tags=tags,
+            view_name=view_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filters: Optional[pulumi.Input['ViewFiltersArgs']] = None,
+             included_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
+             tags: Optional[pulumi.Input['ViewTagMapArgs']] = None,
+             view_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if included_properties is not None:
-            pulumi.set(__self__, "included_properties", included_properties)
+            _setter("included_properties", included_properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if view_name is not None:
-            pulumi.set(__self__, "view_name", view_name)
+            _setter("view_name", view_name)
 
     @property
     @pulumi.getter
@@ -104,6 +119,10 @@ class View(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ViewArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -122,8 +141,18 @@ class View(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ViewArgs.__new__(ViewArgs)
 
+            if filters is not None and not isinstance(filters, ViewFiltersArgs):
+                filters = filters or {}
+                def _setter(key, value):
+                    filters[key] = value
+                ViewFiltersArgs._configure(_setter, **filters)
             __props__.__dict__["filters"] = filters
             __props__.__dict__["included_properties"] = included_properties
+            if tags is not None and not isinstance(tags, ViewTagMapArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                ViewTagMapArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["view_name"] = view_name
             __props__.__dict__["view_arn"] = None

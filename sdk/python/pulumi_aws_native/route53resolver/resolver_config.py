@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -22,8 +22,19 @@ class ResolverConfigArgs:
         :param pulumi.Input['ResolverConfigAutodefinedReverseFlag'] autodefined_reverse_flag: Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
         :param pulumi.Input[str] resource_id: ResourceId
         """
-        pulumi.set(__self__, "autodefined_reverse_flag", autodefined_reverse_flag)
-        pulumi.set(__self__, "resource_id", resource_id)
+        ResolverConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autodefined_reverse_flag=autodefined_reverse_flag,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autodefined_reverse_flag: pulumi.Input['ResolverConfigAutodefinedReverseFlag'],
+             resource_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("autodefined_reverse_flag", autodefined_reverse_flag)
+        _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="autodefinedReverseFlag")
@@ -85,6 +96,10 @@ class ResolverConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResolverConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

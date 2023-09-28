@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -44,54 +44,111 @@ class StackArgs:
         """
         The set of arguments for constructing a Stack resource.
         """
-        pulumi.set(__self__, "default_instance_profile_arn", default_instance_profile_arn)
-        pulumi.set(__self__, "service_role_arn", service_role_arn)
+        StackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_instance_profile_arn=default_instance_profile_arn,
+            service_role_arn=service_role_arn,
+            agent_version=agent_version,
+            attributes=attributes,
+            chef_configuration=chef_configuration,
+            clone_app_ids=clone_app_ids,
+            clone_permissions=clone_permissions,
+            configuration_manager=configuration_manager,
+            custom_cookbooks_source=custom_cookbooks_source,
+            custom_json=custom_json,
+            default_availability_zone=default_availability_zone,
+            default_os=default_os,
+            default_root_device_type=default_root_device_type,
+            default_ssh_key_name=default_ssh_key_name,
+            default_subnet_id=default_subnet_id,
+            ecs_cluster_arn=ecs_cluster_arn,
+            elastic_ips=elastic_ips,
+            hostname_theme=hostname_theme,
+            name=name,
+            rds_db_instances=rds_db_instances,
+            source_stack_id=source_stack_id,
+            tags=tags,
+            use_custom_cookbooks=use_custom_cookbooks,
+            use_opsworks_security_groups=use_opsworks_security_groups,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_instance_profile_arn: pulumi.Input[str],
+             service_role_arn: pulumi.Input[str],
+             agent_version: Optional[pulumi.Input[str]] = None,
+             attributes: Optional[Any] = None,
+             chef_configuration: Optional[pulumi.Input['StackChefConfigurationArgs']] = None,
+             clone_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             clone_permissions: Optional[pulumi.Input[bool]] = None,
+             configuration_manager: Optional[pulumi.Input['StackConfigurationManagerArgs']] = None,
+             custom_cookbooks_source: Optional[pulumi.Input['StackSourceArgs']] = None,
+             custom_json: Optional[Any] = None,
+             default_availability_zone: Optional[pulumi.Input[str]] = None,
+             default_os: Optional[pulumi.Input[str]] = None,
+             default_root_device_type: Optional[pulumi.Input[str]] = None,
+             default_ssh_key_name: Optional[pulumi.Input[str]] = None,
+             default_subnet_id: Optional[pulumi.Input[str]] = None,
+             ecs_cluster_arn: Optional[pulumi.Input[str]] = None,
+             elastic_ips: Optional[pulumi.Input[Sequence[pulumi.Input['StackElasticIpArgs']]]] = None,
+             hostname_theme: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rds_db_instances: Optional[pulumi.Input[Sequence[pulumi.Input['StackRdsDbInstanceArgs']]]] = None,
+             source_stack_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StackTagArgs']]]] = None,
+             use_custom_cookbooks: Optional[pulumi.Input[bool]] = None,
+             use_opsworks_security_groups: Optional[pulumi.Input[bool]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_instance_profile_arn", default_instance_profile_arn)
+        _setter("service_role_arn", service_role_arn)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if chef_configuration is not None:
-            pulumi.set(__self__, "chef_configuration", chef_configuration)
+            _setter("chef_configuration", chef_configuration)
         if clone_app_ids is not None:
-            pulumi.set(__self__, "clone_app_ids", clone_app_ids)
+            _setter("clone_app_ids", clone_app_ids)
         if clone_permissions is not None:
-            pulumi.set(__self__, "clone_permissions", clone_permissions)
+            _setter("clone_permissions", clone_permissions)
         if configuration_manager is not None:
-            pulumi.set(__self__, "configuration_manager", configuration_manager)
+            _setter("configuration_manager", configuration_manager)
         if custom_cookbooks_source is not None:
-            pulumi.set(__self__, "custom_cookbooks_source", custom_cookbooks_source)
+            _setter("custom_cookbooks_source", custom_cookbooks_source)
         if custom_json is not None:
-            pulumi.set(__self__, "custom_json", custom_json)
+            _setter("custom_json", custom_json)
         if default_availability_zone is not None:
-            pulumi.set(__self__, "default_availability_zone", default_availability_zone)
+            _setter("default_availability_zone", default_availability_zone)
         if default_os is not None:
-            pulumi.set(__self__, "default_os", default_os)
+            _setter("default_os", default_os)
         if default_root_device_type is not None:
-            pulumi.set(__self__, "default_root_device_type", default_root_device_type)
+            _setter("default_root_device_type", default_root_device_type)
         if default_ssh_key_name is not None:
-            pulumi.set(__self__, "default_ssh_key_name", default_ssh_key_name)
+            _setter("default_ssh_key_name", default_ssh_key_name)
         if default_subnet_id is not None:
-            pulumi.set(__self__, "default_subnet_id", default_subnet_id)
+            _setter("default_subnet_id", default_subnet_id)
         if ecs_cluster_arn is not None:
-            pulumi.set(__self__, "ecs_cluster_arn", ecs_cluster_arn)
+            _setter("ecs_cluster_arn", ecs_cluster_arn)
         if elastic_ips is not None:
-            pulumi.set(__self__, "elastic_ips", elastic_ips)
+            _setter("elastic_ips", elastic_ips)
         if hostname_theme is not None:
-            pulumi.set(__self__, "hostname_theme", hostname_theme)
+            _setter("hostname_theme", hostname_theme)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rds_db_instances is not None:
-            pulumi.set(__self__, "rds_db_instances", rds_db_instances)
+            _setter("rds_db_instances", rds_db_instances)
         if source_stack_id is not None:
-            pulumi.set(__self__, "source_stack_id", source_stack_id)
+            _setter("source_stack_id", source_stack_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if use_custom_cookbooks is not None:
-            pulumi.set(__self__, "use_custom_cookbooks", use_custom_cookbooks)
+            _setter("use_custom_cookbooks", use_custom_cookbooks)
         if use_opsworks_security_groups is not None:
-            pulumi.set(__self__, "use_opsworks_security_groups", use_opsworks_security_groups)
+            _setter("use_opsworks_security_groups", use_opsworks_security_groups)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="defaultInstanceProfileArn")
@@ -380,6 +437,10 @@ class Stack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -422,10 +483,25 @@ class Stack(pulumi.CustomResource):
 
             __props__.__dict__["agent_version"] = agent_version
             __props__.__dict__["attributes"] = attributes
+            if chef_configuration is not None and not isinstance(chef_configuration, StackChefConfigurationArgs):
+                chef_configuration = chef_configuration or {}
+                def _setter(key, value):
+                    chef_configuration[key] = value
+                StackChefConfigurationArgs._configure(_setter, **chef_configuration)
             __props__.__dict__["chef_configuration"] = chef_configuration
             __props__.__dict__["clone_app_ids"] = clone_app_ids
             __props__.__dict__["clone_permissions"] = clone_permissions
+            if configuration_manager is not None and not isinstance(configuration_manager, StackConfigurationManagerArgs):
+                configuration_manager = configuration_manager or {}
+                def _setter(key, value):
+                    configuration_manager[key] = value
+                StackConfigurationManagerArgs._configure(_setter, **configuration_manager)
             __props__.__dict__["configuration_manager"] = configuration_manager
+            if custom_cookbooks_source is not None and not isinstance(custom_cookbooks_source, StackSourceArgs):
+                custom_cookbooks_source = custom_cookbooks_source or {}
+                def _setter(key, value):
+                    custom_cookbooks_source[key] = value
+                StackSourceArgs._configure(_setter, **custom_cookbooks_source)
             __props__.__dict__["custom_cookbooks_source"] = custom_cookbooks_source
             __props__.__dict__["custom_json"] = custom_json
             __props__.__dict__["default_availability_zone"] = default_availability_zone

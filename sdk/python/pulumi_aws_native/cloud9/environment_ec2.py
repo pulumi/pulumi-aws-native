@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,25 +29,52 @@ class EnvironmentEc2Args:
         """
         The set of arguments for constructing a EnvironmentEc2 resource.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        EnvironmentEc2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            automatic_stop_time_minutes=automatic_stop_time_minutes,
+            connection_type=connection_type,
+            description=description,
+            image_id=image_id,
+            name=name,
+            owner_arn=owner_arn,
+            repositories=repositories,
+            subnet_id=subnet_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
+             connection_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             image_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_arn: Optional[pulumi.Input[str]] = None,
+             repositories: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2RepositoryArgs']]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2TagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", instance_type)
         if automatic_stop_time_minutes is not None:
-            pulumi.set(__self__, "automatic_stop_time_minutes", automatic_stop_time_minutes)
+            _setter("automatic_stop_time_minutes", automatic_stop_time_minutes)
         if connection_type is not None:
-            pulumi.set(__self__, "connection_type", connection_type)
+            _setter("connection_type", connection_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
+            _setter("image_id", image_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_arn is not None:
-            pulumi.set(__self__, "owner_arn", owner_arn)
+            _setter("owner_arn", owner_arn)
         if repositories is not None:
-            pulumi.set(__self__, "repositories", repositories)
+            _setter("repositories", repositories)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -186,6 +213,10 @@ class EnvironmentEc2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentEc2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetUrlSuffixResult',
     'AwaitableGetUrlSuffixResult',
     'get_url_suffix',
+    'get_url_suffix_output',
 ]
 
 @pulumi.output_type
@@ -47,3 +48,11 @@ def get_url_suffix(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetU
 
     return AwaitableGetUrlSuffixResult(
         url_suffix=pulumi.get(__ret__, 'url_suffix'))
+
+
+@_utilities.lift_output_func(get_url_suffix)
+def get_url_suffix_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUrlSuffixResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

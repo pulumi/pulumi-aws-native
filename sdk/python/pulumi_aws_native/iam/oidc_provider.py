@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,13 +23,28 @@ class OidcProviderArgs:
         """
         The set of arguments for constructing a OidcProvider resource.
         """
-        pulumi.set(__self__, "thumbprint_list", thumbprint_list)
+        OidcProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            thumbprint_list=thumbprint_list,
+            client_id_list=client_id_list,
+            tags=tags,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             thumbprint_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             client_id_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['OidcProviderTagArgs']]]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("thumbprint_list", thumbprint_list)
         if client_id_list is not None:
-            pulumi.set(__self__, "client_id_list", client_id_list)
+            _setter("client_id_list", client_id_list)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="thumbprintList")
@@ -103,6 +118,10 @@ class OidcProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OidcProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -56,13 +56,27 @@ __all__ = [
 class ConnectorTagsArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class ConnectorVpcInformationArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        ConnectorVpcInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("security_group_ids", security_group_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -78,6 +92,11 @@ class ConnectorVpcInformationArgs:
 class DirectoryRegistrationTagsArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -85,9 +104,20 @@ class TemplateApplicationPoliciesArgs:
     def __init__(__self__, *,
                  policies: pulumi.Input[Sequence[pulumi.Input[Union['TemplateApplicationPolicy0PropertiesArgs', 'TemplateApplicationPolicy1PropertiesArgs']]]],
                  critical: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "policies", policies)
+        TemplateApplicationPoliciesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policies=policies,
+            critical=critical,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policies: pulumi.Input[Sequence[pulumi.Input[Union['TemplateApplicationPolicy0PropertiesArgs', 'TemplateApplicationPolicy1PropertiesArgs']]]],
+             critical: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policies", policies)
         if critical is not None:
-            pulumi.set(__self__, "critical", critical)
+            _setter("critical", critical)
 
     @property
     @pulumi.getter
@@ -112,7 +142,16 @@ class TemplateApplicationPoliciesArgs:
 class TemplateApplicationPolicy0PropertiesArgs:
     def __init__(__self__, *,
                  policy_type: pulumi.Input['TemplateApplicationPolicyType']):
-        pulumi.set(__self__, "policy_type", policy_type)
+        TemplateApplicationPolicy0PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_type=policy_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_type: pulumi.Input['TemplateApplicationPolicyType'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_type", policy_type)
 
     @property
     @pulumi.getter(name="policyType")
@@ -128,7 +167,16 @@ class TemplateApplicationPolicy0PropertiesArgs:
 class TemplateApplicationPolicy1PropertiesArgs:
     def __init__(__self__, *,
                  policy_object_identifier: pulumi.Input[str]):
-        pulumi.set(__self__, "policy_object_identifier", policy_object_identifier)
+        TemplateApplicationPolicy1PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_object_identifier=policy_object_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_object_identifier: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_object_identifier", policy_object_identifier)
 
     @property
     @pulumi.getter(name="policyObjectIdentifier")
@@ -145,8 +193,19 @@ class TemplateCertificateValidityArgs:
     def __init__(__self__, *,
                  renewal_period: pulumi.Input['TemplateValidityPeriodArgs'],
                  validity_period: pulumi.Input['TemplateValidityPeriodArgs']):
-        pulumi.set(__self__, "renewal_period", renewal_period)
-        pulumi.set(__self__, "validity_period", validity_period)
+        TemplateCertificateValidityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            renewal_period=renewal_period,
+            validity_period=validity_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             renewal_period: pulumi.Input['TemplateValidityPeriodArgs'],
+             validity_period: pulumi.Input['TemplateValidityPeriodArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("renewal_period", renewal_period)
+        _setter("validity_period", validity_period)
 
     @property
     @pulumi.getter(name="renewalPeriod")
@@ -171,7 +230,16 @@ class TemplateCertificateValidityArgs:
 class TemplateDefinition0PropertiesArgs:
     def __init__(__self__, *,
                  template_v2: pulumi.Input['TemplateV2Args']):
-        pulumi.set(__self__, "template_v2", template_v2)
+        TemplateDefinition0PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            template_v2=template_v2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             template_v2: pulumi.Input['TemplateV2Args'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("template_v2", template_v2)
 
     @property
     @pulumi.getter(name="templateV2")
@@ -187,7 +255,16 @@ class TemplateDefinition0PropertiesArgs:
 class TemplateDefinition1PropertiesArgs:
     def __init__(__self__, *,
                  template_v3: pulumi.Input['TemplateV3Args']):
-        pulumi.set(__self__, "template_v3", template_v3)
+        TemplateDefinition1PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            template_v3=template_v3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             template_v3: pulumi.Input['TemplateV3Args'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("template_v3", template_v3)
 
     @property
     @pulumi.getter(name="templateV3")
@@ -203,7 +280,16 @@ class TemplateDefinition1PropertiesArgs:
 class TemplateDefinition2PropertiesArgs:
     def __init__(__self__, *,
                  template_v4: pulumi.Input['TemplateV4Args']):
-        pulumi.set(__self__, "template_v4", template_v4)
+        TemplateDefinition2PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            template_v4=template_v4,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             template_v4: pulumi.Input['TemplateV4Args'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("template_v4", template_v4)
 
     @property
     @pulumi.getter(name="templateV4")
@@ -223,16 +309,33 @@ class TemplateEnrollmentFlagsV2Args:
                  no_security_extension: Optional[pulumi.Input[bool]] = None,
                  remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[bool]] = None,
                  user_interaction_required: Optional[pulumi.Input[bool]] = None):
+        TemplateEnrollmentFlagsV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_key_reuse_on_nt_token_keyset_storage_full=enable_key_reuse_on_nt_token_keyset_storage_full,
+            include_symmetric_algorithms=include_symmetric_algorithms,
+            no_security_extension=no_security_extension,
+            remove_invalid_certificate_from_personal_store=remove_invalid_certificate_from_personal_store,
+            user_interaction_required=user_interaction_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_key_reuse_on_nt_token_keyset_storage_full: Optional[pulumi.Input[bool]] = None,
+             include_symmetric_algorithms: Optional[pulumi.Input[bool]] = None,
+             no_security_extension: Optional[pulumi.Input[bool]] = None,
+             remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[bool]] = None,
+             user_interaction_required: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
-            pulumi.set(__self__, "enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
+            _setter("enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
-            pulumi.set(__self__, "include_symmetric_algorithms", include_symmetric_algorithms)
+            _setter("include_symmetric_algorithms", include_symmetric_algorithms)
         if no_security_extension is not None:
-            pulumi.set(__self__, "no_security_extension", no_security_extension)
+            _setter("no_security_extension", no_security_extension)
         if remove_invalid_certificate_from_personal_store is not None:
-            pulumi.set(__self__, "remove_invalid_certificate_from_personal_store", remove_invalid_certificate_from_personal_store)
+            _setter("remove_invalid_certificate_from_personal_store", remove_invalid_certificate_from_personal_store)
         if user_interaction_required is not None:
-            pulumi.set(__self__, "user_interaction_required", user_interaction_required)
+            _setter("user_interaction_required", user_interaction_required)
 
     @property
     @pulumi.getter(name="enableKeyReuseOnNtTokenKeysetStorageFull")
@@ -288,16 +391,33 @@ class TemplateEnrollmentFlagsV3Args:
                  no_security_extension: Optional[pulumi.Input[bool]] = None,
                  remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[bool]] = None,
                  user_interaction_required: Optional[pulumi.Input[bool]] = None):
+        TemplateEnrollmentFlagsV3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_key_reuse_on_nt_token_keyset_storage_full=enable_key_reuse_on_nt_token_keyset_storage_full,
+            include_symmetric_algorithms=include_symmetric_algorithms,
+            no_security_extension=no_security_extension,
+            remove_invalid_certificate_from_personal_store=remove_invalid_certificate_from_personal_store,
+            user_interaction_required=user_interaction_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_key_reuse_on_nt_token_keyset_storage_full: Optional[pulumi.Input[bool]] = None,
+             include_symmetric_algorithms: Optional[pulumi.Input[bool]] = None,
+             no_security_extension: Optional[pulumi.Input[bool]] = None,
+             remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[bool]] = None,
+             user_interaction_required: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
-            pulumi.set(__self__, "enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
+            _setter("enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
-            pulumi.set(__self__, "include_symmetric_algorithms", include_symmetric_algorithms)
+            _setter("include_symmetric_algorithms", include_symmetric_algorithms)
         if no_security_extension is not None:
-            pulumi.set(__self__, "no_security_extension", no_security_extension)
+            _setter("no_security_extension", no_security_extension)
         if remove_invalid_certificate_from_personal_store is not None:
-            pulumi.set(__self__, "remove_invalid_certificate_from_personal_store", remove_invalid_certificate_from_personal_store)
+            _setter("remove_invalid_certificate_from_personal_store", remove_invalid_certificate_from_personal_store)
         if user_interaction_required is not None:
-            pulumi.set(__self__, "user_interaction_required", user_interaction_required)
+            _setter("user_interaction_required", user_interaction_required)
 
     @property
     @pulumi.getter(name="enableKeyReuseOnNtTokenKeysetStorageFull")
@@ -353,16 +473,33 @@ class TemplateEnrollmentFlagsV4Args:
                  no_security_extension: Optional[pulumi.Input[bool]] = None,
                  remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[bool]] = None,
                  user_interaction_required: Optional[pulumi.Input[bool]] = None):
+        TemplateEnrollmentFlagsV4Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_key_reuse_on_nt_token_keyset_storage_full=enable_key_reuse_on_nt_token_keyset_storage_full,
+            include_symmetric_algorithms=include_symmetric_algorithms,
+            no_security_extension=no_security_extension,
+            remove_invalid_certificate_from_personal_store=remove_invalid_certificate_from_personal_store,
+            user_interaction_required=user_interaction_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_key_reuse_on_nt_token_keyset_storage_full: Optional[pulumi.Input[bool]] = None,
+             include_symmetric_algorithms: Optional[pulumi.Input[bool]] = None,
+             no_security_extension: Optional[pulumi.Input[bool]] = None,
+             remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[bool]] = None,
+             user_interaction_required: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
-            pulumi.set(__self__, "enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
+            _setter("enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
-            pulumi.set(__self__, "include_symmetric_algorithms", include_symmetric_algorithms)
+            _setter("include_symmetric_algorithms", include_symmetric_algorithms)
         if no_security_extension is not None:
-            pulumi.set(__self__, "no_security_extension", no_security_extension)
+            _setter("no_security_extension", no_security_extension)
         if remove_invalid_certificate_from_personal_store is not None:
-            pulumi.set(__self__, "remove_invalid_certificate_from_personal_store", remove_invalid_certificate_from_personal_store)
+            _setter("remove_invalid_certificate_from_personal_store", remove_invalid_certificate_from_personal_store)
         if user_interaction_required is not None:
-            pulumi.set(__self__, "user_interaction_required", user_interaction_required)
+            _setter("user_interaction_required", user_interaction_required)
 
     @property
     @pulumi.getter(name="enableKeyReuseOnNtTokenKeysetStorageFull")
@@ -415,9 +552,20 @@ class TemplateExtensionsV2Args:
     def __init__(__self__, *,
                  key_usage: pulumi.Input['TemplateKeyUsageArgs'],
                  application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None):
-        pulumi.set(__self__, "key_usage", key_usage)
+        TemplateExtensionsV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_usage=key_usage,
+            application_policies=application_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_usage: pulumi.Input['TemplateKeyUsageArgs'],
+             application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_usage", key_usage)
         if application_policies is not None:
-            pulumi.set(__self__, "application_policies", application_policies)
+            _setter("application_policies", application_policies)
 
     @property
     @pulumi.getter(name="keyUsage")
@@ -443,9 +591,20 @@ class TemplateExtensionsV3Args:
     def __init__(__self__, *,
                  key_usage: pulumi.Input['TemplateKeyUsageArgs'],
                  application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None):
-        pulumi.set(__self__, "key_usage", key_usage)
+        TemplateExtensionsV3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_usage=key_usage,
+            application_policies=application_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_usage: pulumi.Input['TemplateKeyUsageArgs'],
+             application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_usage", key_usage)
         if application_policies is not None:
-            pulumi.set(__self__, "application_policies", application_policies)
+            _setter("application_policies", application_policies)
 
     @property
     @pulumi.getter(name="keyUsage")
@@ -471,9 +630,20 @@ class TemplateExtensionsV4Args:
     def __init__(__self__, *,
                  key_usage: pulumi.Input['TemplateKeyUsageArgs'],
                  application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None):
-        pulumi.set(__self__, "key_usage", key_usage)
+        TemplateExtensionsV4Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_usage=key_usage,
+            application_policies=application_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_usage: pulumi.Input['TemplateKeyUsageArgs'],
+             application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_usage", key_usage)
         if application_policies is not None:
-            pulumi.set(__self__, "application_policies", application_policies)
+            _setter("application_policies", application_policies)
 
     @property
     @pulumi.getter(name="keyUsage")
@@ -499,10 +669,21 @@ class TemplateGeneralFlagsV2Args:
     def __init__(__self__, *,
                  auto_enrollment: Optional[pulumi.Input[bool]] = None,
                  machine_type: Optional[pulumi.Input[bool]] = None):
+        TemplateGeneralFlagsV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_enrollment=auto_enrollment,
+            machine_type=machine_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_enrollment: Optional[pulumi.Input[bool]] = None,
+             machine_type: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_enrollment is not None:
-            pulumi.set(__self__, "auto_enrollment", auto_enrollment)
+            _setter("auto_enrollment", auto_enrollment)
         if machine_type is not None:
-            pulumi.set(__self__, "machine_type", machine_type)
+            _setter("machine_type", machine_type)
 
     @property
     @pulumi.getter(name="autoEnrollment")
@@ -528,10 +709,21 @@ class TemplateGeneralFlagsV3Args:
     def __init__(__self__, *,
                  auto_enrollment: Optional[pulumi.Input[bool]] = None,
                  machine_type: Optional[pulumi.Input[bool]] = None):
+        TemplateGeneralFlagsV3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_enrollment=auto_enrollment,
+            machine_type=machine_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_enrollment: Optional[pulumi.Input[bool]] = None,
+             machine_type: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_enrollment is not None:
-            pulumi.set(__self__, "auto_enrollment", auto_enrollment)
+            _setter("auto_enrollment", auto_enrollment)
         if machine_type is not None:
-            pulumi.set(__self__, "machine_type", machine_type)
+            _setter("machine_type", machine_type)
 
     @property
     @pulumi.getter(name="autoEnrollment")
@@ -557,10 +749,21 @@ class TemplateGeneralFlagsV4Args:
     def __init__(__self__, *,
                  auto_enrollment: Optional[pulumi.Input[bool]] = None,
                  machine_type: Optional[pulumi.Input[bool]] = None):
+        TemplateGeneralFlagsV4Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_enrollment=auto_enrollment,
+            machine_type=machine_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_enrollment: Optional[pulumi.Input[bool]] = None,
+             machine_type: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_enrollment is not None:
-            pulumi.set(__self__, "auto_enrollment", auto_enrollment)
+            _setter("auto_enrollment", auto_enrollment)
         if machine_type is not None:
-            pulumi.set(__self__, "machine_type", machine_type)
+            _setter("machine_type", machine_type)
 
     @property
     @pulumi.getter(name="autoEnrollment")
@@ -586,10 +789,21 @@ class TemplateGroupAccessControlEntryAccessRightsArgs:
     def __init__(__self__, *,
                  auto_enroll: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']] = None,
                  enroll: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']] = None):
+        TemplateGroupAccessControlEntryAccessRightsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_enroll=auto_enroll,
+            enroll=enroll,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_enroll: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']] = None,
+             enroll: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_enroll is not None:
-            pulumi.set(__self__, "auto_enroll", auto_enroll)
+            _setter("auto_enroll", auto_enroll)
         if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
+            _setter("enroll", enroll)
 
     @property
     @pulumi.getter(name="autoEnroll")
@@ -618,16 +832,33 @@ class TemplateKeyUsageFlagsArgs:
                  key_agreement: Optional[pulumi.Input[bool]] = None,
                  key_encipherment: Optional[pulumi.Input[bool]] = None,
                  non_repudiation: Optional[pulumi.Input[bool]] = None):
+        TemplateKeyUsageFlagsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_encipherment=data_encipherment,
+            digital_signature=digital_signature,
+            key_agreement=key_agreement,
+            key_encipherment=key_encipherment,
+            non_repudiation=non_repudiation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_encipherment: Optional[pulumi.Input[bool]] = None,
+             digital_signature: Optional[pulumi.Input[bool]] = None,
+             key_agreement: Optional[pulumi.Input[bool]] = None,
+             key_encipherment: Optional[pulumi.Input[bool]] = None,
+             non_repudiation: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_encipherment is not None:
-            pulumi.set(__self__, "data_encipherment", data_encipherment)
+            _setter("data_encipherment", data_encipherment)
         if digital_signature is not None:
-            pulumi.set(__self__, "digital_signature", digital_signature)
+            _setter("digital_signature", digital_signature)
         if key_agreement is not None:
-            pulumi.set(__self__, "key_agreement", key_agreement)
+            _setter("key_agreement", key_agreement)
         if key_encipherment is not None:
-            pulumi.set(__self__, "key_encipherment", key_encipherment)
+            _setter("key_encipherment", key_encipherment)
         if non_repudiation is not None:
-            pulumi.set(__self__, "non_repudiation", non_repudiation)
+            _setter("non_repudiation", non_repudiation)
 
     @property
     @pulumi.getter(name="dataEncipherment")
@@ -679,7 +910,16 @@ class TemplateKeyUsageFlagsArgs:
 class TemplateKeyUsageProperty0PropertiesArgs:
     def __init__(__self__, *,
                  property_type: pulumi.Input['TemplateKeyUsagePropertyType']):
-        pulumi.set(__self__, "property_type", property_type)
+        TemplateKeyUsageProperty0PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            property_type=property_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             property_type: pulumi.Input['TemplateKeyUsagePropertyType'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("property_type", property_type)
 
     @property
     @pulumi.getter(name="propertyType")
@@ -695,7 +935,16 @@ class TemplateKeyUsageProperty0PropertiesArgs:
 class TemplateKeyUsageProperty1PropertiesArgs:
     def __init__(__self__, *,
                  property_flags: pulumi.Input['TemplateKeyUsagePropertyFlagsArgs']):
-        pulumi.set(__self__, "property_flags", property_flags)
+        TemplateKeyUsageProperty1PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            property_flags=property_flags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             property_flags: pulumi.Input['TemplateKeyUsagePropertyFlagsArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("property_flags", property_flags)
 
     @property
     @pulumi.getter(name="propertyFlags")
@@ -713,12 +962,25 @@ class TemplateKeyUsagePropertyFlagsArgs:
                  decrypt: Optional[pulumi.Input[bool]] = None,
                  key_agreement: Optional[pulumi.Input[bool]] = None,
                  sign: Optional[pulumi.Input[bool]] = None):
+        TemplateKeyUsagePropertyFlagsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            decrypt=decrypt,
+            key_agreement=key_agreement,
+            sign=sign,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             decrypt: Optional[pulumi.Input[bool]] = None,
+             key_agreement: Optional[pulumi.Input[bool]] = None,
+             sign: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if decrypt is not None:
-            pulumi.set(__self__, "decrypt", decrypt)
+            _setter("decrypt", decrypt)
         if key_agreement is not None:
-            pulumi.set(__self__, "key_agreement", key_agreement)
+            _setter("key_agreement", key_agreement)
         if sign is not None:
-            pulumi.set(__self__, "sign", sign)
+            _setter("sign", sign)
 
     @property
     @pulumi.getter
@@ -753,9 +1015,20 @@ class TemplateKeyUsageArgs:
     def __init__(__self__, *,
                  usage_flags: pulumi.Input['TemplateKeyUsageFlagsArgs'],
                  critical: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "usage_flags", usage_flags)
+        TemplateKeyUsageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            usage_flags=usage_flags,
+            critical=critical,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             usage_flags: pulumi.Input['TemplateKeyUsageFlagsArgs'],
+             critical: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("usage_flags", usage_flags)
         if critical is not None:
-            pulumi.set(__self__, "critical", critical)
+            _setter("critical", critical)
 
     @property
     @pulumi.getter(name="usageFlags")
@@ -782,10 +1055,23 @@ class TemplatePrivateKeyAttributesV2Args:
                  key_spec: pulumi.Input['TemplateKeySpec'],
                  minimal_key_length: pulumi.Input[float],
                  crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "key_spec", key_spec)
-        pulumi.set(__self__, "minimal_key_length", minimal_key_length)
+        TemplatePrivateKeyAttributesV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_spec=key_spec,
+            minimal_key_length=minimal_key_length,
+            crypto_providers=crypto_providers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_spec: pulumi.Input['TemplateKeySpec'],
+             minimal_key_length: pulumi.Input[float],
+             crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_spec", key_spec)
+        _setter("minimal_key_length", minimal_key_length)
         if crypto_providers is not None:
-            pulumi.set(__self__, "crypto_providers", crypto_providers)
+            _setter("crypto_providers", crypto_providers)
 
     @property
     @pulumi.getter(name="keySpec")
@@ -823,12 +1109,29 @@ class TemplatePrivateKeyAttributesV3Args:
                  key_usage_property: pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']],
                  minimal_key_length: pulumi.Input[float],
                  crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "algorithm", algorithm)
-        pulumi.set(__self__, "key_spec", key_spec)
-        pulumi.set(__self__, "key_usage_property", key_usage_property)
-        pulumi.set(__self__, "minimal_key_length", minimal_key_length)
+        TemplatePrivateKeyAttributesV3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            key_spec=key_spec,
+            key_usage_property=key_usage_property,
+            minimal_key_length=minimal_key_length,
+            crypto_providers=crypto_providers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: pulumi.Input['TemplatePrivateKeyAlgorithm'],
+             key_spec: pulumi.Input['TemplateKeySpec'],
+             key_usage_property: pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']],
+             minimal_key_length: pulumi.Input[float],
+             crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("algorithm", algorithm)
+        _setter("key_spec", key_spec)
+        _setter("key_usage_property", key_usage_property)
+        _setter("minimal_key_length", minimal_key_length)
         if crypto_providers is not None:
-            pulumi.set(__self__, "crypto_providers", crypto_providers)
+            _setter("crypto_providers", crypto_providers)
 
     @property
     @pulumi.getter
@@ -884,14 +1187,31 @@ class TemplatePrivateKeyAttributesV4Args:
                  algorithm: Optional[pulumi.Input['TemplatePrivateKeyAlgorithm']] = None,
                  crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_usage_property: Optional[pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']]] = None):
-        pulumi.set(__self__, "key_spec", key_spec)
-        pulumi.set(__self__, "minimal_key_length", minimal_key_length)
+        TemplatePrivateKeyAttributesV4Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_spec=key_spec,
+            minimal_key_length=minimal_key_length,
+            algorithm=algorithm,
+            crypto_providers=crypto_providers,
+            key_usage_property=key_usage_property,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_spec: pulumi.Input['TemplateKeySpec'],
+             minimal_key_length: pulumi.Input[float],
+             algorithm: Optional[pulumi.Input['TemplatePrivateKeyAlgorithm']] = None,
+             crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             key_usage_property: Optional[pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_spec", key_spec)
+        _setter("minimal_key_length", minimal_key_length)
         if algorithm is not None:
-            pulumi.set(__self__, "algorithm", algorithm)
+            _setter("algorithm", algorithm)
         if crypto_providers is not None:
-            pulumi.set(__self__, "crypto_providers", crypto_providers)
+            _setter("crypto_providers", crypto_providers)
         if key_usage_property is not None:
-            pulumi.set(__self__, "key_usage_property", key_usage_property)
+            _setter("key_usage_property", key_usage_property)
 
     @property
     @pulumi.getter(name="keySpec")
@@ -945,11 +1265,24 @@ class TemplatePrivateKeyFlagsV2Args:
                  client_version: pulumi.Input['TemplateClientCompatibilityV2'],
                  exportable_key: Optional[pulumi.Input[bool]] = None,
                  strong_key_protection_required: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "client_version", client_version)
+        TemplatePrivateKeyFlagsV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_version=client_version,
+            exportable_key=exportable_key,
+            strong_key_protection_required=strong_key_protection_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_version: pulumi.Input['TemplateClientCompatibilityV2'],
+             exportable_key: Optional[pulumi.Input[bool]] = None,
+             strong_key_protection_required: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_version", client_version)
         if exportable_key is not None:
-            pulumi.set(__self__, "exportable_key", exportable_key)
+            _setter("exportable_key", exportable_key)
         if strong_key_protection_required is not None:
-            pulumi.set(__self__, "strong_key_protection_required", strong_key_protection_required)
+            _setter("strong_key_protection_required", strong_key_protection_required)
 
     @property
     @pulumi.getter(name="clientVersion")
@@ -986,13 +1319,28 @@ class TemplatePrivateKeyFlagsV3Args:
                  exportable_key: Optional[pulumi.Input[bool]] = None,
                  require_alternate_signature_algorithm: Optional[pulumi.Input[bool]] = None,
                  strong_key_protection_required: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "client_version", client_version)
+        TemplatePrivateKeyFlagsV3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_version=client_version,
+            exportable_key=exportable_key,
+            require_alternate_signature_algorithm=require_alternate_signature_algorithm,
+            strong_key_protection_required=strong_key_protection_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_version: pulumi.Input['TemplateClientCompatibilityV3'],
+             exportable_key: Optional[pulumi.Input[bool]] = None,
+             require_alternate_signature_algorithm: Optional[pulumi.Input[bool]] = None,
+             strong_key_protection_required: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_version", client_version)
         if exportable_key is not None:
-            pulumi.set(__self__, "exportable_key", exportable_key)
+            _setter("exportable_key", exportable_key)
         if require_alternate_signature_algorithm is not None:
-            pulumi.set(__self__, "require_alternate_signature_algorithm", require_alternate_signature_algorithm)
+            _setter("require_alternate_signature_algorithm", require_alternate_signature_algorithm)
         if strong_key_protection_required is not None:
-            pulumi.set(__self__, "strong_key_protection_required", strong_key_protection_required)
+            _setter("strong_key_protection_required", strong_key_protection_required)
 
     @property
     @pulumi.getter(name="clientVersion")
@@ -1040,17 +1388,36 @@ class TemplatePrivateKeyFlagsV4Args:
                  require_same_key_renewal: Optional[pulumi.Input[bool]] = None,
                  strong_key_protection_required: Optional[pulumi.Input[bool]] = None,
                  use_legacy_provider: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "client_version", client_version)
+        TemplatePrivateKeyFlagsV4Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_version=client_version,
+            exportable_key=exportable_key,
+            require_alternate_signature_algorithm=require_alternate_signature_algorithm,
+            require_same_key_renewal=require_same_key_renewal,
+            strong_key_protection_required=strong_key_protection_required,
+            use_legacy_provider=use_legacy_provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_version: pulumi.Input['TemplateClientCompatibilityV4'],
+             exportable_key: Optional[pulumi.Input[bool]] = None,
+             require_alternate_signature_algorithm: Optional[pulumi.Input[bool]] = None,
+             require_same_key_renewal: Optional[pulumi.Input[bool]] = None,
+             strong_key_protection_required: Optional[pulumi.Input[bool]] = None,
+             use_legacy_provider: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_version", client_version)
         if exportable_key is not None:
-            pulumi.set(__self__, "exportable_key", exportable_key)
+            _setter("exportable_key", exportable_key)
         if require_alternate_signature_algorithm is not None:
-            pulumi.set(__self__, "require_alternate_signature_algorithm", require_alternate_signature_algorithm)
+            _setter("require_alternate_signature_algorithm", require_alternate_signature_algorithm)
         if require_same_key_renewal is not None:
-            pulumi.set(__self__, "require_same_key_renewal", require_same_key_renewal)
+            _setter("require_same_key_renewal", require_same_key_renewal)
         if strong_key_protection_required is not None:
-            pulumi.set(__self__, "strong_key_protection_required", strong_key_protection_required)
+            _setter("strong_key_protection_required", strong_key_protection_required)
         if use_legacy_provider is not None:
-            pulumi.set(__self__, "use_legacy_provider", use_legacy_provider)
+            _setter("use_legacy_provider", use_legacy_provider)
 
     @property
     @pulumi.getter(name="clientVersion")
@@ -1120,26 +1487,53 @@ class TemplateSubjectNameFlagsV2Args:
                  san_require_email: Optional[pulumi.Input[bool]] = None,
                  san_require_spn: Optional[pulumi.Input[bool]] = None,
                  san_require_upn: Optional[pulumi.Input[bool]] = None):
+        TemplateSubjectNameFlagsV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            require_common_name=require_common_name,
+            require_directory_path=require_directory_path,
+            require_dns_as_cn=require_dns_as_cn,
+            require_email=require_email,
+            san_require_directory_guid=san_require_directory_guid,
+            san_require_dns=san_require_dns,
+            san_require_domain_dns=san_require_domain_dns,
+            san_require_email=san_require_email,
+            san_require_spn=san_require_spn,
+            san_require_upn=san_require_upn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             require_common_name: Optional[pulumi.Input[bool]] = None,
+             require_directory_path: Optional[pulumi.Input[bool]] = None,
+             require_dns_as_cn: Optional[pulumi.Input[bool]] = None,
+             require_email: Optional[pulumi.Input[bool]] = None,
+             san_require_directory_guid: Optional[pulumi.Input[bool]] = None,
+             san_require_dns: Optional[pulumi.Input[bool]] = None,
+             san_require_domain_dns: Optional[pulumi.Input[bool]] = None,
+             san_require_email: Optional[pulumi.Input[bool]] = None,
+             san_require_spn: Optional[pulumi.Input[bool]] = None,
+             san_require_upn: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if require_common_name is not None:
-            pulumi.set(__self__, "require_common_name", require_common_name)
+            _setter("require_common_name", require_common_name)
         if require_directory_path is not None:
-            pulumi.set(__self__, "require_directory_path", require_directory_path)
+            _setter("require_directory_path", require_directory_path)
         if require_dns_as_cn is not None:
-            pulumi.set(__self__, "require_dns_as_cn", require_dns_as_cn)
+            _setter("require_dns_as_cn", require_dns_as_cn)
         if require_email is not None:
-            pulumi.set(__self__, "require_email", require_email)
+            _setter("require_email", require_email)
         if san_require_directory_guid is not None:
-            pulumi.set(__self__, "san_require_directory_guid", san_require_directory_guid)
+            _setter("san_require_directory_guid", san_require_directory_guid)
         if san_require_dns is not None:
-            pulumi.set(__self__, "san_require_dns", san_require_dns)
+            _setter("san_require_dns", san_require_dns)
         if san_require_domain_dns is not None:
-            pulumi.set(__self__, "san_require_domain_dns", san_require_domain_dns)
+            _setter("san_require_domain_dns", san_require_domain_dns)
         if san_require_email is not None:
-            pulumi.set(__self__, "san_require_email", san_require_email)
+            _setter("san_require_email", san_require_email)
         if san_require_spn is not None:
-            pulumi.set(__self__, "san_require_spn", san_require_spn)
+            _setter("san_require_spn", san_require_spn)
         if san_require_upn is not None:
-            pulumi.set(__self__, "san_require_upn", san_require_upn)
+            _setter("san_require_upn", san_require_upn)
 
     @property
     @pulumi.getter(name="requireCommonName")
@@ -1245,26 +1639,53 @@ class TemplateSubjectNameFlagsV3Args:
                  san_require_email: Optional[pulumi.Input[bool]] = None,
                  san_require_spn: Optional[pulumi.Input[bool]] = None,
                  san_require_upn: Optional[pulumi.Input[bool]] = None):
+        TemplateSubjectNameFlagsV3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            require_common_name=require_common_name,
+            require_directory_path=require_directory_path,
+            require_dns_as_cn=require_dns_as_cn,
+            require_email=require_email,
+            san_require_directory_guid=san_require_directory_guid,
+            san_require_dns=san_require_dns,
+            san_require_domain_dns=san_require_domain_dns,
+            san_require_email=san_require_email,
+            san_require_spn=san_require_spn,
+            san_require_upn=san_require_upn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             require_common_name: Optional[pulumi.Input[bool]] = None,
+             require_directory_path: Optional[pulumi.Input[bool]] = None,
+             require_dns_as_cn: Optional[pulumi.Input[bool]] = None,
+             require_email: Optional[pulumi.Input[bool]] = None,
+             san_require_directory_guid: Optional[pulumi.Input[bool]] = None,
+             san_require_dns: Optional[pulumi.Input[bool]] = None,
+             san_require_domain_dns: Optional[pulumi.Input[bool]] = None,
+             san_require_email: Optional[pulumi.Input[bool]] = None,
+             san_require_spn: Optional[pulumi.Input[bool]] = None,
+             san_require_upn: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if require_common_name is not None:
-            pulumi.set(__self__, "require_common_name", require_common_name)
+            _setter("require_common_name", require_common_name)
         if require_directory_path is not None:
-            pulumi.set(__self__, "require_directory_path", require_directory_path)
+            _setter("require_directory_path", require_directory_path)
         if require_dns_as_cn is not None:
-            pulumi.set(__self__, "require_dns_as_cn", require_dns_as_cn)
+            _setter("require_dns_as_cn", require_dns_as_cn)
         if require_email is not None:
-            pulumi.set(__self__, "require_email", require_email)
+            _setter("require_email", require_email)
         if san_require_directory_guid is not None:
-            pulumi.set(__self__, "san_require_directory_guid", san_require_directory_guid)
+            _setter("san_require_directory_guid", san_require_directory_guid)
         if san_require_dns is not None:
-            pulumi.set(__self__, "san_require_dns", san_require_dns)
+            _setter("san_require_dns", san_require_dns)
         if san_require_domain_dns is not None:
-            pulumi.set(__self__, "san_require_domain_dns", san_require_domain_dns)
+            _setter("san_require_domain_dns", san_require_domain_dns)
         if san_require_email is not None:
-            pulumi.set(__self__, "san_require_email", san_require_email)
+            _setter("san_require_email", san_require_email)
         if san_require_spn is not None:
-            pulumi.set(__self__, "san_require_spn", san_require_spn)
+            _setter("san_require_spn", san_require_spn)
         if san_require_upn is not None:
-            pulumi.set(__self__, "san_require_upn", san_require_upn)
+            _setter("san_require_upn", san_require_upn)
 
     @property
     @pulumi.getter(name="requireCommonName")
@@ -1370,26 +1791,53 @@ class TemplateSubjectNameFlagsV4Args:
                  san_require_email: Optional[pulumi.Input[bool]] = None,
                  san_require_spn: Optional[pulumi.Input[bool]] = None,
                  san_require_upn: Optional[pulumi.Input[bool]] = None):
+        TemplateSubjectNameFlagsV4Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            require_common_name=require_common_name,
+            require_directory_path=require_directory_path,
+            require_dns_as_cn=require_dns_as_cn,
+            require_email=require_email,
+            san_require_directory_guid=san_require_directory_guid,
+            san_require_dns=san_require_dns,
+            san_require_domain_dns=san_require_domain_dns,
+            san_require_email=san_require_email,
+            san_require_spn=san_require_spn,
+            san_require_upn=san_require_upn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             require_common_name: Optional[pulumi.Input[bool]] = None,
+             require_directory_path: Optional[pulumi.Input[bool]] = None,
+             require_dns_as_cn: Optional[pulumi.Input[bool]] = None,
+             require_email: Optional[pulumi.Input[bool]] = None,
+             san_require_directory_guid: Optional[pulumi.Input[bool]] = None,
+             san_require_dns: Optional[pulumi.Input[bool]] = None,
+             san_require_domain_dns: Optional[pulumi.Input[bool]] = None,
+             san_require_email: Optional[pulumi.Input[bool]] = None,
+             san_require_spn: Optional[pulumi.Input[bool]] = None,
+             san_require_upn: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if require_common_name is not None:
-            pulumi.set(__self__, "require_common_name", require_common_name)
+            _setter("require_common_name", require_common_name)
         if require_directory_path is not None:
-            pulumi.set(__self__, "require_directory_path", require_directory_path)
+            _setter("require_directory_path", require_directory_path)
         if require_dns_as_cn is not None:
-            pulumi.set(__self__, "require_dns_as_cn", require_dns_as_cn)
+            _setter("require_dns_as_cn", require_dns_as_cn)
         if require_email is not None:
-            pulumi.set(__self__, "require_email", require_email)
+            _setter("require_email", require_email)
         if san_require_directory_guid is not None:
-            pulumi.set(__self__, "san_require_directory_guid", san_require_directory_guid)
+            _setter("san_require_directory_guid", san_require_directory_guid)
         if san_require_dns is not None:
-            pulumi.set(__self__, "san_require_dns", san_require_dns)
+            _setter("san_require_dns", san_require_dns)
         if san_require_domain_dns is not None:
-            pulumi.set(__self__, "san_require_domain_dns", san_require_domain_dns)
+            _setter("san_require_domain_dns", san_require_domain_dns)
         if san_require_email is not None:
-            pulumi.set(__self__, "san_require_email", san_require_email)
+            _setter("san_require_email", san_require_email)
         if san_require_spn is not None:
-            pulumi.set(__self__, "san_require_spn", san_require_spn)
+            _setter("san_require_spn", san_require_spn)
         if san_require_upn is not None:
-            pulumi.set(__self__, "san_require_upn", san_require_upn)
+            _setter("san_require_upn", san_require_upn)
 
     @property
     @pulumi.getter(name="requireCommonName")
@@ -1486,6 +1934,11 @@ class TemplateSubjectNameFlagsV4Args:
 class TemplateTagsArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -1499,15 +1952,38 @@ class TemplateV2Args:
                  private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV2Args'],
                  subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV2Args'],
                  superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "certificate_validity", certificate_validity)
-        pulumi.set(__self__, "enrollment_flags", enrollment_flags)
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "general_flags", general_flags)
-        pulumi.set(__self__, "private_key_attributes", private_key_attributes)
-        pulumi.set(__self__, "private_key_flags", private_key_flags)
-        pulumi.set(__self__, "subject_name_flags", subject_name_flags)
+        TemplateV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_validity=certificate_validity,
+            enrollment_flags=enrollment_flags,
+            extensions=extensions,
+            general_flags=general_flags,
+            private_key_attributes=private_key_attributes,
+            private_key_flags=private_key_flags,
+            subject_name_flags=subject_name_flags,
+            superseded_templates=superseded_templates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_validity: pulumi.Input['TemplateCertificateValidityArgs'],
+             enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV2Args'],
+             extensions: pulumi.Input['TemplateExtensionsV2Args'],
+             general_flags: pulumi.Input['TemplateGeneralFlagsV2Args'],
+             private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV2Args'],
+             private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV2Args'],
+             subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV2Args'],
+             superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_validity", certificate_validity)
+        _setter("enrollment_flags", enrollment_flags)
+        _setter("extensions", extensions)
+        _setter("general_flags", general_flags)
+        _setter("private_key_attributes", private_key_attributes)
+        _setter("private_key_flags", private_key_flags)
+        _setter("subject_name_flags", subject_name_flags)
         if superseded_templates is not None:
-            pulumi.set(__self__, "superseded_templates", superseded_templates)
+            _setter("superseded_templates", superseded_templates)
 
     @property
     @pulumi.getter(name="certificateValidity")
@@ -1594,16 +2070,41 @@ class TemplateV3Args:
                  private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV3Args'],
                  subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV3Args'],
                  superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "certificate_validity", certificate_validity)
-        pulumi.set(__self__, "enrollment_flags", enrollment_flags)
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "general_flags", general_flags)
-        pulumi.set(__self__, "hash_algorithm", hash_algorithm)
-        pulumi.set(__self__, "private_key_attributes", private_key_attributes)
-        pulumi.set(__self__, "private_key_flags", private_key_flags)
-        pulumi.set(__self__, "subject_name_flags", subject_name_flags)
+        TemplateV3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_validity=certificate_validity,
+            enrollment_flags=enrollment_flags,
+            extensions=extensions,
+            general_flags=general_flags,
+            hash_algorithm=hash_algorithm,
+            private_key_attributes=private_key_attributes,
+            private_key_flags=private_key_flags,
+            subject_name_flags=subject_name_flags,
+            superseded_templates=superseded_templates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_validity: pulumi.Input['TemplateCertificateValidityArgs'],
+             enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV3Args'],
+             extensions: pulumi.Input['TemplateExtensionsV3Args'],
+             general_flags: pulumi.Input['TemplateGeneralFlagsV3Args'],
+             hash_algorithm: pulumi.Input['TemplateHashAlgorithm'],
+             private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV3Args'],
+             private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV3Args'],
+             subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV3Args'],
+             superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_validity", certificate_validity)
+        _setter("enrollment_flags", enrollment_flags)
+        _setter("extensions", extensions)
+        _setter("general_flags", general_flags)
+        _setter("hash_algorithm", hash_algorithm)
+        _setter("private_key_attributes", private_key_attributes)
+        _setter("private_key_flags", private_key_flags)
+        _setter("subject_name_flags", subject_name_flags)
         if superseded_templates is not None:
-            pulumi.set(__self__, "superseded_templates", superseded_templates)
+            _setter("superseded_templates", superseded_templates)
 
     @property
     @pulumi.getter(name="certificateValidity")
@@ -1699,17 +2200,42 @@ class TemplateV4Args:
                  subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV4Args'],
                  hash_algorithm: Optional[pulumi.Input['TemplateHashAlgorithm']] = None,
                  superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "certificate_validity", certificate_validity)
-        pulumi.set(__self__, "enrollment_flags", enrollment_flags)
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "general_flags", general_flags)
-        pulumi.set(__self__, "private_key_attributes", private_key_attributes)
-        pulumi.set(__self__, "private_key_flags", private_key_flags)
-        pulumi.set(__self__, "subject_name_flags", subject_name_flags)
+        TemplateV4Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_validity=certificate_validity,
+            enrollment_flags=enrollment_flags,
+            extensions=extensions,
+            general_flags=general_flags,
+            private_key_attributes=private_key_attributes,
+            private_key_flags=private_key_flags,
+            subject_name_flags=subject_name_flags,
+            hash_algorithm=hash_algorithm,
+            superseded_templates=superseded_templates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_validity: pulumi.Input['TemplateCertificateValidityArgs'],
+             enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV4Args'],
+             extensions: pulumi.Input['TemplateExtensionsV4Args'],
+             general_flags: pulumi.Input['TemplateGeneralFlagsV4Args'],
+             private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV4Args'],
+             private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV4Args'],
+             subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV4Args'],
+             hash_algorithm: Optional[pulumi.Input['TemplateHashAlgorithm']] = None,
+             superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_validity", certificate_validity)
+        _setter("enrollment_flags", enrollment_flags)
+        _setter("extensions", extensions)
+        _setter("general_flags", general_flags)
+        _setter("private_key_attributes", private_key_attributes)
+        _setter("private_key_flags", private_key_flags)
+        _setter("subject_name_flags", subject_name_flags)
         if hash_algorithm is not None:
-            pulumi.set(__self__, "hash_algorithm", hash_algorithm)
+            _setter("hash_algorithm", hash_algorithm)
         if superseded_templates is not None:
-            pulumi.set(__self__, "superseded_templates", superseded_templates)
+            _setter("superseded_templates", superseded_templates)
 
     @property
     @pulumi.getter(name="certificateValidity")
@@ -1798,8 +2324,19 @@ class TemplateValidityPeriodArgs:
     def __init__(__self__, *,
                  period: pulumi.Input[float],
                  period_type: pulumi.Input['TemplateValidityPeriodType']):
-        pulumi.set(__self__, "period", period)
-        pulumi.set(__self__, "period_type", period_type)
+        TemplateValidityPeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            period=period,
+            period_type=period_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             period: pulumi.Input[float],
+             period_type: pulumi.Input['TemplateValidityPeriodType'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("period", period)
+        _setter("period_type", period_type)
 
     @property
     @pulumi.getter

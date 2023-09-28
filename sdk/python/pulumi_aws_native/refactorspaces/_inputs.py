@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -27,10 +27,21 @@ class ApplicationApiGatewayProxyInputArgs:
     def __init__(__self__, *,
                  endpoint_type: Optional[pulumi.Input['ApplicationApiGatewayEndpointType']] = None,
                  stage_name: Optional[pulumi.Input[str]] = None):
+        ApplicationApiGatewayProxyInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: Optional[pulumi.Input['ApplicationApiGatewayEndpointType']] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint_type is not None:
-            pulumi.set(__self__, "endpoint_type", endpoint_type)
+            _setter("endpoint_type", endpoint_type)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -61,8 +72,19 @@ class ApplicationTagArgs:
         :param pulumi.Input[str] key: A string used to identify this tag
         :param pulumi.Input[str] value: A string containing the value for the tag
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ApplicationTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -99,8 +121,19 @@ class EnvironmentTagArgs:
         :param pulumi.Input[str] key: A string used to identify this tag
         :param pulumi.Input[str] value: A string containing the value for the tag
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EnvironmentTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -131,7 +164,16 @@ class EnvironmentTagArgs:
 class RouteDefaultRouteInputArgs:
     def __init__(__self__, *,
                  activation_state: pulumi.Input['RouteActivationState']):
-        pulumi.set(__self__, "activation_state", activation_state)
+        RouteDefaultRouteInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activation_state=activation_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activation_state: pulumi.Input['RouteActivationState'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("activation_state", activation_state)
 
     @property
     @pulumi.getter(name="activationState")
@@ -153,8 +195,19 @@ class RouteTagArgs:
         :param pulumi.Input[str] key: A string used to identify this tag
         :param pulumi.Input[str] value: A string containing the value for the tag
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        RouteTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -189,15 +242,32 @@ class RouteUriPathRouteInputArgs:
                  include_child_paths: Optional[pulumi.Input[bool]] = None,
                  methods: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMethod']]]] = None,
                  source_path: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "activation_state", activation_state)
+        RouteUriPathRouteInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activation_state=activation_state,
+            append_source_path=append_source_path,
+            include_child_paths=include_child_paths,
+            methods=methods,
+            source_path=source_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activation_state: pulumi.Input['RouteActivationState'],
+             append_source_path: Optional[pulumi.Input[bool]] = None,
+             include_child_paths: Optional[pulumi.Input[bool]] = None,
+             methods: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMethod']]]] = None,
+             source_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("activation_state", activation_state)
         if append_source_path is not None:
-            pulumi.set(__self__, "append_source_path", append_source_path)
+            _setter("append_source_path", append_source_path)
         if include_child_paths is not None:
-            pulumi.set(__self__, "include_child_paths", include_child_paths)
+            _setter("include_child_paths", include_child_paths)
         if methods is not None:
-            pulumi.set(__self__, "methods", methods)
+            _setter("methods", methods)
         if source_path is not None:
-            pulumi.set(__self__, "source_path", source_path)
+            _setter("source_path", source_path)
 
     @property
     @pulumi.getter(name="activationState")
@@ -249,7 +319,16 @@ class RouteUriPathRouteInputArgs:
 class ServiceLambdaEndpointInputArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str]):
-        pulumi.set(__self__, "arn", arn)
+        ServiceLambdaEndpointInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
 
     @property
     @pulumi.getter
@@ -271,8 +350,19 @@ class ServiceTagArgs:
         :param pulumi.Input[str] key: A string used to identify this tag
         :param pulumi.Input[str] value: A string containing the value for the tag
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ServiceTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -304,9 +394,20 @@ class ServiceUrlEndpointInputArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
                  health_url: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "url", url)
+        ServiceUrlEndpointInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            health_url=health_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: pulumi.Input[str],
+             health_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("url", url)
         if health_url is not None:
-            pulumi.set(__self__, "health_url", health_url)
+            _setter("health_url", health_url)
 
     @property
     @pulumi.getter

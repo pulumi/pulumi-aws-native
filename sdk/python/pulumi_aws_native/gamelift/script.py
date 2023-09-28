@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,13 +23,28 @@ class ScriptArgs:
         """
         The set of arguments for constructing a Script resource.
         """
-        pulumi.set(__self__, "storage_location", storage_location)
+        ScriptArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_location=storage_location,
+            name=name,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_location: pulumi.Input['ScriptS3LocationArgs'],
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptTagArgs']]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_location", storage_location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="storageLocation")
@@ -108,6 +123,10 @@ class Script(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScriptArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -128,6 +147,11 @@ class Script(pulumi.CustomResource):
             __props__ = ScriptArgs.__new__(ScriptArgs)
 
             __props__.__dict__["name"] = name
+            if storage_location is not None and not isinstance(storage_location, ScriptS3LocationArgs):
+                storage_location = storage_location or {}
+                def _setter(key, value):
+                    storage_location[key] = value
+                ScriptS3LocationArgs._configure(_setter, **storage_location)
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location

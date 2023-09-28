@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,17 +31,38 @@ class PipelineArgs:
         :param pulumi.Input[str] pipeline_name: Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "max_units", max_units)
-        pulumi.set(__self__, "min_units", min_units)
-        pulumi.set(__self__, "pipeline_configuration_body", pipeline_configuration_body)
+        PipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_units=max_units,
+            min_units=min_units,
+            pipeline_configuration_body=pipeline_configuration_body,
+            log_publishing_options=log_publishing_options,
+            pipeline_name=pipeline_name,
+            tags=tags,
+            vpc_options=vpc_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_units: pulumi.Input[int],
+             min_units: pulumi.Input[int],
+             pipeline_configuration_body: pulumi.Input[str],
+             log_publishing_options: Optional[pulumi.Input['PipelineLogPublishingOptionsArgs']] = None,
+             pipeline_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
+             vpc_options: Optional[pulumi.Input['PipelineVpcOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_units", max_units)
+        _setter("min_units", min_units)
+        _setter("pipeline_configuration_body", pipeline_configuration_body)
         if log_publishing_options is not None:
-            pulumi.set(__self__, "log_publishing_options", log_publishing_options)
+            _setter("log_publishing_options", log_publishing_options)
         if pipeline_name is not None:
-            pulumi.set(__self__, "pipeline_name", pipeline_name)
+            _setter("pipeline_name", pipeline_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_options is not None:
-            pulumi.set(__self__, "vpc_options", vpc_options)
+            _setter("vpc_options", vpc_options)
 
     @property
     @pulumi.getter(name="maxUnits")
@@ -165,6 +186,10 @@ class Pipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -186,6 +211,11 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
+            if log_publishing_options is not None and not isinstance(log_publishing_options, PipelineLogPublishingOptionsArgs):
+                log_publishing_options = log_publishing_options or {}
+                def _setter(key, value):
+                    log_publishing_options[key] = value
+                PipelineLogPublishingOptionsArgs._configure(_setter, **log_publishing_options)
             __props__.__dict__["log_publishing_options"] = log_publishing_options
             if max_units is None and not opts.urn:
                 raise TypeError("Missing required property 'max_units'")
@@ -198,6 +228,11 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["pipeline_configuration_body"] = pipeline_configuration_body
             __props__.__dict__["pipeline_name"] = pipeline_name
             __props__.__dict__["tags"] = tags
+            if vpc_options is not None and not isinstance(vpc_options, PipelineVpcOptionsArgs):
+                vpc_options = vpc_options or {}
+                def _setter(key, value):
+                    vpc_options[key] = value
+                PipelineVpcOptionsArgs._configure(_setter, **vpc_options)
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["ingest_endpoint_urls"] = None
             __props__.__dict__["pipeline_arn"] = None

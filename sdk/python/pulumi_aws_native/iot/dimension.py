@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,27 @@ class DimensionArgs:
         :param pulumi.Input[str] name: A unique identifier for the dimension.
         :param pulumi.Input[Sequence[pulumi.Input['DimensionTagArgs']]] tags: Metadata that can be used to manage the dimension.
         """
-        pulumi.set(__self__, "string_values", string_values)
-        pulumi.set(__self__, "type", type)
+        DimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            string_values=string_values,
+            type=type,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             string_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             type: pulumi.Input['DimensionType'],
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("string_values", string_values)
+        _setter("type", type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="stringValues")
@@ -123,6 +138,10 @@ class Dimension(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DimensionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

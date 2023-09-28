@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,18 +32,37 @@ class AssetModelArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]] asset_model_properties: The property definitions of the asset model. You can specify up to 200 properties per asset model.
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
+        AssetModelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_model_composite_models=asset_model_composite_models,
+            asset_model_description=asset_model_description,
+            asset_model_hierarchies=asset_model_hierarchies,
+            asset_model_name=asset_model_name,
+            asset_model_properties=asset_model_properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_model_composite_models: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelCompositeModelArgs']]]] = None,
+             asset_model_description: Optional[pulumi.Input[str]] = None,
+             asset_model_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelHierarchyArgs']]]] = None,
+             asset_model_name: Optional[pulumi.Input[str]] = None,
+             asset_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if asset_model_composite_models is not None:
-            pulumi.set(__self__, "asset_model_composite_models", asset_model_composite_models)
+            _setter("asset_model_composite_models", asset_model_composite_models)
         if asset_model_description is not None:
-            pulumi.set(__self__, "asset_model_description", asset_model_description)
+            _setter("asset_model_description", asset_model_description)
         if asset_model_hierarchies is not None:
-            pulumi.set(__self__, "asset_model_hierarchies", asset_model_hierarchies)
+            _setter("asset_model_hierarchies", asset_model_hierarchies)
         if asset_model_name is not None:
-            pulumi.set(__self__, "asset_model_name", asset_model_name)
+            _setter("asset_model_name", asset_model_name)
         if asset_model_properties is not None:
-            pulumi.set(__self__, "asset_model_properties", asset_model_properties)
+            _setter("asset_model_properties", asset_model_properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="assetModelCompositeModels")
@@ -161,6 +180,10 @@ class AssetModel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssetModelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

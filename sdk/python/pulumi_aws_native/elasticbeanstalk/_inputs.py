@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -33,12 +33,25 @@ class ApplicationMaxAgeRuleArgs:
         :param pulumi.Input[bool] enabled: Specify true to apply the rule, or false to disable it.
         :param pulumi.Input[int] max_age_in_days: Specify the number of days to retain an application versions.
         """
+        ApplicationMaxAgeRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_source_from_s3=delete_source_from_s3,
+            enabled=enabled,
+            max_age_in_days=max_age_in_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_source_from_s3: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             max_age_in_days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_source_from_s3 is not None:
-            pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
+            _setter("delete_source_from_s3", delete_source_from_s3)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if max_age_in_days is not None:
-            pulumi.set(__self__, "max_age_in_days", max_age_in_days)
+            _setter("max_age_in_days", max_age_in_days)
 
     @property
     @pulumi.getter(name="deleteSourceFromS3")
@@ -88,12 +101,25 @@ class ApplicationMaxCountRuleArgs:
         :param pulumi.Input[bool] enabled: Specify true to apply the rule, or false to disable it.
         :param pulumi.Input[int] max_count: Specify the maximum number of application versions to retain.
         """
+        ApplicationMaxCountRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_source_from_s3=delete_source_from_s3,
+            enabled=enabled,
+            max_count=max_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_source_from_s3: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             max_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_source_from_s3 is not None:
-            pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
+            _setter("delete_source_from_s3", delete_source_from_s3)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
 
     @property
     @pulumi.getter(name="deleteSourceFromS3")
@@ -141,10 +167,21 @@ class ApplicationResourceLifecycleConfigArgs:
         :param pulumi.Input[str] service_role: The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
         :param pulumi.Input['ApplicationVersionLifecycleConfigArgs'] version_lifecycle_config: Defines lifecycle settings for application versions.
         """
+        ApplicationResourceLifecycleConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_role=service_role,
+            version_lifecycle_config=version_lifecycle_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_role: Optional[pulumi.Input[str]] = None,
+             version_lifecycle_config: Optional[pulumi.Input['ApplicationVersionLifecycleConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
+            _setter("service_role", service_role)
         if version_lifecycle_config is not None:
-            pulumi.set(__self__, "version_lifecycle_config", version_lifecycle_config)
+            _setter("version_lifecycle_config", version_lifecycle_config)
 
     @property
     @pulumi.getter(name="serviceRole")
@@ -180,10 +217,21 @@ class ApplicationVersionLifecycleConfigArgs:
         :param pulumi.Input['ApplicationMaxAgeRuleArgs'] max_age_rule: Specify a max age rule to restrict the length of time that application versions are retained for an application.
         :param pulumi.Input['ApplicationMaxCountRuleArgs'] max_count_rule: Specify a max count rule to restrict the number of application versions that are retained for an application.
         """
+        ApplicationVersionLifecycleConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_age_rule=max_age_rule,
+            max_count_rule=max_count_rule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_age_rule: Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']] = None,
+             max_count_rule: Optional[pulumi.Input['ApplicationMaxCountRuleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_age_rule is not None:
-            pulumi.set(__self__, "max_age_rule", max_age_rule)
+            _setter("max_age_rule", max_age_rule)
         if max_count_rule is not None:
-            pulumi.set(__self__, "max_count_rule", max_count_rule)
+            _setter("max_count_rule", max_count_rule)
 
     @property
     @pulumi.getter(name="maxAgeRule")
@@ -219,8 +267,19 @@ class ApplicationVersionSourceBundleArgs:
         :param pulumi.Input[str] s3_bucket: The Amazon S3 bucket where the data is located.
         :param pulumi.Input[str] s3_key: The Amazon S3 key where the data is located.
         """
-        pulumi.set(__self__, "s3_bucket", s3_bucket)
-        pulumi.set(__self__, "s3_key", s3_key)
+        ApplicationVersionSourceBundleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket=s3_bucket,
+            s3_key=s3_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket: pulumi.Input[str],
+             s3_key: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_bucket", s3_bucket)
+        _setter("s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -260,12 +319,27 @@ class ConfigurationTemplateConfigurationOptionSettingArgs:
         :param pulumi.Input[str] resource_name: A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
         :param pulumi.Input[str] value: The current value for the configuration option.
         """
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "option_name", option_name)
+        ConfigurationTemplateConfigurationOptionSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+            option_name=option_name,
+            resource_name=resource_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: pulumi.Input[str],
+             option_name: pulumi.Input[str],
+             resource_name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace", namespace)
+        _setter("option_name", option_name)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -325,8 +399,19 @@ class ConfigurationTemplateSourceConfigurationArgs:
         :param pulumi.Input[str] application_name: The name of the application associated with the configuration.
         :param pulumi.Input[str] template_name: The name of the configuration template.
         """
-        pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "template_name", template_name)
+        ConfigurationTemplateSourceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            template_name=template_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: pulumi.Input[str],
+             template_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_name", application_name)
+        _setter("template_name", template_name)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -366,12 +451,27 @@ class EnvironmentOptionSettingArgs:
         :param pulumi.Input[str] resource_name: A unique resource name for the option setting. Use it for a time–based scaling configuration option.
         :param pulumi.Input[str] value: The current value for the configuration option.
         """
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "option_name", option_name)
+        EnvironmentOptionSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+            option_name=option_name,
+            resource_name=resource_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: pulumi.Input[str],
+             option_name: pulumi.Input[str],
+             resource_name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace", namespace)
+        _setter("option_name", option_name)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -431,8 +531,19 @@ class EnvironmentTagArgs:
         :param pulumi.Input[str] key: The key name of the tag.
         :param pulumi.Input[str] value: The value for the tag.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EnvironmentTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -470,12 +581,25 @@ class EnvironmentTierArgs:
         :param pulumi.Input[str] type: The type of this environment tier.
         :param pulumi.Input[str] version: The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
         """
+        EnvironmentTierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter

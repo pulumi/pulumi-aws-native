@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ArchiveArgs', 'Archive']
@@ -22,15 +22,32 @@ class ArchiveArgs:
         """
         The set of arguments for constructing a Archive resource.
         """
-        pulumi.set(__self__, "source_arn", source_arn)
+        ArchiveArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_arn=source_arn,
+            archive_name=archive_name,
+            description=description,
+            event_pattern=event_pattern,
+            retention_days=retention_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_arn: pulumi.Input[str],
+             archive_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             event_pattern: Optional[Any] = None,
+             retention_days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_arn", source_arn)
         if archive_name is not None:
-            pulumi.set(__self__, "archive_name", archive_name)
+            _setter("archive_name", archive_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if event_pattern is not None:
-            pulumi.set(__self__, "event_pattern", event_pattern)
+            _setter("event_pattern", event_pattern)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
 
     @property
     @pulumi.getter(name="sourceArn")
@@ -114,6 +131,10 @@ class Archive(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ArchiveArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

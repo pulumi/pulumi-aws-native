@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,23 +33,52 @@ class ModelExplainabilityJobDefinitionArgs:
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['ModelExplainabilityJobDefinitionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "job_resources", job_resources)
-        pulumi.set(__self__, "model_explainability_app_specification", model_explainability_app_specification)
-        pulumi.set(__self__, "model_explainability_job_input", model_explainability_job_input)
-        pulumi.set(__self__, "model_explainability_job_output_config", model_explainability_job_output_config)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ModelExplainabilityJobDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_resources=job_resources,
+            model_explainability_app_specification=model_explainability_app_specification,
+            model_explainability_job_input=model_explainability_job_input,
+            model_explainability_job_output_config=model_explainability_job_output_config,
+            role_arn=role_arn,
+            endpoint_name=endpoint_name,
+            job_definition_name=job_definition_name,
+            model_explainability_baseline_config=model_explainability_baseline_config,
+            network_config=network_config,
+            stopping_condition=stopping_condition,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_resources: pulumi.Input['ModelExplainabilityJobDefinitionMonitoringResourcesArgs'],
+             model_explainability_app_specification: pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs'],
+             model_explainability_job_input: pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs'],
+             model_explainability_job_output_config: pulumi.Input['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs'],
+             role_arn: pulumi.Input[str],
+             endpoint_name: Optional[pulumi.Input[str]] = None,
+             job_definition_name: Optional[pulumi.Input[str]] = None,
+             model_explainability_baseline_config: Optional[pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']] = None,
+             network_config: Optional[pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs']] = None,
+             stopping_condition: Optional[pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelExplainabilityJobDefinitionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("job_resources", job_resources)
+        _setter("model_explainability_app_specification", model_explainability_app_specification)
+        _setter("model_explainability_job_input", model_explainability_job_input)
+        _setter("model_explainability_job_output_config", model_explainability_job_output_config)
+        _setter("role_arn", role_arn)
         if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
+            _setter("endpoint_name", endpoint_name)
         if job_definition_name is not None:
-            pulumi.set(__self__, "job_definition_name", job_definition_name)
+            _setter("job_definition_name", job_definition_name)
         if model_explainability_baseline_config is not None:
-            pulumi.set(__self__, "model_explainability_baseline_config", model_explainability_baseline_config)
+            _setter("model_explainability_baseline_config", model_explainability_baseline_config)
         if network_config is not None:
-            pulumi.set(__self__, "network_config", network_config)
+            _setter("network_config", network_config)
         if stopping_condition is not None:
-            pulumi.set(__self__, "stopping_condition", stopping_condition)
+            _setter("stopping_condition", stopping_condition)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="jobResources")
@@ -201,6 +230,10 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ModelExplainabilityJobDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -228,23 +261,58 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
 
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["job_definition_name"] = job_definition_name
+            if job_resources is not None and not isinstance(job_resources, ModelExplainabilityJobDefinitionMonitoringResourcesArgs):
+                job_resources = job_resources or {}
+                def _setter(key, value):
+                    job_resources[key] = value
+                ModelExplainabilityJobDefinitionMonitoringResourcesArgs._configure(_setter, **job_resources)
             if job_resources is None and not opts.urn:
                 raise TypeError("Missing required property 'job_resources'")
             __props__.__dict__["job_resources"] = job_resources
+            if model_explainability_app_specification is not None and not isinstance(model_explainability_app_specification, ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs):
+                model_explainability_app_specification = model_explainability_app_specification or {}
+                def _setter(key, value):
+                    model_explainability_app_specification[key] = value
+                ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs._configure(_setter, **model_explainability_app_specification)
             if model_explainability_app_specification is None and not opts.urn:
                 raise TypeError("Missing required property 'model_explainability_app_specification'")
             __props__.__dict__["model_explainability_app_specification"] = model_explainability_app_specification
+            if model_explainability_baseline_config is not None and not isinstance(model_explainability_baseline_config, ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs):
+                model_explainability_baseline_config = model_explainability_baseline_config or {}
+                def _setter(key, value):
+                    model_explainability_baseline_config[key] = value
+                ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs._configure(_setter, **model_explainability_baseline_config)
             __props__.__dict__["model_explainability_baseline_config"] = model_explainability_baseline_config
+            if model_explainability_job_input is not None and not isinstance(model_explainability_job_input, ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs):
+                model_explainability_job_input = model_explainability_job_input or {}
+                def _setter(key, value):
+                    model_explainability_job_input[key] = value
+                ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs._configure(_setter, **model_explainability_job_input)
             if model_explainability_job_input is None and not opts.urn:
                 raise TypeError("Missing required property 'model_explainability_job_input'")
             __props__.__dict__["model_explainability_job_input"] = model_explainability_job_input
+            if model_explainability_job_output_config is not None and not isinstance(model_explainability_job_output_config, ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs):
+                model_explainability_job_output_config = model_explainability_job_output_config or {}
+                def _setter(key, value):
+                    model_explainability_job_output_config[key] = value
+                ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs._configure(_setter, **model_explainability_job_output_config)
             if model_explainability_job_output_config is None and not opts.urn:
                 raise TypeError("Missing required property 'model_explainability_job_output_config'")
             __props__.__dict__["model_explainability_job_output_config"] = model_explainability_job_output_config
+            if network_config is not None and not isinstance(network_config, ModelExplainabilityJobDefinitionNetworkConfigArgs):
+                network_config = network_config or {}
+                def _setter(key, value):
+                    network_config[key] = value
+                ModelExplainabilityJobDefinitionNetworkConfigArgs._configure(_setter, **network_config)
             __props__.__dict__["network_config"] = network_config
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            if stopping_condition is not None and not isinstance(stopping_condition, ModelExplainabilityJobDefinitionStoppingConditionArgs):
+                stopping_condition = stopping_condition or {}
+                def _setter(key, value):
+                    stopping_condition[key] = value
+                ModelExplainabilityJobDefinitionStoppingConditionArgs._configure(_setter, **stopping_condition)
             __props__.__dict__["stopping_condition"] = stopping_condition
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None

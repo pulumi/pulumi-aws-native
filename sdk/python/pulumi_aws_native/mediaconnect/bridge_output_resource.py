@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,10 +26,23 @@ class BridgeOutputResourceArgs:
         :param pulumi.Input['BridgeOutputResourceBridgeNetworkOutputArgs'] network_output: The output of the bridge.
         :param pulumi.Input[str] name: The network output name.
         """
-        pulumi.set(__self__, "bridge_arn", bridge_arn)
-        pulumi.set(__self__, "network_output", network_output)
+        BridgeOutputResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bridge_arn=bridge_arn,
+            network_output=network_output,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bridge_arn: pulumi.Input[str],
+             network_output: pulumi.Input['BridgeOutputResourceBridgeNetworkOutputArgs'],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bridge_arn", bridge_arn)
+        _setter("network_output", network_output)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="bridgeArn")
@@ -105,6 +118,10 @@ class BridgeOutputResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BridgeOutputResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -126,6 +143,11 @@ class BridgeOutputResource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bridge_arn'")
             __props__.__dict__["bridge_arn"] = bridge_arn
             __props__.__dict__["name"] = name
+            if network_output is not None and not isinstance(network_output, BridgeOutputResourceBridgeNetworkOutputArgs):
+                network_output = network_output or {}
+                def _setter(key, value):
+                    network_output[key] = value
+                BridgeOutputResourceBridgeNetworkOutputArgs._configure(_setter, **network_output)
             if network_output is None and not opts.urn:
                 raise TypeError("Missing required property 'network_output'")
             __props__.__dict__["network_output"] = network_output

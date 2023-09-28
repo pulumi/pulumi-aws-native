@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,41 @@ class EnvironmentAccountConnectionArgs:
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
         """
+        EnvironmentAccountConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            codebuild_role_arn=codebuild_role_arn,
+            component_role_arn=component_role_arn,
+            environment_account_id=environment_account_id,
+            environment_name=environment_name,
+            management_account_id=management_account_id,
+            role_arn=role_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             codebuild_role_arn: Optional[pulumi.Input[str]] = None,
+             component_role_arn: Optional[pulumi.Input[str]] = None,
+             environment_account_id: Optional[pulumi.Input[str]] = None,
+             environment_name: Optional[pulumi.Input[str]] = None,
+             management_account_id: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentAccountConnectionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if codebuild_role_arn is not None:
-            pulumi.set(__self__, "codebuild_role_arn", codebuild_role_arn)
+            _setter("codebuild_role_arn", codebuild_role_arn)
         if component_role_arn is not None:
-            pulumi.set(__self__, "component_role_arn", component_role_arn)
+            _setter("component_role_arn", component_role_arn)
         if environment_account_id is not None:
-            pulumi.set(__self__, "environment_account_id", environment_account_id)
+            _setter("environment_account_id", environment_account_id)
         if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
+            _setter("environment_name", environment_name)
         if management_account_id is not None:
-            pulumi.set(__self__, "management_account_id", management_account_id)
+            _setter("management_account_id", management_account_id)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="codebuildRoleArn")
@@ -185,6 +206,10 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentAccountConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

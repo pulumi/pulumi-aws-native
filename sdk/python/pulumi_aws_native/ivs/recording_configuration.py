@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,17 +29,36 @@ class RecordingConfigurationArgs:
         :param pulumi.Input[int] recording_reconnect_window_seconds: Recording Reconnect Window Seconds. (0 means disabled)
         :param pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
-        pulumi.set(__self__, "destination_configuration", destination_configuration)
+        RecordingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_configuration=destination_configuration,
+            name=name,
+            recording_reconnect_window_seconds=recording_reconnect_window_seconds,
+            rendition_configuration=rendition_configuration,
+            tags=tags,
+            thumbnail_configuration=thumbnail_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_configuration: pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'],
+             name: Optional[pulumi.Input[str]] = None,
+             recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
+             rendition_configuration: Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]] = None,
+             thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_configuration", destination_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recording_reconnect_window_seconds is not None:
-            pulumi.set(__self__, "recording_reconnect_window_seconds", recording_reconnect_window_seconds)
+            _setter("recording_reconnect_window_seconds", recording_reconnect_window_seconds)
         if rendition_configuration is not None:
-            pulumi.set(__self__, "rendition_configuration", rendition_configuration)
+            _setter("rendition_configuration", rendition_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if thumbnail_configuration is not None:
-            pulumi.set(__self__, "thumbnail_configuration", thumbnail_configuration)
+            _setter("thumbnail_configuration", thumbnail_configuration)
 
     @property
     @pulumi.getter(name="destinationConfiguration")
@@ -145,6 +164,10 @@ class RecordingConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RecordingConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -165,13 +188,28 @@ class RecordingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RecordingConfigurationArgs.__new__(RecordingConfigurationArgs)
 
+            if destination_configuration is not None and not isinstance(destination_configuration, RecordingConfigurationDestinationConfigurationArgs):
+                destination_configuration = destination_configuration or {}
+                def _setter(key, value):
+                    destination_configuration[key] = value
+                RecordingConfigurationDestinationConfigurationArgs._configure(_setter, **destination_configuration)
             if destination_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_configuration'")
             __props__.__dict__["destination_configuration"] = destination_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["recording_reconnect_window_seconds"] = recording_reconnect_window_seconds
+            if rendition_configuration is not None and not isinstance(rendition_configuration, RecordingConfigurationRenditionConfigurationArgs):
+                rendition_configuration = rendition_configuration or {}
+                def _setter(key, value):
+                    rendition_configuration[key] = value
+                RecordingConfigurationRenditionConfigurationArgs._configure(_setter, **rendition_configuration)
             __props__.__dict__["rendition_configuration"] = rendition_configuration
             __props__.__dict__["tags"] = tags
+            if thumbnail_configuration is not None and not isinstance(thumbnail_configuration, RecordingConfigurationThumbnailConfigurationArgs):
+                thumbnail_configuration = thumbnail_configuration or {}
+                def _setter(key, value):
+                    thumbnail_configuration[key] = value
+                RecordingConfigurationThumbnailConfigurationArgs._configure(_setter, **thumbnail_configuration)
             __props__.__dict__["thumbnail_configuration"] = thumbnail_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["state"] = None

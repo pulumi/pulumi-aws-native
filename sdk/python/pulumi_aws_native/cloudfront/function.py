@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,14 +24,31 @@ class FunctionArgs:
         """
         The set of arguments for constructing a Function resource.
         """
-        pulumi.set(__self__, "function_code", function_code)
-        pulumi.set(__self__, "function_config", function_config)
+        FunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_code=function_code,
+            function_config=function_config,
+            auto_publish=auto_publish,
+            function_metadata=function_metadata,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_code: pulumi.Input[str],
+             function_config: pulumi.Input['FunctionConfigArgs'],
+             auto_publish: Optional[pulumi.Input[bool]] = None,
+             function_metadata: Optional[pulumi.Input['FunctionMetadataArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_code", function_code)
+        _setter("function_config", function_config)
         if auto_publish is not None:
-            pulumi.set(__self__, "auto_publish", auto_publish)
+            _setter("auto_publish", auto_publish)
         if function_metadata is not None:
-            pulumi.set(__self__, "function_metadata", function_metadata)
+            _setter("function_metadata", function_metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="functionCode")
@@ -115,6 +132,10 @@ class Function(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -138,9 +159,19 @@ class Function(pulumi.CustomResource):
             if function_code is None and not opts.urn:
                 raise TypeError("Missing required property 'function_code'")
             __props__.__dict__["function_code"] = function_code
+            if function_config is not None and not isinstance(function_config, FunctionConfigArgs):
+                function_config = function_config or {}
+                def _setter(key, value):
+                    function_config[key] = value
+                FunctionConfigArgs._configure(_setter, **function_config)
             if function_config is None and not opts.urn:
                 raise TypeError("Missing required property 'function_config'")
             __props__.__dict__["function_config"] = function_config
+            if function_metadata is not None and not isinstance(function_metadata, FunctionMetadataArgs):
+                function_metadata = function_metadata or {}
+                def _setter(key, value):
+                    function_metadata[key] = value
+                FunctionMetadataArgs._configure(_setter, **function_metadata)
             __props__.__dict__["function_metadata"] = function_metadata
             __props__.__dict__["name"] = name
             __props__.__dict__["function_arn"] = None

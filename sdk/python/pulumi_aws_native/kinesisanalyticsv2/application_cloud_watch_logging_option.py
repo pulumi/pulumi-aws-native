@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,8 +21,19 @@ class ApplicationCloudWatchLoggingOptionArgs:
         """
         The set of arguments for constructing a ApplicationCloudWatchLoggingOption resource.
         """
-        pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "cloud_watch_logging_option", cloud_watch_logging_option)
+        ApplicationCloudWatchLoggingOptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            cloud_watch_logging_option=cloud_watch_logging_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: pulumi.Input[str],
+             cloud_watch_logging_option: pulumi.Input['ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_name", application_name)
+        _setter("cloud_watch_logging_option", cloud_watch_logging_option)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -81,6 +92,10 @@ class ApplicationCloudWatchLoggingOption(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationCloudWatchLoggingOptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -101,6 +116,11 @@ class ApplicationCloudWatchLoggingOption(pulumi.CustomResource):
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
+            if cloud_watch_logging_option is not None and not isinstance(cloud_watch_logging_option, ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs):
+                cloud_watch_logging_option = cloud_watch_logging_option or {}
+                def _setter(key, value):
+                    cloud_watch_logging_option[key] = value
+                ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs._configure(_setter, **cloud_watch_logging_option)
             if cloud_watch_logging_option is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_watch_logging_option'")
             __props__.__dict__["cloud_watch_logging_option"] = cloud_watch_logging_option

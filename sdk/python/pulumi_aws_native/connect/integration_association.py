@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -21,9 +21,22 @@ class IntegrationAssociationArgs:
         """
         The set of arguments for constructing a IntegrationAssociation resource.
         """
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "integration_arn", integration_arn)
-        pulumi.set(__self__, "integration_type", integration_type)
+        IntegrationAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_id=instance_id,
+            integration_arn=integration_arn,
+            integration_type=integration_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_id: pulumi.Input[str],
+             integration_arn: pulumi.Input[str],
+             integration_type: pulumi.Input['IntegrationAssociationIntegrationType'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_id", instance_id)
+        _setter("integration_arn", integration_arn)
+        _setter("integration_type", integration_type)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -87,6 +100,10 @@ class IntegrationAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

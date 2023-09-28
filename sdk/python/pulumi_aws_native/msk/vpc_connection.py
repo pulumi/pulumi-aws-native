@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,13 +27,32 @@ class VpcConnectionArgs:
         The set of arguments for constructing a VpcConnection resource.
         :param pulumi.Input[str] target_cluster_arn: The Amazon Resource Name (ARN) of the target cluster
         """
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "client_subnets", client_subnets)
-        pulumi.set(__self__, "security_groups", security_groups)
-        pulumi.set(__self__, "target_cluster_arn", target_cluster_arn)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        VpcConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            client_subnets=client_subnets,
+            security_groups=security_groups,
+            target_cluster_arn=target_cluster_arn,
+            vpc_id=vpc_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: pulumi.Input['VpcConnectionAuthentication'],
+             client_subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
+             target_cluster_arn: pulumi.Input[str],
+             vpc_id: pulumi.Input[str],
+             tags: Optional[pulumi.Input['VpcConnectionTagsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication", authentication)
+        _setter("client_subnets", client_subnets)
+        _setter("security_groups", security_groups)
+        _setter("target_cluster_arn", target_cluster_arn)
+        _setter("vpc_id", vpc_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -131,6 +150,10 @@ class VpcConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -160,6 +183,11 @@ class VpcConnection(pulumi.CustomResource):
             if security_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'security_groups'")
             __props__.__dict__["security_groups"] = security_groups
+            if tags is not None and not isinstance(tags, VpcConnectionTagsArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                VpcConnectionTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             if target_cluster_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_cluster_arn'")

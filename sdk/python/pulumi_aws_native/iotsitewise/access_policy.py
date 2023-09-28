@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,22 @@ class AccessPolicyArgs:
         :param pulumi.Input[str] access_policy_permission: The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
         :param pulumi.Input['AccessPolicyResourceArgs'] access_policy_resource: The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
         """
-        pulumi.set(__self__, "access_policy_identity", access_policy_identity)
-        pulumi.set(__self__, "access_policy_permission", access_policy_permission)
-        pulumi.set(__self__, "access_policy_resource", access_policy_resource)
+        AccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy_identity=access_policy_identity,
+            access_policy_permission=access_policy_permission,
+            access_policy_resource=access_policy_resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy_identity: pulumi.Input['AccessPolicyIdentityArgs'],
+             access_policy_permission: pulumi.Input[str],
+             access_policy_resource: pulumi.Input['AccessPolicyResourceArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_policy_identity", access_policy_identity)
+        _setter("access_policy_permission", access_policy_permission)
+        _setter("access_policy_resource", access_policy_resource)
 
     @property
     @pulumi.getter(name="accessPolicyIdentity")
@@ -103,6 +116,10 @@ class AccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -120,12 +137,22 @@ class AccessPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessPolicyArgs.__new__(AccessPolicyArgs)
 
+            if access_policy_identity is not None and not isinstance(access_policy_identity, AccessPolicyIdentityArgs):
+                access_policy_identity = access_policy_identity or {}
+                def _setter(key, value):
+                    access_policy_identity[key] = value
+                AccessPolicyIdentityArgs._configure(_setter, **access_policy_identity)
             if access_policy_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policy_identity'")
             __props__.__dict__["access_policy_identity"] = access_policy_identity
             if access_policy_permission is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policy_permission'")
             __props__.__dict__["access_policy_permission"] = access_policy_permission
+            if access_policy_resource is not None and not isinstance(access_policy_resource, AccessPolicyResourceArgs):
+                access_policy_resource = access_policy_resource or {}
+                def _setter(key, value):
+                    access_policy_resource[key] = value
+                AccessPolicyResourceArgs._configure(_setter, **access_policy_resource)
             if access_policy_resource is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policy_resource'")
             __props__.__dict__["access_policy_resource"] = access_policy_resource

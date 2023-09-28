@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -28,14 +28,29 @@ class HookTypeConfigArgs:
                
                We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
+        HookTypeConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            configuration_alias=configuration_alias,
+            type_arn=type_arn,
+            type_name=type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[pulumi.Input[str]] = None,
+             configuration_alias: Optional[pulumi.Input['HookTypeConfigConfigurationAlias']] = None,
+             type_arn: Optional[pulumi.Input[str]] = None,
+             type_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if configuration_alias is not None:
-            pulumi.set(__self__, "configuration_alias", configuration_alias)
+            _setter("configuration_alias", configuration_alias)
         if type_arn is not None:
-            pulumi.set(__self__, "type_arn", type_arn)
+            _setter("type_arn", type_arn)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
 
     @property
     @pulumi.getter
@@ -129,6 +144,10 @@ class HookTypeConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HookTypeConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

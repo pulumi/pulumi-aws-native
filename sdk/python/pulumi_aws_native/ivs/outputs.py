@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,8 +27,19 @@ class ChannelTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ChannelTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -46,8 +57,19 @@ class PlaybackKeyPairTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        PlaybackKeyPairTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -70,8 +92,17 @@ class RecordingConfigurationDestinationConfiguration(dict):
         """
         Recording Destination Configuration.
         """
+        RecordingConfigurationDestinationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3: Optional['outputs.RecordingConfigurationS3DestinationConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
 
     @property
     @pulumi.getter
@@ -109,10 +140,21 @@ class RecordingConfigurationRenditionConfiguration(dict):
         :param 'RecordingConfigurationRenditionConfigurationRenditionSelection' rendition_selection: Resolution Selection indicates which set of renditions are recorded for a stream.
         :param Sequence['RecordingConfigurationRenditionConfigurationRenditionsItem'] renditions: Renditions indicates which renditions are recorded for a stream.
         """
+        RecordingConfigurationRenditionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rendition_selection=rendition_selection,
+            renditions=renditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rendition_selection: Optional['RecordingConfigurationRenditionConfigurationRenditionSelection'] = None,
+             renditions: Optional[Sequence['RecordingConfigurationRenditionConfigurationRenditionsItem']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if rendition_selection is not None:
-            pulumi.set(__self__, "rendition_selection", rendition_selection)
+            _setter("rendition_selection", rendition_selection)
         if renditions is not None:
-            pulumi.set(__self__, "renditions", renditions)
+            _setter("renditions", renditions)
 
     @property
     @pulumi.getter(name="renditionSelection")
@@ -158,7 +200,16 @@ class RecordingConfigurationS3DestinationConfiguration(dict):
         """
         Recording S3 Destination Configuration.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        RecordingConfigurationS3DestinationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -171,8 +222,19 @@ class RecordingConfigurationTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        RecordingConfigurationTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -221,14 +283,29 @@ class RecordingConfigurationThumbnailConfiguration(dict):
         :param Sequence['RecordingConfigurationThumbnailConfigurationStorageItem'] storage: Storage indicates the format in which thumbnails are recorded.
         :param int target_interval_seconds: Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
         """
+        RecordingConfigurationThumbnailConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recording_mode=recording_mode,
+            resolution=resolution,
+            storage=storage,
+            target_interval_seconds=target_interval_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recording_mode: Optional['RecordingConfigurationThumbnailConfigurationRecordingMode'] = None,
+             resolution: Optional['RecordingConfigurationThumbnailConfigurationResolution'] = None,
+             storage: Optional[Sequence['RecordingConfigurationThumbnailConfigurationStorageItem']] = None,
+             target_interval_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if recording_mode is not None:
-            pulumi.set(__self__, "recording_mode", recording_mode)
+            _setter("recording_mode", recording_mode)
         if resolution is not None:
-            pulumi.set(__self__, "resolution", resolution)
+            _setter("resolution", resolution)
         if storage is not None:
-            pulumi.set(__self__, "storage", storage)
+            _setter("storage", storage)
         if target_interval_seconds is not None:
-            pulumi.set(__self__, "target_interval_seconds", target_interval_seconds)
+            _setter("target_interval_seconds", target_interval_seconds)
 
     @property
     @pulumi.getter(name="recordingMode")
@@ -268,8 +345,19 @@ class StreamKeyTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        StreamKeyTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

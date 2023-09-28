@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,36 @@ class TableArgs:
         :param pulumi.Input[str] table_name: The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "database_name", database_name)
+        TableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            magnetic_store_write_properties=magnetic_store_write_properties,
+            retention_properties=retention_properties,
+            schema=schema,
+            table_name=table_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             magnetic_store_write_properties: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesArgs']] = None,
+             retention_properties: Optional[pulumi.Input['RetentionPropertiesPropertiesArgs']] = None,
+             schema: Optional[pulumi.Input['SchemaPropertiesArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
         if magnetic_store_write_properties is not None:
-            pulumi.set(__self__, "magnetic_store_write_properties", magnetic_store_write_properties)
+            _setter("magnetic_store_write_properties", magnetic_store_write_properties)
         if retention_properties is not None:
-            pulumi.set(__self__, "retention_properties", retention_properties)
+            _setter("retention_properties", retention_properties)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -160,6 +179,10 @@ class Table(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -183,8 +206,23 @@ class Table(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            if magnetic_store_write_properties is not None and not isinstance(magnetic_store_write_properties, MagneticStoreWritePropertiesPropertiesArgs):
+                magnetic_store_write_properties = magnetic_store_write_properties or {}
+                def _setter(key, value):
+                    magnetic_store_write_properties[key] = value
+                MagneticStoreWritePropertiesPropertiesArgs._configure(_setter, **magnetic_store_write_properties)
             __props__.__dict__["magnetic_store_write_properties"] = magnetic_store_write_properties
+            if retention_properties is not None and not isinstance(retention_properties, RetentionPropertiesPropertiesArgs):
+                retention_properties = retention_properties or {}
+                def _setter(key, value):
+                    retention_properties[key] = value
+                RetentionPropertiesPropertiesArgs._configure(_setter, **retention_properties)
             __props__.__dict__["retention_properties"] = retention_properties
+            if schema is not None and not isinstance(schema, SchemaPropertiesArgs):
+                schema = schema or {}
+                def _setter(key, value):
+                    schema[key] = value
+                SchemaPropertiesArgs._configure(_setter, **schema)
             __props__.__dict__["schema"] = schema
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags

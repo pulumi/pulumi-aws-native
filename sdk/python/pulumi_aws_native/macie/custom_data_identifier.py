@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,19 +33,40 @@ class CustomDataIdentifierArgs:
         :param pulumi.Input[str] name: Name of custom data identifier.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDataIdentifierTagArgs']]] tags: A collection of tags associated with a resource
         """
-        pulumi.set(__self__, "regex", regex)
+        CustomDataIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regex=regex,
+            description=description,
+            ignore_words=ignore_words,
+            keywords=keywords,
+            maximum_match_distance=maximum_match_distance,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regex: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             ignore_words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             keywords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             maximum_match_distance: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDataIdentifierTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("regex", regex)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if ignore_words is not None:
-            pulumi.set(__self__, "ignore_words", ignore_words)
+            _setter("ignore_words", ignore_words)
         if keywords is not None:
-            pulumi.set(__self__, "keywords", keywords)
+            _setter("keywords", keywords)
         if maximum_match_distance is not None:
-            pulumi.set(__self__, "maximum_match_distance", maximum_match_distance)
+            _setter("maximum_match_distance", maximum_match_distance)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -177,6 +198,10 @@ class CustomDataIdentifier(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomDataIdentifierArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

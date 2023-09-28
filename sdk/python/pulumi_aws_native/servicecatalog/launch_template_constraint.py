@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LaunchTemplateConstraintArgs', 'LaunchTemplateConstraint']
@@ -22,13 +22,30 @@ class LaunchTemplateConstraintArgs:
         """
         The set of arguments for constructing a LaunchTemplateConstraint resource.
         """
-        pulumi.set(__self__, "portfolio_id", portfolio_id)
-        pulumi.set(__self__, "product_id", product_id)
-        pulumi.set(__self__, "rules", rules)
+        LaunchTemplateConstraintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            portfolio_id=portfolio_id,
+            product_id=product_id,
+            rules=rules,
+            accept_language=accept_language,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             portfolio_id: pulumi.Input[str],
+             product_id: pulumi.Input[str],
+             rules: pulumi.Input[str],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("portfolio_id", portfolio_id)
+        _setter("product_id", product_id)
+        _setter("rules", rules)
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="portfolioId")
@@ -117,6 +134,10 @@ class LaunchTemplateConstraint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LaunchTemplateConstraintArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

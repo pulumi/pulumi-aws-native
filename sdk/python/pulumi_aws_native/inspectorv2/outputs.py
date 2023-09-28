@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -128,68 +128,137 @@ class FilterCriteria(dict):
                  vulnerability_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  vulnerability_source: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  vulnerable_packages: Optional[Sequence['outputs.FilterPackageFilter']] = None):
+        FilterCriteria._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_account_id=aws_account_id,
+            component_id=component_id,
+            component_type=component_type,
+            ec2_instance_image_id=ec2_instance_image_id,
+            ec2_instance_subnet_id=ec2_instance_subnet_id,
+            ec2_instance_vpc_id=ec2_instance_vpc_id,
+            ecr_image_architecture=ecr_image_architecture,
+            ecr_image_hash=ecr_image_hash,
+            ecr_image_pushed_at=ecr_image_pushed_at,
+            ecr_image_registry=ecr_image_registry,
+            ecr_image_repository_name=ecr_image_repository_name,
+            ecr_image_tags=ecr_image_tags,
+            finding_arn=finding_arn,
+            finding_status=finding_status,
+            finding_type=finding_type,
+            first_observed_at=first_observed_at,
+            inspector_score=inspector_score,
+            last_observed_at=last_observed_at,
+            network_protocol=network_protocol,
+            port_range=port_range,
+            related_vulnerabilities=related_vulnerabilities,
+            resource_id=resource_id,
+            resource_tags=resource_tags,
+            resource_type=resource_type,
+            severity=severity,
+            title=title,
+            updated_at=updated_at,
+            vendor_severity=vendor_severity,
+            vulnerability_id=vulnerability_id,
+            vulnerability_source=vulnerability_source,
+            vulnerable_packages=vulnerable_packages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_account_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             component_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             component_type: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             ec2_instance_image_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             ec2_instance_subnet_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             ec2_instance_vpc_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             ecr_image_architecture: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             ecr_image_hash: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             ecr_image_pushed_at: Optional[Sequence['outputs.FilterDateFilter']] = None,
+             ecr_image_registry: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             ecr_image_repository_name: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             ecr_image_tags: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             finding_arn: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             finding_status: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             finding_type: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             first_observed_at: Optional[Sequence['outputs.FilterDateFilter']] = None,
+             inspector_score: Optional[Sequence['outputs.FilterNumberFilter']] = None,
+             last_observed_at: Optional[Sequence['outputs.FilterDateFilter']] = None,
+             network_protocol: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             port_range: Optional[Sequence['outputs.FilterPortRangeFilter']] = None,
+             related_vulnerabilities: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             resource_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             resource_tags: Optional[Sequence['outputs.FilterMapFilter']] = None,
+             resource_type: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             severity: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             title: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             updated_at: Optional[Sequence['outputs.FilterDateFilter']] = None,
+             vendor_severity: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             vulnerability_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             vulnerability_source: Optional[Sequence['outputs.FilterStringFilter']] = None,
+             vulnerable_packages: Optional[Sequence['outputs.FilterPackageFilter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if component_id is not None:
-            pulumi.set(__self__, "component_id", component_id)
+            _setter("component_id", component_id)
         if component_type is not None:
-            pulumi.set(__self__, "component_type", component_type)
+            _setter("component_type", component_type)
         if ec2_instance_image_id is not None:
-            pulumi.set(__self__, "ec2_instance_image_id", ec2_instance_image_id)
+            _setter("ec2_instance_image_id", ec2_instance_image_id)
         if ec2_instance_subnet_id is not None:
-            pulumi.set(__self__, "ec2_instance_subnet_id", ec2_instance_subnet_id)
+            _setter("ec2_instance_subnet_id", ec2_instance_subnet_id)
         if ec2_instance_vpc_id is not None:
-            pulumi.set(__self__, "ec2_instance_vpc_id", ec2_instance_vpc_id)
+            _setter("ec2_instance_vpc_id", ec2_instance_vpc_id)
         if ecr_image_architecture is not None:
-            pulumi.set(__self__, "ecr_image_architecture", ecr_image_architecture)
+            _setter("ecr_image_architecture", ecr_image_architecture)
         if ecr_image_hash is not None:
-            pulumi.set(__self__, "ecr_image_hash", ecr_image_hash)
+            _setter("ecr_image_hash", ecr_image_hash)
         if ecr_image_pushed_at is not None:
-            pulumi.set(__self__, "ecr_image_pushed_at", ecr_image_pushed_at)
+            _setter("ecr_image_pushed_at", ecr_image_pushed_at)
         if ecr_image_registry is not None:
-            pulumi.set(__self__, "ecr_image_registry", ecr_image_registry)
+            _setter("ecr_image_registry", ecr_image_registry)
         if ecr_image_repository_name is not None:
-            pulumi.set(__self__, "ecr_image_repository_name", ecr_image_repository_name)
+            _setter("ecr_image_repository_name", ecr_image_repository_name)
         if ecr_image_tags is not None:
-            pulumi.set(__self__, "ecr_image_tags", ecr_image_tags)
+            _setter("ecr_image_tags", ecr_image_tags)
         if finding_arn is not None:
-            pulumi.set(__self__, "finding_arn", finding_arn)
+            _setter("finding_arn", finding_arn)
         if finding_status is not None:
-            pulumi.set(__self__, "finding_status", finding_status)
+            _setter("finding_status", finding_status)
         if finding_type is not None:
-            pulumi.set(__self__, "finding_type", finding_type)
+            _setter("finding_type", finding_type)
         if first_observed_at is not None:
-            pulumi.set(__self__, "first_observed_at", first_observed_at)
+            _setter("first_observed_at", first_observed_at)
         if inspector_score is not None:
-            pulumi.set(__self__, "inspector_score", inspector_score)
+            _setter("inspector_score", inspector_score)
         if last_observed_at is not None:
-            pulumi.set(__self__, "last_observed_at", last_observed_at)
+            _setter("last_observed_at", last_observed_at)
         if network_protocol is not None:
-            pulumi.set(__self__, "network_protocol", network_protocol)
+            _setter("network_protocol", network_protocol)
         if port_range is not None:
-            pulumi.set(__self__, "port_range", port_range)
+            _setter("port_range", port_range)
         if related_vulnerabilities is not None:
-            pulumi.set(__self__, "related_vulnerabilities", related_vulnerabilities)
+            _setter("related_vulnerabilities", related_vulnerabilities)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_tags is not None:
-            pulumi.set(__self__, "resource_tags", resource_tags)
+            _setter("resource_tags", resource_tags)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
         if vendor_severity is not None:
-            pulumi.set(__self__, "vendor_severity", vendor_severity)
+            _setter("vendor_severity", vendor_severity)
         if vulnerability_id is not None:
-            pulumi.set(__self__, "vulnerability_id", vulnerability_id)
+            _setter("vulnerability_id", vulnerability_id)
         if vulnerability_source is not None:
-            pulumi.set(__self__, "vulnerability_source", vulnerability_source)
+            _setter("vulnerability_source", vulnerability_source)
         if vulnerable_packages is not None:
-            pulumi.set(__self__, "vulnerable_packages", vulnerable_packages)
+            _setter("vulnerable_packages", vulnerable_packages)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -371,10 +440,21 @@ class FilterDateFilter(dict):
     def __init__(__self__, *,
                  end_inclusive: Optional[int] = None,
                  start_inclusive: Optional[int] = None):
+        FilterDateFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_inclusive=end_inclusive,
+            start_inclusive=start_inclusive,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_inclusive: Optional[int] = None,
+             start_inclusive: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if end_inclusive is not None:
-            pulumi.set(__self__, "end_inclusive", end_inclusive)
+            _setter("end_inclusive", end_inclusive)
         if start_inclusive is not None:
-            pulumi.set(__self__, "start_inclusive", start_inclusive)
+            _setter("start_inclusive", start_inclusive)
 
     @property
     @pulumi.getter(name="endInclusive")
@@ -393,11 +473,24 @@ class FilterMapFilter(dict):
                  comparison: 'FilterMapComparison',
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        pulumi.set(__self__, "comparison", comparison)
+        FilterMapFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison=comparison,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison: 'FilterMapComparison',
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison", comparison)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -439,10 +532,21 @@ class FilterNumberFilter(dict):
     def __init__(__self__, *,
                  lower_inclusive: Optional[float] = None,
                  upper_inclusive: Optional[float] = None):
+        FilterNumberFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lower_inclusive=lower_inclusive,
+            upper_inclusive=upper_inclusive,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lower_inclusive: Optional[float] = None,
+             upper_inclusive: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lower_inclusive is not None:
-            pulumi.set(__self__, "lower_inclusive", lower_inclusive)
+            _setter("lower_inclusive", lower_inclusive)
         if upper_inclusive is not None:
-            pulumi.set(__self__, "upper_inclusive", upper_inclusive)
+            _setter("upper_inclusive", upper_inclusive)
 
     @property
     @pulumi.getter(name="lowerInclusive")
@@ -481,18 +585,37 @@ class FilterPackageFilter(dict):
                  release: Optional['outputs.FilterStringFilter'] = None,
                  source_layer_hash: Optional['outputs.FilterStringFilter'] = None,
                  version: Optional['outputs.FilterStringFilter'] = None):
+        FilterPackageFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            architecture=architecture,
+            epoch=epoch,
+            name=name,
+            release=release,
+            source_layer_hash=source_layer_hash,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             architecture: Optional['outputs.FilterStringFilter'] = None,
+             epoch: Optional['outputs.FilterNumberFilter'] = None,
+             name: Optional['outputs.FilterStringFilter'] = None,
+             release: Optional['outputs.FilterStringFilter'] = None,
+             source_layer_hash: Optional['outputs.FilterStringFilter'] = None,
+             version: Optional['outputs.FilterStringFilter'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if epoch is not None:
-            pulumi.set(__self__, "epoch", epoch)
+            _setter("epoch", epoch)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if release is not None:
-            pulumi.set(__self__, "release", release)
+            _setter("release", release)
         if source_layer_hash is not None:
-            pulumi.set(__self__, "source_layer_hash", source_layer_hash)
+            _setter("source_layer_hash", source_layer_hash)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -549,10 +672,21 @@ class FilterPortRangeFilter(dict):
     def __init__(__self__, *,
                  begin_inclusive: Optional[int] = None,
                  end_inclusive: Optional[int] = None):
+        FilterPortRangeFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            begin_inclusive=begin_inclusive,
+            end_inclusive=end_inclusive,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             begin_inclusive: Optional[int] = None,
+             end_inclusive: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if begin_inclusive is not None:
-            pulumi.set(__self__, "begin_inclusive", begin_inclusive)
+            _setter("begin_inclusive", begin_inclusive)
         if end_inclusive is not None:
-            pulumi.set(__self__, "end_inclusive", end_inclusive)
+            _setter("end_inclusive", end_inclusive)
 
     @property
     @pulumi.getter(name="beginInclusive")
@@ -570,8 +704,19 @@ class FilterStringFilter(dict):
     def __init__(__self__, *,
                  comparison: 'FilterStringComparison',
                  value: str):
-        pulumi.set(__self__, "comparison", comparison)
-        pulumi.set(__self__, "value", value)
+        FilterStringFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison=comparison,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison: 'FilterStringComparison',
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison", comparison)
+        _setter("value", value)
 
     @property
     @pulumi.getter

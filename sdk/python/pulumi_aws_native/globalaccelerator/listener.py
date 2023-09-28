@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,11 +27,26 @@ class ListenerArgs:
         :param pulumi.Input['ListenerProtocol'] protocol: The protocol for the listener.
         :param pulumi.Input['ListenerClientAffinity'] client_affinity: Client affinity lets you direct all requests from a user to the same endpoint.
         """
-        pulumi.set(__self__, "accelerator_arn", accelerator_arn)
-        pulumi.set(__self__, "port_ranges", port_ranges)
-        pulumi.set(__self__, "protocol", protocol)
+        ListenerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accelerator_arn=accelerator_arn,
+            port_ranges=port_ranges,
+            protocol=protocol,
+            client_affinity=client_affinity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accelerator_arn: pulumi.Input[str],
+             port_ranges: pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]],
+             protocol: pulumi.Input['ListenerProtocol'],
+             client_affinity: Optional[pulumi.Input['ListenerClientAffinity']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("accelerator_arn", accelerator_arn)
+        _setter("port_ranges", port_ranges)
+        _setter("protocol", protocol)
         if client_affinity is not None:
-            pulumi.set(__self__, "client_affinity", client_affinity)
+            _setter("client_affinity", client_affinity)
 
     @property
     @pulumi.getter(name="acceleratorArn")
@@ -117,6 +132,10 @@ class Listener(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ListenerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,9 +22,20 @@ class SuiteDefinitionArgs:
         The set of arguments for constructing a SuiteDefinition resource.
         :param pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "suite_definition_configuration", suite_definition_configuration)
+        SuiteDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            suite_definition_configuration=suite_definition_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             suite_definition_configuration: pulumi.Input['SuiteDefinitionConfigurationPropertiesArgs'],
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("suite_definition_configuration", suite_definition_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="suiteDefinitionConfiguration")
@@ -82,6 +93,10 @@ class SuiteDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SuiteDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -98,6 +113,11 @@ class SuiteDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SuiteDefinitionArgs.__new__(SuiteDefinitionArgs)
 
+            if suite_definition_configuration is not None and not isinstance(suite_definition_configuration, SuiteDefinitionConfigurationPropertiesArgs):
+                suite_definition_configuration = suite_definition_configuration or {}
+                def _setter(key, value):
+                    suite_definition_configuration[key] = value
+                SuiteDefinitionConfigurationPropertiesArgs._configure(_setter, **suite_definition_configuration)
             if suite_definition_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'suite_definition_configuration'")
             __props__.__dict__["suite_definition_configuration"] = suite_definition_configuration

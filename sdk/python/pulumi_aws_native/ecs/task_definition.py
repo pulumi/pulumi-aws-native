@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -37,40 +37,81 @@ class TaskDefinitionArgs:
         """
         The set of arguments for constructing a TaskDefinition resource.
         """
+        TaskDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_definitions=container_definitions,
+            cpu=cpu,
+            ephemeral_storage=ephemeral_storage,
+            execution_role_arn=execution_role_arn,
+            family=family,
+            inference_accelerators=inference_accelerators,
+            ipc_mode=ipc_mode,
+            memory=memory,
+            network_mode=network_mode,
+            pid_mode=pid_mode,
+            placement_constraints=placement_constraints,
+            proxy_configuration=proxy_configuration,
+            requires_compatibilities=requires_compatibilities,
+            runtime_platform=runtime_platform,
+            tags=tags,
+            task_role_arn=task_role_arn,
+            volumes=volumes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionContainerDefinitionArgs']]]] = None,
+             cpu: Optional[pulumi.Input[str]] = None,
+             ephemeral_storage: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']] = None,
+             execution_role_arn: Optional[pulumi.Input[str]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]] = None,
+             ipc_mode: Optional[pulumi.Input[str]] = None,
+             memory: Optional[pulumi.Input[str]] = None,
+             network_mode: Optional[pulumi.Input[str]] = None,
+             pid_mode: Optional[pulumi.Input[str]] = None,
+             placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]]] = None,
+             proxy_configuration: Optional[pulumi.Input['TaskDefinitionProxyConfigurationArgs']] = None,
+             requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             runtime_platform: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]] = None,
+             task_role_arn: Optional[pulumi.Input[str]] = None,
+             volumes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_definitions is not None:
-            pulumi.set(__self__, "container_definitions", container_definitions)
+            _setter("container_definitions", container_definitions)
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if ephemeral_storage is not None:
-            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+            _setter("ephemeral_storage", ephemeral_storage)
         if execution_role_arn is not None:
-            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+            _setter("execution_role_arn", execution_role_arn)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if inference_accelerators is not None:
-            pulumi.set(__self__, "inference_accelerators", inference_accelerators)
+            _setter("inference_accelerators", inference_accelerators)
         if ipc_mode is not None:
-            pulumi.set(__self__, "ipc_mode", ipc_mode)
+            _setter("ipc_mode", ipc_mode)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
         if network_mode is not None:
-            pulumi.set(__self__, "network_mode", network_mode)
+            _setter("network_mode", network_mode)
         if pid_mode is not None:
-            pulumi.set(__self__, "pid_mode", pid_mode)
+            _setter("pid_mode", pid_mode)
         if placement_constraints is not None:
-            pulumi.set(__self__, "placement_constraints", placement_constraints)
+            _setter("placement_constraints", placement_constraints)
         if proxy_configuration is not None:
-            pulumi.set(__self__, "proxy_configuration", proxy_configuration)
+            _setter("proxy_configuration", proxy_configuration)
         if requires_compatibilities is not None:
-            pulumi.set(__self__, "requires_compatibilities", requires_compatibilities)
+            _setter("requires_compatibilities", requires_compatibilities)
         if runtime_platform is not None:
-            pulumi.set(__self__, "runtime_platform", runtime_platform)
+            _setter("runtime_platform", runtime_platform)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if task_role_arn is not None:
-            pulumi.set(__self__, "task_role_arn", task_role_arn)
+            _setter("task_role_arn", task_role_arn)
         if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
+            _setter("volumes", volumes)
 
     @property
     @pulumi.getter(name="containerDefinitions")
@@ -274,6 +315,10 @@ class TaskDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TaskDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -307,6 +352,11 @@ class TaskDefinition(pulumi.CustomResource):
 
             __props__.__dict__["container_definitions"] = container_definitions
             __props__.__dict__["cpu"] = cpu
+            if ephemeral_storage is not None and not isinstance(ephemeral_storage, TaskDefinitionEphemeralStorageArgs):
+                ephemeral_storage = ephemeral_storage or {}
+                def _setter(key, value):
+                    ephemeral_storage[key] = value
+                TaskDefinitionEphemeralStorageArgs._configure(_setter, **ephemeral_storage)
             __props__.__dict__["ephemeral_storage"] = ephemeral_storage
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["family"] = family
@@ -316,8 +366,18 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["network_mode"] = network_mode
             __props__.__dict__["pid_mode"] = pid_mode
             __props__.__dict__["placement_constraints"] = placement_constraints
+            if proxy_configuration is not None and not isinstance(proxy_configuration, TaskDefinitionProxyConfigurationArgs):
+                proxy_configuration = proxy_configuration or {}
+                def _setter(key, value):
+                    proxy_configuration[key] = value
+                TaskDefinitionProxyConfigurationArgs._configure(_setter, **proxy_configuration)
             __props__.__dict__["proxy_configuration"] = proxy_configuration
             __props__.__dict__["requires_compatibilities"] = requires_compatibilities
+            if runtime_platform is not None and not isinstance(runtime_platform, TaskDefinitionRuntimePlatformArgs):
+                runtime_platform = runtime_platform or {}
+                def _setter(key, value):
+                    runtime_platform[key] = value
+                TaskDefinitionRuntimePlatformArgs._configure(_setter, **runtime_platform)
             __props__.__dict__["runtime_platform"] = runtime_platform
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_role_arn"] = task_role_arn

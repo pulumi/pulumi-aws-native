@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,10 +50,25 @@ class CloudFormationProductCodeStarParameters(dict):
                  branch: str,
                  connection_arn: str,
                  repository: str):
-        pulumi.set(__self__, "artifact_path", artifact_path)
-        pulumi.set(__self__, "branch", branch)
-        pulumi.set(__self__, "connection_arn", connection_arn)
-        pulumi.set(__self__, "repository", repository)
+        CloudFormationProductCodeStarParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            artifact_path=artifact_path,
+            branch=branch,
+            connection_arn=connection_arn,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             artifact_path: str,
+             branch: str,
+             connection_arn: str,
+             repository: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("artifact_path", artifact_path)
+        _setter("branch", branch)
+        _setter("connection_arn", connection_arn)
+        _setter("repository", repository)
 
     @property
     @pulumi.getter(name="artifactPath")
@@ -97,8 +112,17 @@ class CloudFormationProductConnectionParameters(dict):
 
     def __init__(__self__, *,
                  code_star: Optional['outputs.CloudFormationProductCodeStarParameters'] = None):
+        CloudFormationProductConnectionParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code_star=code_star,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code_star: Optional['outputs.CloudFormationProductCodeStarParameters'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code_star is not None:
-            pulumi.set(__self__, "code_star", code_star)
+            _setter("code_star", code_star)
 
     @property
     @pulumi.getter(name="codeStar")
@@ -131,15 +155,32 @@ class CloudFormationProductProvisioningArtifactProperties(dict):
                  disable_template_validation: Optional[bool] = None,
                  name: Optional[str] = None,
                  type: Optional[str] = None):
-        pulumi.set(__self__, "info", info)
+        CloudFormationProductProvisioningArtifactProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            description=description,
+            disable_template_validation=disable_template_validation,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: Any,
+             description: Optional[str] = None,
+             disable_template_validation: Optional[bool] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("info", info)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_template_validation is not None:
-            pulumi.set(__self__, "disable_template_validation", disable_template_validation)
+            _setter("disable_template_validation", disable_template_validation)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -189,8 +230,19 @@ class CloudFormationProductSourceConnection(dict):
     def __init__(__self__, *,
                  connection_parameters: 'outputs.CloudFormationProductConnectionParameters',
                  type: str):
-        pulumi.set(__self__, "connection_parameters", connection_parameters)
-        pulumi.set(__self__, "type", type)
+        CloudFormationProductSourceConnection._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_parameters=connection_parameters,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_parameters: 'outputs.CloudFormationProductConnectionParameters',
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_parameters", connection_parameters)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="connectionParameters")
@@ -208,8 +260,19 @@ class CloudFormationProductTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        CloudFormationProductTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -227,8 +290,19 @@ class CloudFormationProvisionedProductProvisioningParameter(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        CloudFormationProvisionedProductProvisioningParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -280,20 +354,41 @@ class CloudFormationProvisionedProductProvisioningPreferences(dict):
                  stack_set_max_concurrency_percentage: Optional[int] = None,
                  stack_set_operation_type: Optional['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType'] = None,
                  stack_set_regions: Optional[Sequence[str]] = None):
+        CloudFormationProvisionedProductProvisioningPreferences._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stack_set_accounts=stack_set_accounts,
+            stack_set_failure_tolerance_count=stack_set_failure_tolerance_count,
+            stack_set_failure_tolerance_percentage=stack_set_failure_tolerance_percentage,
+            stack_set_max_concurrency_count=stack_set_max_concurrency_count,
+            stack_set_max_concurrency_percentage=stack_set_max_concurrency_percentage,
+            stack_set_operation_type=stack_set_operation_type,
+            stack_set_regions=stack_set_regions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stack_set_accounts: Optional[Sequence[str]] = None,
+             stack_set_failure_tolerance_count: Optional[int] = None,
+             stack_set_failure_tolerance_percentage: Optional[int] = None,
+             stack_set_max_concurrency_count: Optional[int] = None,
+             stack_set_max_concurrency_percentage: Optional[int] = None,
+             stack_set_operation_type: Optional['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType'] = None,
+             stack_set_regions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if stack_set_accounts is not None:
-            pulumi.set(__self__, "stack_set_accounts", stack_set_accounts)
+            _setter("stack_set_accounts", stack_set_accounts)
         if stack_set_failure_tolerance_count is not None:
-            pulumi.set(__self__, "stack_set_failure_tolerance_count", stack_set_failure_tolerance_count)
+            _setter("stack_set_failure_tolerance_count", stack_set_failure_tolerance_count)
         if stack_set_failure_tolerance_percentage is not None:
-            pulumi.set(__self__, "stack_set_failure_tolerance_percentage", stack_set_failure_tolerance_percentage)
+            _setter("stack_set_failure_tolerance_percentage", stack_set_failure_tolerance_percentage)
         if stack_set_max_concurrency_count is not None:
-            pulumi.set(__self__, "stack_set_max_concurrency_count", stack_set_max_concurrency_count)
+            _setter("stack_set_max_concurrency_count", stack_set_max_concurrency_count)
         if stack_set_max_concurrency_percentage is not None:
-            pulumi.set(__self__, "stack_set_max_concurrency_percentage", stack_set_max_concurrency_percentage)
+            _setter("stack_set_max_concurrency_percentage", stack_set_max_concurrency_percentage)
         if stack_set_operation_type is not None:
-            pulumi.set(__self__, "stack_set_operation_type", stack_set_operation_type)
+            _setter("stack_set_operation_type", stack_set_operation_type)
         if stack_set_regions is not None:
-            pulumi.set(__self__, "stack_set_regions", stack_set_regions)
+            _setter("stack_set_regions", stack_set_regions)
 
     @property
     @pulumi.getter(name="stackSetAccounts")
@@ -336,8 +431,19 @@ class CloudFormationProvisionedProductTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        CloudFormationProvisionedProductTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -355,8 +461,19 @@ class PortfolioTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        PortfolioTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -374,8 +491,19 @@ class ServiceActionDefinitionParameter(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ServiceActionDefinitionParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

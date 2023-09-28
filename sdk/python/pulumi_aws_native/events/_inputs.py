@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -55,8 +55,19 @@ class ConnectionApiKeyAuthParametersArgs:
     def __init__(__self__, *,
                  api_key_name: pulumi.Input[str],
                  api_key_value: pulumi.Input[str]):
-        pulumi.set(__self__, "api_key_name", api_key_name)
-        pulumi.set(__self__, "api_key_value", api_key_value)
+        ConnectionApiKeyAuthParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key_name=api_key_name,
+            api_key_value=api_key_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key_name: pulumi.Input[str],
+             api_key_value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_key_name", api_key_name)
+        _setter("api_key_value", api_key_value)
 
     @property
     @pulumi.getter(name="apiKeyName")
@@ -84,14 +95,29 @@ class ConnectionAuthParametersArgs:
                  basic_auth_parameters: Optional[pulumi.Input['ConnectionBasicAuthParametersArgs']] = None,
                  invocation_http_parameters: Optional[pulumi.Input['ConnectionHttpParametersArgs']] = None,
                  o_auth_parameters: Optional[pulumi.Input['ConnectionOAuthParametersArgs']] = None):
+        ConnectionAuthParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key_auth_parameters=api_key_auth_parameters,
+            basic_auth_parameters=basic_auth_parameters,
+            invocation_http_parameters=invocation_http_parameters,
+            o_auth_parameters=o_auth_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key_auth_parameters: Optional[pulumi.Input['ConnectionApiKeyAuthParametersArgs']] = None,
+             basic_auth_parameters: Optional[pulumi.Input['ConnectionBasicAuthParametersArgs']] = None,
+             invocation_http_parameters: Optional[pulumi.Input['ConnectionHttpParametersArgs']] = None,
+             o_auth_parameters: Optional[pulumi.Input['ConnectionOAuthParametersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_key_auth_parameters is not None:
-            pulumi.set(__self__, "api_key_auth_parameters", api_key_auth_parameters)
+            _setter("api_key_auth_parameters", api_key_auth_parameters)
         if basic_auth_parameters is not None:
-            pulumi.set(__self__, "basic_auth_parameters", basic_auth_parameters)
+            _setter("basic_auth_parameters", basic_auth_parameters)
         if invocation_http_parameters is not None:
-            pulumi.set(__self__, "invocation_http_parameters", invocation_http_parameters)
+            _setter("invocation_http_parameters", invocation_http_parameters)
         if o_auth_parameters is not None:
-            pulumi.set(__self__, "o_auth_parameters", o_auth_parameters)
+            _setter("o_auth_parameters", o_auth_parameters)
 
     @property
     @pulumi.getter(name="apiKeyAuthParameters")
@@ -135,8 +161,19 @@ class ConnectionBasicAuthParametersArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ConnectionBasicAuthParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input[str],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -162,8 +199,19 @@ class ConnectionClientParametersArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str]):
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        ConnectionClientParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: pulumi.Input[str],
+             client_secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
 
     @property
     @pulumi.getter(name="clientId")
@@ -190,12 +238,25 @@ class ConnectionHttpParametersArgs:
                  body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]] = None,
                  header_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]] = None,
                  query_string_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]] = None):
+        ConnectionHttpParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body_parameters=body_parameters,
+            header_parameters=header_parameters,
+            query_string_parameters=query_string_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]] = None,
+             header_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]] = None,
+             query_string_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body_parameters is not None:
-            pulumi.set(__self__, "body_parameters", body_parameters)
+            _setter("body_parameters", body_parameters)
         if header_parameters is not None:
-            pulumi.set(__self__, "header_parameters", header_parameters)
+            _setter("header_parameters", header_parameters)
         if query_string_parameters is not None:
-            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
+            _setter("query_string_parameters", query_string_parameters)
 
     @property
     @pulumi.getter(name="bodyParameters")
@@ -232,11 +293,26 @@ class ConnectionOAuthParametersArgs:
                  client_parameters: pulumi.Input['ConnectionClientParametersArgs'],
                  http_method: pulumi.Input['ConnectionOAuthParametersHttpMethod'],
                  o_auth_http_parameters: Optional[pulumi.Input['ConnectionHttpParametersArgs']] = None):
-        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
-        pulumi.set(__self__, "client_parameters", client_parameters)
-        pulumi.set(__self__, "http_method", http_method)
+        ConnectionOAuthParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_endpoint=authorization_endpoint,
+            client_parameters=client_parameters,
+            http_method=http_method,
+            o_auth_http_parameters=o_auth_http_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_endpoint: pulumi.Input[str],
+             client_parameters: pulumi.Input['ConnectionClientParametersArgs'],
+             http_method: pulumi.Input['ConnectionOAuthParametersHttpMethod'],
+             o_auth_http_parameters: Optional[pulumi.Input['ConnectionHttpParametersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization_endpoint", authorization_endpoint)
+        _setter("client_parameters", client_parameters)
+        _setter("http_method", http_method)
         if o_auth_http_parameters is not None:
-            pulumi.set(__self__, "o_auth_http_parameters", o_auth_http_parameters)
+            _setter("o_auth_http_parameters", o_auth_http_parameters)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -281,10 +357,23 @@ class ConnectionParameterArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  is_value_secret: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ConnectionParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+            is_value_secret=is_value_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             is_value_secret: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
         if is_value_secret is not None:
-            pulumi.set(__self__, "is_value_secret", is_value_secret)
+            _setter("is_value_secret", is_value_secret)
 
     @property
     @pulumi.getter
@@ -318,7 +407,16 @@ class ConnectionParameterArgs:
 class EndpointEventBusArgs:
     def __init__(__self__, *,
                  event_bus_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+        EndpointEventBusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_bus_arn=event_bus_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_bus_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_bus_arn", event_bus_arn)
 
     @property
     @pulumi.getter(name="eventBusArn")
@@ -335,8 +433,19 @@ class EndpointFailoverConfigArgs:
     def __init__(__self__, *,
                  primary: pulumi.Input['EndpointPrimaryArgs'],
                  secondary: pulumi.Input['EndpointSecondaryArgs']):
-        pulumi.set(__self__, "primary", primary)
-        pulumi.set(__self__, "secondary", secondary)
+        EndpointFailoverConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary=primary,
+            secondary=secondary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary: pulumi.Input['EndpointPrimaryArgs'],
+             secondary: pulumi.Input['EndpointSecondaryArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("primary", primary)
+        _setter("secondary", secondary)
 
     @property
     @pulumi.getter
@@ -361,7 +470,16 @@ class EndpointFailoverConfigArgs:
 class EndpointPrimaryArgs:
     def __init__(__self__, *,
                  health_check: pulumi.Input[str]):
-        pulumi.set(__self__, "health_check", health_check)
+        EndpointPrimaryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_check=health_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_check: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("health_check", health_check)
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -377,7 +495,16 @@ class EndpointPrimaryArgs:
 class EndpointReplicationConfigArgs:
     def __init__(__self__, *,
                  state: pulumi.Input['EndpointReplicationState']):
-        pulumi.set(__self__, "state", state)
+        EndpointReplicationConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: pulumi.Input['EndpointReplicationState'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("state", state)
 
     @property
     @pulumi.getter
@@ -393,7 +520,16 @@ class EndpointReplicationConfigArgs:
 class EndpointRoutingConfigArgs:
     def __init__(__self__, *,
                  failover_config: pulumi.Input['EndpointFailoverConfigArgs']):
-        pulumi.set(__self__, "failover_config", failover_config)
+        EndpointRoutingConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_config=failover_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_config: pulumi.Input['EndpointFailoverConfigArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("failover_config", failover_config)
 
     @property
     @pulumi.getter(name="failoverConfig")
@@ -409,7 +545,16 @@ class EndpointRoutingConfigArgs:
 class EndpointSecondaryArgs:
     def __init__(__self__, *,
                  route: pulumi.Input[str]):
-        pulumi.set(__self__, "route", route)
+        EndpointSecondaryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            route=route,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             route: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("route", route)
 
     @property
     @pulumi.getter
@@ -427,12 +572,25 @@ class EventBusPolicyConditionArgs:
                  key: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        EventBusPolicyConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -467,8 +625,19 @@ class EventBusTagEntryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventBusTagEntryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -495,11 +664,24 @@ class RuleAwsVpcConfigurationArgs:
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  assign_public_ip: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "subnets", subnets)
+        RuleAwsVpcConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnets=subnets,
+            assign_public_ip=assign_public_ip,
+            security_groups=security_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             assign_public_ip: Optional[pulumi.Input[str]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnets", subnets)
         if assign_public_ip is not None:
-            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+            _setter("assign_public_ip", assign_public_ip)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
 
     @property
     @pulumi.getter
@@ -533,8 +715,17 @@ class RuleAwsVpcConfigurationArgs:
 class RuleBatchArrayPropertiesArgs:
     def __init__(__self__, *,
                  size: Optional[pulumi.Input[int]] = None):
+        RuleBatchArrayPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
 
     @property
     @pulumi.getter
@@ -553,12 +744,27 @@ class RuleBatchParametersArgs:
                  job_name: pulumi.Input[str],
                  array_properties: Optional[pulumi.Input['RuleBatchArrayPropertiesArgs']] = None,
                  retry_strategy: Optional[pulumi.Input['RuleBatchRetryStrategyArgs']] = None):
-        pulumi.set(__self__, "job_definition", job_definition)
-        pulumi.set(__self__, "job_name", job_name)
+        RuleBatchParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_definition=job_definition,
+            job_name=job_name,
+            array_properties=array_properties,
+            retry_strategy=retry_strategy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_definition: pulumi.Input[str],
+             job_name: pulumi.Input[str],
+             array_properties: Optional[pulumi.Input['RuleBatchArrayPropertiesArgs']] = None,
+             retry_strategy: Optional[pulumi.Input['RuleBatchRetryStrategyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("job_definition", job_definition)
+        _setter("job_name", job_name)
         if array_properties is not None:
-            pulumi.set(__self__, "array_properties", array_properties)
+            _setter("array_properties", array_properties)
         if retry_strategy is not None:
-            pulumi.set(__self__, "retry_strategy", retry_strategy)
+            _setter("retry_strategy", retry_strategy)
 
     @property
     @pulumi.getter(name="jobDefinition")
@@ -601,8 +807,17 @@ class RuleBatchParametersArgs:
 class RuleBatchRetryStrategyArgs:
     def __init__(__self__, *,
                  attempts: Optional[pulumi.Input[int]] = None):
+        RuleBatchRetryStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attempts=attempts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attempts: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attempts is not None:
-            pulumi.set(__self__, "attempts", attempts)
+            _setter("attempts", attempts)
 
     @property
     @pulumi.getter
@@ -620,11 +835,24 @@ class RuleCapacityProviderStrategyItemArgs:
                  capacity_provider: pulumi.Input[str],
                  base: Optional[pulumi.Input[int]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        RuleCapacityProviderStrategyItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_provider=capacity_provider,
+            base=base,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_provider: pulumi.Input[str],
+             base: Optional[pulumi.Input[int]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity_provider", capacity_provider)
         if base is not None:
-            pulumi.set(__self__, "base", base)
+            _setter("base", base)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="capacityProvider")
@@ -658,8 +886,17 @@ class RuleCapacityProviderStrategyItemArgs:
 class RuleDeadLetterConfigArgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None):
+        RuleDeadLetterConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
 
     @property
     @pulumi.getter
@@ -688,33 +925,68 @@ class RuleEcsParametersArgs:
                  reference_id: Optional[pulumi.Input[str]] = None,
                  tag_list: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]]] = None,
                  task_count: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "task_definition_arn", task_definition_arn)
+        RuleEcsParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_definition_arn=task_definition_arn,
+            capacity_provider_strategy=capacity_provider_strategy,
+            enable_ecs_managed_tags=enable_ecs_managed_tags,
+            enable_execute_command=enable_execute_command,
+            group=group,
+            launch_type=launch_type,
+            network_configuration=network_configuration,
+            placement_constraints=placement_constraints,
+            placement_strategies=placement_strategies,
+            platform_version=platform_version,
+            propagate_tags=propagate_tags,
+            reference_id=reference_id,
+            tag_list=tag_list,
+            task_count=task_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_definition_arn: pulumi.Input[str],
+             capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['RuleCapacityProviderStrategyItemArgs']]]] = None,
+             enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+             enable_execute_command: Optional[pulumi.Input[bool]] = None,
+             group: Optional[pulumi.Input[str]] = None,
+             launch_type: Optional[pulumi.Input[str]] = None,
+             network_configuration: Optional[pulumi.Input['RuleNetworkConfigurationArgs']] = None,
+             placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['RulePlacementConstraintArgs']]]] = None,
+             placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['RulePlacementStrategyArgs']]]] = None,
+             platform_version: Optional[pulumi.Input[str]] = None,
+             propagate_tags: Optional[pulumi.Input[str]] = None,
+             reference_id: Optional[pulumi.Input[str]] = None,
+             tag_list: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]]] = None,
+             task_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("task_definition_arn", task_definition_arn)
         if capacity_provider_strategy is not None:
-            pulumi.set(__self__, "capacity_provider_strategy", capacity_provider_strategy)
+            _setter("capacity_provider_strategy", capacity_provider_strategy)
         if enable_ecs_managed_tags is not None:
-            pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
+            _setter("enable_ecs_managed_tags", enable_ecs_managed_tags)
         if enable_execute_command is not None:
-            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
+            _setter("enable_execute_command", enable_execute_command)
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
         if launch_type is not None:
-            pulumi.set(__self__, "launch_type", launch_type)
+            _setter("launch_type", launch_type)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if placement_constraints is not None:
-            pulumi.set(__self__, "placement_constraints", placement_constraints)
+            _setter("placement_constraints", placement_constraints)
         if placement_strategies is not None:
-            pulumi.set(__self__, "placement_strategies", placement_strategies)
+            _setter("placement_strategies", placement_strategies)
         if platform_version is not None:
-            pulumi.set(__self__, "platform_version", platform_version)
+            _setter("platform_version", platform_version)
         if propagate_tags is not None:
-            pulumi.set(__self__, "propagate_tags", propagate_tags)
+            _setter("propagate_tags", propagate_tags)
         if reference_id is not None:
-            pulumi.set(__self__, "reference_id", reference_id)
+            _setter("reference_id", reference_id)
         if tag_list is not None:
-            pulumi.set(__self__, "tag_list", tag_list)
+            _setter("tag_list", tag_list)
         if task_count is not None:
-            pulumi.set(__self__, "task_count", task_count)
+            _setter("task_count", task_count)
 
     @property
     @pulumi.getter(name="taskDefinitionArn")
@@ -849,12 +1121,25 @@ class RuleHttpParametersArgs:
                  header_parameters: Optional[Any] = None,
                  path_parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  query_string_parameters: Optional[Any] = None):
+        RuleHttpParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_parameters=header_parameters,
+            path_parameter_values=path_parameter_values,
+            query_string_parameters=query_string_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_parameters: Optional[Any] = None,
+             path_parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             query_string_parameters: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if header_parameters is not None:
-            pulumi.set(__self__, "header_parameters", header_parameters)
+            _setter("header_parameters", header_parameters)
         if path_parameter_values is not None:
-            pulumi.set(__self__, "path_parameter_values", path_parameter_values)
+            _setter("path_parameter_values", path_parameter_values)
         if query_string_parameters is not None:
-            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
+            _setter("query_string_parameters", query_string_parameters)
 
     @property
     @pulumi.getter(name="headerParameters")
@@ -889,9 +1174,20 @@ class RuleInputTransformerArgs:
     def __init__(__self__, *,
                  input_template: pulumi.Input[str],
                  input_paths_map: Optional[Any] = None):
-        pulumi.set(__self__, "input_template", input_template)
+        RuleInputTransformerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_template=input_template,
+            input_paths_map=input_paths_map,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_template: pulumi.Input[str],
+             input_paths_map: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("input_template", input_template)
         if input_paths_map is not None:
-            pulumi.set(__self__, "input_paths_map", input_paths_map)
+            _setter("input_paths_map", input_paths_map)
 
     @property
     @pulumi.getter(name="inputTemplate")
@@ -916,7 +1212,16 @@ class RuleInputTransformerArgs:
 class RuleKinesisParametersArgs:
     def __init__(__self__, *,
                  partition_key_path: pulumi.Input[str]):
-        pulumi.set(__self__, "partition_key_path", partition_key_path)
+        RuleKinesisParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partition_key_path=partition_key_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partition_key_path: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("partition_key_path", partition_key_path)
 
     @property
     @pulumi.getter(name="partitionKeyPath")
@@ -932,8 +1237,17 @@ class RuleKinesisParametersArgs:
 class RuleNetworkConfigurationArgs:
     def __init__(__self__, *,
                  aws_vpc_configuration: Optional[pulumi.Input['RuleAwsVpcConfigurationArgs']] = None):
+        RuleNetworkConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_vpc_configuration=aws_vpc_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_vpc_configuration: Optional[pulumi.Input['RuleAwsVpcConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_vpc_configuration is not None:
-            pulumi.set(__self__, "aws_vpc_configuration", aws_vpc_configuration)
+            _setter("aws_vpc_configuration", aws_vpc_configuration)
 
     @property
     @pulumi.getter(name="awsVpcConfiguration")
@@ -950,10 +1264,21 @@ class RulePlacementConstraintArgs:
     def __init__(__self__, *,
                  expression: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        RulePlacementConstraintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -979,10 +1304,21 @@ class RulePlacementStrategyArgs:
     def __init__(__self__, *,
                  field: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        RulePlacementStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1012,17 +1348,36 @@ class RuleRedshiftDataParametersArgs:
                  sql: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
                  with_event: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "database", database)
+        RuleRedshiftDataParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            db_user=db_user,
+            secret_manager_arn=secret_manager_arn,
+            sql=sql,
+            statement_name=statement_name,
+            with_event=with_event,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: pulumi.Input[str],
+             db_user: Optional[pulumi.Input[str]] = None,
+             secret_manager_arn: Optional[pulumi.Input[str]] = None,
+             sql: Optional[pulumi.Input[str]] = None,
+             statement_name: Optional[pulumi.Input[str]] = None,
+             with_event: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
         if db_user is not None:
-            pulumi.set(__self__, "db_user", db_user)
+            _setter("db_user", db_user)
         if secret_manager_arn is not None:
-            pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
+            _setter("secret_manager_arn", secret_manager_arn)
         if sql is not None:
-            pulumi.set(__self__, "sql", sql)
+            _setter("sql", sql)
         if statement_name is not None:
-            pulumi.set(__self__, "statement_name", statement_name)
+            _setter("statement_name", statement_name)
         if with_event is not None:
-            pulumi.set(__self__, "with_event", with_event)
+            _setter("with_event", with_event)
 
     @property
     @pulumi.getter
@@ -1084,10 +1439,21 @@ class RuleRetryPolicyArgs:
     def __init__(__self__, *,
                  maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None):
+        RuleRetryPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_event_age_in_seconds=maximum_event_age_in_seconds,
+            maximum_retry_attempts=maximum_retry_attempts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
+             maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if maximum_event_age_in_seconds is not None:
-            pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
+            _setter("maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
-            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+            _setter("maximum_retry_attempts", maximum_retry_attempts)
 
     @property
     @pulumi.getter(name="maximumEventAgeInSeconds")
@@ -1112,7 +1478,16 @@ class RuleRetryPolicyArgs:
 class RuleRunCommandParametersArgs:
     def __init__(__self__, *,
                  run_command_targets: pulumi.Input[Sequence[pulumi.Input['RuleRunCommandTargetArgs']]]):
-        pulumi.set(__self__, "run_command_targets", run_command_targets)
+        RuleRunCommandParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            run_command_targets=run_command_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             run_command_targets: pulumi.Input[Sequence[pulumi.Input['RuleRunCommandTargetArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("run_command_targets", run_command_targets)
 
     @property
     @pulumi.getter(name="runCommandTargets")
@@ -1129,8 +1504,19 @@ class RuleRunCommandTargetArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        RuleRunCommandTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1155,8 +1541,17 @@ class RuleRunCommandTargetArgs:
 class RuleSageMakerPipelineParametersArgs:
     def __init__(__self__, *,
                  pipeline_parameter_list: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSageMakerPipelineParameterArgs']]]] = None):
+        RuleSageMakerPipelineParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pipeline_parameter_list=pipeline_parameter_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pipeline_parameter_list: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSageMakerPipelineParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if pipeline_parameter_list is not None:
-            pulumi.set(__self__, "pipeline_parameter_list", pipeline_parameter_list)
+            _setter("pipeline_parameter_list", pipeline_parameter_list)
 
     @property
     @pulumi.getter(name="pipelineParameterList")
@@ -1173,8 +1568,19 @@ class RuleSageMakerPipelineParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        RuleSageMakerPipelineParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1199,7 +1605,16 @@ class RuleSageMakerPipelineParameterArgs:
 class RuleSqsParametersArgs:
     def __init__(__self__, *,
                  message_group_id: pulumi.Input[str]):
-        pulumi.set(__self__, "message_group_id", message_group_id)
+        RuleSqsParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_group_id=message_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_group_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message_group_id", message_group_id)
 
     @property
     @pulumi.getter(name="messageGroupId")
@@ -1216,10 +1631,21 @@ class RuleTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        RuleTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1259,36 +1685,75 @@ class RuleTargetArgs:
                  run_command_parameters: Optional[pulumi.Input['RuleRunCommandParametersArgs']] = None,
                  sage_maker_pipeline_parameters: Optional[pulumi.Input['RuleSageMakerPipelineParametersArgs']] = None,
                  sqs_parameters: Optional[pulumi.Input['RuleSqsParametersArgs']] = None):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
+        RuleTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            id=id,
+            batch_parameters=batch_parameters,
+            dead_letter_config=dead_letter_config,
+            ecs_parameters=ecs_parameters,
+            http_parameters=http_parameters,
+            input=input,
+            input_path=input_path,
+            input_transformer=input_transformer,
+            kinesis_parameters=kinesis_parameters,
+            redshift_data_parameters=redshift_data_parameters,
+            retry_policy=retry_policy,
+            role_arn=role_arn,
+            run_command_parameters=run_command_parameters,
+            sage_maker_pipeline_parameters=sage_maker_pipeline_parameters,
+            sqs_parameters=sqs_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: pulumi.Input[str],
+             id: pulumi.Input[str],
+             batch_parameters: Optional[pulumi.Input['RuleBatchParametersArgs']] = None,
+             dead_letter_config: Optional[pulumi.Input['RuleDeadLetterConfigArgs']] = None,
+             ecs_parameters: Optional[pulumi.Input['RuleEcsParametersArgs']] = None,
+             http_parameters: Optional[pulumi.Input['RuleHttpParametersArgs']] = None,
+             input: Optional[pulumi.Input[str]] = None,
+             input_path: Optional[pulumi.Input[str]] = None,
+             input_transformer: Optional[pulumi.Input['RuleInputTransformerArgs']] = None,
+             kinesis_parameters: Optional[pulumi.Input['RuleKinesisParametersArgs']] = None,
+             redshift_data_parameters: Optional[pulumi.Input['RuleRedshiftDataParametersArgs']] = None,
+             retry_policy: Optional[pulumi.Input['RuleRetryPolicyArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             run_command_parameters: Optional[pulumi.Input['RuleRunCommandParametersArgs']] = None,
+             sage_maker_pipeline_parameters: Optional[pulumi.Input['RuleSageMakerPipelineParametersArgs']] = None,
+             sqs_parameters: Optional[pulumi.Input['RuleSqsParametersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("id", id)
         if batch_parameters is not None:
-            pulumi.set(__self__, "batch_parameters", batch_parameters)
+            _setter("batch_parameters", batch_parameters)
         if dead_letter_config is not None:
-            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
+            _setter("dead_letter_config", dead_letter_config)
         if ecs_parameters is not None:
-            pulumi.set(__self__, "ecs_parameters", ecs_parameters)
+            _setter("ecs_parameters", ecs_parameters)
         if http_parameters is not None:
-            pulumi.set(__self__, "http_parameters", http_parameters)
+            _setter("http_parameters", http_parameters)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if input_path is not None:
-            pulumi.set(__self__, "input_path", input_path)
+            _setter("input_path", input_path)
         if input_transformer is not None:
-            pulumi.set(__self__, "input_transformer", input_transformer)
+            _setter("input_transformer", input_transformer)
         if kinesis_parameters is not None:
-            pulumi.set(__self__, "kinesis_parameters", kinesis_parameters)
+            _setter("kinesis_parameters", kinesis_parameters)
         if redshift_data_parameters is not None:
-            pulumi.set(__self__, "redshift_data_parameters", redshift_data_parameters)
+            _setter("redshift_data_parameters", redshift_data_parameters)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if run_command_parameters is not None:
-            pulumi.set(__self__, "run_command_parameters", run_command_parameters)
+            _setter("run_command_parameters", run_command_parameters)
         if sage_maker_pipeline_parameters is not None:
-            pulumi.set(__self__, "sage_maker_pipeline_parameters", sage_maker_pipeline_parameters)
+            _setter("sage_maker_pipeline_parameters", sage_maker_pipeline_parameters)
         if sqs_parameters is not None:
-            pulumi.set(__self__, "sqs_parameters", sqs_parameters)
+            _setter("sqs_parameters", sqs_parameters)
 
     @property
     @pulumi.getter

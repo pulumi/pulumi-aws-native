@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,23 +37,48 @@ class RoleArgs:
         :param pulumi.Input[str] role_name: A name for the IAM role, up to 64 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]] tags: A list of tags that are attached to the role.
         """
-        pulumi.set(__self__, "assume_role_policy_document", assume_role_policy_document)
+        RoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assume_role_policy_document=assume_role_policy_document,
+            description=description,
+            managed_policy_arns=managed_policy_arns,
+            max_session_duration=max_session_duration,
+            path=path,
+            permissions_boundary=permissions_boundary,
+            policies=policies,
+            role_name=role_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assume_role_policy_document: Any,
+             description: Optional[pulumi.Input[str]] = None,
+             managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_session_duration: Optional[pulumi.Input[int]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             permissions_boundary: Optional[pulumi.Input[str]] = None,
+             policies: Optional[pulumi.Input[Sequence[pulumi.Input['RolePolicyArgs']]]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assume_role_policy_document", assume_role_policy_document)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if managed_policy_arns is not None:
-            pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
+            _setter("managed_policy_arns", managed_policy_arns)
         if max_session_duration is not None:
-            pulumi.set(__self__, "max_session_duration", max_session_duration)
+            _setter("max_session_duration", max_session_duration)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if permissions_boundary is not None:
-            pulumi.set(__self__, "permissions_boundary", permissions_boundary)
+            _setter("permissions_boundary", permissions_boundary)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="assumeRolePolicyDocument")
@@ -213,6 +238,10 @@ class Role(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

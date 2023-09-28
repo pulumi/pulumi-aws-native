@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetPartitionResult',
     'AwaitableGetPartitionResult',
     'get_partition',
+    'get_partition_output',
 ]
 
 @pulumi.output_type
@@ -63,3 +64,11 @@ def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPa
     return AwaitableGetPartitionResult(
         dns_suffix=pulumi.get(__ret__, 'dns_suffix'),
         partition=pulumi.get(__ret__, 'partition'))
+
+
+@_utilities.lift_output_func(get_partition)
+def get_partition_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartitionResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

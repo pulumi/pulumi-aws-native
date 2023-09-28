@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,35 @@ class DbProxyEndpointArgs:
         :param pulumi.Input['DbProxyEndpointTargetRole'] target_role: A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new DB proxy endpoint.
         """
-        pulumi.set(__self__, "db_proxy_name", db_proxy_name)
-        pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+        DbProxyEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_proxy_name=db_proxy_name,
+            vpc_subnet_ids=vpc_subnet_ids,
+            db_proxy_endpoint_name=db_proxy_endpoint_name,
+            tags=tags,
+            target_role=target_role,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_proxy_name: pulumi.Input[str],
+             vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyEndpointTagFormatArgs']]]] = None,
+             target_role: Optional[pulumi.Input['DbProxyEndpointTargetRole']] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("db_proxy_name", db_proxy_name)
+        _setter("vpc_subnet_ids", vpc_subnet_ids)
         if db_proxy_endpoint_name is not None:
-            pulumi.set(__self__, "db_proxy_endpoint_name", db_proxy_endpoint_name)
+            _setter("db_proxy_endpoint_name", db_proxy_endpoint_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_role is not None:
-            pulumi.set(__self__, "target_role", target_role)
+            _setter("target_role", target_role)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="dbProxyName")
@@ -159,6 +178,10 @@ class DbProxyEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DbProxyEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

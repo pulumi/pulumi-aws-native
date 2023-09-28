@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,20 +30,43 @@ class CaCertificateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CaCertificateTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] verification_certificate_pem: The private key verification certificate.
         """
-        pulumi.set(__self__, "ca_certificate_pem", ca_certificate_pem)
-        pulumi.set(__self__, "status", status)
+        CaCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ca_certificate_pem=ca_certificate_pem,
+            status=status,
+            auto_registration_status=auto_registration_status,
+            certificate_mode=certificate_mode,
+            registration_config=registration_config,
+            remove_auto_registration=remove_auto_registration,
+            tags=tags,
+            verification_certificate_pem=verification_certificate_pem,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ca_certificate_pem: pulumi.Input[str],
+             status: pulumi.Input['CaCertificateStatus'],
+             auto_registration_status: Optional[pulumi.Input['CaCertificateAutoRegistrationStatus']] = None,
+             certificate_mode: Optional[pulumi.Input['CaCertificateCertificateMode']] = None,
+             registration_config: Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']] = None,
+             remove_auto_registration: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CaCertificateTagArgs']]]] = None,
+             verification_certificate_pem: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ca_certificate_pem", ca_certificate_pem)
+        _setter("status", status)
         if auto_registration_status is not None:
-            pulumi.set(__self__, "auto_registration_status", auto_registration_status)
+            _setter("auto_registration_status", auto_registration_status)
         if certificate_mode is not None:
-            pulumi.set(__self__, "certificate_mode", certificate_mode)
+            _setter("certificate_mode", certificate_mode)
         if registration_config is not None:
-            pulumi.set(__self__, "registration_config", registration_config)
+            _setter("registration_config", registration_config)
         if remove_auto_registration is not None:
-            pulumi.set(__self__, "remove_auto_registration", remove_auto_registration)
+            _setter("remove_auto_registration", remove_auto_registration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if verification_certificate_pem is not None:
-            pulumi.set(__self__, "verification_certificate_pem", verification_certificate_pem)
+            _setter("verification_certificate_pem", verification_certificate_pem)
 
     @property
     @pulumi.getter(name="caCertificatePem")
@@ -165,6 +188,10 @@ class CaCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CaCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -192,6 +219,11 @@ class CaCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ca_certificate_pem'")
             __props__.__dict__["ca_certificate_pem"] = ca_certificate_pem
             __props__.__dict__["certificate_mode"] = certificate_mode
+            if registration_config is not None and not isinstance(registration_config, CaCertificateRegistrationConfigArgs):
+                registration_config = registration_config or {}
+                def _setter(key, value):
+                    registration_config[key] = value
+                CaCertificateRegistrationConfigArgs._configure(_setter, **registration_config)
             __props__.__dict__["registration_config"] = registration_config
             __props__.__dict__["remove_auto_registration"] = remove_auto_registration
             if status is None and not opts.urn:

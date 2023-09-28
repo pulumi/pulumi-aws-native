@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -29,8 +29,19 @@ class AccessPointAlias(dict):
         :param str status: The status of the Object Lambda alias.
         :param str value: The value of the Object Lambda alias.
         """
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "value", value)
+        AccessPointAlias._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status", status)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -73,9 +84,20 @@ class AccessPointAwsLambda(dict):
     def __init__(__self__, *,
                  function_arn: str,
                  function_payload: Optional[str] = None):
-        pulumi.set(__self__, "function_arn", function_arn)
+        AccessPointAwsLambda._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_arn=function_arn,
+            function_payload=function_payload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_arn: str,
+             function_payload: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_arn", function_arn)
         if function_payload is not None:
-            pulumi.set(__self__, "function_payload", function_payload)
+            _setter("function_payload", function_payload)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -124,12 +146,27 @@ class AccessPointObjectLambdaConfiguration(dict):
         """
         Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
         """
-        pulumi.set(__self__, "supporting_access_point", supporting_access_point)
-        pulumi.set(__self__, "transformation_configurations", transformation_configurations)
+        AccessPointObjectLambdaConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            supporting_access_point=supporting_access_point,
+            transformation_configurations=transformation_configurations,
+            allowed_features=allowed_features,
+            cloud_watch_metrics_enabled=cloud_watch_metrics_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             supporting_access_point: str,
+             transformation_configurations: Sequence['outputs.AccessPointTransformationConfiguration'],
+             allowed_features: Optional[Sequence[str]] = None,
+             cloud_watch_metrics_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("supporting_access_point", supporting_access_point)
+        _setter("transformation_configurations", transformation_configurations)
         if allowed_features is not None:
-            pulumi.set(__self__, "allowed_features", allowed_features)
+            _setter("allowed_features", allowed_features)
         if cloud_watch_metrics_enabled is not None:
-            pulumi.set(__self__, "cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
+            _setter("cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
 
     @property
     @pulumi.getter(name="supportingAccessPoint")
@@ -176,8 +213,17 @@ class AccessPointPolicyStatus(dict):
         """
         :param bool is_public: Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
         """
+        AccessPointPolicyStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_public=is_public,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_public: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if is_public is not None:
-            pulumi.set(__self__, "is_public", is_public)
+            _setter("is_public", is_public)
 
     @property
     @pulumi.getter(name="isPublic")
@@ -233,14 +279,29 @@ class AccessPointPublicAccessBlockConfiguration(dict):
         :param bool restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
                Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
         """
+        AccessPointPublicAccessBlockConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            block_public_acls=block_public_acls,
+            block_public_policy=block_public_policy,
+            ignore_public_acls=ignore_public_acls,
+            restrict_public_buckets=restrict_public_buckets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             block_public_acls: Optional[bool] = None,
+             block_public_policy: Optional[bool] = None,
+             ignore_public_acls: Optional[bool] = None,
+             restrict_public_buckets: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if block_public_acls is not None:
-            pulumi.set(__self__, "block_public_acls", block_public_acls)
+            _setter("block_public_acls", block_public_acls)
         if block_public_policy is not None:
-            pulumi.set(__self__, "block_public_policy", block_public_policy)
+            _setter("block_public_policy", block_public_policy)
         if ignore_public_acls is not None:
-            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+            _setter("ignore_public_acls", ignore_public_acls)
         if restrict_public_buckets is not None:
-            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+            _setter("restrict_public_buckets", restrict_public_buckets)
 
     @property
     @pulumi.getter(name="blockPublicAcls")
@@ -308,8 +369,19 @@ class AccessPointTransformationConfiguration(dict):
         """
         Configuration to define what content transformation will be applied on which S3 Action.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "content_transformation", content_transformation)
+        AccessPointTransformationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            content_transformation=content_transformation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             content_transformation: 'outputs.AccessPointTransformationConfigurationContentTransformationProperties',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("content_transformation", content_transformation)
 
     @property
     @pulumi.getter
@@ -343,7 +415,16 @@ class AccessPointTransformationConfigurationContentTransformationProperties(dict
 
     def __init__(__self__, *,
                  aws_lambda: 'outputs.AccessPointAwsLambda'):
-        pulumi.set(__self__, "aws_lambda", aws_lambda)
+        AccessPointTransformationConfigurationContentTransformationProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_lambda=aws_lambda,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_lambda: 'outputs.AccessPointAwsLambda',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aws_lambda", aws_lambda)
 
     @property
     @pulumi.getter(name="awsLambda")

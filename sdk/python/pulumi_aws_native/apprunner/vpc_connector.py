@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,28 @@ class VpcConnectorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VpcConnectorTagArgs']]] tags: A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
         :param pulumi.Input[str] vpc_connector_name: A name for the VPC connector. If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
         """
-        pulumi.set(__self__, "subnets", subnets)
+        VpcConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnets=subnets,
+            security_groups=security_groups,
+            tags=tags,
+            vpc_connector_name=vpc_connector_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcConnectorTagArgs']]]] = None,
+             vpc_connector_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnets", subnets)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_connector_name is not None:
-            pulumi.set(__self__, "vpc_connector_name", vpc_connector_name)
+            _setter("vpc_connector_name", vpc_connector_name)
 
     @property
     @pulumi.getter
@@ -123,6 +138,10 @@ class VpcConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

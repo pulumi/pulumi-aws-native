@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MemberInvitationArgs', 'MemberInvitation']
@@ -27,13 +27,30 @@ class MemberInvitationArgs:
         :param pulumi.Input[bool] disable_email_notification: When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
         :param pulumi.Input[str] message: A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
         """
-        pulumi.set(__self__, "graph_arn", graph_arn)
-        pulumi.set(__self__, "member_email_address", member_email_address)
-        pulumi.set(__self__, "member_id", member_id)
+        MemberInvitationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            graph_arn=graph_arn,
+            member_email_address=member_email_address,
+            member_id=member_id,
+            disable_email_notification=disable_email_notification,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             graph_arn: pulumi.Input[str],
+             member_email_address: pulumi.Input[str],
+             member_id: pulumi.Input[str],
+             disable_email_notification: Optional[pulumi.Input[bool]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("graph_arn", graph_arn)
+        _setter("member_email_address", member_email_address)
+        _setter("member_id", member_id)
         if disable_email_notification is not None:
-            pulumi.set(__self__, "disable_email_notification", disable_email_notification)
+            _setter("disable_email_notification", disable_email_notification)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter(name="graphArn")
@@ -137,6 +154,10 @@ class MemberInvitation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MemberInvitationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

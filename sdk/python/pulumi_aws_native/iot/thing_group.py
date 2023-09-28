@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,16 +25,33 @@ class ThingGroupArgs:
         The set of arguments for constructing a ThingGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['ThingGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        ThingGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parent_group_name=parent_group_name,
+            query_string=query_string,
+            tags=tags,
+            thing_group_name=thing_group_name,
+            thing_group_properties=thing_group_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parent_group_name: Optional[pulumi.Input[str]] = None,
+             query_string: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupTagArgs']]]] = None,
+             thing_group_name: Optional[pulumi.Input[str]] = None,
+             thing_group_properties: Optional[pulumi.Input['ThingGroupPropertiesPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if parent_group_name is not None:
-            pulumi.set(__self__, "parent_group_name", parent_group_name)
+            _setter("parent_group_name", parent_group_name)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if thing_group_name is not None:
-            pulumi.set(__self__, "thing_group_name", thing_group_name)
+            _setter("thing_group_name", thing_group_name)
         if thing_group_properties is not None:
-            pulumi.set(__self__, "thing_group_properties", thing_group_properties)
+            _setter("thing_group_properties", thing_group_properties)
 
     @property
     @pulumi.getter(name="parentGroupName")
@@ -122,6 +139,10 @@ class ThingGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ThingGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -145,6 +166,11 @@ class ThingGroup(pulumi.CustomResource):
             __props__.__dict__["query_string"] = query_string
             __props__.__dict__["tags"] = tags
             __props__.__dict__["thing_group_name"] = thing_group_name
+            if thing_group_properties is not None and not isinstance(thing_group_properties, ThingGroupPropertiesPropertiesArgs):
+                thing_group_properties = thing_group_properties or {}
+                def _setter(key, value):
+                    thing_group_properties[key] = value
+                ThingGroupPropertiesPropertiesArgs._configure(_setter, **thing_group_properties)
             __props__.__dict__["thing_group_properties"] = thing_group_properties
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["parent_group_name", "thing_group_name"])

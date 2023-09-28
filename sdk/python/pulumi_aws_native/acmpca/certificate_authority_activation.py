@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateAuthorityActivationArgs', 'CertificateAuthorityActivation']
@@ -25,12 +25,27 @@ class CertificateAuthorityActivationArgs:
         :param pulumi.Input[str] certificate_chain: Certificate chain for the Certificate Authority certificate.
         :param pulumi.Input[str] status: The status of the Certificate Authority.
         """
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        CertificateAuthorityActivationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            certificate_authority_arn=certificate_authority_arn,
+            certificate_chain=certificate_chain,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: pulumi.Input[str],
+             certificate_authority_arn: pulumi.Input[str],
+             certificate_chain: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate", certificate)
+        _setter("certificate_authority_arn", certificate_authority_arn)
         if certificate_chain is not None:
-            pulumi.set(__self__, "certificate_chain", certificate_chain)
+            _setter("certificate_chain", certificate_chain)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -120,6 +135,10 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateAuthorityActivationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

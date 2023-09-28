@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,31 @@ class PrefixListArgs:
         :param pulumi.Input[str] prefix_list_name: Name of Prefix List.
         :param pulumi.Input[Sequence[pulumi.Input['PrefixListTagArgs']]] tags: Tags for Prefix List
         """
-        pulumi.set(__self__, "address_family", address_family)
-        pulumi.set(__self__, "max_entries", max_entries)
+        PrefixListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            max_entries=max_entries,
+            entries=entries,
+            prefix_list_name=prefix_list_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: pulumi.Input['PrefixListAddressFamily'],
+             max_entries: pulumi.Input[int],
+             entries: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]] = None,
+             prefix_list_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address_family", address_family)
+        _setter("max_entries", max_entries)
         if entries is not None:
-            pulumi.set(__self__, "entries", entries)
+            _setter("entries", entries)
         if prefix_list_name is not None:
-            pulumi.set(__self__, "prefix_list_name", prefix_list_name)
+            _setter("prefix_list_name", prefix_list_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -141,6 +158,10 @@ class PrefixList(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrefixListArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

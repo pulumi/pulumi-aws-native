@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -41,6 +41,11 @@ __all__ = [
 class ComponentBindingPropertiesArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -51,13 +56,30 @@ class ComponentChildArgs:
                  properties: pulumi.Input['ComponentPropertiesArgs'],
                  children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
                  events: Optional[pulumi.Input['ComponentEventsArgs']] = None):
-        pulumi.set(__self__, "component_type", component_type)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
+        ComponentChildArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_type=component_type,
+            name=name,
+            properties=properties,
+            children=children,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_type: pulumi.Input[str],
+             name: pulumi.Input[str],
+             properties: pulumi.Input['ComponentPropertiesArgs'],
+             children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
+             events: Optional[pulumi.Input['ComponentEventsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("component_type", component_type)
+        _setter("name", name)
+        _setter("properties", properties)
         if children is not None:
-            pulumi.set(__self__, "children", children)
+            _setter("children", children)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter(name="componentType")
@@ -109,11 +131,21 @@ class ComponentChildArgs:
 class ComponentCollectionPropertiesArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class ComponentEventsArgs:
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -121,11 +153,21 @@ class ComponentEventsArgs:
 class ComponentOverridesArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class ComponentPropertiesArgs:
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -133,11 +175,21 @@ class ComponentPropertiesArgs:
 class ComponentTagsArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class ComponentVariantValuesArgs:
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -146,10 +198,21 @@ class ComponentVariantArgs:
     def __init__(__self__, *,
                  overrides: Optional[pulumi.Input['ComponentOverridesArgs']] = None,
                  variant_values: Optional[pulumi.Input['ComponentVariantValuesArgs']] = None):
+        ComponentVariantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            overrides=overrides,
+            variant_values=variant_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             overrides: Optional[pulumi.Input['ComponentOverridesArgs']] = None,
+             variant_values: Optional[pulumi.Input['ComponentVariantValuesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
+            _setter("overrides", overrides)
         if variant_values is not None:
-            pulumi.set(__self__, "variant_values", variant_values)
+            _setter("variant_values", variant_values)
 
     @property
     @pulumi.getter
@@ -176,12 +239,25 @@ class FormButtonArgs:
                  children: Optional[pulumi.Input[str]] = None,
                  excluded: Optional[pulumi.Input[bool]] = None,
                  position: Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]] = None):
+        FormButtonArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            children=children,
+            excluded=excluded,
+            position=position,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             children: Optional[pulumi.Input[str]] = None,
+             excluded: Optional[pulumi.Input[bool]] = None,
+             position: Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if children is not None:
-            pulumi.set(__self__, "children", children)
+            _setter("children", children)
         if excluded is not None:
-            pulumi.set(__self__, "excluded", excluded)
+            _setter("excluded", excluded)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
 
     @property
     @pulumi.getter
@@ -218,14 +294,29 @@ class FormCtaArgs:
                  clear: Optional[pulumi.Input['FormButtonArgs']] = None,
                  position: Optional[pulumi.Input['FormButtonsPosition']] = None,
                  submit: Optional[pulumi.Input['FormButtonArgs']] = None):
+        FormCtaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cancel=cancel,
+            clear=clear,
+            position=position,
+            submit=submit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cancel: Optional[pulumi.Input['FormButtonArgs']] = None,
+             clear: Optional[pulumi.Input['FormButtonArgs']] = None,
+             position: Optional[pulumi.Input['FormButtonsPosition']] = None,
+             submit: Optional[pulumi.Input['FormButtonArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cancel is not None:
-            pulumi.set(__self__, "cancel", cancel)
+            _setter("cancel", cancel)
         if clear is not None:
-            pulumi.set(__self__, "clear", clear)
+            _setter("clear", clear)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if submit is not None:
-            pulumi.set(__self__, "submit", submit)
+            _setter("submit", submit)
 
     @property
     @pulumi.getter
@@ -269,8 +360,19 @@ class FormDataTypeConfigArgs:
     def __init__(__self__, *,
                  data_source_type: pulumi.Input['FormDataSourceType'],
                  data_type_name: pulumi.Input[str]):
-        pulumi.set(__self__, "data_source_type", data_source_type)
-        pulumi.set(__self__, "data_type_name", data_type_name)
+        FormDataTypeConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source_type=data_source_type,
+            data_type_name=data_type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source_type: pulumi.Input['FormDataSourceType'],
+             data_type_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_source_type", data_source_type)
+        _setter("data_type_name", data_type_name)
 
     @property
     @pulumi.getter(name="dataSourceType")
@@ -295,7 +397,16 @@ class FormDataTypeConfigArgs:
 class FormFieldPosition0PropertiesArgs:
     def __init__(__self__, *,
                  fixed: pulumi.Input['FormFixedPosition']):
-        pulumi.set(__self__, "fixed", fixed)
+        FormFieldPosition0PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fixed=fixed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fixed: pulumi.Input['FormFixedPosition'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fixed", fixed)
 
     @property
     @pulumi.getter
@@ -311,7 +422,16 @@ class FormFieldPosition0PropertiesArgs:
 class FormFieldPosition1PropertiesArgs:
     def __init__(__self__, *,
                  right_of: pulumi.Input[str]):
-        pulumi.set(__self__, "right_of", right_of)
+        FormFieldPosition1PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            right_of=right_of,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             right_of: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("right_of", right_of)
 
     @property
     @pulumi.getter(name="rightOf")
@@ -327,7 +447,16 @@ class FormFieldPosition1PropertiesArgs:
 class FormFieldPosition2PropertiesArgs:
     def __init__(__self__, *,
                  below: pulumi.Input[str]):
-        pulumi.set(__self__, "below", below)
+        FormFieldPosition2PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            below=below,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             below: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("below", below)
 
     @property
     @pulumi.getter
@@ -343,11 +472,21 @@ class FormFieldPosition2PropertiesArgs:
 class FormFieldsMapArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class FormSectionalElementMapArgs:
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -355,7 +494,16 @@ class FormSectionalElementMapArgs:
 class FormStyleConfig0PropertiesArgs:
     def __init__(__self__, *,
                  token_reference: pulumi.Input[str]):
-        pulumi.set(__self__, "token_reference", token_reference)
+        FormStyleConfig0PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token_reference=token_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token_reference: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("token_reference", token_reference)
 
     @property
     @pulumi.getter(name="tokenReference")
@@ -371,7 +519,16 @@ class FormStyleConfig0PropertiesArgs:
 class FormStyleConfig1PropertiesArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "value", value)
+        FormStyleConfig1PropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -389,12 +546,25 @@ class FormStyleArgs:
                  horizontal_gap: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None,
                  outer_padding: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None,
                  vertical_gap: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None):
+        FormStyleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            horizontal_gap=horizontal_gap,
+            outer_padding=outer_padding,
+            vertical_gap=vertical_gap,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             horizontal_gap: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None,
+             outer_padding: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None,
+             vertical_gap: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if horizontal_gap is not None:
-            pulumi.set(__self__, "horizontal_gap", horizontal_gap)
+            _setter("horizontal_gap", horizontal_gap)
         if outer_padding is not None:
-            pulumi.set(__self__, "outer_padding", outer_padding)
+            _setter("outer_padding", outer_padding)
         if vertical_gap is not None:
-            pulumi.set(__self__, "vertical_gap", vertical_gap)
+            _setter("vertical_gap", vertical_gap)
 
     @property
     @pulumi.getter(name="horizontalGap")
@@ -428,11 +598,21 @@ class FormStyleArgs:
 class FormTagsArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class ThemeTagsArgs:
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -441,10 +621,21 @@ class ThemeValuesArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['ThemeValueArgs']] = None):
+        ThemeValuesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input['ThemeValueArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -470,10 +661,21 @@ class ThemeValueArgs:
     def __init__(__self__, *,
                  children: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        ThemeValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            children=children,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             children: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if children is not None:
-            pulumi.set(__self__, "children", children)
+            _setter("children", children)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter

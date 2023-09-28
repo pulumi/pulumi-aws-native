@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,17 +26,36 @@ class FhirDatastoreArgs:
         """
         The set of arguments for constructing a FhirDatastore resource.
         """
-        pulumi.set(__self__, "datastore_type_version", datastore_type_version)
+        FhirDatastoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datastore_type_version=datastore_type_version,
+            datastore_name=datastore_name,
+            identity_provider_configuration=identity_provider_configuration,
+            preload_data_config=preload_data_config,
+            sse_configuration=sse_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datastore_type_version: pulumi.Input['FhirDatastoreDatastoreTypeVersion'],
+             datastore_name: Optional[pulumi.Input[str]] = None,
+             identity_provider_configuration: Optional[pulumi.Input['FhirDatastoreIdentityProviderConfigurationArgs']] = None,
+             preload_data_config: Optional[pulumi.Input['FhirDatastorePreloadDataConfigArgs']] = None,
+             sse_configuration: Optional[pulumi.Input['FhirDatastoreSseConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FhirDatastoreTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("datastore_type_version", datastore_type_version)
         if datastore_name is not None:
-            pulumi.set(__self__, "datastore_name", datastore_name)
+            _setter("datastore_name", datastore_name)
         if identity_provider_configuration is not None:
-            pulumi.set(__self__, "identity_provider_configuration", identity_provider_configuration)
+            _setter("identity_provider_configuration", identity_provider_configuration)
         if preload_data_config is not None:
-            pulumi.set(__self__, "preload_data_config", preload_data_config)
+            _setter("preload_data_config", preload_data_config)
         if sse_configuration is not None:
-            pulumi.set(__self__, "sse_configuration", sse_configuration)
+            _setter("sse_configuration", sse_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="datastoreTypeVersion")
@@ -130,6 +149,10 @@ class FhirDatastore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FhirDatastoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -154,8 +177,23 @@ class FhirDatastore(pulumi.CustomResource):
             if datastore_type_version is None and not opts.urn:
                 raise TypeError("Missing required property 'datastore_type_version'")
             __props__.__dict__["datastore_type_version"] = datastore_type_version
+            if identity_provider_configuration is not None and not isinstance(identity_provider_configuration, FhirDatastoreIdentityProviderConfigurationArgs):
+                identity_provider_configuration = identity_provider_configuration or {}
+                def _setter(key, value):
+                    identity_provider_configuration[key] = value
+                FhirDatastoreIdentityProviderConfigurationArgs._configure(_setter, **identity_provider_configuration)
             __props__.__dict__["identity_provider_configuration"] = identity_provider_configuration
+            if preload_data_config is not None and not isinstance(preload_data_config, FhirDatastorePreloadDataConfigArgs):
+                preload_data_config = preload_data_config or {}
+                def _setter(key, value):
+                    preload_data_config[key] = value
+                FhirDatastorePreloadDataConfigArgs._configure(_setter, **preload_data_config)
             __props__.__dict__["preload_data_config"] = preload_data_config
+            if sse_configuration is not None and not isinstance(sse_configuration, FhirDatastoreSseConfigurationArgs):
+                sse_configuration = sse_configuration or {}
+                def _setter(key, value):
+                    sse_configuration[key] = value
+                FhirDatastoreSseConfigurationArgs._configure(_setter, **sse_configuration)
             __props__.__dict__["sse_configuration"] = sse_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None

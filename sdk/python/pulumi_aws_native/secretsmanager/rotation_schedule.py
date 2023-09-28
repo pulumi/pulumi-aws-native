@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,15 +24,32 @@ class RotationScheduleArgs:
         """
         The set of arguments for constructing a RotationSchedule resource.
         """
-        pulumi.set(__self__, "secret_id", secret_id)
+        RotationScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_id=secret_id,
+            hosted_rotation_lambda=hosted_rotation_lambda,
+            rotate_immediately_on_update=rotate_immediately_on_update,
+            rotation_lambda_arn=rotation_lambda_arn,
+            rotation_rules=rotation_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_id: pulumi.Input[str],
+             hosted_rotation_lambda: Optional[pulumi.Input['RotationScheduleHostedRotationLambdaArgs']] = None,
+             rotate_immediately_on_update: Optional[pulumi.Input[bool]] = None,
+             rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
+             rotation_rules: Optional[pulumi.Input['RotationScheduleRotationRulesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_id", secret_id)
         if hosted_rotation_lambda is not None:
-            pulumi.set(__self__, "hosted_rotation_lambda", hosted_rotation_lambda)
+            _setter("hosted_rotation_lambda", hosted_rotation_lambda)
         if rotate_immediately_on_update is not None:
-            pulumi.set(__self__, "rotate_immediately_on_update", rotate_immediately_on_update)
+            _setter("rotate_immediately_on_update", rotate_immediately_on_update)
         if rotation_lambda_arn is not None:
-            pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
+            _setter("rotation_lambda_arn", rotation_lambda_arn)
         if rotation_rules is not None:
-            pulumi.set(__self__, "rotation_rules", rotation_rules)
+            _setter("rotation_rules", rotation_rules)
 
     @property
     @pulumi.getter(name="secretId")
@@ -121,6 +138,10 @@ class RotationSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RotationScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -141,9 +162,19 @@ class RotationSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RotationScheduleArgs.__new__(RotationScheduleArgs)
 
+            if hosted_rotation_lambda is not None and not isinstance(hosted_rotation_lambda, RotationScheduleHostedRotationLambdaArgs):
+                hosted_rotation_lambda = hosted_rotation_lambda or {}
+                def _setter(key, value):
+                    hosted_rotation_lambda[key] = value
+                RotationScheduleHostedRotationLambdaArgs._configure(_setter, **hosted_rotation_lambda)
             __props__.__dict__["hosted_rotation_lambda"] = hosted_rotation_lambda
             __props__.__dict__["rotate_immediately_on_update"] = rotate_immediately_on_update
             __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
+            if rotation_rules is not None and not isinstance(rotation_rules, RotationScheduleRotationRulesArgs):
+                rotation_rules = rotation_rules or {}
+                def _setter(key, value):
+                    rotation_rules[key] = value
+                RotationScheduleRotationRulesArgs._configure(_setter, **rotation_rules)
             __props__.__dict__["rotation_rules"] = rotation_rules
             if secret_id is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_id'")

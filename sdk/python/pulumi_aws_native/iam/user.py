@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,22 +27,45 @@ class UserArgs:
         """
         The set of arguments for constructing a User resource.
         """
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            login_profile=login_profile,
+            managed_policy_arns=managed_policy_arns,
+            path=path,
+            permissions_boundary=permissions_boundary,
+            policies=policies,
+            tags=tags,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             login_profile: Optional[pulumi.Input['UserLoginProfileArgs']] = None,
+             managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             permissions_boundary: Optional[pulumi.Input[str]] = None,
+             policies: Optional[pulumi.Input[Sequence[pulumi.Input['UserPolicyArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if login_profile is not None:
-            pulumi.set(__self__, "login_profile", login_profile)
+            _setter("login_profile", login_profile)
         if managed_policy_arns is not None:
-            pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
+            _setter("managed_policy_arns", managed_policy_arns)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if permissions_boundary is not None:
-            pulumi.set(__self__, "permissions_boundary", permissions_boundary)
+            _setter("permissions_boundary", permissions_boundary)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -161,6 +184,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -185,6 +212,11 @@ class User(pulumi.CustomResource):
             __props__ = UserArgs.__new__(UserArgs)
 
             __props__.__dict__["groups"] = groups
+            if login_profile is not None and not isinstance(login_profile, UserLoginProfileArgs):
+                login_profile = login_profile or {}
+                def _setter(key, value):
+                    login_profile[key] = value
+                UserLoginProfileArgs._configure(_setter, **login_profile)
             __props__.__dict__["login_profile"] = login_profile
             __props__.__dict__["managed_policy_arns"] = managed_policy_arns
             __props__.__dict__["path"] = path

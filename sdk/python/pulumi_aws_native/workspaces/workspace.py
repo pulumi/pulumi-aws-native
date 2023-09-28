@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,19 +27,42 @@ class WorkspaceArgs:
         """
         The set of arguments for constructing a Workspace resource.
         """
-        pulumi.set(__self__, "bundle_id", bundle_id)
-        pulumi.set(__self__, "directory_id", directory_id)
-        pulumi.set(__self__, "user_name", user_name)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bundle_id=bundle_id,
+            directory_id=directory_id,
+            user_name=user_name,
+            root_volume_encryption_enabled=root_volume_encryption_enabled,
+            tags=tags,
+            user_volume_encryption_enabled=user_volume_encryption_enabled,
+            volume_encryption_key=volume_encryption_key,
+            workspace_properties=workspace_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bundle_id: pulumi.Input[str],
+             directory_id: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]] = None,
+             user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             volume_encryption_key: Optional[pulumi.Input[str]] = None,
+             workspace_properties: Optional[pulumi.Input['WorkspacePropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bundle_id", bundle_id)
+        _setter("directory_id", directory_id)
+        _setter("user_name", user_name)
         if root_volume_encryption_enabled is not None:
-            pulumi.set(__self__, "root_volume_encryption_enabled", root_volume_encryption_enabled)
+            _setter("root_volume_encryption_enabled", root_volume_encryption_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_volume_encryption_enabled is not None:
-            pulumi.set(__self__, "user_volume_encryption_enabled", user_volume_encryption_enabled)
+            _setter("user_volume_encryption_enabled", user_volume_encryption_enabled)
         if volume_encryption_key is not None:
-            pulumi.set(__self__, "volume_encryption_key", volume_encryption_key)
+            _setter("volume_encryption_key", volume_encryption_key)
         if workspace_properties is not None:
-            pulumi.set(__self__, "workspace_properties", workspace_properties)
+            _setter("workspace_properties", workspace_properties)
 
     @property
     @pulumi.getter(name="bundleId")
@@ -158,6 +181,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -194,6 +221,11 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["user_volume_encryption_enabled"] = user_volume_encryption_enabled
             __props__.__dict__["volume_encryption_key"] = volume_encryption_key
+            if workspace_properties is not None and not isinstance(workspace_properties, WorkspacePropertiesArgs):
+                workspace_properties = workspace_properties or {}
+                def _setter(key, value):
+                    workspace_properties[key] = value
+                WorkspacePropertiesArgs._configure(_setter, **workspace_properties)
             __props__.__dict__["workspace_properties"] = workspace_properties
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["user_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

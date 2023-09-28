@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,21 +27,44 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
+        CertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            certificate_authority_arn=certificate_authority_arn,
+            certificate_transparency_logging_preference=certificate_transparency_logging_preference,
+            domain_validation_options=domain_validation_options,
+            key_algorithm=key_algorithm,
+            subject_alternative_names=subject_alternative_names,
+            tags=tags,
+            validation_method=validation_method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+             certificate_transparency_logging_preference: Optional[pulumi.Input[str]] = None,
+             domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]] = None,
+             key_algorithm: Optional[pulumi.Input[str]] = None,
+             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]] = None,
+             validation_method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
         if certificate_authority_arn is not None:
-            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+            _setter("certificate_authority_arn", certificate_authority_arn)
         if certificate_transparency_logging_preference is not None:
-            pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
+            _setter("certificate_transparency_logging_preference", certificate_transparency_logging_preference)
         if domain_validation_options is not None:
-            pulumi.set(__self__, "domain_validation_options", domain_validation_options)
+            _setter("domain_validation_options", domain_validation_options)
         if key_algorithm is not None:
-            pulumi.set(__self__, "key_algorithm", key_algorithm)
+            _setter("key_algorithm", key_algorithm)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if validation_method is not None:
-            pulumi.set(__self__, "validation_method", validation_method)
+            _setter("validation_method", validation_method)
 
     @property
     @pulumi.getter(name="domainName")
@@ -160,6 +183,10 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

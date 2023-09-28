@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,14 +28,29 @@ class SourceApiAssociationArgs:
         :param pulumi.Input['SourceApiAssociationConfigArgs'] source_api_association_config: Customized configuration for SourceApiAssociation.
         :param pulumi.Input[str] source_api_identifier: Identifier of the Source GraphQLApi to associate. It could be either GraphQLApi ApiId or ARN
         """
+        SourceApiAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            merged_api_identifier=merged_api_identifier,
+            source_api_association_config=source_api_association_config,
+            source_api_identifier=source_api_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             merged_api_identifier: Optional[pulumi.Input[str]] = None,
+             source_api_association_config: Optional[pulumi.Input['SourceApiAssociationConfigArgs']] = None,
+             source_api_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if merged_api_identifier is not None:
-            pulumi.set(__self__, "merged_api_identifier", merged_api_identifier)
+            _setter("merged_api_identifier", merged_api_identifier)
         if source_api_association_config is not None:
-            pulumi.set(__self__, "source_api_association_config", source_api_association_config)
+            _setter("source_api_association_config", source_api_association_config)
         if source_api_identifier is not None:
-            pulumi.set(__self__, "source_api_identifier", source_api_identifier)
+            _setter("source_api_identifier", source_api_identifier)
 
     @property
     @pulumi.getter
@@ -125,6 +140,10 @@ class SourceApiAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SourceApiAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -145,6 +164,11 @@ class SourceApiAssociation(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["merged_api_identifier"] = merged_api_identifier
+            if source_api_association_config is not None and not isinstance(source_api_association_config, SourceApiAssociationConfigArgs):
+                source_api_association_config = source_api_association_config or {}
+                def _setter(key, value):
+                    source_api_association_config[key] = value
+                SourceApiAssociationConfigArgs._configure(_setter, **source_api_association_config)
             __props__.__dict__["source_api_association_config"] = source_api_association_config
             __props__.__dict__["source_api_identifier"] = source_api_identifier
             __props__.__dict__["association_arn"] = None

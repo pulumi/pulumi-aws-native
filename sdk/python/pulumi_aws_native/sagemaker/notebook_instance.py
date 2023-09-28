@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,36 +35,75 @@ class NotebookInstanceArgs:
         """
         The set of arguments for constructing a NotebookInstance resource.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "role_arn", role_arn)
+        NotebookInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            role_arn=role_arn,
+            accelerator_types=accelerator_types,
+            additional_code_repositories=additional_code_repositories,
+            default_code_repository=default_code_repository,
+            direct_internet_access=direct_internet_access,
+            instance_metadata_service_configuration=instance_metadata_service_configuration,
+            kms_key_id=kms_key_id,
+            lifecycle_config_name=lifecycle_config_name,
+            notebook_instance_name=notebook_instance_name,
+            platform_identifier=platform_identifier,
+            root_access=root_access,
+            security_group_ids=security_group_ids,
+            subnet_id=subnet_id,
+            tags=tags,
+            volume_size_in_gb=volume_size_in_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_code_repository: Optional[pulumi.Input[str]] = None,
+             direct_internet_access: Optional[pulumi.Input[str]] = None,
+             instance_metadata_service_configuration: Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_name: Optional[pulumi.Input[str]] = None,
+             notebook_instance_name: Optional[pulumi.Input[str]] = None,
+             platform_identifier: Optional[pulumi.Input[str]] = None,
+             root_access: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookInstanceTagArgs']]]] = None,
+             volume_size_in_gb: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", instance_type)
+        _setter("role_arn", role_arn)
         if accelerator_types is not None:
-            pulumi.set(__self__, "accelerator_types", accelerator_types)
+            _setter("accelerator_types", accelerator_types)
         if additional_code_repositories is not None:
-            pulumi.set(__self__, "additional_code_repositories", additional_code_repositories)
+            _setter("additional_code_repositories", additional_code_repositories)
         if default_code_repository is not None:
-            pulumi.set(__self__, "default_code_repository", default_code_repository)
+            _setter("default_code_repository", default_code_repository)
         if direct_internet_access is not None:
-            pulumi.set(__self__, "direct_internet_access", direct_internet_access)
+            _setter("direct_internet_access", direct_internet_access)
         if instance_metadata_service_configuration is not None:
-            pulumi.set(__self__, "instance_metadata_service_configuration", instance_metadata_service_configuration)
+            _setter("instance_metadata_service_configuration", instance_metadata_service_configuration)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if lifecycle_config_name is not None:
-            pulumi.set(__self__, "lifecycle_config_name", lifecycle_config_name)
+            _setter("lifecycle_config_name", lifecycle_config_name)
         if notebook_instance_name is not None:
-            pulumi.set(__self__, "notebook_instance_name", notebook_instance_name)
+            _setter("notebook_instance_name", notebook_instance_name)
         if platform_identifier is not None:
-            pulumi.set(__self__, "platform_identifier", platform_identifier)
+            _setter("platform_identifier", platform_identifier)
         if root_access is not None:
-            pulumi.set(__self__, "root_access", root_access)
+            _setter("root_access", root_access)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volume_size_in_gb is not None:
-            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+            _setter("volume_size_in_gb", volume_size_in_gb)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -263,6 +302,10 @@ class NotebookInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotebookInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -298,6 +341,11 @@ class NotebookInstance(pulumi.CustomResource):
             __props__.__dict__["additional_code_repositories"] = additional_code_repositories
             __props__.__dict__["default_code_repository"] = default_code_repository
             __props__.__dict__["direct_internet_access"] = direct_internet_access
+            if instance_metadata_service_configuration is not None and not isinstance(instance_metadata_service_configuration, NotebookInstanceInstanceMetadataServiceConfigurationArgs):
+                instance_metadata_service_configuration = instance_metadata_service_configuration or {}
+                def _setter(key, value):
+                    instance_metadata_service_configuration[key] = value
+                NotebookInstanceInstanceMetadataServiceConfigurationArgs._configure(_setter, **instance_metadata_service_configuration)
             __props__.__dict__["instance_metadata_service_configuration"] = instance_metadata_service_configuration
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")

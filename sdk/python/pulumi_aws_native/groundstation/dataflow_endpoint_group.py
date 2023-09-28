@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,13 +26,28 @@ class DataflowEndpointGroupArgs:
         :param pulumi.Input[int] contact_post_pass_duration_seconds: Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
         :param pulumi.Input[int] contact_pre_pass_duration_seconds: Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
         """
-        pulumi.set(__self__, "endpoint_details", endpoint_details)
+        DataflowEndpointGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_details=endpoint_details,
+            contact_post_pass_duration_seconds=contact_post_pass_duration_seconds,
+            contact_pre_pass_duration_seconds=contact_pre_pass_duration_seconds,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_details: pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]],
+             contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
+             contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_details", endpoint_details)
         if contact_post_pass_duration_seconds is not None:
-            pulumi.set(__self__, "contact_post_pass_duration_seconds", contact_post_pass_duration_seconds)
+            _setter("contact_post_pass_duration_seconds", contact_post_pass_duration_seconds)
         if contact_pre_pass_duration_seconds is not None:
-            pulumi.set(__self__, "contact_pre_pass_duration_seconds", contact_pre_pass_duration_seconds)
+            _setter("contact_pre_pass_duration_seconds", contact_pre_pass_duration_seconds)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="endpointDetails")
@@ -114,6 +129,10 @@ class DataflowEndpointGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataflowEndpointGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,18 +25,37 @@ class ServerCertificateArgs:
         """
         The set of arguments for constructing a ServerCertificate resource.
         """
+        ServerCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_body=certificate_body,
+            certificate_chain=certificate_chain,
+            path=path,
+            private_key=private_key,
+            server_certificate_name=server_certificate_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_body: Optional[pulumi.Input[str]] = None,
+             certificate_chain: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             server_certificate_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_body is not None:
-            pulumi.set(__self__, "certificate_body", certificate_body)
+            _setter("certificate_body", certificate_body)
         if certificate_chain is not None:
-            pulumi.set(__self__, "certificate_chain", certificate_chain)
+            _setter("certificate_chain", certificate_chain)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if server_certificate_name is not None:
-            pulumi.set(__self__, "server_certificate_name", server_certificate_name)
+            _setter("server_certificate_name", server_certificate_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="certificateBody")
@@ -130,6 +149,10 @@ class ServerCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SyncJobArgs', 'SyncJob']
@@ -25,11 +25,26 @@ class SyncJobArgs:
         :param pulumi.Input[str] workspace_id: The ID of the workspace.
         :param Any tags: A key-value pair to associate with a resource.
         """
-        pulumi.set(__self__, "sync_role", sync_role)
-        pulumi.set(__self__, "sync_source", sync_source)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        SyncJobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sync_role=sync_role,
+            sync_source=sync_source,
+            workspace_id=workspace_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sync_role: pulumi.Input[str],
+             sync_source: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("sync_role", sync_role)
+        _setter("sync_source", sync_source)
+        _setter("workspace_id", workspace_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="syncRole")
@@ -119,6 +134,10 @@ class SyncJob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SyncJobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

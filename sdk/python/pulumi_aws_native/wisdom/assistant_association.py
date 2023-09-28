@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -24,11 +24,26 @@ class AssistantAssociationArgs:
         """
         The set of arguments for constructing a AssistantAssociation resource.
         """
-        pulumi.set(__self__, "assistant_id", assistant_id)
-        pulumi.set(__self__, "association", association)
-        pulumi.set(__self__, "association_type", association_type)
+        AssistantAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assistant_id=assistant_id,
+            association=association,
+            association_type=association_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assistant_id: pulumi.Input[str],
+             association: pulumi.Input['AssistantAssociationAssociationDataArgs'],
+             association_type: pulumi.Input['AssistantAssociationAssociationType'],
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssistantAssociationTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assistant_id", assistant_id)
+        _setter("association", association)
+        _setter("association_type", association_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="assistantId")
@@ -102,6 +117,10 @@ class AssistantAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssistantAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -123,6 +142,11 @@ class AssistantAssociation(pulumi.CustomResource):
             if assistant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'assistant_id'")
             __props__.__dict__["assistant_id"] = assistant_id
+            if association is not None and not isinstance(association, AssistantAssociationAssociationDataArgs):
+                association = association or {}
+                def _setter(key, value):
+                    association[key] = value
+                AssistantAssociationAssociationDataArgs._configure(_setter, **association)
             if association is None and not opts.urn:
                 raise TypeError("Missing required property 'association'")
             __props__.__dict__["association"] = association

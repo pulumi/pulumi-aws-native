@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,26 +40,55 @@ class TableArgs:
         :param pulumi.Input[str] table_name: Name for Cassandra table
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: An array of key-value pairs to apply to this resource
         """
-        pulumi.set(__self__, "keyspace_name", keyspace_name)
-        pulumi.set(__self__, "partition_key_columns", partition_key_columns)
+        TableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            keyspace_name=keyspace_name,
+            partition_key_columns=partition_key_columns,
+            billing_mode=billing_mode,
+            client_side_timestamps_enabled=client_side_timestamps_enabled,
+            clustering_key_columns=clustering_key_columns,
+            default_time_to_live=default_time_to_live,
+            encryption_specification=encryption_specification,
+            point_in_time_recovery_enabled=point_in_time_recovery_enabled,
+            regular_columns=regular_columns,
+            table_name=table_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             keyspace_name: pulumi.Input[str],
+             partition_key_columns: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]],
+             billing_mode: Optional[pulumi.Input['TableBillingModeArgs']] = None,
+             client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
+             clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]] = None,
+             default_time_to_live: Optional[pulumi.Input[int]] = None,
+             encryption_specification: Optional[pulumi.Input['TableEncryptionSpecificationArgs']] = None,
+             point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
+             regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("keyspace_name", keyspace_name)
+        _setter("partition_key_columns", partition_key_columns)
         if billing_mode is not None:
-            pulumi.set(__self__, "billing_mode", billing_mode)
+            _setter("billing_mode", billing_mode)
         if client_side_timestamps_enabled is not None:
-            pulumi.set(__self__, "client_side_timestamps_enabled", client_side_timestamps_enabled)
+            _setter("client_side_timestamps_enabled", client_side_timestamps_enabled)
         if clustering_key_columns is not None:
-            pulumi.set(__self__, "clustering_key_columns", clustering_key_columns)
+            _setter("clustering_key_columns", clustering_key_columns)
         if default_time_to_live is not None:
-            pulumi.set(__self__, "default_time_to_live", default_time_to_live)
+            _setter("default_time_to_live", default_time_to_live)
         if encryption_specification is not None:
-            pulumi.set(__self__, "encryption_specification", encryption_specification)
+            _setter("encryption_specification", encryption_specification)
         if point_in_time_recovery_enabled is not None:
-            pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
+            _setter("point_in_time_recovery_enabled", point_in_time_recovery_enabled)
         if regular_columns is not None:
-            pulumi.set(__self__, "regular_columns", regular_columns)
+            _setter("regular_columns", regular_columns)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="keyspaceName")
@@ -239,6 +268,10 @@ class Table(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -264,10 +297,20 @@ class Table(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TableArgs.__new__(TableArgs)
 
+            if billing_mode is not None and not isinstance(billing_mode, TableBillingModeArgs):
+                billing_mode = billing_mode or {}
+                def _setter(key, value):
+                    billing_mode[key] = value
+                TableBillingModeArgs._configure(_setter, **billing_mode)
             __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["client_side_timestamps_enabled"] = client_side_timestamps_enabled
             __props__.__dict__["clustering_key_columns"] = clustering_key_columns
             __props__.__dict__["default_time_to_live"] = default_time_to_live
+            if encryption_specification is not None and not isinstance(encryption_specification, TableEncryptionSpecificationArgs):
+                encryption_specification = encryption_specification or {}
+                def _setter(key, value):
+                    encryption_specification[key] = value
+                TableEncryptionSpecificationArgs._configure(_setter, **encryption_specification)
             __props__.__dict__["encryption_specification"] = encryption_specification
             if keyspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'keyspace_name'")

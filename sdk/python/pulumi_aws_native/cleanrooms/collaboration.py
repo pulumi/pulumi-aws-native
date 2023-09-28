@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,17 +29,40 @@ class CollaborationArgs:
         The set of arguments for constructing a Collaboration resource.
         :param pulumi.Input[Sequence[pulumi.Input['CollaborationTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
-        pulumi.set(__self__, "creator_display_name", creator_display_name)
-        pulumi.set(__self__, "creator_member_abilities", creator_member_abilities)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "members", members)
-        pulumi.set(__self__, "query_log_status", query_log_status)
+        CollaborationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creator_display_name=creator_display_name,
+            creator_member_abilities=creator_member_abilities,
+            description=description,
+            members=members,
+            query_log_status=query_log_status,
+            data_encryption_metadata=data_encryption_metadata,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creator_display_name: pulumi.Input[str],
+             creator_member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]],
+             description: pulumi.Input[str],
+             members: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]],
+             query_log_status: pulumi.Input['CollaborationQueryLogStatus'],
+             data_encryption_metadata: Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("creator_display_name", creator_display_name)
+        _setter("creator_member_abilities", creator_member_abilities)
+        _setter("description", description)
+        _setter("members", members)
+        _setter("query_log_status", query_log_status)
         if data_encryption_metadata is not None:
-            pulumi.set(__self__, "data_encryption_metadata", data_encryption_metadata)
+            _setter("data_encryption_metadata", data_encryption_metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="creatorDisplayName")
@@ -157,6 +180,10 @@ class Collaboration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CollaborationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -185,6 +212,11 @@ class Collaboration(pulumi.CustomResource):
             if creator_member_abilities is None and not opts.urn:
                 raise TypeError("Missing required property 'creator_member_abilities'")
             __props__.__dict__["creator_member_abilities"] = creator_member_abilities
+            if data_encryption_metadata is not None and not isinstance(data_encryption_metadata, CollaborationDataEncryptionMetadataArgs):
+                data_encryption_metadata = data_encryption_metadata or {}
+                def _setter(key, value):
+                    data_encryption_metadata[key] = value
+                CollaborationDataEncryptionMetadataArgs._configure(_setter, **data_encryption_metadata)
             __props__.__dict__["data_encryption_metadata"] = data_encryption_metadata
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")

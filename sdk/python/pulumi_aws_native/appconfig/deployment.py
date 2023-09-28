@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,17 +27,40 @@ class DeploymentArgs:
         """
         The set of arguments for constructing a Deployment resource.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
-        pulumi.set(__self__, "configuration_version", configuration_version)
-        pulumi.set(__self__, "deployment_strategy_id", deployment_strategy_id)
-        pulumi.set(__self__, "environment_id", environment_id)
+        DeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            configuration_profile_id=configuration_profile_id,
+            configuration_version=configuration_version,
+            deployment_strategy_id=deployment_strategy_id,
+            environment_id=environment_id,
+            description=description,
+            kms_key_identifier=kms_key_identifier,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: pulumi.Input[str],
+             configuration_profile_id: pulumi.Input[str],
+             configuration_version: pulumi.Input[str],
+             deployment_strategy_id: pulumi.Input[str],
+             environment_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             kms_key_identifier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentTagsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_id", application_id)
+        _setter("configuration_profile_id", configuration_profile_id)
+        _setter("configuration_version", configuration_version)
+        _setter("deployment_strategy_id", deployment_strategy_id)
+        _setter("environment_id", environment_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if kms_key_identifier is not None:
-            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
+            _setter("kms_key_identifier", kms_key_identifier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -156,6 +179,10 @@ class Deployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

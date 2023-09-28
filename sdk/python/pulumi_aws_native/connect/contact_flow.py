@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,38 @@ class ContactFlowArgs:
         :param pulumi.Input['ContactFlowState'] state: The state of the contact flow.
         :param pulumi.Input[Sequence[pulumi.Input['ContactFlowTagArgs']]] tags: One or more tags.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "type", type)
+        ContactFlowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            instance_arn=instance_arn,
+            type=type,
+            description=description,
+            name=name,
+            state=state,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: pulumi.Input[str],
+             instance_arn: pulumi.Input[str],
+             type: pulumi.Input['ContactFlowType'],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input['ContactFlowState']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContactFlowTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("instance_arn", instance_arn)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -176,6 +197,10 @@ class ContactFlow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContactFlowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -56,11 +56,24 @@ class ProactiveEngagementEmergencyContact(dict):
         :param str contact_notes: Additional notes regarding the contact.
         :param str phone_number: The phone number for the contact
         """
-        pulumi.set(__self__, "email_address", email_address)
+        ProactiveEngagementEmergencyContact._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            contact_notes=contact_notes,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: str,
+             contact_notes: Optional[str] = None,
+             phone_number: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email_address", email_address)
         if contact_notes is not None:
-            pulumi.set(__self__, "contact_notes", contact_notes)
+            _setter("contact_notes", contact_notes)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -100,8 +113,19 @@ class ProtectionApplicationLayerAutomaticResponseConfiguration(dict):
         :param Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0Properties', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1Properties'] action: Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
         :param 'ProtectionApplicationLayerAutomaticResponseConfigurationStatus' status: Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "status", status)
+        ProtectionApplicationLayerAutomaticResponseConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Any,
+             status: 'ProtectionApplicationLayerAutomaticResponseConfigurationStatus',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -132,8 +156,17 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction0Properties(
         :param Any count: Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Count` action.
                You must specify exactly one action, either `Block` or `Count`.
         """
+        ProtectionApplicationLayerAutomaticResponseConfigurationAction0Properties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
 
     @property
     @pulumi.getter
@@ -157,8 +190,17 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction1Properties(
         :param Any block: Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Block` action.
                You must specify exactly one action, either `Block` or `Count`.
         """
+        ProtectionApplicationLayerAutomaticResponseConfigurationAction1Properties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            block=block,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             block: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if block is not None:
-            pulumi.set(__self__, "block", block)
+            _setter("block", block)
 
     @property
     @pulumi.getter
@@ -183,8 +225,19 @@ class ProtectionGroupTag(dict):
         :param str key: Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
         :param str value: Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ProtectionGroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -216,8 +269,19 @@ class ProtectionTag(dict):
         :param str key: Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
         :param str value: Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ProtectionTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

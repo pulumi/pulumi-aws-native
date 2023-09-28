@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,20 +27,43 @@ class ConfigurationProfileArgs:
         """
         The set of arguments for constructing a ConfigurationProfile resource.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "location_uri", location_uri)
+        ConfigurationProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            location_uri=location_uri,
+            description=description,
+            name=name,
+            retrieval_role_arn=retrieval_role_arn,
+            tags=tags,
+            type=type,
+            validators=validators,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: pulumi.Input[str],
+             location_uri: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             retrieval_role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileTagsArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_id", application_id)
+        _setter("location_uri", location_uri)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retrieval_role_arn is not None:
-            pulumi.set(__self__, "retrieval_role_arn", retrieval_role_arn)
+            _setter("retrieval_role_arn", retrieval_role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if validators is not None:
-            pulumi.set(__self__, "validators", validators)
+            _setter("validators", validators)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -159,6 +182,10 @@ class ConfigurationProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

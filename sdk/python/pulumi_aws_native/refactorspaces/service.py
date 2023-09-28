@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,21 +30,46 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
-        pulumi.set(__self__, "application_identifier", application_identifier)
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-        pulumi.set(__self__, "environment_identifier", environment_identifier)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_identifier=application_identifier,
+            endpoint_type=endpoint_type,
+            environment_identifier=environment_identifier,
+            description=description,
+            lambda_endpoint=lambda_endpoint,
+            name=name,
+            tags=tags,
+            url_endpoint=url_endpoint,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_identifier: pulumi.Input[str],
+             endpoint_type: pulumi.Input['ServiceEndpointType'],
+             environment_identifier: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             lambda_endpoint: Optional[pulumi.Input['ServiceLambdaEndpointInputArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
+             url_endpoint: Optional[pulumi.Input['ServiceUrlEndpointInputArgs']] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_identifier", application_identifier)
+        _setter("endpoint_type", endpoint_type)
+        _setter("environment_identifier", environment_identifier)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if lambda_endpoint is not None:
-            pulumi.set(__self__, "lambda_endpoint", lambda_endpoint)
+            _setter("lambda_endpoint", lambda_endpoint)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if url_endpoint is not None:
-            pulumi.set(__self__, "url_endpoint", url_endpoint)
+            _setter("url_endpoint", url_endpoint)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="applicationIdentifier")
@@ -172,6 +197,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -205,9 +234,19 @@ class Service(pulumi.CustomResource):
             if environment_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_identifier'")
             __props__.__dict__["environment_identifier"] = environment_identifier
+            if lambda_endpoint is not None and not isinstance(lambda_endpoint, ServiceLambdaEndpointInputArgs):
+                lambda_endpoint = lambda_endpoint or {}
+                def _setter(key, value):
+                    lambda_endpoint[key] = value
+                ServiceLambdaEndpointInputArgs._configure(_setter, **lambda_endpoint)
             __props__.__dict__["lambda_endpoint"] = lambda_endpoint
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            if url_endpoint is not None and not isinstance(url_endpoint, ServiceUrlEndpointInputArgs):
+                url_endpoint = url_endpoint or {}
+                def _setter(key, value):
+                    url_endpoint[key] = value
+                ServiceUrlEndpointInputArgs._configure(_setter, **url_endpoint)
             __props__.__dict__["url_endpoint"] = url_endpoint
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None

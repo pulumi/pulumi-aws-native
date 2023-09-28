@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,25 +31,56 @@ class ApplicationArgs:
         """
         The set of arguments for constructing a Application resource.
         """
-        pulumi.set(__self__, "app_block_arn", app_block_arn)
-        pulumi.set(__self__, "icon_s3_location", icon_s3_location)
-        pulumi.set(__self__, "instance_families", instance_families)
-        pulumi.set(__self__, "launch_path", launch_path)
-        pulumi.set(__self__, "platforms", platforms)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_block_arn=app_block_arn,
+            icon_s3_location=icon_s3_location,
+            instance_families=instance_families,
+            launch_path=launch_path,
+            platforms=platforms,
+            attributes_to_delete=attributes_to_delete,
+            description=description,
+            display_name=display_name,
+            launch_parameters=launch_parameters,
+            name=name,
+            tags=tags,
+            working_directory=working_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_block_arn: pulumi.Input[str],
+             icon_s3_location: pulumi.Input['ApplicationS3LocationArgs'],
+             instance_families: pulumi.Input[Sequence[pulumi.Input[str]]],
+             launch_path: pulumi.Input[str],
+             platforms: pulumi.Input[Sequence[pulumi.Input[str]]],
+             attributes_to_delete: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             launch_parameters: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]] = None,
+             working_directory: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_block_arn", app_block_arn)
+        _setter("icon_s3_location", icon_s3_location)
+        _setter("instance_families", instance_families)
+        _setter("launch_path", launch_path)
+        _setter("platforms", platforms)
         if attributes_to_delete is not None:
-            pulumi.set(__self__, "attributes_to_delete", attributes_to_delete)
+            _setter("attributes_to_delete", attributes_to_delete)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if launch_parameters is not None:
-            pulumi.set(__self__, "launch_parameters", launch_parameters)
+            _setter("launch_parameters", launch_parameters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if working_directory is not None:
-            pulumi.set(__self__, "working_directory", working_directory)
+            _setter("working_directory", working_directory)
 
     @property
     @pulumi.getter(name="appBlockArn")
@@ -203,6 +234,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -235,6 +270,11 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["attributes_to_delete"] = attributes_to_delete
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
+            if icon_s3_location is not None and not isinstance(icon_s3_location, ApplicationS3LocationArgs):
+                icon_s3_location = icon_s3_location or {}
+                def _setter(key, value):
+                    icon_s3_location[key] = value
+                ApplicationS3LocationArgs._configure(_setter, **icon_s3_location)
             if icon_s3_location is None and not opts.urn:
                 raise TypeError("Missing required property 'icon_s3_location'")
             __props__.__dict__["icon_s3_location"] = icon_s3_location

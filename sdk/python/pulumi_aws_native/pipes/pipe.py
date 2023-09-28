@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,25 +31,54 @@ class PipeArgs:
         """
         The set of arguments for constructing a Pipe resource.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "target", target)
+        PipeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            source=source,
+            target=target,
+            description=description,
+            desired_state=desired_state,
+            enrichment=enrichment,
+            enrichment_parameters=enrichment_parameters,
+            name=name,
+            source_parameters=source_parameters,
+            tags=tags,
+            target_parameters=target_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             source: pulumi.Input[str],
+             target: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             desired_state: Optional[pulumi.Input['PipeRequestedPipeState']] = None,
+             enrichment: Optional[pulumi.Input[str]] = None,
+             enrichment_parameters: Optional[pulumi.Input['PipeEnrichmentParametersArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_parameters: Optional[pulumi.Input['PipeSourceParametersArgs']] = None,
+             tags: Optional[pulumi.Input['PipeTagMapArgs']] = None,
+             target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
+        _setter("source", source)
+        _setter("target", target)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if desired_state is not None:
-            pulumi.set(__self__, "desired_state", desired_state)
+            _setter("desired_state", desired_state)
         if enrichment is not None:
-            pulumi.set(__self__, "enrichment", enrichment)
+            _setter("enrichment", enrichment)
         if enrichment_parameters is not None:
-            pulumi.set(__self__, "enrichment_parameters", enrichment_parameters)
+            _setter("enrichment_parameters", enrichment_parameters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_parameters is not None:
-            pulumi.set(__self__, "source_parameters", source_parameters)
+            _setter("source_parameters", source_parameters)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_parameters is not None:
-            pulumi.set(__self__, "target_parameters", target_parameters)
+            _setter("target_parameters", target_parameters)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -193,6 +222,10 @@ class Pipe(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -221,6 +254,11 @@ class Pipe(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["desired_state"] = desired_state
             __props__.__dict__["enrichment"] = enrichment
+            if enrichment_parameters is not None and not isinstance(enrichment_parameters, PipeEnrichmentParametersArgs):
+                enrichment_parameters = enrichment_parameters or {}
+                def _setter(key, value):
+                    enrichment_parameters[key] = value
+                PipeEnrichmentParametersArgs._configure(_setter, **enrichment_parameters)
             __props__.__dict__["enrichment_parameters"] = enrichment_parameters
             __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
@@ -229,11 +267,26 @@ class Pipe(pulumi.CustomResource):
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
+            if source_parameters is not None and not isinstance(source_parameters, PipeSourceParametersArgs):
+                source_parameters = source_parameters or {}
+                def _setter(key, value):
+                    source_parameters[key] = value
+                PipeSourceParametersArgs._configure(_setter, **source_parameters)
             __props__.__dict__["source_parameters"] = source_parameters
+            if tags is not None and not isinstance(tags, PipeTagMapArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                PipeTagMapArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
+            if target_parameters is not None and not isinstance(target_parameters, PipeTargetParametersArgs):
+                target_parameters = target_parameters or {}
+                def _setter(key, value):
+                    target_parameters[key] = value
+                PipeTargetParametersArgs._configure(_setter, **target_parameters)
             __props__.__dict__["target_parameters"] = target_parameters
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None

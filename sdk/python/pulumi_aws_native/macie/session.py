@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -22,10 +22,21 @@ class SessionArgs:
         :param pulumi.Input['SessionFindingPublishingFrequency'] finding_publishing_frequency: A enumeration value that specifies how frequently finding updates are published.
         :param pulumi.Input['SessionStatus'] status: A enumeration value that specifies the status of the Macie Session.
         """
+        SessionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            finding_publishing_frequency=finding_publishing_frequency,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             finding_publishing_frequency: Optional[pulumi.Input['SessionFindingPublishingFrequency']] = None,
+             status: Optional[pulumi.Input['SessionStatus']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if finding_publishing_frequency is not None:
-            pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
+            _setter("finding_publishing_frequency", finding_publishing_frequency)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
@@ -87,6 +98,10 @@ class Session(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SessionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

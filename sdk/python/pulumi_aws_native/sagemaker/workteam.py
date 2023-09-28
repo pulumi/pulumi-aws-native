@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,18 +25,37 @@ class WorkteamArgs:
         """
         The set of arguments for constructing a Workteam resource.
         """
+        WorkteamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            member_definitions=member_definitions,
+            notification_configuration=notification_configuration,
+            tags=tags,
+            workforce_name=workforce_name,
+            workteam_name=workteam_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]]] = None,
+             notification_configuration: Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkteamTagArgs']]]] = None,
+             workforce_name: Optional[pulumi.Input[str]] = None,
+             workteam_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if member_definitions is not None:
-            pulumi.set(__self__, "member_definitions", member_definitions)
+            _setter("member_definitions", member_definitions)
         if notification_configuration is not None:
-            pulumi.set(__self__, "notification_configuration", notification_configuration)
+            _setter("notification_configuration", notification_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workforce_name is not None:
-            pulumi.set(__self__, "workforce_name", workforce_name)
+            _setter("workforce_name", workforce_name)
         if workteam_name is not None:
-            pulumi.set(__self__, "workteam_name", workteam_name)
+            _setter("workteam_name", workteam_name)
 
     @property
     @pulumi.getter
@@ -135,6 +154,10 @@ class Workteam(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkteamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -158,6 +181,11 @@ class Workteam(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["member_definitions"] = member_definitions
+            if notification_configuration is not None and not isinstance(notification_configuration, WorkteamNotificationConfigurationArgs):
+                notification_configuration = notification_configuration or {}
+                def _setter(key, value):
+                    notification_configuration[key] = value
+                WorkteamNotificationConfigurationArgs._configure(_setter, **notification_configuration)
             __props__.__dict__["notification_configuration"] = notification_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workforce_name"] = workforce_name

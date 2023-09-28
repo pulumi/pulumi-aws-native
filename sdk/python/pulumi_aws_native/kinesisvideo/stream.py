@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,18 +31,37 @@ class StreamArgs:
         :param pulumi.Input[str] name: The name of the Kinesis Video stream.
         :param pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]] tags: An array of key-value pairs associated with the Kinesis Video Stream.
         """
+        StreamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_retention_in_hours=data_retention_in_hours,
+            device_name=device_name,
+            kms_key_id=kms_key_id,
+            media_type=media_type,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_retention_in_hours: Optional[pulumi.Input[int]] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             media_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_retention_in_hours is not None:
-            pulumi.set(__self__, "data_retention_in_hours", data_retention_in_hours)
+            _setter("data_retention_in_hours", data_retention_in_hours)
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if media_type is not None:
-            pulumi.set(__self__, "media_type", media_type)
+            _setter("media_type", media_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dataRetentionInHours")
@@ -160,6 +179,10 @@ class Stream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

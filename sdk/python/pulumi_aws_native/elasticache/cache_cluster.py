@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -48,61 +48,126 @@ class CacheClusterArgs:
         """
         The set of arguments for constructing a CacheCluster resource.
         """
-        pulumi.set(__self__, "cache_node_type", cache_node_type)
-        pulumi.set(__self__, "engine", engine)
-        pulumi.set(__self__, "num_cache_nodes", num_cache_nodes)
+        CacheClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_node_type=cache_node_type,
+            engine=engine,
+            num_cache_nodes=num_cache_nodes,
+            auto_minor_version_upgrade=auto_minor_version_upgrade,
+            az_mode=az_mode,
+            cache_parameter_group_name=cache_parameter_group_name,
+            cache_security_group_names=cache_security_group_names,
+            cache_subnet_group_name=cache_subnet_group_name,
+            cluster_name=cluster_name,
+            configuration_endpoint_address=configuration_endpoint_address,
+            configuration_endpoint_port=configuration_endpoint_port,
+            engine_version=engine_version,
+            ip_discovery=ip_discovery,
+            log_delivery_configurations=log_delivery_configurations,
+            network_type=network_type,
+            notification_topic_arn=notification_topic_arn,
+            port=port,
+            preferred_availability_zone=preferred_availability_zone,
+            preferred_availability_zones=preferred_availability_zones,
+            preferred_maintenance_window=preferred_maintenance_window,
+            redis_endpoint_address=redis_endpoint_address,
+            redis_endpoint_port=redis_endpoint_port,
+            snapshot_arns=snapshot_arns,
+            snapshot_name=snapshot_name,
+            snapshot_retention_limit=snapshot_retention_limit,
+            snapshot_window=snapshot_window,
+            tags=tags,
+            transit_encryption_enabled=transit_encryption_enabled,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_node_type: pulumi.Input[str],
+             engine: pulumi.Input[str],
+             num_cache_nodes: pulumi.Input[int],
+             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             az_mode: Optional[pulumi.Input[str]] = None,
+             cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             configuration_endpoint_address: Optional[pulumi.Input[str]] = None,
+             configuration_endpoint_port: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             ip_discovery: Optional[pulumi.Input[str]] = None,
+             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterLogDeliveryConfigurationRequestArgs']]]] = None,
+             network_type: Optional[pulumi.Input[str]] = None,
+             notification_topic_arn: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             preferred_availability_zone: Optional[pulumi.Input[str]] = None,
+             preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             redis_endpoint_address: Optional[pulumi.Input[str]] = None,
+             redis_endpoint_port: Optional[pulumi.Input[str]] = None,
+             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
+             snapshot_window: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterTagArgs']]]] = None,
+             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cache_node_type", cache_node_type)
+        _setter("engine", engine)
+        _setter("num_cache_nodes", num_cache_nodes)
         if auto_minor_version_upgrade is not None:
-            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         if az_mode is not None:
-            pulumi.set(__self__, "az_mode", az_mode)
+            _setter("az_mode", az_mode)
         if cache_parameter_group_name is not None:
-            pulumi.set(__self__, "cache_parameter_group_name", cache_parameter_group_name)
+            _setter("cache_parameter_group_name", cache_parameter_group_name)
         if cache_security_group_names is not None:
-            pulumi.set(__self__, "cache_security_group_names", cache_security_group_names)
+            _setter("cache_security_group_names", cache_security_group_names)
         if cache_subnet_group_name is not None:
-            pulumi.set(__self__, "cache_subnet_group_name", cache_subnet_group_name)
+            _setter("cache_subnet_group_name", cache_subnet_group_name)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if configuration_endpoint_address is not None:
-            pulumi.set(__self__, "configuration_endpoint_address", configuration_endpoint_address)
+            _setter("configuration_endpoint_address", configuration_endpoint_address)
         if configuration_endpoint_port is not None:
-            pulumi.set(__self__, "configuration_endpoint_port", configuration_endpoint_port)
+            _setter("configuration_endpoint_port", configuration_endpoint_port)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if ip_discovery is not None:
-            pulumi.set(__self__, "ip_discovery", ip_discovery)
+            _setter("ip_discovery", ip_discovery)
         if log_delivery_configurations is not None:
-            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
+            _setter("log_delivery_configurations", log_delivery_configurations)
         if network_type is not None:
-            pulumi.set(__self__, "network_type", network_type)
+            _setter("network_type", network_type)
         if notification_topic_arn is not None:
-            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+            _setter("notification_topic_arn", notification_topic_arn)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if preferred_availability_zone is not None:
-            pulumi.set(__self__, "preferred_availability_zone", preferred_availability_zone)
+            _setter("preferred_availability_zone", preferred_availability_zone)
         if preferred_availability_zones is not None:
-            pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
+            _setter("preferred_availability_zones", preferred_availability_zones)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if redis_endpoint_address is not None:
-            pulumi.set(__self__, "redis_endpoint_address", redis_endpoint_address)
+            _setter("redis_endpoint_address", redis_endpoint_address)
         if redis_endpoint_port is not None:
-            pulumi.set(__self__, "redis_endpoint_port", redis_endpoint_port)
+            _setter("redis_endpoint_port", redis_endpoint_port)
         if snapshot_arns is not None:
-            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
+            _setter("snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+            _setter("snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            pulumi.set(__self__, "snapshot_window", snapshot_window)
+            _setter("snapshot_window", snapshot_window)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transit_encryption_enabled is not None:
-            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+            _setter("transit_encryption_enabled", transit_encryption_enabled)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="cacheNodeType")
@@ -431,6 +496,10 @@ class CacheCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CacheClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

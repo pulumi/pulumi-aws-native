@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,12 +26,27 @@ class VodSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VodSourceHttpPackageConfigurationArgs']]] http_package_configurations: <p>A list of HTTP package configuration parameters for this VOD source.</p>
         :param pulumi.Input[Sequence[pulumi.Input['VodSourceTagArgs']]] tags: The tags to assign to the VOD source.
         """
-        pulumi.set(__self__, "http_package_configurations", http_package_configurations)
-        pulumi.set(__self__, "source_location_name", source_location_name)
+        VodSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_package_configurations=http_package_configurations,
+            source_location_name=source_location_name,
+            tags=tags,
+            vod_source_name=vod_source_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_package_configurations: pulumi.Input[Sequence[pulumi.Input['VodSourceHttpPackageConfigurationArgs']]],
+             source_location_name: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VodSourceTagArgs']]]] = None,
+             vod_source_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("http_package_configurations", http_package_configurations)
+        _setter("source_location_name", source_location_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vod_source_name is not None:
-            pulumi.set(__self__, "vod_source_name", vod_source_name)
+            _setter("vod_source_name", vod_source_name)
 
     @property
     @pulumi.getter(name="httpPackageConfigurations")
@@ -113,6 +128,10 @@ class VodSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VodSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

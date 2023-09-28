@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,13 +23,28 @@ class VersionArgs:
         """
         The set of arguments for constructing a Version resource.
         """
-        pulumi.set(__self__, "function_name", function_name)
+        VersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_name=function_name,
+            code_sha256=code_sha256,
+            description=description,
+            provisioned_concurrency_config=provisioned_concurrency_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_name: pulumi.Input[str],
+             code_sha256: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             provisioned_concurrency_config: Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_name", function_name)
         if code_sha256 is not None:
-            pulumi.set(__self__, "code_sha256", code_sha256)
+            _setter("code_sha256", code_sha256)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if provisioned_concurrency_config is not None:
-            pulumi.set(__self__, "provisioned_concurrency_config", provisioned_concurrency_config)
+            _setter("provisioned_concurrency_config", provisioned_concurrency_config)
 
     @property
     @pulumi.getter(name="functionName")
@@ -108,6 +123,10 @@ class Version(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -132,6 +151,11 @@ class Version(pulumi.CustomResource):
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
+            if provisioned_concurrency_config is not None and not isinstance(provisioned_concurrency_config, VersionProvisionedConcurrencyConfigurationArgs):
+                provisioned_concurrency_config = provisioned_concurrency_config or {}
+                def _setter(key, value):
+                    provisioned_concurrency_config[key] = value
+                VersionProvisionedConcurrencyConfigurationArgs._configure(_setter, **provisioned_concurrency_config)
             __props__.__dict__["provisioned_concurrency_config"] = provisioned_concurrency_config
             __props__.__dict__["version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["function_name"])

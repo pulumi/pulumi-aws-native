@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,18 +26,37 @@ class ServiceArgs:
         """
         The set of arguments for constructing a Service resource.
         """
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            certificate_arn=certificate_arn,
+            custom_domain_name=custom_domain_name,
+            dns_entry=dns_entry,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: Optional[pulumi.Input['ServiceAuthType']] = None,
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             custom_domain_name: Optional[pulumi.Input[str]] = None,
+             dns_entry: Optional[pulumi.Input['ServiceDnsEntryArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if custom_domain_name is not None:
-            pulumi.set(__self__, "custom_domain_name", custom_domain_name)
+            _setter("custom_domain_name", custom_domain_name)
         if dns_entry is not None:
-            pulumi.set(__self__, "dns_entry", dns_entry)
+            _setter("dns_entry", dns_entry)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="authType")
@@ -131,6 +150,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -154,6 +177,11 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["auth_type"] = auth_type
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["custom_domain_name"] = custom_domain_name
+            if dns_entry is not None and not isinstance(dns_entry, ServiceDnsEntryArgs):
+                dns_entry = dns_entry or {}
+                def _setter(key, value):
+                    dns_entry[key] = value
+                ServiceDnsEntryArgs._configure(_setter, **dns_entry)
             __props__.__dict__["dns_entry"] = dns_entry
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

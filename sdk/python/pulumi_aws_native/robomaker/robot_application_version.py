@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RobotApplicationVersionArgs', 'RobotApplicationVersion']
@@ -20,9 +20,20 @@ class RobotApplicationVersionArgs:
         The set of arguments for constructing a RobotApplicationVersion resource.
         :param pulumi.Input[str] current_revision_id: The revision ID of robot application.
         """
-        pulumi.set(__self__, "application", application)
+        RobotApplicationVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application=application,
+            current_revision_id=current_revision_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application: pulumi.Input[str],
+             current_revision_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application", application)
         if current_revision_id is not None:
-            pulumi.set(__self__, "current_revision_id", current_revision_id)
+            _setter("current_revision_id", current_revision_id)
 
     @property
     @pulumi.getter
@@ -80,6 +91,10 @@ class RobotApplicationVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RobotApplicationVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,36 @@ class AccessPointArgs:
         :param pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
         """
-        pulumi.set(__self__, "bucket", bucket)
+        AccessPointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            bucket_account_id=bucket_account_id,
+            name=name,
+            policy=policy,
+            public_access_block_configuration=public_access_block_configuration,
+            vpc_configuration=vpc_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             bucket_account_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[Any] = None,
+             public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
+             vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
         if bucket_account_id is not None:
-            pulumi.set(__self__, "bucket_account_id", bucket_account_id)
+            _setter("bucket_account_id", bucket_account_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if public_access_block_configuration is not None:
-            pulumi.set(__self__, "public_access_block_configuration", public_access_block_configuration)
+            _setter("public_access_block_configuration", public_access_block_configuration)
         if vpc_configuration is not None:
-            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+            _setter("vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter
@@ -160,6 +179,10 @@ class AccessPoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessPointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -186,7 +209,17 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["bucket_account_id"] = bucket_account_id
             __props__.__dict__["name"] = name
             __props__.__dict__["policy"] = policy
+            if public_access_block_configuration is not None and not isinstance(public_access_block_configuration, AccessPointPublicAccessBlockConfigurationArgs):
+                public_access_block_configuration = public_access_block_configuration or {}
+                def _setter(key, value):
+                    public_access_block_configuration[key] = value
+                AccessPointPublicAccessBlockConfigurationArgs._configure(_setter, **public_access_block_configuration)
             __props__.__dict__["public_access_block_configuration"] = public_access_block_configuration
+            if vpc_configuration is not None and not isinstance(vpc_configuration, AccessPointVpcConfigurationArgs):
+                vpc_configuration = vpc_configuration or {}
+                def _setter(key, value):
+                    vpc_configuration[key] = value
+                AccessPointVpcConfigurationArgs._configure(_setter, **vpc_configuration)
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["alias"] = None
             __props__.__dict__["arn"] = None

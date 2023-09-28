@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -21,7 +21,16 @@ class ReplicationConfigurationInitArgs:
         """
         The set of arguments for constructing a ReplicationConfiguration resource.
         """
-        pulumi.set(__self__, "replication_configuration", replication_configuration)
+        ReplicationConfigurationInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            replication_configuration=replication_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             replication_configuration: pulumi.Input['ReplicationConfigurationArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("replication_configuration", replication_configuration)
 
     @property
     @pulumi.getter(name="replicationConfiguration")
@@ -65,6 +74,10 @@ class ReplicationConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationConfigurationInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -80,6 +93,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationConfigurationInitArgs.__new__(ReplicationConfigurationInitArgs)
 
+            if replication_configuration is not None and not isinstance(replication_configuration, ReplicationConfigurationArgs):
+                replication_configuration = replication_configuration or {}
+                def _setter(key, value):
+                    replication_configuration[key] = value
+                ReplicationConfigurationArgs._configure(_setter, **replication_configuration)
             if replication_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_configuration'")
             __props__.__dict__["replication_configuration"] = replication_configuration

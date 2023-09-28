@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,36 +34,73 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
         """
+        DomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policies=access_policies,
+            advanced_options=advanced_options,
+            advanced_security_options=advanced_security_options,
+            cognito_options=cognito_options,
+            domain_endpoint_options=domain_endpoint_options,
+            domain_name=domain_name,
+            ebs_options=ebs_options,
+            elasticsearch_cluster_config=elasticsearch_cluster_config,
+            elasticsearch_version=elasticsearch_version,
+            encryption_at_rest_options=encryption_at_rest_options,
+            log_publishing_options=log_publishing_options,
+            node_to_node_encryption_options=node_to_node_encryption_options,
+            snapshot_options=snapshot_options,
+            tags=tags,
+            vpc_options=vpc_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policies: Optional[Any] = None,
+             advanced_options: Optional[Any] = None,
+             advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsInputArgs']] = None,
+             cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
+             domain_endpoint_options: Optional[pulumi.Input['DomainEndpointOptionsArgs']] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
+             elasticsearch_cluster_config: Optional[pulumi.Input['DomainElasticsearchClusterConfigArgs']] = None,
+             elasticsearch_version: Optional[pulumi.Input[str]] = None,
+             encryption_at_rest_options: Optional[pulumi.Input['DomainEncryptionAtRestOptionsArgs']] = None,
+             log_publishing_options: Optional[Any] = None,
+             node_to_node_encryption_options: Optional[pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs']] = None,
+             snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
+             vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
         if advanced_options is not None:
-            pulumi.set(__self__, "advanced_options", advanced_options)
+            _setter("advanced_options", advanced_options)
         if advanced_security_options is not None:
-            pulumi.set(__self__, "advanced_security_options", advanced_security_options)
+            _setter("advanced_security_options", advanced_security_options)
         if cognito_options is not None:
-            pulumi.set(__self__, "cognito_options", cognito_options)
+            _setter("cognito_options", cognito_options)
         if domain_endpoint_options is not None:
-            pulumi.set(__self__, "domain_endpoint_options", domain_endpoint_options)
+            _setter("domain_endpoint_options", domain_endpoint_options)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if ebs_options is not None:
-            pulumi.set(__self__, "ebs_options", ebs_options)
+            _setter("ebs_options", ebs_options)
         if elasticsearch_cluster_config is not None:
-            pulumi.set(__self__, "elasticsearch_cluster_config", elasticsearch_cluster_config)
+            _setter("elasticsearch_cluster_config", elasticsearch_cluster_config)
         if elasticsearch_version is not None:
-            pulumi.set(__self__, "elasticsearch_version", elasticsearch_version)
+            _setter("elasticsearch_version", elasticsearch_version)
         if encryption_at_rest_options is not None:
-            pulumi.set(__self__, "encryption_at_rest_options", encryption_at_rest_options)
+            _setter("encryption_at_rest_options", encryption_at_rest_options)
         if log_publishing_options is not None:
-            pulumi.set(__self__, "log_publishing_options", log_publishing_options)
+            _setter("log_publishing_options", log_publishing_options)
         if node_to_node_encryption_options is not None:
-            pulumi.set(__self__, "node_to_node_encryption_options", node_to_node_encryption_options)
+            _setter("node_to_node_encryption_options", node_to_node_encryption_options)
         if snapshot_options is not None:
-            pulumi.set(__self__, "snapshot_options", snapshot_options)
+            _setter("snapshot_options", snapshot_options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_options is not None:
-            pulumi.set(__self__, "vpc_options", vpc_options)
+            _setter("vpc_options", vpc_options)
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -252,6 +289,10 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -284,18 +325,63 @@ class Domain(pulumi.CustomResource):
 
             __props__.__dict__["access_policies"] = access_policies
             __props__.__dict__["advanced_options"] = advanced_options
+            if advanced_security_options is not None and not isinstance(advanced_security_options, DomainAdvancedSecurityOptionsInputArgs):
+                advanced_security_options = advanced_security_options or {}
+                def _setter(key, value):
+                    advanced_security_options[key] = value
+                DomainAdvancedSecurityOptionsInputArgs._configure(_setter, **advanced_security_options)
             __props__.__dict__["advanced_security_options"] = advanced_security_options
+            if cognito_options is not None and not isinstance(cognito_options, DomainCognitoOptionsArgs):
+                cognito_options = cognito_options or {}
+                def _setter(key, value):
+                    cognito_options[key] = value
+                DomainCognitoOptionsArgs._configure(_setter, **cognito_options)
             __props__.__dict__["cognito_options"] = cognito_options
+            if domain_endpoint_options is not None and not isinstance(domain_endpoint_options, DomainEndpointOptionsArgs):
+                domain_endpoint_options = domain_endpoint_options or {}
+                def _setter(key, value):
+                    domain_endpoint_options[key] = value
+                DomainEndpointOptionsArgs._configure(_setter, **domain_endpoint_options)
             __props__.__dict__["domain_endpoint_options"] = domain_endpoint_options
             __props__.__dict__["domain_name"] = domain_name
+            if ebs_options is not None and not isinstance(ebs_options, DomainEbsOptionsArgs):
+                ebs_options = ebs_options or {}
+                def _setter(key, value):
+                    ebs_options[key] = value
+                DomainEbsOptionsArgs._configure(_setter, **ebs_options)
             __props__.__dict__["ebs_options"] = ebs_options
+            if elasticsearch_cluster_config is not None and not isinstance(elasticsearch_cluster_config, DomainElasticsearchClusterConfigArgs):
+                elasticsearch_cluster_config = elasticsearch_cluster_config or {}
+                def _setter(key, value):
+                    elasticsearch_cluster_config[key] = value
+                DomainElasticsearchClusterConfigArgs._configure(_setter, **elasticsearch_cluster_config)
             __props__.__dict__["elasticsearch_cluster_config"] = elasticsearch_cluster_config
             __props__.__dict__["elasticsearch_version"] = elasticsearch_version
+            if encryption_at_rest_options is not None and not isinstance(encryption_at_rest_options, DomainEncryptionAtRestOptionsArgs):
+                encryption_at_rest_options = encryption_at_rest_options or {}
+                def _setter(key, value):
+                    encryption_at_rest_options[key] = value
+                DomainEncryptionAtRestOptionsArgs._configure(_setter, **encryption_at_rest_options)
             __props__.__dict__["encryption_at_rest_options"] = encryption_at_rest_options
             __props__.__dict__["log_publishing_options"] = log_publishing_options
+            if node_to_node_encryption_options is not None and not isinstance(node_to_node_encryption_options, DomainNodeToNodeEncryptionOptionsArgs):
+                node_to_node_encryption_options = node_to_node_encryption_options or {}
+                def _setter(key, value):
+                    node_to_node_encryption_options[key] = value
+                DomainNodeToNodeEncryptionOptionsArgs._configure(_setter, **node_to_node_encryption_options)
             __props__.__dict__["node_to_node_encryption_options"] = node_to_node_encryption_options
+            if snapshot_options is not None and not isinstance(snapshot_options, DomainSnapshotOptionsArgs):
+                snapshot_options = snapshot_options or {}
+                def _setter(key, value):
+                    snapshot_options[key] = value
+                DomainSnapshotOptionsArgs._configure(_setter, **snapshot_options)
             __props__.__dict__["snapshot_options"] = snapshot_options
             __props__.__dict__["tags"] = tags
+            if vpc_options is not None and not isinstance(vpc_options, DomainVpcOptionsArgs):
+                vpc_options = vpc_options or {}
+                def _setter(key, value):
+                    vpc_options[key] = value
+                DomainVpcOptionsArgs._configure(_setter, **vpc_options)
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_arn"] = None

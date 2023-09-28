@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,15 +29,32 @@ class DeploymentArgs:
         :param pulumi.Input['DeploymentStageDescriptionArgs'] stage_description: Configures the stage that API Gateway creates with this deployment.
         :param pulumi.Input[str] stage_name: A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
         """
-        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        DeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rest_api_id=rest_api_id,
+            deployment_canary_settings=deployment_canary_settings,
+            description=description,
+            stage_description=stage_description,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rest_api_id: pulumi.Input[str],
+             deployment_canary_settings: Optional[pulumi.Input['DeploymentCanarySettingsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             stage_description: Optional[pulumi.Input['DeploymentStageDescriptionArgs']] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rest_api_id", rest_api_id)
         if deployment_canary_settings is not None:
-            pulumi.set(__self__, "deployment_canary_settings", deployment_canary_settings)
+            _setter("deployment_canary_settings", deployment_canary_settings)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if stage_description is not None:
-            pulumi.set(__self__, "stage_description", stage_description)
+            _setter("stage_description", stage_description)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="restApiId")
@@ -141,6 +158,10 @@ class Deployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -160,11 +181,21 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
+            if deployment_canary_settings is not None and not isinstance(deployment_canary_settings, DeploymentCanarySettingsArgs):
+                deployment_canary_settings = deployment_canary_settings or {}
+                def _setter(key, value):
+                    deployment_canary_settings[key] = value
+                DeploymentCanarySettingsArgs._configure(_setter, **deployment_canary_settings)
             __props__.__dict__["deployment_canary_settings"] = deployment_canary_settings
             __props__.__dict__["description"] = description
             if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
+            if stage_description is not None and not isinstance(stage_description, DeploymentStageDescriptionArgs):
+                stage_description = stage_description or {}
+                def _setter(key, value):
+                    stage_description[key] = value
+                DeploymentStageDescriptionArgs._configure(_setter, **stage_description)
             __props__.__dict__["stage_description"] = stage_description
             __props__.__dict__["stage_name"] = stage_name
             __props__.__dict__["deployment_id"] = None

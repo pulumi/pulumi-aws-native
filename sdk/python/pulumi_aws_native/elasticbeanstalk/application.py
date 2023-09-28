@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,12 +25,25 @@ class ApplicationArgs:
         :param pulumi.Input[str] description: Your description of the application.
         :param pulumi.Input['ApplicationResourceLifecycleConfigArgs'] resource_lifecycle_config: Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
         """
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            description=description,
+            resource_lifecycle_config=resource_lifecycle_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             resource_lifecycle_config: Optional[pulumi.Input['ApplicationResourceLifecycleConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
+            _setter("application_name", application_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if resource_lifecycle_config is not None:
-            pulumi.set(__self__, "resource_lifecycle_config", resource_lifecycle_config)
+            _setter("resource_lifecycle_config", resource_lifecycle_config)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -106,6 +119,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -125,6 +142,11 @@ class Application(pulumi.CustomResource):
 
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["description"] = description
+            if resource_lifecycle_config is not None and not isinstance(resource_lifecycle_config, ApplicationResourceLifecycleConfigArgs):
+                resource_lifecycle_config = resource_lifecycle_config or {}
+                def _setter(key, value):
+                    resource_lifecycle_config[key] = value
+                ApplicationResourceLifecycleConfigArgs._configure(_setter, **resource_lifecycle_config)
             __props__.__dict__["resource_lifecycle_config"] = resource_lifecycle_config
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

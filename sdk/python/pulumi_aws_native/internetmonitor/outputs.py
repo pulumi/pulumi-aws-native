@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -49,14 +49,29 @@ class MonitorHealthEventsConfig(dict):
                  availability_score_threshold: Optional[float] = None,
                  performance_local_health_events_config: Optional['outputs.MonitorLocalHealthEventsConfig'] = None,
                  performance_score_threshold: Optional[float] = None):
+        MonitorHealthEventsConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_local_health_events_config=availability_local_health_events_config,
+            availability_score_threshold=availability_score_threshold,
+            performance_local_health_events_config=performance_local_health_events_config,
+            performance_score_threshold=performance_score_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_local_health_events_config: Optional['outputs.MonitorLocalHealthEventsConfig'] = None,
+             availability_score_threshold: Optional[float] = None,
+             performance_local_health_events_config: Optional['outputs.MonitorLocalHealthEventsConfig'] = None,
+             performance_score_threshold: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_local_health_events_config is not None:
-            pulumi.set(__self__, "availability_local_health_events_config", availability_local_health_events_config)
+            _setter("availability_local_health_events_config", availability_local_health_events_config)
         if availability_score_threshold is not None:
-            pulumi.set(__self__, "availability_score_threshold", availability_score_threshold)
+            _setter("availability_score_threshold", availability_score_threshold)
         if performance_local_health_events_config is not None:
-            pulumi.set(__self__, "performance_local_health_events_config", performance_local_health_events_config)
+            _setter("performance_local_health_events_config", performance_local_health_events_config)
         if performance_score_threshold is not None:
-            pulumi.set(__self__, "performance_score_threshold", performance_score_threshold)
+            _setter("performance_score_threshold", performance_score_threshold)
 
     @property
     @pulumi.getter(name="availabilityLocalHealthEventsConfig")
@@ -100,8 +115,17 @@ class MonitorInternetMeasurementsLogDelivery(dict):
 
     def __init__(__self__, *,
                  s3_config: Optional['outputs.MonitorS3Config'] = None):
+        MonitorInternetMeasurementsLogDelivery._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_config=s3_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_config: Optional['outputs.MonitorS3Config'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_config is not None:
-            pulumi.set(__self__, "s3_config", s3_config)
+            _setter("s3_config", s3_config)
 
     @property
     @pulumi.getter(name="s3Config")
@@ -134,12 +158,25 @@ class MonitorLocalHealthEventsConfig(dict):
                  health_score_threshold: Optional[float] = None,
                  min_traffic_impact: Optional[float] = None,
                  status: Optional['MonitorLocalHealthEventsConfigStatus'] = None):
+        MonitorLocalHealthEventsConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_score_threshold=health_score_threshold,
+            min_traffic_impact=min_traffic_impact,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_score_threshold: Optional[float] = None,
+             min_traffic_impact: Optional[float] = None,
+             status: Optional['MonitorLocalHealthEventsConfigStatus'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if health_score_threshold is not None:
-            pulumi.set(__self__, "health_score_threshold", health_score_threshold)
+            _setter("health_score_threshold", health_score_threshold)
         if min_traffic_impact is not None:
-            pulumi.set(__self__, "min_traffic_impact", min_traffic_impact)
+            _setter("min_traffic_impact", min_traffic_impact)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="healthScoreThreshold")
@@ -184,12 +221,25 @@ class MonitorS3Config(dict):
                  bucket_name: Optional[str] = None,
                  bucket_prefix: Optional[str] = None,
                  log_delivery_status: Optional['MonitorS3ConfigLogDeliveryStatus'] = None):
+        MonitorS3Config._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            log_delivery_status=log_delivery_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             log_delivery_status: Optional['MonitorS3ConfigLogDeliveryStatus'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if log_delivery_status is not None:
-            pulumi.set(__self__, "log_delivery_status", log_delivery_status)
+            _setter("log_delivery_status", log_delivery_status)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -218,10 +268,21 @@ class MonitorTag(dict):
         """
         The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
         """
+        MonitorTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
