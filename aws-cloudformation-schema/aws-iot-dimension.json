@@ -72,7 +72,7 @@
   "readOnlyProperties" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iot:CreateDimension" ]
+      "permissions" : [ "iot:CreateDimension", "iot:TagResource" ]
     },
     "read" : {
       "permissions" : [ "iot:DescribeDimension", "iot:ListTagsForResource" ]

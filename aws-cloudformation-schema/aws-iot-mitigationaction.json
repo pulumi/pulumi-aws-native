@@ -79,7 +79,7 @@
       "properties" : {
         "LogLevel" : {
           "type" : "string",
-          "enum" : [ "DEBUG", "INFO", "ERROR", "WARN" ],
+          "enum" : [ "DEBUG", "INFO", "ERROR", "WARN", "UNSET_VALUE" ],
           "description" : " Specifies which types of information are logged."
         },
         "RoleArnForLogging" : {
@@ -112,7 +112,7 @@
       "properties" : {
         "TemplateName" : {
           "type" : "string",
-          "enum" : [ "BLANK_POLICY" ]
+          "enum" : [ "BLANK_POLICY", "UNSET_VALUE" ]
         }
       },
       "required" : [ "TemplateName" ],
@@ -124,7 +124,7 @@
       "properties" : {
         "Action" : {
           "type" : "string",
-          "enum" : [ "DEACTIVATE" ]
+          "enum" : [ "DEACTIVATE", "UNSET_VALUE" ]
         }
       },
       "required" : [ "Action" ],
@@ -136,7 +136,7 @@
       "properties" : {
         "Action" : {
           "type" : "string",
-          "enum" : [ "DEACTIVATE" ]
+          "enum" : [ "DEACTIVATE", "UNSET_VALUE" ]
         }
       },
       "required" : [ "Action" ],
@@ -181,7 +181,7 @@
   "readOnlyProperties" : [ "/properties/MitigationActionArn", "/properties/MitigationActionId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iot:CreateMitigationAction", "iam:PassRole" ]
+      "permissions" : [ "iot:CreateMitigationAction", "iot:DescribeMitigationAction", "iot:TagResource", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "iot:DescribeMitigationAction", "iot:ListTagsForResource" ]

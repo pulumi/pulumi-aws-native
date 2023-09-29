@@ -97,7 +97,7 @@
       "permissions" : [ "mediapackage-vod:ListPackagingGroups" ]
     },
     "delete" : {
-      "permissions" : [ "mediapackage-vod:DeletePackagingGroup" ]
+      "permissions" : [ "mediapackage-vod:DescribePackagingGroup", "mediapackage-vod:DeletePackagingGroup" ]
     }
   }
 }
