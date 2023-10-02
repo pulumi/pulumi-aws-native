@@ -14,20 +14,27 @@ import (
 )
 
 // Resource Type definition for AWS::SSM::Parameter
-//
-// Deprecated: Parameter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Parameter struct {
 	pulumi.CustomResourceState
 
+	// The regular expression used to validate the parameter value.
 	AllowedPattern pulumi.StringPtrOutput `pulumi:"allowedPattern"`
-	DataType       pulumi.StringPtrOutput `pulumi:"dataType"`
-	Description    pulumi.StringPtrOutput `pulumi:"description"`
-	Name           pulumi.StringPtrOutput `pulumi:"name"`
-	Policies       pulumi.StringPtrOutput `pulumi:"policies"`
-	Tags           pulumi.AnyOutput       `pulumi:"tags"`
-	Tier           pulumi.StringPtrOutput `pulumi:"tier"`
-	Type           pulumi.StringOutput    `pulumi:"type"`
-	Value          pulumi.StringOutput    `pulumi:"value"`
+	// The corresponding DataType of the parameter.
+	DataType ParameterDataTypePtrOutput `pulumi:"dataType"`
+	// The information about the parameter.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the parameter.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The policies attached to the parameter.
+	Policies pulumi.StringPtrOutput `pulumi:"policies"`
+	// A key-value pair to associate with a resource.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
+	// The corresponding tier of the parameter.
+	Tier ParameterTierPtrOutput `pulumi:"tier"`
+	// The type of the parameter.
+	Type ParameterTypeOutput `pulumi:"type"`
+	// The value associated with the parameter.
+	Value pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewParameter registers a new resource with the given unique name, arguments, and options.
@@ -80,28 +87,46 @@ func (ParameterState) ElementType() reflect.Type {
 }
 
 type parameterArgs struct {
-	AllowedPattern *string     `pulumi:"allowedPattern"`
-	DataType       *string     `pulumi:"dataType"`
-	Description    *string     `pulumi:"description"`
-	Name           *string     `pulumi:"name"`
-	Policies       *string     `pulumi:"policies"`
-	Tags           interface{} `pulumi:"tags"`
-	Tier           *string     `pulumi:"tier"`
-	Type           string      `pulumi:"type"`
-	Value          string      `pulumi:"value"`
+	// The regular expression used to validate the parameter value.
+	AllowedPattern *string `pulumi:"allowedPattern"`
+	// The corresponding DataType of the parameter.
+	DataType *ParameterDataType `pulumi:"dataType"`
+	// The information about the parameter.
+	Description *string `pulumi:"description"`
+	// The name of the parameter.
+	Name *string `pulumi:"name"`
+	// The policies attached to the parameter.
+	Policies *string `pulumi:"policies"`
+	// A key-value pair to associate with a resource.
+	Tags interface{} `pulumi:"tags"`
+	// The corresponding tier of the parameter.
+	Tier *ParameterTier `pulumi:"tier"`
+	// The type of the parameter.
+	Type ParameterType `pulumi:"type"`
+	// The value associated with the parameter.
+	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Parameter resource.
 type ParameterArgs struct {
+	// The regular expression used to validate the parameter value.
 	AllowedPattern pulumi.StringPtrInput
-	DataType       pulumi.StringPtrInput
-	Description    pulumi.StringPtrInput
-	Name           pulumi.StringPtrInput
-	Policies       pulumi.StringPtrInput
-	Tags           pulumi.Input
-	Tier           pulumi.StringPtrInput
-	Type           pulumi.StringInput
-	Value          pulumi.StringInput
+	// The corresponding DataType of the parameter.
+	DataType ParameterDataTypePtrInput
+	// The information about the parameter.
+	Description pulumi.StringPtrInput
+	// The name of the parameter.
+	Name pulumi.StringPtrInput
+	// The policies attached to the parameter.
+	Policies pulumi.StringPtrInput
+	// A key-value pair to associate with a resource.
+	Tags pulumi.Input
+	// The corresponding tier of the parameter.
+	Tier ParameterTierPtrInput
+	// The type of the parameter.
+	Type ParameterTypeInput
+	// The value associated with the parameter.
+	Value pulumi.StringInput
 }
 
 func (ParameterArgs) ElementType() reflect.Type {
@@ -153,38 +178,47 @@ func (o ParameterOutput) ToOutput(ctx context.Context) pulumix.Output[*Parameter
 	}
 }
 
+// The regular expression used to validate the parameter value.
 func (o ParameterOutput) AllowedPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.AllowedPattern }).(pulumi.StringPtrOutput)
 }
 
-func (o ParameterOutput) DataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.DataType }).(pulumi.StringPtrOutput)
+// The corresponding DataType of the parameter.
+func (o ParameterOutput) DataType() ParameterDataTypePtrOutput {
+	return o.ApplyT(func(v *Parameter) ParameterDataTypePtrOutput { return v.DataType }).(ParameterDataTypePtrOutput)
 }
 
+// The information about the parameter.
 func (o ParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the parameter.
 func (o ParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The policies attached to the parameter.
 func (o ParameterOutput) Policies() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Policies }).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
 func (o ParameterOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }
 
-func (o ParameterOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Tier }).(pulumi.StringPtrOutput)
+// The corresponding tier of the parameter.
+func (o ParameterOutput) Tier() ParameterTierPtrOutput {
+	return o.ApplyT(func(v *Parameter) ParameterTierPtrOutput { return v.Tier }).(ParameterTierPtrOutput)
 }
 
-func (o ParameterOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+// The type of the parameter.
+func (o ParameterOutput) Type() ParameterTypeOutput {
+	return o.ApplyT(func(v *Parameter) ParameterTypeOutput { return v.Type }).(ParameterTypeOutput)
 }
 
+// The value associated with the parameter.
 func (o ParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

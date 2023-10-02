@@ -18,20 +18,30 @@ class EventBusArgs:
     def __init__(__self__, *,
                  event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventBusTagEntryArgs']]]] = None):
+                 policy: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventBusTagArgs']]]] = None):
         """
         The set of arguments for constructing a EventBus resource.
+        :param pulumi.Input[str] event_source_name: If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+        :param pulumi.Input[str] name: The name of the event bus.
+        :param Any policy: A JSON string that describes the permission policy statement for the event bus.
+        :param pulumi.Input[Sequence[pulumi.Input['EventBusTagArgs']]] tags: Any tags assigned to the event bus.
         """
         if event_source_name is not None:
             pulumi.set(__self__, "event_source_name", event_source_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="eventSourceName")
     def event_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+        """
         return pulumi.get(self, "event_source_name")
 
     @event_source_name.setter
@@ -41,6 +51,9 @@ class EventBusArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the event bus.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -49,33 +62,48 @@ class EventBusArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventBusTagEntryArgs']]]]:
+    def policy(self) -> Optional[Any]:
+        """
+        A JSON string that describes the permission policy statement for the event bus.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[Any]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventBusTagArgs']]]]:
+        """
+        Any tags assigned to the event bus.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventBusTagEntryArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventBusTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class EventBus(pulumi.CustomResource):
-    warnings.warn("""EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventBusTagEntryArgs']]]]] = None,
+                 policy: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventBusTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Events::EventBus
+        Resource type definition for AWS::Events::EventBus
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] event_source_name: If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+        :param pulumi.Input[str] name: The name of the event bus.
+        :param Any policy: A JSON string that describes the permission policy statement for the event bus.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventBusTagArgs']]]] tags: Any tags assigned to the event bus.
         """
         ...
     @overload
@@ -84,7 +112,7 @@ class EventBus(pulumi.CustomResource):
                  args: Optional[EventBusArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Events::EventBus
+        Resource type definition for AWS::Events::EventBus
 
         :param str resource_name: The name of the resource.
         :param EventBusArgs args: The arguments to use to populate this resource's properties.
@@ -103,9 +131,9 @@ class EventBus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventBusTagEntryArgs']]]]] = None,
+                 policy: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventBusTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""EventBus is deprecated: EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -116,10 +144,10 @@ class EventBus(pulumi.CustomResource):
 
             __props__.__dict__["event_source_name"] = event_source_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["policy"] = policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["policy"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["event_source_name", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventBus, __self__).__init__(
             'aws-native:events:EventBus',
@@ -153,25 +181,40 @@ class EventBus(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the event bus.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="eventSourceName")
     def event_source_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+        """
         return pulumi.get(self, "event_source_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the event bus.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        A JSON string that describes the permission policy statement for the event bus.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EventBusTagEntry']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EventBusTag']]]:
+        """
+        Any tags assigned to the event bus.
+        """
         return pulumi.get(self, "tags")
 

@@ -202,4 +202,99 @@ namespace Pulumi.AwsNative.Ssm
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The corresponding DataType of the parameter.
+    /// </summary>
+    [EnumType]
+    public readonly struct ParameterDataType : IEquatable<ParameterDataType>
+    {
+        private readonly string _value;
+
+        private ParameterDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ParameterDataType Text { get; } = new ParameterDataType("text");
+        public static ParameterDataType Awsec2image { get; } = new ParameterDataType("aws:ec2:image");
+
+        public static bool operator ==(ParameterDataType left, ParameterDataType right) => left.Equals(right);
+        public static bool operator !=(ParameterDataType left, ParameterDataType right) => !left.Equals(right);
+
+        public static explicit operator string(ParameterDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ParameterDataType other && Equals(other);
+        public bool Equals(ParameterDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The corresponding tier of the parameter.
+    /// </summary>
+    [EnumType]
+    public readonly struct ParameterTier : IEquatable<ParameterTier>
+    {
+        private readonly string _value;
+
+        private ParameterTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ParameterTier Standard { get; } = new ParameterTier("Standard");
+        public static ParameterTier Advanced { get; } = new ParameterTier("Advanced");
+        public static ParameterTier IntelligentTiering { get; } = new ParameterTier("Intelligent-Tiering");
+
+        public static bool operator ==(ParameterTier left, ParameterTier right) => left.Equals(right);
+        public static bool operator !=(ParameterTier left, ParameterTier right) => !left.Equals(right);
+
+        public static explicit operator string(ParameterTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ParameterTier other && Equals(other);
+        public bool Equals(ParameterTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the parameter.
+    /// </summary>
+    [EnumType]
+    public readonly struct ParameterType : IEquatable<ParameterType>
+    {
+        private readonly string _value;
+
+        private ParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ParameterType String { get; } = new ParameterType("String");
+        public static ParameterType StringList { get; } = new ParameterType("StringList");
+        public static ParameterType SecureString { get; } = new ParameterType("SecureString");
+
+        public static bool operator ==(ParameterType left, ParameterType right) => left.Equals(right);
+        public static bool operator !=(ParameterType left, ParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(ParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ParameterType other && Equals(other);
+        public bool Equals(ParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

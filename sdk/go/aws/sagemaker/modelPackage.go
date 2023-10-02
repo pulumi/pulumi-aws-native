@@ -38,6 +38,7 @@ type ModelPackage struct {
 	ModelPackageStatusDetails              ModelPackageStatusDetailsPtrOutput                                `pulumi:"modelPackageStatusDetails"`
 	ModelPackageVersion                    pulumi.IntPtrOutput                                               `pulumi:"modelPackageVersion"`
 	SamplePayloadUrl                       pulumi.StringPtrOutput                                            `pulumi:"samplePayloadUrl"`
+	SkipModelValidation                    ModelPackageSkipModelValidationPtrOutput                          `pulumi:"skipModelValidation"`
 	SourceAlgorithmSpecification           ModelPackageSourceAlgorithmSpecificationPtrOutput                 `pulumi:"sourceAlgorithmSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	Tags                    ModelPackageTagArrayOutput                   `pulumi:"tags"`
@@ -119,6 +120,7 @@ type modelPackageArgs struct {
 	ModelPackageStatusDetails              *ModelPackageStatusDetails                               `pulumi:"modelPackageStatusDetails"`
 	ModelPackageVersion                    *int                                                     `pulumi:"modelPackageVersion"`
 	SamplePayloadUrl                       *string                                                  `pulumi:"samplePayloadUrl"`
+	SkipModelValidation                    *ModelPackageSkipModelValidation                         `pulumi:"skipModelValidation"`
 	SourceAlgorithmSpecification           *ModelPackageSourceAlgorithmSpecification                `pulumi:"sourceAlgorithmSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	Tags                    []ModelPackageTag                    `pulumi:"tags"`
@@ -147,6 +149,7 @@ type ModelPackageArgs struct {
 	ModelPackageStatusDetails              ModelPackageStatusDetailsPtrInput
 	ModelPackageVersion                    pulumi.IntPtrInput
 	SamplePayloadUrl                       pulumi.StringPtrInput
+	SkipModelValidation                    ModelPackageSkipModelValidationPtrInput
 	SourceAlgorithmSpecification           ModelPackageSourceAlgorithmSpecificationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags                    ModelPackageTagArrayInput
@@ -295,6 +298,10 @@ func (o ModelPackageOutput) ModelPackageVersion() pulumi.IntPtrOutput {
 
 func (o ModelPackageOutput) SamplePayloadUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.SamplePayloadUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelPackageOutput) SkipModelValidation() ModelPackageSkipModelValidationPtrOutput {
+	return o.ApplyT(func(v *ModelPackage) ModelPackageSkipModelValidationPtrOutput { return v.SkipModelValidation }).(ModelPackageSkipModelValidationPtrOutput)
 }
 
 func (o ModelPackageOutput) SourceAlgorithmSpecification() ModelPackageSourceAlgorithmSpecificationPtrOutput {

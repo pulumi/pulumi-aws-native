@@ -26,6 +26,7 @@ class DeliveryStreamArgs:
                  extended_s3_destination_configuration: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationArgs']] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input['DeliveryStreamHttpEndpointDestinationConfigurationArgs']] = None,
                  kinesis_stream_source_configuration: Optional[pulumi.Input['DeliveryStreamKinesisStreamSourceConfigurationArgs']] = None,
+                 msk_source_configuration: Optional[pulumi.Input['DeliveryStreamMskSourceConfigurationArgs']] = None,
                  redshift_destination_configuration: Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationArgs']] = None,
                  s3_destination_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
                  splunk_destination_configuration: Optional[pulumi.Input['DeliveryStreamSplunkDestinationConfigurationArgs']] = None,
@@ -51,6 +52,8 @@ class DeliveryStreamArgs:
             pulumi.set(__self__, "http_endpoint_destination_configuration", http_endpoint_destination_configuration)
         if kinesis_stream_source_configuration is not None:
             pulumi.set(__self__, "kinesis_stream_source_configuration", kinesis_stream_source_configuration)
+        if msk_source_configuration is not None:
+            pulumi.set(__self__, "msk_source_configuration", msk_source_configuration)
         if redshift_destination_configuration is not None:
             pulumi.set(__self__, "redshift_destination_configuration", redshift_destination_configuration)
         if s3_destination_configuration is not None:
@@ -142,6 +145,15 @@ class DeliveryStreamArgs:
         pulumi.set(self, "kinesis_stream_source_configuration", value)
 
     @property
+    @pulumi.getter(name="mskSourceConfiguration")
+    def msk_source_configuration(self) -> Optional[pulumi.Input['DeliveryStreamMskSourceConfigurationArgs']]:
+        return pulumi.get(self, "msk_source_configuration")
+
+    @msk_source_configuration.setter
+    def msk_source_configuration(self, value: Optional[pulumi.Input['DeliveryStreamMskSourceConfigurationArgs']]):
+        pulumi.set(self, "msk_source_configuration", value)
+
+    @property
     @pulumi.getter(name="redshiftDestinationConfiguration")
     def redshift_destination_configuration(self) -> Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationArgs']]:
         return pulumi.get(self, "redshift_destination_configuration")
@@ -192,6 +204,7 @@ class DeliveryStream(pulumi.CustomResource):
                  extended_s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamExtendedS3DestinationConfigurationArgs']]] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamHttpEndpointDestinationConfigurationArgs']]] = None,
                  kinesis_stream_source_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamKinesisStreamSourceConfigurationArgs']]] = None,
+                 msk_source_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamMskSourceConfigurationArgs']]] = None,
                  redshift_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamRedshiftDestinationConfigurationArgs']]] = None,
                  s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamS3DestinationConfigurationArgs']]] = None,
                  splunk_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamSplunkDestinationConfigurationArgs']]] = None,
@@ -236,6 +249,7 @@ class DeliveryStream(pulumi.CustomResource):
                  extended_s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamExtendedS3DestinationConfigurationArgs']]] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamHttpEndpointDestinationConfigurationArgs']]] = None,
                  kinesis_stream_source_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamKinesisStreamSourceConfigurationArgs']]] = None,
+                 msk_source_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamMskSourceConfigurationArgs']]] = None,
                  redshift_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamRedshiftDestinationConfigurationArgs']]] = None,
                  s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamS3DestinationConfigurationArgs']]] = None,
                  splunk_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamSplunkDestinationConfigurationArgs']]] = None,
@@ -258,12 +272,13 @@ class DeliveryStream(pulumi.CustomResource):
             __props__.__dict__["extended_s3_destination_configuration"] = extended_s3_destination_configuration
             __props__.__dict__["http_endpoint_destination_configuration"] = http_endpoint_destination_configuration
             __props__.__dict__["kinesis_stream_source_configuration"] = kinesis_stream_source_configuration
+            __props__.__dict__["msk_source_configuration"] = msk_source_configuration
             __props__.__dict__["redshift_destination_configuration"] = redshift_destination_configuration
             __props__.__dict__["s3_destination_configuration"] = s3_destination_configuration
             __props__.__dict__["splunk_destination_configuration"] = splunk_destination_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazon_open_search_serverless_destination_configuration.vpc_configuration", "amazonopensearchservice_destination_configuration.vpc_configuration", "delivery_stream_name", "delivery_stream_type", "elasticsearch_destination_configuration.vpc_configuration", "kinesis_stream_source_configuration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazon_open_search_serverless_destination_configuration.vpc_configuration", "amazonopensearchservice_destination_configuration.vpc_configuration", "delivery_stream_name", "delivery_stream_type", "elasticsearch_destination_configuration.vpc_configuration", "kinesis_stream_source_configuration", "msk_source_configuration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryStream, __self__).__init__(
             'aws-native:kinesisfirehose:DeliveryStream',
@@ -297,6 +312,7 @@ class DeliveryStream(pulumi.CustomResource):
         __props__.__dict__["extended_s3_destination_configuration"] = None
         __props__.__dict__["http_endpoint_destination_configuration"] = None
         __props__.__dict__["kinesis_stream_source_configuration"] = None
+        __props__.__dict__["msk_source_configuration"] = None
         __props__.__dict__["redshift_destination_configuration"] = None
         __props__.__dict__["s3_destination_configuration"] = None
         __props__.__dict__["splunk_destination_configuration"] = None
@@ -352,6 +368,11 @@ class DeliveryStream(pulumi.CustomResource):
     @pulumi.getter(name="kinesisStreamSourceConfiguration")
     def kinesis_stream_source_configuration(self) -> pulumi.Output[Optional['outputs.DeliveryStreamKinesisStreamSourceConfiguration']]:
         return pulumi.get(self, "kinesis_stream_source_configuration")
+
+    @property
+    @pulumi.getter(name="mskSourceConfiguration")
+    def msk_source_configuration(self) -> pulumi.Output[Optional['outputs.DeliveryStreamMskSourceConfiguration']]:
+        return pulumi.get(self, "msk_source_configuration")
 
     @property
     @pulumi.getter(name="redshiftDestinationConfiguration")

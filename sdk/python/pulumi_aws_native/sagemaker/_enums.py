@@ -52,6 +52,7 @@ __all__ = [
     'ModelPackageGroupStatus',
     'ModelPackageModelApprovalStatus',
     'ModelPackageS3DataSourceS3DataType',
+    'ModelPackageSkipModelValidation',
     'ModelPackageStatus',
     'ModelPackageStatusItemStatus',
     'ModelPackageTransformInputCompressionType',
@@ -588,6 +589,14 @@ class ModelPackageS3DataSourceS3DataType(str, Enum):
     MANIFEST_FILE = "ManifestFile"
     S3_PREFIX = "S3Prefix"
     AUGMENTED_MANIFEST_FILE = "AugmentedManifestFile"
+
+
+class ModelPackageSkipModelValidation(str, Enum):
+    """
+    Indicates if you want to skip model validation.
+    """
+    NONE = "None"
+    ALL = "All"
 
 
 class ModelPackageStatus(str, Enum):

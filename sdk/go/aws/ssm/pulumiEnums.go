@@ -1123,6 +1123,557 @@ func (in *documentUpdateMethodPtr) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
+// The corresponding DataType of the parameter.
+type ParameterDataType string
+
+const (
+	ParameterDataTypeText        = ParameterDataType("text")
+	ParameterDataTypeAwsec2image = ParameterDataType("aws:ec2:image")
+)
+
+func (ParameterDataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDataType)(nil)).Elem()
+}
+
+func (e ParameterDataType) ToParameterDataTypeOutput() ParameterDataTypeOutput {
+	return pulumi.ToOutput(e).(ParameterDataTypeOutput)
+}
+
+func (e ParameterDataType) ToParameterDataTypeOutputWithContext(ctx context.Context) ParameterDataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ParameterDataTypeOutput)
+}
+
+func (e ParameterDataType) ToParameterDataTypePtrOutput() ParameterDataTypePtrOutput {
+	return e.ToParameterDataTypePtrOutputWithContext(context.Background())
+}
+
+func (e ParameterDataType) ToParameterDataTypePtrOutputWithContext(ctx context.Context) ParameterDataTypePtrOutput {
+	return ParameterDataType(e).ToParameterDataTypeOutputWithContext(ctx).ToParameterDataTypePtrOutputWithContext(ctx)
+}
+
+func (e ParameterDataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ParameterDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ParameterDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ParameterDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ParameterDataTypeOutput struct{ *pulumi.OutputState }
+
+func (ParameterDataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDataType)(nil)).Elem()
+}
+
+func (o ParameterDataTypeOutput) ToParameterDataTypeOutput() ParameterDataTypeOutput {
+	return o
+}
+
+func (o ParameterDataTypeOutput) ToParameterDataTypeOutputWithContext(ctx context.Context) ParameterDataTypeOutput {
+	return o
+}
+
+func (o ParameterDataTypeOutput) ToParameterDataTypePtrOutput() ParameterDataTypePtrOutput {
+	return o.ToParameterDataTypePtrOutputWithContext(context.Background())
+}
+
+func (o ParameterDataTypeOutput) ToParameterDataTypePtrOutputWithContext(ctx context.Context) ParameterDataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterDataType) *ParameterDataType {
+		return &v
+	}).(ParameterDataTypePtrOutput)
+}
+
+func (o ParameterDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterDataType] {
+	return pulumix.Output[ParameterDataType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ParameterDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ParameterDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParameterDataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ParameterDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParameterDataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ParameterDataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ParameterDataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParameterDataType)(nil)).Elem()
+}
+
+func (o ParameterDataTypePtrOutput) ToParameterDataTypePtrOutput() ParameterDataTypePtrOutput {
+	return o
+}
+
+func (o ParameterDataTypePtrOutput) ToParameterDataTypePtrOutputWithContext(ctx context.Context) ParameterDataTypePtrOutput {
+	return o
+}
+
+func (o ParameterDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterDataType] {
+	return pulumix.Output[*ParameterDataType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ParameterDataTypePtrOutput) Elem() ParameterDataTypeOutput {
+	return o.ApplyT(func(v *ParameterDataType) ParameterDataType {
+		if v != nil {
+			return *v
+		}
+		var ret ParameterDataType
+		return ret
+	}).(ParameterDataTypeOutput)
+}
+
+func (o ParameterDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ParameterDataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ParameterDataTypeInput is an input type that accepts ParameterDataTypeArgs and ParameterDataTypeOutput values.
+// You can construct a concrete instance of `ParameterDataTypeInput` via:
+//
+//	ParameterDataTypeArgs{...}
+type ParameterDataTypeInput interface {
+	pulumi.Input
+
+	ToParameterDataTypeOutput() ParameterDataTypeOutput
+	ToParameterDataTypeOutputWithContext(context.Context) ParameterDataTypeOutput
+}
+
+var parameterDataTypePtrType = reflect.TypeOf((**ParameterDataType)(nil)).Elem()
+
+type ParameterDataTypePtrInput interface {
+	pulumi.Input
+
+	ToParameterDataTypePtrOutput() ParameterDataTypePtrOutput
+	ToParameterDataTypePtrOutputWithContext(context.Context) ParameterDataTypePtrOutput
+}
+
+type parameterDataTypePtr string
+
+func ParameterDataTypePtr(v string) ParameterDataTypePtrInput {
+	return (*parameterDataTypePtr)(&v)
+}
+
+func (*parameterDataTypePtr) ElementType() reflect.Type {
+	return parameterDataTypePtrType
+}
+
+func (in *parameterDataTypePtr) ToParameterDataTypePtrOutput() ParameterDataTypePtrOutput {
+	return pulumi.ToOutput(in).(ParameterDataTypePtrOutput)
+}
+
+func (in *parameterDataTypePtr) ToParameterDataTypePtrOutputWithContext(ctx context.Context) ParameterDataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ParameterDataTypePtrOutput)
+}
+
+func (in *parameterDataTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ParameterDataType] {
+	return pulumix.Output[*ParameterDataType]{
+		OutputState: in.ToParameterDataTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The corresponding tier of the parameter.
+type ParameterTier string
+
+const (
+	ParameterTierStandard           = ParameterTier("Standard")
+	ParameterTierAdvanced           = ParameterTier("Advanced")
+	ParameterTierIntelligentTiering = ParameterTier("Intelligent-Tiering")
+)
+
+func (ParameterTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterTier)(nil)).Elem()
+}
+
+func (e ParameterTier) ToParameterTierOutput() ParameterTierOutput {
+	return pulumi.ToOutput(e).(ParameterTierOutput)
+}
+
+func (e ParameterTier) ToParameterTierOutputWithContext(ctx context.Context) ParameterTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ParameterTierOutput)
+}
+
+func (e ParameterTier) ToParameterTierPtrOutput() ParameterTierPtrOutput {
+	return e.ToParameterTierPtrOutputWithContext(context.Background())
+}
+
+func (e ParameterTier) ToParameterTierPtrOutputWithContext(ctx context.Context) ParameterTierPtrOutput {
+	return ParameterTier(e).ToParameterTierOutputWithContext(ctx).ToParameterTierPtrOutputWithContext(ctx)
+}
+
+func (e ParameterTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ParameterTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ParameterTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ParameterTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ParameterTierOutput struct{ *pulumi.OutputState }
+
+func (ParameterTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterTier)(nil)).Elem()
+}
+
+func (o ParameterTierOutput) ToParameterTierOutput() ParameterTierOutput {
+	return o
+}
+
+func (o ParameterTierOutput) ToParameterTierOutputWithContext(ctx context.Context) ParameterTierOutput {
+	return o
+}
+
+func (o ParameterTierOutput) ToParameterTierPtrOutput() ParameterTierPtrOutput {
+	return o.ToParameterTierPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTierOutput) ToParameterTierPtrOutputWithContext(ctx context.Context) ParameterTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterTier) *ParameterTier {
+		return &v
+	}).(ParameterTierPtrOutput)
+}
+
+func (o ParameterTierOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterTier] {
+	return pulumix.Output[ParameterTier]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ParameterTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ParameterTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParameterTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ParameterTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParameterTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ParameterTierPtrOutput struct{ *pulumi.OutputState }
+
+func (ParameterTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParameterTier)(nil)).Elem()
+}
+
+func (o ParameterTierPtrOutput) ToParameterTierPtrOutput() ParameterTierPtrOutput {
+	return o
+}
+
+func (o ParameterTierPtrOutput) ToParameterTierPtrOutputWithContext(ctx context.Context) ParameterTierPtrOutput {
+	return o
+}
+
+func (o ParameterTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterTier] {
+	return pulumix.Output[*ParameterTier]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ParameterTierPtrOutput) Elem() ParameterTierOutput {
+	return o.ApplyT(func(v *ParameterTier) ParameterTier {
+		if v != nil {
+			return *v
+		}
+		var ret ParameterTier
+		return ret
+	}).(ParameterTierOutput)
+}
+
+func (o ParameterTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ParameterTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ParameterTierInput is an input type that accepts ParameterTierArgs and ParameterTierOutput values.
+// You can construct a concrete instance of `ParameterTierInput` via:
+//
+//	ParameterTierArgs{...}
+type ParameterTierInput interface {
+	pulumi.Input
+
+	ToParameterTierOutput() ParameterTierOutput
+	ToParameterTierOutputWithContext(context.Context) ParameterTierOutput
+}
+
+var parameterTierPtrType = reflect.TypeOf((**ParameterTier)(nil)).Elem()
+
+type ParameterTierPtrInput interface {
+	pulumi.Input
+
+	ToParameterTierPtrOutput() ParameterTierPtrOutput
+	ToParameterTierPtrOutputWithContext(context.Context) ParameterTierPtrOutput
+}
+
+type parameterTierPtr string
+
+func ParameterTierPtr(v string) ParameterTierPtrInput {
+	return (*parameterTierPtr)(&v)
+}
+
+func (*parameterTierPtr) ElementType() reflect.Type {
+	return parameterTierPtrType
+}
+
+func (in *parameterTierPtr) ToParameterTierPtrOutput() ParameterTierPtrOutput {
+	return pulumi.ToOutput(in).(ParameterTierPtrOutput)
+}
+
+func (in *parameterTierPtr) ToParameterTierPtrOutputWithContext(ctx context.Context) ParameterTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ParameterTierPtrOutput)
+}
+
+func (in *parameterTierPtr) ToOutput(ctx context.Context) pulumix.Output[*ParameterTier] {
+	return pulumix.Output[*ParameterTier]{
+		OutputState: in.ToParameterTierPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The type of the parameter.
+type ParameterType string
+
+const (
+	ParameterTypeString       = ParameterType("String")
+	ParameterTypeStringList   = ParameterType("StringList")
+	ParameterTypeSecureString = ParameterType("SecureString")
+)
+
+func (ParameterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterType)(nil)).Elem()
+}
+
+func (e ParameterType) ToParameterTypeOutput() ParameterTypeOutput {
+	return pulumi.ToOutput(e).(ParameterTypeOutput)
+}
+
+func (e ParameterType) ToParameterTypeOutputWithContext(ctx context.Context) ParameterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ParameterTypeOutput)
+}
+
+func (e ParameterType) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return e.ToParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (e ParameterType) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return ParameterType(e).ToParameterTypeOutputWithContext(ctx).ToParameterTypePtrOutputWithContext(ctx)
+}
+
+func (e ParameterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ParameterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ParameterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ParameterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ParameterTypeOutput struct{ *pulumi.OutputState }
+
+func (ParameterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterType)(nil)).Elem()
+}
+
+func (o ParameterTypeOutput) ToParameterTypeOutput() ParameterTypeOutput {
+	return o
+}
+
+func (o ParameterTypeOutput) ToParameterTypeOutputWithContext(ctx context.Context) ParameterTypeOutput {
+	return o
+}
+
+func (o ParameterTypeOutput) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return o.ToParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTypeOutput) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterType) *ParameterType {
+		return &v
+	}).(ParameterTypePtrOutput)
+}
+
+func (o ParameterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterType] {
+	return pulumix.Output[ParameterType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ParameterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParameterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ParameterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParameterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ParameterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ParameterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParameterType)(nil)).Elem()
+}
+
+func (o ParameterTypePtrOutput) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return o
+}
+
+func (o ParameterTypePtrOutput) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return o
+}
+
+func (o ParameterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterType] {
+	return pulumix.Output[*ParameterType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ParameterTypePtrOutput) Elem() ParameterTypeOutput {
+	return o.ApplyT(func(v *ParameterType) ParameterType {
+		if v != nil {
+			return *v
+		}
+		var ret ParameterType
+		return ret
+	}).(ParameterTypeOutput)
+}
+
+func (o ParameterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ParameterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ParameterTypeInput is an input type that accepts ParameterTypeArgs and ParameterTypeOutput values.
+// You can construct a concrete instance of `ParameterTypeInput` via:
+//
+//	ParameterTypeArgs{...}
+type ParameterTypeInput interface {
+	pulumi.Input
+
+	ToParameterTypeOutput() ParameterTypeOutput
+	ToParameterTypeOutputWithContext(context.Context) ParameterTypeOutput
+}
+
+var parameterTypePtrType = reflect.TypeOf((**ParameterType)(nil)).Elem()
+
+type ParameterTypePtrInput interface {
+	pulumi.Input
+
+	ToParameterTypePtrOutput() ParameterTypePtrOutput
+	ToParameterTypePtrOutputWithContext(context.Context) ParameterTypePtrOutput
+}
+
+type parameterTypePtr string
+
+func ParameterTypePtr(v string) ParameterTypePtrInput {
+	return (*parameterTypePtr)(&v)
+}
+
+func (*parameterTypePtr) ElementType() reflect.Type {
+	return parameterTypePtrType
+}
+
+func (in *parameterTypePtr) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return pulumi.ToOutput(in).(ParameterTypePtrOutput)
+}
+
+func (in *parameterTypePtr) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ParameterTypePtrOutput)
+}
+
+func (in *parameterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ParameterType] {
+	return pulumix.Output[*ParameterType]{
+		OutputState: in.ToParameterTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationComplianceSeverityInput)(nil)).Elem(), AssociationComplianceSeverity("CRITICAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationComplianceSeverityPtrInput)(nil)).Elem(), AssociationComplianceSeverity("CRITICAL"))
@@ -1136,6 +1687,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentTypePtrInput)(nil)).Elem(), DocumentType("ApplicationConfiguration"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentUpdateMethodInput)(nil)).Elem(), DocumentUpdateMethod("Replace"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentUpdateMethodPtrInput)(nil)).Elem(), DocumentUpdateMethod("Replace"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterDataTypeInput)(nil)).Elem(), ParameterDataType("text"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterDataTypePtrInput)(nil)).Elem(), ParameterDataType("text"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTierInput)(nil)).Elem(), ParameterTier("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTierPtrInput)(nil)).Elem(), ParameterTier("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTypeInput)(nil)).Elem(), ParameterType("String"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTypePtrInput)(nil)).Elem(), ParameterType("String"))
 	pulumi.RegisterOutputType(AssociationComplianceSeverityOutput{})
 	pulumi.RegisterOutputType(AssociationComplianceSeverityPtrOutput{})
 	pulumi.RegisterOutputType(AssociationSyncComplianceOutput{})
@@ -1148,4 +1705,10 @@ func init() {
 	pulumi.RegisterOutputType(DocumentTypePtrOutput{})
 	pulumi.RegisterOutputType(DocumentUpdateMethodOutput{})
 	pulumi.RegisterOutputType(DocumentUpdateMethodPtrOutput{})
+	pulumi.RegisterOutputType(ParameterDataTypeOutput{})
+	pulumi.RegisterOutputType(ParameterDataTypePtrOutput{})
+	pulumi.RegisterOutputType(ParameterTierOutput{})
+	pulumi.RegisterOutputType(ParameterTierPtrOutput{})
+	pulumi.RegisterOutputType(ParameterTypeOutput{})
+	pulumi.RegisterOutputType(ParameterTypePtrOutput{})
 }

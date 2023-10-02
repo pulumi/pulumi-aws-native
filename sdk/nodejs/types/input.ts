@@ -4222,6 +4222,10 @@ export namespace apprunner {
          */
         repositoryUrl: pulumi.Input<string>;
         sourceCodeVersion: pulumi.Input<inputs.apprunner.ServiceSourceCodeVersionArgs>;
+        /**
+         * Source Directory
+         */
+        sourceDirectory?: pulumi.Input<string>;
     }
 
     /**
@@ -16041,7 +16045,7 @@ export namespace events {
         value?: pulumi.Input<string>;
     }
 
-    export interface EventBusTagEntryArgs {
+    export interface EventBusTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -16127,7 +16131,8 @@ export namespace events {
         database: pulumi.Input<string>;
         dbUser?: pulumi.Input<string>;
         secretManagerArn?: pulumi.Input<string>;
-        sql?: pulumi.Input<string>;
+        sql: pulumi.Input<string>;
+        sqls?: pulumi.Input<pulumi.Input<string>[]>;
         statementName?: pulumi.Input<string>;
         withEvent?: pulumi.Input<boolean>;
     }
@@ -16160,8 +16165,8 @@ export namespace events {
     }
 
     export interface RuleTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface RuleTargetArgs {
@@ -24096,6 +24101,11 @@ export namespace kinesisfirehose {
         durationInSeconds?: pulumi.Input<number>;
     }
 
+    export interface DeliveryStreamAuthenticationConfigurationArgs {
+        connectivity: pulumi.Input<enums.kinesisfirehose.DeliveryStreamAuthenticationConfigurationConnectivity>;
+        roleArn: pulumi.Input<string>;
+    }
+
     export interface DeliveryStreamBufferingHintsArgs {
         intervalInSeconds?: pulumi.Input<number>;
         sizeInMbs?: pulumi.Input<number>;
@@ -24229,6 +24239,12 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamKmsEncryptionConfigArgs {
         awskmsKeyArn: pulumi.Input<string>;
+    }
+
+    export interface DeliveryStreamMskSourceConfigurationArgs {
+        authenticationConfiguration: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAuthenticationConfigurationArgs>;
+        mskClusterArn: pulumi.Input<string>;
+        topicName: pulumi.Input<string>;
     }
 
     export interface DeliveryStreamOpenXJsonSerDeArgs {

@@ -59,6 +59,7 @@ export class ModelPackage extends pulumi.CustomResource {
     public readonly modelPackageStatusDetails!: pulumi.Output<outputs.sagemaker.ModelPackageStatusDetails | undefined>;
     public readonly modelPackageVersion!: pulumi.Output<number | undefined>;
     public readonly samplePayloadUrl!: pulumi.Output<string | undefined>;
+    public readonly skipModelValidation!: pulumi.Output<enums.sagemaker.ModelPackageSkipModelValidation | undefined>;
     public readonly sourceAlgorithmSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageSourceAlgorithmSpecification | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -97,6 +98,7 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["modelPackageStatusDetails"] = args ? args.modelPackageStatusDetails : undefined;
             resourceInputs["modelPackageVersion"] = args ? args.modelPackageVersion : undefined;
             resourceInputs["samplePayloadUrl"] = args ? args.samplePayloadUrl : undefined;
+            resourceInputs["skipModelValidation"] = args ? args.skipModelValidation : undefined;
             resourceInputs["sourceAlgorithmSpecification"] = args ? args.sourceAlgorithmSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["task"] = args ? args.task : undefined;
@@ -127,6 +129,7 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["modelPackageStatusDetails"] = undefined /*out*/;
             resourceInputs["modelPackageVersion"] = undefined /*out*/;
             resourceInputs["samplePayloadUrl"] = undefined /*out*/;
+            resourceInputs["skipModelValidation"] = undefined /*out*/;
             resourceInputs["sourceAlgorithmSpecification"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["task"] = undefined /*out*/;
@@ -162,6 +165,7 @@ export interface ModelPackageArgs {
     modelPackageStatusDetails?: pulumi.Input<inputs.sagemaker.ModelPackageStatusDetailsArgs>;
     modelPackageVersion?: pulumi.Input<number>;
     samplePayloadUrl?: pulumi.Input<string>;
+    skipModelValidation?: pulumi.Input<enums.sagemaker.ModelPackageSkipModelValidation>;
     sourceAlgorithmSpecification?: pulumi.Input<inputs.sagemaker.ModelPackageSourceAlgorithmSpecificationArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

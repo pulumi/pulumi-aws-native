@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -11,23 +14,29 @@ export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssm:getParameter", {
-        "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
 export interface GetParameterArgs {
-    id: string;
+    /**
+     * The name of the parameter.
+     */
+    name: string;
 }
 
 export interface GetParameterResult {
-    readonly allowedPattern?: string;
-    readonly dataType?: string;
-    readonly description?: string;
-    readonly id?: string;
-    readonly policies?: string;
-    readonly tags?: any;
-    readonly tier?: string;
-    readonly type?: string;
+    /**
+     * The corresponding DataType of the parameter.
+     */
+    readonly dataType?: enums.ssm.ParameterDataType;
+    /**
+     * The type of the parameter.
+     */
+    readonly type?: enums.ssm.ParameterType;
+    /**
+     * The value associated with the parameter.
+     */
     readonly value?: string;
 }
 /**
@@ -38,5 +47,8 @@ export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.I
 }
 
 export interface GetParameterOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the parameter.
+     */
+    name: pulumi.Input<string>;
 }

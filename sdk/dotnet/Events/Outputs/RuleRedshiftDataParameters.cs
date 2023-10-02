@@ -16,7 +16,8 @@ namespace Pulumi.AwsNative.Events.Outputs
         public readonly string Database;
         public readonly string? DbUser;
         public readonly string? SecretManagerArn;
-        public readonly string? Sql;
+        public readonly string Sql;
+        public readonly ImmutableArray<string> Sqls;
         public readonly string? StatementName;
         public readonly bool? WithEvent;
 
@@ -28,7 +29,9 @@ namespace Pulumi.AwsNative.Events.Outputs
 
             string? secretManagerArn,
 
-            string? sql,
+            string sql,
+
+            ImmutableArray<string> sqls,
 
             string? statementName,
 
@@ -38,6 +41,7 @@ namespace Pulumi.AwsNative.Events.Outputs
             DbUser = dbUser;
             SecretManagerArn = secretManagerArn;
             Sql = sql;
+            Sqls = sqls;
             StatementName = statementName;
             WithEvent = withEvent;
         }

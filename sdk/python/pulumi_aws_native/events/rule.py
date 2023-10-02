@@ -193,7 +193,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["state"] = state
             __props__.__dict__["targets"] = targets
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["event_bus_name", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Rule, __self__).__init__(
             'aws-native:events:Rule',

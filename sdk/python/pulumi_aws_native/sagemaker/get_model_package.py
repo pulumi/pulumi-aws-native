@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetModelPackageResult:
-    def __init__(__self__, additional_inference_specifications=None, approval_description=None, certify_for_marketplace=None, creation_time=None, customer_metadata_properties=None, last_modified_time=None, model_approval_status=None, model_package_arn=None, model_package_name=None, model_package_status=None, model_package_status_details=None, model_package_version=None, tags=None):
+    def __init__(__self__, additional_inference_specifications=None, approval_description=None, certify_for_marketplace=None, creation_time=None, customer_metadata_properties=None, last_modified_time=None, model_approval_status=None, model_package_arn=None, model_package_name=None, model_package_status=None, model_package_status_details=None, model_package_version=None, skip_model_validation=None, tags=None):
         if additional_inference_specifications and not isinstance(additional_inference_specifications, list):
             raise TypeError("Expected argument 'additional_inference_specifications' to be a list")
         pulumi.set(__self__, "additional_inference_specifications", additional_inference_specifications)
@@ -57,6 +57,9 @@ class GetModelPackageResult:
         if model_package_version and not isinstance(model_package_version, int):
             raise TypeError("Expected argument 'model_package_version' to be a int")
         pulumi.set(__self__, "model_package_version", model_package_version)
+        if skip_model_validation and not isinstance(skip_model_validation, str):
+            raise TypeError("Expected argument 'skip_model_validation' to be a str")
+        pulumi.set(__self__, "skip_model_validation", skip_model_validation)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -122,6 +125,11 @@ class GetModelPackageResult:
         return pulumi.get(self, "model_package_version")
 
     @property
+    @pulumi.getter(name="skipModelValidation")
+    def skip_model_validation(self) -> Optional['ModelPackageSkipModelValidation']:
+        return pulumi.get(self, "skip_model_validation")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ModelPackageTag']]:
         """
@@ -148,6 +156,7 @@ class AwaitableGetModelPackageResult(GetModelPackageResult):
             model_package_status=self.model_package_status,
             model_package_status_details=self.model_package_status_details,
             model_package_version=self.model_package_version,
+            skip_model_validation=self.skip_model_validation,
             tags=self.tags)
 
 
@@ -174,6 +183,7 @@ def get_model_package(model_package_arn: Optional[str] = None,
         model_package_status=pulumi.get(__ret__, 'model_package_status'),
         model_package_status_details=pulumi.get(__ret__, 'model_package_status_details'),
         model_package_version=pulumi.get(__ret__, 'model_package_version'),
+        skip_model_validation=pulumi.get(__ret__, 'skip_model_validation'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

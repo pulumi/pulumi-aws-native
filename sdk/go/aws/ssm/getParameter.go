@@ -24,19 +24,17 @@ func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pul
 }
 
 type LookupParameterArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the parameter.
+	Name string `pulumi:"name"`
 }
 
 type LookupParameterResult struct {
-	AllowedPattern *string     `pulumi:"allowedPattern"`
-	DataType       *string     `pulumi:"dataType"`
-	Description    *string     `pulumi:"description"`
-	Id             *string     `pulumi:"id"`
-	Policies       *string     `pulumi:"policies"`
-	Tags           interface{} `pulumi:"tags"`
-	Tier           *string     `pulumi:"tier"`
-	Type           *string     `pulumi:"type"`
-	Value          *string     `pulumi:"value"`
+	// The corresponding DataType of the parameter.
+	DataType *ParameterDataType `pulumi:"dataType"`
+	// The type of the parameter.
+	Type *ParameterType `pulumi:"type"`
+	// The value associated with the parameter.
+	Value *string `pulumi:"value"`
 }
 
 func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, opts ...pulumi.InvokeOption) LookupParameterResultOutput {
@@ -53,7 +51,8 @@ func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, 
 }
 
 type LookupParameterOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the parameter.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupParameterOutputArgs) ElementType() reflect.Type {
@@ -80,38 +79,17 @@ func (o LookupParameterResultOutput) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
-func (o LookupParameterResultOutput) AllowedPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupParameterResult) *string { return v.AllowedPattern }).(pulumi.StringPtrOutput)
+// The corresponding DataType of the parameter.
+func (o LookupParameterResultOutput) DataType() ParameterDataTypePtrOutput {
+	return o.ApplyT(func(v LookupParameterResult) *ParameterDataType { return v.DataType }).(ParameterDataTypePtrOutput)
 }
 
-func (o LookupParameterResultOutput) DataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupParameterResult) *string { return v.DataType }).(pulumi.StringPtrOutput)
+// The type of the parameter.
+func (o LookupParameterResultOutput) Type() ParameterTypePtrOutput {
+	return o.ApplyT(func(v LookupParameterResult) *ParameterType { return v.Type }).(ParameterTypePtrOutput)
 }
 
-func (o LookupParameterResultOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupParameterResult) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupParameterResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupParameterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupParameterResultOutput) Policies() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupParameterResult) *string { return v.Policies }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupParameterResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupParameterResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
-}
-
-func (o LookupParameterResultOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupParameterResult) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupParameterResultOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupParameterResult) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
+// The value associated with the parameter.
 func (o LookupParameterResultOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupParameterResult) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

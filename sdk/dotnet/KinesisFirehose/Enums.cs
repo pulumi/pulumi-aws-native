@@ -95,6 +95,34 @@ namespace Pulumi.AwsNative.KinesisFirehose
     }
 
     [EnumType]
+    public readonly struct DeliveryStreamAuthenticationConfigurationConnectivity : IEquatable<DeliveryStreamAuthenticationConfigurationConnectivity>
+    {
+        private readonly string _value;
+
+        private DeliveryStreamAuthenticationConfigurationConnectivity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryStreamAuthenticationConfigurationConnectivity Public { get; } = new DeliveryStreamAuthenticationConfigurationConnectivity("PUBLIC");
+        public static DeliveryStreamAuthenticationConfigurationConnectivity Private { get; } = new DeliveryStreamAuthenticationConfigurationConnectivity("PRIVATE");
+
+        public static bool operator ==(DeliveryStreamAuthenticationConfigurationConnectivity left, DeliveryStreamAuthenticationConfigurationConnectivity right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamAuthenticationConfigurationConnectivity left, DeliveryStreamAuthenticationConfigurationConnectivity right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryStreamAuthenticationConfigurationConnectivity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryStreamAuthenticationConfigurationConnectivity other && Equals(other);
+        public bool Equals(DeliveryStreamAuthenticationConfigurationConnectivity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat : IEquatable<DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat>
     {
         private readonly string _value;
@@ -452,6 +480,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
         public static DeliveryStreamType DirectPut { get; } = new DeliveryStreamType("DirectPut");
         public static DeliveryStreamType KinesisStreamAsSource { get; } = new DeliveryStreamType("KinesisStreamAsSource");
+        public static DeliveryStreamType MskasSource { get; } = new DeliveryStreamType("MSKAsSource");
 
         public static bool operator ==(DeliveryStreamType left, DeliveryStreamType right) => left.Equals(right);
         public static bool operator !=(DeliveryStreamType left, DeliveryStreamType right) => !left.Equals(right);

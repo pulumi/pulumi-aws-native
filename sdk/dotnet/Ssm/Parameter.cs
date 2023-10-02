@@ -12,34 +12,60 @@ namespace Pulumi.AwsNative.Ssm
     /// <summary>
     /// Resource Type definition for AWS::SSM::Parameter
     /// </summary>
-    [Obsolete(@"Parameter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ssm:Parameter")]
     public partial class Parameter : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The regular expression used to validate the parameter value.
+        /// </summary>
         [Output("allowedPattern")]
         public Output<string?> AllowedPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// The corresponding DataType of the parameter.
+        /// </summary>
         [Output("dataType")]
-        public Output<string?> DataType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Ssm.ParameterDataType?> DataType { get; private set; } = null!;
 
+        /// <summary>
+        /// The information about the parameter.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the parameter.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The policies attached to the parameter.
+        /// </summary>
         [Output("policies")]
         public Output<string?> Policies { get; private set; } = null!;
 
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The corresponding tier of the parameter.
+        /// </summary>
         [Output("tier")]
-        public Output<string?> Tier { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Ssm.ParameterTier?> Tier { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the parameter.
+        /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Ssm.ParameterType> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The value associated with the parameter.
+        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -92,30 +118,57 @@ namespace Pulumi.AwsNative.Ssm
 
     public sealed class ParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The regular expression used to validate the parameter value.
+        /// </summary>
         [Input("allowedPattern")]
         public Input<string>? AllowedPattern { get; set; }
 
+        /// <summary>
+        /// The corresponding DataType of the parameter.
+        /// </summary>
         [Input("dataType")]
-        public Input<string>? DataType { get; set; }
+        public Input<Pulumi.AwsNative.Ssm.ParameterDataType>? DataType { get; set; }
 
+        /// <summary>
+        /// The information about the parameter.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the parameter.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The policies attached to the parameter.
+        /// </summary>
         [Input("policies")]
         public Input<string>? Policies { get; set; }
 
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 
+        /// <summary>
+        /// The corresponding tier of the parameter.
+        /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public Input<Pulumi.AwsNative.Ssm.ParameterTier>? Tier { get; set; }
 
+        /// <summary>
+        /// The type of the parameter.
+        /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Ssm.ParameterType> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The value associated with the parameter.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

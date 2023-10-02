@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         [Output("kinesisStreamSourceConfiguration")]
         public Output<Outputs.DeliveryStreamKinesisStreamSourceConfiguration?> KinesisStreamSourceConfiguration { get; private set; } = null!;
 
+        [Output("mskSourceConfiguration")]
+        public Output<Outputs.DeliveryStreamMskSourceConfiguration?> MskSourceConfiguration { get; private set; } = null!;
+
         [Output("redshiftDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamRedshiftDestinationConfiguration?> RedshiftDestinationConfiguration { get; private set; } = null!;
 
@@ -88,6 +91,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
                     "deliveryStreamType",
                     "elasticsearchDestinationConfiguration.vpcConfiguration",
                     "kinesisStreamSourceConfiguration",
+                    "mskSourceConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,6 +141,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
         [Input("kinesisStreamSourceConfiguration")]
         public Input<Inputs.DeliveryStreamKinesisStreamSourceConfigurationArgs>? KinesisStreamSourceConfiguration { get; set; }
+
+        [Input("mskSourceConfiguration")]
+        public Input<Inputs.DeliveryStreamMskSourceConfigurationArgs>? MskSourceConfiguration { get; set; }
 
         [Input("redshiftDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamRedshiftDestinationConfigurationArgs>? RedshiftDestinationConfiguration { get; set; }

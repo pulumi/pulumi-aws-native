@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.Events
     {
         public readonly string? Arn;
         public readonly string? Description;
+        public readonly string? EventBusName;
         public readonly object? EventPattern;
         public readonly string? Id;
         public readonly string? RoleArn;
@@ -65,6 +66,8 @@ namespace Pulumi.AwsNative.Events
             string? arn,
 
             string? description,
+
+            string? eventBusName,
 
             object? eventPattern,
 
@@ -80,6 +83,7 @@ namespace Pulumi.AwsNative.Events
         {
             Arn = arn;
             Description = description;
+            EventBusName = eventBusName;
             EventPattern = eventPattern;
             Id = id;
             RoleArn = roleArn;

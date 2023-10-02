@@ -8,23 +8,33 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['ParameterArgs', 'Parameter']
 
 @pulumi.input_type
 class ParameterArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['ParameterType'],
                  value: pulumi.Input[str],
                  allowed_pattern: Optional[pulumi.Input[str]] = None,
-                 data_type: Optional[pulumi.Input[str]] = None,
+                 data_type: Optional[pulumi.Input['ParameterDataType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
-                 tier: Optional[pulumi.Input[str]] = None):
+                 tier: Optional[pulumi.Input['ParameterTier']] = None):
         """
         The set of arguments for constructing a Parameter resource.
+        :param pulumi.Input['ParameterType'] type: The type of the parameter.
+        :param pulumi.Input[str] value: The value associated with the parameter.
+        :param pulumi.Input[str] allowed_pattern: The regular expression used to validate the parameter value.
+        :param pulumi.Input['ParameterDataType'] data_type: The corresponding DataType of the parameter.
+        :param pulumi.Input[str] description: The information about the parameter.
+        :param pulumi.Input[str] name: The name of the parameter.
+        :param pulumi.Input[str] policies: The policies attached to the parameter.
+        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input['ParameterTier'] tier: The corresponding tier of the parameter.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -45,16 +55,22 @@ class ParameterArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['ParameterType']:
+        """
+        The type of the parameter.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['ParameterType']):
         pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value associated with the parameter.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -64,6 +80,9 @@ class ParameterArgs:
     @property
     @pulumi.getter(name="allowedPattern")
     def allowed_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        The regular expression used to validate the parameter value.
+        """
         return pulumi.get(self, "allowed_pattern")
 
     @allowed_pattern.setter
@@ -72,16 +91,22 @@ class ParameterArgs:
 
     @property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input[str]]:
+    def data_type(self) -> Optional[pulumi.Input['ParameterDataType']]:
+        """
+        The corresponding DataType of the parameter.
+        """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input[str]]):
+    def data_type(self, value: Optional[pulumi.Input['ParameterDataType']]):
         pulumi.set(self, "data_type", value)
 
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The information about the parameter.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -91,6 +116,9 @@ class ParameterArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the parameter.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -100,6 +128,9 @@ class ParameterArgs:
     @property
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policies attached to the parameter.
+        """
         return pulumi.get(self, "policies")
 
     @policies.setter
@@ -109,6 +140,9 @@ class ParameterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        A key-value pair to associate with a resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -117,32 +151,30 @@ class ParameterArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> Optional[pulumi.Input['ParameterTier']]:
+        """
+        The corresponding tier of the parameter.
+        """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: Optional[pulumi.Input['ParameterTier']]):
         pulumi.set(self, "tier", value)
 
 
-warnings.warn("""Parameter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Parameter(pulumi.CustomResource):
-    warnings.warn("""Parameter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_pattern: Optional[pulumi.Input[str]] = None,
-                 data_type: Optional[pulumi.Input[str]] = None,
+                 data_type: Optional[pulumi.Input['ParameterDataType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
-                 tier: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 tier: Optional[pulumi.Input['ParameterTier']] = None,
+                 type: Optional[pulumi.Input['ParameterType']] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -150,6 +182,15 @@ class Parameter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] allowed_pattern: The regular expression used to validate the parameter value.
+        :param pulumi.Input['ParameterDataType'] data_type: The corresponding DataType of the parameter.
+        :param pulumi.Input[str] description: The information about the parameter.
+        :param pulumi.Input[str] name: The name of the parameter.
+        :param pulumi.Input[str] policies: The policies attached to the parameter.
+        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input['ParameterTier'] tier: The corresponding tier of the parameter.
+        :param pulumi.Input['ParameterType'] type: The type of the parameter.
+        :param pulumi.Input[str] value: The value associated with the parameter.
         """
         ...
     @overload
@@ -176,16 +217,15 @@ class Parameter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_pattern: Optional[pulumi.Input[str]] = None,
-                 data_type: Optional[pulumi.Input[str]] = None,
+                 data_type: Optional[pulumi.Input['ParameterDataType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
-                 tier: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 tier: Optional[pulumi.Input['ParameterTier']] = None,
+                 type: Optional[pulumi.Input['ParameterType']] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Parameter is deprecated: Parameter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -245,45 +285,72 @@ class Parameter(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowedPattern")
     def allowed_pattern(self) -> pulumi.Output[Optional[str]]:
+        """
+        The regular expression used to validate the parameter value.
+        """
         return pulumi.get(self, "allowed_pattern")
 
     @property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> pulumi.Output[Optional[str]]:
+    def data_type(self) -> pulumi.Output[Optional['ParameterDataType']]:
+        """
+        The corresponding DataType of the parameter.
+        """
         return pulumi.get(self, "data_type")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The information about the parameter.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the parameter.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def policies(self) -> pulumi.Output[Optional[str]]:
+        """
+        The policies attached to the parameter.
+        """
         return pulumi.get(self, "policies")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        A key-value pair to associate with a resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def tier(self) -> pulumi.Output[Optional[str]]:
+    def tier(self) -> pulumi.Output[Optional['ParameterTier']]:
+        """
+        The corresponding tier of the parameter.
+        """
         return pulumi.get(self, "tier")
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output['ParameterType']:
+        """
+        The type of the parameter.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
+        """
+        The value associated with the parameter.
+        """
         return pulumi.get(self, "value")
 

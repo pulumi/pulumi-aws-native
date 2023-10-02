@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         [Input("sourceCodeVersion", required: true)]
         public Input<Inputs.ServiceSourceCodeVersionArgs> SourceCodeVersion { get; set; } = null!;
 
+        /// <summary>
+        /// Source Directory
+        /// </summary>
+        [Input("sourceDirectory")]
+        public Input<string>? SourceDirectory { get; set; }
+
         public ServiceCodeRepositoryArgs()
         {
         }

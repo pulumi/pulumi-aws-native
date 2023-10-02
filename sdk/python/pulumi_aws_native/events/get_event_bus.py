@@ -19,15 +19,12 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventBusResult:
-    def __init__(__self__, arn=None, id=None, policy=None, tags=None):
+    def __init__(__self__, arn=None, policy=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
-        if policy and not isinstance(policy, str):
-            raise TypeError("Expected argument 'policy' to be a str")
+        if policy and not isinstance(policy, dict):
+            raise TypeError("Expected argument 'policy' to be a dict")
         pulumi.set(__self__, "policy", policy)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
@@ -36,21 +33,25 @@ class GetEventBusResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the event bus.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def policy(self) -> Optional[str]:
+    def policy(self) -> Optional[Any]:
+        """
+        A JSON string that describes the permission policy statement for the event bus.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.EventBusTagEntry']]:
+    def tags(self) -> Optional[Sequence['outputs.EventBusTag']]:
+        """
+        Any tags assigned to the event bus.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -61,32 +62,36 @@ class AwaitableGetEventBusResult(GetEventBusResult):
             yield self
         return GetEventBusResult(
             arn=self.arn,
-            id=self.id,
             policy=self.policy,
             tags=self.tags)
 
 
-def get_event_bus(id: Optional[str] = None,
+def get_event_bus(name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventBusResult:
     """
-    Resource Type definition for AWS::Events::EventBus
+    Resource type definition for AWS::Events::EventBus
+
+
+    :param str name: The name of the event bus.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:events:getEventBus', __args__, opts=opts, typ=GetEventBusResult).value
 
     return AwaitableGetEventBusResult(
         arn=pulumi.get(__ret__, 'arn'),
-        id=pulumi.get(__ret__, 'id'),
         policy=pulumi.get(__ret__, 'policy'),
         tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_event_bus)
-def get_event_bus_output(id: Optional[pulumi.Input[str]] = None,
+def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventBusResult]:
     """
-    Resource Type definition for AWS::Events::EventBus
+    Resource type definition for AWS::Events::EventBus
+
+
+    :param str name: The name of the event bus.
     """
     ...

@@ -12,17 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::Events::EventBus
-//
-// Deprecated: EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Resource type definition for AWS::Events::EventBus
 type EventBus struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput         `pulumi:"arn"`
-	EventSourceName pulumi.StringPtrOutput      `pulumi:"eventSourceName"`
-	Name            pulumi.StringOutput         `pulumi:"name"`
-	Policy          pulumi.StringOutput         `pulumi:"policy"`
-	Tags            EventBusTagEntryArrayOutput `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) for the event bus.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+	EventSourceName pulumi.StringPtrOutput `pulumi:"eventSourceName"`
+	// The name of the event bus.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A JSON string that describes the permission policy statement for the event bus.
+	Policy pulumi.AnyOutput `pulumi:"policy"`
+	// Any tags assigned to the event bus.
+	Tags EventBusTagArrayOutput `pulumi:"tags"`
 }
 
 // NewEventBus registers a new resource with the given unique name, arguments, and options.
@@ -33,7 +36,6 @@ func NewEventBus(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"eventSourceName",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -70,16 +72,26 @@ func (EventBusState) ElementType() reflect.Type {
 }
 
 type eventBusArgs struct {
-	EventSourceName *string            `pulumi:"eventSourceName"`
-	Name            *string            `pulumi:"name"`
-	Tags            []EventBusTagEntry `pulumi:"tags"`
+	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+	EventSourceName *string `pulumi:"eventSourceName"`
+	// The name of the event bus.
+	Name *string `pulumi:"name"`
+	// A JSON string that describes the permission policy statement for the event bus.
+	Policy interface{} `pulumi:"policy"`
+	// Any tags assigned to the event bus.
+	Tags []EventBusTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventBus resource.
 type EventBusArgs struct {
+	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 	EventSourceName pulumi.StringPtrInput
-	Name            pulumi.StringPtrInput
-	Tags            EventBusTagEntryArrayInput
+	// The name of the event bus.
+	Name pulumi.StringPtrInput
+	// A JSON string that describes the permission policy statement for the event bus.
+	Policy pulumi.Input
+	// Any tags assigned to the event bus.
+	Tags EventBusTagArrayInput
 }
 
 func (EventBusArgs) ElementType() reflect.Type {
@@ -131,24 +143,29 @@ func (o EventBusOutput) ToOutput(ctx context.Context) pulumix.Output[*EventBus] 
 	}
 }
 
+// The Amazon Resource Name (ARN) for the event bus.
 func (o EventBusOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 func (o EventBusOutput) EventSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.EventSourceName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the event bus.
 func (o EventBusOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o EventBusOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+// A JSON string that describes the permission policy statement for the event bus.
+func (o EventBusOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *EventBus) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }
 
-func (o EventBusOutput) Tags() EventBusTagEntryArrayOutput {
-	return o.ApplyT(func(v *EventBus) EventBusTagEntryArrayOutput { return v.Tags }).(EventBusTagEntryArrayOutput)
+// Any tags assigned to the event bus.
+func (o EventBusOutput) Tags() EventBusTagArrayOutput {
+	return o.ApplyT(func(v *EventBus) EventBusTagArrayOutput { return v.Tags }).(EventBusTagArrayOutput)
 }
 
 func init() {

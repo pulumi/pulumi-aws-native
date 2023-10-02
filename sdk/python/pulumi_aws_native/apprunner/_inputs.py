@@ -296,15 +296,19 @@ class ServiceCodeRepositoryArgs:
     def __init__(__self__, *,
                  repository_url: pulumi.Input[str],
                  source_code_version: pulumi.Input['ServiceSourceCodeVersionArgs'],
-                 code_configuration: Optional[pulumi.Input['ServiceCodeConfigurationArgs']] = None):
+                 code_configuration: Optional[pulumi.Input['ServiceCodeConfigurationArgs']] = None,
+                 source_directory: Optional[pulumi.Input[str]] = None):
         """
         Source Code Repository
         :param pulumi.Input[str] repository_url: Repository Url
+        :param pulumi.Input[str] source_directory: Source Directory
         """
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "source_code_version", source_code_version)
         if code_configuration is not None:
             pulumi.set(__self__, "code_configuration", code_configuration)
+        if source_directory is not None:
+            pulumi.set(__self__, "source_directory", source_directory)
 
     @property
     @pulumi.getter(name="repositoryUrl")
@@ -335,6 +339,18 @@ class ServiceCodeRepositoryArgs:
     @code_configuration.setter
     def code_configuration(self, value: Optional[pulumi.Input['ServiceCodeConfigurationArgs']]):
         pulumi.set(self, "code_configuration", value)
+
+    @property
+    @pulumi.getter(name="sourceDirectory")
+    def source_directory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source Directory
+        """
+        return pulumi.get(self, "source_directory")
+
+    @source_directory.setter
+    def source_directory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_directory", value)
 
 
 @pulumi.input_type

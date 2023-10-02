@@ -30,6 +30,7 @@ type LookupRuleArgs struct {
 type LookupRuleResult struct {
 	Arn                *string      `pulumi:"arn"`
 	Description        *string      `pulumi:"description"`
+	EventBusName       *string      `pulumi:"eventBusName"`
 	EventPattern       interface{}  `pulumi:"eventPattern"`
 	Id                 *string      `pulumi:"id"`
 	RoleArn            *string      `pulumi:"roleArn"`
@@ -85,6 +86,10 @@ func (o LookupRuleResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupRuleResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRuleResultOutput) EventBusName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRuleResult) *string { return v.EventBusName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRuleResultOutput) EventPattern() pulumi.AnyOutput {

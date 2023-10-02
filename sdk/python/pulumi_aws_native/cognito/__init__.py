@@ -16,7 +16,6 @@ from .get_user_pool_identity_provider import *
 from .get_user_pool_resource_server import *
 from .get_user_pool_risk_configuration_attachment import *
 from .get_user_pool_ui_customization_attachment import *
-from .get_user_pool_user import *
 from .get_user_pool_user_to_group_attachment import *
 from .identity_pool import *
 from .identity_pool_principal_tag import *

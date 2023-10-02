@@ -26,7 +26,7 @@ __all__ = [
     'EndpointRoutingConfig',
     'EndpointSecondary',
     'EventBusPolicyCondition',
-    'EventBusTagEntry',
+    'EventBusTag',
     'RuleAwsVpcConfiguration',
     'RuleBatchArrayProperties',
     'RuleBatchParameters',
@@ -517,7 +517,7 @@ class EventBusPolicyCondition(dict):
 
 
 @pulumi.output_type
-class EventBusTagEntry(dict):
+class EventBusTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -1098,18 +1098,20 @@ class RuleRedshiftDataParameters(dict):
 
     def __init__(__self__, *,
                  database: str,
+                 sql: str,
                  db_user: Optional[str] = None,
                  secret_manager_arn: Optional[str] = None,
-                 sql: Optional[str] = None,
+                 sqls: Optional[Sequence[str]] = None,
                  statement_name: Optional[str] = None,
                  with_event: Optional[bool] = None):
         pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "sql", sql)
         if db_user is not None:
             pulumi.set(__self__, "db_user", db_user)
         if secret_manager_arn is not None:
             pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
-        if sql is not None:
-            pulumi.set(__self__, "sql", sql)
+        if sqls is not None:
+            pulumi.set(__self__, "sqls", sqls)
         if statement_name is not None:
             pulumi.set(__self__, "statement_name", statement_name)
         if with_event is not None:
@@ -1119,6 +1121,11 @@ class RuleRedshiftDataParameters(dict):
     @pulumi.getter
     def database(self) -> str:
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def sql(self) -> str:
+        return pulumi.get(self, "sql")
 
     @property
     @pulumi.getter(name="dbUser")
@@ -1132,8 +1139,8 @@ class RuleRedshiftDataParameters(dict):
 
     @property
     @pulumi.getter
-    def sql(self) -> Optional[str]:
-        return pulumi.get(self, "sql")
+    def sqls(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "sqls")
 
     @property
     @pulumi.getter(name="statementName")
@@ -1315,21 +1322,19 @@ class RuleSqsParameters(dict):
 @pulumi.output_type
 class RuleTag(dict):
     def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[str]:
+    def key(self) -> str:
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[str]:
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 

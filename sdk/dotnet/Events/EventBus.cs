@@ -10,26 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events
 {
     /// <summary>
-    /// Resource Type definition for AWS::Events::EventBus
+    /// Resource type definition for AWS::Events::EventBus
     /// </summary>
-    [Obsolete(@"EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:events:EventBus")]
     public partial class EventBus : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the event bus.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+        /// </summary>
         [Output("eventSourceName")]
         public Output<string?> EventSourceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the event bus.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A JSON string that describes the permission policy statement for the event bus.
+        /// </summary>
         [Output("policy")]
-        public Output<string> Policy { get; private set; } = null!;
+        public Output<object?> Policy { get; private set; } = null!;
 
+        /// <summary>
+        /// Any tags assigned to the event bus.
+        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.EventBusTagEntry>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EventBusTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -56,7 +70,6 @@ namespace Pulumi.AwsNative.Events
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "eventSourceName",
                     "name",
                 },
             };
@@ -81,17 +94,33 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class EventBusArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+        /// </summary>
         [Input("eventSourceName")]
         public Input<string>? EventSourceName { get; set; }
 
+        /// <summary>
+        /// The name of the event bus.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A JSON string that describes the permission policy statement for the event bus.
+        /// </summary>
+        [Input("policy")]
+        public Input<object>? Policy { get; set; }
+
         [Input("tags")]
-        private InputList<Inputs.EventBusTagEntryArgs>? _tags;
-        public InputList<Inputs.EventBusTagEntryArgs> Tags
+        private InputList<Inputs.EventBusTagArgs>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the event bus.
+        /// </summary>
+        public InputList<Inputs.EventBusTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.EventBusTagEntryArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.EventBusTagArgs>());
             set => _tags = value;
         }
 

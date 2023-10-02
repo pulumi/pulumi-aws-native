@@ -37,7 +37,6 @@ func NewRule(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"eventBusName",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)

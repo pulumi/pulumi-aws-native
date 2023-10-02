@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::Events::EventBus
+// Resource type definition for AWS::Events::EventBus
 func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulumi.InvokeOption) (*LookupEventBusResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventBusResult
@@ -24,14 +24,17 @@ func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulum
 }
 
 type LookupEventBusArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the event bus.
+	Name string `pulumi:"name"`
 }
 
 type LookupEventBusResult struct {
-	Arn    *string            `pulumi:"arn"`
-	Id     *string            `pulumi:"id"`
-	Policy *string            `pulumi:"policy"`
-	Tags   []EventBusTagEntry `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) for the event bus.
+	Arn *string `pulumi:"arn"`
+	// A JSON string that describes the permission policy statement for the event bus.
+	Policy interface{} `pulumi:"policy"`
+	// Any tags assigned to the event bus.
+	Tags []EventBusTag `pulumi:"tags"`
 }
 
 func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusResultOutput {
@@ -48,7 +51,8 @@ func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, op
 }
 
 type LookupEventBusOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the event bus.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupEventBusOutputArgs) ElementType() reflect.Type {
@@ -75,20 +79,19 @@ func (o LookupEventBusResultOutput) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
+// The Amazon Resource Name (ARN) for the event bus.
 func (o LookupEventBusResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventBusResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEventBusResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEventBusResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// A JSON string that describes the permission policy statement for the event bus.
+func (o LookupEventBusResultOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupEventBusResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }
 
-func (o LookupEventBusResultOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEventBusResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupEventBusResultOutput) Tags() EventBusTagEntryArrayOutput {
-	return o.ApplyT(func(v LookupEventBusResult) []EventBusTagEntry { return v.Tags }).(EventBusTagEntryArrayOutput)
+// Any tags assigned to the event bus.
+func (o LookupEventBusResultOutput) Tags() EventBusTagArrayOutput {
+	return o.ApplyT(func(v LookupEventBusResult) []EventBusTag { return v.Tags }).(EventBusTagArrayOutput)
 }
 
 func init() {

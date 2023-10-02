@@ -492,6 +492,7 @@ namespace Pulumi.AwsNative.IoT
         public static MitigationActionEnableIoTLoggingParamsLogLevel Info { get; } = new MitigationActionEnableIoTLoggingParamsLogLevel("INFO");
         public static MitigationActionEnableIoTLoggingParamsLogLevel Error { get; } = new MitigationActionEnableIoTLoggingParamsLogLevel("ERROR");
         public static MitigationActionEnableIoTLoggingParamsLogLevel Warn { get; } = new MitigationActionEnableIoTLoggingParamsLogLevel("WARN");
+        public static MitigationActionEnableIoTLoggingParamsLogLevel UnsetValue { get; } = new MitigationActionEnableIoTLoggingParamsLogLevel("UNSET_VALUE");
 
         public static bool operator ==(MitigationActionEnableIoTLoggingParamsLogLevel left, MitigationActionEnableIoTLoggingParamsLogLevel right) => left.Equals(right);
         public static bool operator !=(MitigationActionEnableIoTLoggingParamsLogLevel left, MitigationActionEnableIoTLoggingParamsLogLevel right) => !left.Equals(right);
@@ -519,6 +520,7 @@ namespace Pulumi.AwsNative.IoT
         }
 
         public static MitigationActionReplaceDefaultPolicyVersionParamsTemplateName BlankPolicy { get; } = new MitigationActionReplaceDefaultPolicyVersionParamsTemplateName("BLANK_POLICY");
+        public static MitigationActionReplaceDefaultPolicyVersionParamsTemplateName UnsetValue { get; } = new MitigationActionReplaceDefaultPolicyVersionParamsTemplateName("UNSET_VALUE");
 
         public static bool operator ==(MitigationActionReplaceDefaultPolicyVersionParamsTemplateName left, MitigationActionReplaceDefaultPolicyVersionParamsTemplateName right) => left.Equals(right);
         public static bool operator !=(MitigationActionReplaceDefaultPolicyVersionParamsTemplateName left, MitigationActionReplaceDefaultPolicyVersionParamsTemplateName right) => !left.Equals(right);
@@ -546,6 +548,7 @@ namespace Pulumi.AwsNative.IoT
         }
 
         public static MitigationActionUpdateCaCertificateParamsAction Deactivate { get; } = new MitigationActionUpdateCaCertificateParamsAction("DEACTIVATE");
+        public static MitigationActionUpdateCaCertificateParamsAction UnsetValue { get; } = new MitigationActionUpdateCaCertificateParamsAction("UNSET_VALUE");
 
         public static bool operator ==(MitigationActionUpdateCaCertificateParamsAction left, MitigationActionUpdateCaCertificateParamsAction right) => left.Equals(right);
         public static bool operator !=(MitigationActionUpdateCaCertificateParamsAction left, MitigationActionUpdateCaCertificateParamsAction right) => !left.Equals(right);
@@ -573,6 +576,7 @@ namespace Pulumi.AwsNative.IoT
         }
 
         public static MitigationActionUpdateDeviceCertificateParamsAction Deactivate { get; } = new MitigationActionUpdateDeviceCertificateParamsAction("DEACTIVATE");
+        public static MitigationActionUpdateDeviceCertificateParamsAction UnsetValue { get; } = new MitigationActionUpdateDeviceCertificateParamsAction("UNSET_VALUE");
 
         public static bool operator ==(MitigationActionUpdateDeviceCertificateParamsAction left, MitigationActionUpdateDeviceCertificateParamsAction right) => left.Equals(right);
         public static bool operator !=(MitigationActionUpdateDeviceCertificateParamsAction left, MitigationActionUpdateDeviceCertificateParamsAction right) => !left.Equals(right);

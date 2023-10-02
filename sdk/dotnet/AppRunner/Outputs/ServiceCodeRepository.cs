@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         /// </summary>
         public readonly string RepositoryUrl;
         public readonly Outputs.ServiceSourceCodeVersion SourceCodeVersion;
+        /// <summary>
+        /// Source Directory
+        /// </summary>
+        public readonly string? SourceDirectory;
 
         [OutputConstructor]
         private ServiceCodeRepository(
@@ -29,11 +33,14 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
 
             string repositoryUrl,
 
-            Outputs.ServiceSourceCodeVersion sourceCodeVersion)
+            Outputs.ServiceSourceCodeVersion sourceCodeVersion,
+
+            string? sourceDirectory)
         {
             CodeConfiguration = codeConfiguration;
             RepositoryUrl = repositoryUrl;
             SourceCodeVersion = sourceCodeVersion;
+            SourceDirectory = sourceDirectory;
         }
     }
 }

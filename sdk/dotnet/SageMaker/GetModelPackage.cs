@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageStatus? ModelPackageStatus;
         public readonly Outputs.ModelPackageStatusDetails? ModelPackageStatusDetails;
         public readonly int? ModelPackageVersion;
+        public readonly Pulumi.AwsNative.SageMaker.ModelPackageSkipModelValidation? SkipModelValidation;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -94,6 +95,8 @@ namespace Pulumi.AwsNative.SageMaker
 
             int? modelPackageVersion,
 
+            Pulumi.AwsNative.SageMaker.ModelPackageSkipModelValidation? skipModelValidation,
+
             ImmutableArray<Outputs.ModelPackageTag> tags)
         {
             AdditionalInferenceSpecifications = additionalInferenceSpecifications;
@@ -108,6 +111,7 @@ namespace Pulumi.AwsNative.SageMaker
             ModelPackageStatus = modelPackageStatus;
             ModelPackageStatusDetails = modelPackageStatusDetails;
             ModelPackageVersion = modelPackageVersion;
+            SkipModelValidation = skipModelValidation;
             Tags = tags;
         }
     }

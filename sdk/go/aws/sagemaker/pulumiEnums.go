@@ -7737,6 +7737,189 @@ func (in *modelPackageS3DataSourceS3DataTypePtr) ToOutput(ctx context.Context) p
 	}
 }
 
+// Indicates if you want to skip model validation.
+type ModelPackageSkipModelValidation string
+
+const (
+	ModelPackageSkipModelValidationNone = ModelPackageSkipModelValidation("None")
+	ModelPackageSkipModelValidationAll  = ModelPackageSkipModelValidation("All")
+)
+
+func (ModelPackageSkipModelValidation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageSkipModelValidation)(nil)).Elem()
+}
+
+func (e ModelPackageSkipModelValidation) ToModelPackageSkipModelValidationOutput() ModelPackageSkipModelValidationOutput {
+	return pulumi.ToOutput(e).(ModelPackageSkipModelValidationOutput)
+}
+
+func (e ModelPackageSkipModelValidation) ToModelPackageSkipModelValidationOutputWithContext(ctx context.Context) ModelPackageSkipModelValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelPackageSkipModelValidationOutput)
+}
+
+func (e ModelPackageSkipModelValidation) ToModelPackageSkipModelValidationPtrOutput() ModelPackageSkipModelValidationPtrOutput {
+	return e.ToModelPackageSkipModelValidationPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageSkipModelValidation) ToModelPackageSkipModelValidationPtrOutputWithContext(ctx context.Context) ModelPackageSkipModelValidationPtrOutput {
+	return ModelPackageSkipModelValidation(e).ToModelPackageSkipModelValidationOutputWithContext(ctx).ToModelPackageSkipModelValidationPtrOutputWithContext(ctx)
+}
+
+func (e ModelPackageSkipModelValidation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageSkipModelValidation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageSkipModelValidation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageSkipModelValidation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelPackageSkipModelValidationOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageSkipModelValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageSkipModelValidation)(nil)).Elem()
+}
+
+func (o ModelPackageSkipModelValidationOutput) ToModelPackageSkipModelValidationOutput() ModelPackageSkipModelValidationOutput {
+	return o
+}
+
+func (o ModelPackageSkipModelValidationOutput) ToModelPackageSkipModelValidationOutputWithContext(ctx context.Context) ModelPackageSkipModelValidationOutput {
+	return o
+}
+
+func (o ModelPackageSkipModelValidationOutput) ToModelPackageSkipModelValidationPtrOutput() ModelPackageSkipModelValidationPtrOutput {
+	return o.ToModelPackageSkipModelValidationPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageSkipModelValidationOutput) ToModelPackageSkipModelValidationPtrOutputWithContext(ctx context.Context) ModelPackageSkipModelValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageSkipModelValidation) *ModelPackageSkipModelValidation {
+		return &v
+	}).(ModelPackageSkipModelValidationPtrOutput)
+}
+
+func (o ModelPackageSkipModelValidationOutput) ToOutput(ctx context.Context) pulumix.Output[ModelPackageSkipModelValidation] {
+	return pulumix.Output[ModelPackageSkipModelValidation]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ModelPackageSkipModelValidationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelPackageSkipModelValidationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageSkipModelValidation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelPackageSkipModelValidationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageSkipModelValidationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageSkipModelValidation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageSkipModelValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageSkipModelValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageSkipModelValidation)(nil)).Elem()
+}
+
+func (o ModelPackageSkipModelValidationPtrOutput) ToModelPackageSkipModelValidationPtrOutput() ModelPackageSkipModelValidationPtrOutput {
+	return o
+}
+
+func (o ModelPackageSkipModelValidationPtrOutput) ToModelPackageSkipModelValidationPtrOutputWithContext(ctx context.Context) ModelPackageSkipModelValidationPtrOutput {
+	return o
+}
+
+func (o ModelPackageSkipModelValidationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageSkipModelValidation] {
+	return pulumix.Output[*ModelPackageSkipModelValidation]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ModelPackageSkipModelValidationPtrOutput) Elem() ModelPackageSkipModelValidationOutput {
+	return o.ApplyT(func(v *ModelPackageSkipModelValidation) ModelPackageSkipModelValidation {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageSkipModelValidation
+		return ret
+	}).(ModelPackageSkipModelValidationOutput)
+}
+
+func (o ModelPackageSkipModelValidationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageSkipModelValidationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelPackageSkipModelValidation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelPackageSkipModelValidationInput is an input type that accepts ModelPackageSkipModelValidationArgs and ModelPackageSkipModelValidationOutput values.
+// You can construct a concrete instance of `ModelPackageSkipModelValidationInput` via:
+//
+//	ModelPackageSkipModelValidationArgs{...}
+type ModelPackageSkipModelValidationInput interface {
+	pulumi.Input
+
+	ToModelPackageSkipModelValidationOutput() ModelPackageSkipModelValidationOutput
+	ToModelPackageSkipModelValidationOutputWithContext(context.Context) ModelPackageSkipModelValidationOutput
+}
+
+var modelPackageSkipModelValidationPtrType = reflect.TypeOf((**ModelPackageSkipModelValidation)(nil)).Elem()
+
+type ModelPackageSkipModelValidationPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageSkipModelValidationPtrOutput() ModelPackageSkipModelValidationPtrOutput
+	ToModelPackageSkipModelValidationPtrOutputWithContext(context.Context) ModelPackageSkipModelValidationPtrOutput
+}
+
+type modelPackageSkipModelValidationPtr string
+
+func ModelPackageSkipModelValidationPtr(v string) ModelPackageSkipModelValidationPtrInput {
+	return (*modelPackageSkipModelValidationPtr)(&v)
+}
+
+func (*modelPackageSkipModelValidationPtr) ElementType() reflect.Type {
+	return modelPackageSkipModelValidationPtrType
+}
+
+func (in *modelPackageSkipModelValidationPtr) ToModelPackageSkipModelValidationPtrOutput() ModelPackageSkipModelValidationPtrOutput {
+	return pulumi.ToOutput(in).(ModelPackageSkipModelValidationPtrOutput)
+}
+
+func (in *modelPackageSkipModelValidationPtr) ToModelPackageSkipModelValidationPtrOutputWithContext(ctx context.Context) ModelPackageSkipModelValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelPackageSkipModelValidationPtrOutput)
+}
+
+func (in *modelPackageSkipModelValidationPtr) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageSkipModelValidation] {
+	return pulumix.Output[*ModelPackageSkipModelValidation]{
+		OutputState: in.ToModelPackageSkipModelValidationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The current status of the model package.
 type ModelPackageStatus string
 
@@ -12552,6 +12735,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelApprovalStatusPtrInput)(nil)).Elem(), ModelPackageModelApprovalStatus("Approved"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageS3DataSourceS3DataTypeInput)(nil)).Elem(), ModelPackageS3DataSourceS3DataType("ManifestFile"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageS3DataSourceS3DataTypePtrInput)(nil)).Elem(), ModelPackageS3DataSourceS3DataType("ManifestFile"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageSkipModelValidationInput)(nil)).Elem(), ModelPackageSkipModelValidation("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageSkipModelValidationPtrInput)(nil)).Elem(), ModelPackageSkipModelValidation("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageStatusItemStatusInput)(nil)).Elem(), ModelPackageStatusItemStatus("NotStarted"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageStatusItemStatusPtrInput)(nil)).Elem(), ModelPackageStatusItemStatus("NotStarted"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformInputCompressionTypeInput)(nil)).Elem(), ModelPackageTransformInputCompressionType("None"))
@@ -12686,6 +12871,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelPackageModelApprovalStatusPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageS3DataSourceS3DataTypeOutput{})
 	pulumi.RegisterOutputType(ModelPackageS3DataSourceS3DataTypePtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageSkipModelValidationOutput{})
+	pulumi.RegisterOutputType(ModelPackageSkipModelValidationPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageStatusOutput{})
 	pulumi.RegisterOutputType(ModelPackageStatusPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageStatusItemStatusOutput{})

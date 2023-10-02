@@ -139,6 +139,7 @@ export const MitigationActionEnableIoTLoggingParamsLogLevel = {
     Info: "INFO",
     Error: "ERROR",
     Warn: "WARN",
+    UnsetValue: "UNSET_VALUE",
 } as const;
 
 /**
@@ -148,18 +149,21 @@ export type MitigationActionEnableIoTLoggingParamsLogLevel = (typeof MitigationA
 
 export const MitigationActionReplaceDefaultPolicyVersionParamsTemplateName = {
     BlankPolicy: "BLANK_POLICY",
+    UnsetValue: "UNSET_VALUE",
 } as const;
 
 export type MitigationActionReplaceDefaultPolicyVersionParamsTemplateName = (typeof MitigationActionReplaceDefaultPolicyVersionParamsTemplateName)[keyof typeof MitigationActionReplaceDefaultPolicyVersionParamsTemplateName];
 
 export const MitigationActionUpdateCaCertificateParamsAction = {
     Deactivate: "DEACTIVATE",
+    UnsetValue: "UNSET_VALUE",
 } as const;
 
 export type MitigationActionUpdateCaCertificateParamsAction = (typeof MitigationActionUpdateCaCertificateParamsAction)[keyof typeof MitigationActionUpdateCaCertificateParamsAction];
 
 export const MitigationActionUpdateDeviceCertificateParamsAction = {
     Deactivate: "DEACTIVATE",
+    UnsetValue: "UNSET_VALUE",
 } as const;
 
 export type MitigationActionUpdateDeviceCertificateParamsAction = (typeof MitigationActionUpdateDeviceCertificateParamsAction)[keyof typeof MitigationActionUpdateDeviceCertificateParamsAction];

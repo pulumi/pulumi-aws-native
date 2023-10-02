@@ -2,12 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::SSM::Parameter
- *
- * @deprecated Parameter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Parameter extends pulumi.CustomResource {
     /**
@@ -19,7 +20,6 @@ export class Parameter extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Parameter {
-        pulumi.log.warn("Parameter is deprecated: Parameter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Parameter(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,14 +37,41 @@ export class Parameter extends pulumi.CustomResource {
         return obj['__pulumiType'] === Parameter.__pulumiType;
     }
 
+    /**
+     * The regular expression used to validate the parameter value.
+     */
     public readonly allowedPattern!: pulumi.Output<string | undefined>;
-    public readonly dataType!: pulumi.Output<string | undefined>;
+    /**
+     * The corresponding DataType of the parameter.
+     */
+    public readonly dataType!: pulumi.Output<enums.ssm.ParameterDataType | undefined>;
+    /**
+     * The information about the parameter.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the parameter.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The policies attached to the parameter.
+     */
     public readonly policies!: pulumi.Output<string | undefined>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
-    public readonly tier!: pulumi.Output<string | undefined>;
-    public readonly type!: pulumi.Output<string>;
+    /**
+     * The corresponding tier of the parameter.
+     */
+    public readonly tier!: pulumi.Output<enums.ssm.ParameterTier | undefined>;
+    /**
+     * The type of the parameter.
+     */
+    public readonly type!: pulumi.Output<enums.ssm.ParameterType>;
+    /**
+     * The value associated with the parameter.
+     */
     public readonly value!: pulumi.Output<string>;
 
     /**
@@ -54,9 +81,7 @@ export class Parameter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Parameter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ParameterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Parameter is deprecated: Parameter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -97,13 +122,40 @@ export class Parameter extends pulumi.CustomResource {
  * The set of arguments for constructing a Parameter resource.
  */
 export interface ParameterArgs {
+    /**
+     * The regular expression used to validate the parameter value.
+     */
     allowedPattern?: pulumi.Input<string>;
-    dataType?: pulumi.Input<string>;
+    /**
+     * The corresponding DataType of the parameter.
+     */
+    dataType?: pulumi.Input<enums.ssm.ParameterDataType>;
+    /**
+     * The information about the parameter.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the parameter.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The policies attached to the parameter.
+     */
     policies?: pulumi.Input<string>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     tags?: any;
-    tier?: pulumi.Input<string>;
-    type: pulumi.Input<string>;
+    /**
+     * The corresponding tier of the parameter.
+     */
+    tier?: pulumi.Input<enums.ssm.ParameterTier>;
+    /**
+     * The type of the parameter.
+     */
+    type: pulumi.Input<enums.ssm.ParameterType>;
+    /**
+     * The value associated with the parameter.
+     */
     value: pulumi.Input<string>;
 }

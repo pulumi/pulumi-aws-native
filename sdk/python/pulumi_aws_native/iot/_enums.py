@@ -147,18 +147,22 @@ class MitigationActionEnableIoTLoggingParamsLogLevel(str, Enum):
     INFO = "INFO"
     ERROR = "ERROR"
     WARN = "WARN"
+    UNSET_VALUE = "UNSET_VALUE"
 
 
 class MitigationActionReplaceDefaultPolicyVersionParamsTemplateName(str, Enum):
     BLANK_POLICY = "BLANK_POLICY"
+    UNSET_VALUE = "UNSET_VALUE"
 
 
 class MitigationActionUpdateCaCertificateParamsAction(str, Enum):
     DEACTIVATE = "DEACTIVATE"
+    UNSET_VALUE = "UNSET_VALUE"
 
 
 class MitigationActionUpdateDeviceCertificateParamsAction(str, Enum):
     DEACTIVATE = "DEACTIVATE"
+    UNSET_VALUE = "UNSET_VALUE"
 
 
 class ProvisioningTemplateTemplateType(str, Enum):

@@ -47,6 +47,7 @@ export class DeliveryStream extends pulumi.CustomResource {
     public readonly extendedS3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfiguration | undefined>;
     public readonly httpEndpointDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration | undefined>;
     public readonly kinesisStreamSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamKinesisStreamSourceConfiguration | undefined>;
+    public readonly mskSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamMskSourceConfiguration | undefined>;
     public readonly redshiftDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfiguration | undefined>;
     public readonly s3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration | undefined>;
     public readonly splunkDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration | undefined>;
@@ -72,6 +73,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["extendedS3DestinationConfiguration"] = args ? args.extendedS3DestinationConfiguration : undefined;
             resourceInputs["httpEndpointDestinationConfiguration"] = args ? args.httpEndpointDestinationConfiguration : undefined;
             resourceInputs["kinesisStreamSourceConfiguration"] = args ? args.kinesisStreamSourceConfiguration : undefined;
+            resourceInputs["mskSourceConfiguration"] = args ? args.mskSourceConfiguration : undefined;
             resourceInputs["redshiftDestinationConfiguration"] = args ? args.redshiftDestinationConfiguration : undefined;
             resourceInputs["s3DestinationConfiguration"] = args ? args.s3DestinationConfiguration : undefined;
             resourceInputs["splunkDestinationConfiguration"] = args ? args.splunkDestinationConfiguration : undefined;
@@ -88,13 +90,14 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["extendedS3DestinationConfiguration"] = undefined /*out*/;
             resourceInputs["httpEndpointDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["kinesisStreamSourceConfiguration"] = undefined /*out*/;
+            resourceInputs["mskSourceConfiguration"] = undefined /*out*/;
             resourceInputs["redshiftDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["s3DestinationConfiguration"] = undefined /*out*/;
             resourceInputs["splunkDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "kinesisStreamSourceConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryStream.__pulumiType, name, resourceInputs, opts);
     }
@@ -113,6 +116,7 @@ export interface DeliveryStreamArgs {
     extendedS3DestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationArgs>;
     httpEndpointDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfigurationArgs>;
     kinesisStreamSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamKinesisStreamSourceConfigurationArgs>;
+    mskSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamMskSourceConfigurationArgs>;
     redshiftDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfigurationArgs>;
     s3DestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
     splunkDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationArgs>;

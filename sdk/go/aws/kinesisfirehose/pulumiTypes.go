@@ -1352,6 +1352,180 @@ func (o DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput) DurationInSe
 	}).(pulumi.IntPtrOutput)
 }
 
+type DeliveryStreamAuthenticationConfiguration struct {
+	Connectivity DeliveryStreamAuthenticationConfigurationConnectivity `pulumi:"connectivity"`
+	RoleArn      string                                                `pulumi:"roleArn"`
+}
+
+// DeliveryStreamAuthenticationConfigurationInput is an input type that accepts DeliveryStreamAuthenticationConfigurationArgs and DeliveryStreamAuthenticationConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamAuthenticationConfigurationInput` via:
+//
+//	DeliveryStreamAuthenticationConfigurationArgs{...}
+type DeliveryStreamAuthenticationConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamAuthenticationConfigurationOutput() DeliveryStreamAuthenticationConfigurationOutput
+	ToDeliveryStreamAuthenticationConfigurationOutputWithContext(context.Context) DeliveryStreamAuthenticationConfigurationOutput
+}
+
+type DeliveryStreamAuthenticationConfigurationArgs struct {
+	Connectivity DeliveryStreamAuthenticationConfigurationConnectivityInput `pulumi:"connectivity"`
+	RoleArn      pulumi.StringInput                                         `pulumi:"roleArn"`
+}
+
+func (DeliveryStreamAuthenticationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamAuthenticationConfigurationArgs) ToDeliveryStreamAuthenticationConfigurationOutput() DeliveryStreamAuthenticationConfigurationOutput {
+	return i.ToDeliveryStreamAuthenticationConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamAuthenticationConfigurationArgs) ToDeliveryStreamAuthenticationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamAuthenticationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAuthenticationConfigurationOutput)
+}
+
+func (i DeliveryStreamAuthenticationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAuthenticationConfiguration] {
+	return pulumix.Output[DeliveryStreamAuthenticationConfiguration]{
+		OutputState: i.ToDeliveryStreamAuthenticationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DeliveryStreamAuthenticationConfigurationArgs) ToDeliveryStreamAuthenticationConfigurationPtrOutput() DeliveryStreamAuthenticationConfigurationPtrOutput {
+	return i.ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamAuthenticationConfigurationArgs) ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAuthenticationConfigurationOutput).ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamAuthenticationConfigurationPtrInput is an input type that accepts DeliveryStreamAuthenticationConfigurationArgs, DeliveryStreamAuthenticationConfigurationPtr and DeliveryStreamAuthenticationConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamAuthenticationConfigurationPtrInput` via:
+//
+//	        DeliveryStreamAuthenticationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamAuthenticationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamAuthenticationConfigurationPtrOutput() DeliveryStreamAuthenticationConfigurationPtrOutput
+	ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(context.Context) DeliveryStreamAuthenticationConfigurationPtrOutput
+}
+
+type deliveryStreamAuthenticationConfigurationPtrType DeliveryStreamAuthenticationConfigurationArgs
+
+func DeliveryStreamAuthenticationConfigurationPtr(v *DeliveryStreamAuthenticationConfigurationArgs) DeliveryStreamAuthenticationConfigurationPtrInput {
+	return (*deliveryStreamAuthenticationConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamAuthenticationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamAuthenticationConfigurationPtrType) ToDeliveryStreamAuthenticationConfigurationPtrOutput() DeliveryStreamAuthenticationConfigurationPtrOutput {
+	return i.ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamAuthenticationConfigurationPtrType) ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAuthenticationConfigurationPtrOutput)
+}
+
+func (i *deliveryStreamAuthenticationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAuthenticationConfiguration] {
+	return pulumix.Output[*DeliveryStreamAuthenticationConfiguration]{
+		OutputState: i.ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DeliveryStreamAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamAuthenticationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamAuthenticationConfigurationOutput) ToDeliveryStreamAuthenticationConfigurationOutput() DeliveryStreamAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamAuthenticationConfigurationOutput) ToDeliveryStreamAuthenticationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamAuthenticationConfigurationOutput) ToDeliveryStreamAuthenticationConfigurationPtrOutput() DeliveryStreamAuthenticationConfigurationPtrOutput {
+	return o.ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamAuthenticationConfigurationOutput) ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamAuthenticationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamAuthenticationConfiguration) *DeliveryStreamAuthenticationConfiguration {
+		return &v
+	}).(DeliveryStreamAuthenticationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamAuthenticationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAuthenticationConfiguration] {
+	return pulumix.Output[DeliveryStreamAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamAuthenticationConfigurationOutput) Connectivity() DeliveryStreamAuthenticationConfigurationConnectivityOutput {
+	return o.ApplyT(func(v DeliveryStreamAuthenticationConfiguration) DeliveryStreamAuthenticationConfigurationConnectivity {
+		return v.Connectivity
+	}).(DeliveryStreamAuthenticationConfigurationConnectivityOutput)
+}
+
+func (o DeliveryStreamAuthenticationConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamAuthenticationConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type DeliveryStreamAuthenticationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamAuthenticationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamAuthenticationConfigurationPtrOutput) ToDeliveryStreamAuthenticationConfigurationPtrOutput() DeliveryStreamAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamAuthenticationConfigurationPtrOutput) ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamAuthenticationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAuthenticationConfiguration] {
+	return pulumix.Output[*DeliveryStreamAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamAuthenticationConfigurationPtrOutput) Elem() DeliveryStreamAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamAuthenticationConfiguration) DeliveryStreamAuthenticationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamAuthenticationConfiguration
+		return ret
+	}).(DeliveryStreamAuthenticationConfigurationOutput)
+}
+
+func (o DeliveryStreamAuthenticationConfigurationPtrOutput) Connectivity() DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAuthenticationConfiguration) *DeliveryStreamAuthenticationConfigurationConnectivity {
+		if v == nil {
+			return nil
+		}
+		return &v.Connectivity
+	}).(DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput)
+}
+
+func (o DeliveryStreamAuthenticationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type DeliveryStreamBufferingHints struct {
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	SizeInMbs         *int `pulumi:"sizeInMbs"`
@@ -5436,6 +5610,195 @@ func (o DeliveryStreamKmsEncryptionConfigPtrOutput) AwskmsKeyArn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type DeliveryStreamMskSourceConfiguration struct {
+	AuthenticationConfiguration DeliveryStreamAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
+	MskClusterArn               string                                    `pulumi:"mskClusterArn"`
+	TopicName                   string                                    `pulumi:"topicName"`
+}
+
+// DeliveryStreamMskSourceConfigurationInput is an input type that accepts DeliveryStreamMskSourceConfigurationArgs and DeliveryStreamMskSourceConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamMskSourceConfigurationInput` via:
+//
+//	DeliveryStreamMskSourceConfigurationArgs{...}
+type DeliveryStreamMskSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamMskSourceConfigurationOutput() DeliveryStreamMskSourceConfigurationOutput
+	ToDeliveryStreamMskSourceConfigurationOutputWithContext(context.Context) DeliveryStreamMskSourceConfigurationOutput
+}
+
+type DeliveryStreamMskSourceConfigurationArgs struct {
+	AuthenticationConfiguration DeliveryStreamAuthenticationConfigurationInput `pulumi:"authenticationConfiguration"`
+	MskClusterArn               pulumi.StringInput                             `pulumi:"mskClusterArn"`
+	TopicName                   pulumi.StringInput                             `pulumi:"topicName"`
+}
+
+func (DeliveryStreamMskSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamMskSourceConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamMskSourceConfigurationArgs) ToDeliveryStreamMskSourceConfigurationOutput() DeliveryStreamMskSourceConfigurationOutput {
+	return i.ToDeliveryStreamMskSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamMskSourceConfigurationArgs) ToDeliveryStreamMskSourceConfigurationOutputWithContext(ctx context.Context) DeliveryStreamMskSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamMskSourceConfigurationOutput)
+}
+
+func (i DeliveryStreamMskSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[DeliveryStreamMskSourceConfiguration]{
+		OutputState: i.ToDeliveryStreamMskSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DeliveryStreamMskSourceConfigurationArgs) ToDeliveryStreamMskSourceConfigurationPtrOutput() DeliveryStreamMskSourceConfigurationPtrOutput {
+	return i.ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamMskSourceConfigurationArgs) ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamMskSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamMskSourceConfigurationOutput).ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamMskSourceConfigurationPtrInput is an input type that accepts DeliveryStreamMskSourceConfigurationArgs, DeliveryStreamMskSourceConfigurationPtr and DeliveryStreamMskSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamMskSourceConfigurationPtrInput` via:
+//
+//	        DeliveryStreamMskSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamMskSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamMskSourceConfigurationPtrOutput() DeliveryStreamMskSourceConfigurationPtrOutput
+	ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(context.Context) DeliveryStreamMskSourceConfigurationPtrOutput
+}
+
+type deliveryStreamMskSourceConfigurationPtrType DeliveryStreamMskSourceConfigurationArgs
+
+func DeliveryStreamMskSourceConfigurationPtr(v *DeliveryStreamMskSourceConfigurationArgs) DeliveryStreamMskSourceConfigurationPtrInput {
+	return (*deliveryStreamMskSourceConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamMskSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamMskSourceConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamMskSourceConfigurationPtrType) ToDeliveryStreamMskSourceConfigurationPtrOutput() DeliveryStreamMskSourceConfigurationPtrOutput {
+	return i.ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamMskSourceConfigurationPtrType) ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamMskSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamMskSourceConfigurationPtrOutput)
+}
+
+func (i *deliveryStreamMskSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[*DeliveryStreamMskSourceConfiguration]{
+		OutputState: i.ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DeliveryStreamMskSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamMskSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamMskSourceConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamMskSourceConfigurationOutput) ToDeliveryStreamMskSourceConfigurationOutput() DeliveryStreamMskSourceConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamMskSourceConfigurationOutput) ToDeliveryStreamMskSourceConfigurationOutputWithContext(ctx context.Context) DeliveryStreamMskSourceConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamMskSourceConfigurationOutput) ToDeliveryStreamMskSourceConfigurationPtrOutput() DeliveryStreamMskSourceConfigurationPtrOutput {
+	return o.ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamMskSourceConfigurationOutput) ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamMskSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamMskSourceConfiguration) *DeliveryStreamMskSourceConfiguration {
+		return &v
+	}).(DeliveryStreamMskSourceConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamMskSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[DeliveryStreamMskSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamMskSourceConfigurationOutput) AuthenticationConfiguration() DeliveryStreamAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v DeliveryStreamMskSourceConfiguration) DeliveryStreamAuthenticationConfiguration {
+		return v.AuthenticationConfiguration
+	}).(DeliveryStreamAuthenticationConfigurationOutput)
+}
+
+func (o DeliveryStreamMskSourceConfigurationOutput) MskClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamMskSourceConfiguration) string { return v.MskClusterArn }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamMskSourceConfigurationOutput) TopicName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamMskSourceConfiguration) string { return v.TopicName }).(pulumi.StringOutput)
+}
+
+type DeliveryStreamMskSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamMskSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamMskSourceConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamMskSourceConfigurationPtrOutput) ToDeliveryStreamMskSourceConfigurationPtrOutput() DeliveryStreamMskSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamMskSourceConfigurationPtrOutput) ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamMskSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamMskSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[*DeliveryStreamMskSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamMskSourceConfigurationPtrOutput) Elem() DeliveryStreamMskSourceConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamMskSourceConfiguration) DeliveryStreamMskSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamMskSourceConfiguration
+		return ret
+	}).(DeliveryStreamMskSourceConfigurationOutput)
+}
+
+func (o DeliveryStreamMskSourceConfigurationPtrOutput) AuthenticationConfiguration() DeliveryStreamAuthenticationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamMskSourceConfiguration) *DeliveryStreamAuthenticationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationConfiguration
+	}).(DeliveryStreamAuthenticationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamMskSourceConfigurationPtrOutput) MskClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamMskSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MskClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamMskSourceConfigurationPtrOutput) TopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamMskSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicName
+	}).(pulumi.StringPtrOutput)
+}
+
 type DeliveryStreamOpenXJsonSerDe struct {
 	CaseInsensitive                    *bool       `pulumi:"caseInsensitive"`
 	ColumnToJsonKeyMappings            interface{} `pulumi:"columnToJsonKeyMappings"`
@@ -8799,6 +9162,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceRetryOptionsInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceRetryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceRetryOptionsPtrInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceRetryOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAuthenticationConfigurationInput)(nil)).Elem(), DeliveryStreamAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAuthenticationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamBufferingHintsInput)(nil)).Elem(), DeliveryStreamBufferingHintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamBufferingHintsPtrInput)(nil)).Elem(), DeliveryStreamBufferingHintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamCloudWatchLoggingOptionsInput)(nil)).Elem(), DeliveryStreamCloudWatchLoggingOptionsArgs{})
@@ -8841,6 +9206,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamKinesisStreamSourceConfigurationPtrInput)(nil)).Elem(), DeliveryStreamKinesisStreamSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamKmsEncryptionConfigInput)(nil)).Elem(), DeliveryStreamKmsEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamKmsEncryptionConfigPtrInput)(nil)).Elem(), DeliveryStreamKmsEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamMskSourceConfigurationInput)(nil)).Elem(), DeliveryStreamMskSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamMskSourceConfigurationPtrInput)(nil)).Elem(), DeliveryStreamMskSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamOpenXJsonSerDeInput)(nil)).Elem(), DeliveryStreamOpenXJsonSerDeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamOpenXJsonSerDePtrInput)(nil)).Elem(), DeliveryStreamOpenXJsonSerDeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamOrcSerDeInput)(nil)).Elem(), DeliveryStreamOrcSerDeArgs{})
@@ -8887,6 +9254,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceRetryOptionsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamAuthenticationConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamBufferingHintsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamBufferingHintsPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamCloudWatchLoggingOptionsOutput{})
@@ -8929,6 +9298,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamKinesisStreamSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamKmsEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamKmsEncryptionConfigPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamMskSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamMskSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamOpenXJsonSerDeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamOpenXJsonSerDePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamOrcSerDeOutput{})

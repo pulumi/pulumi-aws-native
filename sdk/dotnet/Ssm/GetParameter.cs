@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Ssm
 
     public sealed class GetParameterArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the parameter.
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetParameterArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Ssm
 
     public sealed class GetParameterInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the parameter.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetParameterInvokeArgs()
         {
@@ -51,43 +57,28 @@ namespace Pulumi.AwsNative.Ssm
     [OutputType]
     public sealed class GetParameterResult
     {
-        public readonly string? AllowedPattern;
-        public readonly string? DataType;
-        public readonly string? Description;
-        public readonly string? Id;
-        public readonly string? Policies;
-        public readonly object? Tags;
-        public readonly string? Tier;
-        public readonly string? Type;
+        /// <summary>
+        /// The corresponding DataType of the parameter.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ssm.ParameterDataType? DataType;
+        /// <summary>
+        /// The type of the parameter.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ssm.ParameterType? Type;
+        /// <summary>
+        /// The value associated with the parameter.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]
         private GetParameterResult(
-            string? allowedPattern,
+            Pulumi.AwsNative.Ssm.ParameterDataType? dataType,
 
-            string? dataType,
-
-            string? description,
-
-            string? id,
-
-            string? policies,
-
-            object? tags,
-
-            string? tier,
-
-            string? type,
+            Pulumi.AwsNative.Ssm.ParameterType? type,
 
             string? value)
         {
-            AllowedPattern = allowedPattern;
             DataType = dataType;
-            Description = description;
-            Id = id;
-            Policies = policies;
-            Tags = tags;
-            Tier = tier;
             Type = type;
             Value = value;
         }

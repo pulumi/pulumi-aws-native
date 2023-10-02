@@ -68,7 +68,6 @@ namespace Pulumi.AwsNative.Events
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "eventBusName",
                     "name",
                 },
             };

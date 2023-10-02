@@ -17,10 +17,8 @@ import (
 type BucketPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the Amazon S3 bucket to which the policy applies.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
-	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
+	Bucket         pulumi.StringOutput `pulumi:"bucket"`
+	PolicyDocument pulumi.AnyOutput    `pulumi:"policyDocument"`
 }
 
 // NewBucketPolicy registers a new resource with the given unique name, arguments, and options.
@@ -73,17 +71,13 @@ func (BucketPolicyState) ElementType() reflect.Type {
 }
 
 type bucketPolicyArgs struct {
-	// The name of the Amazon S3 bucket to which the policy applies.
-	Bucket string `pulumi:"bucket"`
-	// A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+	Bucket         string      `pulumi:"bucket"`
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
 // The set of arguments for constructing a BucketPolicy resource.
 type BucketPolicyArgs struct {
-	// The name of the Amazon S3 bucket to which the policy applies.
-	Bucket pulumi.StringInput
-	// A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+	Bucket         pulumi.StringInput
 	PolicyDocument pulumi.Input
 }
 
@@ -136,12 +130,10 @@ func (o BucketPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*Bucket
 	}
 }
 
-// The name of the Amazon S3 bucket to which the policy applies.
 func (o BucketPolicyOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketPolicy) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
 func (o BucketPolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *BucketPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

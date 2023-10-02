@@ -8,33 +8,47 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Events::EventBus
+ * Resource type definition for AWS::Events::EventBus
  */
 export function getEventBus(args: GetEventBusArgs, opts?: pulumi.InvokeOptions): Promise<GetEventBusResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:events:getEventBus", {
-        "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
 export interface GetEventBusArgs {
-    id: string;
+    /**
+     * The name of the event bus.
+     */
+    name: string;
 }
 
 export interface GetEventBusResult {
+    /**
+     * The Amazon Resource Name (ARN) for the event bus.
+     */
     readonly arn?: string;
-    readonly id?: string;
-    readonly policy?: string;
-    readonly tags?: outputs.events.EventBusTagEntry[];
+    /**
+     * A JSON string that describes the permission policy statement for the event bus.
+     */
+    readonly policy?: any;
+    /**
+     * Any tags assigned to the event bus.
+     */
+    readonly tags?: outputs.events.EventBusTag[];
 }
 /**
- * Resource Type definition for AWS::Events::EventBus
+ * Resource type definition for AWS::Events::EventBus
  */
 export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventBusResult> {
     return pulumi.output(args).apply((a: any) => getEventBus(a, opts))
 }
 
 export interface GetEventBusOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the event bus.
+     */
+    name: pulumi.Input<string>;
 }

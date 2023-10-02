@@ -17,6 +17,7 @@ __all__ = [
     'DeliveryStreamAmazonopensearchserviceBufferingHintsArgs',
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs',
     'DeliveryStreamAmazonopensearchserviceRetryOptionsArgs',
+    'DeliveryStreamAuthenticationConfigurationArgs',
     'DeliveryStreamBufferingHintsArgs',
     'DeliveryStreamCloudWatchLoggingOptionsArgs',
     'DeliveryStreamCopyCommandArgs',
@@ -38,6 +39,7 @@ __all__ = [
     'DeliveryStreamInputFormatConfigurationArgs',
     'DeliveryStreamKinesisStreamSourceConfigurationArgs',
     'DeliveryStreamKmsEncryptionConfigArgs',
+    'DeliveryStreamMskSourceConfigurationArgs',
     'DeliveryStreamOpenXJsonSerDeArgs',
     'DeliveryStreamOrcSerDeArgs',
     'DeliveryStreamOutputFormatConfigurationArgs',
@@ -439,6 +441,33 @@ class DeliveryStreamAmazonopensearchserviceRetryOptionsArgs:
     @duration_in_seconds.setter
     def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_seconds", value)
+
+
+@pulumi.input_type
+class DeliveryStreamAuthenticationConfigurationArgs:
+    def __init__(__self__, *,
+                 connectivity: pulumi.Input['DeliveryStreamAuthenticationConfigurationConnectivity'],
+                 role_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "connectivity", connectivity)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def connectivity(self) -> pulumi.Input['DeliveryStreamAuthenticationConfigurationConnectivity']:
+        return pulumi.get(self, "connectivity")
+
+    @connectivity.setter
+    def connectivity(self, value: pulumi.Input['DeliveryStreamAuthenticationConfigurationConnectivity']):
+        pulumi.set(self, "connectivity", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
 
 
 @pulumi.input_type
@@ -1392,6 +1421,44 @@ class DeliveryStreamKmsEncryptionConfigArgs:
     @awskms_key_arn.setter
     def awskms_key_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "awskms_key_arn", value)
+
+
+@pulumi.input_type
+class DeliveryStreamMskSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 authentication_configuration: pulumi.Input['DeliveryStreamAuthenticationConfigurationArgs'],
+                 msk_cluster_arn: pulumi.Input[str],
+                 topic_name: pulumi.Input[str]):
+        pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        pulumi.set(__self__, "msk_cluster_arn", msk_cluster_arn)
+        pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter(name="authenticationConfiguration")
+    def authentication_configuration(self) -> pulumi.Input['DeliveryStreamAuthenticationConfigurationArgs']:
+        return pulumi.get(self, "authentication_configuration")
+
+    @authentication_configuration.setter
+    def authentication_configuration(self, value: pulumi.Input['DeliveryStreamAuthenticationConfigurationArgs']):
+        pulumi.set(self, "authentication_configuration", value)
+
+    @property
+    @pulumi.getter(name="mskClusterArn")
+    def msk_cluster_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "msk_cluster_arn")
+
+    @msk_cluster_arn.setter
+    def msk_cluster_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "msk_cluster_arn", value)
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "topic_name", value)
 
 
 @pulumi.input_type

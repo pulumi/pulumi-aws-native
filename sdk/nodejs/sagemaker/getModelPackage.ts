@@ -35,6 +35,7 @@ export interface GetModelPackageResult {
     readonly modelPackageStatus?: enums.sagemaker.ModelPackageStatus;
     readonly modelPackageStatusDetails?: outputs.sagemaker.ModelPackageStatusDetails;
     readonly modelPackageVersion?: number;
+    readonly skipModelValidation?: enums.sagemaker.ModelPackageSkipModelValidation;
     /**
      * An array of key-value pairs to apply to this resource.
      */

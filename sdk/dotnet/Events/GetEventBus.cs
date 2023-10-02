@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Events
     public static class GetEventBus
     {
         /// <summary>
-        /// Resource Type definition for AWS::Events::EventBus
+        /// Resource type definition for AWS::Events::EventBus
         /// </summary>
         public static Task<GetEventBusResult> InvokeAsync(GetEventBusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventBusResult>("aws-native:events:getEventBus", args ?? new GetEventBusArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Events::EventBus
+        /// Resource type definition for AWS::Events::EventBus
         /// </summary>
         public static Output<GetEventBusResult> Invoke(GetEventBusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventBusResult>("aws-native:events:getEventBus", args ?? new GetEventBusInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class GetEventBusArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the event bus.
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetEventBusArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class GetEventBusInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the event bus.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetEventBusInvokeArgs()
         {
@@ -51,23 +57,28 @@ namespace Pulumi.AwsNative.Events
     [OutputType]
     public sealed class GetEventBusResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the event bus.
+        /// </summary>
         public readonly string? Arn;
-        public readonly string? Id;
-        public readonly string? Policy;
-        public readonly ImmutableArray<Outputs.EventBusTagEntry> Tags;
+        /// <summary>
+        /// A JSON string that describes the permission policy statement for the event bus.
+        /// </summary>
+        public readonly object? Policy;
+        /// <summary>
+        /// Any tags assigned to the event bus.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventBusTag> Tags;
 
         [OutputConstructor]
         private GetEventBusResult(
             string? arn,
 
-            string? id,
+            object? policy,
 
-            string? policy,
-
-            ImmutableArray<Outputs.EventBusTagEntry> tags)
+            ImmutableArray<Outputs.EventBusTag> tags)
         {
             Arn = arn;
-            Id = id;
             Policy = policy;
             Tags = tags;
         }

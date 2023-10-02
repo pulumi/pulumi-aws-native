@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Events::EventBus
- *
- * @deprecated EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * Resource type definition for AWS::Events::EventBus
  */
 export class EventBus extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class EventBus extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventBus {
-        pulumi.log.warn("EventBus is deprecated: EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new EventBus(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,11 +37,26 @@ export class EventBus extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventBus.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the event bus.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+     */
     public readonly eventSourceName!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the event bus.
+     */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly policy!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.events.EventBusTagEntry[] | undefined>;
+    /**
+     * A JSON string that describes the permission policy statement for the event bus.
+     */
+    public readonly policy!: pulumi.Output<any | undefined>;
+    /**
+     * Any tags assigned to the event bus.
+     */
+    public readonly tags!: pulumi.Output<outputs.events.EventBusTag[] | undefined>;
 
     /**
      * Create a EventBus resource with the given unique name, arguments, and options.
@@ -53,17 +65,15 @@ export class EventBus extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: EventBusArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("EventBus is deprecated: EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["policy"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["eventSourceName"] = undefined /*out*/;
@@ -72,7 +82,7 @@ export class EventBus extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["eventSourceName", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EventBus.__pulumiType, name, resourceInputs, opts);
     }
@@ -82,7 +92,20 @@ export class EventBus extends pulumi.CustomResource {
  * The set of arguments for constructing a EventBus resource.
  */
 export interface EventBusArgs {
+    /**
+     * If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+     */
     eventSourceName?: pulumi.Input<string>;
+    /**
+     * The name of the event bus.
+     */
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.events.EventBusTagEntryArgs>[]>;
+    /**
+     * A JSON string that describes the permission policy statement for the event bus.
+     */
+    policy?: any;
+    /**
+     * Any tags assigned to the event bus.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.events.EventBusTagArgs>[]>;
 }

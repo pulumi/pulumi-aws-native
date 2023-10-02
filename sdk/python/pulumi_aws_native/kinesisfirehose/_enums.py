@@ -8,6 +8,7 @@ __all__ = [
     'DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode',
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod',
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode',
+    'DeliveryStreamAuthenticationConfigurationConnectivity',
     'DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat',
     'DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod',
     'DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode',
@@ -40,6 +41,11 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotation
 class DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode(str, Enum):
     FAILED_DOCUMENTS_ONLY = "FailedDocumentsOnly"
     ALL_DOCUMENTS = "AllDocuments"
+
+
+class DeliveryStreamAuthenticationConfigurationConnectivity(str, Enum):
+    PUBLIC = "PUBLIC"
+    PRIVATE = "PRIVATE"
 
 
 class DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat(str, Enum):
@@ -115,3 +121,4 @@ class DeliveryStreamSplunkDestinationConfigurationHecEndpointType(str, Enum):
 class DeliveryStreamType(str, Enum):
     DIRECT_PUT = "DirectPut"
     KINESIS_STREAM_AS_SOURCE = "KinesisStreamAsSource"
+    MSKAS_SOURCE = "MSKAsSource"

@@ -53,7 +53,6 @@ func NewPhoneNumber(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"countryCode",
-		"description",
 		"prefix",
 		"type",
 	})

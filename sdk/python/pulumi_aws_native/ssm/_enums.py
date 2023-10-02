@@ -11,6 +11,9 @@ __all__ = [
     'DocumentFormat',
     'DocumentType',
     'DocumentUpdateMethod',
+    'ParameterDataType',
+    'ParameterTier',
+    'ParameterType',
 ]
 
 
@@ -70,3 +73,29 @@ class DocumentUpdateMethod(str, Enum):
     """
     REPLACE = "Replace"
     NEW_VERSION = "NewVersion"
+
+
+class ParameterDataType(str, Enum):
+    """
+    The corresponding DataType of the parameter.
+    """
+    TEXT = "text"
+    AWSEC2IMAGE = "aws:ec2:image"
+
+
+class ParameterTier(str, Enum):
+    """
+    The corresponding tier of the parameter.
+    """
+    STANDARD = "Standard"
+    ADVANCED = "Advanced"
+    INTELLIGENT_TIERING = "Intelligent-Tiering"
+
+
+class ParameterType(str, Enum):
+    """
+    The type of the parameter.
+    """
+    STRING = "String"
+    STRING_LIST = "StringList"
+    SECURE_STRING = "SecureString"

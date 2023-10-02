@@ -18,6 +18,7 @@ __all__ = [
     'DeliveryStreamAmazonopensearchserviceBufferingHints',
     'DeliveryStreamAmazonopensearchserviceDestinationConfiguration',
     'DeliveryStreamAmazonopensearchserviceRetryOptions',
+    'DeliveryStreamAuthenticationConfiguration',
     'DeliveryStreamBufferingHints',
     'DeliveryStreamCloudWatchLoggingOptions',
     'DeliveryStreamCopyCommand',
@@ -39,6 +40,7 @@ __all__ = [
     'DeliveryStreamInputFormatConfiguration',
     'DeliveryStreamKinesisStreamSourceConfiguration',
     'DeliveryStreamKmsEncryptionConfig',
+    'DeliveryStreamMskSourceConfiguration',
     'DeliveryStreamOpenXJsonSerDe',
     'DeliveryStreamOrcSerDe',
     'DeliveryStreamOutputFormatConfiguration',
@@ -470,6 +472,42 @@ class DeliveryStreamAmazonopensearchserviceRetryOptions(dict):
     @pulumi.getter(name="durationInSeconds")
     def duration_in_seconds(self) -> Optional[int]:
         return pulumi.get(self, "duration_in_seconds")
+
+
+@pulumi.output_type
+class DeliveryStreamAuthenticationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamAuthenticationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamAuthenticationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamAuthenticationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connectivity: 'DeliveryStreamAuthenticationConfigurationConnectivity',
+                 role_arn: str):
+        pulumi.set(__self__, "connectivity", connectivity)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def connectivity(self) -> 'DeliveryStreamAuthenticationConfigurationConnectivity':
+        return pulumi.get(self, "connectivity")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type
@@ -1565,6 +1603,53 @@ class DeliveryStreamKmsEncryptionConfig(dict):
     @pulumi.getter(name="awskmsKeyArn")
     def awskms_key_arn(self) -> str:
         return pulumi.get(self, "awskms_key_arn")
+
+
+@pulumi.output_type
+class DeliveryStreamMskSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationConfiguration":
+            suggest = "authentication_configuration"
+        elif key == "mskClusterArn":
+            suggest = "msk_cluster_arn"
+        elif key == "topicName":
+            suggest = "topic_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamMskSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamMskSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamMskSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_configuration: 'outputs.DeliveryStreamAuthenticationConfiguration',
+                 msk_cluster_arn: str,
+                 topic_name: str):
+        pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        pulumi.set(__self__, "msk_cluster_arn", msk_cluster_arn)
+        pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter(name="authenticationConfiguration")
+    def authentication_configuration(self) -> 'outputs.DeliveryStreamAuthenticationConfiguration':
+        return pulumi.get(self, "authentication_configuration")
+
+    @property
+    @pulumi.getter(name="mskClusterArn")
+    def msk_cluster_arn(self) -> str:
+        return pulumi.get(self, "msk_cluster_arn")
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> str:
+        return pulumi.get(self, "topic_name")
 
 
 @pulumi.output_type

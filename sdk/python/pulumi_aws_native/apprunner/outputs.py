@@ -319,6 +319,8 @@ class ServiceCodeRepository(dict):
             suggest = "source_code_version"
         elif key == "codeConfiguration":
             suggest = "code_configuration"
+        elif key == "sourceDirectory":
+            suggest = "source_directory"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceCodeRepository. Access the value via the '{suggest}' property getter instead.")
@@ -334,15 +336,19 @@ class ServiceCodeRepository(dict):
     def __init__(__self__, *,
                  repository_url: str,
                  source_code_version: 'outputs.ServiceSourceCodeVersion',
-                 code_configuration: Optional['outputs.ServiceCodeConfiguration'] = None):
+                 code_configuration: Optional['outputs.ServiceCodeConfiguration'] = None,
+                 source_directory: Optional[str] = None):
         """
         Source Code Repository
         :param str repository_url: Repository Url
+        :param str source_directory: Source Directory
         """
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "source_code_version", source_code_version)
         if code_configuration is not None:
             pulumi.set(__self__, "code_configuration", code_configuration)
+        if source_directory is not None:
+            pulumi.set(__self__, "source_directory", source_directory)
 
     @property
     @pulumi.getter(name="repositoryUrl")
@@ -361,6 +367,14 @@ class ServiceCodeRepository(dict):
     @pulumi.getter(name="codeConfiguration")
     def code_configuration(self) -> Optional['outputs.ServiceCodeConfiguration']:
         return pulumi.get(self, "code_configuration")
+
+    @property
+    @pulumi.getter(name="sourceDirectory")
+    def source_directory(self) -> Optional[str]:
+        """
+        Source Directory
+        """
+        return pulumi.get(self, "source_directory")
 
 
 @pulumi.output_type

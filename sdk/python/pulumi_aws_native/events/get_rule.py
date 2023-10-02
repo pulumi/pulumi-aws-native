@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuleResult:
-    def __init__(__self__, arn=None, description=None, event_pattern=None, id=None, role_arn=None, schedule_expression=None, state=None, targets=None):
+    def __init__(__self__, arn=None, description=None, event_bus_name=None, event_pattern=None, id=None, role_arn=None, schedule_expression=None, state=None, targets=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if event_bus_name and not isinstance(event_bus_name, str):
+            raise TypeError("Expected argument 'event_bus_name' to be a str")
+        pulumi.set(__self__, "event_bus_name", event_bus_name)
         if event_pattern and not isinstance(event_pattern, dict):
             raise TypeError("Expected argument 'event_pattern' to be a dict")
         pulumi.set(__self__, "event_pattern", event_pattern)
@@ -54,6 +57,11 @@ class GetRuleResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="eventBusName")
+    def event_bus_name(self) -> Optional[str]:
+        return pulumi.get(self, "event_bus_name")
 
     @property
     @pulumi.getter(name="eventPattern")
@@ -94,6 +102,7 @@ class AwaitableGetRuleResult(GetRuleResult):
         return GetRuleResult(
             arn=self.arn,
             description=self.description,
+            event_bus_name=self.event_bus_name,
             event_pattern=self.event_pattern,
             id=self.id,
             role_arn=self.role_arn,
@@ -115,6 +124,7 @@ def get_rule(id: Optional[str] = None,
     return AwaitableGetRuleResult(
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
+        event_bus_name=pulumi.get(__ret__, 'event_bus_name'),
         event_pattern=pulumi.get(__ret__, 'event_pattern'),
         id=pulumi.get(__ret__, 'id'),
         role_arn=pulumi.get(__ret__, 'role_arn'),

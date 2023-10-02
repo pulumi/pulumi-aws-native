@@ -26,6 +26,7 @@ type DeliveryStream struct {
 	ExtendedS3DestinationConfiguration                 DeliveryStreamExtendedS3DestinationConfigurationPtrOutput                 `pulumi:"extendedS3DestinationConfiguration"`
 	HttpEndpointDestinationConfiguration               DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput               `pulumi:"httpEndpointDestinationConfiguration"`
 	KinesisStreamSourceConfiguration                   DeliveryStreamKinesisStreamSourceConfigurationPtrOutput                   `pulumi:"kinesisStreamSourceConfiguration"`
+	MskSourceConfiguration                             DeliveryStreamMskSourceConfigurationPtrOutput                             `pulumi:"mskSourceConfiguration"`
 	RedshiftDestinationConfiguration                   DeliveryStreamRedshiftDestinationConfigurationPtrOutput                   `pulumi:"redshiftDestinationConfiguration"`
 	S3DestinationConfiguration                         DeliveryStreamS3DestinationConfigurationPtrOutput                         `pulumi:"s3DestinationConfiguration"`
 	SplunkDestinationConfiguration                     DeliveryStreamSplunkDestinationConfigurationPtrOutput                     `pulumi:"splunkDestinationConfiguration"`
@@ -46,6 +47,7 @@ func NewDeliveryStream(ctx *pulumi.Context,
 		"deliveryStreamType",
 		"elasticsearchDestinationConfiguration.vpcConfiguration",
 		"kinesisStreamSourceConfiguration",
+		"mskSourceConfiguration",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -90,6 +92,7 @@ type deliveryStreamArgs struct {
 	ExtendedS3DestinationConfiguration                 *DeliveryStreamExtendedS3DestinationConfiguration                 `pulumi:"extendedS3DestinationConfiguration"`
 	HttpEndpointDestinationConfiguration               *DeliveryStreamHttpEndpointDestinationConfiguration               `pulumi:"httpEndpointDestinationConfiguration"`
 	KinesisStreamSourceConfiguration                   *DeliveryStreamKinesisStreamSourceConfiguration                   `pulumi:"kinesisStreamSourceConfiguration"`
+	MskSourceConfiguration                             *DeliveryStreamMskSourceConfiguration                             `pulumi:"mskSourceConfiguration"`
 	RedshiftDestinationConfiguration                   *DeliveryStreamRedshiftDestinationConfiguration                   `pulumi:"redshiftDestinationConfiguration"`
 	S3DestinationConfiguration                         *DeliveryStreamS3DestinationConfiguration                         `pulumi:"s3DestinationConfiguration"`
 	SplunkDestinationConfiguration                     *DeliveryStreamSplunkDestinationConfiguration                     `pulumi:"splunkDestinationConfiguration"`
@@ -107,6 +110,7 @@ type DeliveryStreamArgs struct {
 	ExtendedS3DestinationConfiguration                 DeliveryStreamExtendedS3DestinationConfigurationPtrInput
 	HttpEndpointDestinationConfiguration               DeliveryStreamHttpEndpointDestinationConfigurationPtrInput
 	KinesisStreamSourceConfiguration                   DeliveryStreamKinesisStreamSourceConfigurationPtrInput
+	MskSourceConfiguration                             DeliveryStreamMskSourceConfigurationPtrInput
 	RedshiftDestinationConfiguration                   DeliveryStreamRedshiftDestinationConfigurationPtrInput
 	S3DestinationConfiguration                         DeliveryStreamS3DestinationConfigurationPtrInput
 	SplunkDestinationConfiguration                     DeliveryStreamSplunkDestinationConfigurationPtrInput
@@ -214,6 +218,10 @@ func (o DeliveryStreamOutput) KinesisStreamSourceConfiguration() DeliveryStreamK
 	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamKinesisStreamSourceConfigurationPtrOutput {
 		return v.KinesisStreamSourceConfiguration
 	}).(DeliveryStreamKinesisStreamSourceConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamOutput) MskSourceConfiguration() DeliveryStreamMskSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamMskSourceConfigurationPtrOutput { return v.MskSourceConfiguration }).(DeliveryStreamMskSourceConfigurationPtrOutput)
 }
 
 func (o DeliveryStreamOutput) RedshiftDestinationConfiguration() DeliveryStreamRedshiftDestinationConfigurationPtrOutput {

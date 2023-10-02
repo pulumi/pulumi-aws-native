@@ -3532,6 +3532,10 @@ export namespace apprunner {
          */
         repositoryUrl: string;
         sourceCodeVersion: outputs.apprunner.ServiceSourceCodeVersion;
+        /**
+         * Source Directory
+         */
+        sourceDirectory?: string;
     }
 
     /**
@@ -16309,7 +16313,7 @@ export namespace events {
         value?: string;
     }
 
-    export interface EventBusTagEntry {
+    export interface EventBusTag {
         key: string;
         value: string;
     }
@@ -16395,7 +16399,8 @@ export namespace events {
         database: string;
         dbUser?: string;
         secretManagerArn?: string;
-        sql?: string;
+        sql: string;
+        sqls?: string[];
         statementName?: string;
         withEvent?: boolean;
     }
@@ -16428,8 +16433,8 @@ export namespace events {
     }
 
     export interface RuleTag {
-        key?: string;
-        value?: string;
+        key: string;
+        value: string;
     }
 
     export interface RuleTarget {
@@ -24453,6 +24458,11 @@ export namespace kinesisfirehose {
         durationInSeconds?: number;
     }
 
+    export interface DeliveryStreamAuthenticationConfiguration {
+        connectivity: enums.kinesisfirehose.DeliveryStreamAuthenticationConfigurationConnectivity;
+        roleArn: string;
+    }
+
     export interface DeliveryStreamBufferingHints {
         intervalInSeconds?: number;
         sizeInMbs?: number;
@@ -24586,6 +24596,12 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamKmsEncryptionConfig {
         awskmsKeyArn: string;
+    }
+
+    export interface DeliveryStreamMskSourceConfiguration {
+        authenticationConfiguration: outputs.kinesisfirehose.DeliveryStreamAuthenticationConfiguration;
+        mskClusterArn: string;
+        topicName: string;
     }
 
     export interface DeliveryStreamOpenXJsonSerDe {

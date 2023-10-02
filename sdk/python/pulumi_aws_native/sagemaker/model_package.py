@@ -36,6 +36,7 @@ class ModelPackageArgs:
                  model_package_status_details: Optional[pulumi.Input['ModelPackageStatusDetailsArgs']] = None,
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
+                 skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
                  source_algorithm_specification: Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
@@ -82,6 +83,8 @@ class ModelPackageArgs:
             pulumi.set(__self__, "model_package_version", model_package_version)
         if sample_payload_url is not None:
             pulumi.set(__self__, "sample_payload_url", sample_payload_url)
+        if skip_model_validation is not None:
+            pulumi.set(__self__, "skip_model_validation", skip_model_validation)
         if source_algorithm_specification is not None:
             pulumi.set(__self__, "source_algorithm_specification", source_algorithm_specification)
         if tags is not None:
@@ -263,6 +266,15 @@ class ModelPackageArgs:
         pulumi.set(self, "sample_payload_url", value)
 
     @property
+    @pulumi.getter(name="skipModelValidation")
+    def skip_model_validation(self) -> Optional[pulumi.Input['ModelPackageSkipModelValidation']]:
+        return pulumi.get(self, "skip_model_validation")
+
+    @skip_model_validation.setter
+    def skip_model_validation(self, value: Optional[pulumi.Input['ModelPackageSkipModelValidation']]):
+        pulumi.set(self, "skip_model_validation", value)
+
+    @property
     @pulumi.getter(name="sourceAlgorithmSpecification")
     def source_algorithm_specification(self) -> Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']]:
         return pulumi.get(self, "source_algorithm_specification")
@@ -326,6 +338,7 @@ class ModelPackage(pulumi.CustomResource):
                  model_package_status_details: Optional[pulumi.Input[pulumi.InputType['ModelPackageStatusDetailsArgs']]] = None,
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
+                 skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
                  source_algorithm_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageSourceAlgorithmSpecificationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageTagArgs']]]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
@@ -381,6 +394,7 @@ class ModelPackage(pulumi.CustomResource):
                  model_package_status_details: Optional[pulumi.Input[pulumi.InputType['ModelPackageStatusDetailsArgs']]] = None,
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
+                 skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
                  source_algorithm_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageSourceAlgorithmSpecificationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageTagArgs']]]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
@@ -413,6 +427,7 @@ class ModelPackage(pulumi.CustomResource):
             __props__.__dict__["model_package_status_details"] = model_package_status_details
             __props__.__dict__["model_package_version"] = model_package_version
             __props__.__dict__["sample_payload_url"] = sample_payload_url
+            __props__.__dict__["skip_model_validation"] = skip_model_validation
             __props__.__dict__["source_algorithm_specification"] = source_algorithm_specification
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task"] = task
@@ -466,6 +481,7 @@ class ModelPackage(pulumi.CustomResource):
         __props__.__dict__["model_package_status_details"] = None
         __props__.__dict__["model_package_version"] = None
         __props__.__dict__["sample_payload_url"] = None
+        __props__.__dict__["skip_model_validation"] = None
         __props__.__dict__["source_algorithm_specification"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["task"] = None
@@ -581,6 +597,11 @@ class ModelPackage(pulumi.CustomResource):
     @pulumi.getter(name="samplePayloadUrl")
     def sample_payload_url(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "sample_payload_url")
+
+    @property
+    @pulumi.getter(name="skipModelValidation")
+    def skip_model_validation(self) -> pulumi.Output[Optional['ModelPackageSkipModelValidation']]:
+        return pulumi.get(self, "skip_model_validation")
 
     @property
     @pulumi.getter(name="sourceAlgorithmSpecification")

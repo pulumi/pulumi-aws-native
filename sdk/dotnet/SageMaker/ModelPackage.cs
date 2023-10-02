@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("samplePayloadUrl")]
         public Output<string?> SamplePayloadUrl { get; private set; } = null!;
 
+        [Output("skipModelValidation")]
+        public Output<Pulumi.AwsNative.SageMaker.ModelPackageSkipModelValidation?> SkipModelValidation { get; private set; } = null!;
+
         [Output("sourceAlgorithmSpecification")]
         public Output<Outputs.ModelPackageSourceAlgorithmSpecification?> SourceAlgorithmSpecification { get; private set; } = null!;
 
@@ -222,6 +225,9 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("samplePayloadUrl")]
         public Input<string>? SamplePayloadUrl { get; set; }
+
+        [Input("skipModelValidation")]
+        public Input<Pulumi.AwsNative.SageMaker.ModelPackageSkipModelValidation>? SkipModelValidation { get; set; }
 
         [Input("sourceAlgorithmSpecification")]
         public Input<Inputs.ModelPackageSourceAlgorithmSpecificationArgs>? SourceAlgorithmSpecification { get; set; }

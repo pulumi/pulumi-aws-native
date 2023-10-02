@@ -26,6 +26,13 @@ export const DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3Back
 
 export type DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode = (typeof DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode)[keyof typeof DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode];
 
+export const DeliveryStreamAuthenticationConfigurationConnectivity = {
+    Public: "PUBLIC",
+    Private: "PRIVATE",
+} as const;
+
+export type DeliveryStreamAuthenticationConfigurationConnectivity = (typeof DeliveryStreamAuthenticationConfigurationConnectivity)[keyof typeof DeliveryStreamAuthenticationConfigurationConnectivity];
+
 export const DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat = {
     FirehoseDefault: "FIREHOSE_DEFAULT",
     NoDocumentId: "NO_DOCUMENT_ID",
@@ -123,6 +130,7 @@ export type DeliveryStreamSplunkDestinationConfigurationHecEndpointType = (typeo
 export const DeliveryStreamType = {
     DirectPut: "DirectPut",
     KinesisStreamAsSource: "KinesisStreamAsSource",
+    MskasSource: "MSKAsSource",
 } as const;
 
 export type DeliveryStreamType = (typeof DeliveryStreamType)[keyof typeof DeliveryStreamType];

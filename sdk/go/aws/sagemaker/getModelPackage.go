@@ -40,6 +40,7 @@ type LookupModelPackageResult struct {
 	ModelPackageStatus                *ModelPackageStatus                                      `pulumi:"modelPackageStatus"`
 	ModelPackageStatusDetails         *ModelPackageStatusDetails                               `pulumi:"modelPackageStatusDetails"`
 	ModelPackageVersion               *int                                                     `pulumi:"modelPackageVersion"`
+	SkipModelValidation               *ModelPackageSkipModelValidation                         `pulumi:"skipModelValidation"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ModelPackageTag `pulumi:"tags"`
 }
@@ -135,6 +136,10 @@ func (o LookupModelPackageResultOutput) ModelPackageStatusDetails() ModelPackage
 
 func (o LookupModelPackageResultOutput) ModelPackageVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *int { return v.ModelPackageVersion }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupModelPackageResultOutput) SkipModelValidation() ModelPackageSkipModelValidationPtrOutput {
+	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageSkipModelValidation { return v.SkipModelValidation }).(ModelPackageSkipModelValidationPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

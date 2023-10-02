@@ -60,11 +60,6 @@ export const getUserPoolUiCustomizationAttachment: typeof import("./getUserPoolU
 export const getUserPoolUiCustomizationAttachmentOutput: typeof import("./getUserPoolUiCustomizationAttachment").getUserPoolUiCustomizationAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getUserPoolUiCustomizationAttachment","getUserPoolUiCustomizationAttachmentOutput"], () => require("./getUserPoolUiCustomizationAttachment"));
 
-export { GetUserPoolUserArgs, GetUserPoolUserResult, GetUserPoolUserOutputArgs } from "./getUserPoolUser";
-export const getUserPoolUser: typeof import("./getUserPoolUser").getUserPoolUser = null as any;
-export const getUserPoolUserOutput: typeof import("./getUserPoolUser").getUserPoolUserOutput = null as any;
-utilities.lazyLoad(exports, ["getUserPoolUser","getUserPoolUserOutput"], () => require("./getUserPoolUser"));
-
 export { GetUserPoolUserToGroupAttachmentArgs, GetUserPoolUserToGroupAttachmentResult, GetUserPoolUserToGroupAttachmentOutputArgs } from "./getUserPoolUserToGroupAttachment";
 export const getUserPoolUserToGroupAttachment: typeof import("./getUserPoolUserToGroupAttachment").getUserPoolUserToGroupAttachment = null as any;
 export const getUserPoolUserToGroupAttachmentOutput: typeof import("./getUserPoolUserToGroupAttachment").getUserPoolUserToGroupAttachmentOutput = null as any;

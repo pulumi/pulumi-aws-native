@@ -1053,6 +1053,8 @@ type ServiceCodeRepository struct {
 	// Repository Url
 	RepositoryUrl     string                   `pulumi:"repositoryUrl"`
 	SourceCodeVersion ServiceSourceCodeVersion `pulumi:"sourceCodeVersion"`
+	// Source Directory
+	SourceDirectory *string `pulumi:"sourceDirectory"`
 }
 
 // ServiceCodeRepositoryInput is an input type that accepts ServiceCodeRepositoryArgs and ServiceCodeRepositoryOutput values.
@@ -1072,6 +1074,8 @@ type ServiceCodeRepositoryArgs struct {
 	// Repository Url
 	RepositoryUrl     pulumi.StringInput            `pulumi:"repositoryUrl"`
 	SourceCodeVersion ServiceSourceCodeVersionInput `pulumi:"sourceCodeVersion"`
+	// Source Directory
+	SourceDirectory pulumi.StringPtrInput `pulumi:"sourceDirectory"`
 }
 
 func (ServiceCodeRepositoryArgs) ElementType() reflect.Type {
@@ -1183,6 +1187,11 @@ func (o ServiceCodeRepositoryOutput) SourceCodeVersion() ServiceSourceCodeVersio
 	return o.ApplyT(func(v ServiceCodeRepository) ServiceSourceCodeVersion { return v.SourceCodeVersion }).(ServiceSourceCodeVersionOutput)
 }
 
+// Source Directory
+func (o ServiceCodeRepositoryOutput) SourceDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCodeRepository) *string { return v.SourceDirectory }).(pulumi.StringPtrOutput)
+}
+
 type ServiceCodeRepositoryPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceCodeRepositoryPtrOutput) ElementType() reflect.Type {
@@ -1239,6 +1248,16 @@ func (o ServiceCodeRepositoryPtrOutput) SourceCodeVersion() ServiceSourceCodeVer
 		}
 		return &v.SourceCodeVersion
 	}).(ServiceSourceCodeVersionPtrOutput)
+}
+
+// Source Directory
+func (o ServiceCodeRepositoryPtrOutput) SourceDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCodeRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDirectory
+	}).(pulumi.StringPtrOutput)
 }
 
 // Network egress configuration

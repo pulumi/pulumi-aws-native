@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleTag
     {
-        public readonly string? Key;
-        public readonly string? Value;
+        public readonly string Key;
+        public readonly string Value;
 
         [OutputConstructor]
         private RuleTag(
-            string? key,
+            string key,
 
-            string? value)
+            string value)
         {
             Key = key;
             Value = value;

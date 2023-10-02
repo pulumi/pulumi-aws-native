@@ -605,6 +605,16 @@ export const ModelPackageS3DataSourceS3DataType = {
  */
 export type ModelPackageS3DataSourceS3DataType = (typeof ModelPackageS3DataSourceS3DataType)[keyof typeof ModelPackageS3DataSourceS3DataType];
 
+export const ModelPackageSkipModelValidation = {
+    None: "None",
+    All: "All",
+} as const;
+
+/**
+ * Indicates if you want to skip model validation.
+ */
+export type ModelPackageSkipModelValidation = (typeof ModelPackageSkipModelValidation)[keyof typeof ModelPackageSkipModelValidation];
+
 export const ModelPackageStatus = {
     Pending: "Pending",
     Deleting: "Deleting",

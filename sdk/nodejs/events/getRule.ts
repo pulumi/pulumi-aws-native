@@ -25,6 +25,7 @@ export interface GetRuleArgs {
 export interface GetRuleResult {
     readonly arn?: string;
     readonly description?: string;
+    readonly eventBusName?: string;
     readonly eventPattern?: any;
     readonly id?: string;
     readonly roleArn?: string;

@@ -71,3 +71,35 @@ export const DocumentUpdateMethod = {
  * Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
  */
 export type DocumentUpdateMethod = (typeof DocumentUpdateMethod)[keyof typeof DocumentUpdateMethod];
+
+export const ParameterDataType = {
+    Text: "text",
+    Awsec2image: "aws:ec2:image",
+} as const;
+
+/**
+ * The corresponding DataType of the parameter.
+ */
+export type ParameterDataType = (typeof ParameterDataType)[keyof typeof ParameterDataType];
+
+export const ParameterTier = {
+    Standard: "Standard",
+    Advanced: "Advanced",
+    IntelligentTiering: "Intelligent-Tiering",
+} as const;
+
+/**
+ * The corresponding tier of the parameter.
+ */
+export type ParameterTier = (typeof ParameterTier)[keyof typeof ParameterTier];
+
+export const ParameterType = {
+    String: "String",
+    StringList: "StringList",
+    SecureString: "SecureString",
+} as const;
+
+/**
+ * The type of the parameter.
+ */
+export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];

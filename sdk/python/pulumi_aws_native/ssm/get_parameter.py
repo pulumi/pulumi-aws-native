@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GetParameterResult',
@@ -18,28 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetParameterResult:
-    def __init__(__self__, allowed_pattern=None, data_type=None, description=None, id=None, policies=None, tags=None, tier=None, type=None, value=None):
-        if allowed_pattern and not isinstance(allowed_pattern, str):
-            raise TypeError("Expected argument 'allowed_pattern' to be a str")
-        pulumi.set(__self__, "allowed_pattern", allowed_pattern)
+    def __init__(__self__, data_type=None, type=None, value=None):
         if data_type and not isinstance(data_type, str):
             raise TypeError("Expected argument 'data_type' to be a str")
         pulumi.set(__self__, "data_type", data_type)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
-        if policies and not isinstance(policies, str):
-            raise TypeError("Expected argument 'policies' to be a str")
-        pulumi.set(__self__, "policies", policies)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
-        if tier and not isinstance(tier, str):
-            raise TypeError("Expected argument 'tier' to be a str")
-        pulumi.set(__self__, "tier", tier)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -48,48 +31,27 @@ class GetParameterResult:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="allowedPattern")
-    def allowed_pattern(self) -> Optional[str]:
-        return pulumi.get(self, "allowed_pattern")
-
-    @property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[str]:
+    def data_type(self) -> Optional['ParameterDataType']:
+        """
+        The corresponding DataType of the parameter.
+        """
         return pulumi.get(self, "data_type")
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def policies(self) -> Optional[str]:
-        return pulumi.get(self, "policies")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Any]:
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[str]:
-        return pulumi.get(self, "tier")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['ParameterType']:
+        """
+        The type of the parameter.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The value associated with the parameter.
+        """
         return pulumi.get(self, "value")
 
 
@@ -99,43 +61,37 @@ class AwaitableGetParameterResult(GetParameterResult):
         if False:
             yield self
         return GetParameterResult(
-            allowed_pattern=self.allowed_pattern,
             data_type=self.data_type,
-            description=self.description,
-            id=self.id,
-            policies=self.policies,
-            tags=self.tags,
-            tier=self.tier,
             type=self.type,
             value=self.value)
 
 
-def get_parameter(id: Optional[str] = None,
+def get_parameter(name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParameterResult:
     """
     Resource Type definition for AWS::SSM::Parameter
+
+
+    :param str name: The name of the parameter.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ssm:getParameter', __args__, opts=opts, typ=GetParameterResult).value
 
     return AwaitableGetParameterResult(
-        allowed_pattern=pulumi.get(__ret__, 'allowed_pattern'),
         data_type=pulumi.get(__ret__, 'data_type'),
-        description=pulumi.get(__ret__, 'description'),
-        id=pulumi.get(__ret__, 'id'),
-        policies=pulumi.get(__ret__, 'policies'),
-        tags=pulumi.get(__ret__, 'tags'),
-        tier=pulumi.get(__ret__, 'tier'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_parameter)
-def get_parameter_output(id: Optional[pulumi.Input[str]] = None,
+def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterResult]:
     """
     Resource Type definition for AWS::SSM::Parameter
+
+
+    :param str name: The name of the parameter.
     """
     ...

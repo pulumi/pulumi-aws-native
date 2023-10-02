@@ -2781,10 +2781,11 @@ func (in *loggingDefaultLogLevelPtr) ToOutput(ctx context.Context) pulumix.Outpu
 type MitigationActionEnableIoTLoggingParamsLogLevel string
 
 const (
-	MitigationActionEnableIoTLoggingParamsLogLevelDebug = MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG")
-	MitigationActionEnableIoTLoggingParamsLogLevelInfo  = MitigationActionEnableIoTLoggingParamsLogLevel("INFO")
-	MitigationActionEnableIoTLoggingParamsLogLevelError = MitigationActionEnableIoTLoggingParamsLogLevel("ERROR")
-	MitigationActionEnableIoTLoggingParamsLogLevelWarn  = MitigationActionEnableIoTLoggingParamsLogLevel("WARN")
+	MitigationActionEnableIoTLoggingParamsLogLevelDebug      = MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG")
+	MitigationActionEnableIoTLoggingParamsLogLevelInfo       = MitigationActionEnableIoTLoggingParamsLogLevel("INFO")
+	MitigationActionEnableIoTLoggingParamsLogLevelError      = MitigationActionEnableIoTLoggingParamsLogLevel("ERROR")
+	MitigationActionEnableIoTLoggingParamsLogLevelWarn       = MitigationActionEnableIoTLoggingParamsLogLevel("WARN")
+	MitigationActionEnableIoTLoggingParamsLogLevelUnsetValue = MitigationActionEnableIoTLoggingParamsLogLevel("UNSET_VALUE")
 )
 
 func (MitigationActionEnableIoTLoggingParamsLogLevel) ElementType() reflect.Type {
@@ -2966,6 +2967,7 @@ type MitigationActionReplaceDefaultPolicyVersionParamsTemplateName string
 
 const (
 	MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameBlankPolicy = MitigationActionReplaceDefaultPolicyVersionParamsTemplateName("BLANK_POLICY")
+	MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameUnsetValue  = MitigationActionReplaceDefaultPolicyVersionParamsTemplateName("UNSET_VALUE")
 )
 
 func (MitigationActionReplaceDefaultPolicyVersionParamsTemplateName) ElementType() reflect.Type {
@@ -3147,6 +3149,7 @@ type MitigationActionUpdateCaCertificateParamsAction string
 
 const (
 	MitigationActionUpdateCaCertificateParamsActionDeactivate = MitigationActionUpdateCaCertificateParamsAction("DEACTIVATE")
+	MitigationActionUpdateCaCertificateParamsActionUnsetValue = MitigationActionUpdateCaCertificateParamsAction("UNSET_VALUE")
 )
 
 func (MitigationActionUpdateCaCertificateParamsAction) ElementType() reflect.Type {
@@ -3328,6 +3331,7 @@ type MitigationActionUpdateDeviceCertificateParamsAction string
 
 const (
 	MitigationActionUpdateDeviceCertificateParamsActionDeactivate = MitigationActionUpdateDeviceCertificateParamsAction("DEACTIVATE")
+	MitigationActionUpdateDeviceCertificateParamsActionUnsetValue = MitigationActionUpdateDeviceCertificateParamsAction("UNSET_VALUE")
 )
 
 func (MitigationActionUpdateDeviceCertificateParamsAction) ElementType() reflect.Type {
