@@ -163,6 +163,13 @@
         "StatementName" : {
           "type" : "string"
         },
+        "Sqls" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
         "Database" : {
           "type" : "string"
         },
@@ -179,7 +186,7 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "Database" ]
+      "required" : [ "Database", "Sql" ]
     },
     "Target" : {
       "type" : "object",
@@ -402,7 +409,8 @@
         "Key" : {
           "type" : "string"
         }
-      }
+      },
+      "required" : [ "Value", "Key" ]
     },
     "SageMakerPipelineParameters" : {
       "type" : "object",
@@ -452,7 +460,7 @@
       "required" : [ "Value", "Name" ]
     }
   },
-  "createOnlyProperties" : [ "/properties/Name", "/properties/EventBusName" ],
+  "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ]
 }

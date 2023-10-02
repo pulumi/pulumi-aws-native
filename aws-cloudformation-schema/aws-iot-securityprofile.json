@@ -303,7 +303,7 @@
   "readOnlyProperties" : [ "/properties/SecurityProfileArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iot:CreateSecurityProfile", "iot:AttachSecurityProfile", "iam:PassRole" ]
+      "permissions" : [ "iot:CreateSecurityProfile", "iot:AttachSecurityProfile", "iot:DescribeSecurityProfile", "iot:TagResource", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "iot:DescribeSecurityProfile", "iot:ListTagsForResource", "iot:ListTargetsForSecurityProfile" ]

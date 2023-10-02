@@ -1,33 +1,30 @@
 {
   "typeName" : "AWS::Cognito::UserPoolUser",
   "description" : "Resource Type definition for AWS::Cognito::UserPoolUser",
-  "additionalProperties" : false,
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
+  "definitions" : {
+    "AttributeType" : {
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    }
+  },
   "properties" : {
-    "ValidationData" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/AttributeType"
-      }
-    },
-    "UserPoolId" : {
-      "type" : "string"
-    },
-    "Username" : {
-      "type" : "string"
-    },
-    "MessageAction" : {
-      "type" : "string"
-    },
-    "ClientMetadata" : {
-      "type" : "object"
-    },
-    "Id" : {
-      "type" : "string"
-    },
     "DesiredDeliveryMediums" : {
       "type" : "array",
-      "uniqueItems" : false,
       "items" : {
         "type" : "string"
       }
@@ -37,28 +34,62 @@
     },
     "UserAttributes" : {
       "type" : "array",
-      "uniqueItems" : false,
       "items" : {
         "$ref" : "#/definitions/AttributeType"
       }
-    }
-  },
-  "definitions" : {
-    "AttributeType" : {
+    },
+    "MessageAction" : {
+      "type" : "string"
+    },
+    "Username" : {
+      "type" : "string"
+    },
+    "UserPoolId" : {
+      "type" : "string"
+    },
+    "ValidationData" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/AttributeType"
+      }
+    },
+    "ClientMetadata" : {
       "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Value" : {
-          "type" : "string"
-        },
-        "Name" : {
+      "patternProperties" : {
+        "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     }
   },
+  "additionalProperties" : false,
   "required" : [ "UserPoolId" ],
-  "createOnlyProperties" : [ "/properties/ClientMetadata", "/properties/ValidationData", "/properties/UserPoolId", "/properties/MessageAction", "/properties/ForceAliasCreation", "/properties/DesiredDeliveryMediums", "/properties/UserAttributes", "/properties/Username" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/UserPoolId", "/properties/Username" ],
+  "createOnlyProperties" : [ "/properties/DesiredDeliveryMediums", "/properties/ForceAliasCreation", "/properties/UserAttributes", "/properties/Username", "/properties/UserPoolId", "/properties/ValidationData", "/properties/ClientMetadata", "/properties/MessageAction" ],
+  "writeOnlyProperties" : [ "/properties/DesiredDeliveryMediums", "/properties/ForceAliasCreation", "/properties/ValidationData", "/properties/ClientMetadata", "/properties/MessageAction" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "cognito-idp:AdminCreateUser", "iam:PassRole" ],
+      "timeoutInMinutes" : 2
+    },
+    "read" : {
+      "permissions" : [ "cognito-idp:AdminGetUser" ]
+    },
+    "delete" : {
+      "permissions" : [ "cognito-idp:AdminDeleteUser" ],
+      "timeoutInMinutes" : 2
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "UserPoolId" : {
+            "$ref" : "resource-schema.json#/properties/UserPoolId"
+          }
+        },
+        "required" : [ "UserPoolId" ]
+      },
+      "permissions" : [ "cognito-idp:ListUsers" ]
+    }
+  }
 }

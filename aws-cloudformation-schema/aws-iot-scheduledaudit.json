@@ -80,7 +80,7 @@
   "readOnlyProperties" : [ "/properties/ScheduledAuditArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iot:CreateScheduledAudit" ]
+      "permissions" : [ "iot:CreateScheduledAudit", "iot:DescribeScheduledAudit", "iot:TagResource" ]
     },
     "read" : {
       "permissions" : [ "iot:DescribeScheduledAudit", "iot:ListTagsForResource" ]
