@@ -11,7 +11,7 @@ PROVIDER_PKGS	:= $(shell cd ./provider && go list ./...)
 WORKING_DIR		:= $(shell pwd)
 
 JAVA_GEN		 := pulumi-java-gen
-JAVA_GEN_VERSION := v0.5.4
+JAVA_GEN_VERSION := v0.9.7
 
 VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}"
 
