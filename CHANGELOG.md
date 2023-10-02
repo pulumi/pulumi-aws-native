@@ -2,6 +2,21 @@
 
 ### Breaking Changes
 
+
+## 0.79.0 (2023-10-02)
+
+### New resources:
+- `cognito.UserPoolUser`
+- `events.EventBus`
+- `events.Rule`
+- `ssm.Parameter`
+
+### New functions:
+- `events.getEventBus`
+- `events.getRule`
+- `ssm.getParameter`
+
+
 ## 0.75.0 (2023-08-28)
 
 ### Breaking Changes
