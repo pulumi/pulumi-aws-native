@@ -33,6 +33,7 @@ AWS::ApiGatewayV2::Api
 AWS::ApiGatewayV2::ApiMapping
 AWS::ApiGatewayV2::Authorizer
 AWS::ApiGatewayV2::Deployment
+AWS::ApiGatewayV2::DomainName
 AWS::ApiGatewayV2::IntegrationResponse
 AWS::ApiGatewayV2::Model
 AWS::ApiGatewayV2::Route
@@ -856,6 +857,7 @@ Databricks::Clusters::Job
 Datadog::Dashboards::Dashboard
 Datadog::Integrations::AWS
 Datadog::Monitors::Downtime
+Datadog::Monitors::DowntimeSchedule
 Datadog::Monitors::Monitor
 Datadog::SLOs::SLO
 Dynatrace::Configuration::Dashboard
