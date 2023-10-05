@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -25,14 +25,29 @@ class ModelPackageGroupArgs:
         The set of arguments for constructing a ModelPackageGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        ModelPackageGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            model_package_group_description=model_package_group_description,
+            model_package_group_name=model_package_group_name,
+            model_package_group_policy=model_package_group_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             model_package_group_description: Optional[pulumi.Input[str]] = None,
+             model_package_group_name: Optional[pulumi.Input[str]] = None,
+             model_package_group_policy: Optional[Any] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if model_package_group_description is not None:
-            pulumi.set(__self__, "model_package_group_description", model_package_group_description)
+            _setter("model_package_group_description", model_package_group_description)
         if model_package_group_name is not None:
-            pulumi.set(__self__, "model_package_group_name", model_package_group_name)
+            _setter("model_package_group_name", model_package_group_name)
         if model_package_group_policy is not None:
-            pulumi.set(__self__, "model_package_group_policy", model_package_group_policy)
+            _setter("model_package_group_policy", model_package_group_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="modelPackageGroupDescription")
@@ -110,6 +125,10 @@ class ModelPackageGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ModelPackageGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

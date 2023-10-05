@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,11 +23,26 @@ class RealtimeLogConfigArgs:
         """
         The set of arguments for constructing a RealtimeLogConfig resource.
         """
-        pulumi.set(__self__, "end_points", end_points)
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "sampling_rate", sampling_rate)
+        RealtimeLogConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_points=end_points,
+            fields=fields,
+            sampling_rate=sampling_rate,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_points: pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]],
+             fields: pulumi.Input[Sequence[pulumi.Input[str]]],
+             sampling_rate: pulumi.Input[float],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_points", end_points)
+        _setter("fields", fields)
+        _setter("sampling_rate", sampling_rate)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="endPoints")
@@ -101,6 +116,10 @@ class RealtimeLogConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RealtimeLogConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

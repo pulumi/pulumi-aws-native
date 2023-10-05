@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,31 @@ class DbParameterGroupArgs:
         :param Any parameters: An array of parameter names and values for the parameter update.
         :param pulumi.Input[Sequence[pulumi.Input['DbParameterGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "family", family)
+        DbParameterGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            family=family,
+            db_parameter_group_name=db_parameter_group_name,
+            parameters=parameters,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: pulumi.Input[str],
+             family: pulumi.Input[str],
+             db_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[Any] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbParameterGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("family", family)
         if db_parameter_group_name is not None:
-            pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
+            _setter("db_parameter_group_name", db_parameter_group_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -140,6 +157,10 @@ class DbParameterGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DbParameterGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

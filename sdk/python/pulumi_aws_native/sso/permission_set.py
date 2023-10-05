@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,25 +35,52 @@ class PermissionSetArgs:
         :param pulumi.Input[str] relay_state_type: The relay state URL that redirect links to any service in the AWS Management Console.
         :param pulumi.Input[str] session_duration: The length of time that a user can be signed in to an AWS account.
         """
-        pulumi.set(__self__, "instance_arn", instance_arn)
+        PermissionSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            customer_managed_policy_references=customer_managed_policy_references,
+            description=description,
+            inline_policy=inline_policy,
+            managed_policies=managed_policies,
+            name=name,
+            permissions_boundary=permissions_boundary,
+            relay_state_type=relay_state_type,
+            session_duration=session_duration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: pulumi.Input[str],
+             customer_managed_policy_references: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             inline_policy: Optional[Any] = None,
+             managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permissions_boundary: Optional[pulumi.Input['PermissionSetPermissionsBoundaryArgs']] = None,
+             relay_state_type: Optional[pulumi.Input[str]] = None,
+             session_duration: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_arn", instance_arn)
         if customer_managed_policy_references is not None:
-            pulumi.set(__self__, "customer_managed_policy_references", customer_managed_policy_references)
+            _setter("customer_managed_policy_references", customer_managed_policy_references)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if inline_policy is not None:
-            pulumi.set(__self__, "inline_policy", inline_policy)
+            _setter("inline_policy", inline_policy)
         if managed_policies is not None:
-            pulumi.set(__self__, "managed_policies", managed_policies)
+            _setter("managed_policies", managed_policies)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permissions_boundary is not None:
-            pulumi.set(__self__, "permissions_boundary", permissions_boundary)
+            _setter("permissions_boundary", permissions_boundary)
         if relay_state_type is not None:
-            pulumi.set(__self__, "relay_state_type", relay_state_type)
+            _setter("relay_state_type", relay_state_type)
         if session_duration is not None:
-            pulumi.set(__self__, "session_duration", session_duration)
+            _setter("session_duration", session_duration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -211,6 +238,10 @@ class PermissionSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PermissionSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -243,6 +274,11 @@ class PermissionSet(pulumi.CustomResource):
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["managed_policies"] = managed_policies
             __props__.__dict__["name"] = name
+            if permissions_boundary is not None and not isinstance(permissions_boundary, PermissionSetPermissionsBoundaryArgs):
+                permissions_boundary = permissions_boundary or {}
+                def _setter(key, value):
+                    permissions_boundary[key] = value
+                PermissionSetPermissionsBoundaryArgs._configure(_setter, **permissions_boundary)
             __props__.__dict__["permissions_boundary"] = permissions_boundary
             __props__.__dict__["relay_state_type"] = relay_state_type
             __props__.__dict__["session_duration"] = session_duration

@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetAccountIdResult',
     'AwaitableGetAccountIdResult',
     'get_account_id',
+    'get_account_id_output',
 ]
 
 @pulumi.output_type
@@ -47,3 +48,11 @@ def get_account_id(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetA
 
     return AwaitableGetAccountIdResult(
         account_id=pulumi.get(__ret__, 'account_id'))
+
+
+@_utilities.lift_output_func(get_account_id)
+def get_account_id_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountIdResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

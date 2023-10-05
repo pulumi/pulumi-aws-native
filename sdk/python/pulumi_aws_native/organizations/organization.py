@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -20,8 +20,17 @@ class OrganizationArgs:
         The set of arguments for constructing a Organization resource.
         :param pulumi.Input['OrganizationFeatureSet'] feature_set: Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
         """
+        OrganizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            feature_set=feature_set,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             feature_set: Optional[pulumi.Input['OrganizationFeatureSet']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if feature_set is not None:
-            pulumi.set(__self__, "feature_set", feature_set)
+            _setter("feature_set", feature_set)
 
     @property
     @pulumi.getter(name="featureSet")
@@ -69,6 +78,10 @@ class Organization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

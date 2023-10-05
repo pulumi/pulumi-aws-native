@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -47,14 +47,29 @@ class ConnectionAliasAssociation(dict):
                  association_status: Optional['ConnectionAliasAssociationAssociationStatus'] = None,
                  connection_identifier: Optional[str] = None,
                  resource_id: Optional[str] = None):
+        ConnectionAliasAssociation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            associated_account_id=associated_account_id,
+            association_status=association_status,
+            connection_identifier=connection_identifier,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             associated_account_id: Optional[str] = None,
+             association_status: Optional['ConnectionAliasAssociationAssociationStatus'] = None,
+             connection_identifier: Optional[str] = None,
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if associated_account_id is not None:
-            pulumi.set(__self__, "associated_account_id", associated_account_id)
+            _setter("associated_account_id", associated_account_id)
         if association_status is not None:
-            pulumi.set(__self__, "association_status", association_status)
+            _setter("association_status", association_status)
         if connection_identifier is not None:
-            pulumi.set(__self__, "connection_identifier", connection_identifier)
+            _setter("connection_identifier", connection_identifier)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="associatedAccountId")
@@ -82,8 +97,19 @@ class ConnectionAliasTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ConnectionAliasTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -129,16 +155,33 @@ class WorkspaceProperties(dict):
                  running_mode: Optional[str] = None,
                  running_mode_auto_stop_timeout_in_minutes: Optional[int] = None,
                  user_volume_size_gib: Optional[int] = None):
+        WorkspaceProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type_name=compute_type_name,
+            root_volume_size_gib=root_volume_size_gib,
+            running_mode=running_mode,
+            running_mode_auto_stop_timeout_in_minutes=running_mode_auto_stop_timeout_in_minutes,
+            user_volume_size_gib=user_volume_size_gib,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type_name: Optional[str] = None,
+             root_volume_size_gib: Optional[int] = None,
+             running_mode: Optional[str] = None,
+             running_mode_auto_stop_timeout_in_minutes: Optional[int] = None,
+             user_volume_size_gib: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_type_name is not None:
-            pulumi.set(__self__, "compute_type_name", compute_type_name)
+            _setter("compute_type_name", compute_type_name)
         if root_volume_size_gib is not None:
-            pulumi.set(__self__, "root_volume_size_gib", root_volume_size_gib)
+            _setter("root_volume_size_gib", root_volume_size_gib)
         if running_mode is not None:
-            pulumi.set(__self__, "running_mode", running_mode)
+            _setter("running_mode", running_mode)
         if running_mode_auto_stop_timeout_in_minutes is not None:
-            pulumi.set(__self__, "running_mode_auto_stop_timeout_in_minutes", running_mode_auto_stop_timeout_in_minutes)
+            _setter("running_mode_auto_stop_timeout_in_minutes", running_mode_auto_stop_timeout_in_minutes)
         if user_volume_size_gib is not None:
-            pulumi.set(__self__, "user_volume_size_gib", user_volume_size_gib)
+            _setter("user_volume_size_gib", user_volume_size_gib)
 
     @property
     @pulumi.getter(name="computeTypeName")
@@ -171,8 +214,19 @@ class WorkspaceTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        WorkspaceTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

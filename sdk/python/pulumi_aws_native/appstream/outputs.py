@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -65,8 +65,19 @@ class AppBlockBuilderAccessEndpoint(dict):
     def __init__(__self__, *,
                  endpoint_type: str,
                  vpce_id: str):
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-        pulumi.set(__self__, "vpce_id", vpce_id)
+        AppBlockBuilderAccessEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            vpce_id=vpce_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: str,
+             vpce_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", endpoint_type)
+        _setter("vpce_id", vpce_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -84,8 +95,19 @@ class AppBlockBuilderTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AppBlockBuilderTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -122,10 +144,21 @@ class AppBlockBuilderVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
+        AppBlockBuilderVpcConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Optional[Sequence[str]] = None,
+             subnet_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -162,9 +195,20 @@ class AppBlockS3Location(dict):
     def __init__(__self__, *,
                  s3_bucket: str,
                  s3_key: Optional[str] = None):
-        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        AppBlockS3Location._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket=s3_bucket,
+            s3_key=s3_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket: str,
+             s3_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_bucket", s3_bucket)
         if s3_key is not None:
-            pulumi.set(__self__, "s3_key", s3_key)
+            _setter("s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -207,11 +251,26 @@ class AppBlockScriptDetails(dict):
                  script_s3_location: 'outputs.AppBlockS3Location',
                  timeout_in_seconds: int,
                  executable_parameters: Optional[str] = None):
-        pulumi.set(__self__, "executable_path", executable_path)
-        pulumi.set(__self__, "script_s3_location", script_s3_location)
-        pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        AppBlockScriptDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            executable_path=executable_path,
+            script_s3_location=script_s3_location,
+            timeout_in_seconds=timeout_in_seconds,
+            executable_parameters=executable_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             executable_path: str,
+             script_s3_location: 'outputs.AppBlockS3Location',
+             timeout_in_seconds: int,
+             executable_parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("executable_path", executable_path)
+        _setter("script_s3_location", script_s3_location)
+        _setter("timeout_in_seconds", timeout_in_seconds)
         if executable_parameters is not None:
-            pulumi.set(__self__, "executable_parameters", executable_parameters)
+            _setter("executable_parameters", executable_parameters)
 
     @property
     @pulumi.getter(name="executablePath")
@@ -239,8 +298,19 @@ class AppBlockTag0Properties(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AppBlockTag0Properties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -277,8 +347,19 @@ class AppBlockTag1Properties(dict):
     def __init__(__self__, *,
                  tag_key: str,
                  tag_value: str):
-        pulumi.set(__self__, "tag_key", tag_key)
-        pulumi.set(__self__, "tag_value", tag_value)
+        AppBlockTag1Properties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tag_key: str,
+             tag_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("tag_key", tag_key)
+        _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="tagKey")
@@ -315,8 +396,19 @@ class ApplicationS3Location(dict):
     def __init__(__self__, *,
                  s3_bucket: str,
                  s3_key: str):
-        pulumi.set(__self__, "s3_bucket", s3_bucket)
-        pulumi.set(__self__, "s3_key", s3_key)
+        ApplicationS3Location._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket=s3_bucket,
+            s3_key=s3_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket: str,
+             s3_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_bucket", s3_bucket)
+        _setter("s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -334,8 +426,19 @@ class ApplicationTag0Properties(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ApplicationTag0Properties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -372,8 +475,19 @@ class ApplicationTag1Properties(dict):
     def __init__(__self__, *,
                  tag_key: str,
                  tag_value: str):
-        pulumi.set(__self__, "tag_key", tag_key)
-        pulumi.set(__self__, "tag_value", tag_value)
+        ApplicationTag1Properties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tag_key: str,
+             tag_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("tag_key", tag_key)
+        _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="tagKey")
@@ -408,10 +522,21 @@ class DirectoryConfigCertificateBasedAuthProperties(dict):
     def __init__(__self__, *,
                  certificate_authority_arn: Optional[str] = None,
                  status: Optional[str] = None):
+        DirectoryConfigCertificateBasedAuthProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_authority_arn=certificate_authority_arn,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_authority_arn: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_authority_arn is not None:
-            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+            _setter("certificate_authority_arn", certificate_authority_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="certificateAuthorityArn")
@@ -448,8 +573,19 @@ class DirectoryConfigServiceAccountCredentials(dict):
     def __init__(__self__, *,
                  account_name: str,
                  account_password: str):
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "account_password", account_password)
+        DirectoryConfigServiceAccountCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            account_password=account_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: str,
+             account_password: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("account_password", account_password)
 
     @property
     @pulumi.getter(name="accountName")
@@ -467,8 +603,19 @@ class EntitlementAttribute(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        EntitlementAttribute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -505,10 +652,21 @@ class FleetComputeCapacity(dict):
     def __init__(__self__, *,
                  desired_instances: Optional[int] = None,
                  desired_sessions: Optional[int] = None):
+        FleetComputeCapacity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            desired_instances=desired_instances,
+            desired_sessions=desired_sessions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             desired_instances: Optional[int] = None,
+             desired_sessions: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if desired_instances is not None:
-            pulumi.set(__self__, "desired_instances", desired_instances)
+            _setter("desired_instances", desired_instances)
         if desired_sessions is not None:
-            pulumi.set(__self__, "desired_sessions", desired_sessions)
+            _setter("desired_sessions", desired_sessions)
 
     @property
     @pulumi.getter(name="desiredInstances")
@@ -545,10 +703,21 @@ class FleetDomainJoinInfo(dict):
     def __init__(__self__, *,
                  directory_name: Optional[str] = None,
                  organizational_unit_distinguished_name: Optional[str] = None):
+        FleetDomainJoinInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_name=directory_name,
+            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_name: Optional[str] = None,
+             organizational_unit_distinguished_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if directory_name is not None:
-            pulumi.set(__self__, "directory_name", directory_name)
+            _setter("directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+            _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -585,8 +754,19 @@ class FleetS3Location(dict):
     def __init__(__self__, *,
                  s3_bucket: str,
                  s3_key: str):
-        pulumi.set(__self__, "s3_bucket", s3_bucket)
-        pulumi.set(__self__, "s3_key", s3_key)
+        FleetS3Location._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket=s3_bucket,
+            s3_key=s3_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket: str,
+             s3_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_bucket", s3_bucket)
+        _setter("s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -604,8 +784,19 @@ class FleetTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        FleetTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -642,10 +833,21 @@ class FleetVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
+        FleetVpcConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Optional[Sequence[str]] = None,
+             subnet_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -682,8 +884,19 @@ class ImageBuilderAccessEndpoint(dict):
     def __init__(__self__, *,
                  endpoint_type: str,
                  vpce_id: str):
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-        pulumi.set(__self__, "vpce_id", vpce_id)
+        ImageBuilderAccessEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            vpce_id=vpce_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: str,
+             vpce_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", endpoint_type)
+        _setter("vpce_id", vpce_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -720,10 +933,21 @@ class ImageBuilderDomainJoinInfo(dict):
     def __init__(__self__, *,
                  directory_name: Optional[str] = None,
                  organizational_unit_distinguished_name: Optional[str] = None):
+        ImageBuilderDomainJoinInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_name=directory_name,
+            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_name: Optional[str] = None,
+             organizational_unit_distinguished_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if directory_name is not None:
-            pulumi.set(__self__, "directory_name", directory_name)
+            _setter("directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+            _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -741,8 +965,19 @@ class ImageBuilderTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ImageBuilderTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -779,10 +1014,21 @@ class ImageBuilderVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
+        ImageBuilderVpcConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Optional[Sequence[str]] = None,
+             subnet_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -819,8 +1065,19 @@ class StackAccessEndpoint(dict):
     def __init__(__self__, *,
                  endpoint_type: str,
                  vpce_id: str):
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-        pulumi.set(__self__, "vpce_id", vpce_id)
+        StackAccessEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            vpce_id=vpce_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: str,
+             vpce_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", endpoint_type)
+        _setter("vpce_id", vpce_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -855,9 +1112,20 @@ class StackApplicationSettings(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  settings_group: Optional[str] = None):
-        pulumi.set(__self__, "enabled", enabled)
+        StackApplicationSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            settings_group=settings_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             settings_group: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if settings_group is not None:
-            pulumi.set(__self__, "settings_group", settings_group)
+            _setter("settings_group", settings_group)
 
     @property
     @pulumi.getter
@@ -895,11 +1163,24 @@ class StackStorageConnector(dict):
                  connector_type: str,
                  domains: Optional[Sequence[str]] = None,
                  resource_identifier: Optional[str] = None):
-        pulumi.set(__self__, "connector_type", connector_type)
+        StackStorageConnector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_type=connector_type,
+            domains=domains,
+            resource_identifier=resource_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_type: str,
+             domains: Optional[Sequence[str]] = None,
+             resource_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connector_type", connector_type)
         if domains is not None:
-            pulumi.set(__self__, "domains", domains)
+            _setter("domains", domains)
         if resource_identifier is not None:
-            pulumi.set(__self__, "resource_identifier", resource_identifier)
+            _setter("resource_identifier", resource_identifier)
 
     @property
     @pulumi.getter(name="connectorType")
@@ -938,8 +1219,17 @@ class StackStreamingExperienceSettings(dict):
 
     def __init__(__self__, *,
                  preferred_protocol: Optional[str] = None):
+        StackStreamingExperienceSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preferred_protocol=preferred_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preferred_protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if preferred_protocol is not None:
-            pulumi.set(__self__, "preferred_protocol", preferred_protocol)
+            _setter("preferred_protocol", preferred_protocol)
 
     @property
     @pulumi.getter(name="preferredProtocol")
@@ -952,8 +1242,19 @@ class StackTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        StackTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -971,8 +1272,19 @@ class StackUserSetting(dict):
     def __init__(__self__, *,
                  action: str,
                  permission: str):
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "permission", permission)
+        StackUserSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            permission=permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: str,
+             permission: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("permission", permission)
 
     @property
     @pulumi.getter

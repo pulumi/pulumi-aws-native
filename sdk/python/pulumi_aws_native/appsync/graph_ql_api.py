@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,31 +32,64 @@ class GraphQlApiArgs:
         """
         The set of arguments for constructing a GraphQlApi resource.
         """
-        pulumi.set(__self__, "authentication_type", authentication_type)
+        GraphQlApiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            additional_authentication_providers=additional_authentication_providers,
+            api_type=api_type,
+            lambda_authorizer_config=lambda_authorizer_config,
+            log_config=log_config,
+            merged_api_execution_role_arn=merged_api_execution_role_arn,
+            name=name,
+            open_id_connect_config=open_id_connect_config,
+            owner_contact=owner_contact,
+            tags=tags,
+            user_pool_config=user_pool_config,
+            visibility=visibility,
+            xray_enabled=xray_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: pulumi.Input[str],
+             additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiAdditionalAuthenticationProviderArgs']]]] = None,
+             api_type: Optional[pulumi.Input[str]] = None,
+             lambda_authorizer_config: Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']] = None,
+             log_config: Optional[pulumi.Input['GraphQlApiLogConfigArgs']] = None,
+             merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             open_id_connect_config: Optional[pulumi.Input['GraphQlApiOpenIdConnectConfigArgs']] = None,
+             owner_contact: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiTagArgs']]]] = None,
+             user_pool_config: Optional[pulumi.Input['GraphQlApiUserPoolConfigArgs']] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
+             xray_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication_type", authentication_type)
         if additional_authentication_providers is not None:
-            pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
+            _setter("additional_authentication_providers", additional_authentication_providers)
         if api_type is not None:
-            pulumi.set(__self__, "api_type", api_type)
+            _setter("api_type", api_type)
         if lambda_authorizer_config is not None:
-            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
+            _setter("lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
-            pulumi.set(__self__, "log_config", log_config)
+            _setter("log_config", log_config)
         if merged_api_execution_role_arn is not None:
-            pulumi.set(__self__, "merged_api_execution_role_arn", merged_api_execution_role_arn)
+            _setter("merged_api_execution_role_arn", merged_api_execution_role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if open_id_connect_config is not None:
-            pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
+            _setter("open_id_connect_config", open_id_connect_config)
         if owner_contact is not None:
-            pulumi.set(__self__, "owner_contact", owner_contact)
+            _setter("owner_contact", owner_contact)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_pool_config is not None:
-            pulumi.set(__self__, "user_pool_config", user_pool_config)
+            _setter("user_pool_config", user_pool_config)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
         if xray_enabled is not None:
-            pulumi.set(__self__, "xray_enabled", xray_enabled)
+            _setter("xray_enabled", xray_enabled)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -225,6 +258,10 @@ class GraphQlApi(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GraphQlApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -258,13 +295,33 @@ class GraphQlApi(pulumi.CustomResource):
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
+            if lambda_authorizer_config is not None and not isinstance(lambda_authorizer_config, GraphQlApiLambdaAuthorizerConfigArgs):
+                lambda_authorizer_config = lambda_authorizer_config or {}
+                def _setter(key, value):
+                    lambda_authorizer_config[key] = value
+                GraphQlApiLambdaAuthorizerConfigArgs._configure(_setter, **lambda_authorizer_config)
             __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
+            if log_config is not None and not isinstance(log_config, GraphQlApiLogConfigArgs):
+                log_config = log_config or {}
+                def _setter(key, value):
+                    log_config[key] = value
+                GraphQlApiLogConfigArgs._configure(_setter, **log_config)
             __props__.__dict__["log_config"] = log_config
             __props__.__dict__["merged_api_execution_role_arn"] = merged_api_execution_role_arn
             __props__.__dict__["name"] = name
+            if open_id_connect_config is not None and not isinstance(open_id_connect_config, GraphQlApiOpenIdConnectConfigArgs):
+                open_id_connect_config = open_id_connect_config or {}
+                def _setter(key, value):
+                    open_id_connect_config[key] = value
+                GraphQlApiOpenIdConnectConfigArgs._configure(_setter, **open_id_connect_config)
             __props__.__dict__["open_id_connect_config"] = open_id_connect_config
             __props__.__dict__["owner_contact"] = owner_contact
             __props__.__dict__["tags"] = tags
+            if user_pool_config is not None and not isinstance(user_pool_config, GraphQlApiUserPoolConfigArgs):
+                user_pool_config = user_pool_config or {}
+                def _setter(key, value):
+                    user_pool_config[key] = value
+                GraphQlApiUserPoolConfigArgs._configure(_setter, **user_pool_config)
             __props__.__dict__["user_pool_config"] = user_pool_config
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["xray_enabled"] = xray_enabled

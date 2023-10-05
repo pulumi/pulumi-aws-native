@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -37,17 +37,40 @@ class LaunchProfileArgs:
         :param pulumi.Input[str] description: <p>The description.</p>
         :param pulumi.Input[str] name: <p>The name for the launch profile.</p>
         """
-        pulumi.set(__self__, "ec2_subnet_ids", ec2_subnet_ids)
-        pulumi.set(__self__, "launch_profile_protocol_versions", launch_profile_protocol_versions)
-        pulumi.set(__self__, "stream_configuration", stream_configuration)
-        pulumi.set(__self__, "studio_component_ids", studio_component_ids)
-        pulumi.set(__self__, "studio_id", studio_id)
+        LaunchProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ec2_subnet_ids=ec2_subnet_ids,
+            launch_profile_protocol_versions=launch_profile_protocol_versions,
+            stream_configuration=stream_configuration,
+            studio_component_ids=studio_component_ids,
+            studio_id=studio_id,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ec2_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             launch_profile_protocol_versions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             stream_configuration: pulumi.Input['LaunchProfileStreamConfigurationArgs'],
+             studio_component_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             studio_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input['LaunchProfileTagsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ec2_subnet_ids", ec2_subnet_ids)
+        _setter("launch_profile_protocol_versions", launch_profile_protocol_versions)
+        _setter("stream_configuration", stream_configuration)
+        _setter("studio_component_ids", studio_component_ids)
+        _setter("studio_id", studio_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="ec2SubnetIds")
@@ -191,6 +214,10 @@ class LaunchProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LaunchProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -221,6 +248,11 @@ class LaunchProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'launch_profile_protocol_versions'")
             __props__.__dict__["launch_profile_protocol_versions"] = launch_profile_protocol_versions
             __props__.__dict__["name"] = name
+            if stream_configuration is not None and not isinstance(stream_configuration, LaunchProfileStreamConfigurationArgs):
+                stream_configuration = stream_configuration or {}
+                def _setter(key, value):
+                    stream_configuration[key] = value
+                LaunchProfileStreamConfigurationArgs._configure(_setter, **stream_configuration)
             if stream_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_configuration'")
             __props__.__dict__["stream_configuration"] = stream_configuration
@@ -230,6 +262,11 @@ class LaunchProfile(pulumi.CustomResource):
             if studio_id is None and not opts.urn:
                 raise TypeError("Missing required property 'studio_id'")
             __props__.__dict__["studio_id"] = studio_id
+            if tags is not None and not isinstance(tags, LaunchProfileTagsArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                LaunchProfileTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["launch_profile_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_subnet_ids[*]", "studio_id", "tags"])

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -56,12 +56,25 @@ class AppDataSource(dict):
                  arn: Optional[str] = None,
                  database_name: Optional[str] = None,
                  type: Optional[str] = None):
+        AppDataSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            database_name=database_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[str] = None,
+             database_name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -85,10 +98,23 @@ class AppEnvironmentVariable(dict):
                  key: str,
                  value: str,
                  secure: Optional[bool] = None):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AppEnvironmentVariable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+            secure=secure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             secure: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
         if secure is not None:
-            pulumi.set(__self__, "secure", secure)
+            _setter("secure", secure)
 
     @property
     @pulumi.getter
@@ -132,18 +158,37 @@ class AppSource(dict):
                  type: Optional[str] = None,
                  url: Optional[str] = None,
                  username: Optional[str] = None):
+        AppSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            revision=revision,
+            ssh_key=ssh_key,
+            type=type,
+            url=url,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             revision: Optional[str] = None,
+             ssh_key: Optional[str] = None,
+             type: Optional[str] = None,
+             url: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if ssh_key is not None:
-            pulumi.set(__self__, "ssh_key", ssh_key)
+            _setter("ssh_key", ssh_key)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -199,12 +244,25 @@ class AppSslConfiguration(dict):
                  certificate: Optional[str] = None,
                  chain: Optional[str] = None,
                  private_key: Optional[str] = None):
+        AppSslConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            chain=chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[str] = None,
+             chain: Optional[str] = None,
+             private_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if chain is not None:
-            pulumi.set(__self__, "chain", chain)
+            _setter("chain", chain)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
 
     @property
     @pulumi.getter
@@ -250,14 +308,29 @@ class InstanceBlockDeviceMapping(dict):
                  ebs: Optional['outputs.InstanceEbsBlockDevice'] = None,
                  no_device: Optional[str] = None,
                  virtual_name: Optional[str] = None):
+        InstanceBlockDeviceMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            ebs=ebs,
+            no_device=no_device,
+            virtual_name=virtual_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[str] = None,
+             ebs: Optional['outputs.InstanceEbsBlockDevice'] = None,
+             no_device: Optional[str] = None,
+             virtual_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if ebs is not None:
-            pulumi.set(__self__, "ebs", ebs)
+            _setter("ebs", ebs)
         if no_device is not None:
-            pulumi.set(__self__, "no_device", no_device)
+            _setter("no_device", no_device)
         if virtual_name is not None:
-            pulumi.set(__self__, "virtual_name", virtual_name)
+            _setter("virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -311,16 +384,33 @@ class InstanceEbsBlockDevice(dict):
                  snapshot_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
+        InstanceEbsBlockDevice._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_on_termination=delete_on_termination,
+            iops=iops,
+            snapshot_id=snapshot_id,
+            volume_size=volume_size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_on_termination: Optional[bool] = None,
+             iops: Optional[int] = None,
+             snapshot_id: Optional[str] = None,
+             volume_size: Optional[int] = None,
+             volume_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_on_termination is not None:
-            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+            _setter("delete_on_termination", delete_on_termination)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if volume_size is not None:
-            pulumi.set(__self__, "volume_size", volume_size)
+            _setter("volume_size", volume_size)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
@@ -358,20 +448,41 @@ class InstanceTimeBasedAutoScaling(dict):
                  thursday: Optional[Any] = None,
                  tuesday: Optional[Any] = None,
                  wednesday: Optional[Any] = None):
+        InstanceTimeBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            friday=friday,
+            monday=monday,
+            saturday=saturday,
+            sunday=sunday,
+            thursday=thursday,
+            tuesday=tuesday,
+            wednesday=wednesday,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             friday: Optional[Any] = None,
+             monday: Optional[Any] = None,
+             saturday: Optional[Any] = None,
+             sunday: Optional[Any] = None,
+             thursday: Optional[Any] = None,
+             tuesday: Optional[Any] = None,
+             wednesday: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if friday is not None:
-            pulumi.set(__self__, "friday", friday)
+            _setter("friday", friday)
         if monday is not None:
-            pulumi.set(__self__, "monday", monday)
+            _setter("monday", monday)
         if saturday is not None:
-            pulumi.set(__self__, "saturday", saturday)
+            _setter("saturday", saturday)
         if sunday is not None:
-            pulumi.set(__self__, "sunday", sunday)
+            _setter("sunday", sunday)
         if thursday is not None:
-            pulumi.set(__self__, "thursday", thursday)
+            _setter("thursday", thursday)
         if tuesday is not None:
-            pulumi.set(__self__, "tuesday", tuesday)
+            _setter("tuesday", tuesday)
         if wednesday is not None:
-            pulumi.set(__self__, "wednesday", wednesday)
+            _setter("wednesday", wednesday)
 
     @property
     @pulumi.getter
@@ -445,18 +556,37 @@ class LayerAutoScalingThresholds(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        LayerAutoScalingThresholds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter(name="cpuThreshold")
@@ -510,8 +640,17 @@ class LayerLifecycleEventConfiguration(dict):
 
     def __init__(__self__, *,
                  shutdown_event_configuration: Optional['outputs.LayerShutdownEventConfiguration'] = None):
+        LayerLifecycleEventConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            shutdown_event_configuration=shutdown_event_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             shutdown_event_configuration: Optional['outputs.LayerShutdownEventConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if shutdown_event_configuration is not None:
-            pulumi.set(__self__, "shutdown_event_configuration", shutdown_event_configuration)
+            _setter("shutdown_event_configuration", shutdown_event_configuration)
 
     @property
     @pulumi.getter(name="shutdownEventConfiguration")
@@ -544,12 +683,25 @@ class LayerLoadBasedAutoScaling(dict):
                  down_scaling: Optional['outputs.LayerAutoScalingThresholds'] = None,
                  enable: Optional[bool] = None,
                  up_scaling: Optional['outputs.LayerAutoScalingThresholds'] = None):
+        LayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            down_scaling=down_scaling,
+            enable=enable,
+            up_scaling=up_scaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             down_scaling: Optional['outputs.LayerAutoScalingThresholds'] = None,
+             enable: Optional[bool] = None,
+             up_scaling: Optional['outputs.LayerAutoScalingThresholds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if down_scaling is not None:
-            pulumi.set(__self__, "down_scaling", down_scaling)
+            _setter("down_scaling", down_scaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if up_scaling is not None:
-            pulumi.set(__self__, "up_scaling", up_scaling)
+            _setter("up_scaling", up_scaling)
 
     @property
     @pulumi.getter(name="downScaling")
@@ -575,16 +727,33 @@ class LayerRecipes(dict):
                  setup: Optional[Sequence[str]] = None,
                  shutdown: Optional[Sequence[str]] = None,
                  undeploy: Optional[Sequence[str]] = None):
+        LayerRecipes._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configure=configure,
+            deploy=deploy,
+            setup=setup,
+            shutdown=shutdown,
+            undeploy=undeploy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configure: Optional[Sequence[str]] = None,
+             deploy: Optional[Sequence[str]] = None,
+             setup: Optional[Sequence[str]] = None,
+             shutdown: Optional[Sequence[str]] = None,
+             undeploy: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if configure is not None:
-            pulumi.set(__self__, "configure", configure)
+            _setter("configure", configure)
         if deploy is not None:
-            pulumi.set(__self__, "deploy", deploy)
+            _setter("deploy", deploy)
         if setup is not None:
-            pulumi.set(__self__, "setup", setup)
+            _setter("setup", setup)
         if shutdown is not None:
-            pulumi.set(__self__, "shutdown", shutdown)
+            _setter("shutdown", shutdown)
         if undeploy is not None:
-            pulumi.set(__self__, "undeploy", undeploy)
+            _setter("undeploy", undeploy)
 
     @property
     @pulumi.getter
@@ -636,10 +805,21 @@ class LayerShutdownEventConfiguration(dict):
     def __init__(__self__, *,
                  delay_until_elb_connections_drained: Optional[bool] = None,
                  execution_timeout: Optional[int] = None):
+        LayerShutdownEventConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delay_until_elb_connections_drained=delay_until_elb_connections_drained,
+            execution_timeout=execution_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delay_until_elb_connections_drained: Optional[bool] = None,
+             execution_timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delay_until_elb_connections_drained is not None:
-            pulumi.set(__self__, "delay_until_elb_connections_drained", delay_until_elb_connections_drained)
+            _setter("delay_until_elb_connections_drained", delay_until_elb_connections_drained)
         if execution_timeout is not None:
-            pulumi.set(__self__, "execution_timeout", execution_timeout)
+            _setter("execution_timeout", execution_timeout)
 
     @property
     @pulumi.getter(name="delayUntilElbConnectionsDrained")
@@ -657,8 +837,19 @@ class LayerTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        LayerTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -704,20 +895,41 @@ class LayerVolumeConfiguration(dict):
                  raid_level: Optional[int] = None,
                  size: Optional[int] = None,
                  volume_type: Optional[str] = None):
+        LayerVolumeConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encrypted=encrypted,
+            iops=iops,
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            raid_level=raid_level,
+            size=size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             mount_point: Optional[str] = None,
+             number_of_disks: Optional[int] = None,
+             raid_level: Optional[int] = None,
+             size: Optional[int] = None,
+             volume_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if mount_point is not None:
-            pulumi.set(__self__, "mount_point", mount_point)
+            _setter("mount_point", mount_point)
         if number_of_disks is not None:
-            pulumi.set(__self__, "number_of_disks", number_of_disks)
+            _setter("number_of_disks", number_of_disks)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter
@@ -779,10 +991,21 @@ class StackChefConfiguration(dict):
     def __init__(__self__, *,
                  berkshelf_version: Optional[str] = None,
                  manage_berkshelf: Optional[bool] = None):
+        StackChefConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            berkshelf_version=berkshelf_version,
+            manage_berkshelf=manage_berkshelf,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             berkshelf_version: Optional[str] = None,
+             manage_berkshelf: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if berkshelf_version is not None:
-            pulumi.set(__self__, "berkshelf_version", berkshelf_version)
+            _setter("berkshelf_version", berkshelf_version)
         if manage_berkshelf is not None:
-            pulumi.set(__self__, "manage_berkshelf", manage_berkshelf)
+            _setter("manage_berkshelf", manage_berkshelf)
 
     @property
     @pulumi.getter(name="berkshelfVersion")
@@ -800,10 +1023,21 @@ class StackConfigurationManager(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  version: Optional[str] = None):
+        StackConfigurationManager._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -821,9 +1055,20 @@ class StackElasticIp(dict):
     def __init__(__self__, *,
                  ip: str,
                  name: Optional[str] = None):
-        pulumi.set(__self__, "ip", ip)
+        StackElasticIp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: str,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip", ip)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -863,9 +1108,22 @@ class StackRdsDbInstance(dict):
                  db_password: str,
                  db_user: str,
                  rds_db_instance_arn: str):
-        pulumi.set(__self__, "db_password", db_password)
-        pulumi.set(__self__, "db_user", db_user)
-        pulumi.set(__self__, "rds_db_instance_arn", rds_db_instance_arn)
+        StackRdsDbInstance._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_password=db_password,
+            db_user=db_user,
+            rds_db_instance_arn=rds_db_instance_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_password: str,
+             db_user: str,
+             rds_db_instance_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("db_password", db_password)
+        _setter("db_user", db_user)
+        _setter("rds_db_instance_arn", rds_db_instance_arn)
 
     @property
     @pulumi.getter(name="dbPassword")
@@ -909,18 +1167,37 @@ class StackSource(dict):
                  type: Optional[str] = None,
                  url: Optional[str] = None,
                  username: Optional[str] = None):
+        StackSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            revision=revision,
+            ssh_key=ssh_key,
+            type=type,
+            url=url,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             revision: Optional[str] = None,
+             ssh_key: Optional[str] = None,
+             type: Optional[str] = None,
+             url: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if ssh_key is not None:
-            pulumi.set(__self__, "ssh_key", ssh_key)
+            _setter("ssh_key", ssh_key)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -958,8 +1235,19 @@ class StackTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        StackTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

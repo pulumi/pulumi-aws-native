@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,17 +28,38 @@ class ConfiguredTableArgs:
         The set of arguments for constructing a ConfiguredTable resource.
         :param pulumi.Input[Sequence[pulumi.Input['ConfiguredTableTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
-        pulumi.set(__self__, "allowed_columns", allowed_columns)
-        pulumi.set(__self__, "analysis_method", analysis_method)
-        pulumi.set(__self__, "table_reference", table_reference)
+        ConfiguredTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_columns=allowed_columns,
+            analysis_method=analysis_method,
+            table_reference=table_reference,
+            analysis_rules=analysis_rules,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_columns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             analysis_method: pulumi.Input['ConfiguredTableAnalysisMethod'],
+             table_reference: pulumi.Input['ConfiguredTableTableReferenceArgs'],
+             analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_columns", allowed_columns)
+        _setter("analysis_method", analysis_method)
+        _setter("table_reference", table_reference)
         if analysis_rules is not None:
-            pulumi.set(__self__, "analysis_rules", analysis_rules)
+            _setter("analysis_rules", analysis_rules)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="allowedColumns")
@@ -146,6 +167,10 @@ class ConfiguredTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfiguredTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -176,6 +201,11 @@ class ConfiguredTable(pulumi.CustomResource):
             __props__.__dict__["analysis_rules"] = analysis_rules
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if table_reference is not None and not isinstance(table_reference, ConfiguredTableTableReferenceArgs):
+                table_reference = table_reference or {}
+                def _setter(key, value):
+                    table_reference[key] = value
+                ConfiguredTableTableReferenceArgs._configure(_setter, **table_reference)
             if table_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'table_reference'")
             __props__.__dict__["table_reference"] = table_reference

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -18,7 +18,16 @@ __all__ = [
 class JobTemplateAccelerationSettingsArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str]):
-        pulumi.set(__self__, "mode", mode)
+        JobTemplateAccelerationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -36,12 +45,25 @@ class JobTemplateHopDestinationArgs:
                  priority: Optional[pulumi.Input[int]] = None,
                  queue: Optional[pulumi.Input[str]] = None,
                  wait_minutes: Optional[pulumi.Input[int]] = None):
+        JobTemplateHopDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            queue=queue,
+            wait_minutes=wait_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: Optional[pulumi.Input[int]] = None,
+             queue: Optional[pulumi.Input[str]] = None,
+             wait_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if queue is not None:
-            pulumi.set(__self__, "queue", queue)
+            _setter("queue", queue)
         if wait_minutes is not None:
-            pulumi.set(__self__, "wait_minutes", wait_minutes)
+            _setter("wait_minutes", wait_minutes)
 
     @property
     @pulumi.getter

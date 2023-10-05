@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -29,12 +29,25 @@ class AssessmentAwsAccountArgs:
         """
         The AWS account associated with the assessment.
         """
+        AssessmentAwsAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -71,8 +84,17 @@ class AssessmentAwsServiceArgs:
         """
         An AWS service such as Amazon S3, AWS CloudTrail, and so on.
         """
+        AssessmentAwsServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_name=service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -101,28 +123,57 @@ class AssessmentDelegationArgs:
         """
         The assignment of a control set to a delegate for review.
         """
+        AssessmentDelegationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_id=assessment_id,
+            assessment_name=assessment_name,
+            comment=comment,
+            control_set_id=control_set_id,
+            created_by=created_by,
+            creation_time=creation_time,
+            id=id,
+            last_updated=last_updated,
+            role_arn=role_arn,
+            role_type=role_type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_id: Optional[pulumi.Input[str]] = None,
+             assessment_name: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             control_set_id: Optional[pulumi.Input[str]] = None,
+             created_by: Optional[pulumi.Input[str]] = None,
+             creation_time: Optional[pulumi.Input[float]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             last_updated: Optional[pulumi.Input[float]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             role_type: Optional[pulumi.Input['AssessmentRoleType']] = None,
+             status: Optional[pulumi.Input['AssessmentDelegationStatus']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assessment_id is not None:
-            pulumi.set(__self__, "assessment_id", assessment_id)
+            _setter("assessment_id", assessment_id)
         if assessment_name is not None:
-            pulumi.set(__self__, "assessment_name", assessment_name)
+            _setter("assessment_name", assessment_name)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if control_set_id is not None:
-            pulumi.set(__self__, "control_set_id", control_set_id)
+            _setter("control_set_id", control_set_id)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if last_updated is not None:
-            pulumi.set(__self__, "last_updated", last_updated)
+            _setter("last_updated", last_updated)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if role_type is not None:
-            pulumi.set(__self__, "role_type", role_type)
+            _setter("role_type", role_type)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="assessmentId")
@@ -232,10 +283,21 @@ class AssessmentReportsDestinationArgs:
         """
         The destination in which evidence reports are stored for the specified assessment.
         """
+        AssessmentReportsDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            destination_type=destination_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: Optional[pulumi.Input[str]] = None,
+             destination_type: Optional[pulumi.Input['AssessmentReportDestinationType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if destination_type is not None:
-            pulumi.set(__self__, "destination_type", destination_type)
+            _setter("destination_type", destination_type)
 
     @property
     @pulumi.getter
@@ -264,10 +326,21 @@ class AssessmentRoleArgs:
         """
         The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
         """
+        AssessmentRoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            role_type=role_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: Optional[pulumi.Input[str]] = None,
+             role_type: Optional[pulumi.Input['AssessmentRoleType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if role_type is not None:
-            pulumi.set(__self__, "role_type", role_type)
+            _setter("role_type", role_type)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -298,10 +371,21 @@ class AssessmentScopeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]] aws_accounts: The AWS accounts included in scope.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]] aws_services: The AWS services included in scope.
         """
+        AssessmentScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_accounts=aws_accounts,
+            aws_services=aws_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]]] = None,
+             aws_services: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_accounts is not None:
-            pulumi.set(__self__, "aws_accounts", aws_accounts)
+            _setter("aws_accounts", aws_accounts)
         if aws_services is not None:
-            pulumi.set(__self__, "aws_services", aws_services)
+            _setter("aws_services", aws_services)
 
     @property
     @pulumi.getter(name="awsAccounts")
@@ -338,8 +422,19 @@ class AssessmentTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AssessmentTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

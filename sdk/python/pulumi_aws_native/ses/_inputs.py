@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -54,7 +54,16 @@ class ConfigurationSetDashboardOptionsArgs:
         Preferences regarding the Dashboard feature.
         :param pulumi.Input[str] engagement_metrics: Whether emails sent with this configuration set have engagement tracking enabled.
         """
-        pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+        ConfigurationSetDashboardOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            engagement_metrics=engagement_metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             engagement_metrics: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("engagement_metrics", engagement_metrics)
 
     @property
     @pulumi.getter(name="engagementMetrics")
@@ -79,10 +88,21 @@ class ConfigurationSetDeliveryOptionsArgs:
         :param pulumi.Input[str] sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
         :param pulumi.Input[str] tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
         """
+        ConfigurationSetDeliveryOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sending_pool_name=sending_pool_name,
+            tls_policy=tls_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sending_pool_name: Optional[pulumi.Input[str]] = None,
+             tls_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sending_pool_name is not None:
-            pulumi.set(__self__, "sending_pool_name", sending_pool_name)
+            _setter("sending_pool_name", sending_pool_name)
         if tls_policy is not None:
-            pulumi.set(__self__, "tls_policy", tls_policy)
+            _setter("tls_policy", tls_policy)
 
     @property
     @pulumi.getter(name="sendingPoolName")
@@ -117,8 +137,17 @@ class ConfigurationSetEventDestinationCloudWatchDestinationArgs:
         An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]] dimension_configurations: A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
         """
+        ConfigurationSetEventDestinationCloudWatchDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimension_configurations=dimension_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimension_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dimension_configurations is not None:
-            pulumi.set(__self__, "dimension_configurations", dimension_configurations)
+            _setter("dimension_configurations", dimension_configurations)
 
     @property
     @pulumi.getter(name="dimensionConfigurations")
@@ -145,9 +174,22 @@ class ConfigurationSetEventDestinationDimensionConfigurationArgs:
         :param pulumi.Input[str] dimension_name: The name of an Amazon CloudWatch dimension associated with an email sending metric.
         :param pulumi.Input[str] dimension_value_source: The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. To use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, specify messageTag. To use your own email headers, specify emailHeader. To put a custom tag on any link included in your email, specify linkTag.
         """
-        pulumi.set(__self__, "default_dimension_value", default_dimension_value)
-        pulumi.set(__self__, "dimension_name", dimension_name)
-        pulumi.set(__self__, "dimension_value_source", dimension_value_source)
+        ConfigurationSetEventDestinationDimensionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_dimension_value=default_dimension_value,
+            dimension_name=dimension_name,
+            dimension_value_source=dimension_value_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_dimension_value: pulumi.Input[str],
+             dimension_name: pulumi.Input[str],
+             dimension_value_source: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_dimension_value", default_dimension_value)
+        _setter("dimension_name", dimension_name)
+        _setter("dimension_value_source", dimension_value_source)
 
     @property
     @pulumi.getter(name="defaultDimensionValue")
@@ -203,17 +245,36 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
         :param pulumi.Input[str] name: The name of the event destination set.
         :param pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs'] sns_destination: An object that contains SNS topic ARN associated event destination.
         """
-        pulumi.set(__self__, "matching_event_types", matching_event_types)
+        ConfigurationSetEventDestinationEventDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matching_event_types=matching_event_types,
+            cloud_watch_destination=cloud_watch_destination,
+            enabled=enabled,
+            kinesis_firehose_destination=kinesis_firehose_destination,
+            name=name,
+            sns_destination=sns_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matching_event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             cloud_watch_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
-            pulumi.set(__self__, "cloud_watch_destination", cloud_watch_destination)
+            _setter("cloud_watch_destination", cloud_watch_destination)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if kinesis_firehose_destination is not None:
-            pulumi.set(__self__, "kinesis_firehose_destination", kinesis_firehose_destination)
+            _setter("kinesis_firehose_destination", kinesis_firehose_destination)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sns_destination is not None:
-            pulumi.set(__self__, "sns_destination", sns_destination)
+            _setter("sns_destination", sns_destination)
 
     @property
     @pulumi.getter(name="matchingEventTypes")
@@ -298,8 +359,19 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs:
         :param pulumi.Input[str] delivery_stream_arn: The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
         """
-        pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
-        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_stream_arn=delivery_stream_arn,
+            iam_role_arn=iam_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_stream_arn: pulumi.Input[str],
+             iam_role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("delivery_stream_arn", delivery_stream_arn)
+        _setter("iam_role_arn", iam_role_arn)
 
     @property
     @pulumi.getter(name="deliveryStreamArn")
@@ -333,7 +405,16 @@ class ConfigurationSetEventDestinationSnsDestinationArgs:
         """
         An object that contains SNS topic ARN associated event destination.
         """
-        pulumi.set(__self__, "topic_arn", topic_arn)
+        ConfigurationSetEventDestinationSnsDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="topicArn")
@@ -353,7 +434,16 @@ class ConfigurationSetGuardianOptionsArgs:
         Preferences regarding the Guardian feature.
         :param pulumi.Input[str] optimized_shared_delivery: Whether emails sent with this configuration set have optimized delivery algorithm enabled.
         """
-        pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+        ConfigurationSetGuardianOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            optimized_shared_delivery=optimized_shared_delivery,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             optimized_shared_delivery: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("optimized_shared_delivery", optimized_shared_delivery)
 
     @property
     @pulumi.getter(name="optimizedSharedDelivery")
@@ -376,8 +466,17 @@ class ConfigurationSetReputationOptionsArgs:
         An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         :param pulumi.Input[bool] reputation_metrics_enabled: If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
         """
+        ConfigurationSetReputationOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reputation_metrics_enabled=reputation_metrics_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if reputation_metrics_enabled is not None:
-            pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
+            _setter("reputation_metrics_enabled", reputation_metrics_enabled)
 
     @property
     @pulumi.getter(name="reputationMetricsEnabled")
@@ -399,8 +498,17 @@ class ConfigurationSetSendingOptionsArgs:
         """
         An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         """
+        ConfigurationSetSendingOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sending_enabled=sending_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sending_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sending_enabled is not None:
-            pulumi.set(__self__, "sending_enabled", sending_enabled)
+            _setter("sending_enabled", sending_enabled)
 
     @property
     @pulumi.getter(name="sendingEnabled")
@@ -420,8 +528,17 @@ class ConfigurationSetSuppressionOptionsArgs:
         An object that contains information about the suppression list preferences for your account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
         """
+        ConfigurationSetSuppressionOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            suppressed_reasons=suppressed_reasons,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             suppressed_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if suppressed_reasons is not None:
-            pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
+            _setter("suppressed_reasons", suppressed_reasons)
 
     @property
     @pulumi.getter(name="suppressedReasons")
@@ -444,8 +561,17 @@ class ConfigurationSetTrackingOptionsArgs:
         An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param pulumi.Input[str] custom_redirect_domain: The domain to use for tracking open and click events.
         """
+        ConfigurationSetTrackingOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_redirect_domain=custom_redirect_domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_redirect_domain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_redirect_domain is not None:
-            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+            _setter("custom_redirect_domain", custom_redirect_domain)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
@@ -468,10 +594,21 @@ class ConfigurationSetVdmOptionsArgs:
         """
         An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
         """
+        ConfigurationSetVdmOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dashboard_options=dashboard_options,
+            guardian_options=guardian_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dashboard_options: Optional[pulumi.Input['ConfigurationSetDashboardOptionsArgs']] = None,
+             guardian_options: Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dashboard_options is not None:
-            pulumi.set(__self__, "dashboard_options", dashboard_options)
+            _setter("dashboard_options", dashboard_options)
         if guardian_options is not None:
-            pulumi.set(__self__, "guardian_options", guardian_options)
+            _setter("guardian_options", guardian_options)
 
     @property
     @pulumi.getter(name="dashboardOptions")
@@ -497,8 +634,19 @@ class ContactListTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ContactListTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -531,11 +679,26 @@ class ContactListTopicArgs:
         :param pulumi.Input[str] topic_name: The name of the topic.
         :param pulumi.Input[str] description: The description of the topic.
         """
-        pulumi.set(__self__, "default_subscription_status", default_subscription_status)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "topic_name", topic_name)
+        ContactListTopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_subscription_status=default_subscription_status,
+            display_name=display_name,
+            topic_name=topic_name,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_subscription_status: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             topic_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_subscription_status", default_subscription_status)
+        _setter("display_name", display_name)
+        _setter("topic_name", topic_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="defaultSubscriptionStatus")
@@ -591,8 +754,17 @@ class EmailIdentityConfigurationSetAttributesArgs:
         Used to associate a configuration set with an email identity.
         :param pulumi.Input[str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
         """
+        EmailIdentityConfigurationSetAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_set_name=configuration_set_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_set_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if configuration_set_name is not None:
-            pulumi.set(__self__, "configuration_set_name", configuration_set_name)
+            _setter("configuration_set_name", configuration_set_name)
 
     @property
     @pulumi.getter(name="configurationSetName")
@@ -615,8 +787,17 @@ class EmailIdentityDkimAttributesArgs:
         Used to enable or disable DKIM authentication for an email identity.
         :param pulumi.Input[bool] signing_enabled: Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing.
         """
+        EmailIdentityDkimAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            signing_enabled=signing_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             signing_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if signing_enabled is not None:
-            pulumi.set(__self__, "signing_enabled", signing_enabled)
+            _setter("signing_enabled", signing_enabled)
 
     @property
     @pulumi.getter(name="signingEnabled")
@@ -643,12 +824,25 @@ class EmailIdentityDkimSigningAttributesArgs:
         :param pulumi.Input[str] domain_signing_selector: [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
         :param pulumi.Input[str] next_signing_key_length: [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
         """
+        EmailIdentityDkimSigningAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_signing_private_key=domain_signing_private_key,
+            domain_signing_selector=domain_signing_selector,
+            next_signing_key_length=next_signing_key_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_signing_private_key: Optional[pulumi.Input[str]] = None,
+             domain_signing_selector: Optional[pulumi.Input[str]] = None,
+             next_signing_key_length: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_signing_private_key is not None:
-            pulumi.set(__self__, "domain_signing_private_key", domain_signing_private_key)
+            _setter("domain_signing_private_key", domain_signing_private_key)
         if domain_signing_selector is not None:
-            pulumi.set(__self__, "domain_signing_selector", domain_signing_selector)
+            _setter("domain_signing_selector", domain_signing_selector)
         if next_signing_key_length is not None:
-            pulumi.set(__self__, "next_signing_key_length", next_signing_key_length)
+            _setter("next_signing_key_length", next_signing_key_length)
 
     @property
     @pulumi.getter(name="domainSigningPrivateKey")
@@ -695,8 +889,17 @@ class EmailIdentityFeedbackAttributesArgs:
         Used to enable or disable feedback forwarding for an identity.
         :param pulumi.Input[bool] email_forwarding_enabled: If the value is true, you receive email notifications when bounce or complaint events occur
         """
+        EmailIdentityFeedbackAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_forwarding_enabled=email_forwarding_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email_forwarding_enabled is not None:
-            pulumi.set(__self__, "email_forwarding_enabled", email_forwarding_enabled)
+            _setter("email_forwarding_enabled", email_forwarding_enabled)
 
     @property
     @pulumi.getter(name="emailForwardingEnabled")
@@ -721,10 +924,21 @@ class EmailIdentityMailFromAttributesArgs:
         :param pulumi.Input[str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email.
         :param pulumi.Input[str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use
         """
+        EmailIdentityMailFromAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            behavior_on_mx_failure=behavior_on_mx_failure,
+            mail_from_domain=mail_from_domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
+             mail_from_domain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if behavior_on_mx_failure is not None:
-            pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
+            _setter("behavior_on_mx_failure", behavior_on_mx_failure)
         if mail_from_domain is not None:
-            pulumi.set(__self__, "mail_from_domain", mail_from_domain)
+            _setter("mail_from_domain", mail_from_domain)
 
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
@@ -756,9 +970,20 @@ class ReceiptFilterFilterArgs:
     def __init__(__self__, *,
                  ip_filter: pulumi.Input['ReceiptFilterIpFilterArgs'],
                  name: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "ip_filter", ip_filter)
+        ReceiptFilterFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_filter=ip_filter,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_filter: pulumi.Input['ReceiptFilterIpFilterArgs'],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_filter", ip_filter)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="ipFilter")
@@ -784,8 +1009,19 @@ class ReceiptFilterIpFilterArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str],
                  policy: pulumi.Input[str]):
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "policy", policy)
+        ReceiptFilterIpFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr=cidr,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr: pulumi.Input[str],
+             policy: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cidr", cidr)
+        _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -816,20 +1052,41 @@ class ReceiptRuleActionArgs:
                  sns_action: Optional[pulumi.Input['ReceiptRuleSnsActionArgs']] = None,
                  stop_action: Optional[pulumi.Input['ReceiptRuleStopActionArgs']] = None,
                  workmail_action: Optional[pulumi.Input['ReceiptRuleWorkmailActionArgs']] = None):
+        ReceiptRuleActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_header_action=add_header_action,
+            bounce_action=bounce_action,
+            lambda_action=lambda_action,
+            s3_action=s3_action,
+            sns_action=sns_action,
+            stop_action=stop_action,
+            workmail_action=workmail_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_header_action: Optional[pulumi.Input['ReceiptRuleAddHeaderActionArgs']] = None,
+             bounce_action: Optional[pulumi.Input['ReceiptRuleBounceActionArgs']] = None,
+             lambda_action: Optional[pulumi.Input['ReceiptRuleLambdaActionArgs']] = None,
+             s3_action: Optional[pulumi.Input['ReceiptRuleS3ActionArgs']] = None,
+             sns_action: Optional[pulumi.Input['ReceiptRuleSnsActionArgs']] = None,
+             stop_action: Optional[pulumi.Input['ReceiptRuleStopActionArgs']] = None,
+             workmail_action: Optional[pulumi.Input['ReceiptRuleWorkmailActionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if add_header_action is not None:
-            pulumi.set(__self__, "add_header_action", add_header_action)
+            _setter("add_header_action", add_header_action)
         if bounce_action is not None:
-            pulumi.set(__self__, "bounce_action", bounce_action)
+            _setter("bounce_action", bounce_action)
         if lambda_action is not None:
-            pulumi.set(__self__, "lambda_action", lambda_action)
+            _setter("lambda_action", lambda_action)
         if s3_action is not None:
-            pulumi.set(__self__, "s3_action", s3_action)
+            _setter("s3_action", s3_action)
         if sns_action is not None:
-            pulumi.set(__self__, "sns_action", sns_action)
+            _setter("sns_action", sns_action)
         if stop_action is not None:
-            pulumi.set(__self__, "stop_action", stop_action)
+            _setter("stop_action", stop_action)
         if workmail_action is not None:
-            pulumi.set(__self__, "workmail_action", workmail_action)
+            _setter("workmail_action", workmail_action)
 
     @property
     @pulumi.getter(name="addHeaderAction")
@@ -900,8 +1157,19 @@ class ReceiptRuleAddHeaderActionArgs:
     def __init__(__self__, *,
                  header_name: pulumi.Input[str],
                  header_value: pulumi.Input[str]):
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "header_value", header_value)
+        ReceiptRuleAddHeaderActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_name=header_name,
+            header_value=header_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_name: pulumi.Input[str],
+             header_value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header_name", header_name)
+        _setter("header_value", header_value)
 
     @property
     @pulumi.getter(name="headerName")
@@ -930,13 +1198,30 @@ class ReceiptRuleBounceActionArgs:
                  smtp_reply_code: pulumi.Input[str],
                  status_code: Optional[pulumi.Input[str]] = None,
                  topic_arn: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "sender", sender)
-        pulumi.set(__self__, "smtp_reply_code", smtp_reply_code)
+        ReceiptRuleBounceActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            sender=sender,
+            smtp_reply_code=smtp_reply_code,
+            status_code=status_code,
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: pulumi.Input[str],
+             sender: pulumi.Input[str],
+             smtp_reply_code: pulumi.Input[str],
+             status_code: Optional[pulumi.Input[str]] = None,
+             topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message", message)
+        _setter("sender", sender)
+        _setter("smtp_reply_code", smtp_reply_code)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
         if topic_arn is not None:
-            pulumi.set(__self__, "topic_arn", topic_arn)
+            _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter
@@ -990,11 +1275,24 @@ class ReceiptRuleLambdaActionArgs:
                  function_arn: pulumi.Input[str],
                  invocation_type: Optional[pulumi.Input[str]] = None,
                  topic_arn: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "function_arn", function_arn)
+        ReceiptRuleLambdaActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_arn=function_arn,
+            invocation_type=invocation_type,
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_arn: pulumi.Input[str],
+             invocation_type: Optional[pulumi.Input[str]] = None,
+             topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_arn", function_arn)
         if invocation_type is not None:
-            pulumi.set(__self__, "invocation_type", invocation_type)
+            _setter("invocation_type", invocation_type)
         if topic_arn is not None:
-            pulumi.set(__self__, "topic_arn", topic_arn)
+            _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -1033,18 +1331,37 @@ class ReceiptRuleRuleArgs:
                  recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  scan_enabled: Optional[pulumi.Input[bool]] = None,
                  tls_policy: Optional[pulumi.Input[str]] = None):
+        ReceiptRuleRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            enabled=enabled,
+            name=name,
+            recipients=recipients,
+            scan_enabled=scan_enabled,
+            tls_policy=tls_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleActionArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             scan_enabled: Optional[pulumi.Input[bool]] = None,
+             tls_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recipients is not None:
-            pulumi.set(__self__, "recipients", recipients)
+            _setter("recipients", recipients)
         if scan_enabled is not None:
-            pulumi.set(__self__, "scan_enabled", scan_enabled)
+            _setter("scan_enabled", scan_enabled)
         if tls_policy is not None:
-            pulumi.set(__self__, "tls_policy", tls_policy)
+            _setter("tls_policy", tls_policy)
 
     @property
     @pulumi.getter
@@ -1108,13 +1425,28 @@ class ReceiptRuleS3ActionArgs:
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  object_key_prefix: Optional[pulumi.Input[str]] = None,
                  topic_arn: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        ReceiptRuleS3ActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            kms_key_arn=kms_key_arn,
+            object_key_prefix=object_key_prefix,
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: pulumi.Input[str],
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             object_key_prefix: Optional[pulumi.Input[str]] = None,
+             topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if object_key_prefix is not None:
-            pulumi.set(__self__, "object_key_prefix", object_key_prefix)
+            _setter("object_key_prefix", object_key_prefix)
         if topic_arn is not None:
-            pulumi.set(__self__, "topic_arn", topic_arn)
+            _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -1158,10 +1490,21 @@ class ReceiptRuleSnsActionArgs:
     def __init__(__self__, *,
                  encoding: Optional[pulumi.Input[str]] = None,
                  topic_arn: Optional[pulumi.Input[str]] = None):
+        ReceiptRuleSnsActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoding=encoding,
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoding: Optional[pulumi.Input[str]] = None,
+             topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if topic_arn is not None:
-            pulumi.set(__self__, "topic_arn", topic_arn)
+            _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter
@@ -1187,9 +1530,20 @@ class ReceiptRuleStopActionArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[str],
                  topic_arn: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "scope", scope)
+        ReceiptRuleStopActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: pulumi.Input[str],
+             topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scope", scope)
         if topic_arn is not None:
-            pulumi.set(__self__, "topic_arn", topic_arn)
+            _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter
@@ -1215,9 +1569,20 @@ class ReceiptRuleWorkmailActionArgs:
     def __init__(__self__, *,
                  organization_arn: pulumi.Input[str],
                  topic_arn: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "organization_arn", organization_arn)
+        ReceiptRuleWorkmailActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            organization_arn=organization_arn,
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             organization_arn: pulumi.Input[str],
+             topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("organization_arn", organization_arn)
         if topic_arn is not None:
-            pulumi.set(__self__, "topic_arn", topic_arn)
+            _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="organizationArn")
@@ -1252,13 +1617,28 @@ class TemplateArgs:
         :param pulumi.Input[str] template_name: The name of the template.
         :param pulumi.Input[str] text_part: The email body that is visible to recipients whose email clients do not display HTML content.
         """
-        pulumi.set(__self__, "subject_part", subject_part)
+        TemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subject_part=subject_part,
+            html_part=html_part,
+            template_name=template_name,
+            text_part=text_part,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subject_part: pulumi.Input[str],
+             html_part: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             text_part: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subject_part", subject_part)
         if html_part is not None:
-            pulumi.set(__self__, "html_part", html_part)
+            _setter("html_part", html_part)
         if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
+            _setter("template_name", template_name)
         if text_part is not None:
-            pulumi.set(__self__, "text_part", text_part)
+            _setter("text_part", text_part)
 
     @property
     @pulumi.getter(name="subjectPart")
@@ -1317,8 +1697,17 @@ class VdmAttributesDashboardAttributesArgs:
         Preferences regarding the Dashboard feature.
         :param pulumi.Input[str] engagement_metrics: Whether emails sent from this account have engagement tracking enabled.
         """
+        VdmAttributesDashboardAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            engagement_metrics=engagement_metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             engagement_metrics: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if engagement_metrics is not None:
-            pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+            _setter("engagement_metrics", engagement_metrics)
 
     @property
     @pulumi.getter(name="engagementMetrics")
@@ -1341,8 +1730,17 @@ class VdmAttributesGuardianAttributesArgs:
         Preferences regarding the Guardian feature.
         :param pulumi.Input[str] optimized_shared_delivery: Whether emails sent from this account have optimized delivery algorithm enabled.
         """
+        VdmAttributesGuardianAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            optimized_shared_delivery=optimized_shared_delivery,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             optimized_shared_delivery: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if optimized_shared_delivery is not None:
-            pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+            _setter("optimized_shared_delivery", optimized_shared_delivery)
 
     @property
     @pulumi.getter(name="optimizedSharedDelivery")

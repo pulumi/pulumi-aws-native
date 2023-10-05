@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,22 +36,45 @@ class ScheduledActionArgs:
         :param pulumi.Input[str] start_time: The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger.
         :param pulumi.Input['ScheduledActionTypeArgs'] target_action: A JSON format string of the Amazon Redshift API operation with input parameters.
         """
+        ScheduledActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable=enable,
+            end_time=end_time,
+            iam_role=iam_role,
+            schedule=schedule,
+            scheduled_action_description=scheduled_action_description,
+            scheduled_action_name=scheduled_action_name,
+            start_time=start_time,
+            target_action=target_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable: Optional[pulumi.Input[bool]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             iam_role: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             scheduled_action_description: Optional[pulumi.Input[str]] = None,
+             scheduled_action_name: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             target_action: Optional[pulumi.Input['ScheduledActionTypeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if iam_role is not None:
-            pulumi.set(__self__, "iam_role", iam_role)
+            _setter("iam_role", iam_role)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if scheduled_action_description is not None:
-            pulumi.set(__self__, "scheduled_action_description", scheduled_action_description)
+            _setter("scheduled_action_description", scheduled_action_description)
         if scheduled_action_name is not None:
-            pulumi.set(__self__, "scheduled_action_name", scheduled_action_name)
+            _setter("scheduled_action_name", scheduled_action_name)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if target_action is not None:
-            pulumi.set(__self__, "target_action", target_action)
+            _setter("target_action", target_action)
 
     @property
     @pulumi.getter
@@ -197,6 +220,10 @@ class ScheduledAction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduledActionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -226,6 +253,11 @@ class ScheduledAction(pulumi.CustomResource):
             __props__.__dict__["scheduled_action_description"] = scheduled_action_description
             __props__.__dict__["scheduled_action_name"] = scheduled_action_name
             __props__.__dict__["start_time"] = start_time
+            if target_action is not None and not isinstance(target_action, ScheduledActionTypeArgs):
+                target_action = target_action or {}
+                def _setter(key, value):
+                    target_action[key] = value
+                ScheduledActionTypeArgs._configure(_setter, **target_action)
             __props__.__dict__["target_action"] = target_action
             __props__.__dict__["next_invocations"] = None
             __props__.__dict__["state"] = None

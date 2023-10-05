@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,16 +26,35 @@ class EndpointArgs:
         """
         The set of arguments for constructing a Endpoint resource.
         """
-        pulumi.set(__self__, "event_buses", event_buses)
-        pulumi.set(__self__, "routing_config", routing_config)
+        EndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_buses=event_buses,
+            routing_config=routing_config,
+            description=description,
+            name=name,
+            replication_config=replication_config,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_buses: pulumi.Input[Sequence[pulumi.Input['EndpointEventBusArgs']]],
+             routing_config: pulumi.Input['EndpointRoutingConfigArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             replication_config: Optional[pulumi.Input['EndpointReplicationConfigArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_buses", event_buses)
+        _setter("routing_config", routing_config)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if replication_config is not None:
-            pulumi.set(__self__, "replication_config", replication_config)
+            _setter("replication_config", replication_config)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="eventBuses")
@@ -129,6 +148,10 @@ class Endpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -154,8 +177,18 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'event_buses'")
             __props__.__dict__["event_buses"] = event_buses
             __props__.__dict__["name"] = name
+            if replication_config is not None and not isinstance(replication_config, EndpointReplicationConfigArgs):
+                replication_config = replication_config or {}
+                def _setter(key, value):
+                    replication_config[key] = value
+                EndpointReplicationConfigArgs._configure(_setter, **replication_config)
             __props__.__dict__["replication_config"] = replication_config
             __props__.__dict__["role_arn"] = role_arn
+            if routing_config is not None and not isinstance(routing_config, EndpointRoutingConfigArgs):
+                routing_config = routing_config or {}
+                def _setter(key, value):
+                    routing_config[key] = value
+                EndpointRoutingConfigArgs._configure(_setter, **routing_config)
             if routing_config is None and not opts.urn:
                 raise TypeError("Missing required property 'routing_config'")
             __props__.__dict__["routing_config"] = routing_config

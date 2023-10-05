@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,17 +31,36 @@ class MulticastGroupArgs:
         :param pulumi.Input[str] name: Name of Multicast group
         :param pulumi.Input[Sequence[pulumi.Input['MulticastGroupTagArgs']]] tags: A list of key-value pairs that contain metadata for the Multicast group.
         """
-        pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
+        MulticastGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lo_ra_wan=lo_ra_wan,
+            associate_wireless_device=associate_wireless_device,
+            description=description,
+            disassociate_wireless_device=disassociate_wireless_device,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lo_ra_wan: pulumi.Input['MulticastGroupLoRaWanArgs'],
+             associate_wireless_device: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['MulticastGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lo_ra_wan", lo_ra_wan)
         if associate_wireless_device is not None:
-            pulumi.set(__self__, "associate_wireless_device", associate_wireless_device)
+            _setter("associate_wireless_device", associate_wireless_device)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disassociate_wireless_device is not None:
-            pulumi.set(__self__, "disassociate_wireless_device", disassociate_wireless_device)
+            _setter("disassociate_wireless_device", disassociate_wireless_device)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="loRaWan")
@@ -159,6 +178,10 @@ class MulticastGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MulticastGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,6 +205,11 @@ class MulticastGroup(pulumi.CustomResource):
             __props__.__dict__["associate_wireless_device"] = associate_wireless_device
             __props__.__dict__["description"] = description
             __props__.__dict__["disassociate_wireless_device"] = disassociate_wireless_device
+            if lo_ra_wan is not None and not isinstance(lo_ra_wan, MulticastGroupLoRaWanArgs):
+                lo_ra_wan = lo_ra_wan or {}
+                def _setter(key, value):
+                    lo_ra_wan[key] = value
+                MulticastGroupLoRaWanArgs._configure(_setter, **lo_ra_wan)
             if lo_ra_wan is None and not opts.urn:
                 raise TypeError("Missing required property 'lo_ra_wan'")
             __props__.__dict__["lo_ra_wan"] = lo_ra_wan

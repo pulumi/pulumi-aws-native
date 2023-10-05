@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -97,13 +97,32 @@ class CachePolicyConfigArgs:
                  name: pulumi.Input[str],
                  parameters_in_cache_key_and_forwarded_to_origin: pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs'],
                  comment: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "default_ttl", default_ttl)
-        pulumi.set(__self__, "max_ttl", max_ttl)
-        pulumi.set(__self__, "min_ttl", min_ttl)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters_in_cache_key_and_forwarded_to_origin", parameters_in_cache_key_and_forwarded_to_origin)
+        CachePolicyConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_ttl=default_ttl,
+            max_ttl=max_ttl,
+            min_ttl=min_ttl,
+            name=name,
+            parameters_in_cache_key_and_forwarded_to_origin=parameters_in_cache_key_and_forwarded_to_origin,
+            comment=comment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_ttl: pulumi.Input[float],
+             max_ttl: pulumi.Input[float],
+             min_ttl: pulumi.Input[float],
+             name: pulumi.Input[str],
+             parameters_in_cache_key_and_forwarded_to_origin: pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs'],
+             comment: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_ttl", default_ttl)
+        _setter("max_ttl", max_ttl)
+        _setter("min_ttl", min_ttl)
+        _setter("name", name)
+        _setter("parameters_in_cache_key_and_forwarded_to_origin", parameters_in_cache_key_and_forwarded_to_origin)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
 
     @property
     @pulumi.getter(name="defaultTtl")
@@ -165,9 +184,20 @@ class CachePolicyCookiesConfigArgs:
     def __init__(__self__, *,
                  cookie_behavior: pulumi.Input[str],
                  cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "cookie_behavior", cookie_behavior)
+        CachePolicyCookiesConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookie_behavior=cookie_behavior,
+            cookies=cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookie_behavior: pulumi.Input[str],
+             cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cookie_behavior", cookie_behavior)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
 
     @property
     @pulumi.getter(name="cookieBehavior")
@@ -193,9 +223,20 @@ class CachePolicyHeadersConfigArgs:
     def __init__(__self__, *,
                  header_behavior: pulumi.Input[str],
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "header_behavior", header_behavior)
+        CachePolicyHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_behavior=header_behavior,
+            headers=headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_behavior: pulumi.Input[str],
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header_behavior", header_behavior)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
 
     @property
     @pulumi.getter(name="headerBehavior")
@@ -224,12 +265,29 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
                  headers_config: pulumi.Input['CachePolicyHeadersConfigArgs'],
                  query_strings_config: pulumi.Input['CachePolicyQueryStringsConfigArgs'],
                  enable_accept_encoding_brotli: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "cookies_config", cookies_config)
-        pulumi.set(__self__, "enable_accept_encoding_gzip", enable_accept_encoding_gzip)
-        pulumi.set(__self__, "headers_config", headers_config)
-        pulumi.set(__self__, "query_strings_config", query_strings_config)
+        CachePolicyParametersInCacheKeyAndForwardedToOriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookies_config=cookies_config,
+            enable_accept_encoding_gzip=enable_accept_encoding_gzip,
+            headers_config=headers_config,
+            query_strings_config=query_strings_config,
+            enable_accept_encoding_brotli=enable_accept_encoding_brotli,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookies_config: pulumi.Input['CachePolicyCookiesConfigArgs'],
+             enable_accept_encoding_gzip: pulumi.Input[bool],
+             headers_config: pulumi.Input['CachePolicyHeadersConfigArgs'],
+             query_strings_config: pulumi.Input['CachePolicyQueryStringsConfigArgs'],
+             enable_accept_encoding_brotli: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cookies_config", cookies_config)
+        _setter("enable_accept_encoding_gzip", enable_accept_encoding_gzip)
+        _setter("headers_config", headers_config)
+        _setter("query_strings_config", query_strings_config)
         if enable_accept_encoding_brotli is not None:
-            pulumi.set(__self__, "enable_accept_encoding_brotli", enable_accept_encoding_brotli)
+            _setter("enable_accept_encoding_brotli", enable_accept_encoding_brotli)
 
     @property
     @pulumi.getter(name="cookiesConfig")
@@ -282,9 +340,20 @@ class CachePolicyQueryStringsConfigArgs:
     def __init__(__self__, *,
                  query_string_behavior: pulumi.Input[str],
                  query_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "query_string_behavior", query_string_behavior)
+        CachePolicyQueryStringsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_string_behavior=query_string_behavior,
+            query_strings=query_strings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_string_behavior: pulumi.Input[str],
+             query_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("query_string_behavior", query_string_behavior)
         if query_strings is not None:
-            pulumi.set(__self__, "query_strings", query_strings)
+            _setter("query_strings", query_strings)
 
     @property
     @pulumi.getter(name="queryStringBehavior")
@@ -309,7 +378,16 @@ class CachePolicyQueryStringsConfigArgs:
 class CloudFrontOriginAccessIdentityConfigArgs:
     def __init__(__self__, *,
                  comment: pulumi.Input[str]):
-        pulumi.set(__self__, "comment", comment)
+        CloudFrontOriginAccessIdentityConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comment", comment)
 
     @property
     @pulumi.getter
@@ -326,8 +404,19 @@ class ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs:
     def __init__(__self__, *,
                  header: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "header", header)
-        pulumi.set(__self__, "value", value)
+        ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header", header)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -353,9 +442,20 @@ class ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesArgs:
     def __init__(__self__, *,
                  weight: pulumi.Input[float],
                  session_stickiness_config: Optional[pulumi.Input['ContinuousDeploymentPolicySessionStickinessConfigArgs']] = None):
-        pulumi.set(__self__, "weight", weight)
+        ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weight=weight,
+            session_stickiness_config=session_stickiness_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weight: pulumi.Input[float],
+             session_stickiness_config: Optional[pulumi.Input['ContinuousDeploymentPolicySessionStickinessConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weight", weight)
         if session_stickiness_config is not None:
-            pulumi.set(__self__, "session_stickiness_config", session_stickiness_config)
+            _setter("session_stickiness_config", session_stickiness_config)
 
     @property
     @pulumi.getter
@@ -385,16 +485,35 @@ class ContinuousDeploymentPolicyConfigArgs:
                  single_weight_policy_config: Optional[pulumi.Input['ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesArgs']] = None,
                  traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None,
                  type: Optional[pulumi.Input['ContinuousDeploymentPolicyConfigType']] = None):
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "staging_distribution_dns_names", staging_distribution_dns_names)
+        ContinuousDeploymentPolicyConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            staging_distribution_dns_names=staging_distribution_dns_names,
+            single_header_policy_config=single_header_policy_config,
+            single_weight_policy_config=single_weight_policy_config,
+            traffic_config=traffic_config,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             staging_distribution_dns_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             single_header_policy_config: Optional[pulumi.Input['ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs']] = None,
+             single_weight_policy_config: Optional[pulumi.Input['ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesArgs']] = None,
+             traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None,
+             type: Optional[pulumi.Input['ContinuousDeploymentPolicyConfigType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("staging_distribution_dns_names", staging_distribution_dns_names)
         if single_header_policy_config is not None:
-            pulumi.set(__self__, "single_header_policy_config", single_header_policy_config)
+            _setter("single_header_policy_config", single_header_policy_config)
         if single_weight_policy_config is not None:
-            pulumi.set(__self__, "single_weight_policy_config", single_weight_policy_config)
+            _setter("single_weight_policy_config", single_weight_policy_config)
         if traffic_config is not None:
-            pulumi.set(__self__, "traffic_config", traffic_config)
+            _setter("traffic_config", traffic_config)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -456,8 +575,19 @@ class ContinuousDeploymentPolicySessionStickinessConfigArgs:
     def __init__(__self__, *,
                  idle_ttl: pulumi.Input[int],
                  maximum_ttl: pulumi.Input[int]):
-        pulumi.set(__self__, "idle_ttl", idle_ttl)
-        pulumi.set(__self__, "maximum_ttl", maximum_ttl)
+        ContinuousDeploymentPolicySessionStickinessConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle_ttl=idle_ttl,
+            maximum_ttl=maximum_ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle_ttl: pulumi.Input[int],
+             maximum_ttl: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("idle_ttl", idle_ttl)
+        _setter("maximum_ttl", maximum_ttl)
 
     @property
     @pulumi.getter(name="idleTtl")
@@ -483,8 +613,19 @@ class ContinuousDeploymentPolicySingleHeaderConfigArgs:
     def __init__(__self__, *,
                  header: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "header", header)
-        pulumi.set(__self__, "value", value)
+        ContinuousDeploymentPolicySingleHeaderConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header", header)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -510,9 +651,20 @@ class ContinuousDeploymentPolicySingleWeightConfigArgs:
     def __init__(__self__, *,
                  weight: pulumi.Input[float],
                  session_stickiness_config: Optional[pulumi.Input['ContinuousDeploymentPolicySessionStickinessConfigArgs']] = None):
-        pulumi.set(__self__, "weight", weight)
+        ContinuousDeploymentPolicySingleWeightConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weight=weight,
+            session_stickiness_config=session_stickiness_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weight: pulumi.Input[float],
+             session_stickiness_config: Optional[pulumi.Input['ContinuousDeploymentPolicySessionStickinessConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weight", weight)
         if session_stickiness_config is not None:
-            pulumi.set(__self__, "session_stickiness_config", session_stickiness_config)
+            _setter("session_stickiness_config", session_stickiness_config)
 
     @property
     @pulumi.getter
@@ -539,11 +691,24 @@ class ContinuousDeploymentPolicyTrafficConfigArgs:
                  type: pulumi.Input['ContinuousDeploymentPolicyTrafficConfigType'],
                  single_header_config: Optional[pulumi.Input['ContinuousDeploymentPolicySingleHeaderConfigArgs']] = None,
                  single_weight_config: Optional[pulumi.Input['ContinuousDeploymentPolicySingleWeightConfigArgs']] = None):
-        pulumi.set(__self__, "type", type)
+        ContinuousDeploymentPolicyTrafficConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            single_header_config=single_header_config,
+            single_weight_config=single_weight_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input['ContinuousDeploymentPolicyTrafficConfigType'],
+             single_header_config: Optional[pulumi.Input['ContinuousDeploymentPolicySingleHeaderConfigArgs']] = None,
+             single_weight_config: Optional[pulumi.Input['ContinuousDeploymentPolicySingleWeightConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if single_header_config is not None:
-            pulumi.set(__self__, "single_header_config", single_header_config)
+            _setter("single_header_config", single_header_config)
         if single_weight_config is not None:
-            pulumi.set(__self__, "single_weight_config", single_weight_config)
+            _setter("single_weight_config", single_weight_config)
 
     @property
     @pulumi.getter
@@ -596,43 +761,90 @@ class DistributionCacheBehaviorArgs:
                  smooth_streaming: Optional[pulumi.Input[bool]] = None,
                  trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "path_pattern", path_pattern)
-        pulumi.set(__self__, "target_origin_id", target_origin_id)
-        pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
+        DistributionCacheBehaviorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path_pattern=path_pattern,
+            target_origin_id=target_origin_id,
+            viewer_protocol_policy=viewer_protocol_policy,
+            allowed_methods=allowed_methods,
+            cache_policy_id=cache_policy_id,
+            cached_methods=cached_methods,
+            compress=compress,
+            default_ttl=default_ttl,
+            field_level_encryption_id=field_level_encryption_id,
+            forwarded_values=forwarded_values,
+            function_associations=function_associations,
+            lambda_function_associations=lambda_function_associations,
+            max_ttl=max_ttl,
+            min_ttl=min_ttl,
+            origin_request_policy_id=origin_request_policy_id,
+            realtime_log_config_arn=realtime_log_config_arn,
+            response_headers_policy_id=response_headers_policy_id,
+            smooth_streaming=smooth_streaming,
+            trusted_key_groups=trusted_key_groups,
+            trusted_signers=trusted_signers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path_pattern: pulumi.Input[str],
+             target_origin_id: pulumi.Input[str],
+             viewer_protocol_policy: pulumi.Input[str],
+             allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cache_policy_id: Optional[pulumi.Input[str]] = None,
+             cached_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             compress: Optional[pulumi.Input[bool]] = None,
+             default_ttl: Optional[pulumi.Input[float]] = None,
+             field_level_encryption_id: Optional[pulumi.Input[str]] = None,
+             forwarded_values: Optional[pulumi.Input['DistributionForwardedValuesArgs']] = None,
+             function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionFunctionAssociationArgs']]]] = None,
+             lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]]] = None,
+             max_ttl: Optional[pulumi.Input[float]] = None,
+             min_ttl: Optional[pulumi.Input[float]] = None,
+             origin_request_policy_id: Optional[pulumi.Input[str]] = None,
+             realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
+             response_headers_policy_id: Optional[pulumi.Input[str]] = None,
+             smooth_streaming: Optional[pulumi.Input[bool]] = None,
+             trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path_pattern", path_pattern)
+        _setter("target_origin_id", target_origin_id)
+        _setter("viewer_protocol_policy", viewer_protocol_policy)
         if allowed_methods is not None:
-            pulumi.set(__self__, "allowed_methods", allowed_methods)
+            _setter("allowed_methods", allowed_methods)
         if cache_policy_id is not None:
-            pulumi.set(__self__, "cache_policy_id", cache_policy_id)
+            _setter("cache_policy_id", cache_policy_id)
         if cached_methods is not None:
-            pulumi.set(__self__, "cached_methods", cached_methods)
+            _setter("cached_methods", cached_methods)
         if compress is not None:
-            pulumi.set(__self__, "compress", compress)
+            _setter("compress", compress)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if field_level_encryption_id is not None:
-            pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
+            _setter("field_level_encryption_id", field_level_encryption_id)
         if forwarded_values is not None:
-            pulumi.set(__self__, "forwarded_values", forwarded_values)
+            _setter("forwarded_values", forwarded_values)
         if function_associations is not None:
-            pulumi.set(__self__, "function_associations", function_associations)
+            _setter("function_associations", function_associations)
         if lambda_function_associations is not None:
-            pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
+            _setter("lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
-            pulumi.set(__self__, "max_ttl", max_ttl)
+            _setter("max_ttl", max_ttl)
         if min_ttl is not None:
-            pulumi.set(__self__, "min_ttl", min_ttl)
+            _setter("min_ttl", min_ttl)
         if origin_request_policy_id is not None:
-            pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
+            _setter("origin_request_policy_id", origin_request_policy_id)
         if realtime_log_config_arn is not None:
-            pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+            _setter("realtime_log_config_arn", realtime_log_config_arn)
         if response_headers_policy_id is not None:
-            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
+            _setter("response_headers_policy_id", response_headers_policy_id)
         if smooth_streaming is not None:
-            pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+            _setter("smooth_streaming", smooth_streaming)
         if trusted_key_groups is not None:
-            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
+            _setter("trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
-            pulumi.set(__self__, "trusted_signers", trusted_signers)
+            _setter("trusted_signers", trusted_signers)
 
     @property
     @pulumi.getter(name="pathPattern")
@@ -839,46 +1051,95 @@ class DistributionConfigArgs:
                  staging: Optional[pulumi.Input[bool]] = None,
                  viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
-        pulumi.set(__self__, "enabled", enabled)
+        DistributionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_cache_behavior=default_cache_behavior,
+            enabled=enabled,
+            aliases=aliases,
+            cache_behaviors=cache_behaviors,
+            cnames=cnames,
+            comment=comment,
+            continuous_deployment_policy_id=continuous_deployment_policy_id,
+            custom_error_responses=custom_error_responses,
+            custom_origin=custom_origin,
+            default_root_object=default_root_object,
+            http_version=http_version,
+            ipv6_enabled=ipv6_enabled,
+            logging=logging,
+            origin_groups=origin_groups,
+            origins=origins,
+            price_class=price_class,
+            restrictions=restrictions,
+            s3_origin=s3_origin,
+            staging=staging,
+            viewer_certificate=viewer_certificate,
+            web_acl_id=web_acl_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_cache_behavior: pulumi.Input['DistributionDefaultCacheBehaviorArgs'],
+             enabled: pulumi.Input[bool],
+             aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
+             cnames: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
+             custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
+             custom_origin: Optional[pulumi.Input['DistributionLegacyCustomOriginArgs']] = None,
+             default_root_object: Optional[pulumi.Input[str]] = None,
+             http_version: Optional[pulumi.Input[str]] = None,
+             ipv6_enabled: Optional[pulumi.Input[bool]] = None,
+             logging: Optional[pulumi.Input['DistributionLoggingArgs']] = None,
+             origin_groups: Optional[pulumi.Input['DistributionOriginGroupsArgs']] = None,
+             origins: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
+             price_class: Optional[pulumi.Input[str]] = None,
+             restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
+             s3_origin: Optional[pulumi.Input['DistributionLegacyS3OriginArgs']] = None,
+             staging: Optional[pulumi.Input[bool]] = None,
+             viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
+             web_acl_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_cache_behavior", default_cache_behavior)
+        _setter("enabled", enabled)
         if aliases is not None:
-            pulumi.set(__self__, "aliases", aliases)
+            _setter("aliases", aliases)
         if cache_behaviors is not None:
-            pulumi.set(__self__, "cache_behaviors", cache_behaviors)
+            _setter("cache_behaviors", cache_behaviors)
         if cnames is not None:
-            pulumi.set(__self__, "cnames", cnames)
+            _setter("cnames", cnames)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if continuous_deployment_policy_id is not None:
-            pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
+            _setter("continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
-            pulumi.set(__self__, "custom_error_responses", custom_error_responses)
+            _setter("custom_error_responses", custom_error_responses)
         if custom_origin is not None:
-            pulumi.set(__self__, "custom_origin", custom_origin)
+            _setter("custom_origin", custom_origin)
         if default_root_object is not None:
-            pulumi.set(__self__, "default_root_object", default_root_object)
+            _setter("default_root_object", default_root_object)
         if http_version is not None:
-            pulumi.set(__self__, "http_version", http_version)
+            _setter("http_version", http_version)
         if ipv6_enabled is not None:
-            pulumi.set(__self__, "ipv6_enabled", ipv6_enabled)
+            _setter("ipv6_enabled", ipv6_enabled)
         if logging is not None:
-            pulumi.set(__self__, "logging", logging)
+            _setter("logging", logging)
         if origin_groups is not None:
-            pulumi.set(__self__, "origin_groups", origin_groups)
+            _setter("origin_groups", origin_groups)
         if origins is not None:
-            pulumi.set(__self__, "origins", origins)
+            _setter("origins", origins)
         if price_class is not None:
-            pulumi.set(__self__, "price_class", price_class)
+            _setter("price_class", price_class)
         if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+            _setter("restrictions", restrictions)
         if s3_origin is not None:
-            pulumi.set(__self__, "s3_origin", s3_origin)
+            _setter("s3_origin", s3_origin)
         if staging is not None:
-            pulumi.set(__self__, "staging", staging)
+            _setter("staging", staging)
         if viewer_certificate is not None:
-            pulumi.set(__self__, "viewer_certificate", viewer_certificate)
+            _setter("viewer_certificate", viewer_certificate)
         if web_acl_id is not None:
-            pulumi.set(__self__, "web_acl_id", web_acl_id)
+            _setter("web_acl_id", web_acl_id)
 
     @property
     @pulumi.getter(name="defaultCacheBehavior")
@@ -1075,9 +1336,20 @@ class DistributionCookiesArgs:
     def __init__(__self__, *,
                  forward: pulumi.Input[str],
                  whitelisted_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "forward", forward)
+        DistributionCookiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            forward=forward,
+            whitelisted_names=whitelisted_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             forward: pulumi.Input[str],
+             whitelisted_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("forward", forward)
         if whitelisted_names is not None:
-            pulumi.set(__self__, "whitelisted_names", whitelisted_names)
+            _setter("whitelisted_names", whitelisted_names)
 
     @property
     @pulumi.getter
@@ -1105,13 +1377,28 @@ class DistributionCustomErrorResponseArgs:
                  error_caching_min_ttl: Optional[pulumi.Input[float]] = None,
                  response_code: Optional[pulumi.Input[int]] = None,
                  response_page_path: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "error_code", error_code)
+        DistributionCustomErrorResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_caching_min_ttl=error_caching_min_ttl,
+            response_code=response_code,
+            response_page_path=response_page_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: pulumi.Input[int],
+             error_caching_min_ttl: Optional[pulumi.Input[float]] = None,
+             response_code: Optional[pulumi.Input[int]] = None,
+             response_page_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_code", error_code)
         if error_caching_min_ttl is not None:
-            pulumi.set(__self__, "error_caching_min_ttl", error_caching_min_ttl)
+            _setter("error_caching_min_ttl", error_caching_min_ttl)
         if response_code is not None:
-            pulumi.set(__self__, "response_code", response_code)
+            _setter("response_code", response_code)
         if response_page_path is not None:
-            pulumi.set(__self__, "response_page_path", response_page_path)
+            _setter("response_page_path", response_page_path)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -1159,17 +1446,36 @@ class DistributionCustomOriginConfigArgs:
                  origin_keepalive_timeout: Optional[pulumi.Input[int]] = None,
                  origin_read_timeout: Optional[pulumi.Input[int]] = None,
                  origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
+        DistributionCustomOriginConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            origin_protocol_policy=origin_protocol_policy,
+            http_port=http_port,
+            https_port=https_port,
+            origin_keepalive_timeout=origin_keepalive_timeout,
+            origin_read_timeout=origin_read_timeout,
+            origin_ssl_protocols=origin_ssl_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             origin_protocol_policy: pulumi.Input[str],
+             http_port: Optional[pulumi.Input[int]] = None,
+             https_port: Optional[pulumi.Input[int]] = None,
+             origin_keepalive_timeout: Optional[pulumi.Input[int]] = None,
+             origin_read_timeout: Optional[pulumi.Input[int]] = None,
+             origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("origin_protocol_policy", origin_protocol_policy)
         if http_port is not None:
-            pulumi.set(__self__, "http_port", http_port)
+            _setter("http_port", http_port)
         if https_port is not None:
-            pulumi.set(__self__, "https_port", https_port)
+            _setter("https_port", https_port)
         if origin_keepalive_timeout is not None:
-            pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
+            _setter("origin_keepalive_timeout", origin_keepalive_timeout)
         if origin_read_timeout is not None:
-            pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
+            _setter("origin_read_timeout", origin_read_timeout)
         if origin_ssl_protocols is not None:
-            pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
+            _setter("origin_ssl_protocols", origin_ssl_protocols)
 
     @property
     @pulumi.getter(name="originProtocolPolicy")
@@ -1248,42 +1554,87 @@ class DistributionDefaultCacheBehaviorArgs:
                  smooth_streaming: Optional[pulumi.Input[bool]] = None,
                  trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "target_origin_id", target_origin_id)
-        pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
+        DistributionDefaultCacheBehaviorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_origin_id=target_origin_id,
+            viewer_protocol_policy=viewer_protocol_policy,
+            allowed_methods=allowed_methods,
+            cache_policy_id=cache_policy_id,
+            cached_methods=cached_methods,
+            compress=compress,
+            default_ttl=default_ttl,
+            field_level_encryption_id=field_level_encryption_id,
+            forwarded_values=forwarded_values,
+            function_associations=function_associations,
+            lambda_function_associations=lambda_function_associations,
+            max_ttl=max_ttl,
+            min_ttl=min_ttl,
+            origin_request_policy_id=origin_request_policy_id,
+            realtime_log_config_arn=realtime_log_config_arn,
+            response_headers_policy_id=response_headers_policy_id,
+            smooth_streaming=smooth_streaming,
+            trusted_key_groups=trusted_key_groups,
+            trusted_signers=trusted_signers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_origin_id: pulumi.Input[str],
+             viewer_protocol_policy: pulumi.Input[str],
+             allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cache_policy_id: Optional[pulumi.Input[str]] = None,
+             cached_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             compress: Optional[pulumi.Input[bool]] = None,
+             default_ttl: Optional[pulumi.Input[float]] = None,
+             field_level_encryption_id: Optional[pulumi.Input[str]] = None,
+             forwarded_values: Optional[pulumi.Input['DistributionForwardedValuesArgs']] = None,
+             function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionFunctionAssociationArgs']]]] = None,
+             lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]]] = None,
+             max_ttl: Optional[pulumi.Input[float]] = None,
+             min_ttl: Optional[pulumi.Input[float]] = None,
+             origin_request_policy_id: Optional[pulumi.Input[str]] = None,
+             realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
+             response_headers_policy_id: Optional[pulumi.Input[str]] = None,
+             smooth_streaming: Optional[pulumi.Input[bool]] = None,
+             trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_origin_id", target_origin_id)
+        _setter("viewer_protocol_policy", viewer_protocol_policy)
         if allowed_methods is not None:
-            pulumi.set(__self__, "allowed_methods", allowed_methods)
+            _setter("allowed_methods", allowed_methods)
         if cache_policy_id is not None:
-            pulumi.set(__self__, "cache_policy_id", cache_policy_id)
+            _setter("cache_policy_id", cache_policy_id)
         if cached_methods is not None:
-            pulumi.set(__self__, "cached_methods", cached_methods)
+            _setter("cached_methods", cached_methods)
         if compress is not None:
-            pulumi.set(__self__, "compress", compress)
+            _setter("compress", compress)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if field_level_encryption_id is not None:
-            pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
+            _setter("field_level_encryption_id", field_level_encryption_id)
         if forwarded_values is not None:
-            pulumi.set(__self__, "forwarded_values", forwarded_values)
+            _setter("forwarded_values", forwarded_values)
         if function_associations is not None:
-            pulumi.set(__self__, "function_associations", function_associations)
+            _setter("function_associations", function_associations)
         if lambda_function_associations is not None:
-            pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
+            _setter("lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
-            pulumi.set(__self__, "max_ttl", max_ttl)
+            _setter("max_ttl", max_ttl)
         if min_ttl is not None:
-            pulumi.set(__self__, "min_ttl", min_ttl)
+            _setter("min_ttl", min_ttl)
         if origin_request_policy_id is not None:
-            pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
+            _setter("origin_request_policy_id", origin_request_policy_id)
         if realtime_log_config_arn is not None:
-            pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+            _setter("realtime_log_config_arn", realtime_log_config_arn)
         if response_headers_policy_id is not None:
-            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
+            _setter("response_headers_policy_id", response_headers_policy_id)
         if smooth_streaming is not None:
-            pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+            _setter("smooth_streaming", smooth_streaming)
         if trusted_key_groups is not None:
-            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
+            _setter("trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
-            pulumi.set(__self__, "trusted_signers", trusted_signers)
+            _setter("trusted_signers", trusted_signers)
 
     @property
     @pulumi.getter(name="targetOriginId")
@@ -1464,13 +1815,28 @@ class DistributionForwardedValuesArgs:
                  cookies: Optional[pulumi.Input['DistributionCookiesArgs']] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  query_string_cache_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "query_string", query_string)
+        DistributionForwardedValuesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_string=query_string,
+            cookies=cookies,
+            headers=headers,
+            query_string_cache_keys=query_string_cache_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_string: pulumi.Input[bool],
+             cookies: Optional[pulumi.Input['DistributionCookiesArgs']] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             query_string_cache_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("query_string", query_string)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_string_cache_keys is not None:
-            pulumi.set(__self__, "query_string_cache_keys", query_string_cache_keys)
+            _setter("query_string_cache_keys", query_string_cache_keys)
 
     @property
     @pulumi.getter(name="queryString")
@@ -1514,10 +1880,21 @@ class DistributionFunctionAssociationArgs:
     def __init__(__self__, *,
                  event_type: Optional[pulumi.Input[str]] = None,
                  function_arn: Optional[pulumi.Input[str]] = None):
+        DistributionFunctionAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_type=event_type,
+            function_arn=function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_type: Optional[pulumi.Input[str]] = None,
+             function_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
         if function_arn is not None:
-            pulumi.set(__self__, "function_arn", function_arn)
+            _setter("function_arn", function_arn)
 
     @property
     @pulumi.getter(name="eventType")
@@ -1543,9 +1920,20 @@ class DistributionGeoRestrictionArgs:
     def __init__(__self__, *,
                  restriction_type: pulumi.Input[str],
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "restriction_type", restriction_type)
+        DistributionGeoRestrictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            restriction_type=restriction_type,
+            locations=locations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             restriction_type: pulumi.Input[str],
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("restriction_type", restriction_type)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
 
     @property
     @pulumi.getter(name="restrictionType")
@@ -1572,12 +1960,25 @@ class DistributionLambdaFunctionAssociationArgs:
                  event_type: Optional[pulumi.Input[str]] = None,
                  include_body: Optional[pulumi.Input[bool]] = None,
                  lambda_function_arn: Optional[pulumi.Input[str]] = None):
+        DistributionLambdaFunctionAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_type=event_type,
+            include_body=include_body,
+            lambda_function_arn=lambda_function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_type: Optional[pulumi.Input[str]] = None,
+             include_body: Optional[pulumi.Input[bool]] = None,
+             lambda_function_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
         if include_body is not None:
-            pulumi.set(__self__, "include_body", include_body)
+            _setter("include_body", include_body)
         if lambda_function_arn is not None:
-            pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+            _setter("lambda_function_arn", lambda_function_arn)
 
     @property
     @pulumi.getter(name="eventType")
@@ -1615,13 +2016,30 @@ class DistributionLegacyCustomOriginArgs:
                  origin_ssl_protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
-        pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
+        DistributionLegacyCustomOriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            origin_protocol_policy=origin_protocol_policy,
+            origin_ssl_protocols=origin_ssl_protocols,
+            http_port=http_port,
+            https_port=https_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: pulumi.Input[str],
+             origin_protocol_policy: pulumi.Input[str],
+             origin_ssl_protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
+             http_port: Optional[pulumi.Input[int]] = None,
+             https_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dns_name", dns_name)
+        _setter("origin_protocol_policy", origin_protocol_policy)
+        _setter("origin_ssl_protocols", origin_ssl_protocols)
         if http_port is not None:
-            pulumi.set(__self__, "http_port", http_port)
+            _setter("http_port", http_port)
         if https_port is not None:
-            pulumi.set(__self__, "https_port", https_port)
+            _setter("https_port", https_port)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -1674,9 +2092,20 @@ class DistributionLegacyS3OriginArgs:
     def __init__(__self__, *,
                  dns_name: pulumi.Input[str],
                  origin_access_identity: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "dns_name", dns_name)
+        DistributionLegacyS3OriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            origin_access_identity=origin_access_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: pulumi.Input[str],
+             origin_access_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dns_name", dns_name)
         if origin_access_identity is not None:
-            pulumi.set(__self__, "origin_access_identity", origin_access_identity)
+            _setter("origin_access_identity", origin_access_identity)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -1703,11 +2132,24 @@ class DistributionLoggingArgs:
                  bucket: pulumi.Input[str],
                  include_cookies: Optional[pulumi.Input[bool]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "bucket", bucket)
+        DistributionLoggingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            include_cookies=include_cookies,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             include_cookies: Optional[pulumi.Input[bool]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
         if include_cookies is not None:
-            pulumi.set(__self__, "include_cookies", include_cookies)
+            _setter("include_cookies", include_cookies)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -1742,8 +2184,19 @@ class DistributionOriginCustomHeaderArgs:
     def __init__(__self__, *,
                  header_name: pulumi.Input[str],
                  header_value: pulumi.Input[str]):
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "header_value", header_value)
+        DistributionOriginCustomHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_name=header_name,
+            header_value=header_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_name: pulumi.Input[str],
+             header_value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header_name", header_name)
+        _setter("header_value", header_value)
 
     @property
     @pulumi.getter(name="headerName")
@@ -1768,7 +2221,16 @@ class DistributionOriginCustomHeaderArgs:
 class DistributionOriginGroupFailoverCriteriaArgs:
     def __init__(__self__, *,
                  status_codes: pulumi.Input['DistributionStatusCodesArgs']):
-        pulumi.set(__self__, "status_codes", status_codes)
+        DistributionOriginGroupFailoverCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status_codes=status_codes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status_codes: pulumi.Input['DistributionStatusCodesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status_codes", status_codes)
 
     @property
     @pulumi.getter(name="statusCodes")
@@ -1785,8 +2247,19 @@ class DistributionOriginGroupMembersArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgs']]],
                  quantity: pulumi.Input[int]):
-        pulumi.set(__self__, "items", items)
-        pulumi.set(__self__, "quantity", quantity)
+        DistributionOriginGroupMembersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+            quantity=quantity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgs']]],
+             quantity: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("items", items)
+        _setter("quantity", quantity)
 
     @property
     @pulumi.getter
@@ -1811,7 +2284,16 @@ class DistributionOriginGroupMembersArgs:
 class DistributionOriginGroupMemberArgs:
     def __init__(__self__, *,
                  origin_id: pulumi.Input[str]):
-        pulumi.set(__self__, "origin_id", origin_id)
+        DistributionOriginGroupMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            origin_id=origin_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             origin_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("origin_id", origin_id)
 
     @property
     @pulumi.getter(name="originId")
@@ -1828,9 +2310,20 @@ class DistributionOriginGroupsArgs:
     def __init__(__self__, *,
                  quantity: pulumi.Input[int],
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None):
-        pulumi.set(__self__, "quantity", quantity)
+        DistributionOriginGroupsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            quantity=quantity,
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             quantity: pulumi.Input[int],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("quantity", quantity)
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -1857,9 +2350,22 @@ class DistributionOriginGroupArgs:
                  failover_criteria: pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs'],
                  id: pulumi.Input[str],
                  members: pulumi.Input['DistributionOriginGroupMembersArgs']):
-        pulumi.set(__self__, "failover_criteria", failover_criteria)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "members", members)
+        DistributionOriginGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_criteria=failover_criteria,
+            id=id,
+            members=members,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_criteria: pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs'],
+             id: pulumi.Input[str],
+             members: pulumi.Input['DistributionOriginGroupMembersArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("failover_criteria", failover_criteria)
+        _setter("id", id)
+        _setter("members", members)
 
     @property
     @pulumi.getter(name="failoverCriteria")
@@ -1894,10 +2400,21 @@ class DistributionOriginShieldArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  origin_shield_region: Optional[pulumi.Input[str]] = None):
+        DistributionOriginShieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            origin_shield_region=origin_shield_region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             origin_shield_region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if origin_shield_region is not None:
-            pulumi.set(__self__, "origin_shield_region", origin_shield_region)
+            _setter("origin_shield_region", origin_shield_region)
 
     @property
     @pulumi.getter
@@ -1931,24 +2448,51 @@ class DistributionOriginArgs:
                  origin_path: Optional[pulumi.Input[str]] = None,
                  origin_shield: Optional[pulumi.Input['DistributionOriginShieldArgs']] = None,
                  s3_origin_config: Optional[pulumi.Input['DistributionS3OriginConfigArgs']] = None):
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "id", id)
+        DistributionOriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            id=id,
+            connection_attempts=connection_attempts,
+            connection_timeout=connection_timeout,
+            custom_origin_config=custom_origin_config,
+            origin_access_control_id=origin_access_control_id,
+            origin_custom_headers=origin_custom_headers,
+            origin_path=origin_path,
+            origin_shield=origin_shield,
+            s3_origin_config=s3_origin_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             id: pulumi.Input[str],
+             connection_attempts: Optional[pulumi.Input[int]] = None,
+             connection_timeout: Optional[pulumi.Input[int]] = None,
+             custom_origin_config: Optional[pulumi.Input['DistributionCustomOriginConfigArgs']] = None,
+             origin_access_control_id: Optional[pulumi.Input[str]] = None,
+             origin_custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginCustomHeaderArgs']]]] = None,
+             origin_path: Optional[pulumi.Input[str]] = None,
+             origin_shield: Optional[pulumi.Input['DistributionOriginShieldArgs']] = None,
+             s3_origin_config: Optional[pulumi.Input['DistributionS3OriginConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
+        _setter("id", id)
         if connection_attempts is not None:
-            pulumi.set(__self__, "connection_attempts", connection_attempts)
+            _setter("connection_attempts", connection_attempts)
         if connection_timeout is not None:
-            pulumi.set(__self__, "connection_timeout", connection_timeout)
+            _setter("connection_timeout", connection_timeout)
         if custom_origin_config is not None:
-            pulumi.set(__self__, "custom_origin_config", custom_origin_config)
+            _setter("custom_origin_config", custom_origin_config)
         if origin_access_control_id is not None:
-            pulumi.set(__self__, "origin_access_control_id", origin_access_control_id)
+            _setter("origin_access_control_id", origin_access_control_id)
         if origin_custom_headers is not None:
-            pulumi.set(__self__, "origin_custom_headers", origin_custom_headers)
+            _setter("origin_custom_headers", origin_custom_headers)
         if origin_path is not None:
-            pulumi.set(__self__, "origin_path", origin_path)
+            _setter("origin_path", origin_path)
         if origin_shield is not None:
-            pulumi.set(__self__, "origin_shield", origin_shield)
+            _setter("origin_shield", origin_shield)
         if s3_origin_config is not None:
-            pulumi.set(__self__, "s3_origin_config", s3_origin_config)
+            _setter("s3_origin_config", s3_origin_config)
 
     @property
     @pulumi.getter(name="domainName")
@@ -2045,7 +2589,16 @@ class DistributionOriginArgs:
 class DistributionRestrictionsArgs:
     def __init__(__self__, *,
                  geo_restriction: pulumi.Input['DistributionGeoRestrictionArgs']):
-        pulumi.set(__self__, "geo_restriction", geo_restriction)
+        DistributionRestrictionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            geo_restriction=geo_restriction,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             geo_restriction: pulumi.Input['DistributionGeoRestrictionArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("geo_restriction", geo_restriction)
 
     @property
     @pulumi.getter(name="geoRestriction")
@@ -2061,8 +2614,17 @@ class DistributionRestrictionsArgs:
 class DistributionS3OriginConfigArgs:
     def __init__(__self__, *,
                  origin_access_identity: Optional[pulumi.Input[str]] = None):
+        DistributionS3OriginConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            origin_access_identity=origin_access_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             origin_access_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if origin_access_identity is not None:
-            pulumi.set(__self__, "origin_access_identity", origin_access_identity)
+            _setter("origin_access_identity", origin_access_identity)
 
     @property
     @pulumi.getter(name="originAccessIdentity")
@@ -2079,8 +2641,19 @@ class DistributionStatusCodesArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input[int]]],
                  quantity: pulumi.Input[int]):
-        pulumi.set(__self__, "items", items)
-        pulumi.set(__self__, "quantity", quantity)
+        DistributionStatusCodesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+            quantity=quantity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: pulumi.Input[Sequence[pulumi.Input[int]]],
+             quantity: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("items", items)
+        _setter("quantity", quantity)
 
     @property
     @pulumi.getter
@@ -2106,8 +2679,19 @@ class DistributionTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        DistributionTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2136,16 +2720,33 @@ class DistributionViewerCertificateArgs:
                  iam_certificate_id: Optional[pulumi.Input[str]] = None,
                  minimum_protocol_version: Optional[pulumi.Input[str]] = None,
                  ssl_support_method: Optional[pulumi.Input[str]] = None):
+        DistributionViewerCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acm_certificate_arn=acm_certificate_arn,
+            cloud_front_default_certificate=cloud_front_default_certificate,
+            iam_certificate_id=iam_certificate_id,
+            minimum_protocol_version=minimum_protocol_version,
+            ssl_support_method=ssl_support_method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acm_certificate_arn: Optional[pulumi.Input[str]] = None,
+             cloud_front_default_certificate: Optional[pulumi.Input[bool]] = None,
+             iam_certificate_id: Optional[pulumi.Input[str]] = None,
+             minimum_protocol_version: Optional[pulumi.Input[str]] = None,
+             ssl_support_method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acm_certificate_arn is not None:
-            pulumi.set(__self__, "acm_certificate_arn", acm_certificate_arn)
+            _setter("acm_certificate_arn", acm_certificate_arn)
         if cloud_front_default_certificate is not None:
-            pulumi.set(__self__, "cloud_front_default_certificate", cloud_front_default_certificate)
+            _setter("cloud_front_default_certificate", cloud_front_default_certificate)
         if iam_certificate_id is not None:
-            pulumi.set(__self__, "iam_certificate_id", iam_certificate_id)
+            _setter("iam_certificate_id", iam_certificate_id)
         if minimum_protocol_version is not None:
-            pulumi.set(__self__, "minimum_protocol_version", minimum_protocol_version)
+            _setter("minimum_protocol_version", minimum_protocol_version)
         if ssl_support_method is not None:
-            pulumi.set(__self__, "ssl_support_method", ssl_support_method)
+            _setter("ssl_support_method", ssl_support_method)
 
     @property
     @pulumi.getter(name="acmCertificateArn")
@@ -2198,8 +2799,19 @@ class FunctionConfigArgs:
     def __init__(__self__, *,
                  comment: pulumi.Input[str],
                  runtime: pulumi.Input[str]):
-        pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "runtime", runtime)
+        FunctionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            runtime=runtime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: pulumi.Input[str],
+             runtime: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comment", comment)
+        _setter("runtime", runtime)
 
     @property
     @pulumi.getter
@@ -2224,8 +2836,17 @@ class FunctionConfigArgs:
 class FunctionMetadataArgs:
     def __init__(__self__, *,
                  function_arn: Optional[pulumi.Input[str]] = None):
+        FunctionMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_arn=function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if function_arn is not None:
-            pulumi.set(__self__, "function_arn", function_arn)
+            _setter("function_arn", function_arn)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -2243,10 +2864,23 @@ class KeyGroupConfigArgs:
                  items: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "items", items)
-        pulumi.set(__self__, "name", name)
+        KeyGroupConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+            name=name,
+            comment=comment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             comment: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("items", items)
+        _setter("name", name)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
 
     @property
     @pulumi.getter
@@ -2280,7 +2914,16 @@ class KeyGroupConfigArgs:
 class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs:
     def __init__(__self__, *,
                  realtime_metrics_subscription_status: pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus']):
-        pulumi.set(__self__, "realtime_metrics_subscription_status", realtime_metrics_subscription_status)
+        MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            realtime_metrics_subscription_status=realtime_metrics_subscription_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             realtime_metrics_subscription_status: pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("realtime_metrics_subscription_status", realtime_metrics_subscription_status)
 
     @property
     @pulumi.getter(name="realtimeMetricsSubscriptionStatus")
@@ -2296,8 +2939,17 @@ class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs:
 class MonitoringSubscriptionArgs:
     def __init__(__self__, *,
                  realtime_metrics_subscription_config: Optional[pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs']] = None):
+        MonitoringSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            realtime_metrics_subscription_config=realtime_metrics_subscription_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             realtime_metrics_subscription_config: Optional[pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if realtime_metrics_subscription_config is not None:
-            pulumi.set(__self__, "realtime_metrics_subscription_config", realtime_metrics_subscription_config)
+            _setter("realtime_metrics_subscription_config", realtime_metrics_subscription_config)
 
     @property
     @pulumi.getter(name="realtimeMetricsSubscriptionConfig")
@@ -2317,12 +2969,29 @@ class OriginAccessControlConfigArgs:
                  signing_behavior: pulumi.Input[str],
                  signing_protocol: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "origin_access_control_origin_type", origin_access_control_origin_type)
-        pulumi.set(__self__, "signing_behavior", signing_behavior)
-        pulumi.set(__self__, "signing_protocol", signing_protocol)
+        OriginAccessControlConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            origin_access_control_origin_type=origin_access_control_origin_type,
+            signing_behavior=signing_behavior,
+            signing_protocol=signing_protocol,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             origin_access_control_origin_type: pulumi.Input[str],
+             signing_behavior: pulumi.Input[str],
+             signing_protocol: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("origin_access_control_origin_type", origin_access_control_origin_type)
+        _setter("signing_behavior", signing_behavior)
+        _setter("signing_protocol", signing_protocol)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -2378,12 +3047,29 @@ class OriginRequestPolicyConfigArgs:
                  name: pulumi.Input[str],
                  query_strings_config: pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'],
                  comment: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "cookies_config", cookies_config)
-        pulumi.set(__self__, "headers_config", headers_config)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "query_strings_config", query_strings_config)
+        OriginRequestPolicyConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookies_config=cookies_config,
+            headers_config=headers_config,
+            name=name,
+            query_strings_config=query_strings_config,
+            comment=comment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookies_config: pulumi.Input['OriginRequestPolicyCookiesConfigArgs'],
+             headers_config: pulumi.Input['OriginRequestPolicyHeadersConfigArgs'],
+             name: pulumi.Input[str],
+             query_strings_config: pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'],
+             comment: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cookies_config", cookies_config)
+        _setter("headers_config", headers_config)
+        _setter("name", name)
+        _setter("query_strings_config", query_strings_config)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
 
     @property
     @pulumi.getter(name="cookiesConfig")
@@ -2436,9 +3122,20 @@ class OriginRequestPolicyCookiesConfigArgs:
     def __init__(__self__, *,
                  cookie_behavior: pulumi.Input[str],
                  cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "cookie_behavior", cookie_behavior)
+        OriginRequestPolicyCookiesConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookie_behavior=cookie_behavior,
+            cookies=cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookie_behavior: pulumi.Input[str],
+             cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cookie_behavior", cookie_behavior)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
 
     @property
     @pulumi.getter(name="cookieBehavior")
@@ -2464,9 +3161,20 @@ class OriginRequestPolicyHeadersConfigArgs:
     def __init__(__self__, *,
                  header_behavior: pulumi.Input[str],
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "header_behavior", header_behavior)
+        OriginRequestPolicyHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_behavior=header_behavior,
+            headers=headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_behavior: pulumi.Input[str],
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header_behavior", header_behavior)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
 
     @property
     @pulumi.getter(name="headerBehavior")
@@ -2492,9 +3200,20 @@ class OriginRequestPolicyQueryStringsConfigArgs:
     def __init__(__self__, *,
                  query_string_behavior: pulumi.Input[str],
                  query_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "query_string_behavior", query_string_behavior)
+        OriginRequestPolicyQueryStringsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_string_behavior=query_string_behavior,
+            query_strings=query_strings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_string_behavior: pulumi.Input[str],
+             query_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("query_string_behavior", query_string_behavior)
         if query_strings is not None:
-            pulumi.set(__self__, "query_strings", query_strings)
+            _setter("query_strings", query_strings)
 
     @property
     @pulumi.getter(name="queryStringBehavior")
@@ -2522,11 +3241,26 @@ class PublicKeyConfigArgs:
                  encoded_key: pulumi.Input[str],
                  name: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "caller_reference", caller_reference)
-        pulumi.set(__self__, "encoded_key", encoded_key)
-        pulumi.set(__self__, "name", name)
+        PublicKeyConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            caller_reference=caller_reference,
+            encoded_key=encoded_key,
+            name=name,
+            comment=comment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             caller_reference: pulumi.Input[str],
+             encoded_key: pulumi.Input[str],
+             name: pulumi.Input[str],
+             comment: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("caller_reference", caller_reference)
+        _setter("encoded_key", encoded_key)
+        _setter("name", name)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
 
     @property
     @pulumi.getter(name="callerReference")
@@ -2570,8 +3304,19 @@ class RealtimeLogConfigEndPointArgs:
     def __init__(__self__, *,
                  kinesis_stream_config: pulumi.Input['RealtimeLogConfigKinesisStreamConfigArgs'],
                  stream_type: pulumi.Input[str]):
-        pulumi.set(__self__, "kinesis_stream_config", kinesis_stream_config)
-        pulumi.set(__self__, "stream_type", stream_type)
+        RealtimeLogConfigEndPointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kinesis_stream_config=kinesis_stream_config,
+            stream_type=stream_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kinesis_stream_config: pulumi.Input['RealtimeLogConfigKinesisStreamConfigArgs'],
+             stream_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kinesis_stream_config", kinesis_stream_config)
+        _setter("stream_type", stream_type)
 
     @property
     @pulumi.getter(name="kinesisStreamConfig")
@@ -2597,8 +3342,19 @@ class RealtimeLogConfigKinesisStreamConfigArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  stream_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "stream_arn", stream_arn)
+        RealtimeLogConfigKinesisStreamConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            stream_arn=stream_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             stream_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
+        _setter("stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -2623,7 +3379,16 @@ class RealtimeLogConfigKinesisStreamConfigArgs:
 class ResponseHeadersPolicyAccessControlAllowHeadersArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "items", items)
+        ResponseHeadersPolicyAccessControlAllowHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2639,7 +3404,16 @@ class ResponseHeadersPolicyAccessControlAllowHeadersArgs:
 class ResponseHeadersPolicyAccessControlAllowMethodsArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "items", items)
+        ResponseHeadersPolicyAccessControlAllowMethodsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2655,7 +3429,16 @@ class ResponseHeadersPolicyAccessControlAllowMethodsArgs:
 class ResponseHeadersPolicyAccessControlAllowOriginsArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "items", items)
+        ResponseHeadersPolicyAccessControlAllowOriginsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2671,7 +3454,16 @@ class ResponseHeadersPolicyAccessControlAllowOriginsArgs:
 class ResponseHeadersPolicyAccessControlExposeHeadersArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "items", items)
+        ResponseHeadersPolicyAccessControlExposeHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2693,19 +3485,40 @@ class ResponseHeadersPolicyConfigArgs:
                  remove_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
                  security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
                  server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
-        pulumi.set(__self__, "name", name)
+        ResponseHeadersPolicyConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            comment=comment,
+            cors_config=cors_config,
+            custom_headers_config=custom_headers_config,
+            remove_headers_config=remove_headers_config,
+            security_headers_config=security_headers_config,
+            server_timing_headers_config=server_timing_headers_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             comment: Optional[pulumi.Input[str]] = None,
+             cors_config: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']] = None,
+             custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
+             remove_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
+             security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
+             server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if cors_config is not None:
-            pulumi.set(__self__, "cors_config", cors_config)
+            _setter("cors_config", cors_config)
         if custom_headers_config is not None:
-            pulumi.set(__self__, "custom_headers_config", custom_headers_config)
+            _setter("custom_headers_config", custom_headers_config)
         if remove_headers_config is not None:
-            pulumi.set(__self__, "remove_headers_config", remove_headers_config)
+            _setter("remove_headers_config", remove_headers_config)
         if security_headers_config is not None:
-            pulumi.set(__self__, "security_headers_config", security_headers_config)
+            _setter("security_headers_config", security_headers_config)
         if server_timing_headers_config is not None:
-            pulumi.set(__self__, "server_timing_headers_config", server_timing_headers_config)
+            _setter("server_timing_headers_config", server_timing_headers_config)
 
     @property
     @pulumi.getter
@@ -2776,8 +3589,19 @@ class ResponseHeadersPolicyContentSecurityPolicyArgs:
     def __init__(__self__, *,
                  content_security_policy: pulumi.Input[str],
                  override: pulumi.Input[bool]):
-        pulumi.set(__self__, "content_security_policy", content_security_policy)
-        pulumi.set(__self__, "override", override)
+        ResponseHeadersPolicyContentSecurityPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_security_policy=content_security_policy,
+            override=override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_security_policy: pulumi.Input[str],
+             override: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content_security_policy", content_security_policy)
+        _setter("override", override)
 
     @property
     @pulumi.getter(name="contentSecurityPolicy")
@@ -2802,7 +3626,16 @@ class ResponseHeadersPolicyContentSecurityPolicyArgs:
 class ResponseHeadersPolicyContentTypeOptionsArgs:
     def __init__(__self__, *,
                  override: pulumi.Input[bool]):
-        pulumi.set(__self__, "override", override)
+        ResponseHeadersPolicyContentTypeOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            override=override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             override: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("override", override)
 
     @property
     @pulumi.getter
@@ -2824,15 +3657,36 @@ class ResponseHeadersPolicyCorsConfigArgs:
                  origin_override: pulumi.Input[bool],
                  access_control_expose_headers: Optional[pulumi.Input['ResponseHeadersPolicyAccessControlExposeHeadersArgs']] = None,
                  access_control_max_age_sec: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "access_control_allow_credentials", access_control_allow_credentials)
-        pulumi.set(__self__, "access_control_allow_headers", access_control_allow_headers)
-        pulumi.set(__self__, "access_control_allow_methods", access_control_allow_methods)
-        pulumi.set(__self__, "access_control_allow_origins", access_control_allow_origins)
-        pulumi.set(__self__, "origin_override", origin_override)
+        ResponseHeadersPolicyCorsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control_allow_credentials=access_control_allow_credentials,
+            access_control_allow_headers=access_control_allow_headers,
+            access_control_allow_methods=access_control_allow_methods,
+            access_control_allow_origins=access_control_allow_origins,
+            origin_override=origin_override,
+            access_control_expose_headers=access_control_expose_headers,
+            access_control_max_age_sec=access_control_max_age_sec,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control_allow_credentials: pulumi.Input[bool],
+             access_control_allow_headers: pulumi.Input['ResponseHeadersPolicyAccessControlAllowHeadersArgs'],
+             access_control_allow_methods: pulumi.Input['ResponseHeadersPolicyAccessControlAllowMethodsArgs'],
+             access_control_allow_origins: pulumi.Input['ResponseHeadersPolicyAccessControlAllowOriginsArgs'],
+             origin_override: pulumi.Input[bool],
+             access_control_expose_headers: Optional[pulumi.Input['ResponseHeadersPolicyAccessControlExposeHeadersArgs']] = None,
+             access_control_max_age_sec: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_control_allow_credentials", access_control_allow_credentials)
+        _setter("access_control_allow_headers", access_control_allow_headers)
+        _setter("access_control_allow_methods", access_control_allow_methods)
+        _setter("access_control_allow_origins", access_control_allow_origins)
+        _setter("origin_override", origin_override)
         if access_control_expose_headers is not None:
-            pulumi.set(__self__, "access_control_expose_headers", access_control_expose_headers)
+            _setter("access_control_expose_headers", access_control_expose_headers)
         if access_control_max_age_sec is not None:
-            pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
+            _setter("access_control_max_age_sec", access_control_max_age_sec)
 
     @property
     @pulumi.getter(name="accessControlAllowCredentials")
@@ -2902,7 +3756,16 @@ class ResponseHeadersPolicyCorsConfigArgs:
 class ResponseHeadersPolicyCustomHeadersConfigArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeaderArgs']]]):
-        pulumi.set(__self__, "items", items)
+        ResponseHeadersPolicyCustomHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeaderArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2920,9 +3783,22 @@ class ResponseHeadersPolicyCustomHeaderArgs:
                  header: pulumi.Input[str],
                  override: pulumi.Input[bool],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "header", header)
-        pulumi.set(__self__, "override", override)
-        pulumi.set(__self__, "value", value)
+        ResponseHeadersPolicyCustomHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+            override=override,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: pulumi.Input[str],
+             override: pulumi.Input[bool],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header", header)
+        _setter("override", override)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2957,8 +3833,19 @@ class ResponseHeadersPolicyFrameOptionsArgs:
     def __init__(__self__, *,
                  frame_option: pulumi.Input[str],
                  override: pulumi.Input[bool]):
-        pulumi.set(__self__, "frame_option", frame_option)
-        pulumi.set(__self__, "override", override)
+        ResponseHeadersPolicyFrameOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frame_option=frame_option,
+            override=override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frame_option: pulumi.Input[str],
+             override: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("frame_option", frame_option)
+        _setter("override", override)
 
     @property
     @pulumi.getter(name="frameOption")
@@ -2984,8 +3871,19 @@ class ResponseHeadersPolicyReferrerPolicyArgs:
     def __init__(__self__, *,
                  override: pulumi.Input[bool],
                  referrer_policy: pulumi.Input[str]):
-        pulumi.set(__self__, "override", override)
-        pulumi.set(__self__, "referrer_policy", referrer_policy)
+        ResponseHeadersPolicyReferrerPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            override=override,
+            referrer_policy=referrer_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             override: pulumi.Input[bool],
+             referrer_policy: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("override", override)
+        _setter("referrer_policy", referrer_policy)
 
     @property
     @pulumi.getter
@@ -3010,7 +3908,16 @@ class ResponseHeadersPolicyReferrerPolicyArgs:
 class ResponseHeadersPolicyRemoveHeadersConfigArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeaderArgs']]]):
-        pulumi.set(__self__, "items", items)
+        ResponseHeadersPolicyRemoveHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeaderArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("items", items)
 
     @property
     @pulumi.getter
@@ -3026,7 +3933,16 @@ class ResponseHeadersPolicyRemoveHeadersConfigArgs:
 class ResponseHeadersPolicyRemoveHeaderArgs:
     def __init__(__self__, *,
                  header: pulumi.Input[str]):
-        pulumi.set(__self__, "header", header)
+        ResponseHeadersPolicyRemoveHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header", header)
 
     @property
     @pulumi.getter
@@ -3047,18 +3963,37 @@ class ResponseHeadersPolicySecurityHeadersConfigArgs:
                  referrer_policy: Optional[pulumi.Input['ResponseHeadersPolicyReferrerPolicyArgs']] = None,
                  strict_transport_security: Optional[pulumi.Input['ResponseHeadersPolicyStrictTransportSecurityArgs']] = None,
                  xss_protection: Optional[pulumi.Input['ResponseHeadersPolicyXssProtectionArgs']] = None):
+        ResponseHeadersPolicySecurityHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_security_policy=content_security_policy,
+            content_type_options=content_type_options,
+            frame_options=frame_options,
+            referrer_policy=referrer_policy,
+            strict_transport_security=strict_transport_security,
+            xss_protection=xss_protection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_security_policy: Optional[pulumi.Input['ResponseHeadersPolicyContentSecurityPolicyArgs']] = None,
+             content_type_options: Optional[pulumi.Input['ResponseHeadersPolicyContentTypeOptionsArgs']] = None,
+             frame_options: Optional[pulumi.Input['ResponseHeadersPolicyFrameOptionsArgs']] = None,
+             referrer_policy: Optional[pulumi.Input['ResponseHeadersPolicyReferrerPolicyArgs']] = None,
+             strict_transport_security: Optional[pulumi.Input['ResponseHeadersPolicyStrictTransportSecurityArgs']] = None,
+             xss_protection: Optional[pulumi.Input['ResponseHeadersPolicyXssProtectionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content_security_policy is not None:
-            pulumi.set(__self__, "content_security_policy", content_security_policy)
+            _setter("content_security_policy", content_security_policy)
         if content_type_options is not None:
-            pulumi.set(__self__, "content_type_options", content_type_options)
+            _setter("content_type_options", content_type_options)
         if frame_options is not None:
-            pulumi.set(__self__, "frame_options", frame_options)
+            _setter("frame_options", frame_options)
         if referrer_policy is not None:
-            pulumi.set(__self__, "referrer_policy", referrer_policy)
+            _setter("referrer_policy", referrer_policy)
         if strict_transport_security is not None:
-            pulumi.set(__self__, "strict_transport_security", strict_transport_security)
+            _setter("strict_transport_security", strict_transport_security)
         if xss_protection is not None:
-            pulumi.set(__self__, "xss_protection", xss_protection)
+            _setter("xss_protection", xss_protection)
 
     @property
     @pulumi.getter(name="contentSecurityPolicy")
@@ -3120,9 +4055,20 @@ class ResponseHeadersPolicyServerTimingHeadersConfigArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  sampling_rate: Optional[pulumi.Input[float]] = None):
-        pulumi.set(__self__, "enabled", enabled)
+        ResponseHeadersPolicyServerTimingHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            sampling_rate=sampling_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             sampling_rate: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if sampling_rate is not None:
-            pulumi.set(__self__, "sampling_rate", sampling_rate)
+            _setter("sampling_rate", sampling_rate)
 
     @property
     @pulumi.getter
@@ -3150,12 +4096,27 @@ class ResponseHeadersPolicyStrictTransportSecurityArgs:
                  override: pulumi.Input[bool],
                  include_subdomains: Optional[pulumi.Input[bool]] = None,
                  preload: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
-        pulumi.set(__self__, "override", override)
+        ResponseHeadersPolicyStrictTransportSecurityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control_max_age_sec=access_control_max_age_sec,
+            override=override,
+            include_subdomains=include_subdomains,
+            preload=preload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control_max_age_sec: pulumi.Input[int],
+             override: pulumi.Input[bool],
+             include_subdomains: Optional[pulumi.Input[bool]] = None,
+             preload: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_control_max_age_sec", access_control_max_age_sec)
+        _setter("override", override)
         if include_subdomains is not None:
-            pulumi.set(__self__, "include_subdomains", include_subdomains)
+            _setter("include_subdomains", include_subdomains)
         if preload is not None:
-            pulumi.set(__self__, "preload", preload)
+            _setter("preload", preload)
 
     @property
     @pulumi.getter(name="accessControlMaxAgeSec")
@@ -3201,12 +4162,27 @@ class ResponseHeadersPolicyXssProtectionArgs:
                  protection: pulumi.Input[bool],
                  mode_block: Optional[pulumi.Input[bool]] = None,
                  report_uri: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "override", override)
-        pulumi.set(__self__, "protection", protection)
+        ResponseHeadersPolicyXssProtectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            override=override,
+            protection=protection,
+            mode_block=mode_block,
+            report_uri=report_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             override: pulumi.Input[bool],
+             protection: pulumi.Input[bool],
+             mode_block: Optional[pulumi.Input[bool]] = None,
+             report_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("override", override)
+        _setter("protection", protection)
         if mode_block is not None:
-            pulumi.set(__self__, "mode_block", mode_block)
+            _setter("mode_block", mode_block)
         if report_uri is not None:
-            pulumi.set(__self__, "report_uri", report_uri)
+            _setter("report_uri", report_uri)
 
     @property
     @pulumi.getter
@@ -3255,16 +4231,37 @@ class StreamingDistributionConfigArgs:
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  logging: Optional[pulumi.Input['StreamingDistributionLoggingArgs']] = None,
                  price_class: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "s3_origin", s3_origin)
-        pulumi.set(__self__, "trusted_signers", trusted_signers)
+        StreamingDistributionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            enabled=enabled,
+            s3_origin=s3_origin,
+            trusted_signers=trusted_signers,
+            aliases=aliases,
+            logging=logging,
+            price_class=price_class,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: pulumi.Input[str],
+             enabled: pulumi.Input[bool],
+             s3_origin: pulumi.Input['StreamingDistributionS3OriginArgs'],
+             trusted_signers: pulumi.Input['StreamingDistributionTrustedSignersArgs'],
+             aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             logging: Optional[pulumi.Input['StreamingDistributionLoggingArgs']] = None,
+             price_class: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comment", comment)
+        _setter("enabled", enabled)
+        _setter("s3_origin", s3_origin)
+        _setter("trusted_signers", trusted_signers)
         if aliases is not None:
-            pulumi.set(__self__, "aliases", aliases)
+            _setter("aliases", aliases)
         if logging is not None:
-            pulumi.set(__self__, "logging", logging)
+            _setter("logging", logging)
         if price_class is not None:
-            pulumi.set(__self__, "price_class", price_class)
+            _setter("price_class", price_class)
 
     @property
     @pulumi.getter
@@ -3336,9 +4333,22 @@ class StreamingDistributionLoggingArgs:
                  bucket: pulumi.Input[str],
                  enabled: pulumi.Input[bool],
                  prefix: pulumi.Input[str]):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "prefix", prefix)
+        StreamingDistributionLoggingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            enabled=enabled,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             enabled: pulumi.Input[bool],
+             prefix: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("enabled", enabled)
+        _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -3373,8 +4383,19 @@ class StreamingDistributionS3OriginArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  origin_access_identity: pulumi.Input[str]):
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "origin_access_identity", origin_access_identity)
+        StreamingDistributionS3OriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            origin_access_identity=origin_access_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             origin_access_identity: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
+        _setter("origin_access_identity", origin_access_identity)
 
     @property
     @pulumi.getter(name="domainName")
@@ -3400,8 +4421,19 @@ class StreamingDistributionTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        StreamingDistributionTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3427,9 +4459,20 @@ class StreamingDistributionTrustedSignersArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  aws_account_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "enabled", enabled)
+        StreamingDistributionTrustedSignersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            aws_account_numbers=aws_account_numbers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             aws_account_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if aws_account_numbers is not None:
-            pulumi.set(__self__, "aws_account_numbers", aws_account_numbers)
+            _setter("aws_account_numbers", aws_account_numbers)
 
     @property
     @pulumi.getter

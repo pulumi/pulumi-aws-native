@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -37,8 +37,19 @@ class PublicRepositoryTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        PublicRepositoryTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -68,7 +79,16 @@ class ReplicationConfiguration(dict):
         An object representing the replication configuration for a registry.
         :param Sequence['ReplicationConfigurationReplicationRule'] rules: An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
         """
-        pulumi.set(__self__, "rules", rules)
+        ReplicationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: Sequence['outputs.ReplicationConfigurationReplicationRule'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -107,8 +127,19 @@ class ReplicationConfigurationReplicationDestination(dict):
         """
         An array of objects representing the details of a replication destination.
         """
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "registry_id", registry_id)
+        ReplicationConfigurationReplicationDestination._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            region=region,
+            registry_id=registry_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             region: str,
+             registry_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("region", region)
+        _setter("registry_id", registry_id)
 
     @property
     @pulumi.getter
@@ -151,9 +182,20 @@ class ReplicationConfigurationReplicationRule(dict):
         :param Sequence['ReplicationConfigurationReplicationDestination'] destinations: An array of objects representing the details of a replication destination.
         :param Sequence['ReplicationConfigurationRepositoryFilter'] repository_filters: An array of objects representing the details of a repository filter.
         """
-        pulumi.set(__self__, "destinations", destinations)
+        ReplicationConfigurationReplicationRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destinations=destinations,
+            repository_filters=repository_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destinations: Sequence['outputs.ReplicationConfigurationReplicationDestination'],
+             repository_filters: Optional[Sequence['outputs.ReplicationConfigurationRepositoryFilter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destinations", destinations)
         if repository_filters is not None:
-            pulumi.set(__self__, "repository_filters", repository_filters)
+            _setter("repository_filters", repository_filters)
 
     @property
     @pulumi.getter
@@ -200,8 +242,19 @@ class ReplicationConfigurationRepositoryFilter(dict):
         """
         An array of objects representing the details of a repository filter.
         """
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "filter_type", filter_type)
+        ReplicationConfigurationRepositoryFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter=filter,
+            filter_type=filter_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter: str,
+             filter_type: 'ReplicationConfigurationFilterType',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filter", filter)
+        _setter("filter_type", filter_type)
 
     @property
     @pulumi.getter
@@ -251,16 +304,33 @@ class RepositoryCatalogDataProperties(dict):
         """
         The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see <link>
         """
+        RepositoryCatalogDataProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            about_text=about_text,
+            architectures=architectures,
+            operating_systems=operating_systems,
+            repository_description=repository_description,
+            usage_text=usage_text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             about_text: Optional[str] = None,
+             architectures: Optional[Sequence[str]] = None,
+             operating_systems: Optional[Sequence[str]] = None,
+             repository_description: Optional[str] = None,
+             usage_text: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if about_text is not None:
-            pulumi.set(__self__, "about_text", about_text)
+            _setter("about_text", about_text)
         if architectures is not None:
-            pulumi.set(__self__, "architectures", architectures)
+            _setter("architectures", architectures)
         if operating_systems is not None:
-            pulumi.set(__self__, "operating_systems", operating_systems)
+            _setter("operating_systems", operating_systems)
         if repository_description is not None:
-            pulumi.set(__self__, "repository_description", repository_description)
+            _setter("repository_description", repository_description)
         if usage_text is not None:
-            pulumi.set(__self__, "usage_text", usage_text)
+            _setter("usage_text", usage_text)
 
     @property
     @pulumi.getter(name="aboutText")
@@ -326,9 +396,20 @@ class RepositoryEncryptionConfiguration(dict):
 
         For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
         """
-        pulumi.set(__self__, "encryption_type", encryption_type)
+        RepositoryEncryptionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_type=encryption_type,
+            kms_key=kms_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_type: 'RepositoryEncryptionType',
+             kms_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("encryption_type", encryption_type)
         if kms_key is not None:
-            pulumi.set(__self__, "kms_key", kms_key)
+            _setter("kms_key", kms_key)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -368,8 +449,17 @@ class RepositoryImageScanningConfiguration(dict):
         """
         The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
         """
+        RepositoryImageScanningConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scan_on_push=scan_on_push,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scan_on_push: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if scan_on_push is not None:
-            pulumi.set(__self__, "scan_on_push", scan_on_push)
+            _setter("scan_on_push", scan_on_push)
 
     @property
     @pulumi.getter(name="scanOnPush")
@@ -407,10 +497,21 @@ class RepositoryLifecyclePolicy(dict):
         """
         The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
         """
+        RepositoryLifecyclePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lifecycle_policy_text=lifecycle_policy_text,
+            registry_id=registry_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lifecycle_policy_text: Optional[str] = None,
+             registry_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lifecycle_policy_text is not None:
-            pulumi.set(__self__, "lifecycle_policy_text", lifecycle_policy_text)
+            _setter("lifecycle_policy_text", lifecycle_policy_text)
         if registry_id is not None:
-            pulumi.set(__self__, "registry_id", registry_id)
+            _setter("registry_id", registry_id)
 
     @property
     @pulumi.getter(name="lifecyclePolicyText")
@@ -436,8 +537,19 @@ class RepositoryTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        RepositoryTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

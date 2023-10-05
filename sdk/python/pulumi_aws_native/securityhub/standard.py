@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,20 @@ class StandardArgs:
         :param pulumi.Input[str] standards_arn: The ARN of the Standard being enabled
         :param pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]] disabled_standards_controls: StandardsControls to disable from this Standard.
         """
-        pulumi.set(__self__, "standards_arn", standards_arn)
+        StandardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            standards_arn=standards_arn,
+            disabled_standards_controls=disabled_standards_controls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             standards_arn: pulumi.Input[str],
+             disabled_standards_controls: Optional[pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("standards_arn", standards_arn)
         if disabled_standards_controls is not None:
-            pulumi.set(__self__, "disabled_standards_controls", disabled_standards_controls)
+            _setter("disabled_standards_controls", disabled_standards_controls)
 
     @property
     @pulumi.getter(name="standardsArn")
@@ -87,6 +98,10 @@ class Standard(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StandardArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

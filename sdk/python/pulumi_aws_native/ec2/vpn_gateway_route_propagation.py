@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpnGatewayRoutePropagationArgs', 'VpnGatewayRoutePropagation']
@@ -19,8 +19,19 @@ class VpnGatewayRoutePropagationArgs:
         """
         The set of arguments for constructing a VpnGatewayRoutePropagation resource.
         """
-        pulumi.set(__self__, "route_table_ids", route_table_ids)
-        pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+        VpnGatewayRoutePropagationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            route_table_ids=route_table_ids,
+            vpn_gateway_id=vpn_gateway_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             route_table_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             vpn_gateway_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("route_table_ids", route_table_ids)
+        _setter("vpn_gateway_id", vpn_gateway_id)
 
     @property
     @pulumi.getter(name="routeTableIds")
@@ -79,6 +90,10 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnGatewayRoutePropagationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

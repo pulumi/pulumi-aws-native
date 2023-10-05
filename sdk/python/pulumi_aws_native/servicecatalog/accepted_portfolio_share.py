@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AcceptedPortfolioShareArgs', 'AcceptedPortfolioShare']
@@ -19,9 +19,20 @@ class AcceptedPortfolioShareArgs:
         """
         The set of arguments for constructing a AcceptedPortfolioShare resource.
         """
-        pulumi.set(__self__, "portfolio_id", portfolio_id)
+        AcceptedPortfolioShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            portfolio_id=portfolio_id,
+            accept_language=accept_language,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             portfolio_id: pulumi.Input[str],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("portfolio_id", portfolio_id)
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
 
     @property
     @pulumi.getter(name="portfolioId")
@@ -80,6 +91,10 @@ class AcceptedPortfolioShare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AcceptedPortfolioShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

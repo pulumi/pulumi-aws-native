@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,17 +30,36 @@ class AssetArgs:
         :param pulumi.Input[str] asset_name: A unique, friendly name for the asset.
         :param pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset.
         """
-        pulumi.set(__self__, "asset_model_id", asset_model_id)
+        AssetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_model_id=asset_model_id,
+            asset_description=asset_description,
+            asset_hierarchies=asset_hierarchies,
+            asset_name=asset_name,
+            asset_properties=asset_properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_model_id: pulumi.Input[str],
+             asset_description: Optional[pulumi.Input[str]] = None,
+             asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]]] = None,
+             asset_name: Optional[pulumi.Input[str]] = None,
+             asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertyArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("asset_model_id", asset_model_id)
         if asset_description is not None:
-            pulumi.set(__self__, "asset_description", asset_description)
+            _setter("asset_description", asset_description)
         if asset_hierarchies is not None:
-            pulumi.set(__self__, "asset_hierarchies", asset_hierarchies)
+            _setter("asset_hierarchies", asset_hierarchies)
         if asset_name is not None:
-            pulumi.set(__self__, "asset_name", asset_name)
+            _setter("asset_name", asset_name)
         if asset_properties is not None:
-            pulumi.set(__self__, "asset_properties", asset_properties)
+            _setter("asset_properties", asset_properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="assetModelId")
@@ -150,6 +169,10 @@ class Asset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

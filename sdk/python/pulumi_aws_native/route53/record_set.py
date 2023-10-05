@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,37 +35,76 @@ class RecordSetArgs:
         """
         The set of arguments for constructing a RecordSet resource.
         """
-        pulumi.set(__self__, "type", type)
+        RecordSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            alias_target=alias_target,
+            cidr_routing_config=cidr_routing_config,
+            comment=comment,
+            failover=failover,
+            geo_location=geo_location,
+            health_check_id=health_check_id,
+            hosted_zone_id=hosted_zone_id,
+            hosted_zone_name=hosted_zone_name,
+            multi_value_answer=multi_value_answer,
+            name=name,
+            region=region,
+            resource_records=resource_records,
+            set_identifier=set_identifier,
+            ttl=ttl,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             alias_target: Optional[pulumi.Input['RecordSetAliasTargetArgs']] = None,
+             cidr_routing_config: Optional[pulumi.Input['RecordSetCidrRoutingConfigArgs']] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             failover: Optional[pulumi.Input[str]] = None,
+             geo_location: Optional[pulumi.Input['RecordSetGeoLocationArgs']] = None,
+             health_check_id: Optional[pulumi.Input[str]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             hosted_zone_name: Optional[pulumi.Input[str]] = None,
+             multi_value_answer: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             resource_records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             set_identifier: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if alias_target is not None:
-            pulumi.set(__self__, "alias_target", alias_target)
+            _setter("alias_target", alias_target)
         if cidr_routing_config is not None:
-            pulumi.set(__self__, "cidr_routing_config", cidr_routing_config)
+            _setter("cidr_routing_config", cidr_routing_config)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if failover is not None:
-            pulumi.set(__self__, "failover", failover)
+            _setter("failover", failover)
         if geo_location is not None:
-            pulumi.set(__self__, "geo_location", geo_location)
+            _setter("geo_location", geo_location)
         if health_check_id is not None:
-            pulumi.set(__self__, "health_check_id", health_check_id)
+            _setter("health_check_id", health_check_id)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if hosted_zone_name is not None:
-            pulumi.set(__self__, "hosted_zone_name", hosted_zone_name)
+            _setter("hosted_zone_name", hosted_zone_name)
         if multi_value_answer is not None:
-            pulumi.set(__self__, "multi_value_answer", multi_value_answer)
+            _setter("multi_value_answer", multi_value_answer)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if resource_records is not None:
-            pulumi.set(__self__, "resource_records", resource_records)
+            _setter("resource_records", resource_records)
         if set_identifier is not None:
-            pulumi.set(__self__, "set_identifier", set_identifier)
+            _setter("set_identifier", set_identifier)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -264,6 +303,10 @@ class RecordSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RecordSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -295,10 +338,25 @@ class RecordSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RecordSetArgs.__new__(RecordSetArgs)
 
+            if alias_target is not None and not isinstance(alias_target, RecordSetAliasTargetArgs):
+                alias_target = alias_target or {}
+                def _setter(key, value):
+                    alias_target[key] = value
+                RecordSetAliasTargetArgs._configure(_setter, **alias_target)
             __props__.__dict__["alias_target"] = alias_target
+            if cidr_routing_config is not None and not isinstance(cidr_routing_config, RecordSetCidrRoutingConfigArgs):
+                cidr_routing_config = cidr_routing_config or {}
+                def _setter(key, value):
+                    cidr_routing_config[key] = value
+                RecordSetCidrRoutingConfigArgs._configure(_setter, **cidr_routing_config)
             __props__.__dict__["cidr_routing_config"] = cidr_routing_config
             __props__.__dict__["comment"] = comment
             __props__.__dict__["failover"] = failover
+            if geo_location is not None and not isinstance(geo_location, RecordSetGeoLocationArgs):
+                geo_location = geo_location or {}
+                def _setter(key, value):
+                    geo_location[key] = value
+                RecordSetGeoLocationArgs._configure(_setter, **geo_location)
             __props__.__dict__["geo_location"] = geo_location
             __props__.__dict__["health_check_id"] = health_check_id
             __props__.__dict__["hosted_zone_id"] = hosted_zone_id

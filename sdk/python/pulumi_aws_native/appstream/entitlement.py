@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,13 +24,30 @@ class EntitlementArgs:
         """
         The set of arguments for constructing a Entitlement resource.
         """
-        pulumi.set(__self__, "app_visibility", app_visibility)
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "stack_name", stack_name)
+        EntitlementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_visibility=app_visibility,
+            attributes=attributes,
+            stack_name=stack_name,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_visibility: pulumi.Input[str],
+             attributes: pulumi.Input[Sequence[pulumi.Input['EntitlementAttributeArgs']]],
+             stack_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_visibility", app_visibility)
+        _setter("attributes", attributes)
+        _setter("stack_name", stack_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="appVisibility")
@@ -114,6 +131,10 @@ class Entitlement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EntitlementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

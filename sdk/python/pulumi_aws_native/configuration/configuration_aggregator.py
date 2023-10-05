@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,14 +25,29 @@ class ConfigurationAggregatorArgs:
         :param pulumi.Input[str] configuration_aggregator_name: The name of the aggregator.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorTagArgs']]] tags: The tags for the configuration aggregator.
         """
+        ConfigurationAggregatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_aggregation_sources=account_aggregation_sources,
+            configuration_aggregator_name=configuration_aggregator_name,
+            organization_aggregation_source=organization_aggregation_source,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_aggregation_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]]] = None,
+             configuration_aggregator_name: Optional[pulumi.Input[str]] = None,
+             organization_aggregation_source: Optional[pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_aggregation_sources is not None:
-            pulumi.set(__self__, "account_aggregation_sources", account_aggregation_sources)
+            _setter("account_aggregation_sources", account_aggregation_sources)
         if configuration_aggregator_name is not None:
-            pulumi.set(__self__, "configuration_aggregator_name", configuration_aggregator_name)
+            _setter("configuration_aggregator_name", configuration_aggregator_name)
         if organization_aggregation_source is not None:
-            pulumi.set(__self__, "organization_aggregation_source", organization_aggregation_source)
+            _setter("organization_aggregation_source", organization_aggregation_source)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountAggregationSources")
@@ -114,6 +129,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationAggregatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -134,6 +153,11 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
             __props__.__dict__["account_aggregation_sources"] = account_aggregation_sources
             __props__.__dict__["configuration_aggregator_name"] = configuration_aggregator_name
+            if organization_aggregation_source is not None and not isinstance(organization_aggregation_source, ConfigurationAggregatorOrganizationAggregationSourceArgs):
+                organization_aggregation_source = organization_aggregation_source or {}
+                def _setter(key, value):
+                    organization_aggregation_source[key] = value
+                ConfigurationAggregatorOrganizationAggregationSourceArgs._configure(_setter, **organization_aggregation_source)
             __props__.__dict__["organization_aggregation_source"] = organization_aggregation_source
             __props__.__dict__["tags"] = tags
             __props__.__dict__["configuration_aggregator_arn"] = None

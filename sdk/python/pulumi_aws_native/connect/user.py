@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,21 +40,48 @@ class UserArgs:
         :param pulumi.Input[str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         :param pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]] tags: One or more tags.
         """
-        pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "phone_config", phone_config)
-        pulumi.set(__self__, "routing_profile_arn", routing_profile_arn)
-        pulumi.set(__self__, "security_profile_arns", security_profile_arns)
-        pulumi.set(__self__, "username", username)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            phone_config=phone_config,
+            routing_profile_arn=routing_profile_arn,
+            security_profile_arns=security_profile_arns,
+            username=username,
+            directory_user_id=directory_user_id,
+            hierarchy_group_arn=hierarchy_group_arn,
+            identity_info=identity_info,
+            password=password,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: pulumi.Input[str],
+             phone_config: pulumi.Input['UserPhoneConfigArgs'],
+             routing_profile_arn: pulumi.Input[str],
+             security_profile_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             username: pulumi.Input[str],
+             directory_user_id: Optional[pulumi.Input[str]] = None,
+             hierarchy_group_arn: Optional[pulumi.Input[str]] = None,
+             identity_info: Optional[pulumi.Input['UserIdentityInfoArgs']] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_arn", instance_arn)
+        _setter("phone_config", phone_config)
+        _setter("routing_profile_arn", routing_profile_arn)
+        _setter("security_profile_arns", security_profile_arns)
+        _setter("username", username)
         if directory_user_id is not None:
-            pulumi.set(__self__, "directory_user_id", directory_user_id)
+            _setter("directory_user_id", directory_user_id)
         if hierarchy_group_arn is not None:
-            pulumi.set(__self__, "hierarchy_group_arn", hierarchy_group_arn)
+            _setter("hierarchy_group_arn", hierarchy_group_arn)
         if identity_info is not None:
-            pulumi.set(__self__, "identity_info", identity_info)
+            _setter("identity_info", identity_info)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -228,6 +255,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -254,11 +285,21 @@ class User(pulumi.CustomResource):
 
             __props__.__dict__["directory_user_id"] = directory_user_id
             __props__.__dict__["hierarchy_group_arn"] = hierarchy_group_arn
+            if identity_info is not None and not isinstance(identity_info, UserIdentityInfoArgs):
+                identity_info = identity_info or {}
+                def _setter(key, value):
+                    identity_info[key] = value
+                UserIdentityInfoArgs._configure(_setter, **identity_info)
             __props__.__dict__["identity_info"] = identity_info
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["password"] = password
+            if phone_config is not None and not isinstance(phone_config, UserPhoneConfigArgs):
+                phone_config = phone_config or {}
+                def _setter(key, value):
+                    phone_config[key] = value
+                UserPhoneConfigArgs._configure(_setter, **phone_config)
             if phone_config is None and not opts.urn:
                 raise TypeError("Missing required property 'phone_config'")
             __props__.__dict__["phone_config"] = phone_config

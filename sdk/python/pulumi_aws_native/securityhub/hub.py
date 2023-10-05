@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HubArgs', 'Hub']
@@ -21,14 +21,29 @@ class HubArgs:
         """
         The set of arguments for constructing a Hub resource.
         """
+        HubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_enable_controls=auto_enable_controls,
+            control_finding_generator=control_finding_generator,
+            enable_default_standards=enable_default_standards,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_enable_controls: Optional[pulumi.Input[bool]] = None,
+             control_finding_generator: Optional[pulumi.Input[str]] = None,
+             enable_default_standards: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_enable_controls is not None:
-            pulumi.set(__self__, "auto_enable_controls", auto_enable_controls)
+            _setter("auto_enable_controls", auto_enable_controls)
         if control_finding_generator is not None:
-            pulumi.set(__self__, "control_finding_generator", control_finding_generator)
+            _setter("control_finding_generator", control_finding_generator)
         if enable_default_standards is not None:
-            pulumi.set(__self__, "enable_default_standards", enable_default_standards)
+            _setter("enable_default_standards", enable_default_standards)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="autoEnableControls")
@@ -107,6 +122,10 @@ class Hub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

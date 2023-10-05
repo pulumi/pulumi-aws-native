@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,8 +33,19 @@ class FhirDatastoreCreatedAt(dict):
         :param int nanos: Nanoseconds.
         :param str seconds: Seconds since epoch.
         """
-        pulumi.set(__self__, "nanos", nanos)
-        pulumi.set(__self__, "seconds", seconds)
+        FhirDatastoreCreatedAt._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nanos=nanos,
+            seconds=seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nanos: int,
+             seconds: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("nanos", nanos)
+        _setter("seconds", seconds)
 
     @property
     @pulumi.getter
@@ -91,13 +102,28 @@ class FhirDatastoreIdentityProviderConfiguration(dict):
         :param str idp_lambda_arn: The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
         :param str metadata: The JSON metadata elements for identity provider configuration.
         """
-        pulumi.set(__self__, "authorization_strategy", authorization_strategy)
+        FhirDatastoreIdentityProviderConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_strategy=authorization_strategy,
+            fine_grained_authorization_enabled=fine_grained_authorization_enabled,
+            idp_lambda_arn=idp_lambda_arn,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_strategy: 'FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy',
+             fine_grained_authorization_enabled: Optional[bool] = None,
+             idp_lambda_arn: Optional[str] = None,
+             metadata: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization_strategy", authorization_strategy)
         if fine_grained_authorization_enabled is not None:
-            pulumi.set(__self__, "fine_grained_authorization_enabled", fine_grained_authorization_enabled)
+            _setter("fine_grained_authorization_enabled", fine_grained_authorization_enabled)
         if idp_lambda_arn is not None:
-            pulumi.set(__self__, "idp_lambda_arn", idp_lambda_arn)
+            _setter("idp_lambda_arn", idp_lambda_arn)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="authorizationStrategy")
@@ -164,9 +190,20 @@ class FhirDatastoreKmsEncryptionConfig(dict):
         :param 'FhirDatastoreKmsEncryptionConfigCmkType' cmk_type: The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
         :param str kms_key_id: The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
         """
-        pulumi.set(__self__, "cmk_type", cmk_type)
+        FhirDatastoreKmsEncryptionConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cmk_type=cmk_type,
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cmk_type: 'FhirDatastoreKmsEncryptionConfigCmkType',
+             kms_key_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cmk_type", cmk_type)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="cmkType")
@@ -213,7 +250,16 @@ class FhirDatastorePreloadDataConfig(dict):
         The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
         :param 'FhirDatastorePreloadDataConfigPreloadDataType' preload_data_type: The type of preloaded data. Only Synthea preloaded data is supported.
         """
-        pulumi.set(__self__, "preload_data_type", preload_data_type)
+        FhirDatastorePreloadDataConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preload_data_type=preload_data_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preload_data_type: 'FhirDatastorePreloadDataConfigPreloadDataType',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("preload_data_type", preload_data_type)
 
     @property
     @pulumi.getter(name="preloadDataType")
@@ -251,7 +297,16 @@ class FhirDatastoreSseConfiguration(dict):
         """
         The server-side encryption key configuration for a customer provided encryption key.
         """
-        pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)
+        FhirDatastoreSseConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_encryption_config=kms_encryption_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_encryption_config: 'outputs.FhirDatastoreKmsEncryptionConfig',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kms_encryption_config", kms_encryption_config)
 
     @property
     @pulumi.getter(name="kmsEncryptionConfig")
@@ -272,8 +327,19 @@ class FhirDatastoreTag(dict):
         :param str key: The key of the tag.
         :param str value: The value of the tag.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        FhirDatastoreTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

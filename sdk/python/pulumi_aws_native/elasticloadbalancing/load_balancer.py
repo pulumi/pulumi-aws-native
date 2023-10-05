@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,41 +37,84 @@ class LoadBalancerArgs:
         """
         The set of arguments for constructing a LoadBalancer resource.
         """
-        pulumi.set(__self__, "listeners", listeners)
+        LoadBalancerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listeners=listeners,
+            access_logging_policy=access_logging_policy,
+            app_cookie_stickiness_policy=app_cookie_stickiness_policy,
+            availability_zones=availability_zones,
+            connection_draining_policy=connection_draining_policy,
+            connection_settings=connection_settings,
+            cross_zone=cross_zone,
+            health_check=health_check,
+            instances=instances,
+            lb_cookie_stickiness_policy=lb_cookie_stickiness_policy,
+            load_balancer_name=load_balancer_name,
+            policies=policies,
+            scheme=scheme,
+            security_groups=security_groups,
+            source_security_group_group_name=source_security_group_group_name,
+            source_security_group_owner_alias=source_security_group_owner_alias,
+            subnets=subnets,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listeners: pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenersArgs']]],
+             access_logging_policy: Optional[pulumi.Input['LoadBalancerAccessLoggingPolicyArgs']] = None,
+             app_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerAppCookieStickinessPolicyArgs']]]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_draining_policy: Optional[pulumi.Input['LoadBalancerConnectionDrainingPolicyArgs']] = None,
+             connection_settings: Optional[pulumi.Input['LoadBalancerConnectionSettingsArgs']] = None,
+             cross_zone: Optional[pulumi.Input[bool]] = None,
+             health_check: Optional[pulumi.Input['LoadBalancerHealthCheckArgs']] = None,
+             instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             lb_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLbCookieStickinessPolicyArgs']]]] = None,
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
+             policies: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPoliciesArgs']]]] = None,
+             scheme: Optional[pulumi.Input[str]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_security_group_group_name: Optional[pulumi.Input[str]] = None,
+             source_security_group_owner_alias: Optional[pulumi.Input[str]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("listeners", listeners)
         if access_logging_policy is not None:
-            pulumi.set(__self__, "access_logging_policy", access_logging_policy)
+            _setter("access_logging_policy", access_logging_policy)
         if app_cookie_stickiness_policy is not None:
-            pulumi.set(__self__, "app_cookie_stickiness_policy", app_cookie_stickiness_policy)
+            _setter("app_cookie_stickiness_policy", app_cookie_stickiness_policy)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if connection_draining_policy is not None:
-            pulumi.set(__self__, "connection_draining_policy", connection_draining_policy)
+            _setter("connection_draining_policy", connection_draining_policy)
         if connection_settings is not None:
-            pulumi.set(__self__, "connection_settings", connection_settings)
+            _setter("connection_settings", connection_settings)
         if cross_zone is not None:
-            pulumi.set(__self__, "cross_zone", cross_zone)
+            _setter("cross_zone", cross_zone)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
         if instances is not None:
-            pulumi.set(__self__, "instances", instances)
+            _setter("instances", instances)
         if lb_cookie_stickiness_policy is not None:
-            pulumi.set(__self__, "lb_cookie_stickiness_policy", lb_cookie_stickiness_policy)
+            _setter("lb_cookie_stickiness_policy", lb_cookie_stickiness_policy)
         if load_balancer_name is not None:
-            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+            _setter("load_balancer_name", load_balancer_name)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
         if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
+            _setter("scheme", scheme)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if source_security_group_group_name is not None:
-            pulumi.set(__self__, "source_security_group_group_name", source_security_group_group_name)
+            _setter("source_security_group_group_name", source_security_group_group_name)
         if source_security_group_owner_alias is not None:
-            pulumi.set(__self__, "source_security_group_owner_alias", source_security_group_owner_alias)
+            _setter("source_security_group_owner_alias", source_security_group_owner_alias)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -290,6 +333,10 @@ class LoadBalancer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoadBalancerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -323,12 +370,32 @@ class LoadBalancer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LoadBalancerArgs.__new__(LoadBalancerArgs)
 
+            if access_logging_policy is not None and not isinstance(access_logging_policy, LoadBalancerAccessLoggingPolicyArgs):
+                access_logging_policy = access_logging_policy or {}
+                def _setter(key, value):
+                    access_logging_policy[key] = value
+                LoadBalancerAccessLoggingPolicyArgs._configure(_setter, **access_logging_policy)
             __props__.__dict__["access_logging_policy"] = access_logging_policy
             __props__.__dict__["app_cookie_stickiness_policy"] = app_cookie_stickiness_policy
             __props__.__dict__["availability_zones"] = availability_zones
+            if connection_draining_policy is not None and not isinstance(connection_draining_policy, LoadBalancerConnectionDrainingPolicyArgs):
+                connection_draining_policy = connection_draining_policy or {}
+                def _setter(key, value):
+                    connection_draining_policy[key] = value
+                LoadBalancerConnectionDrainingPolicyArgs._configure(_setter, **connection_draining_policy)
             __props__.__dict__["connection_draining_policy"] = connection_draining_policy
+            if connection_settings is not None and not isinstance(connection_settings, LoadBalancerConnectionSettingsArgs):
+                connection_settings = connection_settings or {}
+                def _setter(key, value):
+                    connection_settings[key] = value
+                LoadBalancerConnectionSettingsArgs._configure(_setter, **connection_settings)
             __props__.__dict__["connection_settings"] = connection_settings
             __props__.__dict__["cross_zone"] = cross_zone
+            if health_check is not None and not isinstance(health_check, LoadBalancerHealthCheckArgs):
+                health_check = health_check or {}
+                def _setter(key, value):
+                    health_check[key] = value
+                LoadBalancerHealthCheckArgs._configure(_setter, **health_check)
             __props__.__dict__["health_check"] = health_check
             __props__.__dict__["instances"] = instances
             __props__.__dict__["lb_cookie_stickiness_policy"] = lb_cookie_stickiness_policy

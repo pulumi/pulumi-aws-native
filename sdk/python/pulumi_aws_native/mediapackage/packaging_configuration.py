@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,36 @@ class PackagingConfigurationArgs:
         :param pulumi.Input['PackagingConfigurationMssPackageArgs'] mss_package: A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationTagArgs']]] tags: A collection of tags associated with a resource
         """
-        pulumi.set(__self__, "packaging_group_id", packaging_group_id)
+        PackagingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            packaging_group_id=packaging_group_id,
+            cmaf_package=cmaf_package,
+            dash_package=dash_package,
+            hls_package=hls_package,
+            mss_package=mss_package,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             packaging_group_id: pulumi.Input[str],
+             cmaf_package: Optional[pulumi.Input['PackagingConfigurationCmafPackageArgs']] = None,
+             dash_package: Optional[pulumi.Input['PackagingConfigurationDashPackageArgs']] = None,
+             hls_package: Optional[pulumi.Input['PackagingConfigurationHlsPackageArgs']] = None,
+             mss_package: Optional[pulumi.Input['PackagingConfigurationMssPackageArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("packaging_group_id", packaging_group_id)
         if cmaf_package is not None:
-            pulumi.set(__self__, "cmaf_package", cmaf_package)
+            _setter("cmaf_package", cmaf_package)
         if dash_package is not None:
-            pulumi.set(__self__, "dash_package", dash_package)
+            _setter("dash_package", dash_package)
         if hls_package is not None:
-            pulumi.set(__self__, "hls_package", hls_package)
+            _setter("hls_package", hls_package)
         if mss_package is not None:
-            pulumi.set(__self__, "mss_package", mss_package)
+            _setter("mss_package", mss_package)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="packagingGroupId")
@@ -160,6 +179,10 @@ class PackagingConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PackagingConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,9 +203,29 @@ class PackagingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PackagingConfigurationArgs.__new__(PackagingConfigurationArgs)
 
+            if cmaf_package is not None and not isinstance(cmaf_package, PackagingConfigurationCmafPackageArgs):
+                cmaf_package = cmaf_package or {}
+                def _setter(key, value):
+                    cmaf_package[key] = value
+                PackagingConfigurationCmafPackageArgs._configure(_setter, **cmaf_package)
             __props__.__dict__["cmaf_package"] = cmaf_package
+            if dash_package is not None and not isinstance(dash_package, PackagingConfigurationDashPackageArgs):
+                dash_package = dash_package or {}
+                def _setter(key, value):
+                    dash_package[key] = value
+                PackagingConfigurationDashPackageArgs._configure(_setter, **dash_package)
             __props__.__dict__["dash_package"] = dash_package
+            if hls_package is not None and not isinstance(hls_package, PackagingConfigurationHlsPackageArgs):
+                hls_package = hls_package or {}
+                def _setter(key, value):
+                    hls_package[key] = value
+                PackagingConfigurationHlsPackageArgs._configure(_setter, **hls_package)
             __props__.__dict__["hls_package"] = hls_package
+            if mss_package is not None and not isinstance(mss_package, PackagingConfigurationMssPackageArgs):
+                mss_package = mss_package or {}
+                def _setter(key, value):
+                    mss_package[key] = value
+                PackagingConfigurationMssPackageArgs._configure(_setter, **mss_package)
             __props__.__dict__["mss_package"] = mss_package
             if packaging_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'packaging_group_id'")

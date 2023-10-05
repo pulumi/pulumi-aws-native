@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -22,10 +22,21 @@ class ResolverQueryLoggingConfigAssociationArgs:
         :param pulumi.Input[str] resolver_query_log_config_id: ResolverQueryLogConfigId
         :param pulumi.Input[str] resource_id: ResourceId
         """
+        ResolverQueryLoggingConfigAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resolver_query_log_config_id=resolver_query_log_config_id,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resolver_query_log_config_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resolver_query_log_config_id is not None:
-            pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
+            _setter("resolver_query_log_config_id", resolver_query_log_config_id)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resolverQueryLogConfigId")
@@ -87,6 +98,10 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResolverQueryLoggingConfigAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

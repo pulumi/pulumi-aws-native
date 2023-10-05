@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -55,8 +55,17 @@ class DataCellsFilterColumnWildcardArgs:
         An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_column_names: A list of column names to be excluded from the Data Cells Filter.
         """
+        DataCellsFilterColumnWildcardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excluded_column_names=excluded_column_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if excluded_column_names is not None:
-            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+            _setter("excluded_column_names", excluded_column_names)
 
     @property
     @pulumi.getter(name="excludedColumnNames")
@@ -81,10 +90,21 @@ class DataCellsFilterRowFilterArgs:
         :param Any all_rows_wildcard: An empty object representing a row wildcard.
         :param pulumi.Input[str] filter_expression: A PartiQL predicate.
         """
+        DataCellsFilterRowFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_rows_wildcard=all_rows_wildcard,
+            filter_expression=filter_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_rows_wildcard: Optional[Any] = None,
+             filter_expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_rows_wildcard is not None:
-            pulumi.set(__self__, "all_rows_wildcard", all_rows_wildcard)
+            _setter("all_rows_wildcard", all_rows_wildcard)
         if filter_expression is not None:
-            pulumi.set(__self__, "filter_expression", filter_expression)
+            _setter("filter_expression", filter_expression)
 
     @property
     @pulumi.getter(name="allRowsWildcard")
@@ -115,11 +135,21 @@ class DataCellsFilterRowFilterArgs:
 class DataLakeSettingsAdminsArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class DataLakeSettingsCreateDatabaseDefaultPermissionsArgs:
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -127,11 +157,21 @@ class DataLakeSettingsCreateDatabaseDefaultPermissionsArgs:
 class DataLakeSettingsCreateTableDefaultPermissionsArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class DataLakeSettingsExternalDataFilteringAllowListArgs:
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -139,8 +179,17 @@ class DataLakeSettingsExternalDataFilteringAllowListArgs:
 class PermissionsColumnWildcardArgs:
     def __init__(__self__, *,
                  excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        PermissionsColumnWildcardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excluded_column_names=excluded_column_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if excluded_column_names is not None:
-            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+            _setter("excluded_column_names", excluded_column_names)
 
     @property
     @pulumi.getter(name="excludedColumnNames")
@@ -156,8 +205,17 @@ class PermissionsColumnWildcardArgs:
 class PermissionsDataLakePrincipalArgs:
     def __init__(__self__, *,
                  data_lake_principal_identifier: Optional[pulumi.Input[str]] = None):
+        PermissionsDataLakePrincipalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_lake_principal_identifier=data_lake_principal_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_lake_principal_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_lake_principal_identifier is not None:
-            pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+            _setter("data_lake_principal_identifier", data_lake_principal_identifier)
 
     @property
     @pulumi.getter(name="dataLakePrincipalIdentifier")
@@ -174,10 +232,21 @@ class PermissionsDataLocationResourceArgs:
     def __init__(__self__, *,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  s3_resource: Optional[pulumi.Input[str]] = None):
+        PermissionsDataLocationResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            s3_resource=s3_resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             s3_resource: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if s3_resource is not None:
-            pulumi.set(__self__, "s3_resource", s3_resource)
+            _setter("s3_resource", s3_resource)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -203,10 +272,21 @@ class PermissionsDatabaseResourceArgs:
     def __init__(__self__, *,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
+        PermissionsDatabaseResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -234,14 +314,29 @@ class PermissionsResourceArgs:
                  database_resource: Optional[pulumi.Input['PermissionsDatabaseResourceArgs']] = None,
                  table_resource: Optional[pulumi.Input['PermissionsTableResourceArgs']] = None,
                  table_with_columns_resource: Optional[pulumi.Input['PermissionsTableWithColumnsResourceArgs']] = None):
+        PermissionsResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_location_resource=data_location_resource,
+            database_resource=database_resource,
+            table_resource=table_resource,
+            table_with_columns_resource=table_with_columns_resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_location_resource: Optional[pulumi.Input['PermissionsDataLocationResourceArgs']] = None,
+             database_resource: Optional[pulumi.Input['PermissionsDatabaseResourceArgs']] = None,
+             table_resource: Optional[pulumi.Input['PermissionsTableResourceArgs']] = None,
+             table_with_columns_resource: Optional[pulumi.Input['PermissionsTableWithColumnsResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_location_resource is not None:
-            pulumi.set(__self__, "data_location_resource", data_location_resource)
+            _setter("data_location_resource", data_location_resource)
         if database_resource is not None:
-            pulumi.set(__self__, "database_resource", database_resource)
+            _setter("database_resource", database_resource)
         if table_resource is not None:
-            pulumi.set(__self__, "table_resource", table_resource)
+            _setter("table_resource", table_resource)
         if table_with_columns_resource is not None:
-            pulumi.set(__self__, "table_with_columns_resource", table_with_columns_resource)
+            _setter("table_with_columns_resource", table_with_columns_resource)
 
     @property
     @pulumi.getter(name="dataLocationResource")
@@ -287,14 +382,29 @@ class PermissionsTableResourceArgs:
                  database_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  table_wildcard: Optional[pulumi.Input['PermissionsTableWildcardArgs']] = None):
+        PermissionsTableResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            name=name,
+            table_wildcard=table_wildcard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             table_wildcard: Optional[pulumi.Input['PermissionsTableWildcardArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if table_wildcard is not None:
-            pulumi.set(__self__, "table_wildcard", table_wildcard)
+            _setter("table_wildcard", table_wildcard)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -337,6 +447,11 @@ class PermissionsTableResourceArgs:
 class PermissionsTableWildcardArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -347,16 +462,33 @@ class PermissionsTableWithColumnsResourceArgs:
                  column_wildcard: Optional[pulumi.Input['PermissionsColumnWildcardArgs']] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
+        PermissionsTableWithColumnsResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            column_names=column_names,
+            column_wildcard=column_wildcard,
+            database_name=database_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             column_wildcard: Optional[pulumi.Input['PermissionsColumnWildcardArgs']] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if column_names is not None:
-            pulumi.set(__self__, "column_names", column_names)
+            _setter("column_names", column_names)
         if column_wildcard is not None:
-            pulumi.set(__self__, "column_wildcard", column_wildcard)
+            _setter("column_wildcard", column_wildcard)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -408,14 +540,28 @@ class PermissionsTableWithColumnsResourceArgs:
 class PrincipalPermissionsCatalogResourceArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class PrincipalPermissionsColumnWildcardArgs:
     def __init__(__self__, *,
                  excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        PrincipalPermissionsColumnWildcardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excluded_column_names=excluded_column_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if excluded_column_names is not None:
-            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+            _setter("excluded_column_names", excluded_column_names)
 
     @property
     @pulumi.getter(name="excludedColumnNames")
@@ -434,10 +580,25 @@ class PrincipalPermissionsDataCellsFilterResourceArgs:
                  name: pulumi.Input[str],
                  table_catalog_id: pulumi.Input[str],
                  table_name: pulumi.Input[str]):
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "table_catalog_id", table_catalog_id)
-        pulumi.set(__self__, "table_name", table_name)
+        PrincipalPermissionsDataCellsFilterResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            name=name,
+            table_catalog_id=table_catalog_id,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             table_catalog_id: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("name", name)
+        _setter("table_catalog_id", table_catalog_id)
+        _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -480,8 +641,17 @@ class PrincipalPermissionsDataCellsFilterResourceArgs:
 class PrincipalPermissionsDataLakePrincipalArgs:
     def __init__(__self__, *,
                  data_lake_principal_identifier: Optional[pulumi.Input[str]] = None):
+        PrincipalPermissionsDataLakePrincipalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_lake_principal_identifier=data_lake_principal_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_lake_principal_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_lake_principal_identifier is not None:
-            pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+            _setter("data_lake_principal_identifier", data_lake_principal_identifier)
 
     @property
     @pulumi.getter(name="dataLakePrincipalIdentifier")
@@ -498,8 +668,19 @@ class PrincipalPermissionsDataLocationResourceArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  resource_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        PrincipalPermissionsDataLocationResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             resource_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -525,8 +706,19 @@ class PrincipalPermissionsDatabaseResourceArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  name: pulumi.Input[str]):
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "name", name)
+        PrincipalPermissionsDatabaseResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -553,9 +745,22 @@ class PrincipalPermissionsLfTagKeyResourceArgs:
                  catalog_id: pulumi.Input[str],
                  tag_key: pulumi.Input[str],
                  tag_values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "tag_key", tag_key)
-        pulumi.set(__self__, "tag_values", tag_values)
+        PrincipalPermissionsLfTagKeyResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            tag_key=tag_key,
+            tag_values=tag_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             tag_key: pulumi.Input[str],
+             tag_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("tag_key", tag_key)
+        _setter("tag_values", tag_values)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -591,9 +796,22 @@ class PrincipalPermissionsLfTagPolicyResourceArgs:
                  catalog_id: pulumi.Input[str],
                  expression: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgs']]],
                  resource_type: pulumi.Input['PrincipalPermissionsResourceType']):
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "expression", expression)
-        pulumi.set(__self__, "resource_type", resource_type)
+        PrincipalPermissionsLfTagPolicyResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            expression=expression,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             expression: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgs']]],
+             resource_type: pulumi.Input['PrincipalPermissionsResourceType'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("expression", expression)
+        _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -628,10 +846,21 @@ class PrincipalPermissionsLfTagArgs:
     def __init__(__self__, *,
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        PrincipalPermissionsLfTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tag_key=tag_key,
+            tag_values=tag_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tag_key: Optional[pulumi.Input[str]] = None,
+             tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_values is not None:
-            pulumi.set(__self__, "tag_values", tag_values)
+            _setter("tag_values", tag_values)
 
     @property
     @pulumi.getter(name="tagKey")
@@ -663,22 +892,45 @@ class PrincipalPermissionsResourceArgs:
                  lf_tag_policy: Optional[pulumi.Input['PrincipalPermissionsLfTagPolicyResourceArgs']] = None,
                  table: Optional[pulumi.Input['PrincipalPermissionsTableResourceArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['PrincipalPermissionsTableWithColumnsResourceArgs']] = None):
+        PrincipalPermissionsResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog=catalog,
+            data_cells_filter=data_cells_filter,
+            data_location=data_location,
+            database=database,
+            lf_tag=lf_tag,
+            lf_tag_policy=lf_tag_policy,
+            table=table,
+            table_with_columns=table_with_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog: Optional[pulumi.Input['PrincipalPermissionsCatalogResourceArgs']] = None,
+             data_cells_filter: Optional[pulumi.Input['PrincipalPermissionsDataCellsFilterResourceArgs']] = None,
+             data_location: Optional[pulumi.Input['PrincipalPermissionsDataLocationResourceArgs']] = None,
+             database: Optional[pulumi.Input['PrincipalPermissionsDatabaseResourceArgs']] = None,
+             lf_tag: Optional[pulumi.Input['PrincipalPermissionsLfTagKeyResourceArgs']] = None,
+             lf_tag_policy: Optional[pulumi.Input['PrincipalPermissionsLfTagPolicyResourceArgs']] = None,
+             table: Optional[pulumi.Input['PrincipalPermissionsTableResourceArgs']] = None,
+             table_with_columns: Optional[pulumi.Input['PrincipalPermissionsTableWithColumnsResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog is not None:
-            pulumi.set(__self__, "catalog", catalog)
+            _setter("catalog", catalog)
         if data_cells_filter is not None:
-            pulumi.set(__self__, "data_cells_filter", data_cells_filter)
+            _setter("data_cells_filter", data_cells_filter)
         if data_location is not None:
-            pulumi.set(__self__, "data_location", data_location)
+            _setter("data_location", data_location)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if lf_tag is not None:
-            pulumi.set(__self__, "lf_tag", lf_tag)
+            _setter("lf_tag", lf_tag)
         if lf_tag_policy is not None:
-            pulumi.set(__self__, "lf_tag_policy", lf_tag_policy)
+            _setter("lf_tag_policy", lf_tag_policy)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if table_with_columns is not None:
-            pulumi.set(__self__, "table_with_columns", table_with_columns)
+            _setter("table_with_columns", table_with_columns)
 
     @property
     @pulumi.getter
@@ -760,12 +1012,27 @@ class PrincipalPermissionsTableResourceArgs:
                  database_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  table_wildcard: Optional[pulumi.Input['PrincipalPermissionsTableWildcardArgs']] = None):
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "database_name", database_name)
+        PrincipalPermissionsTableResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            name=name,
+            table_wildcard=table_wildcard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             table_wildcard: Optional[pulumi.Input['PrincipalPermissionsTableWildcardArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("database_name", database_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if table_wildcard is not None:
-            pulumi.set(__self__, "table_wildcard", table_wildcard)
+            _setter("table_wildcard", table_wildcard)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -808,6 +1075,11 @@ class PrincipalPermissionsTableResourceArgs:
 class PrincipalPermissionsTableWildcardArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -818,13 +1090,30 @@ class PrincipalPermissionsTableWithColumnsResourceArgs:
                  name: pulumi.Input[str],
                  column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  column_wildcard: Optional[pulumi.Input['PrincipalPermissionsColumnWildcardArgs']] = None):
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "name", name)
+        PrincipalPermissionsTableWithColumnsResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            name=name,
+            column_names=column_names,
+            column_wildcard=column_wildcard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             column_wildcard: Optional[pulumi.Input['PrincipalPermissionsColumnWildcardArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("database_name", database_name)
+        _setter("name", name)
         if column_names is not None:
-            pulumi.set(__self__, "column_names", column_names)
+            _setter("column_names", column_names)
         if column_wildcard is not None:
-            pulumi.set(__self__, "column_wildcard", column_wildcard)
+            _setter("column_wildcard", column_wildcard)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -876,6 +1165,11 @@ class PrincipalPermissionsTableWithColumnsResourceArgs:
 class TagAssociationCatalogResourceArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -883,8 +1177,19 @@ class TagAssociationDatabaseResourceArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  name: pulumi.Input[str]):
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "name", name)
+        TagAssociationDatabaseResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -911,9 +1216,22 @@ class TagAssociationLfTagPairArgs:
                  catalog_id: pulumi.Input[str],
                  tag_key: pulumi.Input[str],
                  tag_values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "tag_key", tag_key)
-        pulumi.set(__self__, "tag_values", tag_values)
+        TagAssociationLfTagPairArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            tag_key=tag_key,
+            tag_values=tag_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             tag_key: pulumi.Input[str],
+             tag_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("tag_key", tag_key)
+        _setter("tag_values", tag_values)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -950,14 +1268,29 @@ class TagAssociationResourceArgs:
                  database: Optional[pulumi.Input['TagAssociationDatabaseResourceArgs']] = None,
                  table: Optional[pulumi.Input['TagAssociationTableResourceArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['TagAssociationTableWithColumnsResourceArgs']] = None):
+        TagAssociationResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog=catalog,
+            database=database,
+            table=table,
+            table_with_columns=table_with_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog: Optional[pulumi.Input['TagAssociationCatalogResourceArgs']] = None,
+             database: Optional[pulumi.Input['TagAssociationDatabaseResourceArgs']] = None,
+             table: Optional[pulumi.Input['TagAssociationTableResourceArgs']] = None,
+             table_with_columns: Optional[pulumi.Input['TagAssociationTableWithColumnsResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog is not None:
-            pulumi.set(__self__, "catalog", catalog)
+            _setter("catalog", catalog)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if table_with_columns is not None:
-            pulumi.set(__self__, "table_with_columns", table_with_columns)
+            _setter("table_with_columns", table_with_columns)
 
     @property
     @pulumi.getter
@@ -1003,12 +1336,27 @@ class TagAssociationTableResourceArgs:
                  database_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  table_wildcard: Optional[pulumi.Input['TagAssociationTableWildcardArgs']] = None):
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "database_name", database_name)
+        TagAssociationTableResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            name=name,
+            table_wildcard=table_wildcard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             table_wildcard: Optional[pulumi.Input['TagAssociationTableWildcardArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("database_name", database_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if table_wildcard is not None:
-            pulumi.set(__self__, "table_wildcard", table_wildcard)
+            _setter("table_wildcard", table_wildcard)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -1051,6 +1399,11 @@ class TagAssociationTableResourceArgs:
 class TagAssociationTableWildcardArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -1060,10 +1413,25 @@ class TagAssociationTableWithColumnsResourceArgs:
                  column_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  database_name: pulumi.Input[str],
                  name: pulumi.Input[str]):
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "column_names", column_names)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "name", name)
+        TagAssociationTableWithColumnsResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            column_names=column_names,
+            database_name=database_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             column_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             database_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("column_names", column_names)
+        _setter("database_name", database_name)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="catalogId")

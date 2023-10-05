@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,44 @@ class EventSubscriptionArgs:
         :param pulumi.Input['EventSubscriptionSourceType'] source_type: The type of source that will be generating the events.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "subscription_name", subscription_name)
+        EventSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subscription_name=subscription_name,
+            enabled=enabled,
+            event_categories=event_categories,
+            severity=severity,
+            sns_topic_arn=sns_topic_arn,
+            source_ids=source_ids,
+            source_type=source_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subscription_name: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             event_categories: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]]] = None,
+             severity: Optional[pulumi.Input['EventSubscriptionSeverity']] = None,
+             sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_type: Optional[pulumi.Input['EventSubscriptionSourceType']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subscription_name", subscription_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if event_categories is not None:
-            pulumi.set(__self__, "event_categories", event_categories)
+            _setter("event_categories", event_categories)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if sns_topic_arn is not None:
-            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+            _setter("sns_topic_arn", sns_topic_arn)
         if source_ids is not None:
-            pulumi.set(__self__, "source_ids", source_ids)
+            _setter("source_ids", source_ids)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="subscriptionName")
@@ -196,6 +219,10 @@ class EventSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,22 +33,47 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] version: The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
         """
-        pulumi.set(__self__, "resources_vpc_config", resources_vpc_config)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resources_vpc_config=resources_vpc_config,
+            role_arn=role_arn,
+            encryption_config=encryption_config,
+            kubernetes_network_config=kubernetes_network_config,
+            logging=logging,
+            name=name,
+            outpost_config=outpost_config,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resources_vpc_config: pulumi.Input['ClusterResourcesVpcConfigArgs'],
+             role_arn: pulumi.Input[str],
+             encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]] = None,
+             kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
+             logging: Optional[pulumi.Input['LoggingArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resources_vpc_config", resources_vpc_config)
+        _setter("role_arn", role_arn)
         if encryption_config is not None:
-            pulumi.set(__self__, "encryption_config", encryption_config)
+            _setter("encryption_config", encryption_config)
         if kubernetes_network_config is not None:
-            pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
+            _setter("kubernetes_network_config", kubernetes_network_config)
         if logging is not None:
-            pulumi.set(__self__, "logging", logging)
+            _setter("logging", logging)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outpost_config is not None:
-            pulumi.set(__self__, "outpost_config", outpost_config)
+            _setter("outpost_config", outpost_config)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="resourcesVpcConfig")
@@ -188,6 +213,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -212,10 +241,30 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["encryption_config"] = encryption_config
+            if kubernetes_network_config is not None and not isinstance(kubernetes_network_config, ClusterKubernetesNetworkConfigArgs):
+                kubernetes_network_config = kubernetes_network_config or {}
+                def _setter(key, value):
+                    kubernetes_network_config[key] = value
+                ClusterKubernetesNetworkConfigArgs._configure(_setter, **kubernetes_network_config)
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
+            if logging is not None and not isinstance(logging, LoggingArgs):
+                logging = logging or {}
+                def _setter(key, value):
+                    logging[key] = value
+                LoggingArgs._configure(_setter, **logging)
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
+            if outpost_config is not None and not isinstance(outpost_config, ClusterOutpostConfigArgs):
+                outpost_config = outpost_config or {}
+                def _setter(key, value):
+                    outpost_config[key] = value
+                ClusterOutpostConfigArgs._configure(_setter, **outpost_config)
             __props__.__dict__["outpost_config"] = outpost_config
+            if resources_vpc_config is not None and not isinstance(resources_vpc_config, ClusterResourcesVpcConfigArgs):
+                resources_vpc_config = resources_vpc_config or {}
+                def _setter(key, value):
+                    resources_vpc_config[key] = value
+                ClusterResourcesVpcConfigArgs._configure(_setter, **resources_vpc_config)
             if resources_vpc_config is None and not opts.urn:
                 raise TypeError("Missing required property 'resources_vpc_config'")
             __props__.__dict__["resources_vpc_config"] = resources_vpc_config

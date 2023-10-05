@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,11 +23,24 @@ class ConfigArgs:
         """
         The set of arguments for constructing a Config resource.
         """
-        pulumi.set(__self__, "config_data", config_data)
+        ConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config_data=config_data,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config_data: pulumi.Input['ConfigDataArgs'],
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("config_data", config_data)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="configData")
@@ -91,6 +104,10 @@ class Config(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -108,6 +125,11 @@ class Config(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigArgs.__new__(ConfigArgs)
 
+            if config_data is not None and not isinstance(config_data, ConfigDataArgs):
+                config_data = config_data or {}
+                def _setter(key, value):
+                    config_data[key] = value
+                ConfigDataArgs._configure(_setter, **config_data)
             if config_data is None and not opts.urn:
                 raise TypeError("Missing required property 'config_data'")
             __props__.__dict__["config_data"] = config_data

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,28 +38,59 @@ class StudioComponentArgs:
         :param pulumi.Input[str] name: <p>The name for the studio component.</p>
         :param pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]] script_parameters: <p>Parameters for the studio component scripts.</p>
         """
-        pulumi.set(__self__, "studio_id", studio_id)
-        pulumi.set(__self__, "type", type)
+        StudioComponentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            studio_id=studio_id,
+            type=type,
+            configuration=configuration,
+            description=description,
+            ec2_security_group_ids=ec2_security_group_ids,
+            initialization_scripts=initialization_scripts,
+            name=name,
+            runtime_role_arn=runtime_role_arn,
+            script_parameters=script_parameters,
+            secure_initialization_role_arn=secure_initialization_role_arn,
+            subtype=subtype,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             studio_id: pulumi.Input[str],
+             type: pulumi.Input['StudioComponentType'],
+             configuration: Optional[pulumi.Input[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgs']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             runtime_role_arn: Optional[pulumi.Input[str]] = None,
+             script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]]] = None,
+             secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
+             subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
+             tags: Optional[pulumi.Input['StudioComponentTagsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("studio_id", studio_id)
+        _setter("type", type)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if ec2_security_group_ids is not None:
-            pulumi.set(__self__, "ec2_security_group_ids", ec2_security_group_ids)
+            _setter("ec2_security_group_ids", ec2_security_group_ids)
         if initialization_scripts is not None:
-            pulumi.set(__self__, "initialization_scripts", initialization_scripts)
+            _setter("initialization_scripts", initialization_scripts)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runtime_role_arn is not None:
-            pulumi.set(__self__, "runtime_role_arn", runtime_role_arn)
+            _setter("runtime_role_arn", runtime_role_arn)
         if script_parameters is not None:
-            pulumi.set(__self__, "script_parameters", script_parameters)
+            _setter("script_parameters", script_parameters)
         if secure_initialization_role_arn is not None:
-            pulumi.set(__self__, "secure_initialization_role_arn", secure_initialization_role_arn)
+            _setter("secure_initialization_role_arn", secure_initialization_role_arn)
         if subtype is not None:
-            pulumi.set(__self__, "subtype", subtype)
+            _setter("subtype", subtype)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="studioId")
@@ -237,6 +268,10 @@ class StudioComponent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StudioComponentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -275,6 +310,11 @@ class StudioComponent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'studio_id'")
             __props__.__dict__["studio_id"] = studio_id
             __props__.__dict__["subtype"] = subtype
+            if tags is not None and not isinstance(tags, StudioComponentTagsArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                StudioComponentTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

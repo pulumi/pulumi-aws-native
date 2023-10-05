@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,9 +22,22 @@ class NodeArgs:
         """
         The set of arguments for constructing a Node resource.
         """
-        pulumi.set(__self__, "member_id", member_id)
-        pulumi.set(__self__, "network_id", network_id)
-        pulumi.set(__self__, "node_configuration", node_configuration)
+        NodeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            member_id=member_id,
+            network_id=network_id,
+            node_configuration=node_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             member_id: pulumi.Input[str],
+             network_id: pulumi.Input[str],
+             node_configuration: pulumi.Input['NodeConfigurationArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("member_id", member_id)
+        _setter("network_id", network_id)
+        _setter("node_configuration", node_configuration)
 
     @property
     @pulumi.getter(name="memberId")
@@ -93,6 +106,10 @@ class Node(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NodeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -117,6 +134,11 @@ class Node(pulumi.CustomResource):
             if network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_id'")
             __props__.__dict__["network_id"] = network_id
+            if node_configuration is not None and not isinstance(node_configuration, NodeConfigurationArgs):
+                node_configuration = node_configuration or {}
+                def _setter(key, value):
+                    node_configuration[key] = value
+                NodeConfigurationArgs._configure(_setter, **node_configuration)
             if node_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'node_configuration'")
             __props__.__dict__["node_configuration"] = node_configuration

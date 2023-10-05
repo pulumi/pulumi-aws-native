@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterPolicyArgs', 'ClusterPolicy']
@@ -21,8 +21,19 @@ class ClusterPolicyArgs:
         :param pulumi.Input[str] cluster_arn: The arn of the cluster for the resource policy.
         :param Any policy: A policy document containing permissions to add to the specified cluster.
         """
-        pulumi.set(__self__, "cluster_arn", cluster_arn)
-        pulumi.set(__self__, "policy", policy)
+        ClusterPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_arn=cluster_arn,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_arn: pulumi.Input[str],
+             policy: Any,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_arn", cluster_arn)
+        _setter("policy", policy)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -84,6 +95,10 @@ class ClusterPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

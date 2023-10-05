@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -71,28 +71,57 @@ class Namespace(dict):
                  namespace_id: Optional[str] = None,
                  namespace_name: Optional[str] = None,
                  status: Optional['NamespaceStatus'] = None):
+        Namespace._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_username=admin_username,
+            creation_date=creation_date,
+            db_name=db_name,
+            default_iam_role_arn=default_iam_role_arn,
+            iam_roles=iam_roles,
+            kms_key_id=kms_key_id,
+            log_exports=log_exports,
+            namespace_arn=namespace_arn,
+            namespace_id=namespace_id,
+            namespace_name=namespace_name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_username: Optional[str] = None,
+             creation_date: Optional[str] = None,
+             db_name: Optional[str] = None,
+             default_iam_role_arn: Optional[str] = None,
+             iam_roles: Optional[Sequence[str]] = None,
+             kms_key_id: Optional[str] = None,
+             log_exports: Optional[Sequence['NamespaceLogExport']] = None,
+             namespace_arn: Optional[str] = None,
+             namespace_id: Optional[str] = None,
+             namespace_name: Optional[str] = None,
+             status: Optional['NamespaceStatus'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+            _setter("creation_date", creation_date)
         if db_name is not None:
-            pulumi.set(__self__, "db_name", db_name)
+            _setter("db_name", db_name)
         if default_iam_role_arn is not None:
-            pulumi.set(__self__, "default_iam_role_arn", default_iam_role_arn)
+            _setter("default_iam_role_arn", default_iam_role_arn)
         if iam_roles is not None:
-            pulumi.set(__self__, "iam_roles", iam_roles)
+            _setter("iam_roles", iam_roles)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if log_exports is not None:
-            pulumi.set(__self__, "log_exports", log_exports)
+            _setter("log_exports", log_exports)
         if namespace_arn is not None:
-            pulumi.set(__self__, "namespace_arn", namespace_arn)
+            _setter("namespace_arn", namespace_arn)
         if namespace_id is not None:
-            pulumi.set(__self__, "namespace_id", namespace_id)
+            _setter("namespace_id", namespace_id)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -155,8 +184,19 @@ class NamespaceTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        NamespaceTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -222,32 +262,65 @@ class Workgroup(dict):
                  workgroup_arn: Optional[str] = None,
                  workgroup_id: Optional[str] = None,
                  workgroup_name: Optional[str] = None):
+        Workgroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_capacity=base_capacity,
+            config_parameters=config_parameters,
+            creation_date=creation_date,
+            endpoint=endpoint,
+            enhanced_vpc_routing=enhanced_vpc_routing,
+            namespace_name=namespace_name,
+            publicly_accessible=publicly_accessible,
+            security_group_ids=security_group_ids,
+            status=status,
+            subnet_ids=subnet_ids,
+            workgroup_arn=workgroup_arn,
+            workgroup_id=workgroup_id,
+            workgroup_name=workgroup_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_capacity: Optional[int] = None,
+             config_parameters: Optional[Sequence['outputs.WorkgroupConfigParameter']] = None,
+             creation_date: Optional[str] = None,
+             endpoint: Optional['outputs.WorkgroupEndpoint'] = None,
+             enhanced_vpc_routing: Optional[bool] = None,
+             namespace_name: Optional[str] = None,
+             publicly_accessible: Optional[bool] = None,
+             security_group_ids: Optional[Sequence[str]] = None,
+             status: Optional['WorkgroupStatus'] = None,
+             subnet_ids: Optional[Sequence[str]] = None,
+             workgroup_arn: Optional[str] = None,
+             workgroup_id: Optional[str] = None,
+             workgroup_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if base_capacity is not None:
-            pulumi.set(__self__, "base_capacity", base_capacity)
+            _setter("base_capacity", base_capacity)
         if config_parameters is not None:
-            pulumi.set(__self__, "config_parameters", config_parameters)
+            _setter("config_parameters", config_parameters)
         if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+            _setter("creation_date", creation_date)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if enhanced_vpc_routing is not None:
-            pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
+            _setter("enhanced_vpc_routing", enhanced_vpc_routing)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if publicly_accessible is not None:
-            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+            _setter("publicly_accessible", publicly_accessible)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if workgroup_arn is not None:
-            pulumi.set(__self__, "workgroup_arn", workgroup_arn)
+            _setter("workgroup_arn", workgroup_arn)
         if workgroup_id is not None:
-            pulumi.set(__self__, "workgroup_id", workgroup_id)
+            _setter("workgroup_id", workgroup_id)
         if workgroup_name is not None:
-            pulumi.set(__self__, "workgroup_name", workgroup_name)
+            _setter("workgroup_name", workgroup_name)
 
     @property
     @pulumi.getter(name="baseCapacity")
@@ -339,10 +412,21 @@ class WorkgroupConfigParameter(dict):
     def __init__(__self__, *,
                  parameter_key: Optional[str] = None,
                  parameter_value: Optional[str] = None):
+        WorkgroupConfigParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameter_key=parameter_key,
+            parameter_value=parameter_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameter_key: Optional[str] = None,
+             parameter_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if parameter_key is not None:
-            pulumi.set(__self__, "parameter_key", parameter_key)
+            _setter("parameter_key", parameter_key)
         if parameter_value is not None:
-            pulumi.set(__self__, "parameter_value", parameter_value)
+            _setter("parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="parameterKey")
@@ -378,12 +462,25 @@ class WorkgroupEndpoint(dict):
                  address: Optional[str] = None,
                  port: Optional[int] = None,
                  vpc_endpoints: Optional[Sequence['outputs.WorkgroupVpcEndpoint']] = None):
+        WorkgroupEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            port=port,
+            vpc_endpoints=vpc_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             port: Optional[int] = None,
+             vpc_endpoints: Optional[Sequence['outputs.WorkgroupVpcEndpoint']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if vpc_endpoints is not None:
-            pulumi.set(__self__, "vpc_endpoints", vpc_endpoints)
+            _setter("vpc_endpoints", vpc_endpoints)
 
     @property
     @pulumi.getter
@@ -431,14 +528,29 @@ class WorkgroupNetworkInterface(dict):
                  network_interface_id: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
                  subnet_id: Optional[str] = None):
+        WorkgroupNetworkInterface._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            network_interface_id=network_interface_id,
+            private_ip_address=private_ip_address,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[str] = None,
+             network_interface_id: Optional[str] = None,
+             private_ip_address: Optional[str] = None,
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -466,8 +578,19 @@ class WorkgroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        WorkgroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -507,12 +630,25 @@ class WorkgroupVpcEndpoint(dict):
                  network_interfaces: Optional[Sequence['outputs.WorkgroupNetworkInterface']] = None,
                  vpc_endpoint_id: Optional[str] = None,
                  vpc_id: Optional[str] = None):
+        WorkgroupVpcEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interfaces=network_interfaces,
+            vpc_endpoint_id=vpc_endpoint_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interfaces: Optional[Sequence['outputs.WorkgroupNetworkInterface']] = None,
+             vpc_endpoint_id: Optional[str] = None,
+             vpc_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="networkInterfaces")

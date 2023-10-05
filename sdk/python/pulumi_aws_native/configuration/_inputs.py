@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -45,8 +45,19 @@ class AggregationAuthorizationTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AggregationAuthorizationTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -81,8 +92,17 @@ class CompliancePropertiesArgs:
         Compliance details of the Config rule
         :param pulumi.Input[str] type: Compliance type determined by the Config rule
         """
+        CompliancePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -109,12 +129,25 @@ class ConfigRuleCustomPolicyDetailsArgs:
         :param pulumi.Input[str] policy_runtime: Runtime system for custom policy rule
         :param pulumi.Input[str] policy_text: Policy definition containing logic for custom policy rule
         """
+        ConfigRuleCustomPolicyDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_debug_log_delivery=enable_debug_log_delivery,
+            policy_runtime=policy_runtime,
+            policy_text=policy_text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_debug_log_delivery: Optional[pulumi.Input[bool]] = None,
+             policy_runtime: Optional[pulumi.Input[str]] = None,
+             policy_text: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_debug_log_delivery is not None:
-            pulumi.set(__self__, "enable_debug_log_delivery", enable_debug_log_delivery)
+            _setter("enable_debug_log_delivery", enable_debug_log_delivery)
         if policy_runtime is not None:
-            pulumi.set(__self__, "policy_runtime", policy_runtime)
+            _setter("policy_runtime", policy_runtime)
         if policy_text is not None:
-            pulumi.set(__self__, "policy_text", policy_text)
+            _setter("policy_text", policy_text)
 
     @property
     @pulumi.getter(name="enableDebugLogDelivery")
@@ -161,8 +194,17 @@ class ConfigRuleEvaluationModeConfigurationArgs:
         Evaluation mode for the AWS Config rule
         :param pulumi.Input[str] mode: Mode of evaluation of AWS Config rule
         """
+        ConfigRuleEvaluationModeConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -191,14 +233,29 @@ class ConfigRuleScopeArgs:
         :param pulumi.Input[str] tag_key: Tag key applied only to resources which we want to trigger the rule
         :param pulumi.Input[str] tag_value: Tag value applied only to resources which we want to trigger the rule
         """
+        ConfigRuleScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_resource_id=compliance_resource_id,
+            compliance_resource_types=compliance_resource_types,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_resource_id: Optional[pulumi.Input[str]] = None,
+             compliance_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tag_key: Optional[pulumi.Input[str]] = None,
+             tag_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compliance_resource_id is not None:
-            pulumi.set(__self__, "compliance_resource_id", compliance_resource_id)
+            _setter("compliance_resource_id", compliance_resource_id)
         if compliance_resource_types is not None:
-            pulumi.set(__self__, "compliance_resource_types", compliance_resource_types)
+            _setter("compliance_resource_types", compliance_resource_types)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="complianceResourceId")
@@ -261,10 +318,23 @@ class ConfigRuleSourceDetailArgs:
         :param pulumi.Input[str] message_type: Notification type that can trigger the rule
         :param pulumi.Input[str] maximum_execution_frequency: Frequency at which the rule has to be evaluated
         """
-        pulumi.set(__self__, "event_source", event_source)
-        pulumi.set(__self__, "message_type", message_type)
+        ConfigRuleSourceDetailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_source=event_source,
+            message_type=message_type,
+            maximum_execution_frequency=maximum_execution_frequency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_source: pulumi.Input[str],
+             message_type: pulumi.Input[str],
+             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_source", event_source)
+        _setter("message_type", message_type)
         if maximum_execution_frequency is not None:
-            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+            _setter("maximum_execution_frequency", maximum_execution_frequency)
 
     @property
     @pulumi.getter(name="eventSource")
@@ -317,13 +387,28 @@ class ConfigRuleSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]] source_details: List of message types that can trigger the rule
         :param pulumi.Input[str] source_identifier: Identifier for the source of events
         """
-        pulumi.set(__self__, "owner", owner)
+        ConfigRuleSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            owner=owner,
+            custom_policy_details=custom_policy_details,
+            source_details=source_details,
+            source_identifier=source_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             owner: pulumi.Input[str],
+             custom_policy_details: Optional[pulumi.Input['ConfigRuleCustomPolicyDetailsArgs']] = None,
+             source_details: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]]] = None,
+             source_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("owner", owner)
         if custom_policy_details is not None:
-            pulumi.set(__self__, "custom_policy_details", custom_policy_details)
+            _setter("custom_policy_details", custom_policy_details)
         if source_details is not None:
-            pulumi.set(__self__, "source_details", source_details)
+            _setter("source_details", source_details)
         if source_identifier is not None:
-            pulumi.set(__self__, "source_identifier", source_identifier)
+            _setter("source_identifier", source_identifier)
 
     @property
     @pulumi.getter
@@ -380,11 +465,24 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
                  account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  all_aws_regions: Optional[pulumi.Input[bool]] = None,
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "account_ids", account_ids)
+        ConfigurationAggregatorAccountAggregationSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_ids=account_ids,
+            all_aws_regions=all_aws_regions,
+            aws_regions=aws_regions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             all_aws_regions: Optional[pulumi.Input[bool]] = None,
+             aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_ids", account_ids)
         if all_aws_regions is not None:
-            pulumi.set(__self__, "all_aws_regions", all_aws_regions)
+            _setter("all_aws_regions", all_aws_regions)
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
 
     @property
     @pulumi.getter(name="accountIds")
@@ -420,11 +518,24 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
                  role_arn: pulumi.Input[str],
                  all_aws_regions: Optional[pulumi.Input[bool]] = None,
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "role_arn", role_arn)
+        ConfigurationAggregatorOrganizationAggregationSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            all_aws_regions=all_aws_regions,
+            aws_regions=aws_regions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             all_aws_regions: Optional[pulumi.Input[bool]] = None,
+             aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
         if all_aws_regions is not None:
-            pulumi.set(__self__, "all_aws_regions", all_aws_regions)
+            _setter("all_aws_regions", all_aws_regions)
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -464,8 +575,19 @@ class ConfigurationAggregatorTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ConfigurationAggregatorTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -496,7 +618,16 @@ class ConfigurationAggregatorTagArgs:
 class ConfigurationRecorderExclusionByResourceTypesArgs:
     def __init__(__self__, *,
                  resource_types: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "resource_types", resource_types)
+        ConfigurationRecorderExclusionByResourceTypesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_types=resource_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_types", resource_types)
 
     @property
     @pulumi.getter(name="resourceTypes")
@@ -516,16 +647,33 @@ class ConfigurationRecorderRecordingGroupArgs:
                  include_global_resource_types: Optional[pulumi.Input[bool]] = None,
                  recording_strategy: Optional[pulumi.Input['ConfigurationRecorderRecordingStrategyArgs']] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        ConfigurationRecorderRecordingGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_supported=all_supported,
+            exclusion_by_resource_types=exclusion_by_resource_types,
+            include_global_resource_types=include_global_resource_types,
+            recording_strategy=recording_strategy,
+            resource_types=resource_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_supported: Optional[pulumi.Input[bool]] = None,
+             exclusion_by_resource_types: Optional[pulumi.Input['ConfigurationRecorderExclusionByResourceTypesArgs']] = None,
+             include_global_resource_types: Optional[pulumi.Input[bool]] = None,
+             recording_strategy: Optional[pulumi.Input['ConfigurationRecorderRecordingStrategyArgs']] = None,
+             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_supported is not None:
-            pulumi.set(__self__, "all_supported", all_supported)
+            _setter("all_supported", all_supported)
         if exclusion_by_resource_types is not None:
-            pulumi.set(__self__, "exclusion_by_resource_types", exclusion_by_resource_types)
+            _setter("exclusion_by_resource_types", exclusion_by_resource_types)
         if include_global_resource_types is not None:
-            pulumi.set(__self__, "include_global_resource_types", include_global_resource_types)
+            _setter("include_global_resource_types", include_global_resource_types)
         if recording_strategy is not None:
-            pulumi.set(__self__, "recording_strategy", recording_strategy)
+            _setter("recording_strategy", recording_strategy)
         if resource_types is not None:
-            pulumi.set(__self__, "resource_types", resource_types)
+            _setter("resource_types", resource_types)
 
     @property
     @pulumi.getter(name="allSupported")
@@ -577,7 +725,16 @@ class ConfigurationRecorderRecordingGroupArgs:
 class ConfigurationRecorderRecordingStrategyArgs:
     def __init__(__self__, *,
                  use_only: pulumi.Input[str]):
-        pulumi.set(__self__, "use_only", use_only)
+        ConfigurationRecorderRecordingStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            use_only=use_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             use_only: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("use_only", use_only)
 
     @property
     @pulumi.getter(name="useOnly")
@@ -597,8 +754,19 @@ class ConformancePackInputParameterArgs:
         """
         Input parameters in the form of key-value pairs for the conformance pack.
         """
-        pulumi.set(__self__, "parameter_name", parameter_name)
-        pulumi.set(__self__, "parameter_value", parameter_value)
+        ConformancePackInputParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameter_name=parameter_name,
+            parameter_value=parameter_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameter_name: pulumi.Input[str],
+             parameter_value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("parameter_name", parameter_name)
+        _setter("parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -623,8 +791,17 @@ class ConformancePackInputParameterArgs:
 class DeliveryChannelConfigSnapshotDeliveryPropertiesArgs:
     def __init__(__self__, *,
                  delivery_frequency: Optional[pulumi.Input[str]] = None):
+        DeliveryChannelConfigSnapshotDeliveryPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_frequency=delivery_frequency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_frequency: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delivery_frequency is not None:
-            pulumi.set(__self__, "delivery_frequency", delivery_frequency)
+            _setter("delivery_frequency", delivery_frequency)
 
     @property
     @pulumi.getter(name="deliveryFrequency")
@@ -650,26 +827,55 @@ class OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs:
                  resource_types_scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_key_scope: Optional[pulumi.Input[str]] = None,
                  tag_value_scope: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "policy_text", policy_text)
-        pulumi.set(__self__, "runtime", runtime)
+        OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_text=policy_text,
+            runtime=runtime,
+            debug_log_delivery_accounts=debug_log_delivery_accounts,
+            description=description,
+            input_parameters=input_parameters,
+            maximum_execution_frequency=maximum_execution_frequency,
+            organization_config_rule_trigger_types=organization_config_rule_trigger_types,
+            resource_id_scope=resource_id_scope,
+            resource_types_scope=resource_types_scope,
+            tag_key_scope=tag_key_scope,
+            tag_value_scope=tag_value_scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_text: pulumi.Input[str],
+             runtime: pulumi.Input[str],
+             debug_log_delivery_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             input_parameters: Optional[pulumi.Input[str]] = None,
+             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+             organization_config_rule_trigger_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_id_scope: Optional[pulumi.Input[str]] = None,
+             resource_types_scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tag_key_scope: Optional[pulumi.Input[str]] = None,
+             tag_value_scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_text", policy_text)
+        _setter("runtime", runtime)
         if debug_log_delivery_accounts is not None:
-            pulumi.set(__self__, "debug_log_delivery_accounts", debug_log_delivery_accounts)
+            _setter("debug_log_delivery_accounts", debug_log_delivery_accounts)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+            _setter("maximum_execution_frequency", maximum_execution_frequency)
         if organization_config_rule_trigger_types is not None:
-            pulumi.set(__self__, "organization_config_rule_trigger_types", organization_config_rule_trigger_types)
+            _setter("organization_config_rule_trigger_types", organization_config_rule_trigger_types)
         if resource_id_scope is not None:
-            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+            _setter("resource_id_scope", resource_id_scope)
         if resource_types_scope is not None:
-            pulumi.set(__self__, "resource_types_scope", resource_types_scope)
+            _setter("resource_types_scope", resource_types_scope)
         if tag_key_scope is not None:
-            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+            _setter("tag_key_scope", tag_key_scope)
         if tag_value_scope is not None:
-            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+            _setter("tag_value_scope", tag_value_scope)
 
     @property
     @pulumi.getter(name="policyText")
@@ -783,22 +989,47 @@ class OrganizationConfigRuleOrganizationCustomRuleMetadataArgs:
                  resource_types_scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_key_scope: Optional[pulumi.Input[str]] = None,
                  tag_value_scope: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
-        pulumi.set(__self__, "organization_config_rule_trigger_types", organization_config_rule_trigger_types)
+        OrganizationConfigRuleOrganizationCustomRuleMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_function_arn=lambda_function_arn,
+            organization_config_rule_trigger_types=organization_config_rule_trigger_types,
+            description=description,
+            input_parameters=input_parameters,
+            maximum_execution_frequency=maximum_execution_frequency,
+            resource_id_scope=resource_id_scope,
+            resource_types_scope=resource_types_scope,
+            tag_key_scope=tag_key_scope,
+            tag_value_scope=tag_value_scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_function_arn: pulumi.Input[str],
+             organization_config_rule_trigger_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             description: Optional[pulumi.Input[str]] = None,
+             input_parameters: Optional[pulumi.Input[str]] = None,
+             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+             resource_id_scope: Optional[pulumi.Input[str]] = None,
+             resource_types_scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tag_key_scope: Optional[pulumi.Input[str]] = None,
+             tag_value_scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lambda_function_arn", lambda_function_arn)
+        _setter("organization_config_rule_trigger_types", organization_config_rule_trigger_types)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+            _setter("maximum_execution_frequency", maximum_execution_frequency)
         if resource_id_scope is not None:
-            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+            _setter("resource_id_scope", resource_id_scope)
         if resource_types_scope is not None:
-            pulumi.set(__self__, "resource_types_scope", resource_types_scope)
+            _setter("resource_types_scope", resource_types_scope)
         if tag_key_scope is not None:
-            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+            _setter("tag_key_scope", tag_key_scope)
         if tag_value_scope is not None:
-            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+            _setter("tag_value_scope", tag_value_scope)
 
     @property
     @pulumi.getter(name="lambdaFunctionArn")
@@ -893,21 +1124,44 @@ class OrganizationConfigRuleOrganizationManagedRuleMetadataArgs:
                  resource_types_scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_key_scope: Optional[pulumi.Input[str]] = None,
                  tag_value_scope: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "rule_identifier", rule_identifier)
+        OrganizationConfigRuleOrganizationManagedRuleMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_identifier=rule_identifier,
+            description=description,
+            input_parameters=input_parameters,
+            maximum_execution_frequency=maximum_execution_frequency,
+            resource_id_scope=resource_id_scope,
+            resource_types_scope=resource_types_scope,
+            tag_key_scope=tag_key_scope,
+            tag_value_scope=tag_value_scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_identifier: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             input_parameters: Optional[pulumi.Input[str]] = None,
+             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+             resource_id_scope: Optional[pulumi.Input[str]] = None,
+             resource_types_scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tag_key_scope: Optional[pulumi.Input[str]] = None,
+             tag_value_scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_identifier", rule_identifier)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+            _setter("maximum_execution_frequency", maximum_execution_frequency)
         if resource_id_scope is not None:
-            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+            _setter("resource_id_scope", resource_id_scope)
         if resource_types_scope is not None:
-            pulumi.set(__self__, "resource_types_scope", resource_types_scope)
+            _setter("resource_types_scope", resource_types_scope)
         if tag_key_scope is not None:
-            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+            _setter("tag_key_scope", tag_key_scope)
         if tag_value_scope is not None:
-            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+            _setter("tag_value_scope", tag_value_scope)
 
     @property
     @pulumi.getter(name="ruleIdentifier")
@@ -990,8 +1244,19 @@ class OrganizationConformancePackConformancePackInputParameterArgs:
         """
         Input parameters in the form of key-value pairs for the conformance pack.
         """
-        pulumi.set(__self__, "parameter_name", parameter_name)
-        pulumi.set(__self__, "parameter_value", parameter_value)
+        OrganizationConformancePackConformancePackInputParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameter_name=parameter_name,
+            parameter_value=parameter_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameter_name: pulumi.Input[str],
+             parameter_value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("parameter_name", parameter_name)
+        _setter("parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -1016,8 +1281,17 @@ class OrganizationConformancePackConformancePackInputParameterArgs:
 class RemediationConfigurationExecutionControlsArgs:
     def __init__(__self__, *,
                  ssm_controls: Optional[pulumi.Input['RemediationConfigurationSsmControlsArgs']] = None):
+        RemediationConfigurationExecutionControlsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ssm_controls=ssm_controls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ssm_controls: Optional[pulumi.Input['RemediationConfigurationSsmControlsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ssm_controls is not None:
-            pulumi.set(__self__, "ssm_controls", ssm_controls)
+            _setter("ssm_controls", ssm_controls)
 
     @property
     @pulumi.getter(name="ssmControls")
@@ -1034,10 +1308,21 @@ class RemediationConfigurationSsmControlsArgs:
     def __init__(__self__, *,
                  concurrent_execution_rate_percentage: Optional[pulumi.Input[int]] = None,
                  error_percentage: Optional[pulumi.Input[int]] = None):
+        RemediationConfigurationSsmControlsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            concurrent_execution_rate_percentage=concurrent_execution_rate_percentage,
+            error_percentage=error_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             concurrent_execution_rate_percentage: Optional[pulumi.Input[int]] = None,
+             error_percentage: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if concurrent_execution_rate_percentage is not None:
-            pulumi.set(__self__, "concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
+            _setter("concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
         if error_percentage is not None:
-            pulumi.set(__self__, "error_percentage", error_percentage)
+            _setter("error_percentage", error_percentage)
 
     @property
     @pulumi.getter(name="concurrentExecutionRatePercentage")
@@ -1068,8 +1353,19 @@ class StoredQueryTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        StoredQueryTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1104,10 +1400,21 @@ class TemplateSsmDocumentDetailsPropertiesArgs:
         """
         The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
         """
+        TemplateSsmDocumentDetailsPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            document_name=document_name,
+            document_version=document_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             document_name: Optional[pulumi.Input[str]] = None,
+             document_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if document_name is not None:
-            pulumi.set(__self__, "document_name", document_name)
+            _setter("document_name", document_name)
         if document_version is not None:
-            pulumi.set(__self__, "document_version", document_version)
+            _setter("document_version", document_version)
 
     @property
     @pulumi.getter(name="documentName")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,21 +27,44 @@ class UserPoolUserArgs:
         """
         The set of arguments for constructing a UserPoolUser resource.
         """
-        pulumi.set(__self__, "user_pool_id", user_pool_id)
+        UserPoolUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_pool_id=user_pool_id,
+            client_metadata=client_metadata,
+            desired_delivery_mediums=desired_delivery_mediums,
+            force_alias_creation=force_alias_creation,
+            message_action=message_action,
+            user_attributes=user_attributes,
+            username=username,
+            validation_data=validation_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_pool_id: pulumi.Input[str],
+             client_metadata: Optional[Any] = None,
+             desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             force_alias_creation: Optional[pulumi.Input[bool]] = None,
+             message_action: Optional[pulumi.Input[str]] = None,
+             user_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             validation_data: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("user_pool_id", user_pool_id)
         if client_metadata is not None:
-            pulumi.set(__self__, "client_metadata", client_metadata)
+            _setter("client_metadata", client_metadata)
         if desired_delivery_mediums is not None:
-            pulumi.set(__self__, "desired_delivery_mediums", desired_delivery_mediums)
+            _setter("desired_delivery_mediums", desired_delivery_mediums)
         if force_alias_creation is not None:
-            pulumi.set(__self__, "force_alias_creation", force_alias_creation)
+            _setter("force_alias_creation", force_alias_creation)
         if message_action is not None:
-            pulumi.set(__self__, "message_action", message_action)
+            _setter("message_action", message_action)
         if user_attributes is not None:
-            pulumi.set(__self__, "user_attributes", user_attributes)
+            _setter("user_attributes", user_attributes)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
         if validation_data is not None:
-            pulumi.set(__self__, "validation_data", validation_data)
+            _setter("validation_data", validation_data)
 
     @property
     @pulumi.getter(name="userPoolId")
@@ -155,6 +178,10 @@ class UserPoolUser(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserPoolUserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

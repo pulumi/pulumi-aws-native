@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -48,31 +48,68 @@ class CanaryArgs:
         :param pulumi.Input['CanaryVisualReferenceArgs'] visual_reference: Visual reference configuration for visual testing
         :param pulumi.Input['CanaryVpcConfigArgs'] vpc_config: Provide VPC Configuration if enabled.
         """
-        pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
-        pulumi.set(__self__, "runtime_version", runtime_version)
-        pulumi.set(__self__, "schedule", schedule)
+        CanaryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            artifact_s3_location=artifact_s3_location,
+            code=code,
+            execution_role_arn=execution_role_arn,
+            runtime_version=runtime_version,
+            schedule=schedule,
+            artifact_config=artifact_config,
+            delete_lambda_resources_on_canary_deletion=delete_lambda_resources_on_canary_deletion,
+            failure_retention_period=failure_retention_period,
+            name=name,
+            run_config=run_config,
+            start_canary_after_creation=start_canary_after_creation,
+            success_retention_period=success_retention_period,
+            tags=tags,
+            visual_reference=visual_reference,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             artifact_s3_location: pulumi.Input[str],
+             code: pulumi.Input['CanaryCodeArgs'],
+             execution_role_arn: pulumi.Input[str],
+             runtime_version: pulumi.Input[str],
+             schedule: pulumi.Input['CanaryScheduleArgs'],
+             artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
+             delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[bool]] = None,
+             failure_retention_period: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
+             start_canary_after_creation: Optional[pulumi.Input[bool]] = None,
+             success_retention_period: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTagArgs']]]] = None,
+             visual_reference: Optional[pulumi.Input['CanaryVisualReferenceArgs']] = None,
+             vpc_config: Optional[pulumi.Input['CanaryVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("artifact_s3_location", artifact_s3_location)
+        _setter("code", code)
+        _setter("execution_role_arn", execution_role_arn)
+        _setter("runtime_version", runtime_version)
+        _setter("schedule", schedule)
         if artifact_config is not None:
-            pulumi.set(__self__, "artifact_config", artifact_config)
+            _setter("artifact_config", artifact_config)
         if delete_lambda_resources_on_canary_deletion is not None:
-            pulumi.set(__self__, "delete_lambda_resources_on_canary_deletion", delete_lambda_resources_on_canary_deletion)
+            _setter("delete_lambda_resources_on_canary_deletion", delete_lambda_resources_on_canary_deletion)
         if failure_retention_period is not None:
-            pulumi.set(__self__, "failure_retention_period", failure_retention_period)
+            _setter("failure_retention_period", failure_retention_period)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if run_config is not None:
-            pulumi.set(__self__, "run_config", run_config)
+            _setter("run_config", run_config)
         if start_canary_after_creation is not None:
-            pulumi.set(__self__, "start_canary_after_creation", start_canary_after_creation)
+            _setter("start_canary_after_creation", start_canary_after_creation)
         if success_retention_period is not None:
-            pulumi.set(__self__, "success_retention_period", success_retention_period)
+            _setter("success_retention_period", success_retention_period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if visual_reference is not None:
-            pulumi.set(__self__, "visual_reference", visual_reference)
+            _setter("visual_reference", visual_reference)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="artifactS3Location")
@@ -312,6 +349,10 @@ class Canary(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CanaryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -341,10 +382,20 @@ class Canary(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CanaryArgs.__new__(CanaryArgs)
 
+            if artifact_config is not None and not isinstance(artifact_config, CanaryArtifactConfigArgs):
+                artifact_config = artifact_config or {}
+                def _setter(key, value):
+                    artifact_config[key] = value
+                CanaryArtifactConfigArgs._configure(_setter, **artifact_config)
             __props__.__dict__["artifact_config"] = artifact_config
             if artifact_s3_location is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_s3_location'")
             __props__.__dict__["artifact_s3_location"] = artifact_s3_location
+            if code is not None and not isinstance(code, CanaryCodeArgs):
+                code = code or {}
+                def _setter(key, value):
+                    code[key] = value
+                CanaryCodeArgs._configure(_setter, **code)
             if code is None and not opts.urn:
                 raise TypeError("Missing required property 'code'")
             __props__.__dict__["code"] = code
@@ -354,17 +405,37 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["failure_retention_period"] = failure_retention_period
             __props__.__dict__["name"] = name
+            if run_config is not None and not isinstance(run_config, CanaryRunConfigArgs):
+                run_config = run_config or {}
+                def _setter(key, value):
+                    run_config[key] = value
+                CanaryRunConfigArgs._configure(_setter, **run_config)
             __props__.__dict__["run_config"] = run_config
             if runtime_version is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime_version'")
             __props__.__dict__["runtime_version"] = runtime_version
+            if schedule is not None and not isinstance(schedule, CanaryScheduleArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                CanaryScheduleArgs._configure(_setter, **schedule)
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["start_canary_after_creation"] = start_canary_after_creation
             __props__.__dict__["success_retention_period"] = success_retention_period
             __props__.__dict__["tags"] = tags
+            if visual_reference is not None and not isinstance(visual_reference, CanaryVisualReferenceArgs):
+                visual_reference = visual_reference or {}
+                def _setter(key, value):
+                    visual_reference[key] = value
+                CanaryVisualReferenceArgs._configure(_setter, **visual_reference)
             __props__.__dict__["visual_reference"] = visual_reference
+            if vpc_config is not None and not isinstance(vpc_config, CanaryVpcConfigArgs):
+                vpc_config = vpc_config or {}
+                def _setter(key, value):
+                    vpc_config[key] = value
+                CanaryVpcConfigArgs._configure(_setter, **vpc_config)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["state"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])

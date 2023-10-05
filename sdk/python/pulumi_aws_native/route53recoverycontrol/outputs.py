@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -25,10 +25,21 @@ class ClusterEndpoint(dict):
     def __init__(__self__, *,
                  endpoint: Optional[str] = None,
                  region: Optional[str] = None):
+        ClusterEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter
@@ -46,8 +57,19 @@ class ClusterTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ClusterTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -65,8 +87,19 @@ class ControlPanelTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ControlPanelTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -111,8 +144,19 @@ class SafetyRuleAssertionRule(dict):
         :param Sequence[str] asserted_controls: The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three AWS Regions.
         :param int wait_period_ms: An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
         """
-        pulumi.set(__self__, "asserted_controls", asserted_controls)
-        pulumi.set(__self__, "wait_period_ms", wait_period_ms)
+        SafetyRuleAssertionRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asserted_controls=asserted_controls,
+            wait_period_ms=wait_period_ms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asserted_controls: Sequence[str],
+             wait_period_ms: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("asserted_controls", asserted_controls)
+        _setter("wait_period_ms", wait_period_ms)
 
     @property
     @pulumi.getter(name="assertedControls")
@@ -168,9 +212,22 @@ class SafetyRuleGatingRule(dict):
                In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.
         :param int wait_period_ms: An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
         """
-        pulumi.set(__self__, "gating_controls", gating_controls)
-        pulumi.set(__self__, "target_controls", target_controls)
-        pulumi.set(__self__, "wait_period_ms", wait_period_ms)
+        SafetyRuleGatingRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gating_controls=gating_controls,
+            target_controls=target_controls,
+            wait_period_ms=wait_period_ms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gating_controls: Sequence[str],
+             target_controls: Sequence[str],
+             wait_period_ms: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("gating_controls", gating_controls)
+        _setter("target_controls", target_controls)
+        _setter("wait_period_ms", wait_period_ms)
 
     @property
     @pulumi.getter(name="gatingControls")
@@ -212,9 +269,22 @@ class SafetyRuleRuleConfig(dict):
         :param bool inverted: Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
         :param int threshold: The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
         """
-        pulumi.set(__self__, "inverted", inverted)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "type", type)
+        SafetyRuleRuleConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inverted=inverted,
+            threshold=threshold,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inverted: bool,
+             threshold: int,
+             type: 'SafetyRuleRuleType',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("inverted", inverted)
+        _setter("threshold", threshold)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -243,8 +313,19 @@ class SafetyRuleTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SafetyRuleTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

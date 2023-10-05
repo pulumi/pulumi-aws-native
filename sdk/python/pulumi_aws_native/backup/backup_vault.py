@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,18 +25,37 @@ class BackupVaultArgs:
         """
         The set of arguments for constructing a BackupVault resource.
         """
+        BackupVaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy=access_policy,
+            backup_vault_name=backup_vault_name,
+            backup_vault_tags=backup_vault_tags,
+            encryption_key_arn=encryption_key_arn,
+            lock_configuration=lock_configuration,
+            notifications=notifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy: Optional[Any] = None,
+             backup_vault_name: Optional[pulumi.Input[str]] = None,
+             backup_vault_tags: Optional[Any] = None,
+             encryption_key_arn: Optional[pulumi.Input[str]] = None,
+             lock_configuration: Optional[pulumi.Input['BackupVaultLockConfigurationTypeArgs']] = None,
+             notifications: Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_policy is not None:
-            pulumi.set(__self__, "access_policy", access_policy)
+            _setter("access_policy", access_policy)
         if backup_vault_name is not None:
-            pulumi.set(__self__, "backup_vault_name", backup_vault_name)
+            _setter("backup_vault_name", backup_vault_name)
         if backup_vault_tags is not None:
-            pulumi.set(__self__, "backup_vault_tags", backup_vault_tags)
+            _setter("backup_vault_tags", backup_vault_tags)
         if encryption_key_arn is not None:
-            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+            _setter("encryption_key_arn", encryption_key_arn)
         if lock_configuration is not None:
-            pulumi.set(__self__, "lock_configuration", lock_configuration)
+            _setter("lock_configuration", lock_configuration)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
 
     @property
     @pulumi.getter(name="accessPolicy")
@@ -130,6 +149,10 @@ class BackupVault(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupVaultArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -154,7 +177,17 @@ class BackupVault(pulumi.CustomResource):
             __props__.__dict__["backup_vault_name"] = backup_vault_name
             __props__.__dict__["backup_vault_tags"] = backup_vault_tags
             __props__.__dict__["encryption_key_arn"] = encryption_key_arn
+            if lock_configuration is not None and not isinstance(lock_configuration, BackupVaultLockConfigurationTypeArgs):
+                lock_configuration = lock_configuration or {}
+                def _setter(key, value):
+                    lock_configuration[key] = value
+                BackupVaultLockConfigurationTypeArgs._configure(_setter, **lock_configuration)
             __props__.__dict__["lock_configuration"] = lock_configuration
+            if notifications is not None and not isinstance(notifications, BackupVaultNotificationObjectTypeArgs):
+                notifications = notifications or {}
+                def _setter(key, value):
+                    notifications[key] = value
+                BackupVaultNotificationObjectTypeArgs._configure(_setter, **notifications)
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["backup_vault_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backup_vault_name", "encryption_key_arn"])

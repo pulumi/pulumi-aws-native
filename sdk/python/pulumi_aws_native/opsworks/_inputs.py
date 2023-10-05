@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -38,12 +38,25 @@ class AppDataSourceArgs:
                  arn: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        AppDataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            database_name=database_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -79,10 +92,23 @@ class AppEnvironmentVariableArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  secure: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AppEnvironmentVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+            secure=secure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             secure: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
         if secure is not None:
-            pulumi.set(__self__, "secure", secure)
+            _setter("secure", secure)
 
     @property
     @pulumi.getter
@@ -121,18 +147,37 @@ class AppSourceArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
+        AppSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            revision=revision,
+            ssh_key=ssh_key,
+            type=type,
+            url=url,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[str]] = None,
+             ssh_key: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if ssh_key is not None:
-            pulumi.set(__self__, "ssh_key", ssh_key)
+            _setter("ssh_key", ssh_key)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -195,12 +240,25 @@ class AppSslConfigurationArgs:
                  certificate: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None):
+        AppSslConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            chain=chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             chain: Optional[pulumi.Input[str]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if chain is not None:
-            pulumi.set(__self__, "chain", chain)
+            _setter("chain", chain)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
 
     @property
     @pulumi.getter
@@ -237,14 +295,29 @@ class InstanceBlockDeviceMappingArgs:
                  ebs: Optional[pulumi.Input['InstanceEbsBlockDeviceArgs']] = None,
                  no_device: Optional[pulumi.Input[str]] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
+        InstanceBlockDeviceMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            ebs=ebs,
+            no_device=no_device,
+            virtual_name=virtual_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[pulumi.Input[str]] = None,
+             ebs: Optional[pulumi.Input['InstanceEbsBlockDeviceArgs']] = None,
+             no_device: Optional[pulumi.Input[str]] = None,
+             virtual_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if ebs is not None:
-            pulumi.set(__self__, "ebs", ebs)
+            _setter("ebs", ebs)
         if no_device is not None:
-            pulumi.set(__self__, "no_device", no_device)
+            _setter("no_device", no_device)
         if virtual_name is not None:
-            pulumi.set(__self__, "virtual_name", virtual_name)
+            _setter("virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -291,16 +364,33 @@ class InstanceEbsBlockDeviceArgs:
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
+        InstanceEbsBlockDeviceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_on_termination=delete_on_termination,
+            iops=iops,
+            snapshot_id=snapshot_id,
+            volume_size=volume_size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_on_termination: Optional[pulumi.Input[bool]] = None,
+             iops: Optional[pulumi.Input[int]] = None,
+             snapshot_id: Optional[pulumi.Input[str]] = None,
+             volume_size: Optional[pulumi.Input[int]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_on_termination is not None:
-            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+            _setter("delete_on_termination", delete_on_termination)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if volume_size is not None:
-            pulumi.set(__self__, "volume_size", volume_size)
+            _setter("volume_size", volume_size)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
@@ -358,20 +448,41 @@ class InstanceTimeBasedAutoScalingArgs:
                  thursday: Optional[Any] = None,
                  tuesday: Optional[Any] = None,
                  wednesday: Optional[Any] = None):
+        InstanceTimeBasedAutoScalingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            friday=friday,
+            monday=monday,
+            saturday=saturday,
+            sunday=sunday,
+            thursday=thursday,
+            tuesday=tuesday,
+            wednesday=wednesday,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             friday: Optional[Any] = None,
+             monday: Optional[Any] = None,
+             saturday: Optional[Any] = None,
+             sunday: Optional[Any] = None,
+             thursday: Optional[Any] = None,
+             tuesday: Optional[Any] = None,
+             wednesday: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if friday is not None:
-            pulumi.set(__self__, "friday", friday)
+            _setter("friday", friday)
         if monday is not None:
-            pulumi.set(__self__, "monday", monday)
+            _setter("monday", monday)
         if saturday is not None:
-            pulumi.set(__self__, "saturday", saturday)
+            _setter("saturday", saturday)
         if sunday is not None:
-            pulumi.set(__self__, "sunday", sunday)
+            _setter("sunday", sunday)
         if thursday is not None:
-            pulumi.set(__self__, "thursday", thursday)
+            _setter("thursday", thursday)
         if tuesday is not None:
-            pulumi.set(__self__, "tuesday", tuesday)
+            _setter("tuesday", tuesday)
         if wednesday is not None:
-            pulumi.set(__self__, "wednesday", wednesday)
+            _setter("wednesday", wednesday)
 
     @property
     @pulumi.getter
@@ -446,18 +557,37 @@ class LayerAutoScalingThresholdsArgs:
                  load_threshold: Optional[pulumi.Input[float]] = None,
                  memory_threshold: Optional[pulumi.Input[float]] = None,
                  thresholds_wait_time: Optional[pulumi.Input[int]] = None):
+        LayerAutoScalingThresholdsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu_threshold: Optional[pulumi.Input[float]] = None,
+             ignore_metrics_time: Optional[pulumi.Input[int]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             load_threshold: Optional[pulumi.Input[float]] = None,
+             memory_threshold: Optional[pulumi.Input[float]] = None,
+             thresholds_wait_time: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter(name="cpuThreshold")
@@ -518,8 +648,17 @@ class LayerAutoScalingThresholdsArgs:
 class LayerLifecycleEventConfigurationArgs:
     def __init__(__self__, *,
                  shutdown_event_configuration: Optional[pulumi.Input['LayerShutdownEventConfigurationArgs']] = None):
+        LayerLifecycleEventConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            shutdown_event_configuration=shutdown_event_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             shutdown_event_configuration: Optional[pulumi.Input['LayerShutdownEventConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if shutdown_event_configuration is not None:
-            pulumi.set(__self__, "shutdown_event_configuration", shutdown_event_configuration)
+            _setter("shutdown_event_configuration", shutdown_event_configuration)
 
     @property
     @pulumi.getter(name="shutdownEventConfiguration")
@@ -537,12 +676,25 @@ class LayerLoadBasedAutoScalingArgs:
                  down_scaling: Optional[pulumi.Input['LayerAutoScalingThresholdsArgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  up_scaling: Optional[pulumi.Input['LayerAutoScalingThresholdsArgs']] = None):
+        LayerLoadBasedAutoScalingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            down_scaling=down_scaling,
+            enable=enable,
+            up_scaling=up_scaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             down_scaling: Optional[pulumi.Input['LayerAutoScalingThresholdsArgs']] = None,
+             enable: Optional[pulumi.Input[bool]] = None,
+             up_scaling: Optional[pulumi.Input['LayerAutoScalingThresholdsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if down_scaling is not None:
-            pulumi.set(__self__, "down_scaling", down_scaling)
+            _setter("down_scaling", down_scaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if up_scaling is not None:
-            pulumi.set(__self__, "up_scaling", up_scaling)
+            _setter("up_scaling", up_scaling)
 
     @property
     @pulumi.getter(name="downScaling")
@@ -580,16 +732,33 @@ class LayerRecipesArgs:
                  setup: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  shutdown: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  undeploy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        LayerRecipesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configure=configure,
+            deploy=deploy,
+            setup=setup,
+            shutdown=shutdown,
+            undeploy=undeploy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configure: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             deploy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             setup: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             shutdown: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             undeploy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if configure is not None:
-            pulumi.set(__self__, "configure", configure)
+            _setter("configure", configure)
         if deploy is not None:
-            pulumi.set(__self__, "deploy", deploy)
+            _setter("deploy", deploy)
         if setup is not None:
-            pulumi.set(__self__, "setup", setup)
+            _setter("setup", setup)
         if shutdown is not None:
-            pulumi.set(__self__, "shutdown", shutdown)
+            _setter("shutdown", shutdown)
         if undeploy is not None:
-            pulumi.set(__self__, "undeploy", undeploy)
+            _setter("undeploy", undeploy)
 
     @property
     @pulumi.getter
@@ -642,10 +811,21 @@ class LayerShutdownEventConfigurationArgs:
     def __init__(__self__, *,
                  delay_until_elb_connections_drained: Optional[pulumi.Input[bool]] = None,
                  execution_timeout: Optional[pulumi.Input[int]] = None):
+        LayerShutdownEventConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delay_until_elb_connections_drained=delay_until_elb_connections_drained,
+            execution_timeout=execution_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delay_until_elb_connections_drained: Optional[pulumi.Input[bool]] = None,
+             execution_timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delay_until_elb_connections_drained is not None:
-            pulumi.set(__self__, "delay_until_elb_connections_drained", delay_until_elb_connections_drained)
+            _setter("delay_until_elb_connections_drained", delay_until_elb_connections_drained)
         if execution_timeout is not None:
-            pulumi.set(__self__, "execution_timeout", execution_timeout)
+            _setter("execution_timeout", execution_timeout)
 
     @property
     @pulumi.getter(name="delayUntilElbConnectionsDrained")
@@ -671,8 +851,19 @@ class LayerTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        LayerTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -703,20 +894,41 @@ class LayerVolumeConfigurationArgs:
                  raid_level: Optional[pulumi.Input[int]] = None,
                  size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
+        LayerVolumeConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encrypted=encrypted,
+            iops=iops,
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            raid_level=raid_level,
+            size=size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encrypted: Optional[pulumi.Input[bool]] = None,
+             iops: Optional[pulumi.Input[int]] = None,
+             mount_point: Optional[pulumi.Input[str]] = None,
+             number_of_disks: Optional[pulumi.Input[int]] = None,
+             raid_level: Optional[pulumi.Input[int]] = None,
+             size: Optional[pulumi.Input[int]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if mount_point is not None:
-            pulumi.set(__self__, "mount_point", mount_point)
+            _setter("mount_point", mount_point)
         if number_of_disks is not None:
-            pulumi.set(__self__, "number_of_disks", number_of_disks)
+            _setter("number_of_disks", number_of_disks)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter
@@ -787,10 +999,21 @@ class StackChefConfigurationArgs:
     def __init__(__self__, *,
                  berkshelf_version: Optional[pulumi.Input[str]] = None,
                  manage_berkshelf: Optional[pulumi.Input[bool]] = None):
+        StackChefConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            berkshelf_version=berkshelf_version,
+            manage_berkshelf=manage_berkshelf,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             berkshelf_version: Optional[pulumi.Input[str]] = None,
+             manage_berkshelf: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if berkshelf_version is not None:
-            pulumi.set(__self__, "berkshelf_version", berkshelf_version)
+            _setter("berkshelf_version", berkshelf_version)
         if manage_berkshelf is not None:
-            pulumi.set(__self__, "manage_berkshelf", manage_berkshelf)
+            _setter("manage_berkshelf", manage_berkshelf)
 
     @property
     @pulumi.getter(name="berkshelfVersion")
@@ -816,10 +1039,21 @@ class StackConfigurationManagerArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
+        StackConfigurationManagerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -845,9 +1079,20 @@ class StackElasticIpArgs:
     def __init__(__self__, *,
                  ip: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "ip", ip)
+        StackElasticIpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip", ip)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -874,9 +1119,22 @@ class StackRdsDbInstanceArgs:
                  db_password: pulumi.Input[str],
                  db_user: pulumi.Input[str],
                  rds_db_instance_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "db_password", db_password)
-        pulumi.set(__self__, "db_user", db_user)
-        pulumi.set(__self__, "rds_db_instance_arn", rds_db_instance_arn)
+        StackRdsDbInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_password=db_password,
+            db_user=db_user,
+            rds_db_instance_arn=rds_db_instance_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_password: pulumi.Input[str],
+             db_user: pulumi.Input[str],
+             rds_db_instance_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("db_password", db_password)
+        _setter("db_user", db_user)
+        _setter("rds_db_instance_arn", rds_db_instance_arn)
 
     @property
     @pulumi.getter(name="dbPassword")
@@ -915,18 +1173,37 @@ class StackSourceArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
+        StackSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            revision=revision,
+            ssh_key=ssh_key,
+            type=type,
+            url=url,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[str]] = None,
+             ssh_key: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if ssh_key is not None:
-            pulumi.set(__self__, "ssh_key", ssh_key)
+            _setter("ssh_key", ssh_key)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -988,8 +1265,19 @@ class StackTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        StackTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

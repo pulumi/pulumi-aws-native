@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -75,10 +75,23 @@ class ChannelCustomerManagedS3Args:
                  bucket: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  key_prefix: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ChannelCustomerManagedS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            role_arn=role_arn,
+            key_prefix=key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             key_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("role_arn", role_arn)
         if key_prefix is not None:
-            pulumi.set(__self__, "key_prefix", key_prefix)
+            _setter("key_prefix", key_prefix)
 
     @property
     @pulumi.getter
@@ -113,10 +126,21 @@ class ChannelRetentionPeriodArgs:
     def __init__(__self__, *,
                  number_of_days: Optional[pulumi.Input[int]] = None,
                  unlimited: Optional[pulumi.Input[bool]] = None):
+        ChannelRetentionPeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            number_of_days=number_of_days,
+            unlimited=unlimited,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             number_of_days: Optional[pulumi.Input[int]] = None,
+             unlimited: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if number_of_days is not None:
-            pulumi.set(__self__, "number_of_days", number_of_days)
+            _setter("number_of_days", number_of_days)
         if unlimited is not None:
-            pulumi.set(__self__, "unlimited", unlimited)
+            _setter("unlimited", unlimited)
 
     @property
     @pulumi.getter(name="numberOfDays")
@@ -141,6 +165,11 @@ class ChannelRetentionPeriodArgs:
 class ChannelServiceManagedS3Args:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -148,10 +177,21 @@ class ChannelStorageArgs:
     def __init__(__self__, *,
                  customer_managed_s3: Optional[pulumi.Input['ChannelCustomerManagedS3Args']] = None,
                  service_managed_s3: Optional[pulumi.Input['ChannelServiceManagedS3Args']] = None):
+        ChannelStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_managed_s3=customer_managed_s3,
+            service_managed_s3=service_managed_s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_managed_s3: Optional[pulumi.Input['ChannelCustomerManagedS3Args']] = None,
+             service_managed_s3: Optional[pulumi.Input['ChannelServiceManagedS3Args']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if customer_managed_s3 is not None:
-            pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
+            _setter("customer_managed_s3", customer_managed_s3)
         if service_managed_s3 is not None:
-            pulumi.set(__self__, "service_managed_s3", service_managed_s3)
+            _setter("service_managed_s3", service_managed_s3)
 
     @property
     @pulumi.getter(name="customerManagedS3")
@@ -177,8 +217,19 @@ class ChannelTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ChannelTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -205,11 +256,24 @@ class DatasetActionArgs:
                  action_name: pulumi.Input[str],
                  container_action: Optional[pulumi.Input['DatasetContainerActionArgs']] = None,
                  query_action: Optional[pulumi.Input['DatasetQueryActionArgs']] = None):
-        pulumi.set(__self__, "action_name", action_name)
+        DatasetActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_name=action_name,
+            container_action=container_action,
+            query_action=query_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_name: pulumi.Input[str],
+             container_action: Optional[pulumi.Input['DatasetContainerActionArgs']] = None,
+             query_action: Optional[pulumi.Input['DatasetQueryActionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_name", action_name)
         if container_action is not None:
-            pulumi.set(__self__, "container_action", container_action)
+            _setter("container_action", container_action)
         if query_action is not None:
-            pulumi.set(__self__, "query_action", query_action)
+            _setter("query_action", query_action)
 
     @property
     @pulumi.getter(name="actionName")
@@ -246,11 +310,26 @@ class DatasetContainerActionArgs:
                  image: pulumi.Input[str],
                  resource_configuration: pulumi.Input['DatasetResourceConfigurationArgs'],
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetVariableArgs']]]] = None):
-        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "resource_configuration", resource_configuration)
+        DatasetContainerActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            execution_role_arn=execution_role_arn,
+            image=image,
+            resource_configuration=resource_configuration,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             execution_role_arn: pulumi.Input[str],
+             image: pulumi.Input[str],
+             resource_configuration: pulumi.Input['DatasetResourceConfigurationArgs'],
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("execution_role_arn", execution_role_arn)
+        _setter("image", image)
+        _setter("resource_configuration", resource_configuration)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="executionRoleArn")
@@ -294,10 +373,21 @@ class DatasetContentDeliveryRuleDestinationArgs:
     def __init__(__self__, *,
                  iot_events_destination_configuration: Optional[pulumi.Input['DatasetIotEventsDestinationConfigurationArgs']] = None,
                  s3_destination_configuration: Optional[pulumi.Input['DatasetS3DestinationConfigurationArgs']] = None):
+        DatasetContentDeliveryRuleDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iot_events_destination_configuration=iot_events_destination_configuration,
+            s3_destination_configuration=s3_destination_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iot_events_destination_configuration: Optional[pulumi.Input['DatasetIotEventsDestinationConfigurationArgs']] = None,
+             s3_destination_configuration: Optional[pulumi.Input['DatasetS3DestinationConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if iot_events_destination_configuration is not None:
-            pulumi.set(__self__, "iot_events_destination_configuration", iot_events_destination_configuration)
+            _setter("iot_events_destination_configuration", iot_events_destination_configuration)
         if s3_destination_configuration is not None:
-            pulumi.set(__self__, "s3_destination_configuration", s3_destination_configuration)
+            _setter("s3_destination_configuration", s3_destination_configuration)
 
     @property
     @pulumi.getter(name="iotEventsDestinationConfiguration")
@@ -323,9 +413,20 @@ class DatasetContentDeliveryRuleArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input['DatasetContentDeliveryRuleDestinationArgs'],
                  entry_name: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "destination", destination)
+        DatasetContentDeliveryRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            entry_name=entry_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: pulumi.Input['DatasetContentDeliveryRuleDestinationArgs'],
+             entry_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination", destination)
         if entry_name is not None:
-            pulumi.set(__self__, "entry_name", entry_name)
+            _setter("entry_name", entry_name)
 
     @property
     @pulumi.getter
@@ -350,7 +451,16 @@ class DatasetContentDeliveryRuleArgs:
 class DatasetContentVersionValueArgs:
     def __init__(__self__, *,
                  dataset_name: pulumi.Input[str]):
-        pulumi.set(__self__, "dataset_name", dataset_name)
+        DatasetContentVersionValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dataset_name=dataset_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dataset_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dataset_name", dataset_name)
 
     @property
     @pulumi.getter(name="datasetName")
@@ -366,7 +476,16 @@ class DatasetContentVersionValueArgs:
 class DatasetDeltaTimeSessionWindowConfigurationArgs:
     def __init__(__self__, *,
                  timeout_in_minutes: pulumi.Input[int]):
-        pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+        DatasetDeltaTimeSessionWindowConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            timeout_in_minutes=timeout_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             timeout_in_minutes: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("timeout_in_minutes", timeout_in_minutes)
 
     @property
     @pulumi.getter(name="timeoutInMinutes")
@@ -383,8 +502,19 @@ class DatasetDeltaTimeArgs:
     def __init__(__self__, *,
                  offset_seconds: pulumi.Input[int],
                  time_expression: pulumi.Input[str]):
-        pulumi.set(__self__, "offset_seconds", offset_seconds)
-        pulumi.set(__self__, "time_expression", time_expression)
+        DatasetDeltaTimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offset_seconds=offset_seconds,
+            time_expression=time_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offset_seconds: pulumi.Input[int],
+             time_expression: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("offset_seconds", offset_seconds)
+        _setter("time_expression", time_expression)
 
     @property
     @pulumi.getter(name="offsetSeconds")
@@ -409,8 +539,17 @@ class DatasetDeltaTimeArgs:
 class DatasetFilterArgs:
     def __init__(__self__, *,
                  delta_time: Optional[pulumi.Input['DatasetDeltaTimeArgs']] = None):
+        DatasetFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delta_time=delta_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delta_time: Optional[pulumi.Input['DatasetDeltaTimeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delta_time is not None:
-            pulumi.set(__self__, "delta_time", delta_time)
+            _setter("delta_time", delta_time)
 
     @property
     @pulumi.getter(name="deltaTime")
@@ -427,8 +566,19 @@ class DatasetGlueConfigurationArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  table_name: pulumi.Input[str]):
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "table_name", table_name)
+        DatasetGlueConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -454,8 +604,19 @@ class DatasetIotEventsDestinationConfigurationArgs:
     def __init__(__self__, *,
                  input_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "input_name", input_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        DatasetIotEventsDestinationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_name=input_name,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("input_name", input_name)
+        _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="inputName")
@@ -480,8 +641,17 @@ class DatasetIotEventsDestinationConfigurationArgs:
 class DatasetLateDataRuleConfigurationArgs:
     def __init__(__self__, *,
                  delta_time_session_window_configuration: Optional[pulumi.Input['DatasetDeltaTimeSessionWindowConfigurationArgs']] = None):
+        DatasetLateDataRuleConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delta_time_session_window_configuration=delta_time_session_window_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delta_time_session_window_configuration: Optional[pulumi.Input['DatasetDeltaTimeSessionWindowConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delta_time_session_window_configuration is not None:
-            pulumi.set(__self__, "delta_time_session_window_configuration", delta_time_session_window_configuration)
+            _setter("delta_time_session_window_configuration", delta_time_session_window_configuration)
 
     @property
     @pulumi.getter(name="deltaTimeSessionWindowConfiguration")
@@ -498,9 +668,20 @@ class DatasetLateDataRuleArgs:
     def __init__(__self__, *,
                  rule_configuration: pulumi.Input['DatasetLateDataRuleConfigurationArgs'],
                  rule_name: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "rule_configuration", rule_configuration)
+        DatasetLateDataRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_configuration=rule_configuration,
+            rule_name=rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_configuration: pulumi.Input['DatasetLateDataRuleConfigurationArgs'],
+             rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_configuration", rule_configuration)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
 
     @property
     @pulumi.getter(name="ruleConfiguration")
@@ -525,7 +706,16 @@ class DatasetLateDataRuleArgs:
 class DatasetOutputFileUriValueArgs:
     def __init__(__self__, *,
                  file_name: pulumi.Input[str]):
-        pulumi.set(__self__, "file_name", file_name)
+        DatasetOutputFileUriValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_name=file_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("file_name", file_name)
 
     @property
     @pulumi.getter(name="fileName")
@@ -542,9 +732,20 @@ class DatasetQueryActionArgs:
     def __init__(__self__, *,
                  sql_query: pulumi.Input[str],
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetFilterArgs']]]] = None):
-        pulumi.set(__self__, "sql_query", sql_query)
+        DatasetQueryActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sql_query=sql_query,
+            filters=filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sql_query: pulumi.Input[str],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetFilterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("sql_query", sql_query)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
 
     @property
     @pulumi.getter(name="sqlQuery")
@@ -570,8 +771,19 @@ class DatasetResourceConfigurationArgs:
     def __init__(__self__, *,
                  compute_type: pulumi.Input['DatasetResourceConfigurationComputeType'],
                  volume_size_in_gb: pulumi.Input[int]):
-        pulumi.set(__self__, "compute_type", compute_type)
-        pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+        DatasetResourceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            volume_size_in_gb=volume_size_in_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input['DatasetResourceConfigurationComputeType'],
+             volume_size_in_gb: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", compute_type)
+        _setter("volume_size_in_gb", volume_size_in_gb)
 
     @property
     @pulumi.getter(name="computeType")
@@ -597,10 +809,21 @@ class DatasetRetentionPeriodArgs:
     def __init__(__self__, *,
                  number_of_days: Optional[pulumi.Input[int]] = None,
                  unlimited: Optional[pulumi.Input[bool]] = None):
+        DatasetRetentionPeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            number_of_days=number_of_days,
+            unlimited=unlimited,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             number_of_days: Optional[pulumi.Input[int]] = None,
+             unlimited: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if number_of_days is not None:
-            pulumi.set(__self__, "number_of_days", number_of_days)
+            _setter("number_of_days", number_of_days)
         if unlimited is not None:
-            pulumi.set(__self__, "unlimited", unlimited)
+            _setter("unlimited", unlimited)
 
     @property
     @pulumi.getter(name="numberOfDays")
@@ -628,11 +851,26 @@ class DatasetS3DestinationConfigurationArgs:
                  key: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  glue_configuration: Optional[pulumi.Input['DatasetGlueConfigurationArgs']] = None):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "role_arn", role_arn)
+        DatasetS3DestinationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+            role_arn=role_arn,
+            glue_configuration=glue_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             key: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             glue_configuration: Optional[pulumi.Input['DatasetGlueConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("key", key)
+        _setter("role_arn", role_arn)
         if glue_configuration is not None:
-            pulumi.set(__self__, "glue_configuration", glue_configuration)
+            _setter("glue_configuration", glue_configuration)
 
     @property
     @pulumi.getter
@@ -675,7 +913,16 @@ class DatasetS3DestinationConfigurationArgs:
 class DatasetScheduleArgs:
     def __init__(__self__, *,
                  schedule_expression: pulumi.Input[str]):
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        DatasetScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedule_expression=schedule_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedule_expression: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -692,8 +939,19 @@ class DatasetTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        DatasetTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -718,7 +976,16 @@ class DatasetTagArgs:
 class DatasetTriggeringDatasetArgs:
     def __init__(__self__, *,
                  dataset_name: pulumi.Input[str]):
-        pulumi.set(__self__, "dataset_name", dataset_name)
+        DatasetTriggeringDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dataset_name=dataset_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dataset_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dataset_name", dataset_name)
 
     @property
     @pulumi.getter(name="datasetName")
@@ -735,10 +1002,21 @@ class DatasetTriggerArgs:
     def __init__(__self__, *,
                  schedule: Optional[pulumi.Input['DatasetScheduleArgs']] = None,
                  triggering_dataset: Optional[pulumi.Input['DatasetTriggeringDatasetArgs']] = None):
+        DatasetTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedule=schedule,
+            triggering_dataset=triggering_dataset,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedule: Optional[pulumi.Input['DatasetScheduleArgs']] = None,
+             triggering_dataset: Optional[pulumi.Input['DatasetTriggeringDatasetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if triggering_dataset is not None:
-            pulumi.set(__self__, "triggering_dataset", triggering_dataset)
+            _setter("triggering_dataset", triggering_dataset)
 
     @property
     @pulumi.getter
@@ -767,15 +1045,32 @@ class DatasetVariableArgs:
                  double_value: Optional[pulumi.Input[float]] = None,
                  output_file_uri_value: Optional[pulumi.Input['DatasetOutputFileUriValueArgs']] = None,
                  string_value: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "variable_name", variable_name)
+        DatasetVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            variable_name=variable_name,
+            dataset_content_version_value=dataset_content_version_value,
+            double_value=double_value,
+            output_file_uri_value=output_file_uri_value,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             variable_name: pulumi.Input[str],
+             dataset_content_version_value: Optional[pulumi.Input['DatasetContentVersionValueArgs']] = None,
+             double_value: Optional[pulumi.Input[float]] = None,
+             output_file_uri_value: Optional[pulumi.Input['DatasetOutputFileUriValueArgs']] = None,
+             string_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("variable_name", variable_name)
         if dataset_content_version_value is not None:
-            pulumi.set(__self__, "dataset_content_version_value", dataset_content_version_value)
+            _setter("dataset_content_version_value", dataset_content_version_value)
         if double_value is not None:
-            pulumi.set(__self__, "double_value", double_value)
+            _setter("double_value", double_value)
         if output_file_uri_value is not None:
-            pulumi.set(__self__, "output_file_uri_value", output_file_uri_value)
+            _setter("output_file_uri_value", output_file_uri_value)
         if string_value is not None:
-            pulumi.set(__self__, "string_value", string_value)
+            _setter("string_value", string_value)
 
     @property
     @pulumi.getter(name="variableName")
@@ -828,10 +1123,21 @@ class DatasetVersioningConfigurationArgs:
     def __init__(__self__, *,
                  max_versions: Optional[pulumi.Input[int]] = None,
                  unlimited: Optional[pulumi.Input[bool]] = None):
+        DatasetVersioningConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_versions=max_versions,
+            unlimited=unlimited,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_versions: Optional[pulumi.Input[int]] = None,
+             unlimited: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_versions is not None:
-            pulumi.set(__self__, "max_versions", max_versions)
+            _setter("max_versions", max_versions)
         if unlimited is not None:
-            pulumi.set(__self__, "unlimited", unlimited)
+            _setter("unlimited", unlimited)
 
     @property
     @pulumi.getter(name="maxVersions")
@@ -857,8 +1163,19 @@ class DatastoreColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        DatastoreColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -884,9 +1201,20 @@ class DatastoreCustomerManagedS3StorageArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  key_prefix: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "bucket", bucket)
+        DatastoreCustomerManagedS3StorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key_prefix=key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             key_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
         if key_prefix is not None:
-            pulumi.set(__self__, "key_prefix", key_prefix)
+            _setter("key_prefix", key_prefix)
 
     @property
     @pulumi.getter
@@ -913,10 +1241,23 @@ class DatastoreCustomerManagedS3Args:
                  bucket: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  key_prefix: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "role_arn", role_arn)
+        DatastoreCustomerManagedS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            role_arn=role_arn,
+            key_prefix=key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             key_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("role_arn", role_arn)
         if key_prefix is not None:
-            pulumi.set(__self__, "key_prefix", key_prefix)
+            _setter("key_prefix", key_prefix)
 
     @property
     @pulumi.getter
@@ -951,10 +1292,21 @@ class DatastoreFileFormatConfigurationArgs:
     def __init__(__self__, *,
                  json_configuration: Optional[pulumi.Input['DatastoreJsonConfigurationArgs']] = None,
                  parquet_configuration: Optional[pulumi.Input['DatastoreParquetConfigurationArgs']] = None):
+        DatastoreFileFormatConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            json_configuration=json_configuration,
+            parquet_configuration=parquet_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             json_configuration: Optional[pulumi.Input['DatastoreJsonConfigurationArgs']] = None,
+             parquet_configuration: Optional[pulumi.Input['DatastoreParquetConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if json_configuration is not None:
-            pulumi.set(__self__, "json_configuration", json_configuration)
+            _setter("json_configuration", json_configuration)
         if parquet_configuration is not None:
-            pulumi.set(__self__, "parquet_configuration", parquet_configuration)
+            _setter("parquet_configuration", parquet_configuration)
 
     @property
     @pulumi.getter(name="jsonConfiguration")
@@ -979,8 +1331,17 @@ class DatastoreFileFormatConfigurationArgs:
 class DatastoreIotSiteWiseMultiLayerStorageArgs:
     def __init__(__self__, *,
                  customer_managed_s3_storage: Optional[pulumi.Input['DatastoreCustomerManagedS3StorageArgs']] = None):
+        DatastoreIotSiteWiseMultiLayerStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_managed_s3_storage=customer_managed_s3_storage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_managed_s3_storage: Optional[pulumi.Input['DatastoreCustomerManagedS3StorageArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if customer_managed_s3_storage is not None:
-            pulumi.set(__self__, "customer_managed_s3_storage", customer_managed_s3_storage)
+            _setter("customer_managed_s3_storage", customer_managed_s3_storage)
 
     @property
     @pulumi.getter(name="customerManagedS3Storage")
@@ -996,14 +1357,28 @@ class DatastoreIotSiteWiseMultiLayerStorageArgs:
 class DatastoreJsonConfigurationArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class DatastoreParquetConfigurationArgs:
     def __init__(__self__, *,
                  schema_definition: Optional[pulumi.Input['DatastoreSchemaDefinitionArgs']] = None):
+        DatastoreParquetConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_definition=schema_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_definition: Optional[pulumi.Input['DatastoreSchemaDefinitionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if schema_definition is not None:
-            pulumi.set(__self__, "schema_definition", schema_definition)
+            _setter("schema_definition", schema_definition)
 
     @property
     @pulumi.getter(name="schemaDefinition")
@@ -1019,8 +1394,17 @@ class DatastoreParquetConfigurationArgs:
 class DatastorePartitionsArgs:
     def __init__(__self__, *,
                  partitions: Optional[pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgs']]]] = None):
+        DatastorePartitionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partitions=partitions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partitions: Optional[pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if partitions is not None:
-            pulumi.set(__self__, "partitions", partitions)
+            _setter("partitions", partitions)
 
     @property
     @pulumi.getter
@@ -1037,10 +1421,21 @@ class DatastorePartitionArgs:
     def __init__(__self__, *,
                  partition: Optional[pulumi.Input['PartitionArgs']] = None,
                  timestamp_partition: Optional[pulumi.Input['DatastoreTimestampPartitionArgs']] = None):
+        DatastorePartitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partition=partition,
+            timestamp_partition=timestamp_partition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partition: Optional[pulumi.Input['PartitionArgs']] = None,
+             timestamp_partition: Optional[pulumi.Input['DatastoreTimestampPartitionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if timestamp_partition is not None:
-            pulumi.set(__self__, "timestamp_partition", timestamp_partition)
+            _setter("timestamp_partition", timestamp_partition)
 
     @property
     @pulumi.getter
@@ -1066,10 +1461,21 @@ class DatastoreRetentionPeriodArgs:
     def __init__(__self__, *,
                  number_of_days: Optional[pulumi.Input[int]] = None,
                  unlimited: Optional[pulumi.Input[bool]] = None):
+        DatastoreRetentionPeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            number_of_days=number_of_days,
+            unlimited=unlimited,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             number_of_days: Optional[pulumi.Input[int]] = None,
+             unlimited: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if number_of_days is not None:
-            pulumi.set(__self__, "number_of_days", number_of_days)
+            _setter("number_of_days", number_of_days)
         if unlimited is not None:
-            pulumi.set(__self__, "unlimited", unlimited)
+            _setter("unlimited", unlimited)
 
     @property
     @pulumi.getter(name="numberOfDays")
@@ -1094,8 +1500,17 @@ class DatastoreRetentionPeriodArgs:
 class DatastoreSchemaDefinitionArgs:
     def __init__(__self__, *,
                  columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatastoreColumnArgs']]]] = None):
+        DatastoreSchemaDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatastoreColumnArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -1111,6 +1526,11 @@ class DatastoreSchemaDefinitionArgs:
 class DatastoreServiceManagedS3Args:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -1119,12 +1539,25 @@ class DatastoreStorageArgs:
                  customer_managed_s3: Optional[pulumi.Input['DatastoreCustomerManagedS3Args']] = None,
                  iot_site_wise_multi_layer_storage: Optional[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs']] = None,
                  service_managed_s3: Optional[pulumi.Input['DatastoreServiceManagedS3Args']] = None):
+        DatastoreStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_managed_s3=customer_managed_s3,
+            iot_site_wise_multi_layer_storage=iot_site_wise_multi_layer_storage,
+            service_managed_s3=service_managed_s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_managed_s3: Optional[pulumi.Input['DatastoreCustomerManagedS3Args']] = None,
+             iot_site_wise_multi_layer_storage: Optional[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs']] = None,
+             service_managed_s3: Optional[pulumi.Input['DatastoreServiceManagedS3Args']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if customer_managed_s3 is not None:
-            pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
+            _setter("customer_managed_s3", customer_managed_s3)
         if iot_site_wise_multi_layer_storage is not None:
-            pulumi.set(__self__, "iot_site_wise_multi_layer_storage", iot_site_wise_multi_layer_storage)
+            _setter("iot_site_wise_multi_layer_storage", iot_site_wise_multi_layer_storage)
         if service_managed_s3 is not None:
-            pulumi.set(__self__, "service_managed_s3", service_managed_s3)
+            _setter("service_managed_s3", service_managed_s3)
 
     @property
     @pulumi.getter(name="customerManagedS3")
@@ -1159,8 +1592,19 @@ class DatastoreTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        DatastoreTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1186,9 +1630,20 @@ class DatastoreTimestampPartitionArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  timestamp_format: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attribute_name", attribute_name)
+        DatastoreTimestampPartitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_name=attribute_name,
+            timestamp_format=timestamp_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_name: pulumi.Input[str],
+             timestamp_format: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_name", attribute_name)
         if timestamp_format is not None:
-            pulumi.set(__self__, "timestamp_format", timestamp_format)
+            _setter("timestamp_format", timestamp_format)
 
     @property
     @pulumi.getter(name="attributeName")
@@ -1213,7 +1668,16 @@ class DatastoreTimestampPartitionArgs:
 class PartitionArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str]):
-        pulumi.set(__self__, "attribute_name", attribute_name)
+        PartitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_name=attribute_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_name", attribute_name)
 
     @property
     @pulumi.getter(name="attributeName")
@@ -1238,26 +1702,53 @@ class PipelineActivityArgs:
                  math: Optional[pulumi.Input['PipelineMathArgs']] = None,
                  remove_attributes: Optional[pulumi.Input['PipelineRemoveAttributesArgs']] = None,
                  select_attributes: Optional[pulumi.Input['PipelineSelectAttributesArgs']] = None):
+        PipelineActivityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_attributes=add_attributes,
+            channel=channel,
+            datastore=datastore,
+            device_registry_enrich=device_registry_enrich,
+            device_shadow_enrich=device_shadow_enrich,
+            filter=filter,
+            lambda_=lambda_,
+            math=math,
+            remove_attributes=remove_attributes,
+            select_attributes=select_attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_attributes: Optional[pulumi.Input['PipelineAddAttributesArgs']] = None,
+             channel: Optional[pulumi.Input['PipelineChannelArgs']] = None,
+             datastore: Optional[pulumi.Input['PipelineDatastoreArgs']] = None,
+             device_registry_enrich: Optional[pulumi.Input['PipelineDeviceRegistryEnrichArgs']] = None,
+             device_shadow_enrich: Optional[pulumi.Input['PipelineDeviceShadowEnrichArgs']] = None,
+             filter: Optional[pulumi.Input['PipelineFilterArgs']] = None,
+             lambda_: Optional[pulumi.Input['PipelineLambdaArgs']] = None,
+             math: Optional[pulumi.Input['PipelineMathArgs']] = None,
+             remove_attributes: Optional[pulumi.Input['PipelineRemoveAttributesArgs']] = None,
+             select_attributes: Optional[pulumi.Input['PipelineSelectAttributesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if add_attributes is not None:
-            pulumi.set(__self__, "add_attributes", add_attributes)
+            _setter("add_attributes", add_attributes)
         if channel is not None:
-            pulumi.set(__self__, "channel", channel)
+            _setter("channel", channel)
         if datastore is not None:
-            pulumi.set(__self__, "datastore", datastore)
+            _setter("datastore", datastore)
         if device_registry_enrich is not None:
-            pulumi.set(__self__, "device_registry_enrich", device_registry_enrich)
+            _setter("device_registry_enrich", device_registry_enrich)
         if device_shadow_enrich is not None:
-            pulumi.set(__self__, "device_shadow_enrich", device_shadow_enrich)
+            _setter("device_shadow_enrich", device_shadow_enrich)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if lambda_ is not None:
-            pulumi.set(__self__, "lambda_", lambda_)
+            _setter("lambda_", lambda_)
         if math is not None:
-            pulumi.set(__self__, "math", math)
+            _setter("math", math)
         if remove_attributes is not None:
-            pulumi.set(__self__, "remove_attributes", remove_attributes)
+            _setter("remove_attributes", remove_attributes)
         if select_attributes is not None:
-            pulumi.set(__self__, "select_attributes", select_attributes)
+            _setter("select_attributes", select_attributes)
 
     @property
     @pulumi.getter(name="addAttributes")
@@ -1356,10 +1847,23 @@ class PipelineAddAttributesArgs:
                  attributes: Any,
                  name: pulumi.Input[str],
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "name", name)
+        PipelineAddAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            name=name,
+            next=next,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Any,
+             name: pulumi.Input[str],
+             next: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("name", name)
         if next is not None:
-            pulumi.set(__self__, "next", next)
+            _setter("next", next)
 
     @property
     @pulumi.getter
@@ -1395,10 +1899,23 @@ class PipelineChannelArgs:
                  channel_name: pulumi.Input[str],
                  name: pulumi.Input[str],
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "channel_name", channel_name)
-        pulumi.set(__self__, "name", name)
+        PipelineChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            name=name,
+            next=next,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             next: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", channel_name)
+        _setter("name", name)
         if next is not None:
-            pulumi.set(__self__, "next", next)
+            _setter("next", next)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1433,8 +1950,19 @@ class PipelineDatastoreArgs:
     def __init__(__self__, *,
                  datastore_name: pulumi.Input[str],
                  name: pulumi.Input[str]):
-        pulumi.set(__self__, "datastore_name", datastore_name)
-        pulumi.set(__self__, "name", name)
+        PipelineDatastoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datastore_name=datastore_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datastore_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("datastore_name", datastore_name)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="datastoreName")
@@ -1463,12 +1991,29 @@ class PipelineDeviceRegistryEnrichArgs:
                  role_arn: pulumi.Input[str],
                  thing_name: pulumi.Input[str],
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attribute", attribute)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "thing_name", thing_name)
+        PipelineDeviceRegistryEnrichArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute=attribute,
+            name=name,
+            role_arn=role_arn,
+            thing_name=thing_name,
+            next=next,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute: pulumi.Input[str],
+             name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             thing_name: pulumi.Input[str],
+             next: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute", attribute)
+        _setter("name", name)
+        _setter("role_arn", role_arn)
+        _setter("thing_name", thing_name)
         if next is not None:
-            pulumi.set(__self__, "next", next)
+            _setter("next", next)
 
     @property
     @pulumi.getter
@@ -1524,12 +2069,29 @@ class PipelineDeviceShadowEnrichArgs:
                  role_arn: pulumi.Input[str],
                  thing_name: pulumi.Input[str],
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attribute", attribute)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "thing_name", thing_name)
+        PipelineDeviceShadowEnrichArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute=attribute,
+            name=name,
+            role_arn=role_arn,
+            thing_name=thing_name,
+            next=next,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute: pulumi.Input[str],
+             name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             thing_name: pulumi.Input[str],
+             next: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute", attribute)
+        _setter("name", name)
+        _setter("role_arn", role_arn)
+        _setter("thing_name", thing_name)
         if next is not None:
-            pulumi.set(__self__, "next", next)
+            _setter("next", next)
 
     @property
     @pulumi.getter
@@ -1583,10 +2145,23 @@ class PipelineFilterArgs:
                  filter: pulumi.Input[str],
                  name: pulumi.Input[str],
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "name", name)
+        PipelineFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter=filter,
+            name=name,
+            next=next,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter: pulumi.Input[str],
+             name: pulumi.Input[str],
+             next: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filter", filter)
+        _setter("name", name)
         if next is not None:
-            pulumi.set(__self__, "next", next)
+            _setter("next", next)
 
     @property
     @pulumi.getter
@@ -1623,11 +2198,26 @@ class PipelineLambdaArgs:
                  lambda_name: pulumi.Input[str],
                  name: pulumi.Input[str],
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "batch_size", batch_size)
-        pulumi.set(__self__, "lambda_name", lambda_name)
-        pulumi.set(__self__, "name", name)
+        PipelineLambdaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_size=batch_size,
+            lambda_name=lambda_name,
+            name=name,
+            next=next,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_size: pulumi.Input[int],
+             lambda_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             next: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("batch_size", batch_size)
+        _setter("lambda_name", lambda_name)
+        _setter("name", name)
         if next is not None:
-            pulumi.set(__self__, "next", next)
+            _setter("next", next)
 
     @property
     @pulumi.getter(name="batchSize")
@@ -1673,11 +2263,26 @@ class PipelineMathArgs:
                  math: pulumi.Input[str],
                  name: pulumi.Input[str],
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attribute", attribute)
-        pulumi.set(__self__, "math", math)
-        pulumi.set(__self__, "name", name)
+        PipelineMathArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute=attribute,
+            math=math,
+            name=name,
+            next=next,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute: pulumi.Input[str],
+             math: pulumi.Input[str],
+             name: pulumi.Input[str],
+             next: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute", attribute)
+        _setter("math", math)
+        _setter("name", name)
         if next is not None:
-            pulumi.set(__self__, "next", next)
+            _setter("next", next)
 
     @property
     @pulumi.getter
@@ -1722,10 +2327,23 @@ class PipelineRemoveAttributesArgs:
                  attributes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "name", name)
+        PipelineRemoveAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            name=name,
+            next=next,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             next: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("name", name)
         if next is not None:
-            pulumi.set(__self__, "next", next)
+            _setter("next", next)
 
     @property
     @pulumi.getter
@@ -1761,10 +2379,23 @@ class PipelineSelectAttributesArgs:
                  attributes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "name", name)
+        PipelineSelectAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            name=name,
+            next=next,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             next: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("name", name)
         if next is not None:
-            pulumi.set(__self__, "next", next)
+            _setter("next", next)
 
     @property
     @pulumi.getter
@@ -1799,8 +2430,19 @@ class PipelineTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        PipelineTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

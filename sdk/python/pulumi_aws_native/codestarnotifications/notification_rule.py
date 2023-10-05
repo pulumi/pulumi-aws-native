@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,22 +30,49 @@ class NotificationRuleArgs:
         """
         The set of arguments for constructing a NotificationRule resource.
         """
-        pulumi.set(__self__, "detail_type", detail_type)
-        pulumi.set(__self__, "event_type_ids", event_type_ids)
-        pulumi.set(__self__, "resource", resource)
-        pulumi.set(__self__, "targets", targets)
+        NotificationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detail_type=detail_type,
+            event_type_ids=event_type_ids,
+            resource=resource,
+            targets=targets,
+            created_by=created_by,
+            event_type_id=event_type_id,
+            name=name,
+            status=status,
+            tags=tags,
+            target_address=target_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detail_type: pulumi.Input['NotificationRuleDetailType'],
+             event_type_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource: pulumi.Input[str],
+             targets: pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]],
+             created_by: Optional[pulumi.Input[str]] = None,
+             event_type_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
+             tags: Optional[Any] = None,
+             target_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("detail_type", detail_type)
+        _setter("event_type_ids", event_type_ids)
+        _setter("resource", resource)
+        _setter("targets", targets)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if event_type_id is not None:
-            pulumi.set(__self__, "event_type_id", event_type_id)
+            _setter("event_type_id", event_type_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_address is not None:
-            pulumi.set(__self__, "target_address", target_address)
+            _setter("target_address", target_address)
 
     @property
     @pulumi.getter(name="detailType")
@@ -179,6 +206,10 @@ class NotificationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

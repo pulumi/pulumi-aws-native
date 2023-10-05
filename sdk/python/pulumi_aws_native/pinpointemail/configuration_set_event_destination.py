@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,10 +22,23 @@ class ConfigurationSetEventDestinationArgs:
         """
         The set of arguments for constructing a ConfigurationSetEventDestination resource.
         """
-        pulumi.set(__self__, "configuration_set_name", configuration_set_name)
-        pulumi.set(__self__, "event_destination_name", event_destination_name)
+        ConfigurationSetEventDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_set_name=configuration_set_name,
+            event_destination_name=event_destination_name,
+            event_destination=event_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_set_name: pulumi.Input[str],
+             event_destination_name: pulumi.Input[str],
+             event_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("configuration_set_name", configuration_set_name)
+        _setter("event_destination_name", event_destination_name)
         if event_destination is not None:
-            pulumi.set(__self__, "event_destination", event_destination)
+            _setter("event_destination", event_destination)
 
     @property
     @pulumi.getter(name="configurationSetName")
@@ -94,6 +107,10 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationSetEventDestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -115,6 +132,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             if configuration_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_set_name'")
             __props__.__dict__["configuration_set_name"] = configuration_set_name
+            if event_destination is not None and not isinstance(event_destination, ConfigurationSetEventDestinationEventDestinationArgs):
+                event_destination = event_destination or {}
+                def _setter(key, value):
+                    event_destination[key] = value
+                ConfigurationSetEventDestinationEventDestinationArgs._configure(_setter, **event_destination)
             __props__.__dict__["event_destination"] = event_destination
             if event_destination_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_destination_name'")

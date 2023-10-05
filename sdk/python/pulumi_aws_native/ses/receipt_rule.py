@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,10 +22,23 @@ class ReceiptRuleArgs:
         """
         The set of arguments for constructing a ReceiptRule resource.
         """
-        pulumi.set(__self__, "rule", rule)
-        pulumi.set(__self__, "rule_set_name", rule_set_name)
+        ReceiptRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule=rule,
+            rule_set_name=rule_set_name,
+            after=after,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule: pulumi.Input['ReceiptRuleRuleArgs'],
+             rule_set_name: pulumi.Input[str],
+             after: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule", rule)
+        _setter("rule_set_name", rule_set_name)
         if after is not None:
-            pulumi.set(__self__, "after", after)
+            _setter("after", after)
 
     @property
     @pulumi.getter
@@ -94,6 +107,10 @@ class ReceiptRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReceiptRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -113,6 +130,11 @@ class ReceiptRule(pulumi.CustomResource):
             __props__ = ReceiptRuleArgs.__new__(ReceiptRuleArgs)
 
             __props__.__dict__["after"] = after
+            if rule is not None and not isinstance(rule, ReceiptRuleRuleArgs):
+                rule = rule or {}
+                def _setter(key, value):
+                    rule[key] = value
+                ReceiptRuleRuleArgs._configure(_setter, **rule)
             if rule is None and not opts.urn:
                 raise TypeError("Missing required property 'rule'")
             __props__.__dict__["rule"] = rule

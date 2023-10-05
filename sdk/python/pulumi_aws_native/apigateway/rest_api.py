@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,36 +34,73 @@ class RestApiArgs:
         """
         The set of arguments for constructing a RestApi resource.
         """
+        RestApiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key_source_type=api_key_source_type,
+            binary_media_types=binary_media_types,
+            body=body,
+            body_s3_location=body_s3_location,
+            clone_from=clone_from,
+            description=description,
+            disable_execute_api_endpoint=disable_execute_api_endpoint,
+            endpoint_configuration=endpoint_configuration,
+            fail_on_warnings=fail_on_warnings,
+            minimum_compression_size=minimum_compression_size,
+            mode=mode,
+            name=name,
+            parameters=parameters,
+            policy=policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key_source_type: Optional[pulumi.Input[str]] = None,
+             binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             body: Optional[Any] = None,
+             body_s3_location: Optional[pulumi.Input['RestApiS3LocationArgs']] = None,
+             clone_from: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
+             endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']] = None,
+             fail_on_warnings: Optional[pulumi.Input[bool]] = None,
+             minimum_compression_size: Optional[pulumi.Input[int]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[Any] = None,
+             policy: Optional[Any] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RestApiTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_key_source_type is not None:
-            pulumi.set(__self__, "api_key_source_type", api_key_source_type)
+            _setter("api_key_source_type", api_key_source_type)
         if binary_media_types is not None:
-            pulumi.set(__self__, "binary_media_types", binary_media_types)
+            _setter("binary_media_types", binary_media_types)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if body_s3_location is not None:
-            pulumi.set(__self__, "body_s3_location", body_s3_location)
+            _setter("body_s3_location", body_s3_location)
         if clone_from is not None:
-            pulumi.set(__self__, "clone_from", clone_from)
+            _setter("clone_from", clone_from)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_execute_api_endpoint is not None:
-            pulumi.set(__self__, "disable_execute_api_endpoint", disable_execute_api_endpoint)
+            _setter("disable_execute_api_endpoint", disable_execute_api_endpoint)
         if endpoint_configuration is not None:
-            pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
+            _setter("endpoint_configuration", endpoint_configuration)
         if fail_on_warnings is not None:
-            pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
+            _setter("fail_on_warnings", fail_on_warnings)
         if minimum_compression_size is not None:
-            pulumi.set(__self__, "minimum_compression_size", minimum_compression_size)
+            _setter("minimum_compression_size", minimum_compression_size)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="apiKeySourceType")
@@ -247,6 +284,10 @@ class RestApi(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RestApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -279,10 +320,20 @@ class RestApi(pulumi.CustomResource):
             __props__.__dict__["api_key_source_type"] = api_key_source_type
             __props__.__dict__["binary_media_types"] = binary_media_types
             __props__.__dict__["body"] = body
+            if body_s3_location is not None and not isinstance(body_s3_location, RestApiS3LocationArgs):
+                body_s3_location = body_s3_location or {}
+                def _setter(key, value):
+                    body_s3_location[key] = value
+                RestApiS3LocationArgs._configure(_setter, **body_s3_location)
             __props__.__dict__["body_s3_location"] = body_s3_location
             __props__.__dict__["clone_from"] = clone_from
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_execute_api_endpoint"] = disable_execute_api_endpoint
+            if endpoint_configuration is not None and not isinstance(endpoint_configuration, RestApiEndpointConfigurationArgs):
+                endpoint_configuration = endpoint_configuration or {}
+                def _setter(key, value):
+                    endpoint_configuration[key] = value
+                RestApiEndpointConfigurationArgs._configure(_setter, **endpoint_configuration)
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
             __props__.__dict__["fail_on_warnings"] = fail_on_warnings
             __props__.__dict__["minimum_compression_size"] = minimum_compression_size

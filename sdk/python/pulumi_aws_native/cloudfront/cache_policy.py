@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,16 @@ class CachePolicyArgs:
         """
         The set of arguments for constructing a CachePolicy resource.
         """
-        pulumi.set(__self__, "cache_policy_config", cache_policy_config)
+        CachePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_policy_config=cache_policy_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_policy_config: pulumi.Input['CachePolicyConfigArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cache_policy_config", cache_policy_config)
 
     @property
     @pulumi.getter(name="cachePolicyConfig")
@@ -64,6 +73,10 @@ class CachePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CachePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -79,6 +92,11 @@ class CachePolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CachePolicyArgs.__new__(CachePolicyArgs)
 
+            if cache_policy_config is not None and not isinstance(cache_policy_config, CachePolicyConfigArgs):
+                cache_policy_config = cache_policy_config or {}
+                def _setter(key, value):
+                    cache_policy_config[key] = value
+                CachePolicyConfigArgs._configure(_setter, **cache_policy_config)
             if cache_policy_config is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_policy_config'")
             __props__.__dict__["cache_policy_config"] = cache_policy_config

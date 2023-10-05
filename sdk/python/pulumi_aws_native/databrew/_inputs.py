@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -77,10 +77,21 @@ class DatasetCsvOptionsArgs:
         """
         Csv options
         """
+        DatasetCsvOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delimiter=delimiter,
+            header_row=header_row,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delimiter: Optional[pulumi.Input[str]] = None,
+             header_row: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delimiter is not None:
-            pulumi.set(__self__, "delimiter", delimiter)
+            _setter("delimiter", delimiter)
         if header_row is not None:
-            pulumi.set(__self__, "header_row", header_row)
+            _setter("header_row", header_row)
 
     @property
     @pulumi.getter
@@ -113,14 +124,29 @@ class DatasetDataCatalogInputDefinitionArgs:
         :param pulumi.Input[str] database_name: Database name
         :param pulumi.Input[str] table_name: Table name
         """
+        DatasetDataCatalogInputDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            table_name=table_name,
+            temp_directory=temp_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             temp_directory: Optional[pulumi.Input['DatasetS3LocationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
         if temp_directory is not None:
-            pulumi.set(__self__, "temp_directory", temp_directory)
+            _setter("temp_directory", temp_directory)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -180,13 +206,28 @@ class DatasetDatabaseInputDefinitionArgs:
         :param pulumi.Input[str] database_table_name: Database table name
         :param pulumi.Input[str] query_string: Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
         """
-        pulumi.set(__self__, "glue_connection_name", glue_connection_name)
+        DatasetDatabaseInputDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            glue_connection_name=glue_connection_name,
+            database_table_name=database_table_name,
+            query_string=query_string,
+            temp_directory=temp_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             glue_connection_name: pulumi.Input[str],
+             database_table_name: Optional[pulumi.Input[str]] = None,
+             query_string: Optional[pulumi.Input[str]] = None,
+             temp_directory: Optional[pulumi.Input['DatasetS3LocationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("glue_connection_name", glue_connection_name)
         if database_table_name is not None:
-            pulumi.set(__self__, "database_table_name", database_table_name)
+            _setter("database_table_name", database_table_name)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if temp_directory is not None:
-            pulumi.set(__self__, "temp_directory", temp_directory)
+            _setter("temp_directory", temp_directory)
 
     @property
     @pulumi.getter(name="glueConnectionName")
@@ -245,11 +286,24 @@ class DatasetDatetimeOptionsArgs:
         :param pulumi.Input[str] locale_code: Locale code for a date parameter
         :param pulumi.Input[str] timezone_offset: Timezone offset
         """
-        pulumi.set(__self__, "format", format)
+        DatasetDatetimeOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            format=format,
+            locale_code=locale_code,
+            timezone_offset=timezone_offset,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             format: pulumi.Input[str],
+             locale_code: Optional[pulumi.Input[str]] = None,
+             timezone_offset: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("format", format)
         if locale_code is not None:
-            pulumi.set(__self__, "locale_code", locale_code)
+            _setter("locale_code", locale_code)
         if timezone_offset is not None:
-            pulumi.set(__self__, "timezone_offset", timezone_offset)
+            _setter("timezone_offset", timezone_offset)
 
     @property
     @pulumi.getter
@@ -294,12 +348,25 @@ class DatasetExcelOptionsArgs:
                  header_row: Optional[pulumi.Input[bool]] = None,
                  sheet_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  sheet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        DatasetExcelOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_row=header_row,
+            sheet_indexes=sheet_indexes,
+            sheet_names=sheet_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_row: Optional[pulumi.Input[bool]] = None,
+             sheet_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             sheet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if header_row is not None:
-            pulumi.set(__self__, "header_row", header_row)
+            _setter("header_row", header_row)
         if sheet_indexes is not None:
-            pulumi.set(__self__, "sheet_indexes", sheet_indexes)
+            _setter("sheet_indexes", sheet_indexes)
         if sheet_names is not None:
-            pulumi.set(__self__, "sheet_names", sheet_names)
+            _setter("sheet_names", sheet_names)
 
     @property
     @pulumi.getter(name="headerRow")
@@ -340,11 +407,24 @@ class DatasetFilesLimitArgs:
         :param pulumi.Input['DatasetFilesLimitOrder'] order: Order
         :param pulumi.Input['DatasetFilesLimitOrderedBy'] ordered_by: Ordered by
         """
-        pulumi.set(__self__, "max_files", max_files)
+        DatasetFilesLimitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_files=max_files,
+            order=order,
+            ordered_by=ordered_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_files: pulumi.Input[int],
+             order: Optional[pulumi.Input['DatasetFilesLimitOrder']] = None,
+             ordered_by: Optional[pulumi.Input['DatasetFilesLimitOrderedBy']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_files", max_files)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if ordered_by is not None:
-            pulumi.set(__self__, "ordered_by", ordered_by)
+            _setter("ordered_by", ordered_by)
 
     @property
     @pulumi.getter(name="maxFiles")
@@ -391,8 +471,19 @@ class DatasetFilterExpressionArgs:
         """
         :param pulumi.Input[str] expression: Filtering expression for a parameter
         """
-        pulumi.set(__self__, "expression", expression)
-        pulumi.set(__self__, "values_map", values_map)
+        DatasetFilterExpressionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            values_map=values_map,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: pulumi.Input[str],
+             values_map: pulumi.Input[Sequence[pulumi.Input['DatasetFilterValueArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expression", expression)
+        _setter("values_map", values_map)
 
     @property
     @pulumi.getter
@@ -425,8 +516,19 @@ class DatasetFilterValueArgs:
         A key-value pair to associate expression variable names with their values
         :param pulumi.Input[str] value_reference: Variable name
         """
-        pulumi.set(__self__, "value", value)
-        pulumi.set(__self__, "value_reference", value_reference)
+        DatasetFilterValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            value_reference=value_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             value_reference: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
+        _setter("value_reference", value_reference)
 
     @property
     @pulumi.getter
@@ -459,12 +561,25 @@ class DatasetFormatOptionsArgs:
         """
         Format options for dataset
         """
+        DatasetFormatOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            csv=csv,
+            excel=excel,
+            json=json,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             csv: Optional[pulumi.Input['DatasetCsvOptionsArgs']] = None,
+             excel: Optional[pulumi.Input['DatasetExcelOptionsArgs']] = None,
+             json: Optional[pulumi.Input['DatasetJsonOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if csv is not None:
-            pulumi.set(__self__, "csv", csv)
+            _setter("csv", csv)
         if excel is not None:
-            pulumi.set(__self__, "excel", excel)
+            _setter("excel", excel)
         if json is not None:
-            pulumi.set(__self__, "json", json)
+            _setter("json", json)
 
     @property
     @pulumi.getter
@@ -504,14 +619,29 @@ class DatasetInputArgs:
         """
         Input
         """
+        DatasetInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_catalog_input_definition=data_catalog_input_definition,
+            database_input_definition=database_input_definition,
+            metadata=metadata,
+            s3_input_definition=s3_input_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_catalog_input_definition: Optional[pulumi.Input['DatasetDataCatalogInputDefinitionArgs']] = None,
+             database_input_definition: Optional[pulumi.Input['DatasetDatabaseInputDefinitionArgs']] = None,
+             metadata: Optional[pulumi.Input['DatasetMetadataArgs']] = None,
+             s3_input_definition: Optional[pulumi.Input['DatasetS3LocationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_catalog_input_definition is not None:
-            pulumi.set(__self__, "data_catalog_input_definition", data_catalog_input_definition)
+            _setter("data_catalog_input_definition", data_catalog_input_definition)
         if database_input_definition is not None:
-            pulumi.set(__self__, "database_input_definition", database_input_definition)
+            _setter("database_input_definition", database_input_definition)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if s3_input_definition is not None:
-            pulumi.set(__self__, "s3_input_definition", s3_input_definition)
+            _setter("s3_input_definition", s3_input_definition)
 
     @property
     @pulumi.getter(name="dataCatalogInputDefinition")
@@ -557,8 +687,17 @@ class DatasetJsonOptionsArgs:
         """
         Json options
         """
+        DatasetJsonOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            multi_line=multi_line,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             multi_line: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if multi_line is not None:
-            pulumi.set(__self__, "multi_line", multi_line)
+            _setter("multi_line", multi_line)
 
     @property
     @pulumi.getter(name="multiLine")
@@ -577,8 +716,17 @@ class DatasetMetadataArgs:
         """
         :param pulumi.Input[str] source_arn: Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
         """
+        DatasetMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_arn=source_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if source_arn is not None:
-            pulumi.set(__self__, "source_arn", source_arn)
+            _setter("source_arn", source_arn)
 
     @property
     @pulumi.getter(name="sourceArn")
@@ -605,14 +753,31 @@ class DatasetParameterArgs:
         :param pulumi.Input['DatasetParameterType'] type: Parameter type
         :param pulumi.Input[bool] create_column: Add the value of this parameter as a column in a dataset.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        DatasetParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            create_column=create_column,
+            datetime_options=datetime_options,
+            filter=filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input['DatasetParameterType'],
+             create_column: Optional[pulumi.Input[bool]] = None,
+             datetime_options: Optional[pulumi.Input['DatasetDatetimeOptionsArgs']] = None,
+             filter: Optional[pulumi.Input['DatasetFilterExpressionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
         if create_column is not None:
-            pulumi.set(__self__, "create_column", create_column)
+            _setter("create_column", create_column)
         if datetime_options is not None:
-            pulumi.set(__self__, "datetime_options", datetime_options)
+            _setter("datetime_options", datetime_options)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
 
     @property
     @pulumi.getter
@@ -675,12 +840,25 @@ class DatasetPathOptionsArgs:
         """
         Path options for dataset
         """
+        DatasetPathOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            files_limit=files_limit,
+            last_modified_date_condition=last_modified_date_condition,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             files_limit: Optional[pulumi.Input['DatasetFilesLimitArgs']] = None,
+             last_modified_date_condition: Optional[pulumi.Input['DatasetFilterExpressionArgs']] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if files_limit is not None:
-            pulumi.set(__self__, "files_limit", files_limit)
+            _setter("files_limit", files_limit)
         if last_modified_date_condition is not None:
-            pulumi.set(__self__, "last_modified_date_condition", last_modified_date_condition)
+            _setter("last_modified_date_condition", last_modified_date_condition)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="filesLimit")
@@ -718,8 +896,19 @@ class DatasetPathParameterArgs:
         """
         A key-value pair to associate dataset parameter name with its definition.
         """
-        pulumi.set(__self__, "dataset_parameter", dataset_parameter)
-        pulumi.set(__self__, "path_parameter_name", path_parameter_name)
+        DatasetPathParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dataset_parameter=dataset_parameter,
+            path_parameter_name=path_parameter_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dataset_parameter: pulumi.Input['DatasetParameterArgs'],
+             path_parameter_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dataset_parameter", dataset_parameter)
+        _setter("path_parameter_name", path_parameter_name)
 
     @property
     @pulumi.getter(name="datasetParameter")
@@ -748,9 +937,20 @@ class DatasetS3LocationArgs:
         """
         Input location
         """
-        pulumi.set(__self__, "bucket", bucket)
+        DatasetS3LocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -779,8 +979,19 @@ class DatasetTagArgs:
         """
         A key-value pair to associate with a resource.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        DatasetTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -805,7 +1016,16 @@ class DatasetTagArgs:
 class JobAllowedStatisticsArgs:
     def __init__(__self__, *,
                  statistics: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "statistics", statistics)
+        JobAllowedStatisticsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statistics=statistics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statistics: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statistics", statistics)
 
     @property
     @pulumi.getter
@@ -822,10 +1042,21 @@ class JobColumnSelectorArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None):
+        JobColumnSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            regex=regex,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             regex: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
 
     @property
     @pulumi.getter
@@ -851,9 +1082,20 @@ class JobColumnStatisticsConfigurationArgs:
     def __init__(__self__, *,
                  statistics: pulumi.Input['JobStatisticsConfigurationArgs'],
                  selectors: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None):
-        pulumi.set(__self__, "statistics", statistics)
+        JobColumnStatisticsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statistics=statistics,
+            selectors=selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statistics: pulumi.Input['JobStatisticsConfigurationArgs'],
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statistics", statistics)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
 
     @property
     @pulumi.getter
@@ -881,8 +1123,17 @@ class JobCsvOutputOptionsArgs:
         """
         Output Csv options
         """
+        JobCsvOutputOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delimiter=delimiter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delimiter: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delimiter is not None:
-            pulumi.set(__self__, "delimiter", delimiter)
+            _setter("delimiter", delimiter)
 
     @property
     @pulumi.getter
@@ -903,16 +1154,35 @@ class JobDataCatalogOutputArgs:
                  database_options: Optional[pulumi.Input['JobDatabaseTableOutputOptionsArgs']] = None,
                  overwrite: Optional[pulumi.Input[bool]] = None,
                  s3_options: Optional[pulumi.Input['JobS3TableOutputOptionsArgs']] = None):
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "table_name", table_name)
+        JobDataCatalogOutputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            table_name=table_name,
+            catalog_id=catalog_id,
+            database_options=database_options,
+            overwrite=overwrite,
+            s3_options=s3_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_options: Optional[pulumi.Input['JobDatabaseTableOutputOptionsArgs']] = None,
+             overwrite: Optional[pulumi.Input[bool]] = None,
+             s3_options: Optional[pulumi.Input['JobS3TableOutputOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("table_name", table_name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if database_options is not None:
-            pulumi.set(__self__, "database_options", database_options)
+            _setter("database_options", database_options)
         if overwrite is not None:
-            pulumi.set(__self__, "overwrite", overwrite)
+            _setter("overwrite", overwrite)
         if s3_options is not None:
-            pulumi.set(__self__, "s3_options", s3_options)
+            _setter("s3_options", s3_options)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -979,10 +1249,23 @@ class JobDatabaseOutputArgs:
         :param pulumi.Input[str] glue_connection_name: Glue connection name
         :param pulumi.Input['JobDatabaseOutputDatabaseOutputMode'] database_output_mode: Database table name
         """
-        pulumi.set(__self__, "database_options", database_options)
-        pulumi.set(__self__, "glue_connection_name", glue_connection_name)
+        JobDatabaseOutputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_options=database_options,
+            glue_connection_name=glue_connection_name,
+            database_output_mode=database_output_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_options: pulumi.Input['JobDatabaseTableOutputOptionsArgs'],
+             glue_connection_name: pulumi.Input[str],
+             database_output_mode: Optional[pulumi.Input['JobDatabaseOutputDatabaseOutputMode']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_options", database_options)
+        _setter("glue_connection_name", glue_connection_name)
         if database_output_mode is not None:
-            pulumi.set(__self__, "database_output_mode", database_output_mode)
+            _setter("database_output_mode", database_output_mode)
 
     @property
     @pulumi.getter(name="databaseOptions")
@@ -1023,9 +1306,20 @@ class JobDatabaseTableOutputOptionsArgs:
     def __init__(__self__, *,
                  table_name: pulumi.Input[str],
                  temp_directory: Optional[pulumi.Input['JobS3LocationArgs']] = None):
-        pulumi.set(__self__, "table_name", table_name)
+        JobDatabaseTableOutputOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            table_name=table_name,
+            temp_directory=temp_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             table_name: pulumi.Input[str],
+             temp_directory: Optional[pulumi.Input['JobS3LocationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("table_name", table_name)
         if temp_directory is not None:
-            pulumi.set(__self__, "temp_directory", temp_directory)
+            _setter("temp_directory", temp_directory)
 
     @property
     @pulumi.getter(name="tableName")
@@ -1051,9 +1345,20 @@ class JobEntityDetectorConfigurationArgs:
     def __init__(__self__, *,
                  entity_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  allowed_statistics: Optional[pulumi.Input['JobAllowedStatisticsArgs']] = None):
-        pulumi.set(__self__, "entity_types", entity_types)
+        JobEntityDetectorConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity_types=entity_types,
+            allowed_statistics=allowed_statistics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             allowed_statistics: Optional[pulumi.Input['JobAllowedStatisticsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("entity_types", entity_types)
         if allowed_statistics is not None:
-            pulumi.set(__self__, "allowed_statistics", allowed_statistics)
+            _setter("allowed_statistics", allowed_statistics)
 
     @property
     @pulumi.getter(name="entityTypes")
@@ -1081,8 +1386,17 @@ class JobOutputFormatOptionsArgs:
         """
         Format options for job Output
         """
+        JobOutputFormatOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            csv=csv,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             csv: Optional[pulumi.Input['JobCsvOutputOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if csv is not None:
-            pulumi.set(__self__, "csv", csv)
+            _setter("csv", csv)
 
     @property
     @pulumi.getter
@@ -1103,11 +1417,24 @@ class JobOutputLocationArgs:
         """
         Output location
         """
-        pulumi.set(__self__, "bucket", bucket)
+        JobOutputLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            bucket_owner=bucket_owner,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             bucket_owner: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
         if bucket_owner is not None:
-            pulumi.set(__self__, "bucket_owner", bucket_owner)
+            _setter("bucket_owner", bucket_owner)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -1147,19 +1474,40 @@ class JobOutputArgs:
                  max_output_files: Optional[pulumi.Input[int]] = None,
                  overwrite: Optional[pulumi.Input[bool]] = None,
                  partition_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "location", location)
+        JobOutputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            compression_format=compression_format,
+            format=format,
+            format_options=format_options,
+            max_output_files=max_output_files,
+            overwrite=overwrite,
+            partition_columns=partition_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: pulumi.Input['JobS3LocationArgs'],
+             compression_format: Optional[pulumi.Input['JobOutputCompressionFormat']] = None,
+             format: Optional[pulumi.Input['JobOutputFormat']] = None,
+             format_options: Optional[pulumi.Input['JobOutputFormatOptionsArgs']] = None,
+             max_output_files: Optional[pulumi.Input[int]] = None,
+             overwrite: Optional[pulumi.Input[bool]] = None,
+             partition_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("location", location)
         if compression_format is not None:
-            pulumi.set(__self__, "compression_format", compression_format)
+            _setter("compression_format", compression_format)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if format_options is not None:
-            pulumi.set(__self__, "format_options", format_options)
+            _setter("format_options", format_options)
         if max_output_files is not None:
-            pulumi.set(__self__, "max_output_files", max_output_files)
+            _setter("max_output_files", max_output_files)
         if overwrite is not None:
-            pulumi.set(__self__, "overwrite", overwrite)
+            _setter("overwrite", overwrite)
         if partition_columns is not None:
-            pulumi.set(__self__, "partition_columns", partition_columns)
+            _setter("partition_columns", partition_columns)
 
     @property
     @pulumi.getter
@@ -1229,6 +1577,11 @@ class JobOutputArgs:
 class JobParameterMapArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -1238,14 +1591,29 @@ class JobProfileConfigurationArgs:
                  dataset_statistics_configuration: Optional[pulumi.Input['JobStatisticsConfigurationArgs']] = None,
                  entity_detector_configuration: Optional[pulumi.Input['JobEntityDetectorConfigurationArgs']] = None,
                  profile_columns: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None):
+        JobProfileConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_statistics_configurations=column_statistics_configurations,
+            dataset_statistics_configuration=dataset_statistics_configuration,
+            entity_detector_configuration=entity_detector_configuration,
+            profile_columns=profile_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]] = None,
+             dataset_statistics_configuration: Optional[pulumi.Input['JobStatisticsConfigurationArgs']] = None,
+             entity_detector_configuration: Optional[pulumi.Input['JobEntityDetectorConfigurationArgs']] = None,
+             profile_columns: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if column_statistics_configurations is not None:
-            pulumi.set(__self__, "column_statistics_configurations", column_statistics_configurations)
+            _setter("column_statistics_configurations", column_statistics_configurations)
         if dataset_statistics_configuration is not None:
-            pulumi.set(__self__, "dataset_statistics_configuration", dataset_statistics_configuration)
+            _setter("dataset_statistics_configuration", dataset_statistics_configuration)
         if entity_detector_configuration is not None:
-            pulumi.set(__self__, "entity_detector_configuration", entity_detector_configuration)
+            _setter("entity_detector_configuration", entity_detector_configuration)
         if profile_columns is not None:
-            pulumi.set(__self__, "profile_columns", profile_columns)
+            _setter("profile_columns", profile_columns)
 
     @property
     @pulumi.getter(name="columnStatisticsConfigurations")
@@ -1293,9 +1661,20 @@ class JobRecipeArgs:
         :param pulumi.Input[str] name: Recipe name
         :param pulumi.Input[str] version: Recipe version
         """
-        pulumi.set(__self__, "name", name)
+        JobRecipeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -1331,11 +1710,24 @@ class JobS3LocationArgs:
         """
         S3 Output location
         """
-        pulumi.set(__self__, "bucket", bucket)
+        JobS3LocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            bucket_owner=bucket_owner,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             bucket_owner: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
         if bucket_owner is not None:
-            pulumi.set(__self__, "bucket_owner", bucket_owner)
+            _setter("bucket_owner", bucket_owner)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -1369,7 +1761,16 @@ class JobS3LocationArgs:
 class JobS3TableOutputOptionsArgs:
     def __init__(__self__, *,
                  location: pulumi.Input['JobS3LocationArgs']):
-        pulumi.set(__self__, "location", location)
+        JobS3TableOutputOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: pulumi.Input['JobS3LocationArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("location", location)
 
     @property
     @pulumi.getter
@@ -1389,10 +1790,21 @@ class JobSampleArgs:
         """
         Job Sample
         """
+        JobSampleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input['JobSampleMode']] = None,
+             size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
 
     @property
     @pulumi.getter
@@ -1418,8 +1830,19 @@ class JobStatisticOverrideArgs:
     def __init__(__self__, *,
                  parameters: pulumi.Input['JobParameterMapArgs'],
                  statistic: pulumi.Input[str]):
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "statistic", statistic)
+        JobStatisticOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameters=parameters,
+            statistic=statistic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameters: pulumi.Input['JobParameterMapArgs'],
+             statistic: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("parameters", parameters)
+        _setter("statistic", statistic)
 
     @property
     @pulumi.getter
@@ -1445,10 +1868,21 @@ class JobStatisticsConfigurationArgs:
     def __init__(__self__, *,
                  included_statistics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]] = None):
+        JobStatisticsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            included_statistics=included_statistics,
+            overrides=overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             included_statistics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             overrides: Optional[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if included_statistics is not None:
-            pulumi.set(__self__, "included_statistics", included_statistics)
+            _setter("included_statistics", included_statistics)
         if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
+            _setter("overrides", overrides)
 
     @property
     @pulumi.getter(name="includedStatistics")
@@ -1477,8 +1911,19 @@ class JobTagArgs:
         """
         A key-value pair to associate with a resource.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        JobTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1508,9 +1953,20 @@ class JobValidationConfigurationArgs:
         Configuration to attach Rulesets to the job
         :param pulumi.Input[str] ruleset_arn: Arn of the Ruleset
         """
-        pulumi.set(__self__, "ruleset_arn", ruleset_arn)
+        JobValidationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ruleset_arn=ruleset_arn,
+            validation_mode=validation_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ruleset_arn: pulumi.Input[str],
+             validation_mode: Optional[pulumi.Input['JobValidationMode']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ruleset_arn", ruleset_arn)
         if validation_mode is not None:
-            pulumi.set(__self__, "validation_mode", validation_mode)
+            _setter("validation_mode", validation_mode)
 
     @property
     @pulumi.getter(name="rulesetArn")
@@ -1543,9 +1999,20 @@ class ProjectSampleArgs:
         :param pulumi.Input['ProjectSampleType'] type: Sample type
         :param pulumi.Input[int] size: Sample size
         """
-        pulumi.set(__self__, "type", type)
+        ProjectSampleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input['ProjectSampleType'],
+             size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
 
     @property
     @pulumi.getter
@@ -1580,8 +2047,19 @@ class ProjectTagArgs:
         """
         A key-value pair to associate with a resource.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ProjectTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1610,9 +2088,20 @@ class RecipeActionArgs:
         """
         :param pulumi.Input[str] operation: Step action operation
         """
-        pulumi.set(__self__, "operation", operation)
+        RecipeActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation=operation,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Union['RecipeParametersArgs', 'RecipeParameterMapArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operation", operation)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1648,10 +2137,23 @@ class RecipeConditionExpressionArgs:
         :param pulumi.Input[str] target_column: Name of the target column
         :param pulumi.Input[str] value: Value of the condition
         """
-        pulumi.set(__self__, "condition", condition)
-        pulumi.set(__self__, "target_column", target_column)
+        RecipeConditionExpressionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition=condition,
+            target_column=target_column,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition: pulumi.Input[str],
+             target_column: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("condition", condition)
+        _setter("target_column", target_column)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1702,14 +2204,29 @@ class RecipeDataCatalogInputDefinitionArgs:
         :param pulumi.Input[str] database_name: Database name
         :param pulumi.Input[str] table_name: Table name
         """
+        RecipeDataCatalogInputDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            table_name=table_name,
+            temp_directory=temp_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             temp_directory: Optional[pulumi.Input['RecipeS3LocationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
         if temp_directory is not None:
-            pulumi.set(__self__, "temp_directory", temp_directory)
+            _setter("temp_directory", temp_directory)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -1761,6 +2278,11 @@ class RecipeDataCatalogInputDefinitionArgs:
 class RecipeParameterMapArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -1771,10 +2293,21 @@ class RecipeParametersInputPropertiesArgs:
         """
         Input
         """
+        RecipeParametersInputPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_catalog_input_definition=data_catalog_input_definition,
+            s3_input_definition=s3_input_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_catalog_input_definition: Optional[pulumi.Input['RecipeDataCatalogInputDefinitionArgs']] = None,
+             s3_input_definition: Optional[pulumi.Input['RecipeS3LocationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_catalog_input_definition is not None:
-            pulumi.set(__self__, "data_catalog_input_definition", data_catalog_input_definition)
+            _setter("data_catalog_input_definition", data_catalog_input_definition)
         if s3_input_definition is not None:
-            pulumi.set(__self__, "s3_input_definition", s3_input_definition)
+            _setter("s3_input_definition", s3_input_definition)
 
     @property
     @pulumi.getter(name="dataCatalogInputDefinition")
@@ -1902,208 +2435,417 @@ class RecipeParametersArgs:
         """
         :param pulumi.Input['RecipeParametersInputPropertiesArgs'] input: Input
         """
+        RecipeParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregate_function=aggregate_function,
+            base=base,
+            case_statement=case_statement,
+            category_map=category_map,
+            chars_to_remove=chars_to_remove,
+            collapse_consecutive_whitespace=collapse_consecutive_whitespace,
+            column_data_type=column_data_type,
+            column_range=column_range,
+            count=count,
+            custom_characters=custom_characters,
+            custom_stop_words=custom_stop_words,
+            custom_value=custom_value,
+            datasets_columns=datasets_columns,
+            date_add_value=date_add_value,
+            date_time_format=date_time_format,
+            date_time_parameters=date_time_parameters,
+            delete_other_rows=delete_other_rows,
+            delimiter=delimiter,
+            end_pattern=end_pattern,
+            end_position=end_position,
+            end_value=end_value,
+            expand_contractions=expand_contractions,
+            exponent=exponent,
+            false_string=false_string,
+            group_by_agg_function_options=group_by_agg_function_options,
+            group_by_columns=group_by_columns,
+            hidden_columns=hidden_columns,
+            ignore_case=ignore_case,
+            include_in_split=include_in_split,
+            input=input,
+            interval=interval,
+            is_text=is_text,
+            join_keys=join_keys,
+            join_type=join_type,
+            left_columns=left_columns,
+            limit=limit,
+            lower_bound=lower_bound,
+            map_type=map_type,
+            mode_type=mode_type,
+            multi_line=multi_line,
+            num_rows=num_rows,
+            num_rows_after=num_rows_after,
+            num_rows_before=num_rows_before,
+            order_by_column=order_by_column,
+            order_by_columns=order_by_columns,
+            other=other,
+            pattern=pattern,
+            pattern_option1=pattern_option1,
+            pattern_option2=pattern_option2,
+            pattern_options=pattern_options,
+            period=period,
+            position=position,
+            remove_all_punctuation=remove_all_punctuation,
+            remove_all_quotes=remove_all_quotes,
+            remove_all_whitespace=remove_all_whitespace,
+            remove_custom_characters=remove_custom_characters,
+            remove_custom_value=remove_custom_value,
+            remove_leading_and_trailing_punctuation=remove_leading_and_trailing_punctuation,
+            remove_leading_and_trailing_quotes=remove_leading_and_trailing_quotes,
+            remove_leading_and_trailing_whitespace=remove_leading_and_trailing_whitespace,
+            remove_letters=remove_letters,
+            remove_numbers=remove_numbers,
+            remove_source_column=remove_source_column,
+            remove_special_characters=remove_special_characters,
+            right_columns=right_columns,
+            sample_size=sample_size,
+            sample_type=sample_type,
+            second_input=second_input,
+            secondary_inputs=secondary_inputs,
+            sheet_indexes=sheet_indexes,
+            sheet_names=sheet_names,
+            source_column=source_column,
+            source_column1=source_column1,
+            source_column2=source_column2,
+            source_columns=source_columns,
+            start_column_index=start_column_index,
+            start_pattern=start_pattern,
+            start_position=start_position,
+            start_value=start_value,
+            stemming_mode=stemming_mode,
+            step_count=step_count,
+            step_index=step_index,
+            stop_words_mode=stop_words_mode,
+            strategy=strategy,
+            target_column=target_column,
+            target_column_names=target_column_names,
+            target_date_format=target_date_format,
+            target_index=target_index,
+            time_zone=time_zone,
+            tokenizer_pattern=tokenizer_pattern,
+            true_string=true_string,
+            udf_lang=udf_lang,
+            units=units,
+            unpivot_column=unpivot_column,
+            upper_bound=upper_bound,
+            use_new_data_frame=use_new_data_frame,
+            value=value,
+            value1=value1,
+            value2=value2,
+            value_column=value_column,
+            view_frame=view_frame,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregate_function: Optional[pulumi.Input[str]] = None,
+             base: Optional[pulumi.Input[str]] = None,
+             case_statement: Optional[pulumi.Input[str]] = None,
+             category_map: Optional[pulumi.Input[str]] = None,
+             chars_to_remove: Optional[pulumi.Input[str]] = None,
+             collapse_consecutive_whitespace: Optional[pulumi.Input[str]] = None,
+             column_data_type: Optional[pulumi.Input[str]] = None,
+             column_range: Optional[pulumi.Input[str]] = None,
+             count: Optional[pulumi.Input[str]] = None,
+             custom_characters: Optional[pulumi.Input[str]] = None,
+             custom_stop_words: Optional[pulumi.Input[str]] = None,
+             custom_value: Optional[pulumi.Input[str]] = None,
+             datasets_columns: Optional[pulumi.Input[str]] = None,
+             date_add_value: Optional[pulumi.Input[str]] = None,
+             date_time_format: Optional[pulumi.Input[str]] = None,
+             date_time_parameters: Optional[pulumi.Input[str]] = None,
+             delete_other_rows: Optional[pulumi.Input[str]] = None,
+             delimiter: Optional[pulumi.Input[str]] = None,
+             end_pattern: Optional[pulumi.Input[str]] = None,
+             end_position: Optional[pulumi.Input[str]] = None,
+             end_value: Optional[pulumi.Input[str]] = None,
+             expand_contractions: Optional[pulumi.Input[str]] = None,
+             exponent: Optional[pulumi.Input[str]] = None,
+             false_string: Optional[pulumi.Input[str]] = None,
+             group_by_agg_function_options: Optional[pulumi.Input[str]] = None,
+             group_by_columns: Optional[pulumi.Input[str]] = None,
+             hidden_columns: Optional[pulumi.Input[str]] = None,
+             ignore_case: Optional[pulumi.Input[str]] = None,
+             include_in_split: Optional[pulumi.Input[str]] = None,
+             input: Optional[pulumi.Input['RecipeParametersInputPropertiesArgs']] = None,
+             interval: Optional[pulumi.Input[str]] = None,
+             is_text: Optional[pulumi.Input[str]] = None,
+             join_keys: Optional[pulumi.Input[str]] = None,
+             join_type: Optional[pulumi.Input[str]] = None,
+             left_columns: Optional[pulumi.Input[str]] = None,
+             limit: Optional[pulumi.Input[str]] = None,
+             lower_bound: Optional[pulumi.Input[str]] = None,
+             map_type: Optional[pulumi.Input[str]] = None,
+             mode_type: Optional[pulumi.Input[str]] = None,
+             multi_line: Optional[pulumi.Input[bool]] = None,
+             num_rows: Optional[pulumi.Input[str]] = None,
+             num_rows_after: Optional[pulumi.Input[str]] = None,
+             num_rows_before: Optional[pulumi.Input[str]] = None,
+             order_by_column: Optional[pulumi.Input[str]] = None,
+             order_by_columns: Optional[pulumi.Input[str]] = None,
+             other: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             pattern_option1: Optional[pulumi.Input[str]] = None,
+             pattern_option2: Optional[pulumi.Input[str]] = None,
+             pattern_options: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[str]] = None,
+             position: Optional[pulumi.Input[str]] = None,
+             remove_all_punctuation: Optional[pulumi.Input[str]] = None,
+             remove_all_quotes: Optional[pulumi.Input[str]] = None,
+             remove_all_whitespace: Optional[pulumi.Input[str]] = None,
+             remove_custom_characters: Optional[pulumi.Input[str]] = None,
+             remove_custom_value: Optional[pulumi.Input[str]] = None,
+             remove_leading_and_trailing_punctuation: Optional[pulumi.Input[str]] = None,
+             remove_leading_and_trailing_quotes: Optional[pulumi.Input[str]] = None,
+             remove_leading_and_trailing_whitespace: Optional[pulumi.Input[str]] = None,
+             remove_letters: Optional[pulumi.Input[str]] = None,
+             remove_numbers: Optional[pulumi.Input[str]] = None,
+             remove_source_column: Optional[pulumi.Input[str]] = None,
+             remove_special_characters: Optional[pulumi.Input[str]] = None,
+             right_columns: Optional[pulumi.Input[str]] = None,
+             sample_size: Optional[pulumi.Input[str]] = None,
+             sample_type: Optional[pulumi.Input[str]] = None,
+             second_input: Optional[pulumi.Input[str]] = None,
+             secondary_inputs: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeSecondaryInputArgs']]]] = None,
+             sheet_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             sheet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_column: Optional[pulumi.Input[str]] = None,
+             source_column1: Optional[pulumi.Input[str]] = None,
+             source_column2: Optional[pulumi.Input[str]] = None,
+             source_columns: Optional[pulumi.Input[str]] = None,
+             start_column_index: Optional[pulumi.Input[str]] = None,
+             start_pattern: Optional[pulumi.Input[str]] = None,
+             start_position: Optional[pulumi.Input[str]] = None,
+             start_value: Optional[pulumi.Input[str]] = None,
+             stemming_mode: Optional[pulumi.Input[str]] = None,
+             step_count: Optional[pulumi.Input[str]] = None,
+             step_index: Optional[pulumi.Input[str]] = None,
+             stop_words_mode: Optional[pulumi.Input[str]] = None,
+             strategy: Optional[pulumi.Input[str]] = None,
+             target_column: Optional[pulumi.Input[str]] = None,
+             target_column_names: Optional[pulumi.Input[str]] = None,
+             target_date_format: Optional[pulumi.Input[str]] = None,
+             target_index: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             tokenizer_pattern: Optional[pulumi.Input[str]] = None,
+             true_string: Optional[pulumi.Input[str]] = None,
+             udf_lang: Optional[pulumi.Input[str]] = None,
+             units: Optional[pulumi.Input[str]] = None,
+             unpivot_column: Optional[pulumi.Input[str]] = None,
+             upper_bound: Optional[pulumi.Input[str]] = None,
+             use_new_data_frame: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             value1: Optional[pulumi.Input[str]] = None,
+             value2: Optional[pulumi.Input[str]] = None,
+             value_column: Optional[pulumi.Input[str]] = None,
+             view_frame: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aggregate_function is not None:
-            pulumi.set(__self__, "aggregate_function", aggregate_function)
+            _setter("aggregate_function", aggregate_function)
         if base is not None:
-            pulumi.set(__self__, "base", base)
+            _setter("base", base)
         if case_statement is not None:
-            pulumi.set(__self__, "case_statement", case_statement)
+            _setter("case_statement", case_statement)
         if category_map is not None:
-            pulumi.set(__self__, "category_map", category_map)
+            _setter("category_map", category_map)
         if chars_to_remove is not None:
-            pulumi.set(__self__, "chars_to_remove", chars_to_remove)
+            _setter("chars_to_remove", chars_to_remove)
         if collapse_consecutive_whitespace is not None:
-            pulumi.set(__self__, "collapse_consecutive_whitespace", collapse_consecutive_whitespace)
+            _setter("collapse_consecutive_whitespace", collapse_consecutive_whitespace)
         if column_data_type is not None:
-            pulumi.set(__self__, "column_data_type", column_data_type)
+            _setter("column_data_type", column_data_type)
         if column_range is not None:
-            pulumi.set(__self__, "column_range", column_range)
+            _setter("column_range", column_range)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if custom_characters is not None:
-            pulumi.set(__self__, "custom_characters", custom_characters)
+            _setter("custom_characters", custom_characters)
         if custom_stop_words is not None:
-            pulumi.set(__self__, "custom_stop_words", custom_stop_words)
+            _setter("custom_stop_words", custom_stop_words)
         if custom_value is not None:
-            pulumi.set(__self__, "custom_value", custom_value)
+            _setter("custom_value", custom_value)
         if datasets_columns is not None:
-            pulumi.set(__self__, "datasets_columns", datasets_columns)
+            _setter("datasets_columns", datasets_columns)
         if date_add_value is not None:
-            pulumi.set(__self__, "date_add_value", date_add_value)
+            _setter("date_add_value", date_add_value)
         if date_time_format is not None:
-            pulumi.set(__self__, "date_time_format", date_time_format)
+            _setter("date_time_format", date_time_format)
         if date_time_parameters is not None:
-            pulumi.set(__self__, "date_time_parameters", date_time_parameters)
+            _setter("date_time_parameters", date_time_parameters)
         if delete_other_rows is not None:
-            pulumi.set(__self__, "delete_other_rows", delete_other_rows)
+            _setter("delete_other_rows", delete_other_rows)
         if delimiter is not None:
-            pulumi.set(__self__, "delimiter", delimiter)
+            _setter("delimiter", delimiter)
         if end_pattern is not None:
-            pulumi.set(__self__, "end_pattern", end_pattern)
+            _setter("end_pattern", end_pattern)
         if end_position is not None:
-            pulumi.set(__self__, "end_position", end_position)
+            _setter("end_position", end_position)
         if end_value is not None:
-            pulumi.set(__self__, "end_value", end_value)
+            _setter("end_value", end_value)
         if expand_contractions is not None:
-            pulumi.set(__self__, "expand_contractions", expand_contractions)
+            _setter("expand_contractions", expand_contractions)
         if exponent is not None:
-            pulumi.set(__self__, "exponent", exponent)
+            _setter("exponent", exponent)
         if false_string is not None:
-            pulumi.set(__self__, "false_string", false_string)
+            _setter("false_string", false_string)
         if group_by_agg_function_options is not None:
-            pulumi.set(__self__, "group_by_agg_function_options", group_by_agg_function_options)
+            _setter("group_by_agg_function_options", group_by_agg_function_options)
         if group_by_columns is not None:
-            pulumi.set(__self__, "group_by_columns", group_by_columns)
+            _setter("group_by_columns", group_by_columns)
         if hidden_columns is not None:
-            pulumi.set(__self__, "hidden_columns", hidden_columns)
+            _setter("hidden_columns", hidden_columns)
         if ignore_case is not None:
-            pulumi.set(__self__, "ignore_case", ignore_case)
+            _setter("ignore_case", ignore_case)
         if include_in_split is not None:
-            pulumi.set(__self__, "include_in_split", include_in_split)
+            _setter("include_in_split", include_in_split)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if is_text is not None:
-            pulumi.set(__self__, "is_text", is_text)
+            _setter("is_text", is_text)
         if join_keys is not None:
-            pulumi.set(__self__, "join_keys", join_keys)
+            _setter("join_keys", join_keys)
         if join_type is not None:
-            pulumi.set(__self__, "join_type", join_type)
+            _setter("join_type", join_type)
         if left_columns is not None:
-            pulumi.set(__self__, "left_columns", left_columns)
+            _setter("left_columns", left_columns)
         if limit is not None:
-            pulumi.set(__self__, "limit", limit)
+            _setter("limit", limit)
         if lower_bound is not None:
-            pulumi.set(__self__, "lower_bound", lower_bound)
+            _setter("lower_bound", lower_bound)
         if map_type is not None:
-            pulumi.set(__self__, "map_type", map_type)
+            _setter("map_type", map_type)
         if mode_type is not None:
-            pulumi.set(__self__, "mode_type", mode_type)
+            _setter("mode_type", mode_type)
         if multi_line is not None:
-            pulumi.set(__self__, "multi_line", multi_line)
+            _setter("multi_line", multi_line)
         if num_rows is not None:
-            pulumi.set(__self__, "num_rows", num_rows)
+            _setter("num_rows", num_rows)
         if num_rows_after is not None:
-            pulumi.set(__self__, "num_rows_after", num_rows_after)
+            _setter("num_rows_after", num_rows_after)
         if num_rows_before is not None:
-            pulumi.set(__self__, "num_rows_before", num_rows_before)
+            _setter("num_rows_before", num_rows_before)
         if order_by_column is not None:
-            pulumi.set(__self__, "order_by_column", order_by_column)
+            _setter("order_by_column", order_by_column)
         if order_by_columns is not None:
-            pulumi.set(__self__, "order_by_columns", order_by_columns)
+            _setter("order_by_columns", order_by_columns)
         if other is not None:
-            pulumi.set(__self__, "other", other)
+            _setter("other", other)
         if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
+            _setter("pattern", pattern)
         if pattern_option1 is not None:
-            pulumi.set(__self__, "pattern_option1", pattern_option1)
+            _setter("pattern_option1", pattern_option1)
         if pattern_option2 is not None:
-            pulumi.set(__self__, "pattern_option2", pattern_option2)
+            _setter("pattern_option2", pattern_option2)
         if pattern_options is not None:
-            pulumi.set(__self__, "pattern_options", pattern_options)
+            _setter("pattern_options", pattern_options)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if remove_all_punctuation is not None:
-            pulumi.set(__self__, "remove_all_punctuation", remove_all_punctuation)
+            _setter("remove_all_punctuation", remove_all_punctuation)
         if remove_all_quotes is not None:
-            pulumi.set(__self__, "remove_all_quotes", remove_all_quotes)
+            _setter("remove_all_quotes", remove_all_quotes)
         if remove_all_whitespace is not None:
-            pulumi.set(__self__, "remove_all_whitespace", remove_all_whitespace)
+            _setter("remove_all_whitespace", remove_all_whitespace)
         if remove_custom_characters is not None:
-            pulumi.set(__self__, "remove_custom_characters", remove_custom_characters)
+            _setter("remove_custom_characters", remove_custom_characters)
         if remove_custom_value is not None:
-            pulumi.set(__self__, "remove_custom_value", remove_custom_value)
+            _setter("remove_custom_value", remove_custom_value)
         if remove_leading_and_trailing_punctuation is not None:
-            pulumi.set(__self__, "remove_leading_and_trailing_punctuation", remove_leading_and_trailing_punctuation)
+            _setter("remove_leading_and_trailing_punctuation", remove_leading_and_trailing_punctuation)
         if remove_leading_and_trailing_quotes is not None:
-            pulumi.set(__self__, "remove_leading_and_trailing_quotes", remove_leading_and_trailing_quotes)
+            _setter("remove_leading_and_trailing_quotes", remove_leading_and_trailing_quotes)
         if remove_leading_and_trailing_whitespace is not None:
-            pulumi.set(__self__, "remove_leading_and_trailing_whitespace", remove_leading_and_trailing_whitespace)
+            _setter("remove_leading_and_trailing_whitespace", remove_leading_and_trailing_whitespace)
         if remove_letters is not None:
-            pulumi.set(__self__, "remove_letters", remove_letters)
+            _setter("remove_letters", remove_letters)
         if remove_numbers is not None:
-            pulumi.set(__self__, "remove_numbers", remove_numbers)
+            _setter("remove_numbers", remove_numbers)
         if remove_source_column is not None:
-            pulumi.set(__self__, "remove_source_column", remove_source_column)
+            _setter("remove_source_column", remove_source_column)
         if remove_special_characters is not None:
-            pulumi.set(__self__, "remove_special_characters", remove_special_characters)
+            _setter("remove_special_characters", remove_special_characters)
         if right_columns is not None:
-            pulumi.set(__self__, "right_columns", right_columns)
+            _setter("right_columns", right_columns)
         if sample_size is not None:
-            pulumi.set(__self__, "sample_size", sample_size)
+            _setter("sample_size", sample_size)
         if sample_type is not None:
-            pulumi.set(__self__, "sample_type", sample_type)
+            _setter("sample_type", sample_type)
         if second_input is not None:
-            pulumi.set(__self__, "second_input", second_input)
+            _setter("second_input", second_input)
         if secondary_inputs is not None:
-            pulumi.set(__self__, "secondary_inputs", secondary_inputs)
+            _setter("secondary_inputs", secondary_inputs)
         if sheet_indexes is not None:
-            pulumi.set(__self__, "sheet_indexes", sheet_indexes)
+            _setter("sheet_indexes", sheet_indexes)
         if sheet_names is not None:
-            pulumi.set(__self__, "sheet_names", sheet_names)
+            _setter("sheet_names", sheet_names)
         if source_column is not None:
-            pulumi.set(__self__, "source_column", source_column)
+            _setter("source_column", source_column)
         if source_column1 is not None:
-            pulumi.set(__self__, "source_column1", source_column1)
+            _setter("source_column1", source_column1)
         if source_column2 is not None:
-            pulumi.set(__self__, "source_column2", source_column2)
+            _setter("source_column2", source_column2)
         if source_columns is not None:
-            pulumi.set(__self__, "source_columns", source_columns)
+            _setter("source_columns", source_columns)
         if start_column_index is not None:
-            pulumi.set(__self__, "start_column_index", start_column_index)
+            _setter("start_column_index", start_column_index)
         if start_pattern is not None:
-            pulumi.set(__self__, "start_pattern", start_pattern)
+            _setter("start_pattern", start_pattern)
         if start_position is not None:
-            pulumi.set(__self__, "start_position", start_position)
+            _setter("start_position", start_position)
         if start_value is not None:
-            pulumi.set(__self__, "start_value", start_value)
+            _setter("start_value", start_value)
         if stemming_mode is not None:
-            pulumi.set(__self__, "stemming_mode", stemming_mode)
+            _setter("stemming_mode", stemming_mode)
         if step_count is not None:
-            pulumi.set(__self__, "step_count", step_count)
+            _setter("step_count", step_count)
         if step_index is not None:
-            pulumi.set(__self__, "step_index", step_index)
+            _setter("step_index", step_index)
         if stop_words_mode is not None:
-            pulumi.set(__self__, "stop_words_mode", stop_words_mode)
+            _setter("stop_words_mode", stop_words_mode)
         if strategy is not None:
-            pulumi.set(__self__, "strategy", strategy)
+            _setter("strategy", strategy)
         if target_column is not None:
-            pulumi.set(__self__, "target_column", target_column)
+            _setter("target_column", target_column)
         if target_column_names is not None:
-            pulumi.set(__self__, "target_column_names", target_column_names)
+            _setter("target_column_names", target_column_names)
         if target_date_format is not None:
-            pulumi.set(__self__, "target_date_format", target_date_format)
+            _setter("target_date_format", target_date_format)
         if target_index is not None:
-            pulumi.set(__self__, "target_index", target_index)
+            _setter("target_index", target_index)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
         if tokenizer_pattern is not None:
-            pulumi.set(__self__, "tokenizer_pattern", tokenizer_pattern)
+            _setter("tokenizer_pattern", tokenizer_pattern)
         if true_string is not None:
-            pulumi.set(__self__, "true_string", true_string)
+            _setter("true_string", true_string)
         if udf_lang is not None:
-            pulumi.set(__self__, "udf_lang", udf_lang)
+            _setter("udf_lang", udf_lang)
         if units is not None:
-            pulumi.set(__self__, "units", units)
+            _setter("units", units)
         if unpivot_column is not None:
-            pulumi.set(__self__, "unpivot_column", unpivot_column)
+            _setter("unpivot_column", unpivot_column)
         if upper_bound is not None:
-            pulumi.set(__self__, "upper_bound", upper_bound)
+            _setter("upper_bound", upper_bound)
         if use_new_data_frame is not None:
-            pulumi.set(__self__, "use_new_data_frame", use_new_data_frame)
+            _setter("use_new_data_frame", use_new_data_frame)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if value1 is not None:
-            pulumi.set(__self__, "value1", value1)
+            _setter("value1", value1)
         if value2 is not None:
-            pulumi.set(__self__, "value2", value2)
+            _setter("value2", value2)
         if value_column is not None:
-            pulumi.set(__self__, "value_column", value_column)
+            _setter("value_column", value_column)
         if view_frame is not None:
-            pulumi.set(__self__, "view_frame", view_frame)
+            _setter("view_frame", view_frame)
 
     @property
     @pulumi.getter(name="aggregateFunction")
@@ -3026,9 +3768,20 @@ class RecipeS3LocationArgs:
         """
         Input location
         """
-        pulumi.set(__self__, "bucket", bucket)
+        RecipeS3LocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -3057,10 +3810,21 @@ class RecipeSecondaryInputArgs:
         """
         Secondary input
         """
+        RecipeSecondaryInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_catalog_input_definition=data_catalog_input_definition,
+            s3_input_definition=s3_input_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_catalog_input_definition: Optional[pulumi.Input['RecipeDataCatalogInputDefinitionArgs']] = None,
+             s3_input_definition: Optional[pulumi.Input['RecipeS3LocationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_catalog_input_definition is not None:
-            pulumi.set(__self__, "data_catalog_input_definition", data_catalog_input_definition)
+            _setter("data_catalog_input_definition", data_catalog_input_definition)
         if s3_input_definition is not None:
-            pulumi.set(__self__, "s3_input_definition", s3_input_definition)
+            _setter("s3_input_definition", s3_input_definition)
 
     @property
     @pulumi.getter(name="dataCatalogInputDefinition")
@@ -3089,9 +3853,20 @@ class RecipeStepArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]] condition_expressions: Condition expressions applied to the step action
         """
-        pulumi.set(__self__, "action", action)
+        RecipeStepArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            condition_expressions=condition_expressions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input['RecipeActionArgs'],
+             condition_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
         if condition_expressions is not None:
-            pulumi.set(__self__, "condition_expressions", condition_expressions)
+            _setter("condition_expressions", condition_expressions)
 
     @property
     @pulumi.getter
@@ -3123,8 +3898,19 @@ class RecipeTagArgs:
         """
         A key-value pair to associate with a resource.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        RecipeTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3155,10 +3941,21 @@ class RulesetColumnSelectorArgs:
         :param pulumi.Input[str] name: The name of a column from a dataset
         :param pulumi.Input[str] regex: A regular expression for selecting a column from a dataset
         """
+        RulesetColumnSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            regex=regex,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             regex: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
 
     @property
     @pulumi.getter
@@ -3198,16 +3995,35 @@ class RulesetRuleArgs:
         Data quality rule for a target resource (dataset)
         :param pulumi.Input[str] name: Name of the rule
         """
-        pulumi.set(__self__, "check_expression", check_expression)
-        pulumi.set(__self__, "name", name)
+        RulesetRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            check_expression=check_expression,
+            name=name,
+            column_selectors=column_selectors,
+            disabled=disabled,
+            substitution_map=substitution_map,
+            threshold=threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             check_expression: pulumi.Input[str],
+             name: pulumi.Input[str],
+             column_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]]] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             substitution_map: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetSubstitutionValueArgs']]]] = None,
+             threshold: Optional[pulumi.Input['RulesetThresholdArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("check_expression", check_expression)
+        _setter("name", name)
         if column_selectors is not None:
-            pulumi.set(__self__, "column_selectors", column_selectors)
+            _setter("column_selectors", column_selectors)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if substitution_map is not None:
-            pulumi.set(__self__, "substitution_map", substitution_map)
+            _setter("substitution_map", substitution_map)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
 
     @property
     @pulumi.getter(name="checkExpression")
@@ -3277,8 +4093,19 @@ class RulesetSubstitutionValueArgs:
         :param pulumi.Input[str] value: Value or column name
         :param pulumi.Input[str] value_reference: Variable name
         """
-        pulumi.set(__self__, "value", value)
-        pulumi.set(__self__, "value_reference", value_reference)
+        RulesetSubstitutionValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            value_reference=value_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             value_reference: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
+        _setter("value_reference", value_reference)
 
     @property
     @pulumi.getter
@@ -3313,8 +4140,19 @@ class RulesetTagArgs:
         """
         A key-value pair to associate with a resource
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        RulesetTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3341,11 +4179,24 @@ class RulesetThresholdArgs:
                  value: pulumi.Input[float],
                  type: Optional[pulumi.Input['RulesetThresholdType']] = None,
                  unit: Optional[pulumi.Input['RulesetThresholdUnit']] = None):
-        pulumi.set(__self__, "value", value)
+        RulesetThresholdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            type=type,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[float],
+             type: Optional[pulumi.Input['RulesetThresholdType']] = None,
+             unit: Optional[pulumi.Input['RulesetThresholdUnit']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -3383,8 +4234,19 @@ class ScheduleTagArgs:
         """
         A key-value pair to associate with a resource.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ScheduleTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -20,6 +20,11 @@ __all__ = [
 @pulumi.output_type
 class IndexTagMap(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -44,7 +49,16 @@ class ViewFilters(dict):
 
     def __init__(__self__, *,
                  filter_string: str):
-        pulumi.set(__self__, "filter_string", filter_string)
+        ViewFilters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_string=filter_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_string: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filter_string", filter_string)
 
     @property
     @pulumi.getter(name="filterString")
@@ -56,7 +70,16 @@ class ViewFilters(dict):
 class ViewIncludedProperty(dict):
     def __init__(__self__, *,
                  name: str):
-        pulumi.set(__self__, "name", name)
+        ViewIncludedProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -67,6 +90,11 @@ class ViewIncludedProperty(dict):
 @pulumi.output_type
 class ViewTagMap(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 

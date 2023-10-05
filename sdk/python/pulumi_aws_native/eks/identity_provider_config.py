@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,14 +29,31 @@ class IdentityProviderConfigArgs:
         :param pulumi.Input[str] identity_provider_config_name: The name of the OIDC provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "type", type)
+        IdentityProviderConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            type=type,
+            identity_provider_config_name=identity_provider_config_name,
+            oidc=oidc,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             type: pulumi.Input['IdentityProviderConfigType'],
+             identity_provider_config_name: Optional[pulumi.Input[str]] = None,
+             oidc: Optional[pulumi.Input['IdentityProviderConfigOidcIdentityProviderConfigArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("type", type)
         if identity_provider_config_name is not None:
-            pulumi.set(__self__, "identity_provider_config_name", identity_provider_config_name)
+            _setter("identity_provider_config_name", identity_provider_config_name)
         if oidc is not None:
-            pulumi.set(__self__, "oidc", oidc)
+            _setter("oidc", oidc)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -136,6 +153,10 @@ class IdentityProviderConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityProviderConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -159,6 +180,11 @@ class IdentityProviderConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["identity_provider_config_name"] = identity_provider_config_name
+            if oidc is not None and not isinstance(oidc, IdentityProviderConfigOidcIdentityProviderConfigArgs):
+                oidc = oidc or {}
+                def _setter(key, value):
+                    oidc[key] = value
+                IdentityProviderConfigOidcIdentityProviderConfigArgs._configure(_setter, **oidc)
             __props__.__dict__["oidc"] = oidc
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:

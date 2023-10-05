@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -32,11 +32,26 @@ class AccountPolicyArgs:
         :param pulumi.Input['AccountPolicyPolicyType'] policy_type: Type of the policy.
         :param pulumi.Input['AccountPolicyScope'] scope: Scope for policy application
         """
-        pulumi.set(__self__, "policy_document", policy_document)
-        pulumi.set(__self__, "policy_name", policy_name)
-        pulumi.set(__self__, "policy_type", policy_type)
+        AccountPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_document=policy_document,
+            policy_name=policy_name,
+            policy_type=policy_type,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_document: pulumi.Input[str],
+             policy_name: pulumi.Input[str],
+             policy_type: pulumi.Input['AccountPolicyPolicyType'],
+             scope: Optional[pulumi.Input['AccountPolicyScope']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_document", policy_document)
+        _setter("policy_name", policy_name)
+        _setter("policy_type", policy_type)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -138,6 +153,10 @@ class AccountPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

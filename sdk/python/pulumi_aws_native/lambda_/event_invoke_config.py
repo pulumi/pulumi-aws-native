@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,14 +24,31 @@ class EventInvokeConfigArgs:
         """
         The set of arguments for constructing a EventInvokeConfig resource.
         """
-        pulumi.set(__self__, "function_name", function_name)
-        pulumi.set(__self__, "qualifier", qualifier)
+        EventInvokeConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_name=function_name,
+            qualifier=qualifier,
+            destination_config=destination_config,
+            maximum_event_age_in_seconds=maximum_event_age_in_seconds,
+            maximum_retry_attempts=maximum_retry_attempts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_name: pulumi.Input[str],
+             qualifier: pulumi.Input[str],
+             destination_config: Optional[pulumi.Input['EventInvokeConfigDestinationConfigArgs']] = None,
+             maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
+             maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_name", function_name)
+        _setter("qualifier", qualifier)
         if destination_config is not None:
-            pulumi.set(__self__, "destination_config", destination_config)
+            _setter("destination_config", destination_config)
         if maximum_event_age_in_seconds is not None:
-            pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
+            _setter("maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
-            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+            _setter("maximum_retry_attempts", maximum_retry_attempts)
 
     @property
     @pulumi.getter(name="functionName")
@@ -115,6 +132,10 @@ class EventInvokeConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventInvokeConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -134,6 +155,11 @@ class EventInvokeConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventInvokeConfigArgs.__new__(EventInvokeConfigArgs)
 
+            if destination_config is not None and not isinstance(destination_config, EventInvokeConfigDestinationConfigArgs):
+                destination_config = destination_config or {}
+                def _setter(key, value):
+                    destination_config[key] = value
+                EventInvokeConfigDestinationConfigArgs._configure(_setter, **destination_config)
             __props__.__dict__["destination_config"] = destination_config
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")

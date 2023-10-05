@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -21,7 +21,16 @@ class ResourceCollectionArgs:
         """
         The set of arguments for constructing a ResourceCollection resource.
         """
-        pulumi.set(__self__, "resource_collection_filter", resource_collection_filter)
+        ResourceCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_collection_filter=resource_collection_filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_collection_filter: pulumi.Input['ResourceCollectionFilterArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_collection_filter", resource_collection_filter)
 
     @property
     @pulumi.getter(name="resourceCollectionFilter")
@@ -65,6 +74,10 @@ class ResourceCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -80,6 +93,11 @@ class ResourceCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceCollectionArgs.__new__(ResourceCollectionArgs)
 
+            if resource_collection_filter is not None and not isinstance(resource_collection_filter, ResourceCollectionFilterArgs):
+                resource_collection_filter = resource_collection_filter or {}
+                def _setter(key, value):
+                    resource_collection_filter[key] = value
+                ResourceCollectionFilterArgs._configure(_setter, **resource_collection_filter)
             if resource_collection_filter is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_collection_filter'")
             __props__.__dict__["resource_collection_filter"] = resource_collection_filter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,14 +23,29 @@ class GroupArgs:
         """
         The set of arguments for constructing a Group resource.
         """
+        GroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            managed_policy_arns=managed_policy_arns,
+            path=path,
+            policies=policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: Optional[pulumi.Input[str]] = None,
+             managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             policies: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
         if managed_policy_arns is not None:
-            pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
+            _setter("managed_policy_arns", managed_policy_arns)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
 
     @property
     @pulumi.getter(name="groupName")
@@ -109,6 +124,10 @@ class Group(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

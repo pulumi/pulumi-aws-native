@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StateMachineVersionArgs', 'StateMachineVersion']
@@ -20,11 +20,24 @@ class StateMachineVersionArgs:
         """
         The set of arguments for constructing a StateMachineVersion resource.
         """
-        pulumi.set(__self__, "state_machine_arn", state_machine_arn)
+        StateMachineVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state_machine_arn=state_machine_arn,
+            description=description,
+            state_machine_revision_id=state_machine_revision_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state_machine_arn: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             state_machine_revision_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("state_machine_arn", state_machine_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if state_machine_revision_id is not None:
-            pulumi.set(__self__, "state_machine_revision_id", state_machine_revision_id)
+            _setter("state_machine_revision_id", state_machine_revision_id)
 
     @property
     @pulumi.getter(name="stateMachineArn")
@@ -88,6 +101,10 @@ class StateMachineVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StateMachineVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

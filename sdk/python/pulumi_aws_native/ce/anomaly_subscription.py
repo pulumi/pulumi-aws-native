@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,16 +34,37 @@ class AnomalySubscriptionArgs:
         :param pulumi.Input[float] threshold: The dollar value that triggers a notification if the threshold is exceeded. 
         :param pulumi.Input[str] threshold_expression: An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
         """
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "monitor_arn_list", monitor_arn_list)
-        pulumi.set(__self__, "subscribers", subscribers)
-        pulumi.set(__self__, "subscription_name", subscription_name)
+        AnomalySubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency=frequency,
+            monitor_arn_list=monitor_arn_list,
+            subscribers=subscribers,
+            subscription_name=subscription_name,
+            resource_tags=resource_tags,
+            threshold=threshold,
+            threshold_expression=threshold_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency: pulumi.Input['AnomalySubscriptionFrequency'],
+             monitor_arn_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subscribers: pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]],
+             subscription_name: pulumi.Input[str],
+             resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionResourceTagArgs']]]] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
+             threshold_expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("frequency", frequency)
+        _setter("monitor_arn_list", monitor_arn_list)
+        _setter("subscribers", subscribers)
+        _setter("subscription_name", subscription_name)
         if resource_tags is not None:
-            pulumi.set(__self__, "resource_tags", resource_tags)
+            _setter("resource_tags", resource_tags)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
         if threshold_expression is not None:
-            pulumi.set(__self__, "threshold_expression", threshold_expression)
+            _setter("threshold_expression", threshold_expression)
 
     @property
     @pulumi.getter
@@ -180,6 +201,10 @@ class AnomalySubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AnomalySubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

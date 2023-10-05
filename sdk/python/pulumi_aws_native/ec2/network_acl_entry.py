@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,20 +28,45 @@ class NetworkAclEntryArgs:
         """
         The set of arguments for constructing a NetworkAclEntry resource.
         """
-        pulumi.set(__self__, "network_acl_id", network_acl_id)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "rule_action", rule_action)
-        pulumi.set(__self__, "rule_number", rule_number)
+        NetworkAclEntryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_acl_id=network_acl_id,
+            protocol=protocol,
+            rule_action=rule_action,
+            rule_number=rule_number,
+            cidr_block=cidr_block,
+            egress=egress,
+            icmp=icmp,
+            ipv6_cidr_block=ipv6_cidr_block,
+            port_range=port_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_acl_id: pulumi.Input[str],
+             protocol: pulumi.Input[int],
+             rule_action: pulumi.Input[str],
+             rule_number: pulumi.Input[int],
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             egress: Optional[pulumi.Input[bool]] = None,
+             icmp: Optional[pulumi.Input['NetworkAclEntryIcmpArgs']] = None,
+             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+             port_range: Optional[pulumi.Input['NetworkAclEntryPortRangeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_acl_id", network_acl_id)
+        _setter("protocol", protocol)
+        _setter("rule_action", rule_action)
+        _setter("rule_number", rule_number)
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if egress is not None:
-            pulumi.set(__self__, "egress", egress)
+            _setter("egress", egress)
         if icmp is not None:
-            pulumi.set(__self__, "icmp", icmp)
+            _setter("icmp", icmp)
         if ipv6_cidr_block is not None:
-            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+            _setter("ipv6_cidr_block", ipv6_cidr_block)
         if port_range is not None:
-            pulumi.set(__self__, "port_range", port_range)
+            _setter("port_range", port_range)
 
     @property
     @pulumi.getter(name="networkAclId")
@@ -170,6 +195,10 @@ class NetworkAclEntry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkAclEntryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -196,11 +225,21 @@ class NetworkAclEntry(pulumi.CustomResource):
 
             __props__.__dict__["cidr_block"] = cidr_block
             __props__.__dict__["egress"] = egress
+            if icmp is not None and not isinstance(icmp, NetworkAclEntryIcmpArgs):
+                icmp = icmp or {}
+                def _setter(key, value):
+                    icmp[key] = value
+                NetworkAclEntryIcmpArgs._configure(_setter, **icmp)
             __props__.__dict__["icmp"] = icmp
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
             if network_acl_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_acl_id'")
             __props__.__dict__["network_acl_id"] = network_acl_id
+            if port_range is not None and not isinstance(port_range, NetworkAclEntryPortRangeArgs):
+                port_range = port_range or {}
+                def _setter(key, value):
+                    port_range[key] = value
+                NetworkAclEntryPortRangeArgs._configure(_setter, **port_range)
             __props__.__dict__["port_range"] = port_range
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")

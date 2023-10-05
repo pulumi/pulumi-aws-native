@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,31 +33,64 @@ class BranchArgs:
         """
         The set of arguments for constructing a Branch resource.
         """
-        pulumi.set(__self__, "app_id", app_id)
+        BranchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            basic_auth_config=basic_auth_config,
+            branch_name=branch_name,
+            build_spec=build_spec,
+            description=description,
+            enable_auto_build=enable_auto_build,
+            enable_performance_mode=enable_performance_mode,
+            enable_pull_request_preview=enable_pull_request_preview,
+            environment_variables=environment_variables,
+            framework=framework,
+            pull_request_environment_name=pull_request_environment_name,
+            stage=stage,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: pulumi.Input[str],
+             basic_auth_config: Optional[pulumi.Input['BranchBasicAuthConfigArgs']] = None,
+             branch_name: Optional[pulumi.Input[str]] = None,
+             build_spec: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enable_auto_build: Optional[pulumi.Input[bool]] = None,
+             enable_performance_mode: Optional[pulumi.Input[bool]] = None,
+             enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
+             environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]]] = None,
+             framework: Optional[pulumi.Input[str]] = None,
+             pull_request_environment_name: Optional[pulumi.Input[str]] = None,
+             stage: Optional[pulumi.Input['BranchStage']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['BranchTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_id", app_id)
         if basic_auth_config is not None:
-            pulumi.set(__self__, "basic_auth_config", basic_auth_config)
+            _setter("basic_auth_config", basic_auth_config)
         if branch_name is not None:
-            pulumi.set(__self__, "branch_name", branch_name)
+            _setter("branch_name", branch_name)
         if build_spec is not None:
-            pulumi.set(__self__, "build_spec", build_spec)
+            _setter("build_spec", build_spec)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable_auto_build is not None:
-            pulumi.set(__self__, "enable_auto_build", enable_auto_build)
+            _setter("enable_auto_build", enable_auto_build)
         if enable_performance_mode is not None:
-            pulumi.set(__self__, "enable_performance_mode", enable_performance_mode)
+            _setter("enable_performance_mode", enable_performance_mode)
         if enable_pull_request_preview is not None:
-            pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
+            _setter("enable_pull_request_preview", enable_pull_request_preview)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if framework is not None:
-            pulumi.set(__self__, "framework", framework)
+            _setter("framework", framework)
         if pull_request_environment_name is not None:
-            pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
+            _setter("pull_request_environment_name", pull_request_environment_name)
         if stage is not None:
-            pulumi.set(__self__, "stage", stage)
+            _setter("stage", stage)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="appId")
@@ -221,6 +254,10 @@ class Branch(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BranchArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -251,6 +288,11 @@ class Branch(pulumi.CustomResource):
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
             __props__.__dict__["app_id"] = app_id
+            if basic_auth_config is not None and not isinstance(basic_auth_config, BranchBasicAuthConfigArgs):
+                basic_auth_config = basic_auth_config or {}
+                def _setter(key, value):
+                    basic_auth_config[key] = value
+                BranchBasicAuthConfigArgs._configure(_setter, **basic_auth_config)
             __props__.__dict__["basic_auth_config"] = basic_auth_config
             __props__.__dict__["branch_name"] = branch_name
             __props__.__dict__["build_spec"] = build_spec

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,24 +30,53 @@ class InstanceGroupConfigArgs:
         """
         The set of arguments for constructing a InstanceGroupConfig resource.
         """
-        pulumi.set(__self__, "instance_count", instance_count)
-        pulumi.set(__self__, "instance_role", instance_role)
-        pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "job_flow_id", job_flow_id)
+        InstanceGroupConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_count=instance_count,
+            instance_role=instance_role,
+            instance_type=instance_type,
+            job_flow_id=job_flow_id,
+            auto_scaling_policy=auto_scaling_policy,
+            bid_price=bid_price,
+            configurations=configurations,
+            custom_ami_id=custom_ami_id,
+            ebs_configuration=ebs_configuration,
+            market=market,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_count: pulumi.Input[int],
+             instance_role: pulumi.Input[str],
+             instance_type: pulumi.Input[str],
+             job_flow_id: pulumi.Input[str],
+             auto_scaling_policy: Optional[pulumi.Input['InstanceGroupConfigAutoScalingPolicyArgs']] = None,
+             bid_price: Optional[pulumi.Input[str]] = None,
+             configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupConfigConfigurationArgs']]]] = None,
+             custom_ami_id: Optional[pulumi.Input[str]] = None,
+             ebs_configuration: Optional[pulumi.Input['InstanceGroupConfigEbsConfigurationArgs']] = None,
+             market: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_count", instance_count)
+        _setter("instance_role", instance_role)
+        _setter("instance_type", instance_type)
+        _setter("job_flow_id", job_flow_id)
         if auto_scaling_policy is not None:
-            pulumi.set(__self__, "auto_scaling_policy", auto_scaling_policy)
+            _setter("auto_scaling_policy", auto_scaling_policy)
         if bid_price is not None:
-            pulumi.set(__self__, "bid_price", bid_price)
+            _setter("bid_price", bid_price)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
         if custom_ami_id is not None:
-            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
+            _setter("custom_ami_id", custom_ami_id)
         if ebs_configuration is not None:
-            pulumi.set(__self__, "ebs_configuration", ebs_configuration)
+            _setter("ebs_configuration", ebs_configuration)
         if market is not None:
-            pulumi.set(__self__, "market", market)
+            _setter("market", market)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -196,6 +225,10 @@ class InstanceGroupConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceGroupConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -222,10 +255,20 @@ class InstanceGroupConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InstanceGroupConfigArgs.__new__(InstanceGroupConfigArgs)
 
+            if auto_scaling_policy is not None and not isinstance(auto_scaling_policy, InstanceGroupConfigAutoScalingPolicyArgs):
+                auto_scaling_policy = auto_scaling_policy or {}
+                def _setter(key, value):
+                    auto_scaling_policy[key] = value
+                InstanceGroupConfigAutoScalingPolicyArgs._configure(_setter, **auto_scaling_policy)
             __props__.__dict__["auto_scaling_policy"] = auto_scaling_policy
             __props__.__dict__["bid_price"] = bid_price
             __props__.__dict__["configurations"] = configurations
             __props__.__dict__["custom_ami_id"] = custom_ami_id
+            if ebs_configuration is not None and not isinstance(ebs_configuration, InstanceGroupConfigEbsConfigurationArgs):
+                ebs_configuration = ebs_configuration or {}
+                def _setter(key, value):
+                    ebs_configuration[key] = value
+                InstanceGroupConfigEbsConfigurationArgs._configure(_setter, **ebs_configuration)
             __props__.__dict__["ebs_configuration"] = ebs_configuration
             if instance_count is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_count'")

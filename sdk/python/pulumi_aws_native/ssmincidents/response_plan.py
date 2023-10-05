@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,21 +34,44 @@ class ResponsePlanArgs:
         :param pulumi.Input[str] name: The name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]] tags: The tags to apply to the response plan.
         """
-        pulumi.set(__self__, "incident_template", incident_template)
+        ResponsePlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            incident_template=incident_template,
+            actions=actions,
+            chat_channel=chat_channel,
+            display_name=display_name,
+            engagements=engagements,
+            integrations=integrations,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             incident_template: pulumi.Input['ResponsePlanIncidentTemplateArgs'],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionArgs']]]] = None,
+             chat_channel: Optional[pulumi.Input['ResponsePlanChatChannelArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             engagements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             integrations: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("incident_template", incident_template)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if chat_channel is not None:
-            pulumi.set(__self__, "chat_channel", chat_channel)
+            _setter("chat_channel", chat_channel)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if engagements is not None:
-            pulumi.set(__self__, "engagements", engagements)
+            _setter("engagements", engagements)
         if integrations is not None:
-            pulumi.set(__self__, "integrations", integrations)
+            _setter("integrations", integrations)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="incidentTemplate")
@@ -186,6 +209,10 @@ class ResponsePlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResponsePlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -209,9 +236,19 @@ class ResponsePlan(pulumi.CustomResource):
             __props__ = ResponsePlanArgs.__new__(ResponsePlanArgs)
 
             __props__.__dict__["actions"] = actions
+            if chat_channel is not None and not isinstance(chat_channel, ResponsePlanChatChannelArgs):
+                chat_channel = chat_channel or {}
+                def _setter(key, value):
+                    chat_channel[key] = value
+                ResponsePlanChatChannelArgs._configure(_setter, **chat_channel)
             __props__.__dict__["chat_channel"] = chat_channel
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["engagements"] = engagements
+            if incident_template is not None and not isinstance(incident_template, ResponsePlanIncidentTemplateArgs):
+                incident_template = incident_template or {}
+                def _setter(key, value):
+                    incident_template[key] = value
+                ResponsePlanIncidentTemplateArgs._configure(_setter, **incident_template)
             if incident_template is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_template'")
             __props__.__dict__["incident_template"] = incident_template

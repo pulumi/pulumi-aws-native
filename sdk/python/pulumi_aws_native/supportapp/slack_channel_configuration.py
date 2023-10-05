@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -34,18 +34,41 @@ class SlackChannelConfigurationArgs:
         :param pulumi.Input[bool] notify_on_create_or_reopen_case: Whether to notify when a case is created or reopened.
         :param pulumi.Input[bool] notify_on_resolve_case: Whether to notify when a case is resolved.
         """
-        pulumi.set(__self__, "channel_id", channel_id)
-        pulumi.set(__self__, "channel_role_arn", channel_role_arn)
-        pulumi.set(__self__, "notify_on_case_severity", notify_on_case_severity)
-        pulumi.set(__self__, "team_id", team_id)
+        SlackChannelConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_id=channel_id,
+            channel_role_arn=channel_role_arn,
+            notify_on_case_severity=notify_on_case_severity,
+            team_id=team_id,
+            channel_name=channel_name,
+            notify_on_add_correspondence_to_case=notify_on_add_correspondence_to_case,
+            notify_on_create_or_reopen_case=notify_on_create_or_reopen_case,
+            notify_on_resolve_case=notify_on_resolve_case,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_id: pulumi.Input[str],
+             channel_role_arn: pulumi.Input[str],
+             notify_on_case_severity: pulumi.Input['SlackChannelConfigurationNotifyOnCaseSeverity'],
+             team_id: pulumi.Input[str],
+             channel_name: Optional[pulumi.Input[str]] = None,
+             notify_on_add_correspondence_to_case: Optional[pulumi.Input[bool]] = None,
+             notify_on_create_or_reopen_case: Optional[pulumi.Input[bool]] = None,
+             notify_on_resolve_case: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_id", channel_id)
+        _setter("channel_role_arn", channel_role_arn)
+        _setter("notify_on_case_severity", notify_on_case_severity)
+        _setter("team_id", team_id)
         if channel_name is not None:
-            pulumi.set(__self__, "channel_name", channel_name)
+            _setter("channel_name", channel_name)
         if notify_on_add_correspondence_to_case is not None:
-            pulumi.set(__self__, "notify_on_add_correspondence_to_case", notify_on_add_correspondence_to_case)
+            _setter("notify_on_add_correspondence_to_case", notify_on_add_correspondence_to_case)
         if notify_on_create_or_reopen_case is not None:
-            pulumi.set(__self__, "notify_on_create_or_reopen_case", notify_on_create_or_reopen_case)
+            _setter("notify_on_create_or_reopen_case", notify_on_create_or_reopen_case)
         if notify_on_resolve_case is not None:
-            pulumi.set(__self__, "notify_on_resolve_case", notify_on_resolve_case)
+            _setter("notify_on_resolve_case", notify_on_resolve_case)
 
     @property
     @pulumi.getter(name="channelId")
@@ -191,6 +214,10 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SlackChannelConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

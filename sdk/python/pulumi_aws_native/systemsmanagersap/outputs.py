@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -42,12 +42,25 @@ class ApplicationCredential(dict):
                  credential_type: Optional['ApplicationCredentialCredentialType'] = None,
                  database_name: Optional[str] = None,
                  secret_id: Optional[str] = None):
+        ApplicationCredential._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credential_type=credential_type,
+            database_name=database_name,
+            secret_id=secret_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credential_type: Optional['ApplicationCredentialCredentialType'] = None,
+             database_name: Optional[str] = None,
+             secret_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if credential_type is not None:
-            pulumi.set(__self__, "credential_type", credential_type)
+            _setter("credential_type", credential_type)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if secret_id is not None:
-            pulumi.set(__self__, "secret_id", secret_id)
+            _setter("secret_id", secret_id)
 
     @property
     @pulumi.getter(name="credentialType")
@@ -78,8 +91,19 @@ class ApplicationTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ApplicationTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

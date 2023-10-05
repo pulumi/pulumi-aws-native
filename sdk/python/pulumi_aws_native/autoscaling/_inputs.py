@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -57,10 +57,21 @@ class AutoScalingGroupAcceleratorCountRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        AutoScalingGroupAcceleratorCountRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[pulumi.Input[int]] = None,
+             min: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -86,10 +97,21 @@ class AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[pulumi.Input[int]] = None,
+             min: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -115,10 +137,21 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[pulumi.Input[int]] = None,
+             min: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -144,10 +177,21 @@ class AutoScalingGroupInstanceMaintenancePolicyArgs:
     def __init__(__self__, *,
                  max_healthy_percentage: Optional[pulumi.Input[int]] = None,
                  min_healthy_percentage: Optional[pulumi.Input[int]] = None):
+        AutoScalingGroupInstanceMaintenancePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_healthy_percentage=max_healthy_percentage,
+            min_healthy_percentage=min_healthy_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_healthy_percentage: Optional[pulumi.Input[int]] = None,
+             min_healthy_percentage: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_healthy_percentage is not None:
-            pulumi.set(__self__, "max_healthy_percentage", max_healthy_percentage)
+            _setter("max_healthy_percentage", max_healthy_percentage)
         if min_healthy_percentage is not None:
-            pulumi.set(__self__, "min_healthy_percentage", min_healthy_percentage)
+            _setter("min_healthy_percentage", min_healthy_percentage)
 
     @property
     @pulumi.getter(name="maxHealthyPercentage")
@@ -194,52 +238,105 @@ class AutoScalingGroupInstanceRequirementsArgs:
                  spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  total_local_storage_gb: Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs']] = None,
                  v_cpu_count: Optional[pulumi.Input['AutoScalingGroupVCpuCountRequestArgs']] = None):
+        AutoScalingGroupInstanceRequirementsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accelerator_count=accelerator_count,
+            accelerator_manufacturers=accelerator_manufacturers,
+            accelerator_names=accelerator_names,
+            accelerator_total_memory_mi_b=accelerator_total_memory_mi_b,
+            accelerator_types=accelerator_types,
+            allowed_instance_types=allowed_instance_types,
+            bare_metal=bare_metal,
+            baseline_ebs_bandwidth_mbps=baseline_ebs_bandwidth_mbps,
+            burstable_performance=burstable_performance,
+            cpu_manufacturers=cpu_manufacturers,
+            excluded_instance_types=excluded_instance_types,
+            instance_generations=instance_generations,
+            local_storage=local_storage,
+            local_storage_types=local_storage_types,
+            memory_gi_b_per_v_cpu=memory_gi_b_per_v_cpu,
+            memory_mi_b=memory_mi_b,
+            network_bandwidth_gbps=network_bandwidth_gbps,
+            network_interface_count=network_interface_count,
+            on_demand_max_price_percentage_over_lowest_price=on_demand_max_price_percentage_over_lowest_price,
+            require_hibernate_support=require_hibernate_support,
+            spot_max_price_percentage_over_lowest_price=spot_max_price_percentage_over_lowest_price,
+            total_local_storage_gb=total_local_storage_gb,
+            v_cpu_count=v_cpu_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accelerator_count: Optional[pulumi.Input['AutoScalingGroupAcceleratorCountRequestArgs']] = None,
+             accelerator_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             accelerator_total_memory_mi_b: Optional[pulumi.Input['AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs']] = None,
+             accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             bare_metal: Optional[pulumi.Input[str]] = None,
+             baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs']] = None,
+             burstable_performance: Optional[pulumi.Input[str]] = None,
+             cpu_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             instance_generations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             local_storage: Optional[pulumi.Input[str]] = None,
+             local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             memory_gi_b_per_v_cpu: Optional[pulumi.Input['AutoScalingGroupMemoryGiBPerVCpuRequestArgs']] = None,
+             memory_mi_b: Optional[pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs']] = None,
+             network_bandwidth_gbps: Optional[pulumi.Input['AutoScalingGroupNetworkBandwidthGbpsRequestArgs']] = None,
+             network_interface_count: Optional[pulumi.Input['AutoScalingGroupNetworkInterfaceCountRequestArgs']] = None,
+             on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
+             require_hibernate_support: Optional[pulumi.Input[bool]] = None,
+             spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
+             total_local_storage_gb: Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs']] = None,
+             v_cpu_count: Optional[pulumi.Input['AutoScalingGroupVCpuCountRequestArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accelerator_count is not None:
-            pulumi.set(__self__, "accelerator_count", accelerator_count)
+            _setter("accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
-            pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
+            _setter("accelerator_manufacturers", accelerator_manufacturers)
         if accelerator_names is not None:
-            pulumi.set(__self__, "accelerator_names", accelerator_names)
+            _setter("accelerator_names", accelerator_names)
         if accelerator_total_memory_mi_b is not None:
-            pulumi.set(__self__, "accelerator_total_memory_mi_b", accelerator_total_memory_mi_b)
+            _setter("accelerator_total_memory_mi_b", accelerator_total_memory_mi_b)
         if accelerator_types is not None:
-            pulumi.set(__self__, "accelerator_types", accelerator_types)
+            _setter("accelerator_types", accelerator_types)
         if allowed_instance_types is not None:
-            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
+            _setter("allowed_instance_types", allowed_instance_types)
         if bare_metal is not None:
-            pulumi.set(__self__, "bare_metal", bare_metal)
+            _setter("bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
-            pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+            _setter("baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
         if burstable_performance is not None:
-            pulumi.set(__self__, "burstable_performance", burstable_performance)
+            _setter("burstable_performance", burstable_performance)
         if cpu_manufacturers is not None:
-            pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
+            _setter("cpu_manufacturers", cpu_manufacturers)
         if excluded_instance_types is not None:
-            pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+            _setter("excluded_instance_types", excluded_instance_types)
         if instance_generations is not None:
-            pulumi.set(__self__, "instance_generations", instance_generations)
+            _setter("instance_generations", instance_generations)
         if local_storage is not None:
-            pulumi.set(__self__, "local_storage", local_storage)
+            _setter("local_storage", local_storage)
         if local_storage_types is not None:
-            pulumi.set(__self__, "local_storage_types", local_storage_types)
+            _setter("local_storage_types", local_storage_types)
         if memory_gi_b_per_v_cpu is not None:
-            pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
+            _setter("memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
         if memory_mi_b is not None:
-            pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+            _setter("memory_mi_b", memory_mi_b)
         if network_bandwidth_gbps is not None:
-            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
+            _setter("network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
-            pulumi.set(__self__, "network_interface_count", network_interface_count)
+            _setter("network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
-            pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
+            _setter("on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
         if require_hibernate_support is not None:
-            pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
+            _setter("require_hibernate_support", require_hibernate_support)
         if spot_max_price_percentage_over_lowest_price is not None:
-            pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
+            _setter("spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
         if total_local_storage_gb is not None:
-            pulumi.set(__self__, "total_local_storage_gb", total_local_storage_gb)
+            _setter("total_local_storage_gb", total_local_storage_gb)
         if v_cpu_count is not None:
-            pulumi.set(__self__, "v_cpu_count", v_cpu_count)
+            _setter("v_cpu_count", v_cpu_count)
 
     @property
     @pulumi.getter(name="acceleratorCount")
@@ -458,18 +555,37 @@ class AutoScalingGroupInstancesDistributionArgs:
                  spot_allocation_strategy: Optional[pulumi.Input[str]] = None,
                  spot_instance_pools: Optional[pulumi.Input[int]] = None,
                  spot_max_price: Optional[pulumi.Input[str]] = None):
+        AutoScalingGroupInstancesDistributionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            on_demand_allocation_strategy=on_demand_allocation_strategy,
+            on_demand_base_capacity=on_demand_base_capacity,
+            on_demand_percentage_above_base_capacity=on_demand_percentage_above_base_capacity,
+            spot_allocation_strategy=spot_allocation_strategy,
+            spot_instance_pools=spot_instance_pools,
+            spot_max_price=spot_max_price,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             on_demand_allocation_strategy: Optional[pulumi.Input[str]] = None,
+             on_demand_base_capacity: Optional[pulumi.Input[int]] = None,
+             on_demand_percentage_above_base_capacity: Optional[pulumi.Input[int]] = None,
+             spot_allocation_strategy: Optional[pulumi.Input[str]] = None,
+             spot_instance_pools: Optional[pulumi.Input[int]] = None,
+             spot_max_price: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if on_demand_allocation_strategy is not None:
-            pulumi.set(__self__, "on_demand_allocation_strategy", on_demand_allocation_strategy)
+            _setter("on_demand_allocation_strategy", on_demand_allocation_strategy)
         if on_demand_base_capacity is not None:
-            pulumi.set(__self__, "on_demand_base_capacity", on_demand_base_capacity)
+            _setter("on_demand_base_capacity", on_demand_base_capacity)
         if on_demand_percentage_above_base_capacity is not None:
-            pulumi.set(__self__, "on_demand_percentage_above_base_capacity", on_demand_percentage_above_base_capacity)
+            _setter("on_demand_percentage_above_base_capacity", on_demand_percentage_above_base_capacity)
         if spot_allocation_strategy is not None:
-            pulumi.set(__self__, "spot_allocation_strategy", spot_allocation_strategy)
+            _setter("spot_allocation_strategy", spot_allocation_strategy)
         if spot_instance_pools is not None:
-            pulumi.set(__self__, "spot_instance_pools", spot_instance_pools)
+            _setter("spot_instance_pools", spot_instance_pools)
         if spot_max_price is not None:
-            pulumi.set(__self__, "spot_max_price", spot_max_price)
+            _setter("spot_max_price", spot_max_price)
 
     @property
     @pulumi.getter(name="onDemandAllocationStrategy")
@@ -533,14 +649,29 @@ class AutoScalingGroupLaunchTemplateOverridesArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  launch_template_specification: Optional[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']] = None,
                  weighted_capacity: Optional[pulumi.Input[str]] = None):
+        AutoScalingGroupLaunchTemplateOverridesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_requirements=instance_requirements,
+            instance_type=instance_type,
+            launch_template_specification=launch_template_specification,
+            weighted_capacity=weighted_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_requirements: Optional[pulumi.Input['AutoScalingGroupInstanceRequirementsArgs']] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             launch_template_specification: Optional[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']] = None,
+             weighted_capacity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_requirements is not None:
-            pulumi.set(__self__, "instance_requirements", instance_requirements)
+            _setter("instance_requirements", instance_requirements)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if launch_template_specification is not None:
-            pulumi.set(__self__, "launch_template_specification", launch_template_specification)
+            _setter("launch_template_specification", launch_template_specification)
         if weighted_capacity is not None:
-            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+            _setter("weighted_capacity", weighted_capacity)
 
     @property
     @pulumi.getter(name="instanceRequirements")
@@ -585,11 +716,24 @@ class AutoScalingGroupLaunchTemplateSpecificationArgs:
                  version: pulumi.Input[str],
                  launch_template_id: Optional[pulumi.Input[str]] = None,
                  launch_template_name: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "version", version)
+        AutoScalingGroupLaunchTemplateSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            version=version,
+            launch_template_id=launch_template_id,
+            launch_template_name=launch_template_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             version: pulumi.Input[str],
+             launch_template_id: Optional[pulumi.Input[str]] = None,
+             launch_template_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("version", version)
         if launch_template_id is not None:
-            pulumi.set(__self__, "launch_template_id", launch_template_id)
+            _setter("launch_template_id", launch_template_id)
         if launch_template_name is not None:
-            pulumi.set(__self__, "launch_template_name", launch_template_name)
+            _setter("launch_template_name", launch_template_name)
 
     @property
     @pulumi.getter
@@ -624,9 +768,20 @@ class AutoScalingGroupLaunchTemplateArgs:
     def __init__(__self__, *,
                  launch_template_specification: pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs'],
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLaunchTemplateOverridesArgs']]]] = None):
-        pulumi.set(__self__, "launch_template_specification", launch_template_specification)
+        AutoScalingGroupLaunchTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            launch_template_specification=launch_template_specification,
+            overrides=overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             launch_template_specification: pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs'],
+             overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLaunchTemplateOverridesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("launch_template_specification", launch_template_specification)
         if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
+            _setter("overrides", overrides)
 
     @property
     @pulumi.getter(name="launchTemplateSpecification")
@@ -657,18 +812,39 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
                  notification_metadata: Optional[pulumi.Input[str]] = None,
                  notification_target_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "lifecycle_hook_name", lifecycle_hook_name)
-        pulumi.set(__self__, "lifecycle_transition", lifecycle_transition)
+        AutoScalingGroupLifecycleHookSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lifecycle_hook_name=lifecycle_hook_name,
+            lifecycle_transition=lifecycle_transition,
+            default_result=default_result,
+            heartbeat_timeout=heartbeat_timeout,
+            notification_metadata=notification_metadata,
+            notification_target_arn=notification_target_arn,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lifecycle_hook_name: pulumi.Input[str],
+             lifecycle_transition: pulumi.Input[str],
+             default_result: Optional[pulumi.Input[str]] = None,
+             heartbeat_timeout: Optional[pulumi.Input[int]] = None,
+             notification_metadata: Optional[pulumi.Input[str]] = None,
+             notification_target_arn: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lifecycle_hook_name", lifecycle_hook_name)
+        _setter("lifecycle_transition", lifecycle_transition)
         if default_result is not None:
-            pulumi.set(__self__, "default_result", default_result)
+            _setter("default_result", default_result)
         if heartbeat_timeout is not None:
-            pulumi.set(__self__, "heartbeat_timeout", heartbeat_timeout)
+            _setter("heartbeat_timeout", heartbeat_timeout)
         if notification_metadata is not None:
-            pulumi.set(__self__, "notification_metadata", notification_metadata)
+            _setter("notification_metadata", notification_metadata)
         if notification_target_arn is not None:
-            pulumi.set(__self__, "notification_target_arn", notification_target_arn)
+            _setter("notification_target_arn", notification_target_arn)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="lifecycleHookName")
@@ -739,10 +915,21 @@ class AutoScalingGroupMemoryGiBPerVCpuRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
+        AutoScalingGroupMemoryGiBPerVCpuRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[pulumi.Input[float]] = None,
+             min: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -768,10 +955,21 @@ class AutoScalingGroupMemoryMiBRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        AutoScalingGroupMemoryMiBRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[pulumi.Input[int]] = None,
+             min: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -797,9 +995,20 @@ class AutoScalingGroupMetricsCollectionArgs:
     def __init__(__self__, *,
                  granularity: pulumi.Input[str],
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "granularity", granularity)
+        AutoScalingGroupMetricsCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            granularity=granularity,
+            metrics=metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             granularity: pulumi.Input[str],
+             metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("granularity", granularity)
         if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
+            _setter("metrics", metrics)
 
     @property
     @pulumi.getter
@@ -825,9 +1034,20 @@ class AutoScalingGroupMixedInstancesPolicyArgs:
     def __init__(__self__, *,
                  launch_template: pulumi.Input['AutoScalingGroupLaunchTemplateArgs'],
                  instances_distribution: Optional[pulumi.Input['AutoScalingGroupInstancesDistributionArgs']] = None):
-        pulumi.set(__self__, "launch_template", launch_template)
+        AutoScalingGroupMixedInstancesPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            launch_template=launch_template,
+            instances_distribution=instances_distribution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             launch_template: pulumi.Input['AutoScalingGroupLaunchTemplateArgs'],
+             instances_distribution: Optional[pulumi.Input['AutoScalingGroupInstancesDistributionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("launch_template", launch_template)
         if instances_distribution is not None:
-            pulumi.set(__self__, "instances_distribution", instances_distribution)
+            _setter("instances_distribution", instances_distribution)
 
     @property
     @pulumi.getter(name="launchTemplate")
@@ -853,10 +1073,21 @@ class AutoScalingGroupNetworkBandwidthGbpsRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
+        AutoScalingGroupNetworkBandwidthGbpsRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[pulumi.Input[float]] = None,
+             min: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -882,10 +1113,21 @@ class AutoScalingGroupNetworkInterfaceCountRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        AutoScalingGroupNetworkInterfaceCountRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[pulumi.Input[int]] = None,
+             min: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -911,9 +1153,20 @@ class AutoScalingGroupNotificationConfigurationArgs:
     def __init__(__self__, *,
                  topic_arn: pulumi.Input[str],
                  notification_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "topic_arn", topic_arn)
+        AutoScalingGroupNotificationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic_arn=topic_arn,
+            notification_types=notification_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic_arn: pulumi.Input[str],
+             notification_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("topic_arn", topic_arn)
         if notification_types is not None:
-            pulumi.set(__self__, "notification_types", notification_types)
+            _setter("notification_types", notification_types)
 
     @property
     @pulumi.getter(name="topicArn")
@@ -940,9 +1193,22 @@ class AutoScalingGroupTagPropertyArgs:
                  key: pulumi.Input[str],
                  propagate_at_launch: pulumi.Input[bool],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "propagate_at_launch", propagate_at_launch)
-        pulumi.set(__self__, "value", value)
+        AutoScalingGroupTagPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            propagate_at_launch=propagate_at_launch,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             propagate_at_launch: pulumi.Input[bool],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("propagate_at_launch", propagate_at_launch)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -977,10 +1243,21 @@ class AutoScalingGroupTotalLocalStorageGbRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
+        AutoScalingGroupTotalLocalStorageGbRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[pulumi.Input[float]] = None,
+             min: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -1006,10 +1283,21 @@ class AutoScalingGroupVCpuCountRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        AutoScalingGroupVCpuCountRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[pulumi.Input[int]] = None,
+             min: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -1044,13 +1332,28 @@ class LaunchConfigurationBlockDeviceMappingArgs:
         :param pulumi.Input[bool] no_device: Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
         :param pulumi.Input[str] virtual_name: The name of the virtual device.
         """
-        pulumi.set(__self__, "device_name", device_name)
+        LaunchConfigurationBlockDeviceMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            ebs=ebs,
+            no_device=no_device,
+            virtual_name=virtual_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: pulumi.Input[str],
+             ebs: Optional[pulumi.Input['LaunchConfigurationBlockDeviceArgs']] = None,
+             no_device: Optional[pulumi.Input[bool]] = None,
+             virtual_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("device_name", device_name)
         if ebs is not None:
-            pulumi.set(__self__, "ebs", ebs)
+            _setter("ebs", ebs)
         if no_device is not None:
-            pulumi.set(__self__, "no_device", no_device)
+            _setter("no_device", no_device)
         if virtual_name is not None:
-            pulumi.set(__self__, "virtual_name", virtual_name)
+            _setter("virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -1121,20 +1424,41 @@ class LaunchConfigurationBlockDeviceArgs:
         :param pulumi.Input[int] volume_size: The volume size, in GiBs.
         :param pulumi.Input[str] volume_type: The volume type.
         """
+        LaunchConfigurationBlockDeviceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_on_termination=delete_on_termination,
+            encrypted=encrypted,
+            iops=iops,
+            snapshot_id=snapshot_id,
+            throughput=throughput,
+            volume_size=volume_size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_on_termination: Optional[pulumi.Input[bool]] = None,
+             encrypted: Optional[pulumi.Input[bool]] = None,
+             iops: Optional[pulumi.Input[int]] = None,
+             snapshot_id: Optional[pulumi.Input[str]] = None,
+             throughput: Optional[pulumi.Input[int]] = None,
+             volume_size: Optional[pulumi.Input[int]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_on_termination is not None:
-            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+            _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
         if volume_size is not None:
-            pulumi.set(__self__, "volume_size", volume_size)
+            _setter("volume_size", volume_size)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
@@ -1233,12 +1557,25 @@ class LaunchConfigurationMetadataOptionsArgs:
         :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests.
         :param pulumi.Input[str] http_tokens: The state of token usage for your instance metadata requests.
         """
+        LaunchConfigurationMetadataOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_endpoint=http_endpoint,
+            http_put_response_hop_limit=http_put_response_hop_limit,
+            http_tokens=http_tokens,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_endpoint: Optional[pulumi.Input[str]] = None,
+             http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
+             http_tokens: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if http_endpoint is not None:
-            pulumi.set(__self__, "http_endpoint", http_endpoint)
+            _setter("http_endpoint", http_endpoint)
         if http_put_response_hop_limit is not None:
-            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+            _setter("http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
-            pulumi.set(__self__, "http_tokens", http_tokens)
+            _setter("http_tokens", http_tokens)
 
     @property
     @pulumi.getter(name="httpEndpoint")
@@ -1285,13 +1622,30 @@ class ScalingPolicyCustomizedMetricSpecificationArgs:
                  statistic: pulumi.Input[str],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDimensionArgs']]]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "statistic", statistic)
+        ScalingPolicyCustomizedMetricSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            namespace=namespace,
+            statistic=statistic,
+            dimensions=dimensions,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: pulumi.Input[str],
+             namespace: pulumi.Input[str],
+             statistic: pulumi.Input[str],
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDimensionArgs']]]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_name", metric_name)
+        _setter("namespace", namespace)
+        _setter("statistic", statistic)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter(name="metricName")
@@ -1347,15 +1701,32 @@ class ScalingPolicyMetricDataQueryArgs:
                  label: Optional[pulumi.Input[str]] = None,
                  metric_stat: Optional[pulumi.Input['ScalingPolicyMetricStatArgs']] = None,
                  return_data: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "id", id)
+        ScalingPolicyMetricDataQueryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            expression=expression,
+            label=label,
+            metric_stat=metric_stat,
+            return_data=return_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             expression: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             metric_stat: Optional[pulumi.Input['ScalingPolicyMetricStatArgs']] = None,
+             return_data: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if metric_stat is not None:
-            pulumi.set(__self__, "metric_stat", metric_stat)
+            _setter("metric_stat", metric_stat)
         if return_data is not None:
-            pulumi.set(__self__, "return_data", return_data)
+            _setter("return_data", return_data)
 
     @property
     @pulumi.getter
@@ -1408,8 +1779,19 @@ class ScalingPolicyMetricDimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ScalingPolicyMetricDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1436,10 +1818,23 @@ class ScalingPolicyMetricStatArgs:
                  metric: pulumi.Input['ScalingPolicyMetricArgs'],
                  stat: pulumi.Input[str],
                  unit: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "metric", metric)
-        pulumi.set(__self__, "stat", stat)
+        ScalingPolicyMetricStatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric=metric,
+            stat=stat,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric: pulumi.Input['ScalingPolicyMetricArgs'],
+             stat: pulumi.Input[str],
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric", metric)
+        _setter("stat", stat)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -1475,10 +1870,23 @@ class ScalingPolicyMetricArgs:
                  metric_name: pulumi.Input[str],
                  namespace: pulumi.Input[str],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDimensionArgs']]]] = None):
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "namespace", namespace)
+        ScalingPolicyMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            namespace=namespace,
+            dimensions=dimensions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: pulumi.Input[str],
+             namespace: pulumi.Input[str],
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDimensionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_name", metric_name)
+        _setter("namespace", namespace)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
 
     @property
     @pulumi.getter(name="metricName")
@@ -1513,9 +1921,20 @@ class ScalingPolicyPredefinedMetricSpecificationArgs:
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[str],
                  resource_label: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        ScalingPolicyPredefinedMetricSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            predefined_metric_type=predefined_metric_type,
+            resource_label=resource_label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             predefined_metric_type: pulumi.Input[str],
+             resource_label: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
-            pulumi.set(__self__, "resource_label", resource_label)
+            _setter("resource_label", resource_label)
 
     @property
     @pulumi.getter(name="predefinedMetricType")
@@ -1544,15 +1963,32 @@ class ScalingPolicyPredictiveScalingConfigurationArgs:
                  max_capacity_buffer: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  scheduling_buffer_time: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "metric_specifications", metric_specifications)
+        ScalingPolicyPredictiveScalingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_specifications=metric_specifications,
+            max_capacity_breach_behavior=max_capacity_breach_behavior,
+            max_capacity_buffer=max_capacity_buffer,
+            mode=mode,
+            scheduling_buffer_time=scheduling_buffer_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_specifications: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricSpecificationArgs']]],
+             max_capacity_breach_behavior: Optional[pulumi.Input[str]] = None,
+             max_capacity_buffer: Optional[pulumi.Input[int]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             scheduling_buffer_time: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_specifications", metric_specifications)
         if max_capacity_breach_behavior is not None:
-            pulumi.set(__self__, "max_capacity_breach_behavior", max_capacity_breach_behavior)
+            _setter("max_capacity_breach_behavior", max_capacity_breach_behavior)
         if max_capacity_buffer is not None:
-            pulumi.set(__self__, "max_capacity_buffer", max_capacity_buffer)
+            _setter("max_capacity_buffer", max_capacity_buffer)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if scheduling_buffer_time is not None:
-            pulumi.set(__self__, "scheduling_buffer_time", scheduling_buffer_time)
+            _setter("scheduling_buffer_time", scheduling_buffer_time)
 
     @property
     @pulumi.getter(name="metricSpecifications")
@@ -1604,7 +2040,16 @@ class ScalingPolicyPredictiveScalingConfigurationArgs:
 class ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs:
     def __init__(__self__, *,
                  metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDataQueryArgs']]]):
-        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+        ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_data_queries=metric_data_queries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDataQueryArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_data_queries", metric_data_queries)
 
     @property
     @pulumi.getter(name="metricDataQueries")
@@ -1620,7 +2065,16 @@ class ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs:
 class ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs:
     def __init__(__self__, *,
                  metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDataQueryArgs']]]):
-        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+        ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_data_queries=metric_data_queries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDataQueryArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_data_queries", metric_data_queries)
 
     @property
     @pulumi.getter(name="metricDataQueries")
@@ -1636,7 +2090,16 @@ class ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs:
 class ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs:
     def __init__(__self__, *,
                  metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDataQueryArgs']]]):
-        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+        ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_data_queries=metric_data_queries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDataQueryArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_data_queries", metric_data_queries)
 
     @property
     @pulumi.getter(name="metricDataQueries")
@@ -1658,19 +2121,40 @@ class ScalingPolicyPredictiveScalingMetricSpecificationArgs:
                  predefined_load_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs']] = None,
                  predefined_metric_pair_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedMetricPairArgs']] = None,
                  predefined_scaling_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs']] = None):
-        pulumi.set(__self__, "target_value", target_value)
+        ScalingPolicyPredictiveScalingMetricSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_value=target_value,
+            customized_capacity_metric_specification=customized_capacity_metric_specification,
+            customized_load_metric_specification=customized_load_metric_specification,
+            customized_scaling_metric_specification=customized_scaling_metric_specification,
+            predefined_load_metric_specification=predefined_load_metric_specification,
+            predefined_metric_pair_specification=predefined_metric_pair_specification,
+            predefined_scaling_metric_specification=predefined_scaling_metric_specification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_value: pulumi.Input[float],
+             customized_capacity_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs']] = None,
+             customized_load_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs']] = None,
+             customized_scaling_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs']] = None,
+             predefined_load_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs']] = None,
+             predefined_metric_pair_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedMetricPairArgs']] = None,
+             predefined_scaling_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_value", target_value)
         if customized_capacity_metric_specification is not None:
-            pulumi.set(__self__, "customized_capacity_metric_specification", customized_capacity_metric_specification)
+            _setter("customized_capacity_metric_specification", customized_capacity_metric_specification)
         if customized_load_metric_specification is not None:
-            pulumi.set(__self__, "customized_load_metric_specification", customized_load_metric_specification)
+            _setter("customized_load_metric_specification", customized_load_metric_specification)
         if customized_scaling_metric_specification is not None:
-            pulumi.set(__self__, "customized_scaling_metric_specification", customized_scaling_metric_specification)
+            _setter("customized_scaling_metric_specification", customized_scaling_metric_specification)
         if predefined_load_metric_specification is not None:
-            pulumi.set(__self__, "predefined_load_metric_specification", predefined_load_metric_specification)
+            _setter("predefined_load_metric_specification", predefined_load_metric_specification)
         if predefined_metric_pair_specification is not None:
-            pulumi.set(__self__, "predefined_metric_pair_specification", predefined_metric_pair_specification)
+            _setter("predefined_metric_pair_specification", predefined_metric_pair_specification)
         if predefined_scaling_metric_specification is not None:
-            pulumi.set(__self__, "predefined_scaling_metric_specification", predefined_scaling_metric_specification)
+            _setter("predefined_scaling_metric_specification", predefined_scaling_metric_specification)
 
     @property
     @pulumi.getter(name="targetValue")
@@ -1741,9 +2225,20 @@ class ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs:
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[str],
                  resource_label: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            predefined_metric_type=predefined_metric_type,
+            resource_label=resource_label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             predefined_metric_type: pulumi.Input[str],
+             resource_label: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
-            pulumi.set(__self__, "resource_label", resource_label)
+            _setter("resource_label", resource_label)
 
     @property
     @pulumi.getter(name="predefinedMetricType")
@@ -1769,9 +2264,20 @@ class ScalingPolicyPredictiveScalingPredefinedMetricPairArgs:
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[str],
                  resource_label: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        ScalingPolicyPredictiveScalingPredefinedMetricPairArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            predefined_metric_type=predefined_metric_type,
+            resource_label=resource_label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             predefined_metric_type: pulumi.Input[str],
+             resource_label: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
-            pulumi.set(__self__, "resource_label", resource_label)
+            _setter("resource_label", resource_label)
 
     @property
     @pulumi.getter(name="predefinedMetricType")
@@ -1797,9 +2303,20 @@ class ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs:
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[str],
                  resource_label: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            predefined_metric_type=predefined_metric_type,
+            resource_label=resource_label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             predefined_metric_type: pulumi.Input[str],
+             resource_label: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
-            pulumi.set(__self__, "resource_label", resource_label)
+            _setter("resource_label", resource_label)
 
     @property
     @pulumi.getter(name="predefinedMetricType")
@@ -1826,11 +2343,24 @@ class ScalingPolicyStepAdjustmentArgs:
                  scaling_adjustment: pulumi.Input[int],
                  metric_interval_lower_bound: Optional[pulumi.Input[float]] = None,
                  metric_interval_upper_bound: Optional[pulumi.Input[float]] = None):
-        pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
+        ScalingPolicyStepAdjustmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scaling_adjustment=scaling_adjustment,
+            metric_interval_lower_bound=metric_interval_lower_bound,
+            metric_interval_upper_bound=metric_interval_upper_bound,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scaling_adjustment: pulumi.Input[int],
+             metric_interval_lower_bound: Optional[pulumi.Input[float]] = None,
+             metric_interval_upper_bound: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scaling_adjustment", scaling_adjustment)
         if metric_interval_lower_bound is not None:
-            pulumi.set(__self__, "metric_interval_lower_bound", metric_interval_lower_bound)
+            _setter("metric_interval_lower_bound", metric_interval_lower_bound)
         if metric_interval_upper_bound is not None:
-            pulumi.set(__self__, "metric_interval_upper_bound", metric_interval_upper_bound)
+            _setter("metric_interval_upper_bound", metric_interval_upper_bound)
 
     @property
     @pulumi.getter(name="scalingAdjustment")
@@ -1867,13 +2397,28 @@ class ScalingPolicyTargetTrackingConfigurationArgs:
                  customized_metric_specification: Optional[pulumi.Input['ScalingPolicyCustomizedMetricSpecificationArgs']] = None,
                  disable_scale_in: Optional[pulumi.Input[bool]] = None,
                  predefined_metric_specification: Optional[pulumi.Input['ScalingPolicyPredefinedMetricSpecificationArgs']] = None):
-        pulumi.set(__self__, "target_value", target_value)
+        ScalingPolicyTargetTrackingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_value=target_value,
+            customized_metric_specification=customized_metric_specification,
+            disable_scale_in=disable_scale_in,
+            predefined_metric_specification=predefined_metric_specification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_value: pulumi.Input[float],
+             customized_metric_specification: Optional[pulumi.Input['ScalingPolicyCustomizedMetricSpecificationArgs']] = None,
+             disable_scale_in: Optional[pulumi.Input[bool]] = None,
+             predefined_metric_specification: Optional[pulumi.Input['ScalingPolicyPredefinedMetricSpecificationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_value", target_value)
         if customized_metric_specification is not None:
-            pulumi.set(__self__, "customized_metric_specification", customized_metric_specification)
+            _setter("customized_metric_specification", customized_metric_specification)
         if disable_scale_in is not None:
-            pulumi.set(__self__, "disable_scale_in", disable_scale_in)
+            _setter("disable_scale_in", disable_scale_in)
         if predefined_metric_specification is not None:
-            pulumi.set(__self__, "predefined_metric_specification", predefined_metric_specification)
+            _setter("predefined_metric_specification", predefined_metric_specification)
 
     @property
     @pulumi.getter(name="targetValue")
@@ -1916,8 +2461,17 @@ class ScalingPolicyTargetTrackingConfigurationArgs:
 class WarmPoolInstanceReusePolicyArgs:
     def __init__(__self__, *,
                  reuse_on_scale_in: Optional[pulumi.Input[bool]] = None):
+        WarmPoolInstanceReusePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reuse_on_scale_in=reuse_on_scale_in,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reuse_on_scale_in: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if reuse_on_scale_in is not None:
-            pulumi.set(__self__, "reuse_on_scale_in", reuse_on_scale_in)
+            _setter("reuse_on_scale_in", reuse_on_scale_in)
 
     @property
     @pulumi.getter(name="reuseOnScaleIn")

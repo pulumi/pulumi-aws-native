@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,8 +22,19 @@ class SchemaVersionInitArgs:
         The set of arguments for constructing a SchemaVersion resource.
         :param pulumi.Input[str] schema_definition: Complete definition of the schema in plain-text.
         """
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "schema_definition", schema_definition)
+        SchemaVersionInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema=schema,
+            schema_definition=schema_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema: pulumi.Input['SchemaVersionSchemaArgs'],
+             schema_definition: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schema", schema)
+        _setter("schema_definition", schema_definition)
 
     @property
     @pulumi.getter
@@ -81,6 +92,10 @@ class SchemaVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SchemaVersionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -97,6 +112,11 @@ class SchemaVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SchemaVersionInitArgs.__new__(SchemaVersionInitArgs)
 
+            if schema is not None and not isinstance(schema, SchemaVersionSchemaArgs):
+                schema = schema or {}
+                def _setter(key, value):
+                    schema[key] = value
+                SchemaVersionSchemaArgs._configure(_setter, **schema)
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema

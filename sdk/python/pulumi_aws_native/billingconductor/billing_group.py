@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,15 +27,34 @@ class BillingGroupArgs:
         The set of arguments for constructing a BillingGroup resource.
         :param pulumi.Input[str] primary_account_id: This account will act as a virtual payer account of the billing group
         """
-        pulumi.set(__self__, "account_grouping", account_grouping)
-        pulumi.set(__self__, "computation_preference", computation_preference)
-        pulumi.set(__self__, "primary_account_id", primary_account_id)
+        BillingGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_grouping=account_grouping,
+            computation_preference=computation_preference,
+            primary_account_id=primary_account_id,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_grouping: pulumi.Input['BillingGroupAccountGroupingArgs'],
+             computation_preference: pulumi.Input['BillingGroupComputationPreferenceArgs'],
+             primary_account_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['BillingGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_grouping", account_grouping)
+        _setter("computation_preference", computation_preference)
+        _setter("primary_account_id", primary_account_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountGrouping")
@@ -138,6 +157,10 @@ class BillingGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BillingGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -159,9 +182,19 @@ class BillingGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BillingGroupArgs.__new__(BillingGroupArgs)
 
+            if account_grouping is not None and not isinstance(account_grouping, BillingGroupAccountGroupingArgs):
+                account_grouping = account_grouping or {}
+                def _setter(key, value):
+                    account_grouping[key] = value
+                BillingGroupAccountGroupingArgs._configure(_setter, **account_grouping)
             if account_grouping is None and not opts.urn:
                 raise TypeError("Missing required property 'account_grouping'")
             __props__.__dict__["account_grouping"] = account_grouping
+            if computation_preference is not None and not isinstance(computation_preference, BillingGroupComputationPreferenceArgs):
+                computation_preference = computation_preference or {}
+                def _setter(key, value):
+                    computation_preference[key] = value
+                BillingGroupComputationPreferenceArgs._configure(_setter, **computation_preference)
             if computation_preference is None and not opts.urn:
                 raise TypeError("Missing required property 'computation_preference'")
             __props__.__dict__["computation_preference"] = computation_preference

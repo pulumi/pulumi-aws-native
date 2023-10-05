@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -86,10 +86,23 @@ class ConnectorDefinitionConnector(dict):
                  connector_arn: str,
                  id: str,
                  parameters: Optional[Any] = None):
-        pulumi.set(__self__, "connector_arn", connector_arn)
-        pulumi.set(__self__, "id", id)
+        ConnectorDefinitionConnector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_arn=connector_arn,
+            id=id,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_arn: str,
+             id: str,
+             parameters: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connector_arn", connector_arn)
+        _setter("id", id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="connectorArn")
@@ -111,7 +124,16 @@ class ConnectorDefinitionConnector(dict):
 class ConnectorDefinitionVersion(dict):
     def __init__(__self__, *,
                  connectors: Sequence['outputs.ConnectorDefinitionConnector']):
-        pulumi.set(__self__, "connectors", connectors)
+        ConnectorDefinitionVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connectors=connectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connectors: Sequence['outputs.ConnectorDefinitionConnector'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connectors", connectors)
 
     @property
     @pulumi.getter
@@ -142,10 +164,23 @@ class ConnectorDefinitionVersionConnector(dict):
                  connector_arn: str,
                  id: str,
                  parameters: Optional[Any] = None):
-        pulumi.set(__self__, "connector_arn", connector_arn)
-        pulumi.set(__self__, "id", id)
+        ConnectorDefinitionVersionConnector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_arn=connector_arn,
+            id=id,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_arn: str,
+             id: str,
+             parameters: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connector_arn", connector_arn)
+        _setter("id", id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="connectorArn")
@@ -191,11 +226,26 @@ class CoreDefinitionCore(dict):
                  id: str,
                  thing_arn: str,
                  sync_shadow: Optional[bool] = None):
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "thing_arn", thing_arn)
+        CoreDefinitionCore._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            id=id,
+            thing_arn=thing_arn,
+            sync_shadow=sync_shadow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: str,
+             id: str,
+             thing_arn: str,
+             sync_shadow: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_arn", certificate_arn)
+        _setter("id", id)
+        _setter("thing_arn", thing_arn)
         if sync_shadow is not None:
-            pulumi.set(__self__, "sync_shadow", sync_shadow)
+            _setter("sync_shadow", sync_shadow)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -222,7 +272,16 @@ class CoreDefinitionCore(dict):
 class CoreDefinitionVersion(dict):
     def __init__(__self__, *,
                  cores: Sequence['outputs.CoreDefinitionCore']):
-        pulumi.set(__self__, "cores", cores)
+        CoreDefinitionVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cores=cores,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cores: Sequence['outputs.CoreDefinitionCore'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cores", cores)
 
     @property
     @pulumi.getter
@@ -258,11 +317,26 @@ class CoreDefinitionVersionCore(dict):
                  id: str,
                  thing_arn: str,
                  sync_shadow: Optional[bool] = None):
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "thing_arn", thing_arn)
+        CoreDefinitionVersionCore._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            id=id,
+            thing_arn=thing_arn,
+            sync_shadow=sync_shadow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: str,
+             id: str,
+             thing_arn: str,
+             sync_shadow: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_arn", certificate_arn)
+        _setter("id", id)
+        _setter("thing_arn", thing_arn)
         if sync_shadow is not None:
-            pulumi.set(__self__, "sync_shadow", sync_shadow)
+            _setter("sync_shadow", sync_shadow)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -313,11 +387,26 @@ class DeviceDefinitionDevice(dict):
                  id: str,
                  thing_arn: str,
                  sync_shadow: Optional[bool] = None):
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "thing_arn", thing_arn)
+        DeviceDefinitionDevice._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            id=id,
+            thing_arn=thing_arn,
+            sync_shadow=sync_shadow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: str,
+             id: str,
+             thing_arn: str,
+             sync_shadow: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_arn", certificate_arn)
+        _setter("id", id)
+        _setter("thing_arn", thing_arn)
         if sync_shadow is not None:
-            pulumi.set(__self__, "sync_shadow", sync_shadow)
+            _setter("sync_shadow", sync_shadow)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -344,7 +433,16 @@ class DeviceDefinitionDevice(dict):
 class DeviceDefinitionVersion(dict):
     def __init__(__self__, *,
                  devices: Sequence['outputs.DeviceDefinitionDevice']):
-        pulumi.set(__self__, "devices", devices)
+        DeviceDefinitionVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            devices=devices,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             devices: Sequence['outputs.DeviceDefinitionDevice'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("devices", devices)
 
     @property
     @pulumi.getter
@@ -380,11 +478,26 @@ class DeviceDefinitionVersionDevice(dict):
                  id: str,
                  thing_arn: str,
                  sync_shadow: Optional[bool] = None):
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "thing_arn", thing_arn)
+        DeviceDefinitionVersionDevice._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            id=id,
+            thing_arn=thing_arn,
+            sync_shadow=sync_shadow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: str,
+             id: str,
+             thing_arn: str,
+             sync_shadow: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_arn", certificate_arn)
+        _setter("id", id)
+        _setter("thing_arn", thing_arn)
         if sync_shadow is not None:
-            pulumi.set(__self__, "sync_shadow", sync_shadow)
+            _setter("sync_shadow", sync_shadow)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -411,7 +524,16 @@ class DeviceDefinitionVersionDevice(dict):
 class FunctionDefinitionDefaultConfig(dict):
     def __init__(__self__, *,
                  execution: 'outputs.FunctionDefinitionExecution'):
-        pulumi.set(__self__, "execution", execution)
+        FunctionDefinitionDefaultConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            execution=execution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             execution: 'outputs.FunctionDefinitionExecution',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("execution", execution)
 
     @property
     @pulumi.getter
@@ -445,14 +567,29 @@ class FunctionDefinitionEnvironment(dict):
                  execution: Optional['outputs.FunctionDefinitionExecution'] = None,
                  resource_access_policies: Optional[Sequence['outputs.FunctionDefinitionResourceAccessPolicy']] = None,
                  variables: Optional[Any] = None):
+        FunctionDefinitionEnvironment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_sysfs=access_sysfs,
+            execution=execution,
+            resource_access_policies=resource_access_policies,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_sysfs: Optional[bool] = None,
+             execution: Optional['outputs.FunctionDefinitionExecution'] = None,
+             resource_access_policies: Optional[Sequence['outputs.FunctionDefinitionResourceAccessPolicy']] = None,
+             variables: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_sysfs is not None:
-            pulumi.set(__self__, "access_sysfs", access_sysfs)
+            _setter("access_sysfs", access_sysfs)
         if execution is not None:
-            pulumi.set(__self__, "execution", execution)
+            _setter("execution", execution)
         if resource_access_policies is not None:
-            pulumi.set(__self__, "resource_access_policies", resource_access_policies)
+            _setter("resource_access_policies", resource_access_policies)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="accessSysfs")
@@ -499,10 +636,21 @@ class FunctionDefinitionExecution(dict):
     def __init__(__self__, *,
                  isolation_mode: Optional[str] = None,
                  run_as: Optional['outputs.FunctionDefinitionRunAs'] = None):
+        FunctionDefinitionExecution._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            isolation_mode=isolation_mode,
+            run_as=run_as,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             isolation_mode: Optional[str] = None,
+             run_as: Optional['outputs.FunctionDefinitionRunAs'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if isolation_mode is not None:
-            pulumi.set(__self__, "isolation_mode", isolation_mode)
+            _setter("isolation_mode", isolation_mode)
         if run_as is not None:
-            pulumi.set(__self__, "run_as", run_as)
+            _setter("run_as", run_as)
 
     @property
     @pulumi.getter(name="isolationMode")
@@ -540,9 +688,22 @@ class FunctionDefinitionFunction(dict):
                  function_arn: str,
                  function_configuration: 'outputs.FunctionDefinitionFunctionConfiguration',
                  id: str):
-        pulumi.set(__self__, "function_arn", function_arn)
-        pulumi.set(__self__, "function_configuration", function_configuration)
-        pulumi.set(__self__, "id", id)
+        FunctionDefinitionFunction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_arn=function_arn,
+            function_configuration=function_configuration,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_arn: str,
+             function_configuration: 'outputs.FunctionDefinitionFunctionConfiguration',
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_arn", function_arn)
+        _setter("function_configuration", function_configuration)
+        _setter("id", id)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -591,20 +752,41 @@ class FunctionDefinitionFunctionConfiguration(dict):
                  memory_size: Optional[int] = None,
                  pinned: Optional[bool] = None,
                  timeout: Optional[int] = None):
+        FunctionDefinitionFunctionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoding_type=encoding_type,
+            environment=environment,
+            exec_args=exec_args,
+            executable=executable,
+            memory_size=memory_size,
+            pinned=pinned,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoding_type: Optional[str] = None,
+             environment: Optional['outputs.FunctionDefinitionEnvironment'] = None,
+             exec_args: Optional[str] = None,
+             executable: Optional[str] = None,
+             memory_size: Optional[int] = None,
+             pinned: Optional[bool] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encoding_type is not None:
-            pulumi.set(__self__, "encoding_type", encoding_type)
+            _setter("encoding_type", encoding_type)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if exec_args is not None:
-            pulumi.set(__self__, "exec_args", exec_args)
+            _setter("exec_args", exec_args)
         if executable is not None:
-            pulumi.set(__self__, "executable", executable)
+            _setter("executable", executable)
         if memory_size is not None:
-            pulumi.set(__self__, "memory_size", memory_size)
+            _setter("memory_size", memory_size)
         if pinned is not None:
-            pulumi.set(__self__, "pinned", pinned)
+            _setter("pinned", pinned)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="encodingType")
@@ -664,9 +846,20 @@ class FunctionDefinitionResourceAccessPolicy(dict):
     def __init__(__self__, *,
                  resource_id: str,
                  permission: Optional[str] = None):
-        pulumi.set(__self__, "resource_id", resource_id)
+        FunctionDefinitionResourceAccessPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            permission=permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: str,
+             permission: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_id", resource_id)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -684,10 +877,21 @@ class FunctionDefinitionRunAs(dict):
     def __init__(__self__, *,
                  gid: Optional[int] = None,
                  uid: Optional[int] = None):
+        FunctionDefinitionRunAs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gid=gid,
+            uid=uid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gid: Optional[int] = None,
+             uid: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if gid is not None:
-            pulumi.set(__self__, "gid", gid)
+            _setter("gid", gid)
         if uid is not None:
-            pulumi.set(__self__, "uid", uid)
+            _setter("uid", uid)
 
     @property
     @pulumi.getter
@@ -722,9 +926,20 @@ class FunctionDefinitionVersion(dict):
     def __init__(__self__, *,
                  functions: Sequence['outputs.FunctionDefinitionFunction'],
                  default_config: Optional['outputs.FunctionDefinitionDefaultConfig'] = None):
-        pulumi.set(__self__, "functions", functions)
+        FunctionDefinitionVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            functions=functions,
+            default_config=default_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             functions: Sequence['outputs.FunctionDefinitionFunction'],
+             default_config: Optional['outputs.FunctionDefinitionDefaultConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("functions", functions)
         if default_config is not None:
-            pulumi.set(__self__, "default_config", default_config)
+            _setter("default_config", default_config)
 
     @property
     @pulumi.getter
@@ -741,7 +956,16 @@ class FunctionDefinitionVersion(dict):
 class FunctionDefinitionVersionDefaultConfig(dict):
     def __init__(__self__, *,
                  execution: 'outputs.FunctionDefinitionVersionExecution'):
-        pulumi.set(__self__, "execution", execution)
+        FunctionDefinitionVersionDefaultConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            execution=execution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             execution: 'outputs.FunctionDefinitionVersionExecution',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("execution", execution)
 
     @property
     @pulumi.getter
@@ -775,14 +999,29 @@ class FunctionDefinitionVersionEnvironment(dict):
                  execution: Optional['outputs.FunctionDefinitionVersionExecution'] = None,
                  resource_access_policies: Optional[Sequence['outputs.FunctionDefinitionVersionResourceAccessPolicy']] = None,
                  variables: Optional[Any] = None):
+        FunctionDefinitionVersionEnvironment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_sysfs=access_sysfs,
+            execution=execution,
+            resource_access_policies=resource_access_policies,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_sysfs: Optional[bool] = None,
+             execution: Optional['outputs.FunctionDefinitionVersionExecution'] = None,
+             resource_access_policies: Optional[Sequence['outputs.FunctionDefinitionVersionResourceAccessPolicy']] = None,
+             variables: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_sysfs is not None:
-            pulumi.set(__self__, "access_sysfs", access_sysfs)
+            _setter("access_sysfs", access_sysfs)
         if execution is not None:
-            pulumi.set(__self__, "execution", execution)
+            _setter("execution", execution)
         if resource_access_policies is not None:
-            pulumi.set(__self__, "resource_access_policies", resource_access_policies)
+            _setter("resource_access_policies", resource_access_policies)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="accessSysfs")
@@ -829,10 +1068,21 @@ class FunctionDefinitionVersionExecution(dict):
     def __init__(__self__, *,
                  isolation_mode: Optional[str] = None,
                  run_as: Optional['outputs.FunctionDefinitionVersionRunAs'] = None):
+        FunctionDefinitionVersionExecution._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            isolation_mode=isolation_mode,
+            run_as=run_as,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             isolation_mode: Optional[str] = None,
+             run_as: Optional['outputs.FunctionDefinitionVersionRunAs'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if isolation_mode is not None:
-            pulumi.set(__self__, "isolation_mode", isolation_mode)
+            _setter("isolation_mode", isolation_mode)
         if run_as is not None:
-            pulumi.set(__self__, "run_as", run_as)
+            _setter("run_as", run_as)
 
     @property
     @pulumi.getter(name="isolationMode")
@@ -870,9 +1120,22 @@ class FunctionDefinitionVersionFunction(dict):
                  function_arn: str,
                  function_configuration: 'outputs.FunctionDefinitionVersionFunctionConfiguration',
                  id: str):
-        pulumi.set(__self__, "function_arn", function_arn)
-        pulumi.set(__self__, "function_configuration", function_configuration)
-        pulumi.set(__self__, "id", id)
+        FunctionDefinitionVersionFunction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_arn=function_arn,
+            function_configuration=function_configuration,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_arn: str,
+             function_configuration: 'outputs.FunctionDefinitionVersionFunctionConfiguration',
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_arn", function_arn)
+        _setter("function_configuration", function_configuration)
+        _setter("id", id)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -921,20 +1184,41 @@ class FunctionDefinitionVersionFunctionConfiguration(dict):
                  memory_size: Optional[int] = None,
                  pinned: Optional[bool] = None,
                  timeout: Optional[int] = None):
+        FunctionDefinitionVersionFunctionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoding_type=encoding_type,
+            environment=environment,
+            exec_args=exec_args,
+            executable=executable,
+            memory_size=memory_size,
+            pinned=pinned,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoding_type: Optional[str] = None,
+             environment: Optional['outputs.FunctionDefinitionVersionEnvironment'] = None,
+             exec_args: Optional[str] = None,
+             executable: Optional[str] = None,
+             memory_size: Optional[int] = None,
+             pinned: Optional[bool] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encoding_type is not None:
-            pulumi.set(__self__, "encoding_type", encoding_type)
+            _setter("encoding_type", encoding_type)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if exec_args is not None:
-            pulumi.set(__self__, "exec_args", exec_args)
+            _setter("exec_args", exec_args)
         if executable is not None:
-            pulumi.set(__self__, "executable", executable)
+            _setter("executable", executable)
         if memory_size is not None:
-            pulumi.set(__self__, "memory_size", memory_size)
+            _setter("memory_size", memory_size)
         if pinned is not None:
-            pulumi.set(__self__, "pinned", pinned)
+            _setter("pinned", pinned)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="encodingType")
@@ -994,9 +1278,20 @@ class FunctionDefinitionVersionResourceAccessPolicy(dict):
     def __init__(__self__, *,
                  resource_id: str,
                  permission: Optional[str] = None):
-        pulumi.set(__self__, "resource_id", resource_id)
+        FunctionDefinitionVersionResourceAccessPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            permission=permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: str,
+             permission: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_id", resource_id)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -1014,10 +1309,21 @@ class FunctionDefinitionVersionRunAs(dict):
     def __init__(__self__, *,
                  gid: Optional[int] = None,
                  uid: Optional[int] = None):
+        FunctionDefinitionVersionRunAs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gid=gid,
+            uid=uid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gid: Optional[int] = None,
+             uid: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if gid is not None:
-            pulumi.set(__self__, "gid", gid)
+            _setter("gid", gid)
         if uid is not None:
-            pulumi.set(__self__, "uid", uid)
+            _setter("uid", uid)
 
     @property
     @pulumi.getter
@@ -1069,20 +1375,41 @@ class GroupVersion(dict):
                  logger_definition_version_arn: Optional[str] = None,
                  resource_definition_version_arn: Optional[str] = None,
                  subscription_definition_version_arn: Optional[str] = None):
+        GroupVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_definition_version_arn=connector_definition_version_arn,
+            core_definition_version_arn=core_definition_version_arn,
+            device_definition_version_arn=device_definition_version_arn,
+            function_definition_version_arn=function_definition_version_arn,
+            logger_definition_version_arn=logger_definition_version_arn,
+            resource_definition_version_arn=resource_definition_version_arn,
+            subscription_definition_version_arn=subscription_definition_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_definition_version_arn: Optional[str] = None,
+             core_definition_version_arn: Optional[str] = None,
+             device_definition_version_arn: Optional[str] = None,
+             function_definition_version_arn: Optional[str] = None,
+             logger_definition_version_arn: Optional[str] = None,
+             resource_definition_version_arn: Optional[str] = None,
+             subscription_definition_version_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connector_definition_version_arn is not None:
-            pulumi.set(__self__, "connector_definition_version_arn", connector_definition_version_arn)
+            _setter("connector_definition_version_arn", connector_definition_version_arn)
         if core_definition_version_arn is not None:
-            pulumi.set(__self__, "core_definition_version_arn", core_definition_version_arn)
+            _setter("core_definition_version_arn", core_definition_version_arn)
         if device_definition_version_arn is not None:
-            pulumi.set(__self__, "device_definition_version_arn", device_definition_version_arn)
+            _setter("device_definition_version_arn", device_definition_version_arn)
         if function_definition_version_arn is not None:
-            pulumi.set(__self__, "function_definition_version_arn", function_definition_version_arn)
+            _setter("function_definition_version_arn", function_definition_version_arn)
         if logger_definition_version_arn is not None:
-            pulumi.set(__self__, "logger_definition_version_arn", logger_definition_version_arn)
+            _setter("logger_definition_version_arn", logger_definition_version_arn)
         if resource_definition_version_arn is not None:
-            pulumi.set(__self__, "resource_definition_version_arn", resource_definition_version_arn)
+            _setter("resource_definition_version_arn", resource_definition_version_arn)
         if subscription_definition_version_arn is not None:
-            pulumi.set(__self__, "subscription_definition_version_arn", subscription_definition_version_arn)
+            _setter("subscription_definition_version_arn", subscription_definition_version_arn)
 
     @property
     @pulumi.getter(name="connectorDefinitionVersionArn")
@@ -1128,12 +1455,29 @@ class LoggerDefinitionLogger(dict):
                  level: str,
                  type: str,
                  space: Optional[int] = None):
-        pulumi.set(__self__, "component", component)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "level", level)
-        pulumi.set(__self__, "type", type)
+        LoggerDefinitionLogger._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component=component,
+            id=id,
+            level=level,
+            type=type,
+            space=space,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component: str,
+             id: str,
+             level: str,
+             type: str,
+             space: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("component", component)
+        _setter("id", id)
+        _setter("level", level)
+        _setter("type", type)
         if space is not None:
-            pulumi.set(__self__, "space", space)
+            _setter("space", space)
 
     @property
     @pulumi.getter
@@ -1165,7 +1509,16 @@ class LoggerDefinitionLogger(dict):
 class LoggerDefinitionVersion(dict):
     def __init__(__self__, *,
                  loggers: Sequence['outputs.LoggerDefinitionLogger']):
-        pulumi.set(__self__, "loggers", loggers)
+        LoggerDefinitionVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            loggers=loggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             loggers: Sequence['outputs.LoggerDefinitionLogger'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("loggers", loggers)
 
     @property
     @pulumi.getter
@@ -1181,12 +1534,29 @@ class LoggerDefinitionVersionLogger(dict):
                  level: str,
                  type: str,
                  space: Optional[int] = None):
-        pulumi.set(__self__, "component", component)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "level", level)
-        pulumi.set(__self__, "type", type)
+        LoggerDefinitionVersionLogger._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component=component,
+            id=id,
+            level=level,
+            type=type,
+            space=space,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component: str,
+             id: str,
+             level: str,
+             type: str,
+             space: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("component", component)
+        _setter("id", id)
+        _setter("level", level)
+        _setter("type", type)
         if space is not None:
-            pulumi.set(__self__, "space", space)
+            _setter("space", space)
 
     @property
     @pulumi.getter
@@ -1238,9 +1608,20 @@ class ResourceDefinitionGroupOwnerSetting(dict):
     def __init__(__self__, *,
                  auto_add_group_owner: bool,
                  group_owner: Optional[str] = None):
-        pulumi.set(__self__, "auto_add_group_owner", auto_add_group_owner)
+        ResourceDefinitionGroupOwnerSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_add_group_owner=auto_add_group_owner,
+            group_owner=group_owner,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_add_group_owner: bool,
+             group_owner: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_add_group_owner", auto_add_group_owner)
         if group_owner is not None:
-            pulumi.set(__self__, "group_owner", group_owner)
+            _setter("group_owner", group_owner)
 
     @property
     @pulumi.getter(name="autoAddGroupOwner")
@@ -1277,9 +1658,20 @@ class ResourceDefinitionLocalDeviceResourceData(dict):
     def __init__(__self__, *,
                  source_path: str,
                  group_owner_setting: Optional['outputs.ResourceDefinitionGroupOwnerSetting'] = None):
-        pulumi.set(__self__, "source_path", source_path)
+        ResourceDefinitionLocalDeviceResourceData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_path=source_path,
+            group_owner_setting=group_owner_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_path: str,
+             group_owner_setting: Optional['outputs.ResourceDefinitionGroupOwnerSetting'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_path", source_path)
         if group_owner_setting is not None:
-            pulumi.set(__self__, "group_owner_setting", group_owner_setting)
+            _setter("group_owner_setting", group_owner_setting)
 
     @property
     @pulumi.getter(name="sourcePath")
@@ -1319,10 +1711,23 @@ class ResourceDefinitionLocalVolumeResourceData(dict):
                  destination_path: str,
                  source_path: str,
                  group_owner_setting: Optional['outputs.ResourceDefinitionGroupOwnerSetting'] = None):
-        pulumi.set(__self__, "destination_path", destination_path)
-        pulumi.set(__self__, "source_path", source_path)
+        ResourceDefinitionLocalVolumeResourceData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_path=destination_path,
+            source_path=source_path,
+            group_owner_setting=group_owner_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_path: str,
+             source_path: str,
+             group_owner_setting: Optional['outputs.ResourceDefinitionGroupOwnerSetting'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_path", destination_path)
+        _setter("source_path", source_path)
         if group_owner_setting is not None:
-            pulumi.set(__self__, "group_owner_setting", group_owner_setting)
+            _setter("group_owner_setting", group_owner_setting)
 
     @property
     @pulumi.getter(name="destinationPath")
@@ -1373,16 +1778,33 @@ class ResourceDefinitionResourceDataContainer(dict):
                  s3_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionS3MachineLearningModelResourceData'] = None,
                  sage_maker_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionSageMakerMachineLearningModelResourceData'] = None,
                  secrets_manager_secret_resource_data: Optional['outputs.ResourceDefinitionSecretsManagerSecretResourceData'] = None):
+        ResourceDefinitionResourceDataContainer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            local_device_resource_data=local_device_resource_data,
+            local_volume_resource_data=local_volume_resource_data,
+            s3_machine_learning_model_resource_data=s3_machine_learning_model_resource_data,
+            sage_maker_machine_learning_model_resource_data=sage_maker_machine_learning_model_resource_data,
+            secrets_manager_secret_resource_data=secrets_manager_secret_resource_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             local_device_resource_data: Optional['outputs.ResourceDefinitionLocalDeviceResourceData'] = None,
+             local_volume_resource_data: Optional['outputs.ResourceDefinitionLocalVolumeResourceData'] = None,
+             s3_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionS3MachineLearningModelResourceData'] = None,
+             sage_maker_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionSageMakerMachineLearningModelResourceData'] = None,
+             secrets_manager_secret_resource_data: Optional['outputs.ResourceDefinitionSecretsManagerSecretResourceData'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if local_device_resource_data is not None:
-            pulumi.set(__self__, "local_device_resource_data", local_device_resource_data)
+            _setter("local_device_resource_data", local_device_resource_data)
         if local_volume_resource_data is not None:
-            pulumi.set(__self__, "local_volume_resource_data", local_volume_resource_data)
+            _setter("local_volume_resource_data", local_volume_resource_data)
         if s3_machine_learning_model_resource_data is not None:
-            pulumi.set(__self__, "s3_machine_learning_model_resource_data", s3_machine_learning_model_resource_data)
+            _setter("s3_machine_learning_model_resource_data", s3_machine_learning_model_resource_data)
         if sage_maker_machine_learning_model_resource_data is not None:
-            pulumi.set(__self__, "sage_maker_machine_learning_model_resource_data", sage_maker_machine_learning_model_resource_data)
+            _setter("sage_maker_machine_learning_model_resource_data", sage_maker_machine_learning_model_resource_data)
         if secrets_manager_secret_resource_data is not None:
-            pulumi.set(__self__, "secrets_manager_secret_resource_data", secrets_manager_secret_resource_data)
+            _setter("secrets_manager_secret_resource_data", secrets_manager_secret_resource_data)
 
     @property
     @pulumi.getter(name="localDeviceResourceData")
@@ -1434,8 +1856,19 @@ class ResourceDefinitionResourceDownloadOwnerSetting(dict):
     def __init__(__self__, *,
                  group_owner: str,
                  group_permission: str):
-        pulumi.set(__self__, "group_owner", group_owner)
-        pulumi.set(__self__, "group_permission", group_permission)
+        ResourceDefinitionResourceDownloadOwnerSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_owner=group_owner,
+            group_permission=group_permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_owner: str,
+             group_permission: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_owner", group_owner)
+        _setter("group_permission", group_permission)
 
     @property
     @pulumi.getter(name="groupOwner")
@@ -1471,9 +1904,22 @@ class ResourceDefinitionResourceInstance(dict):
                  id: str,
                  name: str,
                  resource_data_container: 'outputs.ResourceDefinitionResourceDataContainer'):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_data_container", resource_data_container)
+        ResourceDefinitionResourceInstance._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            resource_data_container=resource_data_container,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             resource_data_container: 'outputs.ResourceDefinitionResourceDataContainer',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("resource_data_container", resource_data_container)
 
     @property
     @pulumi.getter
@@ -1518,10 +1964,23 @@ class ResourceDefinitionS3MachineLearningModelResourceData(dict):
                  destination_path: str,
                  s3_uri: str,
                  owner_setting: Optional['outputs.ResourceDefinitionResourceDownloadOwnerSetting'] = None):
-        pulumi.set(__self__, "destination_path", destination_path)
-        pulumi.set(__self__, "s3_uri", s3_uri)
+        ResourceDefinitionS3MachineLearningModelResourceData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_path=destination_path,
+            s3_uri=s3_uri,
+            owner_setting=owner_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_path: str,
+             s3_uri: str,
+             owner_setting: Optional['outputs.ResourceDefinitionResourceDownloadOwnerSetting'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_path", destination_path)
+        _setter("s3_uri", s3_uri)
         if owner_setting is not None:
-            pulumi.set(__self__, "owner_setting", owner_setting)
+            _setter("owner_setting", owner_setting)
 
     @property
     @pulumi.getter(name="destinationPath")
@@ -1566,10 +2025,23 @@ class ResourceDefinitionSageMakerMachineLearningModelResourceData(dict):
                  destination_path: str,
                  sage_maker_job_arn: str,
                  owner_setting: Optional['outputs.ResourceDefinitionResourceDownloadOwnerSetting'] = None):
-        pulumi.set(__self__, "destination_path", destination_path)
-        pulumi.set(__self__, "sage_maker_job_arn", sage_maker_job_arn)
+        ResourceDefinitionSageMakerMachineLearningModelResourceData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_path=destination_path,
+            sage_maker_job_arn=sage_maker_job_arn,
+            owner_setting=owner_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_path: str,
+             sage_maker_job_arn: str,
+             owner_setting: Optional['outputs.ResourceDefinitionResourceDownloadOwnerSetting'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_path", destination_path)
+        _setter("sage_maker_job_arn", sage_maker_job_arn)
         if owner_setting is not None:
-            pulumi.set(__self__, "owner_setting", owner_setting)
+            _setter("owner_setting", owner_setting)
 
     @property
     @pulumi.getter(name="destinationPath")
@@ -1609,9 +2081,20 @@ class ResourceDefinitionSecretsManagerSecretResourceData(dict):
     def __init__(__self__, *,
                  arn: str,
                  additional_staging_labels_to_download: Optional[Sequence[str]] = None):
-        pulumi.set(__self__, "arn", arn)
+        ResourceDefinitionSecretsManagerSecretResourceData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            additional_staging_labels_to_download=additional_staging_labels_to_download,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             additional_staging_labels_to_download: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
         if additional_staging_labels_to_download is not None:
-            pulumi.set(__self__, "additional_staging_labels_to_download", additional_staging_labels_to_download)
+            _setter("additional_staging_labels_to_download", additional_staging_labels_to_download)
 
     @property
     @pulumi.getter
@@ -1628,7 +2111,16 @@ class ResourceDefinitionSecretsManagerSecretResourceData(dict):
 class ResourceDefinitionVersion(dict):
     def __init__(__self__, *,
                  resources: Sequence['outputs.ResourceDefinitionResourceInstance']):
-        pulumi.set(__self__, "resources", resources)
+        ResourceDefinitionVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resources=resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resources: Sequence['outputs.ResourceDefinitionResourceInstance'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resources", resources)
 
     @property
     @pulumi.getter
@@ -1660,9 +2152,20 @@ class ResourceDefinitionVersionGroupOwnerSetting(dict):
     def __init__(__self__, *,
                  auto_add_group_owner: bool,
                  group_owner: Optional[str] = None):
-        pulumi.set(__self__, "auto_add_group_owner", auto_add_group_owner)
+        ResourceDefinitionVersionGroupOwnerSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_add_group_owner=auto_add_group_owner,
+            group_owner=group_owner,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_add_group_owner: bool,
+             group_owner: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_add_group_owner", auto_add_group_owner)
         if group_owner is not None:
-            pulumi.set(__self__, "group_owner", group_owner)
+            _setter("group_owner", group_owner)
 
     @property
     @pulumi.getter(name="autoAddGroupOwner")
@@ -1699,9 +2202,20 @@ class ResourceDefinitionVersionLocalDeviceResourceData(dict):
     def __init__(__self__, *,
                  source_path: str,
                  group_owner_setting: Optional['outputs.ResourceDefinitionVersionGroupOwnerSetting'] = None):
-        pulumi.set(__self__, "source_path", source_path)
+        ResourceDefinitionVersionLocalDeviceResourceData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_path=source_path,
+            group_owner_setting=group_owner_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_path: str,
+             group_owner_setting: Optional['outputs.ResourceDefinitionVersionGroupOwnerSetting'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_path", source_path)
         if group_owner_setting is not None:
-            pulumi.set(__self__, "group_owner_setting", group_owner_setting)
+            _setter("group_owner_setting", group_owner_setting)
 
     @property
     @pulumi.getter(name="sourcePath")
@@ -1741,10 +2255,23 @@ class ResourceDefinitionVersionLocalVolumeResourceData(dict):
                  destination_path: str,
                  source_path: str,
                  group_owner_setting: Optional['outputs.ResourceDefinitionVersionGroupOwnerSetting'] = None):
-        pulumi.set(__self__, "destination_path", destination_path)
-        pulumi.set(__self__, "source_path", source_path)
+        ResourceDefinitionVersionLocalVolumeResourceData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_path=destination_path,
+            source_path=source_path,
+            group_owner_setting=group_owner_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_path: str,
+             source_path: str,
+             group_owner_setting: Optional['outputs.ResourceDefinitionVersionGroupOwnerSetting'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_path", destination_path)
+        _setter("source_path", source_path)
         if group_owner_setting is not None:
-            pulumi.set(__self__, "group_owner_setting", group_owner_setting)
+            _setter("group_owner_setting", group_owner_setting)
 
     @property
     @pulumi.getter(name="destinationPath")
@@ -1795,16 +2322,33 @@ class ResourceDefinitionVersionResourceDataContainer(dict):
                  s3_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionVersionS3MachineLearningModelResourceData'] = None,
                  sage_maker_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionVersionSageMakerMachineLearningModelResourceData'] = None,
                  secrets_manager_secret_resource_data: Optional['outputs.ResourceDefinitionVersionSecretsManagerSecretResourceData'] = None):
+        ResourceDefinitionVersionResourceDataContainer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            local_device_resource_data=local_device_resource_data,
+            local_volume_resource_data=local_volume_resource_data,
+            s3_machine_learning_model_resource_data=s3_machine_learning_model_resource_data,
+            sage_maker_machine_learning_model_resource_data=sage_maker_machine_learning_model_resource_data,
+            secrets_manager_secret_resource_data=secrets_manager_secret_resource_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             local_device_resource_data: Optional['outputs.ResourceDefinitionVersionLocalDeviceResourceData'] = None,
+             local_volume_resource_data: Optional['outputs.ResourceDefinitionVersionLocalVolumeResourceData'] = None,
+             s3_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionVersionS3MachineLearningModelResourceData'] = None,
+             sage_maker_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionVersionSageMakerMachineLearningModelResourceData'] = None,
+             secrets_manager_secret_resource_data: Optional['outputs.ResourceDefinitionVersionSecretsManagerSecretResourceData'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if local_device_resource_data is not None:
-            pulumi.set(__self__, "local_device_resource_data", local_device_resource_data)
+            _setter("local_device_resource_data", local_device_resource_data)
         if local_volume_resource_data is not None:
-            pulumi.set(__self__, "local_volume_resource_data", local_volume_resource_data)
+            _setter("local_volume_resource_data", local_volume_resource_data)
         if s3_machine_learning_model_resource_data is not None:
-            pulumi.set(__self__, "s3_machine_learning_model_resource_data", s3_machine_learning_model_resource_data)
+            _setter("s3_machine_learning_model_resource_data", s3_machine_learning_model_resource_data)
         if sage_maker_machine_learning_model_resource_data is not None:
-            pulumi.set(__self__, "sage_maker_machine_learning_model_resource_data", sage_maker_machine_learning_model_resource_data)
+            _setter("sage_maker_machine_learning_model_resource_data", sage_maker_machine_learning_model_resource_data)
         if secrets_manager_secret_resource_data is not None:
-            pulumi.set(__self__, "secrets_manager_secret_resource_data", secrets_manager_secret_resource_data)
+            _setter("secrets_manager_secret_resource_data", secrets_manager_secret_resource_data)
 
     @property
     @pulumi.getter(name="localDeviceResourceData")
@@ -1856,8 +2400,19 @@ class ResourceDefinitionVersionResourceDownloadOwnerSetting(dict):
     def __init__(__self__, *,
                  group_owner: str,
                  group_permission: str):
-        pulumi.set(__self__, "group_owner", group_owner)
-        pulumi.set(__self__, "group_permission", group_permission)
+        ResourceDefinitionVersionResourceDownloadOwnerSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_owner=group_owner,
+            group_permission=group_permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_owner: str,
+             group_permission: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_owner", group_owner)
+        _setter("group_permission", group_permission)
 
     @property
     @pulumi.getter(name="groupOwner")
@@ -1893,9 +2448,22 @@ class ResourceDefinitionVersionResourceInstance(dict):
                  id: str,
                  name: str,
                  resource_data_container: 'outputs.ResourceDefinitionVersionResourceDataContainer'):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_data_container", resource_data_container)
+        ResourceDefinitionVersionResourceInstance._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            resource_data_container=resource_data_container,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             resource_data_container: 'outputs.ResourceDefinitionVersionResourceDataContainer',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("resource_data_container", resource_data_container)
 
     @property
     @pulumi.getter
@@ -1940,10 +2508,23 @@ class ResourceDefinitionVersionS3MachineLearningModelResourceData(dict):
                  destination_path: str,
                  s3_uri: str,
                  owner_setting: Optional['outputs.ResourceDefinitionVersionResourceDownloadOwnerSetting'] = None):
-        pulumi.set(__self__, "destination_path", destination_path)
-        pulumi.set(__self__, "s3_uri", s3_uri)
+        ResourceDefinitionVersionS3MachineLearningModelResourceData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_path=destination_path,
+            s3_uri=s3_uri,
+            owner_setting=owner_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_path: str,
+             s3_uri: str,
+             owner_setting: Optional['outputs.ResourceDefinitionVersionResourceDownloadOwnerSetting'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_path", destination_path)
+        _setter("s3_uri", s3_uri)
         if owner_setting is not None:
-            pulumi.set(__self__, "owner_setting", owner_setting)
+            _setter("owner_setting", owner_setting)
 
     @property
     @pulumi.getter(name="destinationPath")
@@ -1988,10 +2569,23 @@ class ResourceDefinitionVersionSageMakerMachineLearningModelResourceData(dict):
                  destination_path: str,
                  sage_maker_job_arn: str,
                  owner_setting: Optional['outputs.ResourceDefinitionVersionResourceDownloadOwnerSetting'] = None):
-        pulumi.set(__self__, "destination_path", destination_path)
-        pulumi.set(__self__, "sage_maker_job_arn", sage_maker_job_arn)
+        ResourceDefinitionVersionSageMakerMachineLearningModelResourceData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_path=destination_path,
+            sage_maker_job_arn=sage_maker_job_arn,
+            owner_setting=owner_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_path: str,
+             sage_maker_job_arn: str,
+             owner_setting: Optional['outputs.ResourceDefinitionVersionResourceDownloadOwnerSetting'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_path", destination_path)
+        _setter("sage_maker_job_arn", sage_maker_job_arn)
         if owner_setting is not None:
-            pulumi.set(__self__, "owner_setting", owner_setting)
+            _setter("owner_setting", owner_setting)
 
     @property
     @pulumi.getter(name="destinationPath")
@@ -2031,9 +2625,20 @@ class ResourceDefinitionVersionSecretsManagerSecretResourceData(dict):
     def __init__(__self__, *,
                  arn: str,
                  additional_staging_labels_to_download: Optional[Sequence[str]] = None):
-        pulumi.set(__self__, "arn", arn)
+        ResourceDefinitionVersionSecretsManagerSecretResourceData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            additional_staging_labels_to_download=additional_staging_labels_to_download,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             additional_staging_labels_to_download: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
         if additional_staging_labels_to_download is not None:
-            pulumi.set(__self__, "additional_staging_labels_to_download", additional_staging_labels_to_download)
+            _setter("additional_staging_labels_to_download", additional_staging_labels_to_download)
 
     @property
     @pulumi.getter
@@ -2053,10 +2658,25 @@ class SubscriptionDefinitionSubscription(dict):
                  source: str,
                  subject: str,
                  target: str):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "target", target)
+        SubscriptionDefinitionSubscription._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            source=source,
+            subject=subject,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             source: str,
+             subject: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("source", source)
+        _setter("subject", subject)
+        _setter("target", target)
 
     @property
     @pulumi.getter
@@ -2083,7 +2703,16 @@ class SubscriptionDefinitionSubscription(dict):
 class SubscriptionDefinitionVersion(dict):
     def __init__(__self__, *,
                  subscriptions: Sequence['outputs.SubscriptionDefinitionSubscription']):
-        pulumi.set(__self__, "subscriptions", subscriptions)
+        SubscriptionDefinitionVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subscriptions=subscriptions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subscriptions: Sequence['outputs.SubscriptionDefinitionSubscription'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subscriptions", subscriptions)
 
     @property
     @pulumi.getter
@@ -2098,10 +2727,25 @@ class SubscriptionDefinitionVersionSubscription(dict):
                  source: str,
                  subject: str,
                  target: str):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "target", target)
+        SubscriptionDefinitionVersionSubscription._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            source=source,
+            subject=subject,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             source: str,
+             subject: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("source", source)
+        _setter("subject", subject)
+        _setter("target", target)
 
     @property
     @pulumi.getter

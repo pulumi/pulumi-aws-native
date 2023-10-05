@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,22 @@ class GroupMembershipArgs:
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
         :param pulumi.Input['GroupMembershipMemberIdArgs'] member_id: An object containing the identifier of a group member.
         """
-        pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "identity_store_id", identity_store_id)
-        pulumi.set(__self__, "member_id", member_id)
+        GroupMembershipArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            identity_store_id=identity_store_id,
+            member_id=member_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: pulumi.Input[str],
+             identity_store_id: pulumi.Input[str],
+             member_id: pulumi.Input['GroupMembershipMemberIdArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_id", group_id)
+        _setter("identity_store_id", identity_store_id)
+        _setter("member_id", member_id)
 
     @property
     @pulumi.getter(name="groupId")
@@ -103,6 +116,10 @@ class GroupMembership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupMembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -126,6 +143,11 @@ class GroupMembership(pulumi.CustomResource):
             if identity_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_store_id'")
             __props__.__dict__["identity_store_id"] = identity_store_id
+            if member_id is not None and not isinstance(member_id, GroupMembershipMemberIdArgs):
+                member_id = member_id or {}
+                def _setter(key, value):
+                    member_id[key] = value
+                GroupMembershipMemberIdArgs._configure(_setter, **member_id)
             if member_id is None and not opts.urn:
                 raise TypeError("Missing required property 'member_id'")
             __props__.__dict__["member_id"] = member_id

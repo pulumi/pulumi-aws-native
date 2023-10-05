@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,28 +44,59 @@ class GameServerGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]] tags: A list of labels to assign to the new game server group resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
         """
-        pulumi.set(__self__, "instance_definitions", instance_definitions)
-        pulumi.set(__self__, "role_arn", role_arn)
+        GameServerGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_definitions=instance_definitions,
+            role_arn=role_arn,
+            auto_scaling_policy=auto_scaling_policy,
+            balancing_strategy=balancing_strategy,
+            delete_option=delete_option,
+            game_server_group_name=game_server_group_name,
+            game_server_protection_policy=game_server_protection_policy,
+            launch_template=launch_template,
+            max_size=max_size,
+            min_size=min_size,
+            tags=tags,
+            vpc_subnets=vpc_subnets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_definitions: pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]],
+             role_arn: pulumi.Input[str],
+             auto_scaling_policy: Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']] = None,
+             balancing_strategy: Optional[pulumi.Input['GameServerGroupBalancingStrategy']] = None,
+             delete_option: Optional[pulumi.Input['GameServerGroupDeleteOption']] = None,
+             game_server_group_name: Optional[pulumi.Input[str]] = None,
+             game_server_protection_policy: Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']] = None,
+             launch_template: Optional[pulumi.Input['GameServerGroupLaunchTemplateArgs']] = None,
+             max_size: Optional[pulumi.Input[float]] = None,
+             min_size: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]]] = None,
+             vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_definitions", instance_definitions)
+        _setter("role_arn", role_arn)
         if auto_scaling_policy is not None:
-            pulumi.set(__self__, "auto_scaling_policy", auto_scaling_policy)
+            _setter("auto_scaling_policy", auto_scaling_policy)
         if balancing_strategy is not None:
-            pulumi.set(__self__, "balancing_strategy", balancing_strategy)
+            _setter("balancing_strategy", balancing_strategy)
         if delete_option is not None:
-            pulumi.set(__self__, "delete_option", delete_option)
+            _setter("delete_option", delete_option)
         if game_server_group_name is not None:
-            pulumi.set(__self__, "game_server_group_name", game_server_group_name)
+            _setter("game_server_group_name", game_server_group_name)
         if game_server_protection_policy is not None:
-            pulumi.set(__self__, "game_server_protection_policy", game_server_protection_policy)
+            _setter("game_server_protection_policy", game_server_protection_policy)
         if launch_template is not None:
-            pulumi.set(__self__, "launch_template", launch_template)
+            _setter("launch_template", launch_template)
         if max_size is not None:
-            pulumi.set(__self__, "max_size", max_size)
+            _setter("max_size", max_size)
         if min_size is not None:
-            pulumi.set(__self__, "min_size", min_size)
+            _setter("min_size", min_size)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_subnets is not None:
-            pulumi.set(__self__, "vpc_subnets", vpc_subnets)
+            _setter("vpc_subnets", vpc_subnets)
 
     @property
     @pulumi.getter(name="instanceDefinitions")
@@ -267,6 +298,10 @@ class GameServerGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GameServerGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -293,6 +328,11 @@ class GameServerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GameServerGroupArgs.__new__(GameServerGroupArgs)
 
+            if auto_scaling_policy is not None and not isinstance(auto_scaling_policy, GameServerGroupAutoScalingPolicyArgs):
+                auto_scaling_policy = auto_scaling_policy or {}
+                def _setter(key, value):
+                    auto_scaling_policy[key] = value
+                GameServerGroupAutoScalingPolicyArgs._configure(_setter, **auto_scaling_policy)
             __props__.__dict__["auto_scaling_policy"] = auto_scaling_policy
             __props__.__dict__["balancing_strategy"] = balancing_strategy
             __props__.__dict__["delete_option"] = delete_option
@@ -301,6 +341,11 @@ class GameServerGroup(pulumi.CustomResource):
             if instance_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_definitions'")
             __props__.__dict__["instance_definitions"] = instance_definitions
+            if launch_template is not None and not isinstance(launch_template, GameServerGroupLaunchTemplateArgs):
+                launch_template = launch_template or {}
+                def _setter(key, value):
+                    launch_template[key] = value
+                GameServerGroupLaunchTemplateArgs._configure(_setter, **launch_template)
             __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["max_size"] = max_size
             __props__.__dict__["min_size"] = min_size

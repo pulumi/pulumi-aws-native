@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,8 +23,19 @@ class MultiRegionAccessPointPolicyArgs:
         :param pulumi.Input[str] mrap_name: The name of the Multi Region Access Point to apply policy
         :param Any policy: Policy document to apply to a Multi Region Access Point
         """
-        pulumi.set(__self__, "mrap_name", mrap_name)
-        pulumi.set(__self__, "policy", policy)
+        MultiRegionAccessPointPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mrap_name=mrap_name,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mrap_name: pulumi.Input[str],
+             policy: Any,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mrap_name", mrap_name)
+        _setter("policy", policy)
 
     @property
     @pulumi.getter(name="mrapName")
@@ -86,6 +97,10 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MultiRegionAccessPointPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,16 +25,33 @@ class ExtensionAssociationArgs:
         The set of arguments for constructing a ExtensionAssociation resource.
         :param pulumi.Input[Sequence[pulumi.Input['ExtensionAssociationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        ExtensionAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extension_identifier=extension_identifier,
+            extension_version_number=extension_version_number,
+            parameters=parameters,
+            resource_identifier=resource_identifier,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extension_identifier: Optional[pulumi.Input[str]] = None,
+             extension_version_number: Optional[pulumi.Input[int]] = None,
+             parameters: Optional[Any] = None,
+             resource_identifier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionAssociationTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if extension_identifier is not None:
-            pulumi.set(__self__, "extension_identifier", extension_identifier)
+            _setter("extension_identifier", extension_identifier)
         if extension_version_number is not None:
-            pulumi.set(__self__, "extension_version_number", extension_version_number)
+            _setter("extension_version_number", extension_version_number)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if resource_identifier is not None:
-            pulumi.set(__self__, "resource_identifier", resource_identifier)
+            _setter("resource_identifier", resource_identifier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="extensionIdentifier")
@@ -122,6 +139,10 @@ class ExtensionAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExtensionAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

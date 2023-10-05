@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApnsSandboxChannelArgs', 'ApnsSandboxChannel']
@@ -26,23 +26,48 @@ class ApnsSandboxChannelArgs:
         """
         The set of arguments for constructing a ApnsSandboxChannel resource.
         """
-        pulumi.set(__self__, "application_id", application_id)
+        ApnsSandboxChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            bundle_id=bundle_id,
+            certificate=certificate,
+            default_authentication_method=default_authentication_method,
+            enabled=enabled,
+            private_key=private_key,
+            team_id=team_id,
+            token_key=token_key,
+            token_key_id=token_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: pulumi.Input[str],
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             certificate: Optional[pulumi.Input[str]] = None,
+             default_authentication_method: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             token_key: Optional[pulumi.Input[str]] = None,
+             token_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_id", application_id)
         if bundle_id is not None:
-            pulumi.set(__self__, "bundle_id", bundle_id)
+            _setter("bundle_id", bundle_id)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if default_authentication_method is not None:
-            pulumi.set(__self__, "default_authentication_method", default_authentication_method)
+            _setter("default_authentication_method", default_authentication_method)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
         if token_key is not None:
-            pulumi.set(__self__, "token_key", token_key)
+            _setter("token_key", token_key)
         if token_key_id is not None:
-            pulumi.set(__self__, "token_key_id", token_key_id)
+            _setter("token_key_id", token_key_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -171,6 +196,10 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApnsSandboxChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

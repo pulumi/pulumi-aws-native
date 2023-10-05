@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiMappingArgs', 'ApiMapping']
@@ -25,11 +25,26 @@ class ApiMappingArgs:
         :param pulumi.Input[str] stage: The API stage.
         :param pulumi.Input[str] api_mapping_key: The API mapping key.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "stage", stage)
+        ApiMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            domain_name=domain_name,
+            stage=stage,
+            api_mapping_key=api_mapping_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             domain_name: pulumi.Input[str],
+             stage: pulumi.Input[str],
+             api_mapping_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_id", api_id)
+        _setter("domain_name", domain_name)
+        _setter("stage", stage)
         if api_mapping_key is not None:
-            pulumi.set(__self__, "api_mapping_key", api_mapping_key)
+            _setter("api_mapping_key", api_mapping_key)
 
     @property
     @pulumi.getter(name="apiId")
@@ -119,6 +134,10 @@ class ApiMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

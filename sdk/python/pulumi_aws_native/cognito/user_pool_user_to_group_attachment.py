@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserPoolUserToGroupAttachmentArgs', 'UserPoolUserToGroupAttachment']
@@ -20,9 +20,22 @@ class UserPoolUserToGroupAttachmentArgs:
         """
         The set of arguments for constructing a UserPoolUserToGroupAttachment resource.
         """
-        pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "user_pool_id", user_pool_id)
-        pulumi.set(__self__, "username", username)
+        UserPoolUserToGroupAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            user_pool_id=user_pool_id,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: pulumi.Input[str],
+             user_pool_id: pulumi.Input[str],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_name", group_name)
+        _setter("user_pool_id", user_pool_id)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="groupName")
@@ -91,6 +104,10 @@ class UserPoolUserToGroupAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserPoolUserToGroupAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcCidrBlockArgs', 'VpcCidrBlock']
@@ -26,23 +26,48 @@ class VpcCidrBlockArgs:
         """
         The set of arguments for constructing a VpcCidrBlock resource.
         """
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        VpcCidrBlockArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_id=vpc_id,
+            amazon_provided_ipv6_cidr_block=amazon_provided_ipv6_cidr_block,
+            cidr_block=cidr_block,
+            ipv4_ipam_pool_id=ipv4_ipam_pool_id,
+            ipv4_netmask_length=ipv4_netmask_length,
+            ipv6_cidr_block=ipv6_cidr_block,
+            ipv6_ipam_pool_id=ipv6_ipam_pool_id,
+            ipv6_netmask_length=ipv6_netmask_length,
+            ipv6_pool=ipv6_pool,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_id: pulumi.Input[str],
+             amazon_provided_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
+             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+             ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
+             ipv6_pool: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("vpc_id", vpc_id)
         if amazon_provided_ipv6_cidr_block is not None:
-            pulumi.set(__self__, "amazon_provided_ipv6_cidr_block", amazon_provided_ipv6_cidr_block)
+            _setter("amazon_provided_ipv6_cidr_block", amazon_provided_ipv6_cidr_block)
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if ipv4_ipam_pool_id is not None:
-            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+            _setter("ipv4_ipam_pool_id", ipv4_ipam_pool_id)
         if ipv4_netmask_length is not None:
-            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
+            _setter("ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_cidr_block is not None:
-            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+            _setter("ipv6_cidr_block", ipv6_cidr_block)
         if ipv6_ipam_pool_id is not None:
-            pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
+            _setter("ipv6_ipam_pool_id", ipv6_ipam_pool_id)
         if ipv6_netmask_length is not None:
-            pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
+            _setter("ipv6_netmask_length", ipv6_netmask_length)
         if ipv6_pool is not None:
-            pulumi.set(__self__, "ipv6_pool", ipv6_pool)
+            _setter("ipv6_pool", ipv6_pool)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -171,6 +196,10 @@ class VpcCidrBlock(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcCidrBlockArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

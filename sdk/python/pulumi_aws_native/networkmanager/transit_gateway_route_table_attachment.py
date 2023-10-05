@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,27 @@ class TransitGatewayRouteTableAttachmentArgs:
         :param pulumi.Input['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs'] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "peering_id", peering_id)
-        pulumi.set(__self__, "transit_gateway_route_table_arn", transit_gateway_route_table_arn)
+        TransitGatewayRouteTableAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peering_id=peering_id,
+            transit_gateway_route_table_arn=transit_gateway_route_table_arn,
+            proposed_segment_change=proposed_segment_change,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peering_id: pulumi.Input[str],
+             transit_gateway_route_table_arn: pulumi.Input[str],
+             proposed_segment_change: Optional[pulumi.Input['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("peering_id", peering_id)
+        _setter("transit_gateway_route_table_arn", transit_gateway_route_table_arn)
         if proposed_segment_change is not None:
-            pulumi.set(__self__, "proposed_segment_change", proposed_segment_change)
+            _setter("proposed_segment_change", proposed_segment_change)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="peeringId")
@@ -122,6 +137,10 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TransitGatewayRouteTableAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -143,6 +162,11 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
             if peering_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_id'")
             __props__.__dict__["peering_id"] = peering_id
+            if proposed_segment_change is not None and not isinstance(proposed_segment_change, TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs):
+                proposed_segment_change = proposed_segment_change or {}
+                def _setter(key, value):
+                    proposed_segment_change[key] = value
+                TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs._configure(_setter, **proposed_segment_change)
             __props__.__dict__["proposed_segment_change"] = proposed_segment_change
             __props__.__dict__["tags"] = tags
             if transit_gateway_route_table_arn is None and not opts.urn:

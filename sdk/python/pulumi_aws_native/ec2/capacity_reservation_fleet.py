@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,24 +29,49 @@ class CapacityReservationFleetArgs:
         """
         The set of arguments for constructing a CapacityReservationFleet resource.
         """
+        CapacityReservationFleetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_strategy=allocation_strategy,
+            end_date=end_date,
+            instance_match_criteria=instance_match_criteria,
+            instance_type_specifications=instance_type_specifications,
+            no_remove_end_date=no_remove_end_date,
+            remove_end_date=remove_end_date,
+            tag_specifications=tag_specifications,
+            tenancy=tenancy,
+            total_target_capacity=total_target_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_strategy: Optional[pulumi.Input[str]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             instance_match_criteria: Optional[pulumi.Input['CapacityReservationFleetInstanceMatchCriteria']] = None,
+             instance_type_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]]] = None,
+             no_remove_end_date: Optional[pulumi.Input[bool]] = None,
+             remove_end_date: Optional[pulumi.Input[bool]] = None,
+             tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]]] = None,
+             tenancy: Optional[pulumi.Input['CapacityReservationFleetTenancy']] = None,
+             total_target_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allocation_strategy is not None:
-            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+            _setter("allocation_strategy", allocation_strategy)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if instance_match_criteria is not None:
-            pulumi.set(__self__, "instance_match_criteria", instance_match_criteria)
+            _setter("instance_match_criteria", instance_match_criteria)
         if instance_type_specifications is not None:
-            pulumi.set(__self__, "instance_type_specifications", instance_type_specifications)
+            _setter("instance_type_specifications", instance_type_specifications)
         if no_remove_end_date is not None:
-            pulumi.set(__self__, "no_remove_end_date", no_remove_end_date)
+            _setter("no_remove_end_date", no_remove_end_date)
         if remove_end_date is not None:
-            pulumi.set(__self__, "remove_end_date", remove_end_date)
+            _setter("remove_end_date", remove_end_date)
         if tag_specifications is not None:
-            pulumi.set(__self__, "tag_specifications", tag_specifications)
+            _setter("tag_specifications", tag_specifications)
         if tenancy is not None:
-            pulumi.set(__self__, "tenancy", tenancy)
+            _setter("tenancy", tenancy)
         if total_target_capacity is not None:
-            pulumi.set(__self__, "total_target_capacity", total_target_capacity)
+            _setter("total_target_capacity", total_target_capacity)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -170,6 +195,10 @@ class CapacityReservationFleet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CapacityReservationFleetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

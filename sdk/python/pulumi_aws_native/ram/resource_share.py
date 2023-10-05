@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,20 +26,41 @@ class ResourceShareArgs:
         """
         The set of arguments for constructing a ResourceShare resource.
         """
+        ResourceShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_external_principals=allow_external_principals,
+            name=name,
+            permission_arns=permission_arns,
+            principals=principals,
+            resource_arns=resource_arns,
+            sources=sources,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_external_principals: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permission_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceShareTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_external_principals is not None:
-            pulumi.set(__self__, "allow_external_principals", allow_external_principals)
+            _setter("allow_external_principals", allow_external_principals)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permission_arns is not None:
-            pulumi.set(__self__, "permission_arns", permission_arns)
+            _setter("permission_arns", permission_arns)
         if principals is not None:
-            pulumi.set(__self__, "principals", principals)
+            _setter("principals", principals)
         if resource_arns is not None:
-            pulumi.set(__self__, "resource_arns", resource_arns)
+            _setter("resource_arns", resource_arns)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="allowExternalPrincipals")
@@ -148,6 +169,10 @@ class ResourceShare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

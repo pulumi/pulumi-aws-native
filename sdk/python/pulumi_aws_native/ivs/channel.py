@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,22 +36,45 @@ class ChannelArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         :param pulumi.Input['ChannelType'] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         """
+        ChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorized=authorized,
+            insecure_ingest=insecure_ingest,
+            latency_mode=latency_mode,
+            name=name,
+            preset=preset,
+            recording_configuration_arn=recording_configuration_arn,
+            tags=tags,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorized: Optional[pulumi.Input[bool]] = None,
+             insecure_ingest: Optional[pulumi.Input[bool]] = None,
+             latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             preset: Optional[pulumi.Input['ChannelPreset']] = None,
+             recording_configuration_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
+             type: Optional[pulumi.Input['ChannelType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorized is not None:
-            pulumi.set(__self__, "authorized", authorized)
+            _setter("authorized", authorized)
         if insecure_ingest is not None:
-            pulumi.set(__self__, "insecure_ingest", insecure_ingest)
+            _setter("insecure_ingest", insecure_ingest)
         if latency_mode is not None:
-            pulumi.set(__self__, "latency_mode", latency_mode)
+            _setter("latency_mode", latency_mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if preset is not None:
-            pulumi.set(__self__, "preset", preset)
+            _setter("preset", preset)
         if recording_configuration_arn is not None:
-            pulumi.set(__self__, "recording_configuration_arn", recording_configuration_arn)
+            _setter("recording_configuration_arn", recording_configuration_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -197,6 +220,10 @@ class Channel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

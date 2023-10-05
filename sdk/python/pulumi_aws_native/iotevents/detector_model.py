@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -37,18 +37,39 @@ class DetectorModelArgs:
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
-        pulumi.set(__self__, "detector_model_definition", detector_model_definition)
-        pulumi.set(__self__, "role_arn", role_arn)
+        DetectorModelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detector_model_definition=detector_model_definition,
+            role_arn=role_arn,
+            detector_model_description=detector_model_description,
+            detector_model_name=detector_model_name,
+            evaluation_method=evaluation_method,
+            key=key,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detector_model_definition: pulumi.Input['DetectorModelDefinitionArgs'],
+             role_arn: pulumi.Input[str],
+             detector_model_description: Optional[pulumi.Input[str]] = None,
+             detector_model_name: Optional[pulumi.Input[str]] = None,
+             evaluation_method: Optional[pulumi.Input['DetectorModelEvaluationMethod']] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("detector_model_definition", detector_model_definition)
+        _setter("role_arn", role_arn)
         if detector_model_description is not None:
-            pulumi.set(__self__, "detector_model_description", detector_model_description)
+            _setter("detector_model_description", detector_model_description)
         if detector_model_name is not None:
-            pulumi.set(__self__, "detector_model_name", detector_model_name)
+            _setter("detector_model_name", detector_model_name)
         if evaluation_method is not None:
-            pulumi.set(__self__, "evaluation_method", evaluation_method)
+            _setter("evaluation_method", evaluation_method)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="detectorModelDefinition")
@@ -184,6 +205,10 @@ class DetectorModel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DetectorModelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -205,6 +230,11 @@ class DetectorModel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DetectorModelArgs.__new__(DetectorModelArgs)
 
+            if detector_model_definition is not None and not isinstance(detector_model_definition, DetectorModelDefinitionArgs):
+                detector_model_definition = detector_model_definition or {}
+                def _setter(key, value):
+                    detector_model_definition[key] = value
+                DetectorModelDefinitionArgs._configure(_setter, **detector_model_definition)
             if detector_model_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_model_definition'")
             __props__.__dict__["detector_model_definition"] = detector_model_definition

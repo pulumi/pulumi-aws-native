@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,15 +29,36 @@ class MatchingWorkflowArgs:
         :param pulumi.Input[str] workflow_name: The name of the MatchingWorkflow
         :param pulumi.Input[str] description: The description of the MatchingWorkflow
         """
-        pulumi.set(__self__, "input_source_config", input_source_config)
-        pulumi.set(__self__, "output_source_config", output_source_config)
-        pulumi.set(__self__, "resolution_techniques", resolution_techniques)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "workflow_name", workflow_name)
+        MatchingWorkflowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_source_config=input_source_config,
+            output_source_config=output_source_config,
+            resolution_techniques=resolution_techniques,
+            role_arn=role_arn,
+            workflow_name=workflow_name,
+            description=description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_source_config: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowInputSourceArgs']]],
+             output_source_config: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputSourceArgs']]],
+             resolution_techniques: pulumi.Input['MatchingWorkflowResolutionTechniquesArgs'],
+             role_arn: pulumi.Input[str],
+             workflow_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("input_source_config", input_source_config)
+        _setter("output_source_config", output_source_config)
+        _setter("resolution_techniques", resolution_techniques)
+        _setter("role_arn", role_arn)
+        _setter("workflow_name", workflow_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="inputSourceConfig")
@@ -149,6 +170,10 @@ class MatchingWorkflow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MatchingWorkflowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -177,6 +202,11 @@ class MatchingWorkflow(pulumi.CustomResource):
             if output_source_config is None and not opts.urn:
                 raise TypeError("Missing required property 'output_source_config'")
             __props__.__dict__["output_source_config"] = output_source_config
+            if resolution_techniques is not None and not isinstance(resolution_techniques, MatchingWorkflowResolutionTechniquesArgs):
+                resolution_techniques = resolution_techniques or {}
+                def _setter(key, value):
+                    resolution_techniques[key] = value
+                MatchingWorkflowResolutionTechniquesArgs._configure(_setter, **resolution_techniques)
             if resolution_techniques is None and not opts.urn:
                 raise TypeError("Missing required property 'resolution_techniques'")
             __props__.__dict__["resolution_techniques"] = resolution_techniques

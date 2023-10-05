@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,25 +30,52 @@ class ComputeEnvironmentArgs:
         The set of arguments for constructing a ComputeEnvironment resource.
         :param Any tags: A key-value pair to associate with a resource.
         """
-        pulumi.set(__self__, "type", type)
+        ComputeEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            compute_environment_name=compute_environment_name,
+            compute_resources=compute_resources,
+            eks_configuration=eks_configuration,
+            replace_compute_environment=replace_compute_environment,
+            service_role=service_role,
+            state=state,
+            tags=tags,
+            unmanagedv_cpus=unmanagedv_cpus,
+            update_policy=update_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             compute_environment_name: Optional[pulumi.Input[str]] = None,
+             compute_resources: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']] = None,
+             eks_configuration: Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']] = None,
+             replace_compute_environment: Optional[pulumi.Input[bool]] = None,
+             service_role: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[Any] = None,
+             unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
+             update_policy: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if compute_environment_name is not None:
-            pulumi.set(__self__, "compute_environment_name", compute_environment_name)
+            _setter("compute_environment_name", compute_environment_name)
         if compute_resources is not None:
-            pulumi.set(__self__, "compute_resources", compute_resources)
+            _setter("compute_resources", compute_resources)
         if eks_configuration is not None:
-            pulumi.set(__self__, "eks_configuration", eks_configuration)
+            _setter("eks_configuration", eks_configuration)
         if replace_compute_environment is not None:
-            pulumi.set(__self__, "replace_compute_environment", replace_compute_environment)
+            _setter("replace_compute_environment", replace_compute_environment)
         if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
+            _setter("service_role", service_role)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if unmanagedv_cpus is not None:
-            pulumi.set(__self__, "unmanagedv_cpus", unmanagedv_cpus)
+            _setter("unmanagedv_cpus", unmanagedv_cpus)
         if update_policy is not None:
-            pulumi.set(__self__, "update_policy", update_policy)
+            _setter("update_policy", update_policy)
 
     @property
     @pulumi.getter
@@ -186,6 +213,10 @@ class ComputeEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ComputeEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -211,7 +242,17 @@ class ComputeEnvironment(pulumi.CustomResource):
             __props__ = ComputeEnvironmentArgs.__new__(ComputeEnvironmentArgs)
 
             __props__.__dict__["compute_environment_name"] = compute_environment_name
+            if compute_resources is not None and not isinstance(compute_resources, ComputeEnvironmentComputeResourcesArgs):
+                compute_resources = compute_resources or {}
+                def _setter(key, value):
+                    compute_resources[key] = value
+                ComputeEnvironmentComputeResourcesArgs._configure(_setter, **compute_resources)
             __props__.__dict__["compute_resources"] = compute_resources
+            if eks_configuration is not None and not isinstance(eks_configuration, ComputeEnvironmentEksConfigurationArgs):
+                eks_configuration = eks_configuration or {}
+                def _setter(key, value):
+                    eks_configuration[key] = value
+                ComputeEnvironmentEksConfigurationArgs._configure(_setter, **eks_configuration)
             __props__.__dict__["eks_configuration"] = eks_configuration
             __props__.__dict__["replace_compute_environment"] = replace_compute_environment
             __props__.__dict__["service_role"] = service_role
@@ -221,6 +262,11 @@ class ComputeEnvironment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["unmanagedv_cpus"] = unmanagedv_cpus
+            if update_policy is not None and not isinstance(update_policy, ComputeEnvironmentUpdatePolicyArgs):
+                update_policy = update_policy or {}
+                def _setter(key, value):
+                    update_policy[key] = value
+                ComputeEnvironmentUpdatePolicyArgs._configure(_setter, **update_policy)
             __props__.__dict__["update_policy"] = update_policy
             __props__.__dict__["compute_environment_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["compute_environment_name", "compute_resources.spot_iam_fleet_role", "eks_configuration", "tags", "type"])

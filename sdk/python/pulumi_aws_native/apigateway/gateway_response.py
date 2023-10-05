@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GatewayResponseArgs', 'GatewayResponse']
@@ -22,14 +22,31 @@ class GatewayResponseArgs:
         """
         The set of arguments for constructing a GatewayResponse resource.
         """
-        pulumi.set(__self__, "response_type", response_type)
-        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        GatewayResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            response_type=response_type,
+            rest_api_id=rest_api_id,
+            response_parameters=response_parameters,
+            response_templates=response_templates,
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             response_type: pulumi.Input[str],
+             rest_api_id: pulumi.Input[str],
+             response_parameters: Optional[Any] = None,
+             response_templates: Optional[Any] = None,
+             status_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("response_type", response_type)
+        _setter("rest_api_id", rest_api_id)
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
         if response_templates is not None:
-            pulumi.set(__self__, "response_templates", response_templates)
+            _setter("response_templates", response_templates)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="responseType")
@@ -118,6 +135,10 @@ class GatewayResponse(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GatewayResponseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

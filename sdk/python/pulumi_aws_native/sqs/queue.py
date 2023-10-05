@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,38 +51,77 @@ class QueueArgs:
         :param pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]] tags: The tags that you attach to this queue.
         :param pulumi.Input[int] visibility_timeout: The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
         """
+        QueueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_based_deduplication=content_based_deduplication,
+            deduplication_scope=deduplication_scope,
+            delay_seconds=delay_seconds,
+            fifo_queue=fifo_queue,
+            fifo_throughput_limit=fifo_throughput_limit,
+            kms_data_key_reuse_period_seconds=kms_data_key_reuse_period_seconds,
+            kms_master_key_id=kms_master_key_id,
+            maximum_message_size=maximum_message_size,
+            message_retention_period=message_retention_period,
+            queue_name=queue_name,
+            receive_message_wait_time_seconds=receive_message_wait_time_seconds,
+            redrive_allow_policy=redrive_allow_policy,
+            redrive_policy=redrive_policy,
+            sqs_managed_sse_enabled=sqs_managed_sse_enabled,
+            tags=tags,
+            visibility_timeout=visibility_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_based_deduplication: Optional[pulumi.Input[bool]] = None,
+             deduplication_scope: Optional[pulumi.Input[str]] = None,
+             delay_seconds: Optional[pulumi.Input[int]] = None,
+             fifo_queue: Optional[pulumi.Input[bool]] = None,
+             fifo_throughput_limit: Optional[pulumi.Input[str]] = None,
+             kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
+             kms_master_key_id: Optional[pulumi.Input[str]] = None,
+             maximum_message_size: Optional[pulumi.Input[int]] = None,
+             message_retention_period: Optional[pulumi.Input[int]] = None,
+             queue_name: Optional[pulumi.Input[str]] = None,
+             receive_message_wait_time_seconds: Optional[pulumi.Input[int]] = None,
+             redrive_allow_policy: Optional[Any] = None,
+             redrive_policy: Optional[Any] = None,
+             sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]] = None,
+             visibility_timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content_based_deduplication is not None:
-            pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
+            _setter("content_based_deduplication", content_based_deduplication)
         if deduplication_scope is not None:
-            pulumi.set(__self__, "deduplication_scope", deduplication_scope)
+            _setter("deduplication_scope", deduplication_scope)
         if delay_seconds is not None:
-            pulumi.set(__self__, "delay_seconds", delay_seconds)
+            _setter("delay_seconds", delay_seconds)
         if fifo_queue is not None:
-            pulumi.set(__self__, "fifo_queue", fifo_queue)
+            _setter("fifo_queue", fifo_queue)
         if fifo_throughput_limit is not None:
-            pulumi.set(__self__, "fifo_throughput_limit", fifo_throughput_limit)
+            _setter("fifo_throughput_limit", fifo_throughput_limit)
         if kms_data_key_reuse_period_seconds is not None:
-            pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
+            _setter("kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
         if kms_master_key_id is not None:
-            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+            _setter("kms_master_key_id", kms_master_key_id)
         if maximum_message_size is not None:
-            pulumi.set(__self__, "maximum_message_size", maximum_message_size)
+            _setter("maximum_message_size", maximum_message_size)
         if message_retention_period is not None:
-            pulumi.set(__self__, "message_retention_period", message_retention_period)
+            _setter("message_retention_period", message_retention_period)
         if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
+            _setter("queue_name", queue_name)
         if receive_message_wait_time_seconds is not None:
-            pulumi.set(__self__, "receive_message_wait_time_seconds", receive_message_wait_time_seconds)
+            _setter("receive_message_wait_time_seconds", receive_message_wait_time_seconds)
         if redrive_allow_policy is not None:
-            pulumi.set(__self__, "redrive_allow_policy", redrive_allow_policy)
+            _setter("redrive_allow_policy", redrive_allow_policy)
         if redrive_policy is not None:
-            pulumi.set(__self__, "redrive_policy", redrive_policy)
+            _setter("redrive_policy", redrive_policy)
         if sqs_managed_sse_enabled is not None:
-            pulumi.set(__self__, "sqs_managed_sse_enabled", sqs_managed_sse_enabled)
+            _setter("sqs_managed_sse_enabled", sqs_managed_sse_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if visibility_timeout is not None:
-            pulumi.set(__self__, "visibility_timeout", visibility_timeout)
+            _setter("visibility_timeout", visibility_timeout)
 
     @property
     @pulumi.getter(name="contentBasedDeduplication")
@@ -340,6 +379,10 @@ class Queue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            QueueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

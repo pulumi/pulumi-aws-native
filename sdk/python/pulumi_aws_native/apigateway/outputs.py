@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -70,10 +70,21 @@ class ApiKeyStageKey(dict):
         :param str rest_api_id: The ID of a RestApi resource that includes the stage with which you want to associate the API key.
         :param str stage_name: The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property. 
         """
+        ApiKeyStageKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rest_api_id=rest_api_id,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rest_api_id: Optional[str] = None,
+             stage_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if rest_api_id is not None:
-            pulumi.set(__self__, "rest_api_id", rest_api_id)
+            _setter("rest_api_id", rest_api_id)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="restApiId")
@@ -101,8 +112,19 @@ class ApiKeyTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ApiKeyTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -126,8 +148,19 @@ class ClientCertificateTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ClientCertificateTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -166,10 +199,21 @@ class DeploymentAccessLogSetting(dict):
         :param str destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. 
         :param str format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. 
         """
+        DeploymentAccessLogSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_arn=destination_arn,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_arn: Optional[str] = None,
+             format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_arn is not None:
-            pulumi.set(__self__, "destination_arn", destination_arn)
+            _setter("destination_arn", destination_arn)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -220,12 +264,25 @@ class DeploymentCanarySetting(dict):
         :param Any stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. 
         :param bool use_stage_cache: Whether the canary deployment uses the stage cache or not.
         """
+        DeploymentCanarySetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            percent_traffic=percent_traffic,
+            stage_variable_overrides=stage_variable_overrides,
+            use_stage_cache=use_stage_cache,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             percent_traffic: Optional[float] = None,
+             stage_variable_overrides: Optional[Any] = None,
+             use_stage_cache: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if percent_traffic is not None:
-            pulumi.set(__self__, "percent_traffic", percent_traffic)
+            _setter("percent_traffic", percent_traffic)
         if stage_variable_overrides is not None:
-            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+            _setter("stage_variable_overrides", stage_variable_overrides)
         if use_stage_cache is not None:
-            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+            _setter("use_stage_cache", use_stage_cache)
 
     @property
     @pulumi.getter(name="percentTraffic")
@@ -284,12 +341,25 @@ class DeploymentCanarySettings(dict):
         :param Any stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. Duplicates are not allowed.
         :param bool use_stage_cache: Whether the canary deployment uses the stage cache.
         """
+        DeploymentCanarySettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            percent_traffic=percent_traffic,
+            stage_variable_overrides=stage_variable_overrides,
+            use_stage_cache=use_stage_cache,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             percent_traffic: Optional[float] = None,
+             stage_variable_overrides: Optional[Any] = None,
+             use_stage_cache: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if percent_traffic is not None:
-            pulumi.set(__self__, "percent_traffic", percent_traffic)
+            _setter("percent_traffic", percent_traffic)
         if stage_variable_overrides is not None:
-            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+            _setter("stage_variable_overrides", stage_variable_overrides)
         if use_stage_cache is not None:
-            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+            _setter("use_stage_cache", use_stage_cache)
 
     @property
     @pulumi.getter(name="percentTraffic")
@@ -376,26 +446,53 @@ class DeploymentMethodSetting(dict):
         :param int throttling_burst_limit: The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
         :param float throttling_rate_limit: The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
         """
+        DeploymentMethodSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_data_encrypted=cache_data_encrypted,
+            cache_ttl_in_seconds=cache_ttl_in_seconds,
+            caching_enabled=caching_enabled,
+            data_trace_enabled=data_trace_enabled,
+            http_method=http_method,
+            logging_level=logging_level,
+            metrics_enabled=metrics_enabled,
+            resource_path=resource_path,
+            throttling_burst_limit=throttling_burst_limit,
+            throttling_rate_limit=throttling_rate_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_data_encrypted: Optional[bool] = None,
+             cache_ttl_in_seconds: Optional[int] = None,
+             caching_enabled: Optional[bool] = None,
+             data_trace_enabled: Optional[bool] = None,
+             http_method: Optional[str] = None,
+             logging_level: Optional[str] = None,
+             metrics_enabled: Optional[bool] = None,
+             resource_path: Optional[str] = None,
+             throttling_burst_limit: Optional[int] = None,
+             throttling_rate_limit: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cache_data_encrypted is not None:
-            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+            _setter("cache_data_encrypted", cache_data_encrypted)
         if cache_ttl_in_seconds is not None:
-            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+            _setter("cache_ttl_in_seconds", cache_ttl_in_seconds)
         if caching_enabled is not None:
-            pulumi.set(__self__, "caching_enabled", caching_enabled)
+            _setter("caching_enabled", caching_enabled)
         if data_trace_enabled is not None:
-            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+            _setter("data_trace_enabled", data_trace_enabled)
         if http_method is not None:
-            pulumi.set(__self__, "http_method", http_method)
+            _setter("http_method", http_method)
         if logging_level is not None:
-            pulumi.set(__self__, "logging_level", logging_level)
+            _setter("logging_level", logging_level)
         if metrics_enabled is not None:
-            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+            _setter("metrics_enabled", metrics_enabled)
         if resource_path is not None:
-            pulumi.set(__self__, "resource_path", resource_path)
+            _setter("resource_path", resource_path)
         if throttling_burst_limit is not None:
-            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+            _setter("throttling_burst_limit", throttling_burst_limit)
         if throttling_rate_limit is not None:
-            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+            _setter("throttling_rate_limit", throttling_rate_limit)
 
     @property
     @pulumi.getter(name="cacheDataEncrypted")
@@ -568,44 +665,89 @@ class DeploymentStageDescription(dict):
         :param bool tracing_enabled: Specifies whether active tracing with X-ray is enabled for this stage.
         :param Any variables: A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&=,]+. 
         """
+        DeploymentStageDescription._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_log_setting=access_log_setting,
+            cache_cluster_enabled=cache_cluster_enabled,
+            cache_cluster_size=cache_cluster_size,
+            cache_data_encrypted=cache_data_encrypted,
+            cache_ttl_in_seconds=cache_ttl_in_seconds,
+            caching_enabled=caching_enabled,
+            canary_setting=canary_setting,
+            client_certificate_id=client_certificate_id,
+            data_trace_enabled=data_trace_enabled,
+            description=description,
+            documentation_version=documentation_version,
+            logging_level=logging_level,
+            method_settings=method_settings,
+            metrics_enabled=metrics_enabled,
+            tags=tags,
+            throttling_burst_limit=throttling_burst_limit,
+            throttling_rate_limit=throttling_rate_limit,
+            tracing_enabled=tracing_enabled,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_log_setting: Optional['outputs.DeploymentAccessLogSetting'] = None,
+             cache_cluster_enabled: Optional[bool] = None,
+             cache_cluster_size: Optional[str] = None,
+             cache_data_encrypted: Optional[bool] = None,
+             cache_ttl_in_seconds: Optional[int] = None,
+             caching_enabled: Optional[bool] = None,
+             canary_setting: Optional['outputs.DeploymentCanarySetting'] = None,
+             client_certificate_id: Optional[str] = None,
+             data_trace_enabled: Optional[bool] = None,
+             description: Optional[str] = None,
+             documentation_version: Optional[str] = None,
+             logging_level: Optional[str] = None,
+             method_settings: Optional[Sequence['outputs.DeploymentMethodSetting']] = None,
+             metrics_enabled: Optional[bool] = None,
+             tags: Optional[Sequence['outputs.DeploymentTag']] = None,
+             throttling_burst_limit: Optional[int] = None,
+             throttling_rate_limit: Optional[float] = None,
+             tracing_enabled: Optional[bool] = None,
+             variables: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_log_setting is not None:
-            pulumi.set(__self__, "access_log_setting", access_log_setting)
+            _setter("access_log_setting", access_log_setting)
         if cache_cluster_enabled is not None:
-            pulumi.set(__self__, "cache_cluster_enabled", cache_cluster_enabled)
+            _setter("cache_cluster_enabled", cache_cluster_enabled)
         if cache_cluster_size is not None:
-            pulumi.set(__self__, "cache_cluster_size", cache_cluster_size)
+            _setter("cache_cluster_size", cache_cluster_size)
         if cache_data_encrypted is not None:
-            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+            _setter("cache_data_encrypted", cache_data_encrypted)
         if cache_ttl_in_seconds is not None:
-            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+            _setter("cache_ttl_in_seconds", cache_ttl_in_seconds)
         if caching_enabled is not None:
-            pulumi.set(__self__, "caching_enabled", caching_enabled)
+            _setter("caching_enabled", caching_enabled)
         if canary_setting is not None:
-            pulumi.set(__self__, "canary_setting", canary_setting)
+            _setter("canary_setting", canary_setting)
         if client_certificate_id is not None:
-            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+            _setter("client_certificate_id", client_certificate_id)
         if data_trace_enabled is not None:
-            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+            _setter("data_trace_enabled", data_trace_enabled)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if documentation_version is not None:
-            pulumi.set(__self__, "documentation_version", documentation_version)
+            _setter("documentation_version", documentation_version)
         if logging_level is not None:
-            pulumi.set(__self__, "logging_level", logging_level)
+            _setter("logging_level", logging_level)
         if method_settings is not None:
-            pulumi.set(__self__, "method_settings", method_settings)
+            _setter("method_settings", method_settings)
         if metrics_enabled is not None:
-            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+            _setter("metrics_enabled", metrics_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if throttling_burst_limit is not None:
-            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+            _setter("throttling_burst_limit", throttling_burst_limit)
         if throttling_rate_limit is not None:
-            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+            _setter("throttling_rate_limit", throttling_rate_limit)
         if tracing_enabled is not None:
-            pulumi.set(__self__, "tracing_enabled", tracing_enabled)
+            _setter("tracing_enabled", tracing_enabled)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="accessLogSetting")
@@ -769,8 +911,19 @@ class DeploymentTag(dict):
         :param str key: The key name of the tag
         :param str value: The value for the tag
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        DeploymentTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -821,16 +974,33 @@ class DocumentationPartLocation(dict):
         :param str status_code: The HTTP status code of a response.
         :param 'DocumentationPartLocationType' type: The type of API entity that the documentation content applies to.
         """
+        DocumentationPartLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            method=method,
+            name=name,
+            path=path,
+            status_code=status_code,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             method: Optional[str] = None,
+             name: Optional[str] = None,
+             path: Optional[str] = None,
+             status_code: Optional[str] = None,
+             type: Optional['DocumentationPartLocationType'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -877,8 +1047,17 @@ class DocumentationPartLocation(dict):
 class DomainNameEndpointConfiguration(dict):
     def __init__(__self__, *,
                  types: Optional[Sequence[str]] = None):
+        DomainNameEndpointConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            types=types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             types: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if types is not None:
-            pulumi.set(__self__, "types", types)
+            _setter("types", types)
 
     @property
     @pulumi.getter
@@ -910,10 +1089,21 @@ class DomainNameMutualTlsAuthentication(dict):
     def __init__(__self__, *,
                  truststore_uri: Optional[str] = None,
                  truststore_version: Optional[str] = None):
+        DomainNameMutualTlsAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            truststore_uri=truststore_uri,
+            truststore_version=truststore_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             truststore_uri: Optional[str] = None,
+             truststore_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if truststore_uri is not None:
-            pulumi.set(__self__, "truststore_uri", truststore_uri)
+            _setter("truststore_uri", truststore_uri)
         if truststore_version is not None:
-            pulumi.set(__self__, "truststore_version", truststore_version)
+            _setter("truststore_version", truststore_version)
 
     @property
     @pulumi.getter(name="truststoreUri")
@@ -931,10 +1121,21 @@ class DomainNameTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
+        DomainNameTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1017,33 +1218,68 @@ class MethodIntegration(dict):
         :param int timeout_in_millis: Custom timeout between 50 and 29,000 milliseconds.
         :param str uri: The Uniform Resource Identifier (URI) for the integration.
         """
-        pulumi.set(__self__, "type", type)
+        MethodIntegration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            cache_key_parameters=cache_key_parameters,
+            cache_namespace=cache_namespace,
+            connection_id=connection_id,
+            connection_type=connection_type,
+            content_handling=content_handling,
+            credentials=credentials,
+            integration_http_method=integration_http_method,
+            integration_responses=integration_responses,
+            passthrough_behavior=passthrough_behavior,
+            request_parameters=request_parameters,
+            request_templates=request_templates,
+            timeout_in_millis=timeout_in_millis,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: 'MethodIntegrationType',
+             cache_key_parameters: Optional[Sequence[str]] = None,
+             cache_namespace: Optional[str] = None,
+             connection_id: Optional[str] = None,
+             connection_type: Optional['MethodIntegrationConnectionType'] = None,
+             content_handling: Optional['MethodIntegrationContentHandling'] = None,
+             credentials: Optional[str] = None,
+             integration_http_method: Optional[str] = None,
+             integration_responses: Optional[Sequence['outputs.MethodIntegrationResponse']] = None,
+             passthrough_behavior: Optional['MethodIntegrationPassthroughBehavior'] = None,
+             request_parameters: Optional[Any] = None,
+             request_templates: Optional[Any] = None,
+             timeout_in_millis: Optional[int] = None,
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if cache_key_parameters is not None:
-            pulumi.set(__self__, "cache_key_parameters", cache_key_parameters)
+            _setter("cache_key_parameters", cache_key_parameters)
         if cache_namespace is not None:
-            pulumi.set(__self__, "cache_namespace", cache_namespace)
+            _setter("cache_namespace", cache_namespace)
         if connection_id is not None:
-            pulumi.set(__self__, "connection_id", connection_id)
+            _setter("connection_id", connection_id)
         if connection_type is not None:
-            pulumi.set(__self__, "connection_type", connection_type)
+            _setter("connection_type", connection_type)
         if content_handling is not None:
-            pulumi.set(__self__, "content_handling", content_handling)
+            _setter("content_handling", content_handling)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if integration_http_method is not None:
-            pulumi.set(__self__, "integration_http_method", integration_http_method)
+            _setter("integration_http_method", integration_http_method)
         if integration_responses is not None:
-            pulumi.set(__self__, "integration_responses", integration_responses)
+            _setter("integration_responses", integration_responses)
         if passthrough_behavior is not None:
-            pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
+            _setter("passthrough_behavior", passthrough_behavior)
         if request_parameters is not None:
-            pulumi.set(__self__, "request_parameters", request_parameters)
+            _setter("request_parameters", request_parameters)
         if request_templates is not None:
-            pulumi.set(__self__, "request_templates", request_templates)
+            _setter("request_templates", request_templates)
         if timeout_in_millis is not None:
-            pulumi.set(__self__, "timeout_in_millis", timeout_in_millis)
+            _setter("timeout_in_millis", timeout_in_millis)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -1198,15 +1434,32 @@ class MethodIntegrationResponse(dict):
         :param Any response_templates: The templates that are used to transform the integration response body. Specify templates as key-value pairs (string-to-string mappings), with a content type as the key and a template as the value.
         :param str selection_pattern: A regular expression that specifies which error strings or status codes from the backend map to the integration response.
         """
-        pulumi.set(__self__, "status_code", status_code)
+        MethodIntegrationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status_code=status_code,
+            content_handling=content_handling,
+            response_parameters=response_parameters,
+            response_templates=response_templates,
+            selection_pattern=selection_pattern,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status_code: str,
+             content_handling: Optional['MethodIntegrationResponseContentHandling'] = None,
+             response_parameters: Optional[Any] = None,
+             response_templates: Optional[Any] = None,
+             selection_pattern: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status_code", status_code)
         if content_handling is not None:
-            pulumi.set(__self__, "content_handling", content_handling)
+            _setter("content_handling", content_handling)
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
         if response_templates is not None:
-            pulumi.set(__self__, "response_templates", response_templates)
+            _setter("response_templates", response_templates)
         if selection_pattern is not None:
-            pulumi.set(__self__, "selection_pattern", selection_pattern)
+            _setter("selection_pattern", selection_pattern)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -1281,11 +1534,24 @@ class MethodResponse(dict):
         :param Any response_models: The resources used for the response's content type. Specify response models as key-value pairs (string-to-string maps), with a content type as the key and a Model resource name as the value.
         :param Any response_parameters: Response parameters that API Gateway sends to the client that called a method. Specify response parameters as key-value pairs (string-to-Boolean maps), with a destination as the key and a Boolean as the value.
         """
-        pulumi.set(__self__, "status_code", status_code)
+        MethodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status_code=status_code,
+            response_models=response_models,
+            response_parameters=response_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status_code: str,
+             response_models: Optional[Any] = None,
+             response_parameters: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status_code", status_code)
         if response_models is not None:
-            pulumi.set(__self__, "response_models", response_models)
+            _setter("response_models", response_models)
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -1334,10 +1600,21 @@ class RestApiEndpointConfiguration(dict):
     def __init__(__self__, *,
                  types: Optional[Sequence[str]] = None,
                  vpc_endpoint_ids: Optional[Sequence[str]] = None):
+        RestApiEndpointConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            types=types,
+            vpc_endpoint_ids=vpc_endpoint_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             types: Optional[Sequence[str]] = None,
+             vpc_endpoint_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if types is not None:
-            pulumi.set(__self__, "types", types)
+            _setter("types", types)
         if vpc_endpoint_ids is not None:
-            pulumi.set(__self__, "vpc_endpoint_ids", vpc_endpoint_ids)
+            _setter("vpc_endpoint_ids", vpc_endpoint_ids)
 
     @property
     @pulumi.getter
@@ -1374,14 +1651,29 @@ class RestApiS3Location(dict):
                  e_tag: Optional[str] = None,
                  key: Optional[str] = None,
                  version: Optional[str] = None):
+        RestApiS3Location._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            e_tag=e_tag,
+            key=key,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[str] = None,
+             e_tag: Optional[str] = None,
+             key: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -1409,8 +1701,19 @@ class RestApiTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        RestApiTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1453,10 +1756,21 @@ class StageAccessLogSetting(dict):
         :param str destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. This parameter is required to enable access logging.
         :param str format: A single line format of the access logs of data, as specified by selected $context variables (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least $context.requestId. This parameter is required to enable access logging.
         """
+        StageAccessLogSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_arn=destination_arn,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_arn: Optional[str] = None,
+             format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_arn is not None:
-            pulumi.set(__self__, "destination_arn", destination_arn)
+            _setter("destination_arn", destination_arn)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -1515,14 +1829,29 @@ class StageCanarySetting(dict):
         :param Any stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
         :param bool use_stage_cache: Whether the canary deployment uses the stage cache or not.
         """
+        StageCanarySetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_id=deployment_id,
+            percent_traffic=percent_traffic,
+            stage_variable_overrides=stage_variable_overrides,
+            use_stage_cache=use_stage_cache,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_id: Optional[str] = None,
+             percent_traffic: Optional[float] = None,
+             stage_variable_overrides: Optional[Any] = None,
+             use_stage_cache: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deployment_id is not None:
-            pulumi.set(__self__, "deployment_id", deployment_id)
+            _setter("deployment_id", deployment_id)
         if percent_traffic is not None:
-            pulumi.set(__self__, "percent_traffic", percent_traffic)
+            _setter("percent_traffic", percent_traffic)
         if stage_variable_overrides is not None:
-            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+            _setter("stage_variable_overrides", stage_variable_overrides)
         if use_stage_cache is not None:
-            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+            _setter("use_stage_cache", use_stage_cache)
 
     @property
     @pulumi.getter(name="deploymentId")
@@ -1621,26 +1950,53 @@ class StageMethodSetting(dict):
         :param int throttling_burst_limit: The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
         :param float throttling_rate_limit: The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
         """
+        StageMethodSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_data_encrypted=cache_data_encrypted,
+            cache_ttl_in_seconds=cache_ttl_in_seconds,
+            caching_enabled=caching_enabled,
+            data_trace_enabled=data_trace_enabled,
+            http_method=http_method,
+            logging_level=logging_level,
+            metrics_enabled=metrics_enabled,
+            resource_path=resource_path,
+            throttling_burst_limit=throttling_burst_limit,
+            throttling_rate_limit=throttling_rate_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_data_encrypted: Optional[bool] = None,
+             cache_ttl_in_seconds: Optional[int] = None,
+             caching_enabled: Optional[bool] = None,
+             data_trace_enabled: Optional[bool] = None,
+             http_method: Optional[str] = None,
+             logging_level: Optional[str] = None,
+             metrics_enabled: Optional[bool] = None,
+             resource_path: Optional[str] = None,
+             throttling_burst_limit: Optional[int] = None,
+             throttling_rate_limit: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cache_data_encrypted is not None:
-            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+            _setter("cache_data_encrypted", cache_data_encrypted)
         if cache_ttl_in_seconds is not None:
-            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+            _setter("cache_ttl_in_seconds", cache_ttl_in_seconds)
         if caching_enabled is not None:
-            pulumi.set(__self__, "caching_enabled", caching_enabled)
+            _setter("caching_enabled", caching_enabled)
         if data_trace_enabled is not None:
-            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+            _setter("data_trace_enabled", data_trace_enabled)
         if http_method is not None:
-            pulumi.set(__self__, "http_method", http_method)
+            _setter("http_method", http_method)
         if logging_level is not None:
-            pulumi.set(__self__, "logging_level", logging_level)
+            _setter("logging_level", logging_level)
         if metrics_enabled is not None:
-            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+            _setter("metrics_enabled", metrics_enabled)
         if resource_path is not None:
-            pulumi.set(__self__, "resource_path", resource_path)
+            _setter("resource_path", resource_path)
         if throttling_burst_limit is not None:
-            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+            _setter("throttling_burst_limit", throttling_burst_limit)
         if throttling_rate_limit is not None:
-            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+            _setter("throttling_rate_limit", throttling_rate_limit)
 
     @property
     @pulumi.getter(name="cacheDataEncrypted")
@@ -1736,8 +2092,19 @@ class StageTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        StageTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1784,12 +2151,25 @@ class UsagePlanApiStage(dict):
         :param str stage: The name of the stage to associate with the usage plan.
         :param Any throttle: Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
         """
+        UsagePlanApiStage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            stage=stage,
+            throttle=throttle,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[str] = None,
+             stage: Optional[str] = None,
+             throttle: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if stage is not None:
-            pulumi.set(__self__, "stage", stage)
+            _setter("stage", stage)
         if throttle is not None:
-            pulumi.set(__self__, "throttle", throttle)
+            _setter("throttle", throttle)
 
     @property
     @pulumi.getter(name="apiId")
@@ -1827,12 +2207,25 @@ class UsagePlanQuotaSettings(dict):
         :param int offset: For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
         :param str period: The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
         """
+        UsagePlanQuotaSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            limit=limit,
+            offset=offset,
+            period=period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             limit: Optional[int] = None,
+             offset: Optional[int] = None,
+             period: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if limit is not None:
-            pulumi.set(__self__, "limit", limit)
+            _setter("limit", limit)
         if offset is not None:
-            pulumi.set(__self__, "offset", offset)
+            _setter("offset", offset)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
 
     @property
     @pulumi.getter
@@ -1868,8 +2261,19 @@ class UsagePlanTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        UsagePlanTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1916,10 +2320,21 @@ class UsagePlanThrottleSettings(dict):
         :param int burst_limit: The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
         :param float rate_limit: The API request steady-state rate limit (average requests per second over an extended period of time).
         """
+        UsagePlanThrottleSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            burst_limit=burst_limit,
+            rate_limit=rate_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             burst_limit: Optional[int] = None,
+             rate_limit: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if burst_limit is not None:
-            pulumi.set(__self__, "burst_limit", burst_limit)
+            _setter("burst_limit", burst_limit)
         if rate_limit is not None:
-            pulumi.set(__self__, "rate_limit", rate_limit)
+            _setter("rate_limit", rate_limit)
 
     @property
     @pulumi.getter(name="burstLimit")
@@ -1943,8 +2358,19 @@ class VpcLinkTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        VpcLinkTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

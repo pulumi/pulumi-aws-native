@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApprovedOriginArgs', 'ApprovedOrigin']
@@ -19,8 +19,19 @@ class ApprovedOriginArgs:
         """
         The set of arguments for constructing a ApprovedOrigin resource.
         """
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "origin", origin)
+        ApprovedOriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_id=instance_id,
+            origin=origin,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_id: pulumi.Input[str],
+             origin: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_id", instance_id)
+        _setter("origin", origin)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -74,6 +85,10 @@ class ApprovedOrigin(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApprovedOriginArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -57,44 +57,89 @@ class TargetGroupArgs:
         :param pulumi.Input[int] unhealthy_threshold_count: The number of consecutive health check failures required before considering a target unhealthy.
         :param pulumi.Input[str] vpc_id: The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.
         """
+        TargetGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_check_enabled=health_check_enabled,
+            health_check_interval_seconds=health_check_interval_seconds,
+            health_check_path=health_check_path,
+            health_check_port=health_check_port,
+            health_check_protocol=health_check_protocol,
+            health_check_timeout_seconds=health_check_timeout_seconds,
+            healthy_threshold_count=healthy_threshold_count,
+            ip_address_type=ip_address_type,
+            matcher=matcher,
+            name=name,
+            port=port,
+            protocol=protocol,
+            protocol_version=protocol_version,
+            tags=tags,
+            target_group_attributes=target_group_attributes,
+            target_type=target_type,
+            targets=targets,
+            unhealthy_threshold_count=unhealthy_threshold_count,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_check_enabled: Optional[pulumi.Input[bool]] = None,
+             health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
+             health_check_path: Optional[pulumi.Input[str]] = None,
+             health_check_port: Optional[pulumi.Input[str]] = None,
+             health_check_protocol: Optional[pulumi.Input[str]] = None,
+             health_check_timeout_seconds: Optional[pulumi.Input[int]] = None,
+             healthy_threshold_count: Optional[pulumi.Input[int]] = None,
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             matcher: Optional[pulumi.Input['TargetGroupMatcherArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             protocol_version: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTagArgs']]]] = None,
+             target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]] = None,
+             target_type: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]] = None,
+             unhealthy_threshold_count: Optional[pulumi.Input[int]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if health_check_enabled is not None:
-            pulumi.set(__self__, "health_check_enabled", health_check_enabled)
+            _setter("health_check_enabled", health_check_enabled)
         if health_check_interval_seconds is not None:
-            pulumi.set(__self__, "health_check_interval_seconds", health_check_interval_seconds)
+            _setter("health_check_interval_seconds", health_check_interval_seconds)
         if health_check_path is not None:
-            pulumi.set(__self__, "health_check_path", health_check_path)
+            _setter("health_check_path", health_check_path)
         if health_check_port is not None:
-            pulumi.set(__self__, "health_check_port", health_check_port)
+            _setter("health_check_port", health_check_port)
         if health_check_protocol is not None:
-            pulumi.set(__self__, "health_check_protocol", health_check_protocol)
+            _setter("health_check_protocol", health_check_protocol)
         if health_check_timeout_seconds is not None:
-            pulumi.set(__self__, "health_check_timeout_seconds", health_check_timeout_seconds)
+            _setter("health_check_timeout_seconds", health_check_timeout_seconds)
         if healthy_threshold_count is not None:
-            pulumi.set(__self__, "healthy_threshold_count", healthy_threshold_count)
+            _setter("healthy_threshold_count", healthy_threshold_count)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if matcher is not None:
-            pulumi.set(__self__, "matcher", matcher)
+            _setter("matcher", matcher)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if protocol_version is not None:
-            pulumi.set(__self__, "protocol_version", protocol_version)
+            _setter("protocol_version", protocol_version)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_group_attributes is not None:
-            pulumi.set(__self__, "target_group_attributes", target_group_attributes)
+            _setter("target_group_attributes", target_group_attributes)
         if target_type is not None:
-            pulumi.set(__self__, "target_type", target_type)
+            _setter("target_type", target_type)
         if targets is not None:
-            pulumi.set(__self__, "targets", targets)
+            _setter("targets", targets)
         if unhealthy_threshold_count is not None:
-            pulumi.set(__self__, "unhealthy_threshold_count", unhealthy_threshold_count)
+            _setter("unhealthy_threshold_count", unhealthy_threshold_count)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="healthCheckEnabled")
@@ -394,6 +439,10 @@ class TargetGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TargetGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -435,6 +484,11 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["health_check_timeout_seconds"] = health_check_timeout_seconds
             __props__.__dict__["healthy_threshold_count"] = healthy_threshold_count
             __props__.__dict__["ip_address_type"] = ip_address_type
+            if matcher is not None and not isinstance(matcher, TargetGroupMatcherArgs):
+                matcher = matcher or {}
+                def _setter(key, value):
+                    matcher[key] = value
+                TargetGroupMatcherArgs._configure(_setter, **matcher)
             __props__.__dict__["matcher"] = matcher
             __props__.__dict__["name"] = name
             __props__.__dict__["port"] = port

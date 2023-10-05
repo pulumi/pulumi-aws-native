@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserHierarchyGroupArgs', 'UserHierarchyGroup']
@@ -23,11 +23,24 @@ class UserHierarchyGroupArgs:
         :param pulumi.Input[str] name: The name of the user hierarchy group.
         :param pulumi.Input[str] parent_group_arn: The Amazon Resource Name (ARN) for the parent user hierarchy group.
         """
-        pulumi.set(__self__, "instance_arn", instance_arn)
+        UserHierarchyGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            name=name,
+            parent_group_arn=parent_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             parent_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_arn", instance_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_group_arn is not None:
-            pulumi.set(__self__, "parent_group_arn", parent_group_arn)
+            _setter("parent_group_arn", parent_group_arn)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -103,6 +116,10 @@ class UserHierarchyGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserHierarchyGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

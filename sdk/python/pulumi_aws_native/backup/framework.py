@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,28 @@ class FrameworkArgs:
         :param pulumi.Input[str] framework_name: The unique name of a framework. This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
         :param pulumi.Input[Sequence[pulumi.Input['FrameworkTagArgs']]] framework_tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
-        pulumi.set(__self__, "framework_controls", framework_controls)
+        FrameworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            framework_controls=framework_controls,
+            framework_description=framework_description,
+            framework_name=framework_name,
+            framework_tags=framework_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             framework_controls: pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]],
+             framework_description: Optional[pulumi.Input[str]] = None,
+             framework_name: Optional[pulumi.Input[str]] = None,
+             framework_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("framework_controls", framework_controls)
         if framework_description is not None:
-            pulumi.set(__self__, "framework_description", framework_description)
+            _setter("framework_description", framework_description)
         if framework_name is not None:
-            pulumi.set(__self__, "framework_name", framework_name)
+            _setter("framework_name", framework_name)
         if framework_tags is not None:
-            pulumi.set(__self__, "framework_tags", framework_tags)
+            _setter("framework_tags", framework_tags)
 
     @property
     @pulumi.getter(name="frameworkControls")
@@ -123,6 +138,10 @@ class Framework(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FrameworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

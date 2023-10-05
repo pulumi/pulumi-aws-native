@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,12 +26,27 @@ class LiveSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LiveSourceHttpPackageConfigurationArgs']]] http_package_configurations: <p>A list of HTTP package configuration parameters for this live source.</p>
         :param pulumi.Input[Sequence[pulumi.Input['LiveSourceTagArgs']]] tags: The tags to assign to the live source.
         """
-        pulumi.set(__self__, "http_package_configurations", http_package_configurations)
-        pulumi.set(__self__, "source_location_name", source_location_name)
+        LiveSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_package_configurations=http_package_configurations,
+            source_location_name=source_location_name,
+            live_source_name=live_source_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_package_configurations: pulumi.Input[Sequence[pulumi.Input['LiveSourceHttpPackageConfigurationArgs']]],
+             source_location_name: pulumi.Input[str],
+             live_source_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LiveSourceTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("http_package_configurations", http_package_configurations)
+        _setter("source_location_name", source_location_name)
         if live_source_name is not None:
-            pulumi.set(__self__, "live_source_name", live_source_name)
+            _setter("live_source_name", live_source_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="httpPackageConfigurations")
@@ -113,6 +128,10 @@ class LiveSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LiveSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

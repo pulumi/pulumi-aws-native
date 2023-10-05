@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NotificationChannelArgs', 'NotificationChannel']
@@ -19,8 +19,19 @@ class NotificationChannelArgs:
         """
         The set of arguments for constructing a NotificationChannel resource.
         """
-        pulumi.set(__self__, "sns_role_name", sns_role_name)
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        NotificationChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sns_role_name=sns_role_name,
+            sns_topic_arn=sns_topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sns_role_name: pulumi.Input[str],
+             sns_topic_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("sns_role_name", sns_role_name)
+        _setter("sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="snsRoleName")
@@ -74,6 +85,10 @@ class NotificationChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

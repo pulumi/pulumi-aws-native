@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,10 +46,21 @@ class KeyspaceReplicationSpecification(dict):
     def __init__(__self__, *,
                  region_list: Optional[Sequence['KeyspaceRegionListItem']] = None,
                  replication_strategy: Optional['KeyspaceReplicationSpecificationReplicationStrategy'] = None):
+        KeyspaceReplicationSpecification._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            region_list=region_list,
+            replication_strategy=replication_strategy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             region_list: Optional[Sequence['KeyspaceRegionListItem']] = None,
+             replication_strategy: Optional['KeyspaceReplicationSpecificationReplicationStrategy'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if region_list is not None:
-            pulumi.set(__self__, "region_list", region_list)
+            _setter("region_list", region_list)
         if replication_strategy is not None:
-            pulumi.set(__self__, "replication_strategy", replication_strategy)
+            _setter("replication_strategy", replication_strategy)
 
     @property
     @pulumi.getter(name="regionList")
@@ -67,8 +78,19 @@ class KeyspaceTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        KeyspaceTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -103,9 +125,20 @@ class TableBillingMode(dict):
     def __init__(__self__, *,
                  mode: 'TableMode',
                  provisioned_throughput: Optional['outputs.TableProvisionedThroughput'] = None):
-        pulumi.set(__self__, "mode", mode)
+        TableBillingMode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            provisioned_throughput=provisioned_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: 'TableMode',
+             provisioned_throughput: Optional['outputs.TableProvisionedThroughput'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
         if provisioned_throughput is not None:
-            pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
+            _setter("provisioned_throughput", provisioned_throughput)
 
     @property
     @pulumi.getter
@@ -140,9 +173,20 @@ class TableClusteringKeyColumn(dict):
     def __init__(__self__, *,
                  column: 'outputs.TableColumn',
                  order_by: Optional['TableClusteringKeyColumnOrderBy'] = None):
-        pulumi.set(__self__, "column", column)
+        TableClusteringKeyColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column=column,
+            order_by=order_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column: 'outputs.TableColumn',
+             order_by: Optional['TableClusteringKeyColumnOrderBy'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column", column)
         if order_by is not None:
-            pulumi.set(__self__, "order_by", order_by)
+            _setter("order_by", order_by)
 
     @property
     @pulumi.getter
@@ -179,8 +223,19 @@ class TableColumn(dict):
     def __init__(__self__, *,
                  column_name: str,
                  column_type: str):
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "column_type", column_type)
+        TableColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            column_type=column_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             column_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("column_type", column_type)
 
     @property
     @pulumi.getter(name="columnName")
@@ -223,9 +278,20 @@ class TableEncryptionSpecification(dict):
         """
         Represents the settings used to enable server-side encryption
         """
-        pulumi.set(__self__, "encryption_type", encryption_type)
+        TableEncryptionSpecification._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_type=encryption_type,
+            kms_key_identifier=kms_key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_type: 'TableEncryptionType',
+             kms_key_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("encryption_type", encryption_type)
         if kms_key_identifier is not None:
-            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
+            _setter("kms_key_identifier", kms_key_identifier)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -268,8 +334,19 @@ class TableProvisionedThroughput(dict):
         """
         Throughput for the specified table, which consists of values for ReadCapacityUnits and WriteCapacityUnits
         """
-        pulumi.set(__self__, "read_capacity_units", read_capacity_units)
-        pulumi.set(__self__, "write_capacity_units", write_capacity_units)
+        TableProvisionedThroughput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            read_capacity_units=read_capacity_units,
+            write_capacity_units=write_capacity_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             read_capacity_units: int,
+             write_capacity_units: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("read_capacity_units", read_capacity_units)
+        _setter("write_capacity_units", write_capacity_units)
 
     @property
     @pulumi.getter(name="readCapacityUnits")
@@ -293,8 +370,19 @@ class TableTag(dict):
         """
         A key-value pair to apply to the resource
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        TableTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

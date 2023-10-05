@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,11 +23,26 @@ class StepArgs:
         """
         The set of arguments for constructing a Step resource.
         """
-        pulumi.set(__self__, "action_on_failure", action_on_failure)
-        pulumi.set(__self__, "hadoop_jar_step", hadoop_jar_step)
-        pulumi.set(__self__, "job_flow_id", job_flow_id)
+        StepArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_on_failure=action_on_failure,
+            hadoop_jar_step=hadoop_jar_step,
+            job_flow_id=job_flow_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_on_failure: pulumi.Input[str],
+             hadoop_jar_step: pulumi.Input['StepHadoopJarStepConfigArgs'],
+             job_flow_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_on_failure", action_on_failure)
+        _setter("hadoop_jar_step", hadoop_jar_step)
+        _setter("job_flow_id", job_flow_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="actionOnFailure")
@@ -106,6 +121,10 @@ class Step(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StepArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -128,6 +147,11 @@ class Step(pulumi.CustomResource):
             if action_on_failure is None and not opts.urn:
                 raise TypeError("Missing required property 'action_on_failure'")
             __props__.__dict__["action_on_failure"] = action_on_failure
+            if hadoop_jar_step is not None and not isinstance(hadoop_jar_step, StepHadoopJarStepConfigArgs):
+                hadoop_jar_step = hadoop_jar_step or {}
+                def _setter(key, value):
+                    hadoop_jar_step[key] = value
+                StepHadoopJarStepConfigArgs._configure(_setter, **hadoop_jar_step)
             if hadoop_jar_step is None and not opts.urn:
                 raise TypeError("Missing required property 'hadoop_jar_step'")
             __props__.__dict__["hadoop_jar_step"] = hadoop_jar_step

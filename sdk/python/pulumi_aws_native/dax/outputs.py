@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -34,8 +34,17 @@ class ClusterSseSpecification(dict):
 
     def __init__(__self__, *,
                  sse_enabled: Optional[bool] = None):
+        ClusterSseSpecification._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sse_enabled=sse_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sse_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sse_enabled is not None:
-            pulumi.set(__self__, "sse_enabled", sse_enabled)
+            _setter("sse_enabled", sse_enabled)
 
     @property
     @pulumi.getter(name="sseEnabled")

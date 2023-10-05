@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InstanceProfileArgs', 'InstanceProfile']
@@ -23,11 +23,24 @@ class InstanceProfileArgs:
         :param pulumi.Input[str] instance_profile_name: The name of the instance profile to create.
         :param pulumi.Input[str] path: The path to the instance profile.
         """
-        pulumi.set(__self__, "roles", roles)
+        InstanceProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            roles=roles,
+            instance_profile_name=instance_profile_name,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             roles: pulumi.Input[Sequence[pulumi.Input[str]]],
+             instance_profile_name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("roles", roles)
         if instance_profile_name is not None:
-            pulumi.set(__self__, "instance_profile_name", instance_profile_name)
+            _setter("instance_profile_name", instance_profile_name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -103,6 +116,10 @@ class InstanceProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

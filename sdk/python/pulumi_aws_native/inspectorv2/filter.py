@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,27 @@ class FilterArgs:
         :param pulumi.Input[str] description: Findings filter description.
         :param pulumi.Input[str] name: Findings filter name.
         """
-        pulumi.set(__self__, "filter_action", filter_action)
-        pulumi.set(__self__, "filter_criteria", filter_criteria)
+        FilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_action=filter_action,
+            filter_criteria=filter_criteria,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_action: pulumi.Input['FilterAction'],
+             filter_criteria: pulumi.Input['FilterCriteriaArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filter_action", filter_action)
+        _setter("filter_criteria", filter_criteria)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="filterAction")
@@ -123,6 +138,10 @@ class Filter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -145,6 +164,11 @@ class Filter(pulumi.CustomResource):
             if filter_action is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_action'")
             __props__.__dict__["filter_action"] = filter_action
+            if filter_criteria is not None and not isinstance(filter_criteria, FilterCriteriaArgs):
+                filter_criteria = filter_criteria or {}
+                def _setter(key, value):
+                    filter_criteria[key] = value
+                FilterCriteriaArgs._configure(_setter, **filter_criteria)
             if filter_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_criteria'")
             __props__.__dict__["filter_criteria"] = filter_criteria

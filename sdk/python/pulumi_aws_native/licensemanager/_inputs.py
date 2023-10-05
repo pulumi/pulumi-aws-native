@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -24,8 +24,19 @@ class LicenseBorrowConfigurationArgs:
     def __init__(__self__, *,
                  allow_early_check_in: pulumi.Input[bool],
                  max_time_to_live_in_minutes: pulumi.Input[int]):
-        pulumi.set(__self__, "allow_early_check_in", allow_early_check_in)
-        pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
+        LicenseBorrowConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_early_check_in=allow_early_check_in,
+            max_time_to_live_in_minutes=max_time_to_live_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_early_check_in: pulumi.Input[bool],
+             max_time_to_live_in_minutes: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_early_check_in", allow_early_check_in)
+        _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="allowEarlyCheckIn")
@@ -52,12 +63,25 @@ class LicenseConsumptionConfigurationArgs:
                  borrow_configuration: Optional[pulumi.Input['LicenseBorrowConfigurationArgs']] = None,
                  provisional_configuration: Optional[pulumi.Input['LicenseProvisionalConfigurationArgs']] = None,
                  renew_type: Optional[pulumi.Input[str]] = None):
+        LicenseConsumptionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            borrow_configuration=borrow_configuration,
+            provisional_configuration=provisional_configuration,
+            renew_type=renew_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             borrow_configuration: Optional[pulumi.Input['LicenseBorrowConfigurationArgs']] = None,
+             provisional_configuration: Optional[pulumi.Input['LicenseProvisionalConfigurationArgs']] = None,
+             renew_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if borrow_configuration is not None:
-            pulumi.set(__self__, "borrow_configuration", borrow_configuration)
+            _setter("borrow_configuration", borrow_configuration)
         if provisional_configuration is not None:
-            pulumi.set(__self__, "provisional_configuration", provisional_configuration)
+            _setter("provisional_configuration", provisional_configuration)
         if renew_type is not None:
-            pulumi.set(__self__, "renew_type", renew_type)
+            _setter("renew_type", renew_type)
 
     @property
     @pulumi.getter(name="borrowConfiguration")
@@ -96,16 +120,35 @@ class LicenseEntitlementArgs:
                  max_count: Optional[pulumi.Input[int]] = None,
                  overage: Optional[pulumi.Input[bool]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "unit", unit)
+        LicenseEntitlementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            unit=unit,
+            allow_check_in=allow_check_in,
+            max_count=max_count,
+            overage=overage,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             unit: pulumi.Input[str],
+             allow_check_in: Optional[pulumi.Input[bool]] = None,
+             max_count: Optional[pulumi.Input[int]] = None,
+             overage: Optional[pulumi.Input[bool]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("unit", unit)
         if allow_check_in is not None:
-            pulumi.set(__self__, "allow_check_in", allow_check_in)
+            _setter("allow_check_in", allow_check_in)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
         if overage is not None:
-            pulumi.set(__self__, "overage", overage)
+            _setter("overage", overage)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -167,9 +210,20 @@ class LicenseIssuerDataArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  sign_key: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "name", name)
+        LicenseIssuerDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            sign_key=sign_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             sign_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if sign_key is not None:
-            pulumi.set(__self__, "sign_key", sign_key)
+            _setter("sign_key", sign_key)
 
     @property
     @pulumi.getter
@@ -195,8 +249,19 @@ class LicenseMetadataArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        LicenseMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -221,7 +286,16 @@ class LicenseMetadataArgs:
 class LicenseProvisionalConfigurationArgs:
     def __init__(__self__, *,
                  max_time_to_live_in_minutes: pulumi.Input[int]):
-        pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
+        LicenseProvisionalConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_time_to_live_in_minutes=max_time_to_live_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_time_to_live_in_minutes: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="maxTimeToLiveInMinutes")
@@ -242,8 +316,19 @@ class LicenseValidityDateFormatArgs:
         :param pulumi.Input[str] begin: Validity begin date for the license.
         :param pulumi.Input[str] end: Validity begin date for the license.
         """
-        pulumi.set(__self__, "begin", begin)
-        pulumi.set(__self__, "end", end)
+        LicenseValidityDateFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            begin=begin,
+            end=end,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             begin: pulumi.Input[str],
+             end: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("begin", begin)
+        _setter("end", end)
 
     @property
     @pulumi.getter

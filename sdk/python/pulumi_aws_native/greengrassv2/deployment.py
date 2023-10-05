@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,19 +27,40 @@ class DeploymentArgs:
         """
         The set of arguments for constructing a Deployment resource.
         """
-        pulumi.set(__self__, "target_arn", target_arn)
+        DeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_arn=target_arn,
+            components=components,
+            deployment_name=deployment_name,
+            deployment_policies=deployment_policies,
+            iot_job_configuration=iot_job_configuration,
+            parent_target_arn=parent_target_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_arn: pulumi.Input[str],
+             components: Optional[Any] = None,
+             deployment_name: Optional[pulumi.Input[str]] = None,
+             deployment_policies: Optional[pulumi.Input['DeploymentPoliciesArgs']] = None,
+             iot_job_configuration: Optional[pulumi.Input['DeploymentIoTJobConfigurationArgs']] = None,
+             parent_target_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_arn", target_arn)
         if components is not None:
-            pulumi.set(__self__, "components", components)
+            _setter("components", components)
         if deployment_name is not None:
-            pulumi.set(__self__, "deployment_name", deployment_name)
+            _setter("deployment_name", deployment_name)
         if deployment_policies is not None:
-            pulumi.set(__self__, "deployment_policies", deployment_policies)
+            _setter("deployment_policies", deployment_policies)
         if iot_job_configuration is not None:
-            pulumi.set(__self__, "iot_job_configuration", iot_job_configuration)
+            _setter("iot_job_configuration", iot_job_configuration)
         if parent_target_arn is not None:
-            pulumi.set(__self__, "parent_target_arn", parent_target_arn)
+            _setter("parent_target_arn", parent_target_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="targetArn")
@@ -143,6 +164,10 @@ class Deployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -166,7 +191,17 @@ class Deployment(pulumi.CustomResource):
 
             __props__.__dict__["components"] = components
             __props__.__dict__["deployment_name"] = deployment_name
+            if deployment_policies is not None and not isinstance(deployment_policies, DeploymentPoliciesArgs):
+                deployment_policies = deployment_policies or {}
+                def _setter(key, value):
+                    deployment_policies[key] = value
+                DeploymentPoliciesArgs._configure(_setter, **deployment_policies)
             __props__.__dict__["deployment_policies"] = deployment_policies
+            if iot_job_configuration is not None and not isinstance(iot_job_configuration, DeploymentIoTJobConfigurationArgs):
+                iot_job_configuration = iot_job_configuration or {}
+                def _setter(key, value):
+                    iot_job_configuration[key] = value
+                DeploymentIoTJobConfigurationArgs._configure(_setter, **iot_job_configuration)
             __props__.__dict__["iot_job_configuration"] = iot_job_configuration
             __props__.__dict__["parent_target_arn"] = parent_target_arn
             __props__.__dict__["tags"] = tags

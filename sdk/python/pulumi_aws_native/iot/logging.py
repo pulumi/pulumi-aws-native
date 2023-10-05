@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -24,9 +24,22 @@ class LoggingArgs:
         :param pulumi.Input['LoggingDefaultLogLevel'] default_log_level: The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
         :param pulumi.Input[str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "default_log_level", default_log_level)
-        pulumi.set(__self__, "role_arn", role_arn)
+        LoggingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            default_log_level=default_log_level,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: pulumi.Input[str],
+             default_log_level: pulumi.Input['LoggingDefaultLogLevel'],
+             role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_id", account_id)
+        _setter("default_log_level", default_log_level)
+        _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="accountId")
@@ -102,6 +115,10 @@ class Logging(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoggingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

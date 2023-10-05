@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetRegionResult',
     'AwaitableGetRegionResult',
     'get_region',
+    'get_region_output',
 ]
 
 @pulumi.output_type
@@ -47,3 +48,11 @@ def get_region(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegio
 
     return AwaitableGetRegionResult(
         region=pulumi.get(__ret__, 'region'))
+
+
+@_utilities.lift_output_func(get_region)
+def get_region_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegionResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

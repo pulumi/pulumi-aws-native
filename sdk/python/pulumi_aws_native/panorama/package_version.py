@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -24,15 +24,34 @@ class PackageVersionArgs:
         """
         The set of arguments for constructing a PackageVersion resource.
         """
-        pulumi.set(__self__, "package_id", package_id)
-        pulumi.set(__self__, "package_version", package_version)
-        pulumi.set(__self__, "patch_version", patch_version)
+        PackageVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            package_id=package_id,
+            package_version=package_version,
+            patch_version=patch_version,
+            mark_latest=mark_latest,
+            owner_account=owner_account,
+            updated_latest_patch_version=updated_latest_patch_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             package_id: pulumi.Input[str],
+             package_version: pulumi.Input[str],
+             patch_version: pulumi.Input[str],
+             mark_latest: Optional[pulumi.Input[bool]] = None,
+             owner_account: Optional[pulumi.Input[str]] = None,
+             updated_latest_patch_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("package_id", package_id)
+        _setter("package_version", package_version)
+        _setter("patch_version", patch_version)
         if mark_latest is not None:
-            pulumi.set(__self__, "mark_latest", mark_latest)
+            _setter("mark_latest", mark_latest)
         if owner_account is not None:
-            pulumi.set(__self__, "owner_account", owner_account)
+            _setter("owner_account", owner_account)
         if updated_latest_patch_version is not None:
-            pulumi.set(__self__, "updated_latest_patch_version", updated_latest_patch_version)
+            _setter("updated_latest_patch_version", updated_latest_patch_version)
 
     @property
     @pulumi.getter(name="packageId")
@@ -126,6 +145,10 @@ class PackageVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PackageVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

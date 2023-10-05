@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
@@ -23,10 +23,23 @@ class ResourcePolicyArgs:
         :param pulumi.Input[str] policy_name: The name of the resource policy. Must be unique within a specific AWS account.
         :param pulumi.Input[bool] bypass_policy_lockout_check: A flag to indicate whether to bypass the resource policy lockout safety check
         """
-        pulumi.set(__self__, "policy_document", policy_document)
-        pulumi.set(__self__, "policy_name", policy_name)
+        ResourcePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_document=policy_document,
+            policy_name=policy_name,
+            bypass_policy_lockout_check=bypass_policy_lockout_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_document: pulumi.Input[str],
+             policy_name: pulumi.Input[str],
+             bypass_policy_lockout_check: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_document", policy_document)
+        _setter("policy_name", policy_name)
         if bypass_policy_lockout_check is not None:
-            pulumi.set(__self__, "bypass_policy_lockout_check", bypass_policy_lockout_check)
+            _setter("bypass_policy_lockout_check", bypass_policy_lockout_check)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -102,6 +115,10 @@ class ResourcePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourcePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

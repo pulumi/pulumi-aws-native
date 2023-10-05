@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,18 +28,37 @@ class SafetyRuleArgs:
         :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
         :param pulumi.Input[Sequence[pulumi.Input['SafetyRuleTagArgs']]] tags: A collection of tags associated with a resource
         """
+        SafetyRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assertion_rule=assertion_rule,
+            control_panel_arn=control_panel_arn,
+            gating_rule=gating_rule,
+            name=name,
+            rule_config=rule_config,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assertion_rule: Optional[pulumi.Input['SafetyRuleAssertionRuleArgs']] = None,
+             control_panel_arn: Optional[pulumi.Input[str]] = None,
+             gating_rule: Optional[pulumi.Input['SafetyRuleGatingRuleArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SafetyRuleTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assertion_rule is not None:
-            pulumi.set(__self__, "assertion_rule", assertion_rule)
+            _setter("assertion_rule", assertion_rule)
         if control_panel_arn is not None:
-            pulumi.set(__self__, "control_panel_arn", control_panel_arn)
+            _setter("control_panel_arn", control_panel_arn)
         if gating_rule is not None:
-            pulumi.set(__self__, "gating_rule", gating_rule)
+            _setter("gating_rule", gating_rule)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rule_config is not None:
-            pulumi.set(__self__, "rule_config", rule_config)
+            _setter("rule_config", rule_config)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="assertionRule")
@@ -141,6 +160,10 @@ class SafetyRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SafetyRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -161,10 +184,25 @@ class SafetyRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SafetyRuleArgs.__new__(SafetyRuleArgs)
 
+            if assertion_rule is not None and not isinstance(assertion_rule, SafetyRuleAssertionRuleArgs):
+                assertion_rule = assertion_rule or {}
+                def _setter(key, value):
+                    assertion_rule[key] = value
+                SafetyRuleAssertionRuleArgs._configure(_setter, **assertion_rule)
             __props__.__dict__["assertion_rule"] = assertion_rule
             __props__.__dict__["control_panel_arn"] = control_panel_arn
+            if gating_rule is not None and not isinstance(gating_rule, SafetyRuleGatingRuleArgs):
+                gating_rule = gating_rule or {}
+                def _setter(key, value):
+                    gating_rule[key] = value
+                SafetyRuleGatingRuleArgs._configure(_setter, **gating_rule)
             __props__.__dict__["gating_rule"] = gating_rule
             __props__.__dict__["name"] = name
+            if rule_config is not None and not isinstance(rule_config, SafetyRuleRuleConfigArgs):
+                rule_config = rule_config or {}
+                def _setter(key, value):
+                    rule_config[key] = value
+                SafetyRuleRuleConfigArgs._configure(_setter, **rule_config)
             __props__.__dict__["rule_config"] = rule_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["safety_rule_arn"] = None

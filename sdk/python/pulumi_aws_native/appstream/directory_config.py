@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,11 +23,26 @@ class DirectoryConfigArgs:
         """
         The set of arguments for constructing a DirectoryConfig resource.
         """
-        pulumi.set(__self__, "directory_name", directory_name)
-        pulumi.set(__self__, "organizational_unit_distinguished_names", organizational_unit_distinguished_names)
-        pulumi.set(__self__, "service_account_credentials", service_account_credentials)
+        DirectoryConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_name=directory_name,
+            organizational_unit_distinguished_names=organizational_unit_distinguished_names,
+            service_account_credentials=service_account_credentials,
+            certificate_based_auth_properties=certificate_based_auth_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_name: pulumi.Input[str],
+             organizational_unit_distinguished_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             service_account_credentials: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'],
+             certificate_based_auth_properties: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("directory_name", directory_name)
+        _setter("organizational_unit_distinguished_names", organizational_unit_distinguished_names)
+        _setter("service_account_credentials", service_account_credentials)
         if certificate_based_auth_properties is not None:
-            pulumi.set(__self__, "certificate_based_auth_properties", certificate_based_auth_properties)
+            _setter("certificate_based_auth_properties", certificate_based_auth_properties)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -101,6 +116,10 @@ class DirectoryConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DirectoryConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -119,6 +138,11 @@ class DirectoryConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DirectoryConfigArgs.__new__(DirectoryConfigArgs)
 
+            if certificate_based_auth_properties is not None and not isinstance(certificate_based_auth_properties, DirectoryConfigCertificateBasedAuthPropertiesArgs):
+                certificate_based_auth_properties = certificate_based_auth_properties or {}
+                def _setter(key, value):
+                    certificate_based_auth_properties[key] = value
+                DirectoryConfigCertificateBasedAuthPropertiesArgs._configure(_setter, **certificate_based_auth_properties)
             __props__.__dict__["certificate_based_auth_properties"] = certificate_based_auth_properties
             if directory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_name'")
@@ -126,6 +150,11 @@ class DirectoryConfig(pulumi.CustomResource):
             if organizational_unit_distinguished_names is None and not opts.urn:
                 raise TypeError("Missing required property 'organizational_unit_distinguished_names'")
             __props__.__dict__["organizational_unit_distinguished_names"] = organizational_unit_distinguished_names
+            if service_account_credentials is not None and not isinstance(service_account_credentials, DirectoryConfigServiceAccountCredentialsArgs):
+                service_account_credentials = service_account_credentials or {}
+                def _setter(key, value):
+                    service_account_credentials[key] = value
+                DirectoryConfigServiceAccountCredentialsArgs._configure(_setter, **service_account_credentials)
             if service_account_credentials is None and not opts.urn:
                 raise TypeError("Missing required property 'service_account_credentials'")
             __props__.__dict__["service_account_credentials"] = service_account_credentials

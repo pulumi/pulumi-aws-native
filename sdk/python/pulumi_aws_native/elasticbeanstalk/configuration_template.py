@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,19 +43,40 @@ class ConfigurationTemplateArgs:
                
                Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name. 
         """
-        pulumi.set(__self__, "application_name", application_name)
+        ConfigurationTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            description=description,
+            environment_id=environment_id,
+            option_settings=option_settings,
+            platform_arn=platform_arn,
+            solution_stack_name=solution_stack_name,
+            source_configuration=source_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             option_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateConfigurationOptionSettingArgs']]]] = None,
+             platform_arn: Optional[pulumi.Input[str]] = None,
+             solution_stack_name: Optional[pulumi.Input[str]] = None,
+             source_configuration: Optional[pulumi.Input['ConfigurationTemplateSourceConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_name", application_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if option_settings is not None:
-            pulumi.set(__self__, "option_settings", option_settings)
+            _setter("option_settings", option_settings)
         if platform_arn is not None:
-            pulumi.set(__self__, "platform_arn", platform_arn)
+            _setter("platform_arn", platform_arn)
         if solution_stack_name is not None:
-            pulumi.set(__self__, "solution_stack_name", solution_stack_name)
+            _setter("solution_stack_name", solution_stack_name)
         if source_configuration is not None:
-            pulumi.set(__self__, "source_configuration", source_configuration)
+            _setter("source_configuration", source_configuration)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -207,6 +228,10 @@ class ConfigurationTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -236,6 +261,11 @@ class ConfigurationTemplate(pulumi.CustomResource):
             __props__.__dict__["option_settings"] = option_settings
             __props__.__dict__["platform_arn"] = platform_arn
             __props__.__dict__["solution_stack_name"] = solution_stack_name
+            if source_configuration is not None and not isinstance(source_configuration, ConfigurationTemplateSourceConfigurationArgs):
+                source_configuration = source_configuration or {}
+                def _setter(key, value):
+                    source_configuration[key] = value
+                ConfigurationTemplateSourceConfigurationArgs._configure(_setter, **source_configuration)
             __props__.__dict__["source_configuration"] = source_configuration
             __props__.__dict__["template_name"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name", "environment_id", "platform_arn", "solution_stack_name", "source_configuration"])

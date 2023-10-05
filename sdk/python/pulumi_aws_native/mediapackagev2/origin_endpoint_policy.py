@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OriginEndpointPolicyArgs', 'OriginEndpointPolicy']
@@ -21,13 +21,28 @@ class OriginEndpointPolicyArgs:
         """
         The set of arguments for constructing a OriginEndpointPolicy resource.
         """
-        pulumi.set(__self__, "policy", policy)
+        OriginEndpointPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            channel_group_name=channel_group_name,
+            channel_name=channel_name,
+            origin_endpoint_name=origin_endpoint_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Any,
+             channel_group_name: Optional[pulumi.Input[str]] = None,
+             channel_name: Optional[pulumi.Input[str]] = None,
+             origin_endpoint_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy", policy)
         if channel_group_name is not None:
-            pulumi.set(__self__, "channel_group_name", channel_group_name)
+            _setter("channel_group_name", channel_group_name)
         if channel_name is not None:
-            pulumi.set(__self__, "channel_name", channel_name)
+            _setter("channel_name", channel_name)
         if origin_endpoint_name is not None:
-            pulumi.set(__self__, "origin_endpoint_name", origin_endpoint_name)
+            _setter("origin_endpoint_name", origin_endpoint_name)
 
     @property
     @pulumi.getter
@@ -101,6 +116,10 @@ class OriginEndpointPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OriginEndpointPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

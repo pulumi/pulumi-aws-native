@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -22,9 +22,20 @@ class IndexArgs:
         """
         The set of arguments for constructing a Index resource.
         """
-        pulumi.set(__self__, "type", type)
+        IndexArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input['IndexType'],
+             tags: Optional[pulumi.Input['IndexTagMapArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -78,6 +89,10 @@ class Index(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IndexArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -94,6 +109,11 @@ class Index(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IndexArgs.__new__(IndexArgs)
 
+            if tags is not None and not isinstance(tags, IndexTagMapArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                IndexTagMapArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

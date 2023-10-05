@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,10 +22,23 @@ class UserPoolDomainArgs:
         """
         The set of arguments for constructing a UserPoolDomain resource.
         """
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "user_pool_id", user_pool_id)
+        UserPoolDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            user_pool_id=user_pool_id,
+            custom_domain_config=custom_domain_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input[str],
+             user_pool_id: pulumi.Input[str],
+             custom_domain_config: Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain", domain)
+        _setter("user_pool_id", user_pool_id)
         if custom_domain_config is not None:
-            pulumi.set(__self__, "custom_domain_config", custom_domain_config)
+            _setter("custom_domain_config", custom_domain_config)
 
     @property
     @pulumi.getter
@@ -94,6 +107,10 @@ class UserPoolDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserPoolDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -112,6 +129,11 @@ class UserPoolDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserPoolDomainArgs.__new__(UserPoolDomainArgs)
 
+            if custom_domain_config is not None and not isinstance(custom_domain_config, UserPoolDomainCustomDomainConfigTypeArgs):
+                custom_domain_config = custom_domain_config or {}
+                def _setter(key, value):
+                    custom_domain_config[key] = value
+                UserPoolDomainCustomDomainConfigTypeArgs._configure(_setter, **custom_domain_config)
             __props__.__dict__["custom_domain_config"] = custom_domain_config
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")

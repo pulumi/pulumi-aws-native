@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,8 +26,19 @@ class CrlTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        CrlTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -45,8 +56,19 @@ class ProfileTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ProfileTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -66,12 +88,27 @@ class TrustAnchorNotificationSetting(dict):
                  event: 'TrustAnchorNotificationEvent',
                  channel: Optional['TrustAnchorNotificationChannel'] = None,
                  threshold: Optional[float] = None):
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "event", event)
+        TrustAnchorNotificationSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            event=event,
+            channel=channel,
+            threshold=threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             event: 'TrustAnchorNotificationEvent',
+             channel: Optional['TrustAnchorNotificationChannel'] = None,
+             threshold: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("event", event)
         if channel is not None:
-            pulumi.set(__self__, "channel", channel)
+            _setter("channel", channel)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
 
     @property
     @pulumi.getter
@@ -118,10 +155,21 @@ class TrustAnchorSource(dict):
     def __init__(__self__, *,
                  source_data: Optional[Any] = None,
                  source_type: Optional['TrustAnchorType'] = None):
+        TrustAnchorSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_data=source_data,
+            source_type=source_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_data: Optional[Any] = None,
+             source_type: Optional['TrustAnchorType'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if source_data is not None:
-            pulumi.set(__self__, "source_data", source_data)
+            _setter("source_data", source_data)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
 
     @property
     @pulumi.getter(name="sourceData")
@@ -155,7 +203,16 @@ class TrustAnchorSourceData0Properties(dict):
 
     def __init__(__self__, *,
                  x509_certificate_data: str):
-        pulumi.set(__self__, "x509_certificate_data", x509_certificate_data)
+        TrustAnchorSourceData0Properties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            x509_certificate_data=x509_certificate_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             x509_certificate_data: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("x509_certificate_data", x509_certificate_data)
 
     @property
     @pulumi.getter(name="x509CertificateData")
@@ -184,7 +241,16 @@ class TrustAnchorSourceData1Properties(dict):
 
     def __init__(__self__, *,
                  acm_pca_arn: str):
-        pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
+        TrustAnchorSourceData1Properties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acm_pca_arn=acm_pca_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acm_pca_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acm_pca_arn", acm_pca_arn)
 
     @property
     @pulumi.getter(name="acmPcaArn")
@@ -197,8 +263,19 @@ class TrustAnchorTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        TrustAnchorTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

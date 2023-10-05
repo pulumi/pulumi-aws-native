@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,20 @@ class StreamKeyArgs:
         :param pulumi.Input[str] channel_arn: Channel ARN for the stream.
         :param pulumi.Input[Sequence[pulumi.Input['StreamKeyTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
-        pulumi.set(__self__, "channel_arn", channel_arn)
+        StreamKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_arn=channel_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_arn: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamKeyTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_arn", channel_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="channelArn")
@@ -87,6 +98,10 @@ class StreamKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

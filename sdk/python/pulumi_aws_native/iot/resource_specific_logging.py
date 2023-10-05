@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -24,9 +24,22 @@ class ResourceSpecificLoggingArgs:
         :param pulumi.Input[str] target_name: The target name.
         :param pulumi.Input['ResourceSpecificLoggingTargetType'] target_type: The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.
         """
-        pulumi.set(__self__, "log_level", log_level)
-        pulumi.set(__self__, "target_name", target_name)
-        pulumi.set(__self__, "target_type", target_type)
+        ResourceSpecificLoggingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_level=log_level,
+            target_name=target_name,
+            target_type=target_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_level: pulumi.Input['ResourceSpecificLoggingLogLevel'],
+             target_name: pulumi.Input[str],
+             target_type: pulumi.Input['ResourceSpecificLoggingTargetType'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_level", log_level)
+        _setter("target_name", target_name)
+        _setter("target_type", target_type)
 
     @property
     @pulumi.getter(name="logLevel")
@@ -102,6 +115,10 @@ class ResourceSpecificLogging(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceSpecificLoggingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

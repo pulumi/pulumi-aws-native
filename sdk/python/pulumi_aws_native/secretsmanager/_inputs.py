@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -31,27 +31,56 @@ class RotationScheduleHostedRotationLambdaArgs:
                  superuser_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[str]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "rotation_type", rotation_type)
+        RotationScheduleHostedRotationLambdaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rotation_type=rotation_type,
+            exclude_characters=exclude_characters,
+            kms_key_arn=kms_key_arn,
+            master_secret_arn=master_secret_arn,
+            master_secret_kms_key_arn=master_secret_kms_key_arn,
+            rotation_lambda_name=rotation_lambda_name,
+            runtime=runtime,
+            superuser_secret_arn=superuser_secret_arn,
+            superuser_secret_kms_key_arn=superuser_secret_kms_key_arn,
+            vpc_security_group_ids=vpc_security_group_ids,
+            vpc_subnet_ids=vpc_subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rotation_type: pulumi.Input[str],
+             exclude_characters: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             master_secret_arn: Optional[pulumi.Input[str]] = None,
+             master_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
+             rotation_lambda_name: Optional[pulumi.Input[str]] = None,
+             runtime: Optional[pulumi.Input[str]] = None,
+             superuser_secret_arn: Optional[pulumi.Input[str]] = None,
+             superuser_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[str]] = None,
+             vpc_subnet_ids: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rotation_type", rotation_type)
         if exclude_characters is not None:
-            pulumi.set(__self__, "exclude_characters", exclude_characters)
+            _setter("exclude_characters", exclude_characters)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if master_secret_arn is not None:
-            pulumi.set(__self__, "master_secret_arn", master_secret_arn)
+            _setter("master_secret_arn", master_secret_arn)
         if master_secret_kms_key_arn is not None:
-            pulumi.set(__self__, "master_secret_kms_key_arn", master_secret_kms_key_arn)
+            _setter("master_secret_kms_key_arn", master_secret_kms_key_arn)
         if rotation_lambda_name is not None:
-            pulumi.set(__self__, "rotation_lambda_name", rotation_lambda_name)
+            _setter("rotation_lambda_name", rotation_lambda_name)
         if runtime is not None:
-            pulumi.set(__self__, "runtime", runtime)
+            _setter("runtime", runtime)
         if superuser_secret_arn is not None:
-            pulumi.set(__self__, "superuser_secret_arn", superuser_secret_arn)
+            _setter("superuser_secret_arn", superuser_secret_arn)
         if superuser_secret_kms_key_arn is not None:
-            pulumi.set(__self__, "superuser_secret_kms_key_arn", superuser_secret_kms_key_arn)
+            _setter("superuser_secret_kms_key_arn", superuser_secret_kms_key_arn)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
         if vpc_subnet_ids is not None:
-            pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+            _setter("vpc_subnet_ids", vpc_subnet_ids)
 
     @property
     @pulumi.getter(name="rotationType")
@@ -159,12 +188,25 @@ class RotationScheduleRotationRulesArgs:
                  automatically_after_days: Optional[pulumi.Input[int]] = None,
                  duration: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None):
+        RotationScheduleRotationRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automatically_after_days=automatically_after_days,
+            duration=duration,
+            schedule_expression=schedule_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automatically_after_days: Optional[pulumi.Input[int]] = None,
+             duration: Optional[pulumi.Input[str]] = None,
+             schedule_expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automatically_after_days is not None:
-            pulumi.set(__self__, "automatically_after_days", automatically_after_days)
+            _setter("automatically_after_days", automatically_after_days)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if schedule_expression is not None:
-            pulumi.set(__self__, "schedule_expression", schedule_expression)
+            _setter("schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
@@ -219,26 +261,53 @@ class SecretGenerateSecretStringArgs:
         :param pulumi.Input[bool] require_each_included_type: Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
         :param pulumi.Input[str] secret_string_template: A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
         """
+        SecretGenerateSecretStringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exclude_characters=exclude_characters,
+            exclude_lowercase=exclude_lowercase,
+            exclude_numbers=exclude_numbers,
+            exclude_punctuation=exclude_punctuation,
+            exclude_uppercase=exclude_uppercase,
+            generate_string_key=generate_string_key,
+            include_space=include_space,
+            password_length=password_length,
+            require_each_included_type=require_each_included_type,
+            secret_string_template=secret_string_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exclude_characters: Optional[pulumi.Input[str]] = None,
+             exclude_lowercase: Optional[pulumi.Input[bool]] = None,
+             exclude_numbers: Optional[pulumi.Input[bool]] = None,
+             exclude_punctuation: Optional[pulumi.Input[bool]] = None,
+             exclude_uppercase: Optional[pulumi.Input[bool]] = None,
+             generate_string_key: Optional[pulumi.Input[str]] = None,
+             include_space: Optional[pulumi.Input[bool]] = None,
+             password_length: Optional[pulumi.Input[int]] = None,
+             require_each_included_type: Optional[pulumi.Input[bool]] = None,
+             secret_string_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exclude_characters is not None:
-            pulumi.set(__self__, "exclude_characters", exclude_characters)
+            _setter("exclude_characters", exclude_characters)
         if exclude_lowercase is not None:
-            pulumi.set(__self__, "exclude_lowercase", exclude_lowercase)
+            _setter("exclude_lowercase", exclude_lowercase)
         if exclude_numbers is not None:
-            pulumi.set(__self__, "exclude_numbers", exclude_numbers)
+            _setter("exclude_numbers", exclude_numbers)
         if exclude_punctuation is not None:
-            pulumi.set(__self__, "exclude_punctuation", exclude_punctuation)
+            _setter("exclude_punctuation", exclude_punctuation)
         if exclude_uppercase is not None:
-            pulumi.set(__self__, "exclude_uppercase", exclude_uppercase)
+            _setter("exclude_uppercase", exclude_uppercase)
         if generate_string_key is not None:
-            pulumi.set(__self__, "generate_string_key", generate_string_key)
+            _setter("generate_string_key", generate_string_key)
         if include_space is not None:
-            pulumi.set(__self__, "include_space", include_space)
+            _setter("include_space", include_space)
         if password_length is not None:
-            pulumi.set(__self__, "password_length", password_length)
+            _setter("password_length", password_length)
         if require_each_included_type is not None:
-            pulumi.set(__self__, "require_each_included_type", require_each_included_type)
+            _setter("require_each_included_type", require_each_included_type)
         if secret_string_template is not None:
-            pulumi.set(__self__, "secret_string_template", secret_string_template)
+            _setter("secret_string_template", secret_string_template)
 
     @property
     @pulumi.getter(name="excludeCharacters")
@@ -371,9 +440,20 @@ class SecretReplicaRegionArgs:
         :param pulumi.Input[str] region: (Optional) A string that represents a Region, for example "us-east-1".
         :param pulumi.Input[str] kms_key_id: The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses aws/secretsmanager.
         """
-        pulumi.set(__self__, "region", region)
+        SecretReplicaRegionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            region=region,
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             region: pulumi.Input[str],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("region", region)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter
@@ -410,8 +490,19 @@ class SecretTagArgs:
         :param pulumi.Input[str] key: The value for the tag. You can specify a value that's 1 to 256 characters in length.
         :param pulumi.Input[str] value: The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SecretTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

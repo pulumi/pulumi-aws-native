@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -54,10 +54,21 @@ class HookVersionLoggingConfig(dict):
         :param str log_group_name: The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         :param str log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         """
+        HookVersionLoggingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            log_role_arn=log_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: Optional[str] = None,
+             log_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if log_group_name is not None:
-            pulumi.set(__self__, "log_group_name", log_group_name)
+            _setter("log_group_name", log_group_name)
         if log_role_arn is not None:
-            pulumi.set(__self__, "log_role_arn", log_role_arn)
+            _setter("log_role_arn", log_role_arn)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -86,8 +97,17 @@ class ManagedExecutionProperties(dict):
         """
         Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
         """
+        ManagedExecutionProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active=active,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
 
     @property
     @pulumi.getter
@@ -123,10 +143,21 @@ class ResourceVersionLoggingConfig(dict):
         :param str log_group_name: The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         :param str log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         """
+        ResourceVersionLoggingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            log_role_arn=log_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: Optional[str] = None,
+             log_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if log_group_name is not None:
-            pulumi.set(__self__, "log_group_name", log_group_name)
+            _setter("log_group_name", log_group_name)
         if log_role_arn is not None:
-            pulumi.set(__self__, "log_role_arn", log_role_arn)
+            _setter("log_role_arn", log_role_arn)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -173,14 +204,29 @@ class StackOutput(dict):
                  export_name: Optional[str] = None,
                  output_key: Optional[str] = None,
                  output_value: Optional[str] = None):
+        StackOutput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            export_name=export_name,
+            output_key=output_key,
+            output_value=output_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             export_name: Optional[str] = None,
+             output_key: Optional[str] = None,
+             output_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if export_name is not None:
-            pulumi.set(__self__, "export_name", export_name)
+            _setter("export_name", export_name)
         if output_key is not None:
-            pulumi.set(__self__, "output_key", output_key)
+            _setter("output_key", output_key)
         if output_value is not None:
-            pulumi.set(__self__, "output_value", output_value)
+            _setter("output_value", output_value)
 
     @property
     @pulumi.getter
@@ -229,10 +275,21 @@ class StackSetAutoDeployment(dict):
         :param bool enabled: If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
         :param bool retain_stacks_on_account_removal: If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
         """
+        StackSetAutoDeployment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            retain_stacks_on_account_removal=retain_stacks_on_account_removal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             retain_stacks_on_account_removal: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if retain_stacks_on_account_removal is not None:
-            pulumi.set(__self__, "retain_stacks_on_account_removal", retain_stacks_on_account_removal)
+            _setter("retain_stacks_on_account_removal", retain_stacks_on_account_removal)
 
     @property
     @pulumi.getter
@@ -289,14 +346,29 @@ class StackSetDeploymentTargets(dict):
         :param str accounts_url: Returns the value of the AccountsUrl property.
         :param Sequence[str] organizational_unit_ids: The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         """
+        StackSetDeploymentTargets._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_filter_type=account_filter_type,
+            accounts=accounts,
+            accounts_url=accounts_url,
+            organizational_unit_ids=organizational_unit_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_filter_type: Optional['StackSetDeploymentTargetsAccountFilterType'] = None,
+             accounts: Optional[Sequence[str]] = None,
+             accounts_url: Optional[str] = None,
+             organizational_unit_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_filter_type is not None:
-            pulumi.set(__self__, "account_filter_type", account_filter_type)
+            _setter("account_filter_type", account_filter_type)
         if accounts is not None:
-            pulumi.set(__self__, "accounts", accounts)
+            _setter("accounts", accounts)
         if accounts_url is not None:
-            pulumi.set(__self__, "accounts_url", accounts_url)
+            _setter("accounts_url", accounts_url)
         if organizational_unit_ids is not None:
-            pulumi.set(__self__, "organizational_unit_ids", organizational_unit_ids)
+            _setter("organizational_unit_ids", organizational_unit_ids)
 
     @property
     @pulumi.getter(name="accountFilterType")
@@ -373,18 +445,37 @@ class StackSetOperationPreferences(dict):
         """
         The user-specified preferences for how AWS CloudFormation performs a stack set operation.
         """
+        StackSetOperationPreferences._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_tolerance_count=failure_tolerance_count,
+            failure_tolerance_percentage=failure_tolerance_percentage,
+            max_concurrent_count=max_concurrent_count,
+            max_concurrent_percentage=max_concurrent_percentage,
+            region_concurrency_type=region_concurrency_type,
+            region_order=region_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_tolerance_count: Optional[int] = None,
+             failure_tolerance_percentage: Optional[int] = None,
+             max_concurrent_count: Optional[int] = None,
+             max_concurrent_percentage: Optional[int] = None,
+             region_concurrency_type: Optional['StackSetRegionConcurrencyType'] = None,
+             region_order: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if failure_tolerance_count is not None:
-            pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
+            _setter("failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
-            pulumi.set(__self__, "failure_tolerance_percentage", failure_tolerance_percentage)
+            _setter("failure_tolerance_percentage", failure_tolerance_percentage)
         if max_concurrent_count is not None:
-            pulumi.set(__self__, "max_concurrent_count", max_concurrent_count)
+            _setter("max_concurrent_count", max_concurrent_count)
         if max_concurrent_percentage is not None:
-            pulumi.set(__self__, "max_concurrent_percentage", max_concurrent_percentage)
+            _setter("max_concurrent_percentage", max_concurrent_percentage)
         if region_concurrency_type is not None:
-            pulumi.set(__self__, "region_concurrency_type", region_concurrency_type)
+            _setter("region_concurrency_type", region_concurrency_type)
         if region_order is not None:
-            pulumi.set(__self__, "region_order", region_order)
+            _setter("region_order", region_order)
 
     @property
     @pulumi.getter(name="failureToleranceCount")
@@ -445,8 +536,19 @@ class StackSetParameter(dict):
         :param str parameter_key: The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         :param str parameter_value: The input value associated with the parameter.
         """
-        pulumi.set(__self__, "parameter_key", parameter_key)
-        pulumi.set(__self__, "parameter_value", parameter_value)
+        StackSetParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameter_key=parameter_key,
+            parameter_value=parameter_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameter_key: str,
+             parameter_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("parameter_key", parameter_key)
+        _setter("parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="parameterKey")
@@ -498,10 +600,23 @@ class StackSetStackInstances(dict):
         :param Sequence[str] regions: The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
         :param Sequence['StackSetParameter'] parameter_overrides: A list of stack set parameters whose values you want to override in the selected stack instances.
         """
-        pulumi.set(__self__, "deployment_targets", deployment_targets)
-        pulumi.set(__self__, "regions", regions)
+        StackSetStackInstances._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_targets=deployment_targets,
+            regions=regions,
+            parameter_overrides=parameter_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_targets: 'outputs.StackSetDeploymentTargets',
+             regions: Sequence[str],
+             parameter_overrides: Optional[Sequence['outputs.StackSetParameter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("deployment_targets", deployment_targets)
+        _setter("regions", regions)
         if parameter_overrides is not None:
-            pulumi.set(__self__, "parameter_overrides", parameter_overrides)
+            _setter("parameter_overrides", parameter_overrides)
 
     @property
     @pulumi.getter(name="deploymentTargets")
@@ -538,8 +653,19 @@ class StackSetTag(dict):
         :param str key: A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
         :param str value: A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        StackSetTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -563,8 +689,19 @@ class StackTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        StackTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -605,10 +742,21 @@ class TypeActivationLoggingConfig(dict):
         :param str log_group_name: The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         :param str log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         """
+        TypeActivationLoggingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            log_role_arn=log_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: Optional[str] = None,
+             log_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if log_group_name is not None:
-            pulumi.set(__self__, "log_group_name", log_group_name)
+            _setter("log_group_name", log_group_name)
         if log_role_arn is not None:
-            pulumi.set(__self__, "log_role_arn", log_role_arn)
+            _setter("log_role_arn", log_role_arn)
 
     @property
     @pulumi.getter(name="logGroupName")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,14 +31,33 @@ class ConnectAttachmentArgs:
         :param pulumi.Input['ConnectAttachmentProposedSegmentChangeArgs'] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]] tags: Tags for the attachment.
         """
-        pulumi.set(__self__, "core_network_id", core_network_id)
-        pulumi.set(__self__, "edge_location", edge_location)
-        pulumi.set(__self__, "options", options)
-        pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
+        ConnectAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            core_network_id=core_network_id,
+            edge_location=edge_location,
+            options=options,
+            transport_attachment_id=transport_attachment_id,
+            proposed_segment_change=proposed_segment_change,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             core_network_id: pulumi.Input[str],
+             edge_location: pulumi.Input[str],
+             options: pulumi.Input['ConnectAttachmentOptionsArgs'],
+             transport_attachment_id: pulumi.Input[str],
+             proposed_segment_change: Optional[pulumi.Input['ConnectAttachmentProposedSegmentChangeArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("core_network_id", core_network_id)
+        _setter("edge_location", edge_location)
+        _setter("options", options)
+        _setter("transport_attachment_id", transport_attachment_id)
         if proposed_segment_change is not None:
-            pulumi.set(__self__, "proposed_segment_change", proposed_segment_change)
+            _setter("proposed_segment_change", proposed_segment_change)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="coreNetworkId")
@@ -156,6 +175,10 @@ class ConnectAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,9 +205,19 @@ class ConnectAttachment(pulumi.CustomResource):
             if edge_location is None and not opts.urn:
                 raise TypeError("Missing required property 'edge_location'")
             __props__.__dict__["edge_location"] = edge_location
+            if options is not None and not isinstance(options, ConnectAttachmentOptionsArgs):
+                options = options or {}
+                def _setter(key, value):
+                    options[key] = value
+                ConnectAttachmentOptionsArgs._configure(_setter, **options)
             if options is None and not opts.urn:
                 raise TypeError("Missing required property 'options'")
             __props__.__dict__["options"] = options
+            if proposed_segment_change is not None and not isinstance(proposed_segment_change, ConnectAttachmentProposedSegmentChangeArgs):
+                proposed_segment_change = proposed_segment_change or {}
+                def _setter(key, value):
+                    proposed_segment_change[key] = value
+                ConnectAttachmentProposedSegmentChangeArgs._configure(_setter, **proposed_segment_change)
             __props__.__dict__["proposed_segment_change"] = proposed_segment_change
             __props__.__dict__["tags"] = tags
             if transport_attachment_id is None and not opts.urn:

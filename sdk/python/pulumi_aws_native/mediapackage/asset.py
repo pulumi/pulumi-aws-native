@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,34 @@ class AssetArgs:
         :param pulumi.Input[str] resource_id: The resource ID to include in SPEKE key requests.
         :param pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]] tags: A collection of tags associated with a resource
         """
-        pulumi.set(__self__, "packaging_group_id", packaging_group_id)
-        pulumi.set(__self__, "source_arn", source_arn)
-        pulumi.set(__self__, "source_role_arn", source_role_arn)
+        AssetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            packaging_group_id=packaging_group_id,
+            source_arn=source_arn,
+            source_role_arn=source_role_arn,
+            egress_endpoints=egress_endpoints,
+            resource_id=resource_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             packaging_group_id: pulumi.Input[str],
+             source_arn: pulumi.Input[str],
+             source_role_arn: pulumi.Input[str],
+             egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("packaging_group_id", packaging_group_id)
+        _setter("source_arn", source_arn)
+        _setter("source_role_arn", source_role_arn)
         if egress_endpoints is not None:
-            pulumi.set(__self__, "egress_endpoints", egress_endpoints)
+            _setter("egress_endpoints", egress_endpoints)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="packagingGroupId")
@@ -157,6 +176,10 @@ class Asset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,31 @@ class OutpostResolverArgs:
         :param pulumi.Input[str] name: The OutpostResolver name.
         :param pulumi.Input[Sequence[pulumi.Input['OutpostResolverTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "outpost_arn", outpost_arn)
-        pulumi.set(__self__, "preferred_instance_type", preferred_instance_type)
+        OutpostResolverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            outpost_arn=outpost_arn,
+            preferred_instance_type=preferred_instance_type,
+            instance_count=instance_count,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             outpost_arn: pulumi.Input[str],
+             preferred_instance_type: pulumi.Input[str],
+             instance_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['OutpostResolverTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("outpost_arn", outpost_arn)
+        _setter("preferred_instance_type", preferred_instance_type)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="outpostArn")
@@ -141,6 +158,10 @@ class OutpostResolver(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutpostResolverArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

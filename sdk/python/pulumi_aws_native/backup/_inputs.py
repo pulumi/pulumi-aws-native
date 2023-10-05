@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -35,8 +35,19 @@ class BackupPlanAdvancedBackupSettingResourceTypeArgs:
     def __init__(__self__, *,
                  backup_options: Any,
                  resource_type: pulumi.Input[str]):
-        pulumi.set(__self__, "backup_options", backup_options)
-        pulumi.set(__self__, "resource_type", resource_type)
+        BackupPlanAdvancedBackupSettingResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_options=backup_options,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_options: Any,
+             resource_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backup_options", backup_options)
+        _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter(name="backupOptions")
@@ -70,24 +81,51 @@ class BackupPlanBackupRuleResourceTypeArgs:
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
                  start_window_minutes: Optional[pulumi.Input[float]] = None):
-        pulumi.set(__self__, "rule_name", rule_name)
-        pulumi.set(__self__, "target_backup_vault", target_backup_vault)
+        BackupPlanBackupRuleResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_name=rule_name,
+            target_backup_vault=target_backup_vault,
+            completion_window_minutes=completion_window_minutes,
+            copy_actions=copy_actions,
+            enable_continuous_backup=enable_continuous_backup,
+            lifecycle=lifecycle,
+            recovery_point_tags=recovery_point_tags,
+            schedule_expression=schedule_expression,
+            schedule_expression_timezone=schedule_expression_timezone,
+            start_window_minutes=start_window_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_name: pulumi.Input[str],
+             target_backup_vault: pulumi.Input[str],
+             completion_window_minutes: Optional[pulumi.Input[float]] = None,
+             copy_actions: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanCopyActionResourceTypeArgs']]]] = None,
+             enable_continuous_backup: Optional[pulumi.Input[bool]] = None,
+             lifecycle: Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']] = None,
+             recovery_point_tags: Optional[Any] = None,
+             schedule_expression: Optional[pulumi.Input[str]] = None,
+             schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
+             start_window_minutes: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_name", rule_name)
+        _setter("target_backup_vault", target_backup_vault)
         if completion_window_minutes is not None:
-            pulumi.set(__self__, "completion_window_minutes", completion_window_minutes)
+            _setter("completion_window_minutes", completion_window_minutes)
         if copy_actions is not None:
-            pulumi.set(__self__, "copy_actions", copy_actions)
+            _setter("copy_actions", copy_actions)
         if enable_continuous_backup is not None:
-            pulumi.set(__self__, "enable_continuous_backup", enable_continuous_backup)
+            _setter("enable_continuous_backup", enable_continuous_backup)
         if lifecycle is not None:
-            pulumi.set(__self__, "lifecycle", lifecycle)
+            _setter("lifecycle", lifecycle)
         if recovery_point_tags is not None:
-            pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
+            _setter("recovery_point_tags", recovery_point_tags)
         if schedule_expression is not None:
-            pulumi.set(__self__, "schedule_expression", schedule_expression)
+            _setter("schedule_expression", schedule_expression)
         if schedule_expression_timezone is not None:
-            pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
+            _setter("schedule_expression_timezone", schedule_expression_timezone)
         if start_window_minutes is not None:
-            pulumi.set(__self__, "start_window_minutes", start_window_minutes)
+            _setter("start_window_minutes", start_window_minutes)
 
     @property
     @pulumi.getter(name="ruleName")
@@ -185,9 +223,20 @@ class BackupPlanCopyActionResourceTypeArgs:
     def __init__(__self__, *,
                  destination_backup_vault_arn: pulumi.Input[str],
                  lifecycle: Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']] = None):
-        pulumi.set(__self__, "destination_backup_vault_arn", destination_backup_vault_arn)
+        BackupPlanCopyActionResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_backup_vault_arn=destination_backup_vault_arn,
+            lifecycle=lifecycle,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_backup_vault_arn: pulumi.Input[str],
+             lifecycle: Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_backup_vault_arn", destination_backup_vault_arn)
         if lifecycle is not None:
-            pulumi.set(__self__, "lifecycle", lifecycle)
+            _setter("lifecycle", lifecycle)
 
     @property
     @pulumi.getter(name="destinationBackupVaultArn")
@@ -213,10 +262,21 @@ class BackupPlanLifecycleResourceTypeArgs:
     def __init__(__self__, *,
                  delete_after_days: Optional[pulumi.Input[float]] = None,
                  move_to_cold_storage_after_days: Optional[pulumi.Input[float]] = None):
+        BackupPlanLifecycleResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_after_days=delete_after_days,
+            move_to_cold_storage_after_days=move_to_cold_storage_after_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_after_days: Optional[pulumi.Input[float]] = None,
+             move_to_cold_storage_after_days: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_after_days is not None:
-            pulumi.set(__self__, "delete_after_days", delete_after_days)
+            _setter("delete_after_days", delete_after_days)
         if move_to_cold_storage_after_days is not None:
-            pulumi.set(__self__, "move_to_cold_storage_after_days", move_to_cold_storage_after_days)
+            _setter("move_to_cold_storage_after_days", move_to_cold_storage_after_days)
 
     @property
     @pulumi.getter(name="deleteAfterDays")
@@ -243,10 +303,23 @@ class BackupPlanResourceTypeArgs:
                  backup_plan_name: pulumi.Input[str],
                  backup_plan_rule: pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]],
                  advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]] = None):
-        pulumi.set(__self__, "backup_plan_name", backup_plan_name)
-        pulumi.set(__self__, "backup_plan_rule", backup_plan_rule)
+        BackupPlanResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_plan_name=backup_plan_name,
+            backup_plan_rule=backup_plan_rule,
+            advanced_backup_settings=advanced_backup_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_plan_name: pulumi.Input[str],
+             backup_plan_rule: pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]],
+             advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backup_plan_name", backup_plan_name)
+        _setter("backup_plan_rule", backup_plan_rule)
         if advanced_backup_settings is not None:
-            pulumi.set(__self__, "advanced_backup_settings", advanced_backup_settings)
+            _setter("advanced_backup_settings", advanced_backup_settings)
 
     @property
     @pulumi.getter(name="backupPlanName")
@@ -281,10 +354,21 @@ class BackupSelectionConditionParameterArgs:
     def __init__(__self__, *,
                  condition_key: Optional[pulumi.Input[str]] = None,
                  condition_value: Optional[pulumi.Input[str]] = None):
+        BackupSelectionConditionParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition_key=condition_key,
+            condition_value=condition_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition_key: Optional[pulumi.Input[str]] = None,
+             condition_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if condition_key is not None:
-            pulumi.set(__self__, "condition_key", condition_key)
+            _setter("condition_key", condition_key)
         if condition_value is not None:
-            pulumi.set(__self__, "condition_value", condition_value)
+            _setter("condition_value", condition_value)
 
     @property
     @pulumi.getter(name="conditionKey")
@@ -311,9 +395,22 @@ class BackupSelectionConditionResourceTypeArgs:
                  condition_key: pulumi.Input[str],
                  condition_type: pulumi.Input[str],
                  condition_value: pulumi.Input[str]):
-        pulumi.set(__self__, "condition_key", condition_key)
-        pulumi.set(__self__, "condition_type", condition_type)
-        pulumi.set(__self__, "condition_value", condition_value)
+        BackupSelectionConditionResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition_key=condition_key,
+            condition_type=condition_type,
+            condition_value=condition_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition_key: pulumi.Input[str],
+             condition_type: pulumi.Input[str],
+             condition_value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("condition_key", condition_key)
+        _setter("condition_type", condition_type)
+        _setter("condition_value", condition_value)
 
     @property
     @pulumi.getter(name="conditionKey")
@@ -350,14 +447,29 @@ class BackupSelectionResourceTypeConditionsPropertiesArgs:
                  string_like: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None,
                  string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None,
                  string_not_like: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None):
+        BackupSelectionResourceTypeConditionsPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            string_equals=string_equals,
+            string_like=string_like,
+            string_not_equals=string_not_equals,
+            string_not_like=string_not_like,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             string_equals: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None,
+             string_like: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None,
+             string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None,
+             string_not_like: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if string_equals is not None:
-            pulumi.set(__self__, "string_equals", string_equals)
+            _setter("string_equals", string_equals)
         if string_like is not None:
-            pulumi.set(__self__, "string_like", string_like)
+            _setter("string_like", string_like)
         if string_not_equals is not None:
-            pulumi.set(__self__, "string_not_equals", string_not_equals)
+            _setter("string_not_equals", string_not_equals)
         if string_not_like is not None:
-            pulumi.set(__self__, "string_not_like", string_not_like)
+            _setter("string_not_like", string_not_like)
 
     @property
     @pulumi.getter(name="stringEquals")
@@ -405,16 +517,35 @@ class BackupSelectionResourceTypeArgs:
                  list_of_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionResourceTypeArgs']]]] = None,
                  not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
-        pulumi.set(__self__, "selection_name", selection_name)
+        BackupSelectionResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iam_role_arn=iam_role_arn,
+            selection_name=selection_name,
+            conditions=conditions,
+            list_of_tags=list_of_tags,
+            not_resources=not_resources,
+            resources=resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iam_role_arn: pulumi.Input[str],
+             selection_name: pulumi.Input[str],
+             conditions: Optional[pulumi.Input['BackupSelectionResourceTypeConditionsPropertiesArgs']] = None,
+             list_of_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionResourceTypeArgs']]]] = None,
+             not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("iam_role_arn", iam_role_arn)
+        _setter("selection_name", selection_name)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if list_of_tags is not None:
-            pulumi.set(__self__, "list_of_tags", list_of_tags)
+            _setter("list_of_tags", list_of_tags)
         if not_resources is not None:
-            pulumi.set(__self__, "not_resources", not_resources)
+            _setter("not_resources", not_resources)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
 
     @property
     @pulumi.getter(name="iamRoleArn")
@@ -477,11 +608,24 @@ class BackupVaultLockConfigurationTypeArgs:
                  min_retention_days: pulumi.Input[int],
                  changeable_for_days: Optional[pulumi.Input[int]] = None,
                  max_retention_days: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "min_retention_days", min_retention_days)
+        BackupVaultLockConfigurationTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            min_retention_days=min_retention_days,
+            changeable_for_days=changeable_for_days,
+            max_retention_days=max_retention_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             min_retention_days: pulumi.Input[int],
+             changeable_for_days: Optional[pulumi.Input[int]] = None,
+             max_retention_days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("min_retention_days", min_retention_days)
         if changeable_for_days is not None:
-            pulumi.set(__self__, "changeable_for_days", changeable_for_days)
+            _setter("changeable_for_days", changeable_for_days)
         if max_retention_days is not None:
-            pulumi.set(__self__, "max_retention_days", max_retention_days)
+            _setter("max_retention_days", max_retention_days)
 
     @property
     @pulumi.getter(name="minRetentionDays")
@@ -516,8 +660,19 @@ class BackupVaultNotificationObjectTypeArgs:
     def __init__(__self__, *,
                  backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]],
                  sns_topic_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "backup_vault_events", backup_vault_events)
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        BackupVaultNotificationObjectTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_vault_events=backup_vault_events,
+            sns_topic_arn=sns_topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]],
+             sns_topic_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backup_vault_events", backup_vault_events)
+        _setter("sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="backupVaultEvents")
@@ -550,12 +705,25 @@ class FrameworkControlControlScopePropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compliance_resource_types: Describes whether the control scope includes one or more types of resources, such as `EFS` or `RDS`.
         :param pulumi.Input[Sequence[pulumi.Input['FrameworkTagArgs']]] tags: Describes whether the control scope includes resources with one or more tags. Each tag is a key-value pair.
         """
+        FrameworkControlControlScopePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_resource_ids=compliance_resource_ids,
+            compliance_resource_types=compliance_resource_types,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             compliance_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compliance_resource_ids is not None:
-            pulumi.set(__self__, "compliance_resource_ids", compliance_resource_ids)
+            _setter("compliance_resource_ids", compliance_resource_ids)
         if compliance_resource_types is not None:
-            pulumi.set(__self__, "compliance_resource_types", compliance_resource_types)
+            _setter("compliance_resource_types", compliance_resource_types)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="complianceResourceIds")
@@ -599,8 +767,19 @@ class FrameworkControlInputParameterArgs:
     def __init__(__self__, *,
                  parameter_name: pulumi.Input[str],
                  parameter_value: pulumi.Input[str]):
-        pulumi.set(__self__, "parameter_name", parameter_name)
-        pulumi.set(__self__, "parameter_value", parameter_value)
+        FrameworkControlInputParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameter_name=parameter_name,
+            parameter_value=parameter_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameter_name: pulumi.Input[str],
+             parameter_value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("parameter_name", parameter_name)
+        _setter("parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -632,11 +811,24 @@ class FrameworkControlArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]] control_input_parameters: A list of ParameterName and ParameterValue pairs.
         :param pulumi.Input['FrameworkControlControlScopePropertiesArgs'] control_scope: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
         """
-        pulumi.set(__self__, "control_name", control_name)
+        FrameworkControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_name=control_name,
+            control_input_parameters=control_input_parameters,
+            control_scope=control_scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_name: pulumi.Input[str],
+             control_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]]] = None,
+             control_scope: Optional[pulumi.Input['FrameworkControlControlScopePropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("control_name", control_name)
         if control_input_parameters is not None:
-            pulumi.set(__self__, "control_input_parameters", control_input_parameters)
+            _setter("control_input_parameters", control_input_parameters)
         if control_scope is not None:
-            pulumi.set(__self__, "control_scope", control_scope)
+            _setter("control_scope", control_scope)
 
     @property
     @pulumi.getter(name="controlName")
@@ -685,10 +877,21 @@ class FrameworkTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
+        FrameworkTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -727,11 +930,24 @@ class ReportDeliveryChannelPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] formats: A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
         :param pulumi.Input[str] s3_key_prefix: The prefix for where AWS Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
         """
-        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        ReportDeliveryChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket_name=s3_bucket_name,
+            formats=formats,
+            s3_key_prefix=s3_key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket_name: pulumi.Input[str],
+             formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_bucket_name", s3_bucket_name)
         if formats is not None:
-            pulumi.set(__self__, "formats", formats)
+            _setter("formats", formats)
         if s3_key_prefix is not None:
-            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+            _setter("s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -780,10 +996,21 @@ class ReportPlanTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
+        ReportPlanTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -826,15 +1053,32 @@ class ReportSettingPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organization_units: The list of AWS organization units that a report covers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: The list of AWS regions that a report covers.
         """
-        pulumi.set(__self__, "report_template", report_template)
+        ReportSettingPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            report_template=report_template,
+            accounts=accounts,
+            framework_arns=framework_arns,
+            organization_units=organization_units,
+            regions=regions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             report_template: pulumi.Input[str],
+             accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             framework_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             organization_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("report_template", report_template)
         if accounts is not None:
-            pulumi.set(__self__, "accounts", accounts)
+            _setter("accounts", accounts)
         if framework_arns is not None:
-            pulumi.set(__self__, "framework_arns", framework_arns)
+            _setter("framework_arns", framework_arns)
         if organization_units is not None:
-            pulumi.set(__self__, "organization_units", organization_units)
+            _setter("organization_units", organization_units)
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
 
     @property
     @pulumi.getter(name="reportTemplate")

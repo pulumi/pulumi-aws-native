@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -45,8 +45,19 @@ class AddonTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AddonTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -81,8 +92,17 @@ class ClusterControlPlanePlacementArgs:
         Specify the placement group of the control plane machines for your cluster.
         :param pulumi.Input[str] group_name: Specify the placement group name of the control place machines for your cluster.
         """
+        ClusterControlPlanePlacementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
 
     @property
     @pulumi.getter(name="groupName")
@@ -107,10 +127,21 @@ class ClusterEncryptionConfigArgs:
         :param pulumi.Input['ClusterProviderArgs'] provider: The encryption provider for the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: Specifies the resources to be encrypted. The only supported value is "secrets".
         """
+        ClusterEncryptionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider=provider,
+            resources=resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider: Optional[pulumi.Input['ClusterProviderArgs']] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if provider is not None:
-            pulumi.set(__self__, "provider", provider)
+            _setter("provider", provider)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
 
     @property
     @pulumi.getter
@@ -149,12 +180,25 @@ class ClusterKubernetesNetworkConfigArgs:
         :param pulumi.Input[str] service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
         :param pulumi.Input[str] service_ipv6_cidr: The CIDR block to assign Kubernetes service IP addresses from.
         """
+        ClusterKubernetesNetworkConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_family=ip_family,
+            service_ipv4_cidr=service_ipv4_cidr,
+            service_ipv6_cidr=service_ipv6_cidr,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_family: Optional[pulumi.Input['ClusterKubernetesNetworkConfigIpFamily']] = None,
+             service_ipv4_cidr: Optional[pulumi.Input[str]] = None,
+             service_ipv6_cidr: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_family is not None:
-            pulumi.set(__self__, "ip_family", ip_family)
+            _setter("ip_family", ip_family)
         if service_ipv4_cidr is not None:
-            pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
+            _setter("service_ipv4_cidr", service_ipv4_cidr)
         if service_ipv6_cidr is not None:
-            pulumi.set(__self__, "service_ipv6_cidr", service_ipv6_cidr)
+            _setter("service_ipv6_cidr", service_ipv6_cidr)
 
     @property
     @pulumi.getter(name="ipFamily")
@@ -200,8 +244,17 @@ class ClusterLoggingEnabledTypesArgs:
         """
         The cluster control plane logging configuration for your cluster. 
         """
+        ClusterLoggingEnabledTypesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled_types=enabled_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled_types: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled_types is not None:
-            pulumi.set(__self__, "enabled_types", enabled_types)
+            _setter("enabled_types", enabled_types)
 
     @property
     @pulumi.getter(name="enabledTypes")
@@ -221,8 +274,17 @@ class ClusterLoggingTypeConfigArgs:
         Enabled Logging Type
         :param pulumi.Input['ClusterLoggingTypeConfigType'] type: name of the log type
         """
+        ClusterLoggingTypeConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ClusterLoggingTypeConfigType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -249,10 +311,23 @@ class ClusterOutpostConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outpost_arns: Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
         :param pulumi.Input['ClusterControlPlanePlacementArgs'] control_plane_placement: Specify the placement group of the control plane machines for your cluster.
         """
-        pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
-        pulumi.set(__self__, "outpost_arns", outpost_arns)
+        ClusterOutpostConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_plane_instance_type=control_plane_instance_type,
+            outpost_arns=outpost_arns,
+            control_plane_placement=control_plane_placement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_plane_instance_type: pulumi.Input[str],
+             outpost_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             control_plane_placement: Optional[pulumi.Input['ClusterControlPlanePlacementArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("control_plane_instance_type", control_plane_instance_type)
+        _setter("outpost_arns", outpost_arns)
         if control_plane_placement is not None:
-            pulumi.set(__self__, "control_plane_placement", control_plane_placement)
+            _setter("control_plane_placement", control_plane_placement)
 
     @property
     @pulumi.getter(name="controlPlaneInstanceType")
@@ -298,8 +373,17 @@ class ClusterProviderArgs:
         """
         :param pulumi.Input[str] key_arn: Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
         """
+        ClusterProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_arn=key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_arn is not None:
-            pulumi.set(__self__, "key_arn", key_arn)
+            _setter("key_arn", key_arn)
 
     @property
     @pulumi.getter(name="keyArn")
@@ -330,15 +414,32 @@ class ClusterResourcesVpcConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_access_cidrs: The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
         """
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        ClusterResourcesVpcConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_ids=subnet_ids,
+            endpoint_private_access=endpoint_private_access,
+            endpoint_public_access=endpoint_public_access,
+            public_access_cidrs=public_access_cidrs,
+            security_group_ids=security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             endpoint_private_access: Optional[pulumi.Input[bool]] = None,
+             endpoint_public_access: Optional[pulumi.Input[bool]] = None,
+             public_access_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_ids", subnet_ids)
         if endpoint_private_access is not None:
-            pulumi.set(__self__, "endpoint_private_access", endpoint_private_access)
+            _setter("endpoint_private_access", endpoint_private_access)
         if endpoint_public_access is not None:
-            pulumi.set(__self__, "endpoint_public_access", endpoint_public_access)
+            _setter("endpoint_public_access", endpoint_public_access)
         if public_access_cidrs is not None:
-            pulumi.set(__self__, "public_access_cidrs", public_access_cidrs)
+            _setter("public_access_cidrs", public_access_cidrs)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -411,8 +512,19 @@ class ClusterTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ClusterTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -449,8 +561,19 @@ class FargateProfileLabelArgs:
         :param pulumi.Input[str] key: The key name of the label.
         :param pulumi.Input[str] value: The value for the label. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        FargateProfileLabelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -482,9 +605,20 @@ class FargateProfileSelectorArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str],
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgs']]]] = None):
-        pulumi.set(__self__, "namespace", namespace)
+        FargateProfileSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+            labels=labels,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: pulumi.Input[str],
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace", namespace)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
 
     @property
     @pulumi.getter
@@ -515,8 +649,19 @@ class FargateProfileTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        FargateProfileTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -562,18 +707,39 @@ class IdentityProviderConfigOidcIdentityProviderConfigArgs:
         :param pulumi.Input[str] username_claim: The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
         :param pulumi.Input[str] username_prefix: The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "issuer_url", issuer_url)
+        IdentityProviderConfigOidcIdentityProviderConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            issuer_url=issuer_url,
+            groups_claim=groups_claim,
+            groups_prefix=groups_prefix,
+            required_claims=required_claims,
+            username_claim=username_claim,
+            username_prefix=username_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: pulumi.Input[str],
+             issuer_url: pulumi.Input[str],
+             groups_claim: Optional[pulumi.Input[str]] = None,
+             groups_prefix: Optional[pulumi.Input[str]] = None,
+             required_claims: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgs']]]] = None,
+             username_claim: Optional[pulumi.Input[str]] = None,
+             username_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("issuer_url", issuer_url)
         if groups_claim is not None:
-            pulumi.set(__self__, "groups_claim", groups_claim)
+            _setter("groups_claim", groups_claim)
         if groups_prefix is not None:
-            pulumi.set(__self__, "groups_prefix", groups_prefix)
+            _setter("groups_prefix", groups_prefix)
         if required_claims is not None:
-            pulumi.set(__self__, "required_claims", required_claims)
+            _setter("required_claims", required_claims)
         if username_claim is not None:
-            pulumi.set(__self__, "username_claim", username_claim)
+            _setter("username_claim", username_claim)
         if username_prefix is not None:
-            pulumi.set(__self__, "username_prefix", username_prefix)
+            _setter("username_prefix", username_prefix)
 
     @property
     @pulumi.getter(name="clientId")
@@ -667,8 +833,19 @@ class IdentityProviderConfigRequiredClaimArgs:
         :param pulumi.Input[str] key: The key of the requiredClaims.
         :param pulumi.Input[str] value: The value for the requiredClaims.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        IdentityProviderConfigRequiredClaimArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -705,8 +882,19 @@ class IdentityProviderConfigTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        IdentityProviderConfigTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -741,8 +929,17 @@ class LoggingArgs:
         Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
         :param pulumi.Input['ClusterLoggingEnabledTypesArgs'] cluster_logging: The cluster control plane logging configuration for your cluster. 
         """
+        LoggingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_logging=cluster_logging,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_logging: Optional[pulumi.Input['ClusterLoggingEnabledTypesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_logging is not None:
-            pulumi.set(__self__, "cluster_logging", cluster_logging)
+            _setter("cluster_logging", cluster_logging)
 
     @property
     @pulumi.getter(name="clusterLogging")
@@ -766,12 +963,25 @@ class NodegroupLaunchTemplateSpecificationArgs:
         """
         An object representing a launch template specification for AWS EKS Nodegroup.
         """
+        NodegroupLaunchTemplateSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -809,9 +1019,20 @@ class NodegroupRemoteAccessArgs:
         """
         An object representing a remote access configuration specification for AWS EKS Nodegroup.
         """
-        pulumi.set(__self__, "ec2_ssh_key", ec2_ssh_key)
+        NodegroupRemoteAccessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ec2_ssh_key=ec2_ssh_key,
+            source_security_groups=source_security_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ec2_ssh_key: pulumi.Input[str],
+             source_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ec2_ssh_key", ec2_ssh_key)
         if source_security_groups is not None:
-            pulumi.set(__self__, "source_security_groups", source_security_groups)
+            _setter("source_security_groups", source_security_groups)
 
     @property
     @pulumi.getter(name="ec2SshKey")
@@ -841,12 +1062,25 @@ class NodegroupScalingConfigArgs:
         """
         An object representing a auto scaling group specification for AWS EKS Nodegroup.
         """
+        NodegroupScalingConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            desired_size=desired_size,
+            max_size=max_size,
+            min_size=min_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             desired_size: Optional[pulumi.Input[int]] = None,
+             max_size: Optional[pulumi.Input[int]] = None,
+             min_size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if desired_size is not None:
-            pulumi.set(__self__, "desired_size", desired_size)
+            _setter("desired_size", desired_size)
         if max_size is not None:
-            pulumi.set(__self__, "max_size", max_size)
+            _setter("max_size", max_size)
         if min_size is not None:
-            pulumi.set(__self__, "min_size", min_size)
+            _setter("min_size", min_size)
 
     @property
     @pulumi.getter(name="desiredSize")
@@ -885,12 +1119,25 @@ class NodegroupTaintArgs:
         """
         An object representing a Taint specification for AWS EKS Nodegroup.
         """
+        NodegroupTaintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            effect=effect,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             effect: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if effect is not None:
-            pulumi.set(__self__, "effect", effect)
+            _setter("effect", effect)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -930,10 +1177,21 @@ class NodegroupUpdateConfigArgs:
         :param pulumi.Input[float] max_unavailable: The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
         :param pulumi.Input[float] max_unavailable_percentage: The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
         """
+        NodegroupUpdateConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_unavailable=max_unavailable,
+            max_unavailable_percentage=max_unavailable_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_unavailable: Optional[pulumi.Input[float]] = None,
+             max_unavailable_percentage: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_unavailable is not None:
-            pulumi.set(__self__, "max_unavailable", max_unavailable)
+            _setter("max_unavailable", max_unavailable)
         if max_unavailable_percentage is not None:
-            pulumi.set(__self__, "max_unavailable_percentage", max_unavailable_percentage)
+            _setter("max_unavailable_percentage", max_unavailable_percentage)
 
     @property
     @pulumi.getter(name="maxUnavailable")

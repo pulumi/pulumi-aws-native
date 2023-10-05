@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -31,10 +31,23 @@ class MatchingWorkflowInputSourceArgs:
         """
         :param pulumi.Input[str] input_source_arn: An Glue table ARN for the input source table
         """
-        pulumi.set(__self__, "input_source_arn", input_source_arn)
-        pulumi.set(__self__, "schema_arn", schema_arn)
+        MatchingWorkflowInputSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_source_arn=input_source_arn,
+            schema_arn=schema_arn,
+            apply_normalization=apply_normalization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_source_arn: pulumi.Input[str],
+             schema_arn: pulumi.Input[str],
+             apply_normalization: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("input_source_arn", input_source_arn)
+        _setter("schema_arn", schema_arn)
         if apply_normalization is not None:
-            pulumi.set(__self__, "apply_normalization", apply_normalization)
+            _setter("apply_normalization", apply_normalization)
 
     @property
     @pulumi.getter(name="inputSourceArn")
@@ -72,9 +85,20 @@ class MatchingWorkflowOutputAttributeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  hashed: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "name", name)
+        MatchingWorkflowOutputAttributeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            hashed=hashed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             hashed: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if hashed is not None:
-            pulumi.set(__self__, "hashed", hashed)
+            _setter("hashed", hashed)
 
     @property
     @pulumi.getter
@@ -105,12 +129,27 @@ class MatchingWorkflowOutputSourceArgs:
         """
         :param pulumi.Input[str] output_s3_path: The S3 path to which Entity Resolution will write the output table
         """
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "output_s3_path", output_s3_path)
+        MatchingWorkflowOutputSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            output=output,
+            output_s3_path=output_s3_path,
+            apply_normalization=apply_normalization,
+            kms_arn=kms_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             output: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputAttributeArgs']]],
+             output_s3_path: pulumi.Input[str],
+             apply_normalization: Optional[pulumi.Input[bool]] = None,
+             kms_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("output", output)
+        _setter("output_s3_path", output_s3_path)
         if apply_normalization is not None:
-            pulumi.set(__self__, "apply_normalization", apply_normalization)
+            _setter("apply_normalization", apply_normalization)
         if kms_arn is not None:
-            pulumi.set(__self__, "kms_arn", kms_arn)
+            _setter("kms_arn", kms_arn)
 
     @property
     @pulumi.getter
@@ -157,10 +196,21 @@ class MatchingWorkflowResolutionTechniquesArgs:
     def __init__(__self__, *,
                  resolution_type: Optional[pulumi.Input['MatchingWorkflowResolutionTechniquesResolutionType']] = None,
                  rule_based_properties: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']] = None):
+        MatchingWorkflowResolutionTechniquesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resolution_type=resolution_type,
+            rule_based_properties=rule_based_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resolution_type: Optional[pulumi.Input['MatchingWorkflowResolutionTechniquesResolutionType']] = None,
+             rule_based_properties: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resolution_type is not None:
-            pulumi.set(__self__, "resolution_type", resolution_type)
+            _setter("resolution_type", resolution_type)
         if rule_based_properties is not None:
-            pulumi.set(__self__, "rule_based_properties", rule_based_properties)
+            _setter("rule_based_properties", rule_based_properties)
 
     @property
     @pulumi.getter(name="resolutionType")
@@ -186,8 +236,19 @@ class MatchingWorkflowRuleBasedPropertiesArgs:
     def __init__(__self__, *,
                  attribute_matching_model: pulumi.Input['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel'],
                  rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleArgs']]]):
-        pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
-        pulumi.set(__self__, "rules", rules)
+        MatchingWorkflowRuleBasedPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_matching_model=attribute_matching_model,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_matching_model: pulumi.Input['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel'],
+             rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_matching_model", attribute_matching_model)
+        _setter("rules", rules)
 
     @property
     @pulumi.getter(name="attributeMatchingModel")
@@ -213,8 +274,19 @@ class MatchingWorkflowRuleArgs:
     def __init__(__self__, *,
                  matching_keys: pulumi.Input[Sequence[pulumi.Input[str]]],
                  rule_name: pulumi.Input[str]):
-        pulumi.set(__self__, "matching_keys", matching_keys)
-        pulumi.set(__self__, "rule_name", rule_name)
+        MatchingWorkflowRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matching_keys=matching_keys,
+            rule_name=rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matching_keys: pulumi.Input[Sequence[pulumi.Input[str]]],
+             rule_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matching_keys", matching_keys)
+        _setter("rule_name", rule_name)
 
     @property
     @pulumi.getter(name="matchingKeys")
@@ -245,8 +317,19 @@ class MatchingWorkflowTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        MatchingWorkflowTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -280,12 +363,27 @@ class SchemaMappingSchemaInputAttributeArgs:
                  type: pulumi.Input['SchemaMappingSchemaAttributeType'],
                  group_name: Optional[pulumi.Input[str]] = None,
                  match_key: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "field_name", field_name)
-        pulumi.set(__self__, "type", type)
+        SchemaMappingSchemaInputAttributeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_name=field_name,
+            type=type,
+            group_name=group_name,
+            match_key=match_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_name: pulumi.Input[str],
+             type: pulumi.Input['SchemaMappingSchemaAttributeType'],
+             group_name: Optional[pulumi.Input[str]] = None,
+             match_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field_name", field_name)
+        _setter("type", type)
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
         if match_key is not None:
-            pulumi.set(__self__, "match_key", match_key)
+            _setter("match_key", match_key)
 
     @property
     @pulumi.getter(name="fieldName")
@@ -334,8 +432,19 @@ class SchemaMappingTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SchemaMappingTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

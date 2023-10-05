@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,23 +37,48 @@ class LoadBalancerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] tls_policy_name: The name of the TLS policy to apply to the load balancer.
         """
-        pulumi.set(__self__, "instance_port", instance_port)
+        LoadBalancerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_port=instance_port,
+            attached_instances=attached_instances,
+            health_check_path=health_check_path,
+            ip_address_type=ip_address_type,
+            load_balancer_name=load_balancer_name,
+            session_stickiness_enabled=session_stickiness_enabled,
+            session_stickiness_lb_cookie_duration_seconds=session_stickiness_lb_cookie_duration_seconds,
+            tags=tags,
+            tls_policy_name=tls_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_port: pulumi.Input[int],
+             attached_instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             health_check_path: Optional[pulumi.Input[str]] = None,
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
+             session_stickiness_enabled: Optional[pulumi.Input[bool]] = None,
+             session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]] = None,
+             tls_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_port", instance_port)
         if attached_instances is not None:
-            pulumi.set(__self__, "attached_instances", attached_instances)
+            _setter("attached_instances", attached_instances)
         if health_check_path is not None:
-            pulumi.set(__self__, "health_check_path", health_check_path)
+            _setter("health_check_path", health_check_path)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if load_balancer_name is not None:
-            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+            _setter("load_balancer_name", load_balancer_name)
         if session_stickiness_enabled is not None:
-            pulumi.set(__self__, "session_stickiness_enabled", session_stickiness_enabled)
+            _setter("session_stickiness_enabled", session_stickiness_enabled)
         if session_stickiness_lb_cookie_duration_seconds is not None:
-            pulumi.set(__self__, "session_stickiness_lb_cookie_duration_seconds", session_stickiness_lb_cookie_duration_seconds)
+            _setter("session_stickiness_lb_cookie_duration_seconds", session_stickiness_lb_cookie_duration_seconds)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tls_policy_name is not None:
-            pulumi.set(__self__, "tls_policy_name", tls_policy_name)
+            _setter("tls_policy_name", tls_policy_name)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -213,6 +238,10 @@ class LoadBalancer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoadBalancerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

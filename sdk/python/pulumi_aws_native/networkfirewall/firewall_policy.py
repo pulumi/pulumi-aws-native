@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -24,13 +24,28 @@ class FirewallPolicyInitArgs:
         """
         The set of arguments for constructing a FirewallPolicy resource.
         """
-        pulumi.set(__self__, "firewall_policy", firewall_policy)
+        FirewallPolicyInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_policy=firewall_policy,
+            description=description,
+            firewall_policy_name=firewall_policy_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_policy: pulumi.Input['FirewallPolicyArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             firewall_policy_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("firewall_policy", firewall_policy)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if firewall_policy_name is not None:
-            pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
+            _setter("firewall_policy_name", firewall_policy_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="firewallPolicy")
@@ -104,6 +119,10 @@ class FirewallPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallPolicyInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -123,6 +142,11 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__ = FirewallPolicyInitArgs.__new__(FirewallPolicyInitArgs)
 
             __props__.__dict__["description"] = description
+            if firewall_policy is not None and not isinstance(firewall_policy, FirewallPolicyArgs):
+                firewall_policy = firewall_policy or {}
+                def _setter(key, value):
+                    firewall_policy[key] = value
+                FirewallPolicyArgs._configure(_setter, **firewall_policy)
             if firewall_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_policy'")
             __props__.__dict__["firewall_policy"] = firewall_policy

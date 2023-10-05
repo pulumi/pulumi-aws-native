@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,9 +23,22 @@ class ClusterCapacityProviderAssociationsArgs:
         """
         The set of arguments for constructing a ClusterCapacityProviderAssociations resource.
         """
-        pulumi.set(__self__, "capacity_providers", capacity_providers)
-        pulumi.set(__self__, "cluster", cluster)
-        pulumi.set(__self__, "default_capacity_provider_strategy", default_capacity_provider_strategy)
+        ClusterCapacityProviderAssociationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_providers=capacity_providers,
+            cluster=cluster,
+            default_capacity_provider_strategy=default_capacity_provider_strategy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_providers: pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]],
+             cluster: pulumi.Input[str],
+             default_capacity_provider_strategy: pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity_providers", capacity_providers)
+        _setter("cluster", cluster)
+        _setter("default_capacity_provider_strategy", default_capacity_provider_strategy)
 
     @property
     @pulumi.getter(name="capacityProviders")
@@ -89,6 +102,10 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterCapacityProviderAssociationsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

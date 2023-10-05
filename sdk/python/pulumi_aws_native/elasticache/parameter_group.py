@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,12 +23,27 @@ class ParameterGroupArgs:
         """
         The set of arguments for constructing a ParameterGroup resource.
         """
-        pulumi.set(__self__, "cache_parameter_group_family", cache_parameter_group_family)
-        pulumi.set(__self__, "description", description)
+        ParameterGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_parameter_group_family=cache_parameter_group_family,
+            description=description,
+            properties=properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_parameter_group_family: pulumi.Input[str],
+             description: pulumi.Input[str],
+             properties: Optional[Any] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cache_parameter_group_family", cache_parameter_group_family)
+        _setter("description", description)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="cacheParameterGroupFamily")
@@ -107,6 +122,10 @@ class ParameterGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ParameterGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

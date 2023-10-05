@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,20 +27,41 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] cluster_name: A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
         """
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_providers=capacity_providers,
+            cluster_name=cluster_name,
+            cluster_settings=cluster_settings,
+            configuration=configuration,
+            default_capacity_provider_strategy=default_capacity_provider_strategy,
+            service_connect_defaults=service_connect_defaults,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingsArgs']]]] = None,
+             configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
+             default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]] = None,
+             service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity_providers is not None:
-            pulumi.set(__self__, "capacity_providers", capacity_providers)
+            _setter("capacity_providers", capacity_providers)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if cluster_settings is not None:
-            pulumi.set(__self__, "cluster_settings", cluster_settings)
+            _setter("cluster_settings", cluster_settings)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if default_capacity_provider_strategy is not None:
-            pulumi.set(__self__, "default_capacity_provider_strategy", default_capacity_provider_strategy)
+            _setter("default_capacity_provider_strategy", default_capacity_provider_strategy)
         if service_connect_defaults is not None:
-            pulumi.set(__self__, "service_connect_defaults", service_connect_defaults)
+            _setter("service_connect_defaults", service_connect_defaults)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="capacityProviders")
@@ -148,6 +169,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -172,8 +197,18 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["capacity_providers"] = capacity_providers
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["cluster_settings"] = cluster_settings
+            if configuration is not None and not isinstance(configuration, ClusterConfigurationArgs):
+                configuration = configuration or {}
+                def _setter(key, value):
+                    configuration[key] = value
+                ClusterConfigurationArgs._configure(_setter, **configuration)
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["default_capacity_provider_strategy"] = default_capacity_provider_strategy
+            if service_connect_defaults is not None and not isinstance(service_connect_defaults, ClusterServiceConnectDefaultsArgs):
+                service_connect_defaults = service_connect_defaults or {}
+                def _setter(key, value):
+                    service_connect_defaults[key] = value
+                ClusterServiceConnectDefaultsArgs._configure(_setter, **service_connect_defaults)
             __props__.__dict__["service_connect_defaults"] = service_connect_defaults
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

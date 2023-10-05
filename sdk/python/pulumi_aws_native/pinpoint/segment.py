@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,15 +24,32 @@ class SegmentArgs:
         """
         The set of arguments for constructing a Segment resource.
         """
-        pulumi.set(__self__, "application_id", application_id)
+        SegmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            dimensions=dimensions,
+            name=name,
+            segment_groups=segment_groups,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: pulumi.Input[str],
+             dimensions: Optional[pulumi.Input['SegmentDimensionsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             segment_groups: Optional[pulumi.Input['SegmentGroupsArgs']] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_id", application_id)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if segment_groups is not None:
-            pulumi.set(__self__, "segment_groups", segment_groups)
+            _setter("segment_groups", segment_groups)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -121,6 +138,10 @@ class Segment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SegmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,8 +165,18 @@ class Segment(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
+            if dimensions is not None and not isinstance(dimensions, SegmentDimensionsArgs):
+                dimensions = dimensions or {}
+                def _setter(key, value):
+                    dimensions[key] = value
+                SegmentDimensionsArgs._configure(_setter, **dimensions)
             __props__.__dict__["dimensions"] = dimensions
             __props__.__dict__["name"] = name
+            if segment_groups is not None and not isinstance(segment_groups, SegmentGroupsArgs):
+                segment_groups = segment_groups or {}
+                def _setter(key, value):
+                    segment_groups[key] = value
+                SegmentGroupsArgs._configure(_setter, **segment_groups)
             __props__.__dict__["segment_groups"] = segment_groups
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

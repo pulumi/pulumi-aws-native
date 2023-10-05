@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -25,15 +25,32 @@ class DetectorArgs:
         """
         The set of arguments for constructing a Detector resource.
         """
-        pulumi.set(__self__, "enable", enable)
+        DetectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable=enable,
+            data_sources=data_sources,
+            features=features,
+            finding_publishing_frequency=finding_publishing_frequency,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable: pulumi.Input[bool],
+             data_sources: Optional[pulumi.Input['DetectorCfnDataSourceConfigurationsArgs']] = None,
+             features: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureConfigurationArgs']]]] = None,
+             finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enable", enable)
         if data_sources is not None:
-            pulumi.set(__self__, "data_sources", data_sources)
+            _setter("data_sources", data_sources)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if finding_publishing_frequency is not None:
-            pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
+            _setter("finding_publishing_frequency", finding_publishing_frequency)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -117,6 +134,10 @@ class Detector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DetectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -136,6 +157,11 @@ class Detector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DetectorArgs.__new__(DetectorArgs)
 
+            if data_sources is not None and not isinstance(data_sources, DetectorCfnDataSourceConfigurationsArgs):
+                data_sources = data_sources or {}
+                def _setter(key, value):
+                    data_sources[key] = value
+                DetectorCfnDataSourceConfigurationsArgs._configure(_setter, **data_sources)
             __props__.__dict__["data_sources"] = data_sources
             if enable is None and not opts.urn:
                 raise TypeError("Missing required property 'enable'")

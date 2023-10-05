@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -71,54 +71,109 @@ class FleetArgs:
         :param pulumi.Input[str] server_launch_parameters: This parameter is no longer used but is retained for backward compatibility. Instead, specify server launch parameters in the RuntimeConfiguration parameter. A request must specify either a runtime configuration or values for both ServerLaunchParameters and ServerLaunchPath.
         :param pulumi.Input[str] server_launch_path: This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
         """
+        FleetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            anywhere_configuration=anywhere_configuration,
+            build_id=build_id,
+            certificate_configuration=certificate_configuration,
+            compute_type=compute_type,
+            description=description,
+            desired_ec2_instances=desired_ec2_instances,
+            ec2_inbound_permissions=ec2_inbound_permissions,
+            ec2_instance_type=ec2_instance_type,
+            fleet_type=fleet_type,
+            instance_role_arn=instance_role_arn,
+            locations=locations,
+            log_paths=log_paths,
+            max_size=max_size,
+            metric_groups=metric_groups,
+            min_size=min_size,
+            name=name,
+            new_game_session_protection_policy=new_game_session_protection_policy,
+            peer_vpc_aws_account_id=peer_vpc_aws_account_id,
+            peer_vpc_id=peer_vpc_id,
+            resource_creation_limit_policy=resource_creation_limit_policy,
+            runtime_configuration=runtime_configuration,
+            script_id=script_id,
+            server_launch_parameters=server_launch_parameters,
+            server_launch_path=server_launch_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             anywhere_configuration: Optional[pulumi.Input['FleetAnywhereConfigurationArgs']] = None,
+             build_id: Optional[pulumi.Input[str]] = None,
+             certificate_configuration: Optional[pulumi.Input['FleetCertificateConfigurationArgs']] = None,
+             compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             desired_ec2_instances: Optional[pulumi.Input[int]] = None,
+             ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]]] = None,
+             ec2_instance_type: Optional[pulumi.Input[str]] = None,
+             fleet_type: Optional[pulumi.Input['FleetType']] = None,
+             instance_role_arn: Optional[pulumi.Input[str]] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]] = None,
+             log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_size: Optional[pulumi.Input[int]] = None,
+             metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             min_size: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             new_game_session_protection_policy: Optional[pulumi.Input['FleetNewGameSessionProtectionPolicy']] = None,
+             peer_vpc_aws_account_id: Optional[pulumi.Input[str]] = None,
+             peer_vpc_id: Optional[pulumi.Input[str]] = None,
+             resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
+             runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']] = None,
+             script_id: Optional[pulumi.Input[str]] = None,
+             server_launch_parameters: Optional[pulumi.Input[str]] = None,
+             server_launch_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if anywhere_configuration is not None:
-            pulumi.set(__self__, "anywhere_configuration", anywhere_configuration)
+            _setter("anywhere_configuration", anywhere_configuration)
         if build_id is not None:
-            pulumi.set(__self__, "build_id", build_id)
+            _setter("build_id", build_id)
         if certificate_configuration is not None:
-            pulumi.set(__self__, "certificate_configuration", certificate_configuration)
+            _setter("certificate_configuration", certificate_configuration)
         if compute_type is not None:
-            pulumi.set(__self__, "compute_type", compute_type)
+            _setter("compute_type", compute_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if desired_ec2_instances is not None:
-            pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
+            _setter("desired_ec2_instances", desired_ec2_instances)
         if ec2_inbound_permissions is not None:
-            pulumi.set(__self__, "ec2_inbound_permissions", ec2_inbound_permissions)
+            _setter("ec2_inbound_permissions", ec2_inbound_permissions)
         if ec2_instance_type is not None:
-            pulumi.set(__self__, "ec2_instance_type", ec2_instance_type)
+            _setter("ec2_instance_type", ec2_instance_type)
         if fleet_type is not None:
-            pulumi.set(__self__, "fleet_type", fleet_type)
+            _setter("fleet_type", fleet_type)
         if instance_role_arn is not None:
-            pulumi.set(__self__, "instance_role_arn", instance_role_arn)
+            _setter("instance_role_arn", instance_role_arn)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if log_paths is not None:
-            pulumi.set(__self__, "log_paths", log_paths)
+            _setter("log_paths", log_paths)
         if max_size is not None:
-            pulumi.set(__self__, "max_size", max_size)
+            _setter("max_size", max_size)
         if metric_groups is not None:
-            pulumi.set(__self__, "metric_groups", metric_groups)
+            _setter("metric_groups", metric_groups)
         if min_size is not None:
-            pulumi.set(__self__, "min_size", min_size)
+            _setter("min_size", min_size)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if new_game_session_protection_policy is not None:
-            pulumi.set(__self__, "new_game_session_protection_policy", new_game_session_protection_policy)
+            _setter("new_game_session_protection_policy", new_game_session_protection_policy)
         if peer_vpc_aws_account_id is not None:
-            pulumi.set(__self__, "peer_vpc_aws_account_id", peer_vpc_aws_account_id)
+            _setter("peer_vpc_aws_account_id", peer_vpc_aws_account_id)
         if peer_vpc_id is not None:
-            pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
+            _setter("peer_vpc_id", peer_vpc_id)
         if resource_creation_limit_policy is not None:
-            pulumi.set(__self__, "resource_creation_limit_policy", resource_creation_limit_policy)
+            _setter("resource_creation_limit_policy", resource_creation_limit_policy)
         if runtime_configuration is not None:
-            pulumi.set(__self__, "runtime_configuration", runtime_configuration)
+            _setter("runtime_configuration", runtime_configuration)
         if script_id is not None:
-            pulumi.set(__self__, "script_id", script_id)
+            _setter("script_id", script_id)
         if server_launch_parameters is not None:
-            pulumi.set(__self__, "server_launch_parameters", server_launch_parameters)
+            _setter("server_launch_parameters", server_launch_parameters)
         if server_launch_path is not None:
-            pulumi.set(__self__, "server_launch_path", server_launch_path)
+            _setter("server_launch_path", server_launch_path)
 
     @property
     @pulumi.getter(name="anywhereConfiguration")
@@ -492,6 +547,10 @@ class Fleet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FleetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -530,8 +589,18 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetArgs.__new__(FleetArgs)
 
+            if anywhere_configuration is not None and not isinstance(anywhere_configuration, FleetAnywhereConfigurationArgs):
+                anywhere_configuration = anywhere_configuration or {}
+                def _setter(key, value):
+                    anywhere_configuration[key] = value
+                FleetAnywhereConfigurationArgs._configure(_setter, **anywhere_configuration)
             __props__.__dict__["anywhere_configuration"] = anywhere_configuration
             __props__.__dict__["build_id"] = build_id
+            if certificate_configuration is not None and not isinstance(certificate_configuration, FleetCertificateConfigurationArgs):
+                certificate_configuration = certificate_configuration or {}
+                def _setter(key, value):
+                    certificate_configuration[key] = value
+                FleetCertificateConfigurationArgs._configure(_setter, **certificate_configuration)
             __props__.__dict__["certificate_configuration"] = certificate_configuration
             __props__.__dict__["compute_type"] = compute_type
             __props__.__dict__["description"] = description
@@ -549,7 +618,17 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["new_game_session_protection_policy"] = new_game_session_protection_policy
             __props__.__dict__["peer_vpc_aws_account_id"] = peer_vpc_aws_account_id
             __props__.__dict__["peer_vpc_id"] = peer_vpc_id
+            if resource_creation_limit_policy is not None and not isinstance(resource_creation_limit_policy, FleetResourceCreationLimitPolicyArgs):
+                resource_creation_limit_policy = resource_creation_limit_policy or {}
+                def _setter(key, value):
+                    resource_creation_limit_policy[key] = value
+                FleetResourceCreationLimitPolicyArgs._configure(_setter, **resource_creation_limit_policy)
             __props__.__dict__["resource_creation_limit_policy"] = resource_creation_limit_policy
+            if runtime_configuration is not None and not isinstance(runtime_configuration, FleetRuntimeConfigurationArgs):
+                runtime_configuration = runtime_configuration or {}
+                def _setter(key, value):
+                    runtime_configuration[key] = value
+                FleetRuntimeConfigurationArgs._configure(_setter, **runtime_configuration)
             __props__.__dict__["runtime_configuration"] = runtime_configuration
             __props__.__dict__["script_id"] = script_id
             __props__.__dict__["server_launch_parameters"] = server_launch_parameters
