@@ -8,7 +8,7 @@
       "properties" : {
         "LambdaArn" : {
           "type" : "string",
-          "pattern" : "^arn:aws(-(cn|us-gov))?:lambda:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$"
+          "pattern" : "^arn:[^:]*:lambda:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$"
         },
         "ComponentName" : {
           "type" : "string"
@@ -255,13 +255,13 @@
   "additionalIdentifiers" : [ [ "/properties/ComponentName", "/properties/ComponentVersion" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "greengrass:CreateComponentVersion", "greengrass:DescribeComponent", "lambda:GetFunction", "s3:GetObject" ]
+      "permissions" : [ "greengrass:CreateComponentVersion", "greengrass:DescribeComponent", "greengrass:ListTagsForResource", "greengrass:TagResource", "lambda:GetFunction", "s3:GetObject" ]
     },
     "read" : {
       "permissions" : [ "greengrass:DescribeComponent", "greengrass:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "greengrass:TagResource", "greengrass:UntagResource" ]
+      "permissions" : [ "greengrass:DescribeComponent", "greengrass:ListTagsForResource", "greengrass:TagResource", "greengrass:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "greengrass:DeleteComponent" ]

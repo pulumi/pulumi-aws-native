@@ -4577,6 +4577,30 @@
       },
       "additionalProperties" : false
     },
+    "KPIActualValueConditionalFormatting" : {
+      "type" : "object",
+      "properties" : {
+        "TextColor" : {
+          "$ref" : "#/definitions/ConditionalFormattingColor"
+        },
+        "Icon" : {
+          "$ref" : "#/definitions/ConditionalFormattingIcon"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "KPIComparisonValueConditionalFormatting" : {
+      "type" : "object",
+      "properties" : {
+        "TextColor" : {
+          "$ref" : "#/definitions/ConditionalFormattingColor"
+        },
+        "Icon" : {
+          "$ref" : "#/definitions/ConditionalFormattingIcon"
+        }
+      },
+      "additionalProperties" : false
+    },
     "KPIConditionalFormatting" : {
       "type" : "object",
       "properties" : {
@@ -4599,6 +4623,12 @@
         },
         "ProgressBar" : {
           "$ref" : "#/definitions/KPIProgressBarConditionalFormatting"
+        },
+        "ActualValue" : {
+          "$ref" : "#/definitions/KPIActualValueConditionalFormatting"
+        },
+        "ComparisonValue" : {
+          "$ref" : "#/definitions/KPIComparisonValueConditionalFormatting"
         }
       },
       "additionalProperties" : false
@@ -4671,6 +4701,12 @@
         },
         "SecondaryValueFontConfiguration" : {
           "$ref" : "#/definitions/FontConfiguration"
+        },
+        "Sparkline" : {
+          "$ref" : "#/definitions/KPISparklineOptions"
+        },
+        "VisualLayoutOptions" : {
+          "$ref" : "#/definitions/KPIVisualLayoutOptions"
         }
       },
       "additionalProperties" : false
@@ -4709,6 +4745,30 @@
         }
       },
       "additionalProperties" : false
+    },
+    "KPISparklineOptions" : {
+      "type" : "object",
+      "properties" : {
+        "Visibility" : {
+          "$ref" : "#/definitions/Visibility"
+        },
+        "Type" : {
+          "$ref" : "#/definitions/KPISparklineType"
+        },
+        "Color" : {
+          "type" : "string",
+          "pattern" : "^#[A-F0-9]{6}$"
+        },
+        "TooltipVisibility" : {
+          "$ref" : "#/definitions/Visibility"
+        }
+      },
+      "required" : [ "Type" ],
+      "additionalProperties" : false
+    },
+    "KPISparklineType" : {
+      "type" : "string",
+      "enum" : [ "LINE", "AREA" ]
     },
     "KPIVisual" : {
       "type" : "object",
@@ -4750,6 +4810,29 @@
       },
       "required" : [ "VisualId" ],
       "additionalProperties" : false
+    },
+    "KPIVisualLayoutOptions" : {
+      "type" : "object",
+      "properties" : {
+        "StandardLayout" : {
+          "$ref" : "#/definitions/KPIVisualStandardLayout"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "KPIVisualStandardLayout" : {
+      "type" : "object",
+      "properties" : {
+        "Type" : {
+          "$ref" : "#/definitions/KPIVisualStandardLayoutType"
+        }
+      },
+      "required" : [ "Type" ],
+      "additionalProperties" : false
+    },
+    "KPIVisualStandardLayoutType" : {
+      "type" : "string",
+      "enum" : [ "CLASSIC", "VERTICAL" ]
     },
     "LabelOptions" : {
       "type" : "object",
@@ -8416,6 +8499,9 @@
           },
           "maxItems" : 200,
           "minItems" : 0
+        },
+        "PinnedFieldOptions" : {
+          "$ref" : "#/definitions/TablePinnedFieldOptions"
         }
       },
       "additionalProperties" : false
@@ -8483,6 +8569,22 @@
         },
         "OverflowColumnHeaderVisibility" : {
           "$ref" : "#/definitions/Visibility"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "TablePinnedFieldOptions" : {
+      "type" : "object",
+      "properties" : {
+        "PinnedLeftFields" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "maxLength" : 512,
+            "minLength" : 1
+          },
+          "maxItems" : 201,
+          "minItems" : 0
         }
       },
       "additionalProperties" : false
