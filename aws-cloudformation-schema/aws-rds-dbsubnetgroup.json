@@ -60,7 +60,7 @@
   "writeOnlyProperties" : [ "/properties/SubnetIds" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:CreateDBSubnetGroup", "rds:DescribeDBSubnetGroups", "rds:AddTagsToResource", "rds:RemoveTagsFromResource", "rds:ListTagsForResource" ]
+      "permissions" : [ "iam:CreateServiceLinkedRole", "rds:CreateDBSubnetGroup", "rds:DescribeDBSubnetGroups", "rds:AddTagsToResource", "rds:RemoveTagsFromResource", "rds:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "rds:DescribeDBSubnetGroups", "rds:ListTagsForResource" ]
