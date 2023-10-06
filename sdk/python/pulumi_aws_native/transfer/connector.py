@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,35 @@ class ConnectorArgs:
         :param pulumi.Input['SftpConfigPropertiesArgs'] sftp_config: Configuration for an SFTP connector.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         """
-        pulumi.set(__self__, "access_role", access_role)
-        pulumi.set(__self__, "url", url)
+        ConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_role=access_role,
+            url=url,
+            as2_config=as2_config,
+            logging_role=logging_role,
+            sftp_config=sftp_config,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_role: pulumi.Input[str],
+             url: pulumi.Input[str],
+             as2_config: Optional[pulumi.Input['As2ConfigPropertiesArgs']] = None,
+             logging_role: Optional[pulumi.Input[str]] = None,
+             sftp_config: Optional[pulumi.Input['SftpConfigPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_role", access_role)
+        _setter("url", url)
         if as2_config is not None:
-            pulumi.set(__self__, "as2_config", as2_config)
+            _setter("as2_config", as2_config)
         if logging_role is not None:
-            pulumi.set(__self__, "logging_role", logging_role)
+            _setter("logging_role", logging_role)
         if sftp_config is not None:
-            pulumi.set(__self__, "sftp_config", sftp_config)
+            _setter("sftp_config", sftp_config)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accessRole")
@@ -159,6 +178,10 @@ class Connector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,8 +205,18 @@ class Connector(pulumi.CustomResource):
             if access_role is None and not opts.urn:
                 raise TypeError("Missing required property 'access_role'")
             __props__.__dict__["access_role"] = access_role
+            if as2_config is not None and not isinstance(as2_config, As2ConfigPropertiesArgs):
+                as2_config = as2_config or {}
+                def _setter(key, value):
+                    as2_config[key] = value
+                As2ConfigPropertiesArgs._configure(_setter, **as2_config)
             __props__.__dict__["as2_config"] = as2_config
             __props__.__dict__["logging_role"] = logging_role
+            if sftp_config is not None and not isinstance(sftp_config, SftpConfigPropertiesArgs):
+                sftp_config = sftp_config or {}
+                def _setter(key, value):
+                    sftp_config[key] = value
+                SftpConfigPropertiesArgs._configure(_setter, **sftp_config)
             __props__.__dict__["sftp_config"] = sftp_config
             __props__.__dict__["tags"] = tags
             if url is None and not opts.urn:

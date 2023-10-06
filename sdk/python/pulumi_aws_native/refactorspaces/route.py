@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,16 +28,37 @@ class RouteArgs:
         The set of arguments for constructing a Route resource.
         :param pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
-        pulumi.set(__self__, "application_identifier", application_identifier)
-        pulumi.set(__self__, "environment_identifier", environment_identifier)
-        pulumi.set(__self__, "route_type", route_type)
-        pulumi.set(__self__, "service_identifier", service_identifier)
+        RouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_identifier=application_identifier,
+            environment_identifier=environment_identifier,
+            route_type=route_type,
+            service_identifier=service_identifier,
+            default_route=default_route,
+            tags=tags,
+            uri_path_route=uri_path_route,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_identifier: pulumi.Input[str],
+             environment_identifier: pulumi.Input[str],
+             route_type: pulumi.Input['RouteType'],
+             service_identifier: pulumi.Input[str],
+             default_route: Optional[pulumi.Input['RouteDefaultRouteInputArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]]] = None,
+             uri_path_route: Optional[pulumi.Input['RouteUriPathRouteInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_identifier", application_identifier)
+        _setter("environment_identifier", environment_identifier)
+        _setter("route_type", route_type)
+        _setter("service_identifier", service_identifier)
         if default_route is not None:
-            pulumi.set(__self__, "default_route", default_route)
+            _setter("default_route", default_route)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if uri_path_route is not None:
-            pulumi.set(__self__, "uri_path_route", uri_path_route)
+            _setter("uri_path_route", uri_path_route)
 
     @property
     @pulumi.getter(name="applicationIdentifier")
@@ -145,6 +166,10 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -169,6 +194,11 @@ class Route(pulumi.CustomResource):
             if application_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'application_identifier'")
             __props__.__dict__["application_identifier"] = application_identifier
+            if default_route is not None and not isinstance(default_route, RouteDefaultRouteInputArgs):
+                default_route = default_route or {}
+                def _setter(key, value):
+                    default_route[key] = value
+                RouteDefaultRouteInputArgs._configure(_setter, **default_route)
             __props__.__dict__["default_route"] = default_route
             if environment_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_identifier'")
@@ -180,6 +210,11 @@ class Route(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_identifier'")
             __props__.__dict__["service_identifier"] = service_identifier
             __props__.__dict__["tags"] = tags
+            if uri_path_route is not None and not isinstance(uri_path_route, RouteUriPathRouteInputArgs):
+                uri_path_route = uri_path_route or {}
+                def _setter(key, value):
+                    uri_path_route[key] = value
+                RouteUriPathRouteInputArgs._configure(_setter, **uri_path_route)
             __props__.__dict__["uri_path_route"] = uri_path_route
             __props__.__dict__["arn"] = None
             __props__.__dict__["path_resource_to_id"] = None

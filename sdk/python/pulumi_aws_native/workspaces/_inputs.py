@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -21,8 +21,19 @@ class ConnectionAliasTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ConnectionAliasTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -51,16 +62,33 @@ class WorkspacePropertiesArgs:
                  running_mode: Optional[pulumi.Input[str]] = None,
                  running_mode_auto_stop_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  user_volume_size_gib: Optional[pulumi.Input[int]] = None):
+        WorkspacePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type_name=compute_type_name,
+            root_volume_size_gib=root_volume_size_gib,
+            running_mode=running_mode,
+            running_mode_auto_stop_timeout_in_minutes=running_mode_auto_stop_timeout_in_minutes,
+            user_volume_size_gib=user_volume_size_gib,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type_name: Optional[pulumi.Input[str]] = None,
+             root_volume_size_gib: Optional[pulumi.Input[int]] = None,
+             running_mode: Optional[pulumi.Input[str]] = None,
+             running_mode_auto_stop_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             user_volume_size_gib: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_type_name is not None:
-            pulumi.set(__self__, "compute_type_name", compute_type_name)
+            _setter("compute_type_name", compute_type_name)
         if root_volume_size_gib is not None:
-            pulumi.set(__self__, "root_volume_size_gib", root_volume_size_gib)
+            _setter("root_volume_size_gib", root_volume_size_gib)
         if running_mode is not None:
-            pulumi.set(__self__, "running_mode", running_mode)
+            _setter("running_mode", running_mode)
         if running_mode_auto_stop_timeout_in_minutes is not None:
-            pulumi.set(__self__, "running_mode_auto_stop_timeout_in_minutes", running_mode_auto_stop_timeout_in_minutes)
+            _setter("running_mode_auto_stop_timeout_in_minutes", running_mode_auto_stop_timeout_in_minutes)
         if user_volume_size_gib is not None:
-            pulumi.set(__self__, "user_volume_size_gib", user_volume_size_gib)
+            _setter("user_volume_size_gib", user_volume_size_gib)
 
     @property
     @pulumi.getter(name="computeTypeName")
@@ -113,8 +141,19 @@ class WorkspaceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        WorkspaceTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

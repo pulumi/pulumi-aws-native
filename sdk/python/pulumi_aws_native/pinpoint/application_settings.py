@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,15 +24,32 @@ class ApplicationSettingsArgs:
         """
         The set of arguments for constructing a ApplicationSettings resource.
         """
-        pulumi.set(__self__, "application_id", application_id)
+        ApplicationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            campaign_hook=campaign_hook,
+            cloud_watch_metrics_enabled=cloud_watch_metrics_enabled,
+            limits=limits,
+            quiet_time=quiet_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: pulumi.Input[str],
+             campaign_hook: Optional[pulumi.Input['ApplicationSettingsCampaignHookArgs']] = None,
+             cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             limits: Optional[pulumi.Input['ApplicationSettingsLimitsArgs']] = None,
+             quiet_time: Optional[pulumi.Input['ApplicationSettingsQuietTimeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_id", application_id)
         if campaign_hook is not None:
-            pulumi.set(__self__, "campaign_hook", campaign_hook)
+            _setter("campaign_hook", campaign_hook)
         if cloud_watch_metrics_enabled is not None:
-            pulumi.set(__self__, "cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
+            _setter("cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
         if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+            _setter("limits", limits)
         if quiet_time is not None:
-            pulumi.set(__self__, "quiet_time", quiet_time)
+            _setter("quiet_time", quiet_time)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -121,6 +138,10 @@ class ApplicationSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,9 +165,24 @@ class ApplicationSettings(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
+            if campaign_hook is not None and not isinstance(campaign_hook, ApplicationSettingsCampaignHookArgs):
+                campaign_hook = campaign_hook or {}
+                def _setter(key, value):
+                    campaign_hook[key] = value
+                ApplicationSettingsCampaignHookArgs._configure(_setter, **campaign_hook)
             __props__.__dict__["campaign_hook"] = campaign_hook
             __props__.__dict__["cloud_watch_metrics_enabled"] = cloud_watch_metrics_enabled
+            if limits is not None and not isinstance(limits, ApplicationSettingsLimitsArgs):
+                limits = limits or {}
+                def _setter(key, value):
+                    limits[key] = value
+                ApplicationSettingsLimitsArgs._configure(_setter, **limits)
             __props__.__dict__["limits"] = limits
+            if quiet_time is not None and not isinstance(quiet_time, ApplicationSettingsQuietTimeArgs):
+                quiet_time = quiet_time or {}
+                def _setter(key, value):
+                    quiet_time[key] = value
+                ApplicationSettingsQuietTimeArgs._configure(_setter, **quiet_time)
             __props__.__dict__["quiet_time"] = quiet_time
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

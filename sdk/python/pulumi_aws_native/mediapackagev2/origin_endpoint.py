@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,25 +34,52 @@ class OriginEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
         :param pulumi.Input[int] startover_window_seconds: <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
         """
-        pulumi.set(__self__, "container_type", container_type)
+        OriginEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_type=container_type,
+            channel_group_name=channel_group_name,
+            channel_name=channel_name,
+            description=description,
+            hls_manifests=hls_manifests,
+            low_latency_hls_manifests=low_latency_hls_manifests,
+            origin_endpoint_name=origin_endpoint_name,
+            segment=segment,
+            startover_window_seconds=startover_window_seconds,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_type: pulumi.Input['OriginEndpointContainerType'],
+             channel_group_name: Optional[pulumi.Input[str]] = None,
+             channel_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestConfigurationArgs']]]] = None,
+             low_latency_hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]] = None,
+             origin_endpoint_name: Optional[pulumi.Input[str]] = None,
+             segment: Optional[pulumi.Input['OriginEndpointSegmentArgs']] = None,
+             startover_window_seconds: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_type", container_type)
         if channel_group_name is not None:
-            pulumi.set(__self__, "channel_group_name", channel_group_name)
+            _setter("channel_group_name", channel_group_name)
         if channel_name is not None:
-            pulumi.set(__self__, "channel_name", channel_name)
+            _setter("channel_name", channel_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if hls_manifests is not None:
-            pulumi.set(__self__, "hls_manifests", hls_manifests)
+            _setter("hls_manifests", hls_manifests)
         if low_latency_hls_manifests is not None:
-            pulumi.set(__self__, "low_latency_hls_manifests", low_latency_hls_manifests)
+            _setter("low_latency_hls_manifests", low_latency_hls_manifests)
         if origin_endpoint_name is not None:
-            pulumi.set(__self__, "origin_endpoint_name", origin_endpoint_name)
+            _setter("origin_endpoint_name", origin_endpoint_name)
         if segment is not None:
-            pulumi.set(__self__, "segment", segment)
+            _setter("segment", segment)
         if startover_window_seconds is not None:
-            pulumi.set(__self__, "startover_window_seconds", startover_window_seconds)
+            _setter("startover_window_seconds", startover_window_seconds)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="containerType")
@@ -202,6 +229,10 @@ class OriginEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OriginEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -235,6 +266,11 @@ class OriginEndpoint(pulumi.CustomResource):
             __props__.__dict__["hls_manifests"] = hls_manifests
             __props__.__dict__["low_latency_hls_manifests"] = low_latency_hls_manifests
             __props__.__dict__["origin_endpoint_name"] = origin_endpoint_name
+            if segment is not None and not isinstance(segment, OriginEndpointSegmentArgs):
+                segment = segment or {}
+                def _setter(key, value):
+                    segment[key] = value
+                OriginEndpointSegmentArgs._configure(_setter, **segment)
             __props__.__dict__["segment"] = segment
             __props__.__dict__["startover_window_seconds"] = startover_window_seconds
             __props__.__dict__["tags"] = tags

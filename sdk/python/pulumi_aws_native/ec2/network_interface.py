@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,35 +49,72 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[bool] source_dest_check: Indicates whether traffic to or from the instance is validated.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this network interface.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        NetworkInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+            description=description,
+            group_set=group_set,
+            interface_type=interface_type,
+            ipv4_prefix_count=ipv4_prefix_count,
+            ipv4_prefixes=ipv4_prefixes,
+            ipv6_address_count=ipv6_address_count,
+            ipv6_addresses=ipv6_addresses,
+            ipv6_prefix_count=ipv6_prefix_count,
+            ipv6_prefixes=ipv6_prefixes,
+            private_ip_address=private_ip_address,
+            private_ip_addresses=private_ip_addresses,
+            secondary_private_ip_address_count=secondary_private_ip_address_count,
+            source_dest_check=source_dest_check,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             group_set: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             interface_type: Optional[pulumi.Input[str]] = None,
+             ipv4_prefix_count: Optional[pulumi.Input[int]] = None,
+             ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpv4PrefixSpecificationArgs']]]] = None,
+             ipv6_address_count: Optional[pulumi.Input[int]] = None,
+             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceInstanceIpv6AddressArgs']]]] = None,
+             ipv6_prefix_count: Optional[pulumi.Input[int]] = None,
+             ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpv6PrefixSpecificationArgs']]]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfacePrivateIpAddressSpecificationArgs']]]] = None,
+             secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
+             source_dest_check: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_id", subnet_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if group_set is not None:
-            pulumi.set(__self__, "group_set", group_set)
+            _setter("group_set", group_set)
         if interface_type is not None:
-            pulumi.set(__self__, "interface_type", interface_type)
+            _setter("interface_type", interface_type)
         if ipv4_prefix_count is not None:
-            pulumi.set(__self__, "ipv4_prefix_count", ipv4_prefix_count)
+            _setter("ipv4_prefix_count", ipv4_prefix_count)
         if ipv4_prefixes is not None:
-            pulumi.set(__self__, "ipv4_prefixes", ipv4_prefixes)
+            _setter("ipv4_prefixes", ipv4_prefixes)
         if ipv6_address_count is not None:
-            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+            _setter("ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
-            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+            _setter("ipv6_addresses", ipv6_addresses)
         if ipv6_prefix_count is not None:
-            pulumi.set(__self__, "ipv6_prefix_count", ipv6_prefix_count)
+            _setter("ipv6_prefix_count", ipv6_prefix_count)
         if ipv6_prefixes is not None:
-            pulumi.set(__self__, "ipv6_prefixes", ipv6_prefixes)
+            _setter("ipv6_prefixes", ipv6_prefixes)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_addresses is not None:
-            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+            _setter("private_ip_addresses", private_ip_addresses)
         if secondary_private_ip_address_count is not None:
-            pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+            _setter("secondary_private_ip_address_count", secondary_private_ip_address_count)
         if source_dest_check is not None:
-            pulumi.set(__self__, "source_dest_check", source_dest_check)
+            _setter("source_dest_check", source_dest_check)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -321,6 +358,10 @@ class NetworkInterface(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,14 +23,29 @@ class ChannelArgs:
         """
         The set of arguments for constructing a Channel resource.
         """
+        ChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            channel_storage=channel_storage,
+            retention_period=retention_period,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: Optional[pulumi.Input[str]] = None,
+             channel_storage: Optional[pulumi.Input['ChannelStorageArgs']] = None,
+             retention_period: Optional[pulumi.Input['ChannelRetentionPeriodArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if channel_name is not None:
-            pulumi.set(__self__, "channel_name", channel_name)
+            _setter("channel_name", channel_name)
         if channel_storage is not None:
-            pulumi.set(__self__, "channel_storage", channel_storage)
+            _setter("channel_storage", channel_storage)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="channelName")
@@ -104,6 +119,10 @@ class Channel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -123,7 +142,17 @@ class Channel(pulumi.CustomResource):
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
             __props__.__dict__["channel_name"] = channel_name
+            if channel_storage is not None and not isinstance(channel_storage, ChannelStorageArgs):
+                channel_storage = channel_storage or {}
+                def _setter(key, value):
+                    channel_storage[key] = value
+                ChannelStorageArgs._configure(_setter, **channel_storage)
             __props__.__dict__["channel_storage"] = channel_storage
+            if retention_period is not None and not isinstance(retention_period, ChannelRetentionPeriodArgs):
+                retention_period = retention_period or {}
+                def _setter(key, value):
+                    retention_period[key] = value
+                ChannelRetentionPeriodArgs._configure(_setter, **retention_period)
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_name"])

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,21 +28,44 @@ class DatasetArgs:
         """
         The set of arguments for constructing a Dataset resource.
         """
-        pulumi.set(__self__, "actions", actions)
+        DatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            content_delivery_rules=content_delivery_rules,
+            dataset_name=dataset_name,
+            late_data_rules=late_data_rules,
+            retention_period=retention_period,
+            tags=tags,
+            triggers=triggers,
+            versioning_configuration=versioning_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input[Sequence[pulumi.Input['DatasetActionArgs']]],
+             content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]] = None,
+             dataset_name: Optional[pulumi.Input[str]] = None,
+             late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]]] = None,
+             retention_period: Optional[pulumi.Input['DatasetRetentionPeriodArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]] = None,
+             triggers: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTriggerArgs']]]] = None,
+             versioning_configuration: Optional[pulumi.Input['DatasetVersioningConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
         if content_delivery_rules is not None:
-            pulumi.set(__self__, "content_delivery_rules", content_delivery_rules)
+            _setter("content_delivery_rules", content_delivery_rules)
         if dataset_name is not None:
-            pulumi.set(__self__, "dataset_name", dataset_name)
+            _setter("dataset_name", dataset_name)
         if late_data_rules is not None:
-            pulumi.set(__self__, "late_data_rules", late_data_rules)
+            _setter("late_data_rules", late_data_rules)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
         if versioning_configuration is not None:
-            pulumi.set(__self__, "versioning_configuration", versioning_configuration)
+            _setter("versioning_configuration", versioning_configuration)
 
     @property
     @pulumi.getter
@@ -156,6 +179,10 @@ class Dataset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatasetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -184,9 +211,19 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["content_delivery_rules"] = content_delivery_rules
             __props__.__dict__["dataset_name"] = dataset_name
             __props__.__dict__["late_data_rules"] = late_data_rules
+            if retention_period is not None and not isinstance(retention_period, DatasetRetentionPeriodArgs):
+                retention_period = retention_period or {}
+                def _setter(key, value):
+                    retention_period[key] = value
+                DatasetRetentionPeriodArgs._configure(_setter, **retention_period)
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["tags"] = tags
             __props__.__dict__["triggers"] = triggers
+            if versioning_configuration is not None and not isinstance(versioning_configuration, DatasetVersioningConfigurationArgs):
+                versioning_configuration = versioning_configuration or {}
+                def _setter(key, value):
+                    versioning_configuration[key] = value
+                DatasetVersioningConfigurationArgs._configure(_setter, **versioning_configuration)
             __props__.__dict__["versioning_configuration"] = versioning_configuration
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataset_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,16 +26,35 @@ class DevicePoolArgs:
         """
         The set of arguments for constructing a DevicePool resource.
         """
-        pulumi.set(__self__, "project_arn", project_arn)
-        pulumi.set(__self__, "rules", rules)
+        DevicePoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_arn=project_arn,
+            rules=rules,
+            description=description,
+            max_devices=max_devices,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_arn: pulumi.Input[str],
+             rules: pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]],
+             description: Optional[pulumi.Input[str]] = None,
+             max_devices: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("project_arn", project_arn)
+        _setter("rules", rules)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if max_devices is not None:
-            pulumi.set(__self__, "max_devices", max_devices)
+            _setter("max_devices", max_devices)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="projectArn")
@@ -129,6 +148,10 @@ class DevicePool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DevicePoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

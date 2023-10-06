@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -56,41 +56,84 @@ class FlowSourceInitArgs:
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param pulumi.Input[str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
-        pulumi.set(__self__, "description", description)
+        FlowSourceInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            decryption=decryption,
+            entitlement_arn=entitlement_arn,
+            flow_arn=flow_arn,
+            gateway_bridge_source=gateway_bridge_source,
+            ingest_port=ingest_port,
+            max_bitrate=max_bitrate,
+            max_latency=max_latency,
+            min_latency=min_latency,
+            name=name,
+            protocol=protocol,
+            sender_control_port=sender_control_port,
+            sender_ip_address=sender_ip_address,
+            source_listener_address=source_listener_address,
+            source_listener_port=source_listener_port,
+            stream_id=stream_id,
+            vpc_interface_name=vpc_interface_name,
+            whitelist_cidr=whitelist_cidr,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: pulumi.Input[str],
+             decryption: Optional[pulumi.Input['FlowSourceEncryptionArgs']] = None,
+             entitlement_arn: Optional[pulumi.Input[str]] = None,
+             flow_arn: Optional[pulumi.Input[str]] = None,
+             gateway_bridge_source: Optional[pulumi.Input['FlowSourceGatewayBridgeSourceArgs']] = None,
+             ingest_port: Optional[pulumi.Input[int]] = None,
+             max_bitrate: Optional[pulumi.Input[int]] = None,
+             max_latency: Optional[pulumi.Input[int]] = None,
+             min_latency: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
+             sender_control_port: Optional[pulumi.Input[int]] = None,
+             sender_ip_address: Optional[pulumi.Input[str]] = None,
+             source_listener_address: Optional[pulumi.Input[str]] = None,
+             source_listener_port: Optional[pulumi.Input[int]] = None,
+             stream_id: Optional[pulumi.Input[str]] = None,
+             vpc_interface_name: Optional[pulumi.Input[str]] = None,
+             whitelist_cidr: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
         if decryption is not None:
-            pulumi.set(__self__, "decryption", decryption)
+            _setter("decryption", decryption)
         if entitlement_arn is not None:
-            pulumi.set(__self__, "entitlement_arn", entitlement_arn)
+            _setter("entitlement_arn", entitlement_arn)
         if flow_arn is not None:
-            pulumi.set(__self__, "flow_arn", flow_arn)
+            _setter("flow_arn", flow_arn)
         if gateway_bridge_source is not None:
-            pulumi.set(__self__, "gateway_bridge_source", gateway_bridge_source)
+            _setter("gateway_bridge_source", gateway_bridge_source)
         if ingest_port is not None:
-            pulumi.set(__self__, "ingest_port", ingest_port)
+            _setter("ingest_port", ingest_port)
         if max_bitrate is not None:
-            pulumi.set(__self__, "max_bitrate", max_bitrate)
+            _setter("max_bitrate", max_bitrate)
         if max_latency is not None:
-            pulumi.set(__self__, "max_latency", max_latency)
+            _setter("max_latency", max_latency)
         if min_latency is not None:
-            pulumi.set(__self__, "min_latency", min_latency)
+            _setter("min_latency", min_latency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if sender_control_port is not None:
-            pulumi.set(__self__, "sender_control_port", sender_control_port)
+            _setter("sender_control_port", sender_control_port)
         if sender_ip_address is not None:
-            pulumi.set(__self__, "sender_ip_address", sender_ip_address)
+            _setter("sender_ip_address", sender_ip_address)
         if source_listener_address is not None:
-            pulumi.set(__self__, "source_listener_address", source_listener_address)
+            _setter("source_listener_address", source_listener_address)
         if source_listener_port is not None:
-            pulumi.set(__self__, "source_listener_port", source_listener_port)
+            _setter("source_listener_port", source_listener_port)
         if stream_id is not None:
-            pulumi.set(__self__, "stream_id", stream_id)
+            _setter("stream_id", stream_id)
         if vpc_interface_name is not None:
-            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
+            _setter("vpc_interface_name", vpc_interface_name)
         if whitelist_cidr is not None:
-            pulumi.set(__self__, "whitelist_cidr", whitelist_cidr)
+            _setter("whitelist_cidr", whitelist_cidr)
 
     @property
     @pulumi.getter
@@ -376,6 +419,10 @@ class FlowSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlowSourceInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -408,12 +455,22 @@ class FlowSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FlowSourceInitArgs.__new__(FlowSourceInitArgs)
 
+            if decryption is not None and not isinstance(decryption, FlowSourceEncryptionArgs):
+                decryption = decryption or {}
+                def _setter(key, value):
+                    decryption[key] = value
+                FlowSourceEncryptionArgs._configure(_setter, **decryption)
             __props__.__dict__["decryption"] = decryption
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["entitlement_arn"] = entitlement_arn
             __props__.__dict__["flow_arn"] = flow_arn
+            if gateway_bridge_source is not None and not isinstance(gateway_bridge_source, FlowSourceGatewayBridgeSourceArgs):
+                gateway_bridge_source = gateway_bridge_source or {}
+                def _setter(key, value):
+                    gateway_bridge_source[key] = value
+                FlowSourceGatewayBridgeSourceArgs._configure(_setter, **gateway_bridge_source)
             __props__.__dict__["gateway_bridge_source"] = gateway_bridge_source
             __props__.__dict__["ingest_port"] = ingest_port
             __props__.__dict__["max_bitrate"] = max_bitrate

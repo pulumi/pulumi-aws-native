@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -45,16 +45,33 @@ class EndpointDocDbSettingsArgs:
                  nesting_level: Optional[pulumi.Input[str]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_secret_id: Optional[pulumi.Input[str]] = None):
+        EndpointDocDbSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            docs_to_investigate=docs_to_investigate,
+            extract_doc_id=extract_doc_id,
+            nesting_level=nesting_level,
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_secret_id=secrets_manager_secret_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             docs_to_investigate: Optional[pulumi.Input[int]] = None,
+             extract_doc_id: Optional[pulumi.Input[bool]] = None,
+             nesting_level: Optional[pulumi.Input[str]] = None,
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if docs_to_investigate is not None:
-            pulumi.set(__self__, "docs_to_investigate", docs_to_investigate)
+            _setter("docs_to_investigate", docs_to_investigate)
         if extract_doc_id is not None:
-            pulumi.set(__self__, "extract_doc_id", extract_doc_id)
+            _setter("extract_doc_id", extract_doc_id)
         if nesting_level is not None:
-            pulumi.set(__self__, "nesting_level", nesting_level)
+            _setter("nesting_level", nesting_level)
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
-            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+            _setter("secrets_manager_secret_id", secrets_manager_secret_id)
 
     @property
     @pulumi.getter(name="docsToInvestigate")
@@ -106,8 +123,17 @@ class EndpointDocDbSettingsArgs:
 class EndpointDynamoDbSettingsArgs:
     def __init__(__self__, *,
                  service_access_role_arn: Optional[pulumi.Input[str]] = None):
+        EndpointDynamoDbSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_access_role_arn=service_access_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_access_role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if service_access_role_arn is not None:
-            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+            _setter("service_access_role_arn", service_access_role_arn)
 
     @property
     @pulumi.getter(name="serviceAccessRoleArn")
@@ -126,14 +152,29 @@ class EndpointElasticsearchSettingsArgs:
                  error_retry_duration: Optional[pulumi.Input[int]] = None,
                  full_load_error_percentage: Optional[pulumi.Input[int]] = None,
                  service_access_role_arn: Optional[pulumi.Input[str]] = None):
+        EndpointElasticsearchSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_uri=endpoint_uri,
+            error_retry_duration=error_retry_duration,
+            full_load_error_percentage=full_load_error_percentage,
+            service_access_role_arn=service_access_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_uri: Optional[pulumi.Input[str]] = None,
+             error_retry_duration: Optional[pulumi.Input[int]] = None,
+             full_load_error_percentage: Optional[pulumi.Input[int]] = None,
+             service_access_role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
         if error_retry_duration is not None:
-            pulumi.set(__self__, "error_retry_duration", error_retry_duration)
+            _setter("error_retry_duration", error_retry_duration)
         if full_load_error_percentage is not None:
-            pulumi.set(__self__, "full_load_error_percentage", full_load_error_percentage)
+            _setter("full_load_error_percentage", full_load_error_percentage)
         if service_access_role_arn is not None:
-            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+            _setter("service_access_role_arn", service_access_role_arn)
 
     @property
     @pulumi.getter(name="endpointUri")
@@ -188,32 +229,65 @@ class EndpointGcpMySqlSettingsArgs:
                  server_name: Optional[pulumi.Input[str]] = None,
                  server_timezone: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
+        EndpointGcpMySqlSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            after_connect_script=after_connect_script,
+            clean_source_metadata_on_mismatch=clean_source_metadata_on_mismatch,
+            database_name=database_name,
+            events_poll_interval=events_poll_interval,
+            max_file_size=max_file_size,
+            parallel_load_threads=parallel_load_threads,
+            password=password,
+            port=port,
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_secret_id=secrets_manager_secret_id,
+            server_name=server_name,
+            server_timezone=server_timezone,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             after_connect_script: Optional[pulumi.Input[str]] = None,
+             clean_source_metadata_on_mismatch: Optional[pulumi.Input[bool]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             events_poll_interval: Optional[pulumi.Input[int]] = None,
+             max_file_size: Optional[pulumi.Input[int]] = None,
+             parallel_load_threads: Optional[pulumi.Input[int]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             server_timezone: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if after_connect_script is not None:
-            pulumi.set(__self__, "after_connect_script", after_connect_script)
+            _setter("after_connect_script", after_connect_script)
         if clean_source_metadata_on_mismatch is not None:
-            pulumi.set(__self__, "clean_source_metadata_on_mismatch", clean_source_metadata_on_mismatch)
+            _setter("clean_source_metadata_on_mismatch", clean_source_metadata_on_mismatch)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if events_poll_interval is not None:
-            pulumi.set(__self__, "events_poll_interval", events_poll_interval)
+            _setter("events_poll_interval", events_poll_interval)
         if max_file_size is not None:
-            pulumi.set(__self__, "max_file_size", max_file_size)
+            _setter("max_file_size", max_file_size)
         if parallel_load_threads is not None:
-            pulumi.set(__self__, "parallel_load_threads", parallel_load_threads)
+            _setter("parallel_load_threads", parallel_load_threads)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
-            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+            _setter("secrets_manager_secret_id", secrets_manager_secret_id)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if server_timezone is not None:
-            pulumi.set(__self__, "server_timezone", server_timezone)
+            _setter("server_timezone", server_timezone)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="afterConnectScript")
@@ -341,16 +415,33 @@ class EndpointIbmDb2SettingsArgs:
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
                  set_data_capture_changes: Optional[pulumi.Input[bool]] = None):
+        EndpointIbmDb2SettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_lsn=current_lsn,
+            max_k_bytes_per_read=max_k_bytes_per_read,
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_secret_id=secrets_manager_secret_id,
+            set_data_capture_changes=set_data_capture_changes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_lsn: Optional[pulumi.Input[str]] = None,
+             max_k_bytes_per_read: Optional[pulumi.Input[int]] = None,
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+             set_data_capture_changes: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if current_lsn is not None:
-            pulumi.set(__self__, "current_lsn", current_lsn)
+            _setter("current_lsn", current_lsn)
         if max_k_bytes_per_read is not None:
-            pulumi.set(__self__, "max_k_bytes_per_read", max_k_bytes_per_read)
+            _setter("max_k_bytes_per_read", max_k_bytes_per_read)
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
-            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+            _setter("secrets_manager_secret_id", secrets_manager_secret_id)
         if set_data_capture_changes is not None:
-            pulumi.set(__self__, "set_data_capture_changes", set_data_capture_changes)
+            _setter("set_data_capture_changes", set_data_capture_changes)
 
     @property
     @pulumi.getter(name="currentLsn")
@@ -419,42 +510,85 @@ class EndpointKafkaSettingsArgs:
                  ssl_client_key_arn: Optional[pulumi.Input[str]] = None,
                  ssl_client_key_password: Optional[pulumi.Input[str]] = None,
                  topic: Optional[pulumi.Input[str]] = None):
+        EndpointKafkaSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            broker=broker,
+            include_control_details=include_control_details,
+            include_null_and_empty=include_null_and_empty,
+            include_partition_value=include_partition_value,
+            include_table_alter_operations=include_table_alter_operations,
+            include_transaction_details=include_transaction_details,
+            message_format=message_format,
+            message_max_bytes=message_max_bytes,
+            no_hex_prefix=no_hex_prefix,
+            partition_include_schema_table=partition_include_schema_table,
+            sasl_password=sasl_password,
+            sasl_user_name=sasl_user_name,
+            security_protocol=security_protocol,
+            ssl_ca_certificate_arn=ssl_ca_certificate_arn,
+            ssl_client_certificate_arn=ssl_client_certificate_arn,
+            ssl_client_key_arn=ssl_client_key_arn,
+            ssl_client_key_password=ssl_client_key_password,
+            topic=topic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             broker: Optional[pulumi.Input[str]] = None,
+             include_control_details: Optional[pulumi.Input[bool]] = None,
+             include_null_and_empty: Optional[pulumi.Input[bool]] = None,
+             include_partition_value: Optional[pulumi.Input[bool]] = None,
+             include_table_alter_operations: Optional[pulumi.Input[bool]] = None,
+             include_transaction_details: Optional[pulumi.Input[bool]] = None,
+             message_format: Optional[pulumi.Input[str]] = None,
+             message_max_bytes: Optional[pulumi.Input[int]] = None,
+             no_hex_prefix: Optional[pulumi.Input[bool]] = None,
+             partition_include_schema_table: Optional[pulumi.Input[bool]] = None,
+             sasl_password: Optional[pulumi.Input[str]] = None,
+             sasl_user_name: Optional[pulumi.Input[str]] = None,
+             security_protocol: Optional[pulumi.Input[str]] = None,
+             ssl_ca_certificate_arn: Optional[pulumi.Input[str]] = None,
+             ssl_client_certificate_arn: Optional[pulumi.Input[str]] = None,
+             ssl_client_key_arn: Optional[pulumi.Input[str]] = None,
+             ssl_client_key_password: Optional[pulumi.Input[str]] = None,
+             topic: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if broker is not None:
-            pulumi.set(__self__, "broker", broker)
+            _setter("broker", broker)
         if include_control_details is not None:
-            pulumi.set(__self__, "include_control_details", include_control_details)
+            _setter("include_control_details", include_control_details)
         if include_null_and_empty is not None:
-            pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+            _setter("include_null_and_empty", include_null_and_empty)
         if include_partition_value is not None:
-            pulumi.set(__self__, "include_partition_value", include_partition_value)
+            _setter("include_partition_value", include_partition_value)
         if include_table_alter_operations is not None:
-            pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+            _setter("include_table_alter_operations", include_table_alter_operations)
         if include_transaction_details is not None:
-            pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+            _setter("include_transaction_details", include_transaction_details)
         if message_format is not None:
-            pulumi.set(__self__, "message_format", message_format)
+            _setter("message_format", message_format)
         if message_max_bytes is not None:
-            pulumi.set(__self__, "message_max_bytes", message_max_bytes)
+            _setter("message_max_bytes", message_max_bytes)
         if no_hex_prefix is not None:
-            pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
+            _setter("no_hex_prefix", no_hex_prefix)
         if partition_include_schema_table is not None:
-            pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
+            _setter("partition_include_schema_table", partition_include_schema_table)
         if sasl_password is not None:
-            pulumi.set(__self__, "sasl_password", sasl_password)
+            _setter("sasl_password", sasl_password)
         if sasl_user_name is not None:
-            pulumi.set(__self__, "sasl_user_name", sasl_user_name)
+            _setter("sasl_user_name", sasl_user_name)
         if security_protocol is not None:
-            pulumi.set(__self__, "security_protocol", security_protocol)
+            _setter("security_protocol", security_protocol)
         if ssl_ca_certificate_arn is not None:
-            pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+            _setter("ssl_ca_certificate_arn", ssl_ca_certificate_arn)
         if ssl_client_certificate_arn is not None:
-            pulumi.set(__self__, "ssl_client_certificate_arn", ssl_client_certificate_arn)
+            _setter("ssl_client_certificate_arn", ssl_client_certificate_arn)
         if ssl_client_key_arn is not None:
-            pulumi.set(__self__, "ssl_client_key_arn", ssl_client_key_arn)
+            _setter("ssl_client_key_arn", ssl_client_key_arn)
         if ssl_client_key_password is not None:
-            pulumi.set(__self__, "ssl_client_key_password", ssl_client_key_password)
+            _setter("ssl_client_key_password", ssl_client_key_password)
         if topic is not None:
-            pulumi.set(__self__, "topic", topic)
+            _setter("topic", topic)
 
     @property
     @pulumi.getter
@@ -632,26 +766,53 @@ class EndpointKinesisSettingsArgs:
                  partition_include_schema_table: Optional[pulumi.Input[bool]] = None,
                  service_access_role_arn: Optional[pulumi.Input[str]] = None,
                  stream_arn: Optional[pulumi.Input[str]] = None):
+        EndpointKinesisSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_control_details=include_control_details,
+            include_null_and_empty=include_null_and_empty,
+            include_partition_value=include_partition_value,
+            include_table_alter_operations=include_table_alter_operations,
+            include_transaction_details=include_transaction_details,
+            message_format=message_format,
+            no_hex_prefix=no_hex_prefix,
+            partition_include_schema_table=partition_include_schema_table,
+            service_access_role_arn=service_access_role_arn,
+            stream_arn=stream_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_control_details: Optional[pulumi.Input[bool]] = None,
+             include_null_and_empty: Optional[pulumi.Input[bool]] = None,
+             include_partition_value: Optional[pulumi.Input[bool]] = None,
+             include_table_alter_operations: Optional[pulumi.Input[bool]] = None,
+             include_transaction_details: Optional[pulumi.Input[bool]] = None,
+             message_format: Optional[pulumi.Input[str]] = None,
+             no_hex_prefix: Optional[pulumi.Input[bool]] = None,
+             partition_include_schema_table: Optional[pulumi.Input[bool]] = None,
+             service_access_role_arn: Optional[pulumi.Input[str]] = None,
+             stream_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if include_control_details is not None:
-            pulumi.set(__self__, "include_control_details", include_control_details)
+            _setter("include_control_details", include_control_details)
         if include_null_and_empty is not None:
-            pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+            _setter("include_null_and_empty", include_null_and_empty)
         if include_partition_value is not None:
-            pulumi.set(__self__, "include_partition_value", include_partition_value)
+            _setter("include_partition_value", include_partition_value)
         if include_table_alter_operations is not None:
-            pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+            _setter("include_table_alter_operations", include_table_alter_operations)
         if include_transaction_details is not None:
-            pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+            _setter("include_transaction_details", include_transaction_details)
         if message_format is not None:
-            pulumi.set(__self__, "message_format", message_format)
+            _setter("message_format", message_format)
         if no_hex_prefix is not None:
-            pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
+            _setter("no_hex_prefix", no_hex_prefix)
         if partition_include_schema_table is not None:
-            pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
+            _setter("partition_include_schema_table", partition_include_schema_table)
         if service_access_role_arn is not None:
-            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+            _setter("service_access_role_arn", service_access_role_arn)
         if stream_arn is not None:
-            pulumi.set(__self__, "stream_arn", stream_arn)
+            _setter("stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="includeControlDetails")
@@ -764,40 +925,81 @@ class EndpointMicrosoftSqlServerSettingsArgs:
                  use_bcp_full_load: Optional[pulumi.Input[bool]] = None,
                  use_third_party_backup_device: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None):
+        EndpointMicrosoftSqlServerSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bcp_packet_size=bcp_packet_size,
+            control_tables_file_group=control_tables_file_group,
+            database_name=database_name,
+            force_lob_lookup=force_lob_lookup,
+            password=password,
+            port=port,
+            query_single_always_on_node=query_single_always_on_node,
+            read_backup_only=read_backup_only,
+            safeguard_policy=safeguard_policy,
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_secret_id=secrets_manager_secret_id,
+            server_name=server_name,
+            tlog_access_mode=tlog_access_mode,
+            trim_space_in_char=trim_space_in_char,
+            use_bcp_full_load=use_bcp_full_load,
+            use_third_party_backup_device=use_third_party_backup_device,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bcp_packet_size: Optional[pulumi.Input[int]] = None,
+             control_tables_file_group: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             force_lob_lookup: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             query_single_always_on_node: Optional[pulumi.Input[bool]] = None,
+             read_backup_only: Optional[pulumi.Input[bool]] = None,
+             safeguard_policy: Optional[pulumi.Input[str]] = None,
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             tlog_access_mode: Optional[pulumi.Input[str]] = None,
+             trim_space_in_char: Optional[pulumi.Input[bool]] = None,
+             use_bcp_full_load: Optional[pulumi.Input[bool]] = None,
+             use_third_party_backup_device: Optional[pulumi.Input[bool]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bcp_packet_size is not None:
-            pulumi.set(__self__, "bcp_packet_size", bcp_packet_size)
+            _setter("bcp_packet_size", bcp_packet_size)
         if control_tables_file_group is not None:
-            pulumi.set(__self__, "control_tables_file_group", control_tables_file_group)
+            _setter("control_tables_file_group", control_tables_file_group)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if force_lob_lookup is not None:
-            pulumi.set(__self__, "force_lob_lookup", force_lob_lookup)
+            _setter("force_lob_lookup", force_lob_lookup)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if query_single_always_on_node is not None:
-            pulumi.set(__self__, "query_single_always_on_node", query_single_always_on_node)
+            _setter("query_single_always_on_node", query_single_always_on_node)
         if read_backup_only is not None:
-            pulumi.set(__self__, "read_backup_only", read_backup_only)
+            _setter("read_backup_only", read_backup_only)
         if safeguard_policy is not None:
-            pulumi.set(__self__, "safeguard_policy", safeguard_policy)
+            _setter("safeguard_policy", safeguard_policy)
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
-            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+            _setter("secrets_manager_secret_id", secrets_manager_secret_id)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if tlog_access_mode is not None:
-            pulumi.set(__self__, "tlog_access_mode", tlog_access_mode)
+            _setter("tlog_access_mode", tlog_access_mode)
         if trim_space_in_char is not None:
-            pulumi.set(__self__, "trim_space_in_char", trim_space_in_char)
+            _setter("trim_space_in_char", trim_space_in_char)
         if use_bcp_full_load is not None:
-            pulumi.set(__self__, "use_bcp_full_load", use_bcp_full_load)
+            _setter("use_bcp_full_load", use_bcp_full_load)
         if use_third_party_backup_device is not None:
-            pulumi.set(__self__, "use_third_party_backup_device", use_third_party_backup_device)
+            _setter("use_third_party_backup_device", use_third_party_backup_device)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="bcpPacketSize")
@@ -969,32 +1171,65 @@ class EndpointMongoDbSettingsArgs:
                  secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
+        EndpointMongoDbSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_mechanism=auth_mechanism,
+            auth_source=auth_source,
+            auth_type=auth_type,
+            database_name=database_name,
+            docs_to_investigate=docs_to_investigate,
+            extract_doc_id=extract_doc_id,
+            nesting_level=nesting_level,
+            password=password,
+            port=port,
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_secret_id=secrets_manager_secret_id,
+            server_name=server_name,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_mechanism: Optional[pulumi.Input[str]] = None,
+             auth_source: Optional[pulumi.Input[str]] = None,
+             auth_type: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             docs_to_investigate: Optional[pulumi.Input[str]] = None,
+             extract_doc_id: Optional[pulumi.Input[str]] = None,
+             nesting_level: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_mechanism is not None:
-            pulumi.set(__self__, "auth_mechanism", auth_mechanism)
+            _setter("auth_mechanism", auth_mechanism)
         if auth_source is not None:
-            pulumi.set(__self__, "auth_source", auth_source)
+            _setter("auth_source", auth_source)
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if docs_to_investigate is not None:
-            pulumi.set(__self__, "docs_to_investigate", docs_to_investigate)
+            _setter("docs_to_investigate", docs_to_investigate)
         if extract_doc_id is not None:
-            pulumi.set(__self__, "extract_doc_id", extract_doc_id)
+            _setter("extract_doc_id", extract_doc_id)
         if nesting_level is not None:
-            pulumi.set(__self__, "nesting_level", nesting_level)
+            _setter("nesting_level", nesting_level)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
-            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+            _setter("secrets_manager_secret_id", secrets_manager_secret_id)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="authMechanism")
@@ -1126,24 +1361,49 @@ class EndpointMySqlSettingsArgs:
                  secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
                  server_timezone: Optional[pulumi.Input[str]] = None,
                  target_db_type: Optional[pulumi.Input[str]] = None):
+        EndpointMySqlSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            after_connect_script=after_connect_script,
+            clean_source_metadata_on_mismatch=clean_source_metadata_on_mismatch,
+            events_poll_interval=events_poll_interval,
+            max_file_size=max_file_size,
+            parallel_load_threads=parallel_load_threads,
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_secret_id=secrets_manager_secret_id,
+            server_timezone=server_timezone,
+            target_db_type=target_db_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             after_connect_script: Optional[pulumi.Input[str]] = None,
+             clean_source_metadata_on_mismatch: Optional[pulumi.Input[bool]] = None,
+             events_poll_interval: Optional[pulumi.Input[int]] = None,
+             max_file_size: Optional[pulumi.Input[int]] = None,
+             parallel_load_threads: Optional[pulumi.Input[int]] = None,
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+             server_timezone: Optional[pulumi.Input[str]] = None,
+             target_db_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if after_connect_script is not None:
-            pulumi.set(__self__, "after_connect_script", after_connect_script)
+            _setter("after_connect_script", after_connect_script)
         if clean_source_metadata_on_mismatch is not None:
-            pulumi.set(__self__, "clean_source_metadata_on_mismatch", clean_source_metadata_on_mismatch)
+            _setter("clean_source_metadata_on_mismatch", clean_source_metadata_on_mismatch)
         if events_poll_interval is not None:
-            pulumi.set(__self__, "events_poll_interval", events_poll_interval)
+            _setter("events_poll_interval", events_poll_interval)
         if max_file_size is not None:
-            pulumi.set(__self__, "max_file_size", max_file_size)
+            _setter("max_file_size", max_file_size)
         if parallel_load_threads is not None:
-            pulumi.set(__self__, "parallel_load_threads", parallel_load_threads)
+            _setter("parallel_load_threads", parallel_load_threads)
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
-            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+            _setter("secrets_manager_secret_id", secrets_manager_secret_id)
         if server_timezone is not None:
-            pulumi.set(__self__, "server_timezone", server_timezone)
+            _setter("server_timezone", server_timezone)
         if target_db_type is not None:
-            pulumi.set(__self__, "target_db_type", target_db_type)
+            _setter("target_db_type", target_db_type)
 
     @property
     @pulumi.getter(name="afterConnectScript")
@@ -1237,20 +1497,41 @@ class EndpointNeptuneSettingsArgs:
                  s3_bucket_folder: Optional[pulumi.Input[str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  service_access_role_arn: Optional[pulumi.Input[str]] = None):
+        EndpointNeptuneSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_retry_duration=error_retry_duration,
+            iam_auth_enabled=iam_auth_enabled,
+            max_file_size=max_file_size,
+            max_retry_count=max_retry_count,
+            s3_bucket_folder=s3_bucket_folder,
+            s3_bucket_name=s3_bucket_name,
+            service_access_role_arn=service_access_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_retry_duration: Optional[pulumi.Input[int]] = None,
+             iam_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             max_file_size: Optional[pulumi.Input[int]] = None,
+             max_retry_count: Optional[pulumi.Input[int]] = None,
+             s3_bucket_folder: Optional[pulumi.Input[str]] = None,
+             s3_bucket_name: Optional[pulumi.Input[str]] = None,
+             service_access_role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if error_retry_duration is not None:
-            pulumi.set(__self__, "error_retry_duration", error_retry_duration)
+            _setter("error_retry_duration", error_retry_duration)
         if iam_auth_enabled is not None:
-            pulumi.set(__self__, "iam_auth_enabled", iam_auth_enabled)
+            _setter("iam_auth_enabled", iam_auth_enabled)
         if max_file_size is not None:
-            pulumi.set(__self__, "max_file_size", max_file_size)
+            _setter("max_file_size", max_file_size)
         if max_retry_count is not None:
-            pulumi.set(__self__, "max_retry_count", max_retry_count)
+            _setter("max_retry_count", max_retry_count)
         if s3_bucket_folder is not None:
-            pulumi.set(__self__, "s3_bucket_folder", s3_bucket_folder)
+            _setter("s3_bucket_folder", s3_bucket_folder)
         if s3_bucket_name is not None:
-            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+            _setter("s3_bucket_name", s3_bucket_name)
         if service_access_role_arn is not None:
-            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+            _setter("service_access_role_arn", service_access_role_arn)
 
     @property
     @pulumi.getter(name="errorRetryDuration")
@@ -1354,76 +1635,153 @@ class EndpointOracleSettingsArgs:
                  use_direct_path_full_load: Optional[pulumi.Input[bool]] = None,
                  use_logminer_reader: Optional[pulumi.Input[bool]] = None,
                  use_path_prefix: Optional[pulumi.Input[str]] = None):
+        EndpointOracleSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_alternate_directly=access_alternate_directly,
+            add_supplemental_logging=add_supplemental_logging,
+            additional_archived_log_dest_id=additional_archived_log_dest_id,
+            allow_select_nested_tables=allow_select_nested_tables,
+            archived_log_dest_id=archived_log_dest_id,
+            archived_logs_only=archived_logs_only,
+            asm_password=asm_password,
+            asm_server=asm_server,
+            asm_user=asm_user,
+            char_length_semantics=char_length_semantics,
+            direct_path_no_log=direct_path_no_log,
+            direct_path_parallel_load=direct_path_parallel_load,
+            enable_homogenous_tablespace=enable_homogenous_tablespace,
+            extra_archived_log_dest_ids=extra_archived_log_dest_ids,
+            fail_tasks_on_lob_truncation=fail_tasks_on_lob_truncation,
+            number_datatype_scale=number_datatype_scale,
+            oracle_path_prefix=oracle_path_prefix,
+            parallel_asm_read_threads=parallel_asm_read_threads,
+            read_ahead_blocks=read_ahead_blocks,
+            read_table_space_name=read_table_space_name,
+            replace_path_prefix=replace_path_prefix,
+            retry_interval=retry_interval,
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_oracle_asm_access_role_arn=secrets_manager_oracle_asm_access_role_arn,
+            secrets_manager_oracle_asm_secret_id=secrets_manager_oracle_asm_secret_id,
+            secrets_manager_secret_id=secrets_manager_secret_id,
+            security_db_encryption=security_db_encryption,
+            security_db_encryption_name=security_db_encryption_name,
+            spatial_data_option_to_geo_json_function_name=spatial_data_option_to_geo_json_function_name,
+            standby_delay_time=standby_delay_time,
+            use_alternate_folder_for_online=use_alternate_folder_for_online,
+            use_b_file=use_b_file,
+            use_direct_path_full_load=use_direct_path_full_load,
+            use_logminer_reader=use_logminer_reader,
+            use_path_prefix=use_path_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_alternate_directly: Optional[pulumi.Input[bool]] = None,
+             add_supplemental_logging: Optional[pulumi.Input[bool]] = None,
+             additional_archived_log_dest_id: Optional[pulumi.Input[int]] = None,
+             allow_select_nested_tables: Optional[pulumi.Input[bool]] = None,
+             archived_log_dest_id: Optional[pulumi.Input[int]] = None,
+             archived_logs_only: Optional[pulumi.Input[bool]] = None,
+             asm_password: Optional[pulumi.Input[str]] = None,
+             asm_server: Optional[pulumi.Input[str]] = None,
+             asm_user: Optional[pulumi.Input[str]] = None,
+             char_length_semantics: Optional[pulumi.Input[str]] = None,
+             direct_path_no_log: Optional[pulumi.Input[bool]] = None,
+             direct_path_parallel_load: Optional[pulumi.Input[bool]] = None,
+             enable_homogenous_tablespace: Optional[pulumi.Input[bool]] = None,
+             extra_archived_log_dest_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             fail_tasks_on_lob_truncation: Optional[pulumi.Input[bool]] = None,
+             number_datatype_scale: Optional[pulumi.Input[int]] = None,
+             oracle_path_prefix: Optional[pulumi.Input[str]] = None,
+             parallel_asm_read_threads: Optional[pulumi.Input[int]] = None,
+             read_ahead_blocks: Optional[pulumi.Input[int]] = None,
+             read_table_space_name: Optional[pulumi.Input[bool]] = None,
+             replace_path_prefix: Optional[pulumi.Input[bool]] = None,
+             retry_interval: Optional[pulumi.Input[int]] = None,
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_oracle_asm_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_oracle_asm_secret_id: Optional[pulumi.Input[str]] = None,
+             secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+             security_db_encryption: Optional[pulumi.Input[str]] = None,
+             security_db_encryption_name: Optional[pulumi.Input[str]] = None,
+             spatial_data_option_to_geo_json_function_name: Optional[pulumi.Input[str]] = None,
+             standby_delay_time: Optional[pulumi.Input[int]] = None,
+             use_alternate_folder_for_online: Optional[pulumi.Input[bool]] = None,
+             use_b_file: Optional[pulumi.Input[bool]] = None,
+             use_direct_path_full_load: Optional[pulumi.Input[bool]] = None,
+             use_logminer_reader: Optional[pulumi.Input[bool]] = None,
+             use_path_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_alternate_directly is not None:
-            pulumi.set(__self__, "access_alternate_directly", access_alternate_directly)
+            _setter("access_alternate_directly", access_alternate_directly)
         if add_supplemental_logging is not None:
-            pulumi.set(__self__, "add_supplemental_logging", add_supplemental_logging)
+            _setter("add_supplemental_logging", add_supplemental_logging)
         if additional_archived_log_dest_id is not None:
-            pulumi.set(__self__, "additional_archived_log_dest_id", additional_archived_log_dest_id)
+            _setter("additional_archived_log_dest_id", additional_archived_log_dest_id)
         if allow_select_nested_tables is not None:
-            pulumi.set(__self__, "allow_select_nested_tables", allow_select_nested_tables)
+            _setter("allow_select_nested_tables", allow_select_nested_tables)
         if archived_log_dest_id is not None:
-            pulumi.set(__self__, "archived_log_dest_id", archived_log_dest_id)
+            _setter("archived_log_dest_id", archived_log_dest_id)
         if archived_logs_only is not None:
-            pulumi.set(__self__, "archived_logs_only", archived_logs_only)
+            _setter("archived_logs_only", archived_logs_only)
         if asm_password is not None:
-            pulumi.set(__self__, "asm_password", asm_password)
+            _setter("asm_password", asm_password)
         if asm_server is not None:
-            pulumi.set(__self__, "asm_server", asm_server)
+            _setter("asm_server", asm_server)
         if asm_user is not None:
-            pulumi.set(__self__, "asm_user", asm_user)
+            _setter("asm_user", asm_user)
         if char_length_semantics is not None:
-            pulumi.set(__self__, "char_length_semantics", char_length_semantics)
+            _setter("char_length_semantics", char_length_semantics)
         if direct_path_no_log is not None:
-            pulumi.set(__self__, "direct_path_no_log", direct_path_no_log)
+            _setter("direct_path_no_log", direct_path_no_log)
         if direct_path_parallel_load is not None:
-            pulumi.set(__self__, "direct_path_parallel_load", direct_path_parallel_load)
+            _setter("direct_path_parallel_load", direct_path_parallel_load)
         if enable_homogenous_tablespace is not None:
-            pulumi.set(__self__, "enable_homogenous_tablespace", enable_homogenous_tablespace)
+            _setter("enable_homogenous_tablespace", enable_homogenous_tablespace)
         if extra_archived_log_dest_ids is not None:
-            pulumi.set(__self__, "extra_archived_log_dest_ids", extra_archived_log_dest_ids)
+            _setter("extra_archived_log_dest_ids", extra_archived_log_dest_ids)
         if fail_tasks_on_lob_truncation is not None:
-            pulumi.set(__self__, "fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
+            _setter("fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
         if number_datatype_scale is not None:
-            pulumi.set(__self__, "number_datatype_scale", number_datatype_scale)
+            _setter("number_datatype_scale", number_datatype_scale)
         if oracle_path_prefix is not None:
-            pulumi.set(__self__, "oracle_path_prefix", oracle_path_prefix)
+            _setter("oracle_path_prefix", oracle_path_prefix)
         if parallel_asm_read_threads is not None:
-            pulumi.set(__self__, "parallel_asm_read_threads", parallel_asm_read_threads)
+            _setter("parallel_asm_read_threads", parallel_asm_read_threads)
         if read_ahead_blocks is not None:
-            pulumi.set(__self__, "read_ahead_blocks", read_ahead_blocks)
+            _setter("read_ahead_blocks", read_ahead_blocks)
         if read_table_space_name is not None:
-            pulumi.set(__self__, "read_table_space_name", read_table_space_name)
+            _setter("read_table_space_name", read_table_space_name)
         if replace_path_prefix is not None:
-            pulumi.set(__self__, "replace_path_prefix", replace_path_prefix)
+            _setter("replace_path_prefix", replace_path_prefix)
         if retry_interval is not None:
-            pulumi.set(__self__, "retry_interval", retry_interval)
+            _setter("retry_interval", retry_interval)
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_oracle_asm_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_oracle_asm_access_role_arn", secrets_manager_oracle_asm_access_role_arn)
+            _setter("secrets_manager_oracle_asm_access_role_arn", secrets_manager_oracle_asm_access_role_arn)
         if secrets_manager_oracle_asm_secret_id is not None:
-            pulumi.set(__self__, "secrets_manager_oracle_asm_secret_id", secrets_manager_oracle_asm_secret_id)
+            _setter("secrets_manager_oracle_asm_secret_id", secrets_manager_oracle_asm_secret_id)
         if secrets_manager_secret_id is not None:
-            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+            _setter("secrets_manager_secret_id", secrets_manager_secret_id)
         if security_db_encryption is not None:
-            pulumi.set(__self__, "security_db_encryption", security_db_encryption)
+            _setter("security_db_encryption", security_db_encryption)
         if security_db_encryption_name is not None:
-            pulumi.set(__self__, "security_db_encryption_name", security_db_encryption_name)
+            _setter("security_db_encryption_name", security_db_encryption_name)
         if spatial_data_option_to_geo_json_function_name is not None:
-            pulumi.set(__self__, "spatial_data_option_to_geo_json_function_name", spatial_data_option_to_geo_json_function_name)
+            _setter("spatial_data_option_to_geo_json_function_name", spatial_data_option_to_geo_json_function_name)
         if standby_delay_time is not None:
-            pulumi.set(__self__, "standby_delay_time", standby_delay_time)
+            _setter("standby_delay_time", standby_delay_time)
         if use_alternate_folder_for_online is not None:
-            pulumi.set(__self__, "use_alternate_folder_for_online", use_alternate_folder_for_online)
+            _setter("use_alternate_folder_for_online", use_alternate_folder_for_online)
         if use_b_file is not None:
-            pulumi.set(__self__, "use_b_file", use_b_file)
+            _setter("use_b_file", use_b_file)
         if use_direct_path_full_load is not None:
-            pulumi.set(__self__, "use_direct_path_full_load", use_direct_path_full_load)
+            _setter("use_direct_path_full_load", use_direct_path_full_load)
         if use_logminer_reader is not None:
-            pulumi.set(__self__, "use_logminer_reader", use_logminer_reader)
+            _setter("use_logminer_reader", use_logminer_reader)
         if use_path_prefix is not None:
-            pulumi.set(__self__, "use_path_prefix", use_path_prefix)
+            _setter("use_path_prefix", use_path_prefix)
 
     @property
     @pulumi.getter(name="accessAlternateDirectly")
@@ -1760,38 +2118,77 @@ class EndpointPostgreSqlSettingsArgs:
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
                  slot_name: Optional[pulumi.Input[str]] = None):
+        EndpointPostgreSqlSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            after_connect_script=after_connect_script,
+            babelfish_database_name=babelfish_database_name,
+            capture_ddls=capture_ddls,
+            database_mode=database_mode,
+            ddl_artifacts_schema=ddl_artifacts_schema,
+            execute_timeout=execute_timeout,
+            fail_tasks_on_lob_truncation=fail_tasks_on_lob_truncation,
+            heartbeat_enable=heartbeat_enable,
+            heartbeat_frequency=heartbeat_frequency,
+            heartbeat_schema=heartbeat_schema,
+            map_boolean_as_boolean=map_boolean_as_boolean,
+            max_file_size=max_file_size,
+            plugin_name=plugin_name,
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_secret_id=secrets_manager_secret_id,
+            slot_name=slot_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             after_connect_script: Optional[pulumi.Input[str]] = None,
+             babelfish_database_name: Optional[pulumi.Input[str]] = None,
+             capture_ddls: Optional[pulumi.Input[bool]] = None,
+             database_mode: Optional[pulumi.Input[str]] = None,
+             ddl_artifacts_schema: Optional[pulumi.Input[str]] = None,
+             execute_timeout: Optional[pulumi.Input[int]] = None,
+             fail_tasks_on_lob_truncation: Optional[pulumi.Input[bool]] = None,
+             heartbeat_enable: Optional[pulumi.Input[bool]] = None,
+             heartbeat_frequency: Optional[pulumi.Input[int]] = None,
+             heartbeat_schema: Optional[pulumi.Input[str]] = None,
+             map_boolean_as_boolean: Optional[pulumi.Input[bool]] = None,
+             max_file_size: Optional[pulumi.Input[int]] = None,
+             plugin_name: Optional[pulumi.Input[str]] = None,
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+             slot_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if after_connect_script is not None:
-            pulumi.set(__self__, "after_connect_script", after_connect_script)
+            _setter("after_connect_script", after_connect_script)
         if babelfish_database_name is not None:
-            pulumi.set(__self__, "babelfish_database_name", babelfish_database_name)
+            _setter("babelfish_database_name", babelfish_database_name)
         if capture_ddls is not None:
-            pulumi.set(__self__, "capture_ddls", capture_ddls)
+            _setter("capture_ddls", capture_ddls)
         if database_mode is not None:
-            pulumi.set(__self__, "database_mode", database_mode)
+            _setter("database_mode", database_mode)
         if ddl_artifacts_schema is not None:
-            pulumi.set(__self__, "ddl_artifacts_schema", ddl_artifacts_schema)
+            _setter("ddl_artifacts_schema", ddl_artifacts_schema)
         if execute_timeout is not None:
-            pulumi.set(__self__, "execute_timeout", execute_timeout)
+            _setter("execute_timeout", execute_timeout)
         if fail_tasks_on_lob_truncation is not None:
-            pulumi.set(__self__, "fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
+            _setter("fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
         if heartbeat_enable is not None:
-            pulumi.set(__self__, "heartbeat_enable", heartbeat_enable)
+            _setter("heartbeat_enable", heartbeat_enable)
         if heartbeat_frequency is not None:
-            pulumi.set(__self__, "heartbeat_frequency", heartbeat_frequency)
+            _setter("heartbeat_frequency", heartbeat_frequency)
         if heartbeat_schema is not None:
-            pulumi.set(__self__, "heartbeat_schema", heartbeat_schema)
+            _setter("heartbeat_schema", heartbeat_schema)
         if map_boolean_as_boolean is not None:
-            pulumi.set(__self__, "map_boolean_as_boolean", map_boolean_as_boolean)
+            _setter("map_boolean_as_boolean", map_boolean_as_boolean)
         if max_file_size is not None:
-            pulumi.set(__self__, "max_file_size", max_file_size)
+            _setter("max_file_size", max_file_size)
         if plugin_name is not None:
-            pulumi.set(__self__, "plugin_name", plugin_name)
+            _setter("plugin_name", plugin_name)
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
-            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+            _setter("secrets_manager_secret_id", secrets_manager_secret_id)
         if slot_name is not None:
-            pulumi.set(__self__, "slot_name", slot_name)
+            _setter("slot_name", slot_name)
 
     @property
     @pulumi.getter(name="afterConnectScript")
@@ -1948,20 +2345,41 @@ class EndpointRedisSettingsArgs:
                  server_name: Optional[pulumi.Input[str]] = None,
                  ssl_ca_certificate_arn: Optional[pulumi.Input[str]] = None,
                  ssl_security_protocol: Optional[pulumi.Input[str]] = None):
+        EndpointRedisSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_password=auth_password,
+            auth_type=auth_type,
+            auth_user_name=auth_user_name,
+            port=port,
+            server_name=server_name,
+            ssl_ca_certificate_arn=ssl_ca_certificate_arn,
+            ssl_security_protocol=ssl_security_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_password: Optional[pulumi.Input[str]] = None,
+             auth_type: Optional[pulumi.Input[str]] = None,
+             auth_user_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[float]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             ssl_ca_certificate_arn: Optional[pulumi.Input[str]] = None,
+             ssl_security_protocol: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_password is not None:
-            pulumi.set(__self__, "auth_password", auth_password)
+            _setter("auth_password", auth_password)
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if auth_user_name is not None:
-            pulumi.set(__self__, "auth_user_name", auth_user_name)
+            _setter("auth_user_name", auth_user_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if ssl_ca_certificate_arn is not None:
-            pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+            _setter("ssl_ca_certificate_arn", ssl_ca_certificate_arn)
         if ssl_security_protocol is not None:
-            pulumi.set(__self__, "ssl_security_protocol", ssl_security_protocol)
+            _setter("ssl_security_protocol", ssl_security_protocol)
 
     @property
     @pulumi.getter(name="authPassword")
@@ -2056,58 +2474,117 @@ class EndpointRedshiftSettingsArgs:
                  trim_blanks: Optional[pulumi.Input[bool]] = None,
                  truncate_columns: Optional[pulumi.Input[bool]] = None,
                  write_buffer_size: Optional[pulumi.Input[int]] = None):
+        EndpointRedshiftSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_any_date=accept_any_date,
+            after_connect_script=after_connect_script,
+            bucket_folder=bucket_folder,
+            bucket_name=bucket_name,
+            case_sensitive_names=case_sensitive_names,
+            comp_update=comp_update,
+            connection_timeout=connection_timeout,
+            date_format=date_format,
+            empty_as_null=empty_as_null,
+            encryption_mode=encryption_mode,
+            explicit_ids=explicit_ids,
+            file_transfer_upload_streams=file_transfer_upload_streams,
+            load_timeout=load_timeout,
+            map_boolean_as_boolean=map_boolean_as_boolean,
+            max_file_size=max_file_size,
+            remove_quotes=remove_quotes,
+            replace_chars=replace_chars,
+            replace_invalid_chars=replace_invalid_chars,
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_secret_id=secrets_manager_secret_id,
+            server_side_encryption_kms_key_id=server_side_encryption_kms_key_id,
+            service_access_role_arn=service_access_role_arn,
+            time_format=time_format,
+            trim_blanks=trim_blanks,
+            truncate_columns=truncate_columns,
+            write_buffer_size=write_buffer_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_any_date: Optional[pulumi.Input[bool]] = None,
+             after_connect_script: Optional[pulumi.Input[str]] = None,
+             bucket_folder: Optional[pulumi.Input[str]] = None,
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             case_sensitive_names: Optional[pulumi.Input[bool]] = None,
+             comp_update: Optional[pulumi.Input[bool]] = None,
+             connection_timeout: Optional[pulumi.Input[int]] = None,
+             date_format: Optional[pulumi.Input[str]] = None,
+             empty_as_null: Optional[pulumi.Input[bool]] = None,
+             encryption_mode: Optional[pulumi.Input[str]] = None,
+             explicit_ids: Optional[pulumi.Input[bool]] = None,
+             file_transfer_upload_streams: Optional[pulumi.Input[int]] = None,
+             load_timeout: Optional[pulumi.Input[int]] = None,
+             map_boolean_as_boolean: Optional[pulumi.Input[bool]] = None,
+             max_file_size: Optional[pulumi.Input[int]] = None,
+             remove_quotes: Optional[pulumi.Input[bool]] = None,
+             replace_chars: Optional[pulumi.Input[str]] = None,
+             replace_invalid_chars: Optional[pulumi.Input[str]] = None,
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+             server_side_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
+             service_access_role_arn: Optional[pulumi.Input[str]] = None,
+             time_format: Optional[pulumi.Input[str]] = None,
+             trim_blanks: Optional[pulumi.Input[bool]] = None,
+             truncate_columns: Optional[pulumi.Input[bool]] = None,
+             write_buffer_size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accept_any_date is not None:
-            pulumi.set(__self__, "accept_any_date", accept_any_date)
+            _setter("accept_any_date", accept_any_date)
         if after_connect_script is not None:
-            pulumi.set(__self__, "after_connect_script", after_connect_script)
+            _setter("after_connect_script", after_connect_script)
         if bucket_folder is not None:
-            pulumi.set(__self__, "bucket_folder", bucket_folder)
+            _setter("bucket_folder", bucket_folder)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if case_sensitive_names is not None:
-            pulumi.set(__self__, "case_sensitive_names", case_sensitive_names)
+            _setter("case_sensitive_names", case_sensitive_names)
         if comp_update is not None:
-            pulumi.set(__self__, "comp_update", comp_update)
+            _setter("comp_update", comp_update)
         if connection_timeout is not None:
-            pulumi.set(__self__, "connection_timeout", connection_timeout)
+            _setter("connection_timeout", connection_timeout)
         if date_format is not None:
-            pulumi.set(__self__, "date_format", date_format)
+            _setter("date_format", date_format)
         if empty_as_null is not None:
-            pulumi.set(__self__, "empty_as_null", empty_as_null)
+            _setter("empty_as_null", empty_as_null)
         if encryption_mode is not None:
-            pulumi.set(__self__, "encryption_mode", encryption_mode)
+            _setter("encryption_mode", encryption_mode)
         if explicit_ids is not None:
-            pulumi.set(__self__, "explicit_ids", explicit_ids)
+            _setter("explicit_ids", explicit_ids)
         if file_transfer_upload_streams is not None:
-            pulumi.set(__self__, "file_transfer_upload_streams", file_transfer_upload_streams)
+            _setter("file_transfer_upload_streams", file_transfer_upload_streams)
         if load_timeout is not None:
-            pulumi.set(__self__, "load_timeout", load_timeout)
+            _setter("load_timeout", load_timeout)
         if map_boolean_as_boolean is not None:
-            pulumi.set(__self__, "map_boolean_as_boolean", map_boolean_as_boolean)
+            _setter("map_boolean_as_boolean", map_boolean_as_boolean)
         if max_file_size is not None:
-            pulumi.set(__self__, "max_file_size", max_file_size)
+            _setter("max_file_size", max_file_size)
         if remove_quotes is not None:
-            pulumi.set(__self__, "remove_quotes", remove_quotes)
+            _setter("remove_quotes", remove_quotes)
         if replace_chars is not None:
-            pulumi.set(__self__, "replace_chars", replace_chars)
+            _setter("replace_chars", replace_chars)
         if replace_invalid_chars is not None:
-            pulumi.set(__self__, "replace_invalid_chars", replace_invalid_chars)
+            _setter("replace_invalid_chars", replace_invalid_chars)
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
-            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+            _setter("secrets_manager_secret_id", secrets_manager_secret_id)
         if server_side_encryption_kms_key_id is not None:
-            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+            _setter("server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
         if service_access_role_arn is not None:
-            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+            _setter("service_access_role_arn", service_access_role_arn)
         if time_format is not None:
-            pulumi.set(__self__, "time_format", time_format)
+            _setter("time_format", time_format)
         if trim_blanks is not None:
-            pulumi.set(__self__, "trim_blanks", trim_blanks)
+            _setter("trim_blanks", trim_blanks)
         if truncate_columns is not None:
-            pulumi.set(__self__, "truncate_columns", truncate_columns)
+            _setter("truncate_columns", truncate_columns)
         if write_buffer_size is not None:
-            pulumi.set(__self__, "write_buffer_size", write_buffer_size)
+            _setter("write_buffer_size", write_buffer_size)
 
     @property
     @pulumi.getter(name="acceptAnyDate")
@@ -2385,82 +2862,165 @@ class EndpointS3SettingsArgs:
                  timestamp_column_name: Optional[pulumi.Input[str]] = None,
                  use_csv_no_sup_value: Optional[pulumi.Input[bool]] = None,
                  use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[bool]] = None):
+        EndpointS3SettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_column_name=add_column_name,
+            bucket_folder=bucket_folder,
+            bucket_name=bucket_name,
+            canned_acl_for_objects=canned_acl_for_objects,
+            cdc_inserts_and_updates=cdc_inserts_and_updates,
+            cdc_inserts_only=cdc_inserts_only,
+            cdc_max_batch_interval=cdc_max_batch_interval,
+            cdc_min_file_size=cdc_min_file_size,
+            cdc_path=cdc_path,
+            compression_type=compression_type,
+            csv_delimiter=csv_delimiter,
+            csv_no_sup_value=csv_no_sup_value,
+            csv_null_value=csv_null_value,
+            csv_row_delimiter=csv_row_delimiter,
+            data_format=data_format,
+            data_page_size=data_page_size,
+            date_partition_delimiter=date_partition_delimiter,
+            date_partition_enabled=date_partition_enabled,
+            date_partition_sequence=date_partition_sequence,
+            date_partition_timezone=date_partition_timezone,
+            dict_page_size_limit=dict_page_size_limit,
+            enable_statistics=enable_statistics,
+            encoding_type=encoding_type,
+            encryption_mode=encryption_mode,
+            external_table_definition=external_table_definition,
+            ignore_header_rows=ignore_header_rows,
+            include_op_for_full_load=include_op_for_full_load,
+            max_file_size=max_file_size,
+            parquet_timestamp_in_millisecond=parquet_timestamp_in_millisecond,
+            parquet_version=parquet_version,
+            preserve_transactions=preserve_transactions,
+            rfc4180=rfc4180,
+            row_group_length=row_group_length,
+            server_side_encryption_kms_key_id=server_side_encryption_kms_key_id,
+            service_access_role_arn=service_access_role_arn,
+            timestamp_column_name=timestamp_column_name,
+            use_csv_no_sup_value=use_csv_no_sup_value,
+            use_task_start_time_for_full_load_timestamp=use_task_start_time_for_full_load_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_column_name: Optional[pulumi.Input[bool]] = None,
+             bucket_folder: Optional[pulumi.Input[str]] = None,
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             canned_acl_for_objects: Optional[pulumi.Input[str]] = None,
+             cdc_inserts_and_updates: Optional[pulumi.Input[bool]] = None,
+             cdc_inserts_only: Optional[pulumi.Input[bool]] = None,
+             cdc_max_batch_interval: Optional[pulumi.Input[int]] = None,
+             cdc_min_file_size: Optional[pulumi.Input[int]] = None,
+             cdc_path: Optional[pulumi.Input[str]] = None,
+             compression_type: Optional[pulumi.Input[str]] = None,
+             csv_delimiter: Optional[pulumi.Input[str]] = None,
+             csv_no_sup_value: Optional[pulumi.Input[str]] = None,
+             csv_null_value: Optional[pulumi.Input[str]] = None,
+             csv_row_delimiter: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[str]] = None,
+             data_page_size: Optional[pulumi.Input[int]] = None,
+             date_partition_delimiter: Optional[pulumi.Input[str]] = None,
+             date_partition_enabled: Optional[pulumi.Input[bool]] = None,
+             date_partition_sequence: Optional[pulumi.Input[str]] = None,
+             date_partition_timezone: Optional[pulumi.Input[str]] = None,
+             dict_page_size_limit: Optional[pulumi.Input[int]] = None,
+             enable_statistics: Optional[pulumi.Input[bool]] = None,
+             encoding_type: Optional[pulumi.Input[str]] = None,
+             encryption_mode: Optional[pulumi.Input[str]] = None,
+             external_table_definition: Optional[pulumi.Input[str]] = None,
+             ignore_header_rows: Optional[pulumi.Input[int]] = None,
+             include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
+             max_file_size: Optional[pulumi.Input[int]] = None,
+             parquet_timestamp_in_millisecond: Optional[pulumi.Input[bool]] = None,
+             parquet_version: Optional[pulumi.Input[str]] = None,
+             preserve_transactions: Optional[pulumi.Input[bool]] = None,
+             rfc4180: Optional[pulumi.Input[bool]] = None,
+             row_group_length: Optional[pulumi.Input[int]] = None,
+             server_side_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
+             service_access_role_arn: Optional[pulumi.Input[str]] = None,
+             timestamp_column_name: Optional[pulumi.Input[str]] = None,
+             use_csv_no_sup_value: Optional[pulumi.Input[bool]] = None,
+             use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if add_column_name is not None:
-            pulumi.set(__self__, "add_column_name", add_column_name)
+            _setter("add_column_name", add_column_name)
         if bucket_folder is not None:
-            pulumi.set(__self__, "bucket_folder", bucket_folder)
+            _setter("bucket_folder", bucket_folder)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if canned_acl_for_objects is not None:
-            pulumi.set(__self__, "canned_acl_for_objects", canned_acl_for_objects)
+            _setter("canned_acl_for_objects", canned_acl_for_objects)
         if cdc_inserts_and_updates is not None:
-            pulumi.set(__self__, "cdc_inserts_and_updates", cdc_inserts_and_updates)
+            _setter("cdc_inserts_and_updates", cdc_inserts_and_updates)
         if cdc_inserts_only is not None:
-            pulumi.set(__self__, "cdc_inserts_only", cdc_inserts_only)
+            _setter("cdc_inserts_only", cdc_inserts_only)
         if cdc_max_batch_interval is not None:
-            pulumi.set(__self__, "cdc_max_batch_interval", cdc_max_batch_interval)
+            _setter("cdc_max_batch_interval", cdc_max_batch_interval)
         if cdc_min_file_size is not None:
-            pulumi.set(__self__, "cdc_min_file_size", cdc_min_file_size)
+            _setter("cdc_min_file_size", cdc_min_file_size)
         if cdc_path is not None:
-            pulumi.set(__self__, "cdc_path", cdc_path)
+            _setter("cdc_path", cdc_path)
         if compression_type is not None:
-            pulumi.set(__self__, "compression_type", compression_type)
+            _setter("compression_type", compression_type)
         if csv_delimiter is not None:
-            pulumi.set(__self__, "csv_delimiter", csv_delimiter)
+            _setter("csv_delimiter", csv_delimiter)
         if csv_no_sup_value is not None:
-            pulumi.set(__self__, "csv_no_sup_value", csv_no_sup_value)
+            _setter("csv_no_sup_value", csv_no_sup_value)
         if csv_null_value is not None:
-            pulumi.set(__self__, "csv_null_value", csv_null_value)
+            _setter("csv_null_value", csv_null_value)
         if csv_row_delimiter is not None:
-            pulumi.set(__self__, "csv_row_delimiter", csv_row_delimiter)
+            _setter("csv_row_delimiter", csv_row_delimiter)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if data_page_size is not None:
-            pulumi.set(__self__, "data_page_size", data_page_size)
+            _setter("data_page_size", data_page_size)
         if date_partition_delimiter is not None:
-            pulumi.set(__self__, "date_partition_delimiter", date_partition_delimiter)
+            _setter("date_partition_delimiter", date_partition_delimiter)
         if date_partition_enabled is not None:
-            pulumi.set(__self__, "date_partition_enabled", date_partition_enabled)
+            _setter("date_partition_enabled", date_partition_enabled)
         if date_partition_sequence is not None:
-            pulumi.set(__self__, "date_partition_sequence", date_partition_sequence)
+            _setter("date_partition_sequence", date_partition_sequence)
         if date_partition_timezone is not None:
-            pulumi.set(__self__, "date_partition_timezone", date_partition_timezone)
+            _setter("date_partition_timezone", date_partition_timezone)
         if dict_page_size_limit is not None:
-            pulumi.set(__self__, "dict_page_size_limit", dict_page_size_limit)
+            _setter("dict_page_size_limit", dict_page_size_limit)
         if enable_statistics is not None:
-            pulumi.set(__self__, "enable_statistics", enable_statistics)
+            _setter("enable_statistics", enable_statistics)
         if encoding_type is not None:
-            pulumi.set(__self__, "encoding_type", encoding_type)
+            _setter("encoding_type", encoding_type)
         if encryption_mode is not None:
-            pulumi.set(__self__, "encryption_mode", encryption_mode)
+            _setter("encryption_mode", encryption_mode)
         if external_table_definition is not None:
-            pulumi.set(__self__, "external_table_definition", external_table_definition)
+            _setter("external_table_definition", external_table_definition)
         if ignore_header_rows is not None:
-            pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
+            _setter("ignore_header_rows", ignore_header_rows)
         if include_op_for_full_load is not None:
-            pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
+            _setter("include_op_for_full_load", include_op_for_full_load)
         if max_file_size is not None:
-            pulumi.set(__self__, "max_file_size", max_file_size)
+            _setter("max_file_size", max_file_size)
         if parquet_timestamp_in_millisecond is not None:
-            pulumi.set(__self__, "parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
+            _setter("parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
         if parquet_version is not None:
-            pulumi.set(__self__, "parquet_version", parquet_version)
+            _setter("parquet_version", parquet_version)
         if preserve_transactions is not None:
-            pulumi.set(__self__, "preserve_transactions", preserve_transactions)
+            _setter("preserve_transactions", preserve_transactions)
         if rfc4180 is not None:
-            pulumi.set(__self__, "rfc4180", rfc4180)
+            _setter("rfc4180", rfc4180)
         if row_group_length is not None:
-            pulumi.set(__self__, "row_group_length", row_group_length)
+            _setter("row_group_length", row_group_length)
         if server_side_encryption_kms_key_id is not None:
-            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+            _setter("server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
         if service_access_role_arn is not None:
-            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+            _setter("service_access_role_arn", service_access_role_arn)
         if timestamp_column_name is not None:
-            pulumi.set(__self__, "timestamp_column_name", timestamp_column_name)
+            _setter("timestamp_column_name", timestamp_column_name)
         if use_csv_no_sup_value is not None:
-            pulumi.set(__self__, "use_csv_no_sup_value", use_csv_no_sup_value)
+            _setter("use_csv_no_sup_value", use_csv_no_sup_value)
         if use_task_start_time_for_full_load_timestamp is not None:
-            pulumi.set(__self__, "use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
+            _setter("use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
 
     @property
     @pulumi.getter(name="addColumnName")
@@ -2810,10 +3370,21 @@ class EndpointSybaseSettingsArgs:
     def __init__(__self__, *,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_secret_id: Optional[pulumi.Input[str]] = None):
+        EndpointSybaseSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_secret_id=secrets_manager_secret_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
-            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+            _setter("secrets_manager_secret_id", secrets_manager_secret_id)
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
@@ -2839,8 +3410,19 @@ class EndpointTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EndpointTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2866,8 +3448,19 @@ class EventSubscriptionTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventSubscriptionTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2903,23 +3496,48 @@ class ReplicationConfigComputeConfigArgs:
         """
         Configuration parameters for provisioning a AWS DMS Serverless replication
         """
-        pulumi.set(__self__, "max_capacity_units", max_capacity_units)
+        ReplicationConfigComputeConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_capacity_units=max_capacity_units,
+            availability_zone=availability_zone,
+            dns_name_servers=dns_name_servers,
+            kms_key_id=kms_key_id,
+            min_capacity_units=min_capacity_units,
+            multi_az=multi_az,
+            preferred_maintenance_window=preferred_maintenance_window,
+            replication_subnet_group_id=replication_subnet_group_id,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_capacity_units: pulumi.Input[int],
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             dns_name_servers: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             min_capacity_units: Optional[pulumi.Input[int]] = None,
+             multi_az: Optional[pulumi.Input[bool]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_capacity_units", max_capacity_units)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if dns_name_servers is not None:
-            pulumi.set(__self__, "dns_name_servers", dns_name_servers)
+            _setter("dns_name_servers", dns_name_servers)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if min_capacity_units is not None:
-            pulumi.set(__self__, "min_capacity_units", min_capacity_units)
+            _setter("min_capacity_units", min_capacity_units)
         if multi_az is not None:
-            pulumi.set(__self__, "multi_az", multi_az)
+            _setter("multi_az", multi_az)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if replication_subnet_group_id is not None:
-            pulumi.set(__self__, "replication_subnet_group_id", replication_subnet_group_id)
+            _setter("replication_subnet_group_id", replication_subnet_group_id)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="maxCapacityUnits")
@@ -3014,8 +3632,19 @@ class ReplicationConfigTagArgs:
         :param pulumi.Input[str] key: <p>Tag key.</p>
         :param pulumi.Input[str] value: <p>Tag value.</p>
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ReplicationConfigTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3047,8 +3676,19 @@ class ReplicationInstanceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ReplicationInstanceTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3074,8 +3714,19 @@ class ReplicationSubnetGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ReplicationSubnetGroupTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3101,8 +3752,19 @@ class ReplicationTaskTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ReplicationTaskTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -38,24 +38,51 @@ class ComponentArgs:
         :param Any tags: The tags associated with the component.
         :param pulumi.Input[str] uri: The uri of the component.
         """
-        pulumi.set(__self__, "platform", platform)
-        pulumi.set(__self__, "version", version)
+        ComponentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            platform=platform,
+            version=version,
+            change_description=change_description,
+            data=data,
+            description=description,
+            kms_key_id=kms_key_id,
+            name=name,
+            supported_os_versions=supported_os_versions,
+            tags=tags,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             platform: pulumi.Input['ComponentPlatform'],
+             version: pulumi.Input[str],
+             change_description: Optional[pulumi.Input[str]] = None,
+             data: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[Any] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("platform", platform)
+        _setter("version", version)
         if change_description is not None:
-            pulumi.set(__self__, "change_description", change_description)
+            _setter("change_description", change_description)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if supported_os_versions is not None:
-            pulumi.set(__self__, "supported_os_versions", supported_os_versions)
+            _setter("supported_os_versions", supported_os_versions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -229,6 +256,10 @@ class Component(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ComponentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

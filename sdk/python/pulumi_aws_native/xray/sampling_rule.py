@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,16 +24,33 @@ class SamplingRuleInitArgs:
         """
         The set of arguments for constructing a SamplingRule resource.
         """
+        SamplingRuleInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_name=rule_name,
+            sampling_rule=sampling_rule,
+            sampling_rule_record=sampling_rule_record,
+            sampling_rule_update=sampling_rule_update,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_name: Optional[pulumi.Input[str]] = None,
+             sampling_rule: Optional[pulumi.Input['SamplingRuleArgs']] = None,
+             sampling_rule_record: Optional[pulumi.Input['SamplingRuleRecordArgs']] = None,
+             sampling_rule_update: Optional[pulumi.Input['SamplingRuleUpdateArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SamplingRuleTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
         if sampling_rule is not None:
-            pulumi.set(__self__, "sampling_rule", sampling_rule)
+            _setter("sampling_rule", sampling_rule)
         if sampling_rule_record is not None:
-            pulumi.set(__self__, "sampling_rule_record", sampling_rule_record)
+            _setter("sampling_rule_record", sampling_rule_record)
         if sampling_rule_update is not None:
-            pulumi.set(__self__, "sampling_rule_update", sampling_rule_update)
+            _setter("sampling_rule_update", sampling_rule_update)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="ruleName")
@@ -117,6 +134,10 @@ class SamplingRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SamplingRuleInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -137,8 +158,23 @@ class SamplingRule(pulumi.CustomResource):
             __props__ = SamplingRuleInitArgs.__new__(SamplingRuleInitArgs)
 
             __props__.__dict__["rule_name"] = rule_name
+            if sampling_rule is not None and not isinstance(sampling_rule, SamplingRuleArgs):
+                sampling_rule = sampling_rule or {}
+                def _setter(key, value):
+                    sampling_rule[key] = value
+                SamplingRuleArgs._configure(_setter, **sampling_rule)
             __props__.__dict__["sampling_rule"] = sampling_rule
+            if sampling_rule_record is not None and not isinstance(sampling_rule_record, SamplingRuleRecordArgs):
+                sampling_rule_record = sampling_rule_record or {}
+                def _setter(key, value):
+                    sampling_rule_record[key] = value
+                SamplingRuleRecordArgs._configure(_setter, **sampling_rule_record)
             __props__.__dict__["sampling_rule_record"] = sampling_rule_record
+            if sampling_rule_update is not None and not isinstance(sampling_rule_update, SamplingRuleUpdateArgs):
+                sampling_rule_update = sampling_rule_update or {}
+                def _setter(key, value):
+                    sampling_rule_update[key] = value
+                SamplingRuleUpdateArgs._configure(_setter, **sampling_rule_update)
             __props__.__dict__["sampling_rule_update"] = sampling_rule_update
             __props__.__dict__["tags"] = tags
             __props__.__dict__["rule_arn"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,36 @@ class UserProfileArgs:
         :param pulumi.Input[str] user_profile_name: A name for the UserProfile.
         :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: A collection of settings.
         """
-        pulumi.set(__self__, "domain_id", domain_id)
+        UserProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_id=domain_id,
+            single_sign_on_user_identifier=single_sign_on_user_identifier,
+            single_sign_on_user_value=single_sign_on_user_value,
+            tags=tags,
+            user_profile_name=user_profile_name,
+            user_settings=user_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_id: pulumi.Input[str],
+             single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
+             single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileTagArgs']]]] = None,
+             user_profile_name: Optional[pulumi.Input[str]] = None,
+             user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_id", domain_id)
         if single_sign_on_user_identifier is not None:
-            pulumi.set(__self__, "single_sign_on_user_identifier", single_sign_on_user_identifier)
+            _setter("single_sign_on_user_identifier", single_sign_on_user_identifier)
         if single_sign_on_user_value is not None:
-            pulumi.set(__self__, "single_sign_on_user_value", single_sign_on_user_value)
+            _setter("single_sign_on_user_value", single_sign_on_user_value)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_profile_name is not None:
-            pulumi.set(__self__, "user_profile_name", user_profile_name)
+            _setter("user_profile_name", user_profile_name)
         if user_settings is not None:
-            pulumi.set(__self__, "user_settings", user_settings)
+            _setter("user_settings", user_settings)
 
     @property
     @pulumi.getter(name="domainId")
@@ -160,6 +179,10 @@ class UserProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -187,6 +210,11 @@ class UserProfile(pulumi.CustomResource):
             __props__.__dict__["single_sign_on_user_value"] = single_sign_on_user_value
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_profile_name"] = user_profile_name
+            if user_settings is not None and not isinstance(user_settings, UserProfileUserSettingsArgs):
+                user_settings = user_settings or {}
+                def _setter(key, value):
+                    user_settings[key] = value
+                UserProfileUserSettingsArgs._configure(_setter, **user_settings)
             __props__.__dict__["user_settings"] = user_settings
             __props__.__dict__["user_profile_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_id", "single_sign_on_user_identifier", "single_sign_on_user_value", "tags[*]", "user_profile_name", "user_settings.r_studio_server_pro_app_settings.access_status", "user_settings.r_studio_server_pro_app_settings.user_group"])

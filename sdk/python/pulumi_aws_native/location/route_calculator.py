@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -22,12 +22,27 @@ class RouteCalculatorArgs:
         """
         The set of arguments for constructing a RouteCalculator resource.
         """
-        pulumi.set(__self__, "calculator_name", calculator_name)
-        pulumi.set(__self__, "data_source", data_source)
+        RouteCalculatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            calculator_name=calculator_name,
+            data_source=data_source,
+            description=description,
+            pricing_plan=pricing_plan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             calculator_name: pulumi.Input[str],
+             data_source: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("calculator_name", calculator_name)
+        _setter("data_source", data_source)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if pricing_plan is not None:
-            pulumi.set(__self__, "pricing_plan", pricing_plan)
+            _setter("pricing_plan", pricing_plan)
 
     @property
     @pulumi.getter(name="calculatorName")
@@ -101,6 +116,10 @@ class RouteCalculator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteCalculatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

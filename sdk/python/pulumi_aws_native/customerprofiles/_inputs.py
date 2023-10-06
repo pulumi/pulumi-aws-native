@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -51,8 +51,19 @@ class CalculatedAttributeDefinitionAttributeDetailsArgs:
         """
         Mathematical expression and a list of attribute items specified in that expression.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "expression", expression)
+        CalculatedAttributeDefinitionAttributeDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            expression=expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionAttributeItemArgs']]],
+             expression: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("expression", expression)
 
     @property
     @pulumi.getter
@@ -80,7 +91,16 @@ class CalculatedAttributeDefinitionAttributeItemArgs:
         """
         The details of a single attribute item specified in the mathematical expression.
         """
-        pulumi.set(__self__, "name", name)
+        CalculatedAttributeDefinitionAttributeItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -101,12 +121,25 @@ class CalculatedAttributeDefinitionConditionsArgs:
         """
         The conditions including range, object count, and threshold for the calculated attribute.
         """
+        CalculatedAttributeDefinitionConditionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_count=object_count,
+            range=range,
+            threshold=threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_count: Optional[pulumi.Input[int]] = None,
+             range: Optional[pulumi.Input['CalculatedAttributeDefinitionRangeArgs']] = None,
+             threshold: Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if object_count is not None:
-            pulumi.set(__self__, "object_count", object_count)
+            _setter("object_count", object_count)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
 
     @property
     @pulumi.getter(name="objectCount")
@@ -144,8 +177,19 @@ class CalculatedAttributeDefinitionRangeArgs:
         """
         The relative time period over which data is included in the aggregation.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        CalculatedAttributeDefinitionRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: pulumi.Input['CalculatedAttributeDefinitionRangeUnit'],
+             value: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -176,8 +220,19 @@ class CalculatedAttributeDefinitionTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        CalculatedAttributeDefinitionTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -212,8 +267,19 @@ class CalculatedAttributeDefinitionThresholdArgs:
         """
         The threshold for the calculated attribute.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "value", value)
+        CalculatedAttributeDefinitionThresholdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input['CalculatedAttributeDefinitionThresholdOperator'],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -239,8 +305,19 @@ class DomainTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        DomainTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -271,8 +348,19 @@ class EventStreamTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventStreamTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -307,16 +395,33 @@ class IntegrationConnectorOperatorArgs:
                  salesforce: Optional[pulumi.Input['IntegrationSalesforceConnectorOperator']] = None,
                  service_now: Optional[pulumi.Input['IntegrationServiceNowConnectorOperator']] = None,
                  zendesk: Optional[pulumi.Input['IntegrationZendeskConnectorOperator']] = None):
+        IntegrationConnectorOperatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            marketo=marketo,
+            s3=s3,
+            salesforce=salesforce,
+            service_now=service_now,
+            zendesk=zendesk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             marketo: Optional[pulumi.Input['IntegrationMarketoConnectorOperator']] = None,
+             s3: Optional[pulumi.Input['IntegrationS3ConnectorOperator']] = None,
+             salesforce: Optional[pulumi.Input['IntegrationSalesforceConnectorOperator']] = None,
+             service_now: Optional[pulumi.Input['IntegrationServiceNowConnectorOperator']] = None,
+             zendesk: Optional[pulumi.Input['IntegrationZendeskConnectorOperator']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if marketo is not None:
-            pulumi.set(__self__, "marketo", marketo)
+            _setter("marketo", marketo)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if salesforce is not None:
-            pulumi.set(__self__, "salesforce", salesforce)
+            _setter("salesforce", salesforce)
         if service_now is not None:
-            pulumi.set(__self__, "service_now", service_now)
+            _setter("service_now", service_now)
         if zendesk is not None:
-            pulumi.set(__self__, "zendesk", zendesk)
+            _setter("zendesk", zendesk)
 
     @property
     @pulumi.getter
@@ -373,13 +478,32 @@ class IntegrationFlowDefinitionArgs:
                  tasks: pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgs']]],
                  trigger_config: pulumi.Input['IntegrationTriggerConfigArgs'],
                  description: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "flow_name", flow_name)
-        pulumi.set(__self__, "kms_arn", kms_arn)
-        pulumi.set(__self__, "source_flow_config", source_flow_config)
-        pulumi.set(__self__, "tasks", tasks)
-        pulumi.set(__self__, "trigger_config", trigger_config)
+        IntegrationFlowDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            flow_name=flow_name,
+            kms_arn=kms_arn,
+            source_flow_config=source_flow_config,
+            tasks=tasks,
+            trigger_config=trigger_config,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             flow_name: pulumi.Input[str],
+             kms_arn: pulumi.Input[str],
+             source_flow_config: pulumi.Input['IntegrationSourceFlowConfigArgs'],
+             tasks: pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgs']]],
+             trigger_config: pulumi.Input['IntegrationTriggerConfigArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("flow_name", flow_name)
+        _setter("kms_arn", kms_arn)
+        _setter("source_flow_config", source_flow_config)
+        _setter("tasks", tasks)
+        _setter("trigger_config", trigger_config)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="flowName")
@@ -440,8 +564,17 @@ class IntegrationFlowDefinitionArgs:
 class IntegrationIncrementalPullConfigArgs:
     def __init__(__self__, *,
                  datetime_type_field_name: Optional[pulumi.Input[str]] = None):
+        IntegrationIncrementalPullConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datetime_type_field_name=datetime_type_field_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datetime_type_field_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if datetime_type_field_name is not None:
-            pulumi.set(__self__, "datetime_type_field_name", datetime_type_field_name)
+            _setter("datetime_type_field_name", datetime_type_field_name)
 
     @property
     @pulumi.getter(name="datetimeTypeFieldName")
@@ -457,7 +590,16 @@ class IntegrationIncrementalPullConfigArgs:
 class IntegrationMarketoSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
-        pulumi.set(__self__, "object", object)
+        IntegrationMarketoSourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -474,8 +616,19 @@ class IntegrationObjectTypeMappingArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        IntegrationObjectTypeMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -501,9 +654,20 @@ class IntegrationS3SourcePropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        IntegrationS3SourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: pulumi.Input[str],
+             bucket_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -530,11 +694,24 @@ class IntegrationSalesforceSourcePropertiesArgs:
                  object: pulumi.Input[str],
                  enable_dynamic_field_update: Optional[pulumi.Input[bool]] = None,
                  include_deleted_records: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "object", object)
+        IntegrationSalesforceSourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+            enable_dynamic_field_update=enable_dynamic_field_update,
+            include_deleted_records=include_deleted_records,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: pulumi.Input[str],
+             enable_dynamic_field_update: Optional[pulumi.Input[bool]] = None,
+             include_deleted_records: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
         if enable_dynamic_field_update is not None:
-            pulumi.set(__self__, "enable_dynamic_field_update", enable_dynamic_field_update)
+            _setter("enable_dynamic_field_update", enable_dynamic_field_update)
         if include_deleted_records is not None:
-            pulumi.set(__self__, "include_deleted_records", include_deleted_records)
+            _setter("include_deleted_records", include_deleted_records)
 
     @property
     @pulumi.getter
@@ -574,19 +751,40 @@ class IntegrationScheduledTriggerPropertiesArgs:
                  schedule_offset: Optional[pulumi.Input[int]] = None,
                  schedule_start_time: Optional[pulumi.Input[float]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        IntegrationScheduledTriggerPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedule_expression=schedule_expression,
+            data_pull_mode=data_pull_mode,
+            first_execution_from=first_execution_from,
+            schedule_end_time=schedule_end_time,
+            schedule_offset=schedule_offset,
+            schedule_start_time=schedule_start_time,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedule_expression: pulumi.Input[str],
+             data_pull_mode: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']] = None,
+             first_execution_from: Optional[pulumi.Input[float]] = None,
+             schedule_end_time: Optional[pulumi.Input[float]] = None,
+             schedule_offset: Optional[pulumi.Input[int]] = None,
+             schedule_start_time: Optional[pulumi.Input[float]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schedule_expression", schedule_expression)
         if data_pull_mode is not None:
-            pulumi.set(__self__, "data_pull_mode", data_pull_mode)
+            _setter("data_pull_mode", data_pull_mode)
         if first_execution_from is not None:
-            pulumi.set(__self__, "first_execution_from", first_execution_from)
+            _setter("first_execution_from", first_execution_from)
         if schedule_end_time is not None:
-            pulumi.set(__self__, "schedule_end_time", schedule_end_time)
+            _setter("schedule_end_time", schedule_end_time)
         if schedule_offset is not None:
-            pulumi.set(__self__, "schedule_offset", schedule_offset)
+            _setter("schedule_offset", schedule_offset)
         if schedule_start_time is not None:
-            pulumi.set(__self__, "schedule_start_time", schedule_start_time)
+            _setter("schedule_start_time", schedule_start_time)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -656,7 +854,16 @@ class IntegrationScheduledTriggerPropertiesArgs:
 class IntegrationServiceNowSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
-        pulumi.set(__self__, "object", object)
+        IntegrationServiceNowSourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -676,16 +883,33 @@ class IntegrationSourceConnectorPropertiesArgs:
                  salesforce: Optional[pulumi.Input['IntegrationSalesforceSourcePropertiesArgs']] = None,
                  service_now: Optional[pulumi.Input['IntegrationServiceNowSourcePropertiesArgs']] = None,
                  zendesk: Optional[pulumi.Input['IntegrationZendeskSourcePropertiesArgs']] = None):
+        IntegrationSourceConnectorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            marketo=marketo,
+            s3=s3,
+            salesforce=salesforce,
+            service_now=service_now,
+            zendesk=zendesk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             marketo: Optional[pulumi.Input['IntegrationMarketoSourcePropertiesArgs']] = None,
+             s3: Optional[pulumi.Input['IntegrationS3SourcePropertiesArgs']] = None,
+             salesforce: Optional[pulumi.Input['IntegrationSalesforceSourcePropertiesArgs']] = None,
+             service_now: Optional[pulumi.Input['IntegrationServiceNowSourcePropertiesArgs']] = None,
+             zendesk: Optional[pulumi.Input['IntegrationZendeskSourcePropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if marketo is not None:
-            pulumi.set(__self__, "marketo", marketo)
+            _setter("marketo", marketo)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if salesforce is not None:
-            pulumi.set(__self__, "salesforce", salesforce)
+            _setter("salesforce", salesforce)
         if service_now is not None:
-            pulumi.set(__self__, "service_now", service_now)
+            _setter("service_now", service_now)
         if zendesk is not None:
-            pulumi.set(__self__, "zendesk", zendesk)
+            _setter("zendesk", zendesk)
 
     @property
     @pulumi.getter
@@ -740,12 +964,27 @@ class IntegrationSourceFlowConfigArgs:
                  source_connector_properties: pulumi.Input['IntegrationSourceConnectorPropertiesArgs'],
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
                  incremental_pull_config: Optional[pulumi.Input['IntegrationIncrementalPullConfigArgs']] = None):
-        pulumi.set(__self__, "connector_type", connector_type)
-        pulumi.set(__self__, "source_connector_properties", source_connector_properties)
+        IntegrationSourceFlowConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_type=connector_type,
+            source_connector_properties=source_connector_properties,
+            connector_profile_name=connector_profile_name,
+            incremental_pull_config=incremental_pull_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_type: pulumi.Input['IntegrationConnectorType'],
+             source_connector_properties: pulumi.Input['IntegrationSourceConnectorPropertiesArgs'],
+             connector_profile_name: Optional[pulumi.Input[str]] = None,
+             incremental_pull_config: Optional[pulumi.Input['IntegrationIncrementalPullConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connector_type", connector_type)
+        _setter("source_connector_properties", source_connector_properties)
         if connector_profile_name is not None:
-            pulumi.set(__self__, "connector_profile_name", connector_profile_name)
+            _setter("connector_profile_name", connector_profile_name)
         if incremental_pull_config is not None:
-            pulumi.set(__self__, "incremental_pull_config", incremental_pull_config)
+            _setter("incremental_pull_config", incremental_pull_config)
 
     @property
     @pulumi.getter(name="connectorType")
@@ -789,8 +1028,19 @@ class IntegrationTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        IntegrationTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -816,8 +1066,19 @@ class IntegrationTaskPropertiesMapArgs:
     def __init__(__self__, *,
                  operator_property_key: pulumi.Input['IntegrationOperatorPropertiesKeys'],
                  property: pulumi.Input[str]):
-        pulumi.set(__self__, "operator_property_key", operator_property_key)
-        pulumi.set(__self__, "property", property)
+        IntegrationTaskPropertiesMapArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_property_key=operator_property_key,
+            property=property,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_property_key: pulumi.Input['IntegrationOperatorPropertiesKeys'],
+             property: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_property_key", operator_property_key)
+        _setter("property", property)
 
     @property
     @pulumi.getter(name="operatorPropertyKey")
@@ -846,14 +1107,31 @@ class IntegrationTaskArgs:
                  connector_operator: Optional[pulumi.Input['IntegrationConnectorOperatorArgs']] = None,
                  destination_field: Optional[pulumi.Input[str]] = None,
                  task_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]] = None):
-        pulumi.set(__self__, "source_fields", source_fields)
-        pulumi.set(__self__, "task_type", task_type)
+        IntegrationTaskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_fields=source_fields,
+            task_type=task_type,
+            connector_operator=connector_operator,
+            destination_field=destination_field,
+            task_properties=task_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_fields: pulumi.Input[Sequence[pulumi.Input[str]]],
+             task_type: pulumi.Input['IntegrationTaskType'],
+             connector_operator: Optional[pulumi.Input['IntegrationConnectorOperatorArgs']] = None,
+             destination_field: Optional[pulumi.Input[str]] = None,
+             task_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_fields", source_fields)
+        _setter("task_type", task_type)
         if connector_operator is not None:
-            pulumi.set(__self__, "connector_operator", connector_operator)
+            _setter("connector_operator", connector_operator)
         if destination_field is not None:
-            pulumi.set(__self__, "destination_field", destination_field)
+            _setter("destination_field", destination_field)
         if task_properties is not None:
-            pulumi.set(__self__, "task_properties", task_properties)
+            _setter("task_properties", task_properties)
 
     @property
     @pulumi.getter(name="sourceFields")
@@ -906,9 +1184,20 @@ class IntegrationTriggerConfigArgs:
     def __init__(__self__, *,
                  trigger_type: pulumi.Input['IntegrationTriggerType'],
                  trigger_properties: Optional[pulumi.Input['IntegrationTriggerPropertiesArgs']] = None):
-        pulumi.set(__self__, "trigger_type", trigger_type)
+        IntegrationTriggerConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            trigger_type=trigger_type,
+            trigger_properties=trigger_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             trigger_type: pulumi.Input['IntegrationTriggerType'],
+             trigger_properties: Optional[pulumi.Input['IntegrationTriggerPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("trigger_type", trigger_type)
         if trigger_properties is not None:
-            pulumi.set(__self__, "trigger_properties", trigger_properties)
+            _setter("trigger_properties", trigger_properties)
 
     @property
     @pulumi.getter(name="triggerType")
@@ -933,8 +1222,17 @@ class IntegrationTriggerConfigArgs:
 class IntegrationTriggerPropertiesArgs:
     def __init__(__self__, *,
                  scheduled: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesArgs']] = None):
+        IntegrationTriggerPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scheduled=scheduled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scheduled: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if scheduled is not None:
-            pulumi.set(__self__, "scheduled", scheduled)
+            _setter("scheduled", scheduled)
 
     @property
     @pulumi.getter
@@ -950,7 +1248,16 @@ class IntegrationTriggerPropertiesArgs:
 class IntegrationZendeskSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
-        pulumi.set(__self__, "object", object)
+        IntegrationZendeskSourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -967,10 +1274,21 @@ class ObjectTypeFieldMapArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  object_type_field: Optional[pulumi.Input['ObjectTypeFieldArgs']] = None):
+        ObjectTypeFieldMapArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            object_type_field=object_type_field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             object_type_field: Optional[pulumi.Input['ObjectTypeFieldArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if object_type_field is not None:
-            pulumi.set(__self__, "object_type_field", object_type_field)
+            _setter("object_type_field", object_type_field)
 
     @property
     @pulumi.getter
@@ -1003,12 +1321,25 @@ class ObjectTypeFieldArgs:
         :param pulumi.Input[str] source: A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
         :param pulumi.Input[str] target: The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
         """
+        ObjectTypeFieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            source=source,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: Optional[pulumi.Input['ObjectTypeFieldContentType']] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter(name="contentType")
@@ -1052,10 +1383,21 @@ class ObjectTypeKeyMapArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  object_type_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]] = None):
+        ObjectTypeKeyMapArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            object_type_key_list=object_type_key_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             object_type_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if object_type_key_list is not None:
-            pulumi.set(__self__, "object_type_key_list", object_type_key_list)
+            _setter("object_type_key_list", object_type_key_list)
 
     @property
     @pulumi.getter
@@ -1086,10 +1428,21 @@ class ObjectTypeKeyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] field_names: The reference for the key name of the fields map. 
         :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
+        ObjectTypeKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_names=field_names,
+            standard_identifiers=standard_identifiers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             standard_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if field_names is not None:
-            pulumi.set(__self__, "field_names", field_names)
+            _setter("field_names", field_names)
         if standard_identifiers is not None:
-            pulumi.set(__self__, "standard_identifiers", standard_identifiers)
+            _setter("standard_identifiers", standard_identifiers)
 
     @property
     @pulumi.getter(name="fieldNames")
@@ -1121,8 +1474,19 @@ class ObjectTypeTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ObjectTypeTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,27 +30,56 @@ class IdentityPoolArgs:
         """
         The set of arguments for constructing a IdentityPool resource.
         """
-        pulumi.set(__self__, "allow_unauthenticated_identities", allow_unauthenticated_identities)
+        IdentityPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_unauthenticated_identities=allow_unauthenticated_identities,
+            allow_classic_flow=allow_classic_flow,
+            cognito_events=cognito_events,
+            cognito_identity_providers=cognito_identity_providers,
+            cognito_streams=cognito_streams,
+            developer_provider_name=developer_provider_name,
+            identity_pool_name=identity_pool_name,
+            open_id_connect_provider_arns=open_id_connect_provider_arns,
+            push_sync=push_sync,
+            saml_provider_arns=saml_provider_arns,
+            supported_login_providers=supported_login_providers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_unauthenticated_identities: pulumi.Input[bool],
+             allow_classic_flow: Optional[pulumi.Input[bool]] = None,
+             cognito_events: Optional[Any] = None,
+             cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]] = None,
+             cognito_streams: Optional[pulumi.Input['IdentityPoolCognitoStreamsArgs']] = None,
+             developer_provider_name: Optional[pulumi.Input[str]] = None,
+             identity_pool_name: Optional[pulumi.Input[str]] = None,
+             open_id_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             push_sync: Optional[pulumi.Input['IdentityPoolPushSyncArgs']] = None,
+             saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             supported_login_providers: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_unauthenticated_identities", allow_unauthenticated_identities)
         if allow_classic_flow is not None:
-            pulumi.set(__self__, "allow_classic_flow", allow_classic_flow)
+            _setter("allow_classic_flow", allow_classic_flow)
         if cognito_events is not None:
-            pulumi.set(__self__, "cognito_events", cognito_events)
+            _setter("cognito_events", cognito_events)
         if cognito_identity_providers is not None:
-            pulumi.set(__self__, "cognito_identity_providers", cognito_identity_providers)
+            _setter("cognito_identity_providers", cognito_identity_providers)
         if cognito_streams is not None:
-            pulumi.set(__self__, "cognito_streams", cognito_streams)
+            _setter("cognito_streams", cognito_streams)
         if developer_provider_name is not None:
-            pulumi.set(__self__, "developer_provider_name", developer_provider_name)
+            _setter("developer_provider_name", developer_provider_name)
         if identity_pool_name is not None:
-            pulumi.set(__self__, "identity_pool_name", identity_pool_name)
+            _setter("identity_pool_name", identity_pool_name)
         if open_id_connect_provider_arns is not None:
-            pulumi.set(__self__, "open_id_connect_provider_arns", open_id_connect_provider_arns)
+            _setter("open_id_connect_provider_arns", open_id_connect_provider_arns)
         if push_sync is not None:
-            pulumi.set(__self__, "push_sync", push_sync)
+            _setter("push_sync", push_sync)
         if saml_provider_arns is not None:
-            pulumi.set(__self__, "saml_provider_arns", saml_provider_arns)
+            _setter("saml_provider_arns", saml_provider_arns)
         if supported_login_providers is not None:
-            pulumi.set(__self__, "supported_login_providers", supported_login_providers)
+            _setter("supported_login_providers", supported_login_providers)
 
     @property
     @pulumi.getter(name="allowUnauthenticatedIdentities")
@@ -199,6 +228,10 @@ class IdentityPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -231,10 +264,20 @@ class IdentityPool(pulumi.CustomResource):
             __props__.__dict__["allow_unauthenticated_identities"] = allow_unauthenticated_identities
             __props__.__dict__["cognito_events"] = cognito_events
             __props__.__dict__["cognito_identity_providers"] = cognito_identity_providers
+            if cognito_streams is not None and not isinstance(cognito_streams, IdentityPoolCognitoStreamsArgs):
+                cognito_streams = cognito_streams or {}
+                def _setter(key, value):
+                    cognito_streams[key] = value
+                IdentityPoolCognitoStreamsArgs._configure(_setter, **cognito_streams)
             __props__.__dict__["cognito_streams"] = cognito_streams
             __props__.__dict__["developer_provider_name"] = developer_provider_name
             __props__.__dict__["identity_pool_name"] = identity_pool_name
             __props__.__dict__["open_id_connect_provider_arns"] = open_id_connect_provider_arns
+            if push_sync is not None and not isinstance(push_sync, IdentityPoolPushSyncArgs):
+                push_sync = push_sync or {}
+                def _setter(key, value):
+                    push_sync[key] = value
+                IdentityPoolPushSyncArgs._configure(_setter, **push_sync)
             __props__.__dict__["push_sync"] = push_sync
             __props__.__dict__["saml_provider_arns"] = saml_provider_arns
             __props__.__dict__["supported_login_providers"] = supported_login_providers

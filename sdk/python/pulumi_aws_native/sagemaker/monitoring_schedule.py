@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,19 +31,40 @@ class MonitoringScheduleArgs:
         :param pulumi.Input['MonitoringScheduleStatus'] monitoring_schedule_status: The status of a schedule job.
         :param pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "monitoring_schedule_config", monitoring_schedule_config)
+        MonitoringScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitoring_schedule_config=monitoring_schedule_config,
+            endpoint_name=endpoint_name,
+            failure_reason=failure_reason,
+            last_monitoring_execution_summary=last_monitoring_execution_summary,
+            monitoring_schedule_name=monitoring_schedule_name,
+            monitoring_schedule_status=monitoring_schedule_status,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitoring_schedule_config: pulumi.Input['MonitoringScheduleConfigArgs'],
+             endpoint_name: Optional[pulumi.Input[str]] = None,
+             failure_reason: Optional[pulumi.Input[str]] = None,
+             last_monitoring_execution_summary: Optional[pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs']] = None,
+             monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
+             monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("monitoring_schedule_config", monitoring_schedule_config)
         if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
+            _setter("endpoint_name", endpoint_name)
         if failure_reason is not None:
-            pulumi.set(__self__, "failure_reason", failure_reason)
+            _setter("failure_reason", failure_reason)
         if last_monitoring_execution_summary is not None:
-            pulumi.set(__self__, "last_monitoring_execution_summary", last_monitoring_execution_summary)
+            _setter("last_monitoring_execution_summary", last_monitoring_execution_summary)
         if monitoring_schedule_name is not None:
-            pulumi.set(__self__, "monitoring_schedule_name", monitoring_schedule_name)
+            _setter("monitoring_schedule_name", monitoring_schedule_name)
         if monitoring_schedule_status is not None:
-            pulumi.set(__self__, "monitoring_schedule_status", monitoring_schedule_status)
+            _setter("monitoring_schedule_status", monitoring_schedule_status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="monitoringScheduleConfig")
@@ -163,6 +184,10 @@ class MonitoringSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitoringScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -186,7 +211,17 @@ class MonitoringSchedule(pulumi.CustomResource):
 
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["failure_reason"] = failure_reason
+            if last_monitoring_execution_summary is not None and not isinstance(last_monitoring_execution_summary, MonitoringScheduleMonitoringExecutionSummaryArgs):
+                last_monitoring_execution_summary = last_monitoring_execution_summary or {}
+                def _setter(key, value):
+                    last_monitoring_execution_summary[key] = value
+                MonitoringScheduleMonitoringExecutionSummaryArgs._configure(_setter, **last_monitoring_execution_summary)
             __props__.__dict__["last_monitoring_execution_summary"] = last_monitoring_execution_summary
+            if monitoring_schedule_config is not None and not isinstance(monitoring_schedule_config, MonitoringScheduleConfigArgs):
+                monitoring_schedule_config = monitoring_schedule_config or {}
+                def _setter(key, value):
+                    monitoring_schedule_config[key] = value
+                MonitoringScheduleConfigArgs._configure(_setter, **monitoring_schedule_config)
             if monitoring_schedule_config is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_schedule_config'")
             __props__.__dict__["monitoring_schedule_config"] = monitoring_schedule_config

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,10 +21,21 @@ class ThingArgs:
         """
         The set of arguments for constructing a Thing resource.
         """
+        ThingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_payload=attribute_payload,
+            thing_name=thing_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_payload: Optional[pulumi.Input['ThingAttributePayloadArgs']] = None,
+             thing_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attribute_payload is not None:
-            pulumi.set(__self__, "attribute_payload", attribute_payload)
+            _setter("attribute_payload", attribute_payload)
         if thing_name is not None:
-            pulumi.set(__self__, "thing_name", thing_name)
+            _setter("thing_name", thing_name)
 
     @property
     @pulumi.getter(name="attributePayload")
@@ -78,6 +89,10 @@ class Thing(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ThingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -94,6 +109,11 @@ class Thing(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ThingArgs.__new__(ThingArgs)
 
+            if attribute_payload is not None and not isinstance(attribute_payload, ThingAttributePayloadArgs):
+                attribute_payload = attribute_payload or {}
+                def _setter(key, value):
+                    attribute_payload[key] = value
+                ThingAttributePayloadArgs._configure(_setter, **attribute_payload)
             __props__.__dict__["attribute_payload"] = attribute_payload
             __props__.__dict__["thing_name"] = thing_name
             __props__.__dict__["arn"] = None

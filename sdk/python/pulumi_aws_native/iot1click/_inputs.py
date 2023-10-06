@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -18,10 +18,21 @@ class ProjectPlacementTemplateArgs:
     def __init__(__self__, *,
                  default_attributes: Optional[Any] = None,
                  device_templates: Optional[Any] = None):
+        ProjectPlacementTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_attributes=default_attributes,
+            device_templates=device_templates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_attributes: Optional[Any] = None,
+             device_templates: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_attributes is not None:
-            pulumi.set(__self__, "default_attributes", default_attributes)
+            _setter("default_attributes", default_attributes)
         if device_templates is not None:
-            pulumi.set(__self__, "device_templates", device_templates)
+            _setter("device_templates", device_templates)
 
     @property
     @pulumi.getter(name="defaultAttributes")

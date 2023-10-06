@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,15 +26,36 @@ class FilterArgs:
         """
         The set of arguments for constructing a Filter resource.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "detector_id", detector_id)
-        pulumi.set(__self__, "finding_criteria", finding_criteria)
-        pulumi.set(__self__, "rank", rank)
+        FilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            description=description,
+            detector_id=detector_id,
+            finding_criteria=finding_criteria,
+            rank=rank,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[str],
+             description: pulumi.Input[str],
+             detector_id: pulumi.Input[str],
+             finding_criteria: pulumi.Input['FilterFindingCriteriaArgs'],
+             rank: pulumi.Input[int],
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("description", description)
+        _setter("detector_id", detector_id)
+        _setter("finding_criteria", finding_criteria)
+        _setter("rank", rank)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -143,6 +164,10 @@ class Filter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -174,6 +199,11 @@ class Filter(pulumi.CustomResource):
             if detector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_id'")
             __props__.__dict__["detector_id"] = detector_id
+            if finding_criteria is not None and not isinstance(finding_criteria, FilterFindingCriteriaArgs):
+                finding_criteria = finding_criteria or {}
+                def _setter(key, value):
+                    finding_criteria[key] = value
+                FilterFindingCriteriaArgs._configure(_setter, **finding_criteria)
             if finding_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'finding_criteria'")
             __props__.__dict__["finding_criteria"] = finding_criteria

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RegistryPolicyArgs', 'RegistryPolicy']
@@ -20,10 +20,23 @@ class RegistryPolicyArgs:
         """
         The set of arguments for constructing a RegistryPolicy resource.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "registry_name", registry_name)
+        RegistryPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            registry_name=registry_name,
+            revision_id=revision_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Any,
+             registry_name: pulumi.Input[str],
+             revision_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy", policy)
+        _setter("registry_name", registry_name)
         if revision_id is not None:
-            pulumi.set(__self__, "revision_id", revision_id)
+            _setter("revision_id", revision_id)
 
     @property
     @pulumi.getter
@@ -87,6 +100,10 @@ class RegistryPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

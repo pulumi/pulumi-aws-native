@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccessPointPolicyArgs', 'AccessPointPolicy']
@@ -21,8 +21,19 @@ class AccessPointPolicyArgs:
         :param pulumi.Input[str] object_lambda_access_point: The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
         :param Any policy_document: A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
         """
-        pulumi.set(__self__, "object_lambda_access_point", object_lambda_access_point)
-        pulumi.set(__self__, "policy_document", policy_document)
+        AccessPointPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_lambda_access_point=object_lambda_access_point,
+            policy_document=policy_document,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_lambda_access_point: pulumi.Input[str],
+             policy_document: Any,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object_lambda_access_point", object_lambda_access_point)
+        _setter("policy_document", policy_document)
 
     @property
     @pulumi.getter(name="objectLambdaAccessPoint")
@@ -84,6 +95,10 @@ class AccessPointPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessPointPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

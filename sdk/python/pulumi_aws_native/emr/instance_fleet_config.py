@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,18 +26,39 @@ class InstanceFleetConfigArgs:
         """
         The set of arguments for constructing a InstanceFleetConfig resource.
         """
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "instance_fleet_type", instance_fleet_type)
+        InstanceFleetConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_id=cluster_id,
+            instance_fleet_type=instance_fleet_type,
+            instance_type_configs=instance_type_configs,
+            launch_specifications=launch_specifications,
+            name=name,
+            target_on_demand_capacity=target_on_demand_capacity,
+            target_spot_capacity=target_spot_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_id: pulumi.Input[str],
+             instance_fleet_type: pulumi.Input[str],
+             instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetConfigInstanceTypeConfigArgs']]]] = None,
+             launch_specifications: Optional[pulumi.Input['InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
+             target_spot_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_id", cluster_id)
+        _setter("instance_fleet_type", instance_fleet_type)
         if instance_type_configs is not None:
-            pulumi.set(__self__, "instance_type_configs", instance_type_configs)
+            _setter("instance_type_configs", instance_type_configs)
         if launch_specifications is not None:
-            pulumi.set(__self__, "launch_specifications", launch_specifications)
+            _setter("launch_specifications", launch_specifications)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if target_on_demand_capacity is not None:
-            pulumi.set(__self__, "target_on_demand_capacity", target_on_demand_capacity)
+            _setter("target_on_demand_capacity", target_on_demand_capacity)
         if target_spot_capacity is not None:
-            pulumi.set(__self__, "target_spot_capacity", target_spot_capacity)
+            _setter("target_spot_capacity", target_spot_capacity)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -146,6 +167,10 @@ class InstanceFleetConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceFleetConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -175,6 +200,11 @@ class InstanceFleetConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_fleet_type'")
             __props__.__dict__["instance_fleet_type"] = instance_fleet_type
             __props__.__dict__["instance_type_configs"] = instance_type_configs
+            if launch_specifications is not None and not isinstance(launch_specifications, InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs):
+                launch_specifications = launch_specifications or {}
+                def _setter(key, value):
+                    launch_specifications[key] = value
+                InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs._configure(_setter, **launch_specifications)
             __props__.__dict__["launch_specifications"] = launch_specifications
             __props__.__dict__["name"] = name
             __props__.__dict__["target_on_demand_capacity"] = target_on_demand_capacity

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -22,8 +22,17 @@ __all__ = [
 class ApplicationInstanceManifestOverridesPayloadArgs:
     def __init__(__self__, *,
                  payload_data: Optional[pulumi.Input[str]] = None):
+        ApplicationInstanceManifestOverridesPayloadArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            payload_data=payload_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             payload_data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if payload_data is not None:
-            pulumi.set(__self__, "payload_data", payload_data)
+            _setter("payload_data", payload_data)
 
     @property
     @pulumi.getter(name="payloadData")
@@ -39,8 +48,17 @@ class ApplicationInstanceManifestOverridesPayloadArgs:
 class ApplicationInstanceManifestPayloadArgs:
     def __init__(__self__, *,
                  payload_data: Optional[pulumi.Input[str]] = None):
+        ApplicationInstanceManifestPayloadArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            payload_data=payload_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             payload_data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if payload_data is not None:
-            pulumi.set(__self__, "payload_data", payload_data)
+            _setter("payload_data", payload_data)
 
     @property
     @pulumi.getter(name="payloadData")
@@ -61,8 +79,19 @@ class ApplicationInstanceTagArgs:
         :param pulumi.Input[str] key: A string used to identify this tag
         :param pulumi.Input[str] value: A string containing the value for the tag
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ApplicationInstanceTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -97,16 +126,33 @@ class PackageStorageLocationArgs:
                  generated_prefix_location: Optional[pulumi.Input[str]] = None,
                  manifest_prefix_location: Optional[pulumi.Input[str]] = None,
                  repo_prefix_location: Optional[pulumi.Input[str]] = None):
+        PackageStorageLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            binary_prefix_location=binary_prefix_location,
+            bucket=bucket,
+            generated_prefix_location=generated_prefix_location,
+            manifest_prefix_location=manifest_prefix_location,
+            repo_prefix_location=repo_prefix_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             binary_prefix_location: Optional[pulumi.Input[str]] = None,
+             bucket: Optional[pulumi.Input[str]] = None,
+             generated_prefix_location: Optional[pulumi.Input[str]] = None,
+             manifest_prefix_location: Optional[pulumi.Input[str]] = None,
+             repo_prefix_location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if binary_prefix_location is not None:
-            pulumi.set(__self__, "binary_prefix_location", binary_prefix_location)
+            _setter("binary_prefix_location", binary_prefix_location)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if generated_prefix_location is not None:
-            pulumi.set(__self__, "generated_prefix_location", generated_prefix_location)
+            _setter("generated_prefix_location", generated_prefix_location)
         if manifest_prefix_location is not None:
-            pulumi.set(__self__, "manifest_prefix_location", manifest_prefix_location)
+            _setter("manifest_prefix_location", manifest_prefix_location)
         if repo_prefix_location is not None:
-            pulumi.set(__self__, "repo_prefix_location", repo_prefix_location)
+            _setter("repo_prefix_location", repo_prefix_location)
 
     @property
     @pulumi.getter(name="binaryPrefixLocation")
@@ -159,8 +205,19 @@ class PackageTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        PackageTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

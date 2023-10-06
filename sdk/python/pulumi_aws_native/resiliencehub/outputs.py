@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -55,10 +55,23 @@ class AppEventSubscription(dict):
         :param str name: Unique name to identify an event subscription.
         :param str sns_topic_arn: Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
         """
-        pulumi.set(__self__, "event_type", event_type)
-        pulumi.set(__self__, "name", name)
+        AppEventSubscription._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_type=event_type,
+            name=name,
+            sns_topic_arn=sns_topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_type: 'AppEventSubscriptionEventType',
+             name: str,
+             sns_topic_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_type", event_type)
+        _setter("name", name)
         if sns_topic_arn is not None:
-            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+            _setter("sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="eventType")
@@ -119,11 +132,24 @@ class AppPermissionModel(dict):
         :param Sequence[str] cross_account_role_arns: Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
         :param str invoker_role_name: Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
         """
-        pulumi.set(__self__, "type", type)
+        AppPermissionModel._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            cross_account_role_arns=cross_account_role_arns,
+            invoker_role_name=invoker_role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: 'AppPermissionModelType',
+             cross_account_role_arns: Optional[Sequence[str]] = None,
+             invoker_role_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if cross_account_role_arns is not None:
-            pulumi.set(__self__, "cross_account_role_arns", cross_account_role_arns)
+            _setter("cross_account_role_arns", cross_account_role_arns)
         if invoker_role_name is not None:
-            pulumi.set(__self__, "invoker_role_name", invoker_role_name)
+            _setter("invoker_role_name", invoker_role_name)
 
     @property
     @pulumi.getter
@@ -176,12 +202,27 @@ class AppPhysicalResourceId(dict):
                  type: str,
                  aws_account_id: Optional[str] = None,
                  aws_region: Optional[str] = None):
-        pulumi.set(__self__, "identifier", identifier)
-        pulumi.set(__self__, "type", type)
+        AppPhysicalResourceId._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identifier=identifier,
+            type=type,
+            aws_account_id=aws_account_id,
+            aws_region=aws_region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identifier: str,
+             type: str,
+             aws_account_id: Optional[str] = None,
+             aws_region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identifier", identifier)
+        _setter("type", type)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if aws_region is not None:
-            pulumi.set(__self__, "aws_region", aws_region)
+            _setter("aws_region", aws_region)
 
     @property
     @pulumi.getter
@@ -246,16 +287,35 @@ class AppResourceMapping(dict):
         """
         Resource mapping is used to map logical resources from template to physical resource
         """
-        pulumi.set(__self__, "mapping_type", mapping_type)
-        pulumi.set(__self__, "physical_resource_id", physical_resource_id)
+        AppResourceMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mapping_type=mapping_type,
+            physical_resource_id=physical_resource_id,
+            eks_source_name=eks_source_name,
+            logical_stack_name=logical_stack_name,
+            resource_name=resource_name,
+            terraform_source_name=terraform_source_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mapping_type: str,
+             physical_resource_id: 'outputs.AppPhysicalResourceId',
+             eks_source_name: Optional[str] = None,
+             logical_stack_name: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             terraform_source_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mapping_type", mapping_type)
+        _setter("physical_resource_id", physical_resource_id)
         if eks_source_name is not None:
-            pulumi.set(__self__, "eks_source_name", eks_source_name)
+            _setter("eks_source_name", eks_source_name)
         if logical_stack_name is not None:
-            pulumi.set(__self__, "logical_stack_name", logical_stack_name)
+            _setter("logical_stack_name", logical_stack_name)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if terraform_source_name is not None:
-            pulumi.set(__self__, "terraform_source_name", terraform_source_name)
+            _setter("terraform_source_name", terraform_source_name)
 
     @property
     @pulumi.getter(name="mappingType")
@@ -292,17 +352,32 @@ class AppResourceMapping(dict):
 class AppTagMap(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class ResiliencyPolicyPolicyMap(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class ResiliencyPolicyTagMap(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 

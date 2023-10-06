@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,15 +32,34 @@ class EndpointArgs:
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
         :param pulumi.Input['EndpointFailedReasonArgs'] failed_reason: The failure reason, if any, for a create or delete endpoint operation.
         """
-        pulumi.set(__self__, "outpost_id", outpost_id)
-        pulumi.set(__self__, "security_group_id", security_group_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        EndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            outpost_id=outpost_id,
+            security_group_id=security_group_id,
+            subnet_id=subnet_id,
+            access_type=access_type,
+            customer_owned_ipv4_pool=customer_owned_ipv4_pool,
+            failed_reason=failed_reason,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             outpost_id: pulumi.Input[str],
+             security_group_id: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
+             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+             failed_reason: Optional[pulumi.Input['EndpointFailedReasonArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("outpost_id", outpost_id)
+        _setter("security_group_id", security_group_id)
+        _setter("subnet_id", subnet_id)
         if access_type is not None:
-            pulumi.set(__self__, "access_type", access_type)
+            _setter("access_type", access_type)
         if customer_owned_ipv4_pool is not None:
-            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+            _setter("customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if failed_reason is not None:
-            pulumi.set(__self__, "failed_reason", failed_reason)
+            _setter("failed_reason", failed_reason)
 
     @property
     @pulumi.getter(name="outpostId")
@@ -158,6 +177,10 @@ class Endpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,6 +203,11 @@ class Endpoint(pulumi.CustomResource):
 
             __props__.__dict__["access_type"] = access_type
             __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
+            if failed_reason is not None and not isinstance(failed_reason, EndpointFailedReasonArgs):
+                failed_reason = failed_reason or {}
+                def _setter(key, value):
+                    failed_reason[key] = value
+                EndpointFailedReasonArgs._configure(_setter, **failed_reason)
             __props__.__dict__["failed_reason"] = failed_reason
             if outpost_id is None and not opts.urn:
                 raise TypeError("Missing required property 'outpost_id'")

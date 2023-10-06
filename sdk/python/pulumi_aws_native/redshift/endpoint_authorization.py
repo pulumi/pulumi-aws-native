@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EndpointAuthorizationArgs', 'EndpointAuthorization']
@@ -25,12 +25,27 @@ class EndpointAuthorizationArgs:
         :param pulumi.Input[bool] force:  Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_ids: The virtual private cloud (VPC) identifiers to grant or revoke access to.
         """
-        pulumi.set(__self__, "account", account)
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        EndpointAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account=account,
+            cluster_identifier=cluster_identifier,
+            force=force,
+            vpc_ids=vpc_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account: pulumi.Input[str],
+             cluster_identifier: pulumi.Input[str],
+             force: Optional[pulumi.Input[bool]] = None,
+             vpc_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account", account)
+        _setter("cluster_identifier", cluster_identifier)
         if force is not None:
-            pulumi.set(__self__, "force", force)
+            _setter("force", force)
         if vpc_ids is not None:
-            pulumi.set(__self__, "vpc_ids", vpc_ids)
+            _setter("vpc_ids", vpc_ids)
 
     @property
     @pulumi.getter
@@ -120,6 +135,10 @@ class EndpointAuthorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointAuthorizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

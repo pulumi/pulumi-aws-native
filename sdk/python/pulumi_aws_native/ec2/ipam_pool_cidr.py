@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IpamPoolCidrArgs', 'IpamPoolCidr']
@@ -23,11 +23,24 @@ class IpamPoolCidrArgs:
         :param pulumi.Input[str] cidr: Represents a single IPv4 or IPv6 CIDR
         :param pulumi.Input[int] netmask_length: The desired netmask length of the provision. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.
         """
-        pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+        IpamPoolCidrArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipam_pool_id=ipam_pool_id,
+            cidr=cidr,
+            netmask_length=netmask_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipam_pool_id: pulumi.Input[str],
+             cidr: Optional[pulumi.Input[str]] = None,
+             netmask_length: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ipam_pool_id", ipam_pool_id)
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if netmask_length is not None:
-            pulumi.set(__self__, "netmask_length", netmask_length)
+            _setter("netmask_length", netmask_length)
 
     @property
     @pulumi.getter(name="ipamPoolId")
@@ -103,6 +116,10 @@ class IpamPoolCidr(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IpamPoolCidrArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

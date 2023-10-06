@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,13 +28,28 @@ class DatasetGroupArgs:
         :param pulumi.Input[str] dataset_group_name: A name for the dataset group.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetGroupTagArgs']]] tags: The tags of Application Insights application.
         """
-        pulumi.set(__self__, "domain", domain)
+        DatasetGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            dataset_arns=dataset_arns,
+            dataset_group_name=dataset_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input['DatasetGroupDomain'],
+             dataset_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dataset_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain", domain)
         if dataset_arns is not None:
-            pulumi.set(__self__, "dataset_arns", dataset_arns)
+            _setter("dataset_arns", dataset_arns)
         if dataset_group_name is not None:
-            pulumi.set(__self__, "dataset_group_name", dataset_group_name)
+            _setter("dataset_group_name", dataset_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -124,6 +139,10 @@ class DatasetGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatasetGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

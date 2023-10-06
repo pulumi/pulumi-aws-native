@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,15 +28,32 @@ class LocationNfsArgs:
         :param pulumi.Input[str] subdirectory: The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
         :param pulumi.Input[Sequence[pulumi.Input['LocationNfsTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "on_prem_config", on_prem_config)
+        LocationNfsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            on_prem_config=on_prem_config,
+            mount_options=mount_options,
+            server_hostname=server_hostname,
+            subdirectory=subdirectory,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             on_prem_config: pulumi.Input['LocationNfsOnPremConfigArgs'],
+             mount_options: Optional[pulumi.Input['LocationNfsMountOptionsArgs']] = None,
+             server_hostname: Optional[pulumi.Input[str]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationNfsTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("on_prem_config", on_prem_config)
         if mount_options is not None:
-            pulumi.set(__self__, "mount_options", mount_options)
+            _setter("mount_options", mount_options)
         if server_hostname is not None:
-            pulumi.set(__self__, "server_hostname", server_hostname)
+            _setter("server_hostname", server_hostname)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="onPremConfig")
@@ -132,6 +149,10 @@ class LocationNfs(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocationNfsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -151,7 +172,17 @@ class LocationNfs(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LocationNfsArgs.__new__(LocationNfsArgs)
 
+            if mount_options is not None and not isinstance(mount_options, LocationNfsMountOptionsArgs):
+                mount_options = mount_options or {}
+                def _setter(key, value):
+                    mount_options[key] = value
+                LocationNfsMountOptionsArgs._configure(_setter, **mount_options)
             __props__.__dict__["mount_options"] = mount_options
+            if on_prem_config is not None and not isinstance(on_prem_config, LocationNfsOnPremConfigArgs):
+                on_prem_config = on_prem_config or {}
+                def _setter(key, value):
+                    on_prem_config[key] = value
+                LocationNfsOnPremConfigArgs._configure(_setter, **on_prem_config)
             if on_prem_config is None and not opts.urn:
                 raise TypeError("Missing required property 'on_prem_config'")
             __props__.__dict__["on_prem_config"] = on_prem_config

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,16 +27,35 @@ class JobQueueArgs:
         The set of arguments for constructing a JobQueue resource.
         :param Any tags: A key-value pair to associate with a resource.
         """
-        pulumi.set(__self__, "compute_environment_order", compute_environment_order)
-        pulumi.set(__self__, "priority", priority)
+        JobQueueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_environment_order=compute_environment_order,
+            priority=priority,
+            job_queue_name=job_queue_name,
+            scheduling_policy_arn=scheduling_policy_arn,
+            state=state,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_environment_order: pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]],
+             priority: pulumi.Input[int],
+             job_queue_name: Optional[pulumi.Input[str]] = None,
+             scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input['JobQueueState']] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_environment_order", compute_environment_order)
+        _setter("priority", priority)
         if job_queue_name is not None:
-            pulumi.set(__self__, "job_queue_name", job_queue_name)
+            _setter("job_queue_name", job_queue_name)
         if scheduling_policy_arn is not None:
-            pulumi.set(__self__, "scheduling_policy_arn", scheduling_policy_arn)
+            _setter("scheduling_policy_arn", scheduling_policy_arn)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="computeEnvironmentOrder")
@@ -134,6 +153,10 @@ class JobQueue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobQueueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

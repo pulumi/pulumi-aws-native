@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,23 @@ class AggregationAuthorizationArgs:
         :param pulumi.Input[str] authorized_aws_region: The region authorized to collect aggregated data.
         :param pulumi.Input[Sequence[pulumi.Input['AggregationAuthorizationTagArgs']]] tags: The tags for the AggregationAuthorization.
         """
-        pulumi.set(__self__, "authorized_account_id", authorized_account_id)
-        pulumi.set(__self__, "authorized_aws_region", authorized_aws_region)
+        AggregationAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorized_account_id=authorized_account_id,
+            authorized_aws_region=authorized_aws_region,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorized_account_id: pulumi.Input[str],
+             authorized_aws_region: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AggregationAuthorizationTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorized_account_id", authorized_account_id)
+        _setter("authorized_aws_region", authorized_aws_region)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="authorizedAccountId")
@@ -104,6 +117,10 @@ class AggregationAuthorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AggregationAuthorizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

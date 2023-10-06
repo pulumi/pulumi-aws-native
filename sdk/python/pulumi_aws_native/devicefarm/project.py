@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,14 +23,29 @@ class ProjectArgs:
         """
         The set of arguments for constructing a Project resource.
         """
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_job_timeout_minutes=default_job_timeout_minutes,
+            name=name,
+            tags=tags,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_job_timeout_minutes: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
+             vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_job_timeout_minutes is not None:
-            pulumi.set(__self__, "default_job_timeout_minutes", default_job_timeout_minutes)
+            _setter("default_job_timeout_minutes", default_job_timeout_minutes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="defaultJobTimeoutMinutes")
@@ -104,6 +119,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -125,6 +144,11 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["default_job_timeout_minutes"] = default_job_timeout_minutes
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            if vpc_config is not None and not isinstance(vpc_config, ProjectVpcConfigArgs):
+                vpc_config = vpc_config or {}
+                def _setter(key, value):
+                    vpc_config[key] = value
+                ProjectVpcConfigArgs._configure(_setter, **vpc_config)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
         super(Project, __self__).__init__(

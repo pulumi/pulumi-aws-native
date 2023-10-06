@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -56,12 +56,25 @@ class ClusterBrokerLogsArgs:
                  cloud_watch_logs: Optional[pulumi.Input['ClusterCloudWatchLogsArgs']] = None,
                  firehose: Optional[pulumi.Input['ClusterFirehoseArgs']] = None,
                  s3: Optional[pulumi.Input['ClusterS3Args']] = None):
+        ClusterBrokerLogsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_logs=cloud_watch_logs,
+            firehose=firehose,
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_logs: Optional[pulumi.Input['ClusterCloudWatchLogsArgs']] = None,
+             firehose: Optional[pulumi.Input['ClusterFirehoseArgs']] = None,
+             s3: Optional[pulumi.Input['ClusterS3Args']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_logs is not None:
-            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+            _setter("cloud_watch_logs", cloud_watch_logs)
         if firehose is not None:
-            pulumi.set(__self__, "firehose", firehose)
+            _setter("firehose", firehose)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
 
     @property
     @pulumi.getter(name="cloudWatchLogs")
@@ -100,16 +113,35 @@ class ClusterBrokerNodeGroupInfoArgs:
                  connectivity_info: Optional[pulumi.Input['ClusterConnectivityInfoArgs']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_info: Optional[pulumi.Input['ClusterStorageInfoArgs']] = None):
-        pulumi.set(__self__, "client_subnets", client_subnets)
-        pulumi.set(__self__, "instance_type", instance_type)
+        ClusterBrokerNodeGroupInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_subnets=client_subnets,
+            instance_type=instance_type,
+            broker_az_distribution=broker_az_distribution,
+            connectivity_info=connectivity_info,
+            security_groups=security_groups,
+            storage_info=storage_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             instance_type: pulumi.Input[str],
+             broker_az_distribution: Optional[pulumi.Input[str]] = None,
+             connectivity_info: Optional[pulumi.Input['ClusterConnectivityInfoArgs']] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             storage_info: Optional[pulumi.Input['ClusterStorageInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_subnets", client_subnets)
+        _setter("instance_type", instance_type)
         if broker_az_distribution is not None:
-            pulumi.set(__self__, "broker_az_distribution", broker_az_distribution)
+            _setter("broker_az_distribution", broker_az_distribution)
         if connectivity_info is not None:
-            pulumi.set(__self__, "connectivity_info", connectivity_info)
+            _setter("connectivity_info", connectivity_info)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if storage_info is not None:
-            pulumi.set(__self__, "storage_info", storage_info)
+            _setter("storage_info", storage_info)
 
     @property
     @pulumi.getter(name="clientSubnets")
@@ -172,12 +204,25 @@ class ClusterClientAuthenticationArgs:
                  sasl: Optional[pulumi.Input['ClusterSaslArgs']] = None,
                  tls: Optional[pulumi.Input['ClusterTlsArgs']] = None,
                  unauthenticated: Optional[pulumi.Input['ClusterUnauthenticatedArgs']] = None):
+        ClusterClientAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sasl=sasl,
+            tls=tls,
+            unauthenticated=unauthenticated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sasl: Optional[pulumi.Input['ClusterSaslArgs']] = None,
+             tls: Optional[pulumi.Input['ClusterTlsArgs']] = None,
+             unauthenticated: Optional[pulumi.Input['ClusterUnauthenticatedArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sasl is not None:
-            pulumi.set(__self__, "sasl", sasl)
+            _setter("sasl", sasl)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
         if unauthenticated is not None:
-            pulumi.set(__self__, "unauthenticated", unauthenticated)
+            _setter("unauthenticated", unauthenticated)
 
     @property
     @pulumi.getter
@@ -212,9 +257,20 @@ class ClusterCloudWatchLogsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  log_group: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "enabled", enabled)
+        ClusterCloudWatchLogsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_group=log_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             log_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if log_group is not None:
-            pulumi.set(__self__, "log_group", log_group)
+            _setter("log_group", log_group)
 
     @property
     @pulumi.getter
@@ -240,8 +296,19 @@ class ClusterConfigurationInfoArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  revision: pulumi.Input[int]):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "revision", revision)
+        ClusterConfigurationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            revision=revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: pulumi.Input[str],
+             revision: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("revision", revision)
 
     @property
     @pulumi.getter
@@ -267,10 +334,21 @@ class ClusterConnectivityInfoArgs:
     def __init__(__self__, *,
                  public_access: Optional[pulumi.Input['ClusterPublicAccessArgs']] = None,
                  vpc_connectivity: Optional[pulumi.Input['ClusterVpcConnectivityArgs']] = None):
+        ClusterConnectivityInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_access=public_access,
+            vpc_connectivity=vpc_connectivity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_access: Optional[pulumi.Input['ClusterPublicAccessArgs']] = None,
+             vpc_connectivity: Optional[pulumi.Input['ClusterVpcConnectivityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if public_access is not None:
-            pulumi.set(__self__, "public_access", public_access)
+            _setter("public_access", public_access)
         if vpc_connectivity is not None:
-            pulumi.set(__self__, "vpc_connectivity", vpc_connectivity)
+            _setter("vpc_connectivity", vpc_connectivity)
 
     @property
     @pulumi.getter(name="publicAccess")
@@ -296,10 +374,21 @@ class ClusterEbsStorageInfoArgs:
     def __init__(__self__, *,
                  provisioned_throughput: Optional[pulumi.Input['ClusterProvisionedThroughputArgs']] = None,
                  volume_size: Optional[pulumi.Input[int]] = None):
+        ClusterEbsStorageInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioned_throughput=provisioned_throughput,
+            volume_size=volume_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioned_throughput: Optional[pulumi.Input['ClusterProvisionedThroughputArgs']] = None,
+             volume_size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if provisioned_throughput is not None:
-            pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
+            _setter("provisioned_throughput", provisioned_throughput)
         if volume_size is not None:
-            pulumi.set(__self__, "volume_size", volume_size)
+            _setter("volume_size", volume_size)
 
     @property
     @pulumi.getter(name="provisionedThroughput")
@@ -324,7 +413,16 @@ class ClusterEbsStorageInfoArgs:
 class ClusterEncryptionAtRestArgs:
     def __init__(__self__, *,
                  data_volume_kms_key_id: pulumi.Input[str]):
-        pulumi.set(__self__, "data_volume_kms_key_id", data_volume_kms_key_id)
+        ClusterEncryptionAtRestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_volume_kms_key_id=data_volume_kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_volume_kms_key_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_volume_kms_key_id", data_volume_kms_key_id)
 
     @property
     @pulumi.getter(name="dataVolumeKmsKeyId")
@@ -341,10 +439,21 @@ class ClusterEncryptionInTransitArgs:
     def __init__(__self__, *,
                  client_broker: Optional[pulumi.Input['ClusterEncryptionInTransitClientBroker']] = None,
                  in_cluster: Optional[pulumi.Input[bool]] = None):
+        ClusterEncryptionInTransitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_broker=client_broker,
+            in_cluster=in_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_broker: Optional[pulumi.Input['ClusterEncryptionInTransitClientBroker']] = None,
+             in_cluster: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_broker is not None:
-            pulumi.set(__self__, "client_broker", client_broker)
+            _setter("client_broker", client_broker)
         if in_cluster is not None:
-            pulumi.set(__self__, "in_cluster", in_cluster)
+            _setter("in_cluster", in_cluster)
 
     @property
     @pulumi.getter(name="clientBroker")
@@ -370,10 +479,21 @@ class ClusterEncryptionInfoArgs:
     def __init__(__self__, *,
                  encryption_at_rest: Optional[pulumi.Input['ClusterEncryptionAtRestArgs']] = None,
                  encryption_in_transit: Optional[pulumi.Input['ClusterEncryptionInTransitArgs']] = None):
+        ClusterEncryptionInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_at_rest=encryption_at_rest,
+            encryption_in_transit=encryption_in_transit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_at_rest: Optional[pulumi.Input['ClusterEncryptionAtRestArgs']] = None,
+             encryption_in_transit: Optional[pulumi.Input['ClusterEncryptionInTransitArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_at_rest is not None:
-            pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
+            _setter("encryption_at_rest", encryption_at_rest)
         if encryption_in_transit is not None:
-            pulumi.set(__self__, "encryption_in_transit", encryption_in_transit)
+            _setter("encryption_in_transit", encryption_in_transit)
 
     @property
     @pulumi.getter(name="encryptionAtRest")
@@ -399,9 +519,20 @@ class ClusterFirehoseArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  delivery_stream: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "enabled", enabled)
+        ClusterFirehoseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            delivery_stream=delivery_stream,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             delivery_stream: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if delivery_stream is not None:
-            pulumi.set(__self__, "delivery_stream", delivery_stream)
+            _setter("delivery_stream", delivery_stream)
 
     @property
     @pulumi.getter
@@ -426,7 +557,16 @@ class ClusterFirehoseArgs:
 class ClusterIamArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
-        pulumi.set(__self__, "enabled", enabled)
+        ClusterIamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -442,7 +582,16 @@ class ClusterIamArgs:
 class ClusterJmxExporterArgs:
     def __init__(__self__, *,
                  enabled_in_broker: pulumi.Input[bool]):
-        pulumi.set(__self__, "enabled_in_broker", enabled_in_broker)
+        ClusterJmxExporterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled_in_broker=enabled_in_broker,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled_in_broker: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled_in_broker", enabled_in_broker)
 
     @property
     @pulumi.getter(name="enabledInBroker")
@@ -458,7 +607,16 @@ class ClusterJmxExporterArgs:
 class ClusterLoggingInfoArgs:
     def __init__(__self__, *,
                  broker_logs: pulumi.Input['ClusterBrokerLogsArgs']):
-        pulumi.set(__self__, "broker_logs", broker_logs)
+        ClusterLoggingInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            broker_logs=broker_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             broker_logs: pulumi.Input['ClusterBrokerLogsArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("broker_logs", broker_logs)
 
     @property
     @pulumi.getter(name="brokerLogs")
@@ -474,7 +632,16 @@ class ClusterLoggingInfoArgs:
 class ClusterNodeExporterArgs:
     def __init__(__self__, *,
                  enabled_in_broker: pulumi.Input[bool]):
-        pulumi.set(__self__, "enabled_in_broker", enabled_in_broker)
+        ClusterNodeExporterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled_in_broker=enabled_in_broker,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled_in_broker: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled_in_broker", enabled_in_broker)
 
     @property
     @pulumi.getter(name="enabledInBroker")
@@ -490,7 +657,16 @@ class ClusterNodeExporterArgs:
 class ClusterOpenMonitoringArgs:
     def __init__(__self__, *,
                  prometheus: pulumi.Input['ClusterPrometheusArgs']):
-        pulumi.set(__self__, "prometheus", prometheus)
+        ClusterOpenMonitoringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prometheus=prometheus,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prometheus: pulumi.Input['ClusterPrometheusArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("prometheus", prometheus)
 
     @property
     @pulumi.getter
@@ -507,10 +683,21 @@ class ClusterPrometheusArgs:
     def __init__(__self__, *,
                  jmx_exporter: Optional[pulumi.Input['ClusterJmxExporterArgs']] = None,
                  node_exporter: Optional[pulumi.Input['ClusterNodeExporterArgs']] = None):
+        ClusterPrometheusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            jmx_exporter=jmx_exporter,
+            node_exporter=node_exporter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             jmx_exporter: Optional[pulumi.Input['ClusterJmxExporterArgs']] = None,
+             node_exporter: Optional[pulumi.Input['ClusterNodeExporterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if jmx_exporter is not None:
-            pulumi.set(__self__, "jmx_exporter", jmx_exporter)
+            _setter("jmx_exporter", jmx_exporter)
         if node_exporter is not None:
-            pulumi.set(__self__, "node_exporter", node_exporter)
+            _setter("node_exporter", node_exporter)
 
     @property
     @pulumi.getter(name="jmxExporter")
@@ -536,10 +723,21 @@ class ClusterProvisionedThroughputArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  volume_throughput: Optional[pulumi.Input[int]] = None):
+        ClusterProvisionedThroughputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            volume_throughput=volume_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             volume_throughput: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if volume_throughput is not None:
-            pulumi.set(__self__, "volume_throughput", volume_throughput)
+            _setter("volume_throughput", volume_throughput)
 
     @property
     @pulumi.getter
@@ -564,8 +762,17 @@ class ClusterProvisionedThroughputArgs:
 class ClusterPublicAccessArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
+        ClusterPublicAccessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -583,11 +790,24 @@ class ClusterS3Args:
                  enabled: pulumi.Input[bool],
                  bucket: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "enabled", enabled)
+        ClusterS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            bucket=bucket,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             bucket: Optional[pulumi.Input[str]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -622,10 +842,21 @@ class ClusterSaslArgs:
     def __init__(__self__, *,
                  iam: Optional[pulumi.Input['ClusterIamArgs']] = None,
                  scram: Optional[pulumi.Input['ClusterScramArgs']] = None):
+        ClusterSaslArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iam=iam,
+            scram=scram,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iam: Optional[pulumi.Input['ClusterIamArgs']] = None,
+             scram: Optional[pulumi.Input['ClusterScramArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if iam is not None:
-            pulumi.set(__self__, "iam", iam)
+            _setter("iam", iam)
         if scram is not None:
-            pulumi.set(__self__, "scram", scram)
+            _setter("scram", scram)
 
     @property
     @pulumi.getter
@@ -650,7 +881,16 @@ class ClusterSaslArgs:
 class ClusterScramArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
-        pulumi.set(__self__, "enabled", enabled)
+        ClusterScramArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -666,8 +906,17 @@ class ClusterScramArgs:
 class ClusterStorageInfoArgs:
     def __init__(__self__, *,
                  ebs_storage_info: Optional[pulumi.Input['ClusterEbsStorageInfoArgs']] = None):
+        ClusterStorageInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ebs_storage_info=ebs_storage_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ebs_storage_info: Optional[pulumi.Input['ClusterEbsStorageInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ebs_storage_info is not None:
-            pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
+            _setter("ebs_storage_info", ebs_storage_info)
 
     @property
     @pulumi.getter(name="ebsStorageInfo")
@@ -684,10 +933,21 @@ class ClusterTlsArgs:
     def __init__(__self__, *,
                  certificate_authority_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
+        ClusterTlsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_authority_arn_list=certificate_authority_arn_list,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_authority_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_authority_arn_list is not None:
-            pulumi.set(__self__, "certificate_authority_arn_list", certificate_authority_arn_list)
+            _setter("certificate_authority_arn_list", certificate_authority_arn_list)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="certificateAuthorityArnList")
@@ -712,7 +972,16 @@ class ClusterTlsArgs:
 class ClusterUnauthenticatedArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
-        pulumi.set(__self__, "enabled", enabled)
+        ClusterUnauthenticatedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -729,10 +998,21 @@ class ClusterVpcConnectivityClientAuthenticationArgs:
     def __init__(__self__, *,
                  sasl: Optional[pulumi.Input['ClusterVpcConnectivitySaslArgs']] = None,
                  tls: Optional[pulumi.Input['ClusterVpcConnectivityTlsArgs']] = None):
+        ClusterVpcConnectivityClientAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sasl=sasl,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sasl: Optional[pulumi.Input['ClusterVpcConnectivitySaslArgs']] = None,
+             tls: Optional[pulumi.Input['ClusterVpcConnectivityTlsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sasl is not None:
-            pulumi.set(__self__, "sasl", sasl)
+            _setter("sasl", sasl)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -757,7 +1037,16 @@ class ClusterVpcConnectivityClientAuthenticationArgs:
 class ClusterVpcConnectivityIamArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
-        pulumi.set(__self__, "enabled", enabled)
+        ClusterVpcConnectivityIamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -774,10 +1063,21 @@ class ClusterVpcConnectivitySaslArgs:
     def __init__(__self__, *,
                  iam: Optional[pulumi.Input['ClusterVpcConnectivityIamArgs']] = None,
                  scram: Optional[pulumi.Input['ClusterVpcConnectivityScramArgs']] = None):
+        ClusterVpcConnectivitySaslArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iam=iam,
+            scram=scram,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iam: Optional[pulumi.Input['ClusterVpcConnectivityIamArgs']] = None,
+             scram: Optional[pulumi.Input['ClusterVpcConnectivityScramArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if iam is not None:
-            pulumi.set(__self__, "iam", iam)
+            _setter("iam", iam)
         if scram is not None:
-            pulumi.set(__self__, "scram", scram)
+            _setter("scram", scram)
 
     @property
     @pulumi.getter
@@ -802,7 +1102,16 @@ class ClusterVpcConnectivitySaslArgs:
 class ClusterVpcConnectivityScramArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
-        pulumi.set(__self__, "enabled", enabled)
+        ClusterVpcConnectivityScramArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -818,7 +1127,16 @@ class ClusterVpcConnectivityScramArgs:
 class ClusterVpcConnectivityTlsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
-        pulumi.set(__self__, "enabled", enabled)
+        ClusterVpcConnectivityTlsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -834,8 +1152,17 @@ class ClusterVpcConnectivityTlsArgs:
 class ClusterVpcConnectivityArgs:
     def __init__(__self__, *,
                  client_authentication: Optional[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs']] = None):
+        ClusterVpcConnectivityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_authentication=client_authentication,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_authentication: Optional[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_authentication is not None:
-            pulumi.set(__self__, "client_authentication", client_authentication)
+            _setter("client_authentication", client_authentication)
 
     @property
     @pulumi.getter(name="clientAuthentication")
@@ -853,12 +1180,25 @@ class ConfigurationLatestRevisionArgs:
                  creation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  revision: Optional[pulumi.Input[int]] = None):
+        ConfigurationLatestRevisionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_time=creation_time,
+            description=description,
+            revision=revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
 
     @property
     @pulumi.getter(name="creationTime")
@@ -892,7 +1232,16 @@ class ConfigurationLatestRevisionArgs:
 class ServerlessClusterClientAuthenticationArgs:
     def __init__(__self__, *,
                  sasl: pulumi.Input['ServerlessClusterSaslArgs']):
-        pulumi.set(__self__, "sasl", sasl)
+        ServerlessClusterClientAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sasl=sasl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sasl: pulumi.Input['ServerlessClusterSaslArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("sasl", sasl)
 
     @property
     @pulumi.getter
@@ -908,7 +1257,16 @@ class ServerlessClusterClientAuthenticationArgs:
 class ServerlessClusterIamArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
-        pulumi.set(__self__, "enabled", enabled)
+        ServerlessClusterIamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -924,7 +1282,16 @@ class ServerlessClusterIamArgs:
 class ServerlessClusterSaslArgs:
     def __init__(__self__, *,
                  iam: pulumi.Input['ServerlessClusterIamArgs']):
-        pulumi.set(__self__, "iam", iam)
+        ServerlessClusterSaslArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iam=iam,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iam: pulumi.Input['ServerlessClusterIamArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("iam", iam)
 
     @property
     @pulumi.getter
@@ -941,9 +1308,20 @@ class ServerlessClusterVpcConfigArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        ServerlessClusterVpcConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_ids=subnet_ids,
+            security_groups=security_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_ids", subnet_ids)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -970,6 +1348,11 @@ class VpcConnectionTagsArgs:
         """
         A key-value pair to associate with a resource.
         """
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 

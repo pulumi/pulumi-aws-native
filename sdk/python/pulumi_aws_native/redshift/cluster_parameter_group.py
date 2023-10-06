@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,31 @@ class ClusterParameterGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]] parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "parameter_group_family", parameter_group_family)
+        ClusterParameterGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            parameter_group_family=parameter_group_family,
+            parameter_group_name=parameter_group_name,
+            parameters=parameters,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: pulumi.Input[str],
+             parameter_group_family: pulumi.Input[str],
+             parameter_group_name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("parameter_group_family", parameter_group_family)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -140,6 +157,10 @@ class ClusterParameterGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterParameterGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,13 +26,28 @@ class BridgeSourceInitArgs:
         :param pulumi.Input[str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
         :param pulumi.Input[str] name: The name of the source.
         """
-        pulumi.set(__self__, "bridge_arn", bridge_arn)
+        BridgeSourceInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bridge_arn=bridge_arn,
+            flow_source=flow_source,
+            name=name,
+            network_source=network_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bridge_arn: pulumi.Input[str],
+             flow_source: Optional[pulumi.Input['BridgeSourceBridgeFlowSourceArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_source: Optional[pulumi.Input['BridgeSourceBridgeNetworkSourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bridge_arn", bridge_arn)
         if flow_source is not None:
-            pulumi.set(__self__, "flow_source", flow_source)
+            _setter("flow_source", flow_source)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_source is not None:
-            pulumi.set(__self__, "network_source", network_source)
+            _setter("network_source", network_source)
 
     @property
     @pulumi.getter(name="bridgeArn")
@@ -114,6 +129,10 @@ class BridgeSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BridgeSourceInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -135,8 +154,18 @@ class BridgeSource(pulumi.CustomResource):
             if bridge_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'bridge_arn'")
             __props__.__dict__["bridge_arn"] = bridge_arn
+            if flow_source is not None and not isinstance(flow_source, BridgeSourceBridgeFlowSourceArgs):
+                flow_source = flow_source or {}
+                def _setter(key, value):
+                    flow_source[key] = value
+                BridgeSourceBridgeFlowSourceArgs._configure(_setter, **flow_source)
             __props__.__dict__["flow_source"] = flow_source
             __props__.__dict__["name"] = name
+            if network_source is not None and not isinstance(network_source, BridgeSourceBridgeNetworkSourceArgs):
+                network_source = network_source or {}
+                def _setter(key, value):
+                    network_source[key] = value
+                BridgeSourceBridgeNetworkSourceArgs._configure(_setter, **network_source)
             __props__.__dict__["network_source"] = network_source
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bridge_arn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

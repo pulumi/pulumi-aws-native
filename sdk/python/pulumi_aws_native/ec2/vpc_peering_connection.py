@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,16 +30,35 @@ class VpcPeeringConnectionArgs:
         :param pulumi.Input[str] peer_region: The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
         :param pulumi.Input[str] peer_role_arn: The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
         """
-        pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        VpcPeeringConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peer_vpc_id=peer_vpc_id,
+            vpc_id=vpc_id,
+            peer_owner_id=peer_owner_id,
+            peer_region=peer_region,
+            peer_role_arn=peer_role_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peer_vpc_id: pulumi.Input[str],
+             vpc_id: pulumi.Input[str],
+             peer_owner_id: Optional[pulumi.Input[str]] = None,
+             peer_region: Optional[pulumi.Input[str]] = None,
+             peer_role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcPeeringConnectionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("peer_vpc_id", peer_vpc_id)
+        _setter("vpc_id", vpc_id)
         if peer_owner_id is not None:
-            pulumi.set(__self__, "peer_owner_id", peer_owner_id)
+            _setter("peer_owner_id", peer_owner_id)
         if peer_region is not None:
-            pulumi.set(__self__, "peer_region", peer_region)
+            _setter("peer_region", peer_region)
         if peer_role_arn is not None:
-            pulumi.set(__self__, "peer_role_arn", peer_role_arn)
+            _setter("peer_role_arn", peer_role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="peerVpcId")
@@ -153,6 +172,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcPeeringConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

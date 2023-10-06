@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,25 +46,58 @@ class StudioArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StudioTagArgs']]] tags: A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
         :param pulumi.Input[str] user_role: The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
         """
-        pulumi.set(__self__, "auth_mode", auth_mode)
-        pulumi.set(__self__, "default_s3_location", default_s3_location)
-        pulumi.set(__self__, "engine_security_group_id", engine_security_group_id)
-        pulumi.set(__self__, "service_role", service_role)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
-        pulumi.set(__self__, "workspace_security_group_id", workspace_security_group_id)
+        StudioArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_mode=auth_mode,
+            default_s3_location=default_s3_location,
+            engine_security_group_id=engine_security_group_id,
+            service_role=service_role,
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+            workspace_security_group_id=workspace_security_group_id,
+            description=description,
+            idp_auth_url=idp_auth_url,
+            idp_relay_state_parameter_name=idp_relay_state_parameter_name,
+            name=name,
+            tags=tags,
+            user_role=user_role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_mode: pulumi.Input['StudioAuthMode'],
+             default_s3_location: pulumi.Input[str],
+             engine_security_group_id: pulumi.Input[str],
+             service_role: pulumi.Input[str],
+             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             vpc_id: pulumi.Input[str],
+             workspace_security_group_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             idp_auth_url: Optional[pulumi.Input[str]] = None,
+             idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StudioTagArgs']]]] = None,
+             user_role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_mode", auth_mode)
+        _setter("default_s3_location", default_s3_location)
+        _setter("engine_security_group_id", engine_security_group_id)
+        _setter("service_role", service_role)
+        _setter("subnet_ids", subnet_ids)
+        _setter("vpc_id", vpc_id)
+        _setter("workspace_security_group_id", workspace_security_group_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if idp_auth_url is not None:
-            pulumi.set(__self__, "idp_auth_url", idp_auth_url)
+            _setter("idp_auth_url", idp_auth_url)
         if idp_relay_state_parameter_name is not None:
-            pulumi.set(__self__, "idp_relay_state_parameter_name", idp_relay_state_parameter_name)
+            _setter("idp_relay_state_parameter_name", idp_relay_state_parameter_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_role is not None:
-            pulumi.set(__self__, "user_role", user_role)
+            _setter("user_role", user_role)
 
     @property
     @pulumi.getter(name="authMode")
@@ -280,6 +313,10 @@ class Studio(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StudioArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

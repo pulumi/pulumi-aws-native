@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DocumentationVersionArgs', 'DocumentationVersion']
@@ -23,10 +23,23 @@ class DocumentationVersionArgs:
         :param pulumi.Input[str] rest_api_id: The identifier of the API.
         :param pulumi.Input[str] description: The description of the API documentation snapshot.
         """
-        pulumi.set(__self__, "documentation_version", documentation_version)
-        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        DocumentationVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            documentation_version=documentation_version,
+            rest_api_id=rest_api_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             documentation_version: pulumi.Input[str],
+             rest_api_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("documentation_version", documentation_version)
+        _setter("rest_api_id", rest_api_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="documentationVersion")
@@ -102,6 +115,10 @@ class DocumentationVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DocumentationVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

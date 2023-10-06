@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,27 @@ class ResourceSetArgs:
         :param pulumi.Input[str] resource_set_name: The name of the resource set to create.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetTagArgs']]] tags: A tag to associate with the parameters for a resource set.
         """
-        pulumi.set(__self__, "resource_set_type", resource_set_type)
-        pulumi.set(__self__, "resources", resources)
+        ResourceSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_set_type=resource_set_type,
+            resources=resources,
+            resource_set_name=resource_set_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_set_type: pulumi.Input[str],
+             resources: pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]],
+             resource_set_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_set_type", resource_set_type)
+        _setter("resources", resources)
         if resource_set_name is not None:
-            pulumi.set(__self__, "resource_set_name", resource_set_name)
+            _setter("resource_set_name", resource_set_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceSetType")
@@ -128,6 +143,10 @@ class ResourceSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

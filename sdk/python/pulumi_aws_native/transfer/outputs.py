@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -58,8 +58,19 @@ class AgreementTag(dict):
         :param str key: The name assigned to the tag that you create.
         :param str value: Contains one or more values that you assigned to the key name you create.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AgreementTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -136,24 +147,49 @@ class As2ConfigProperties(dict):
         :param str partner_profile_id: A unique identifier for the partner profile.
         :param 'ConnectorAs2ConfigPropertiesSigningAlgorithm' signing_algorithm: Signing algorithm for this AS2 connector configuration.
         """
+        As2ConfigProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            basic_auth_secret_id=basic_auth_secret_id,
+            compression=compression,
+            encryption_algorithm=encryption_algorithm,
+            local_profile_id=local_profile_id,
+            mdn_response=mdn_response,
+            mdn_signing_algorithm=mdn_signing_algorithm,
+            message_subject=message_subject,
+            partner_profile_id=partner_profile_id,
+            signing_algorithm=signing_algorithm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             basic_auth_secret_id: Optional[str] = None,
+             compression: Optional['ConnectorAs2ConfigPropertiesCompression'] = None,
+             encryption_algorithm: Optional['ConnectorAs2ConfigPropertiesEncryptionAlgorithm'] = None,
+             local_profile_id: Optional[str] = None,
+             mdn_response: Optional['ConnectorAs2ConfigPropertiesMdnResponse'] = None,
+             mdn_signing_algorithm: Optional['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm'] = None,
+             message_subject: Optional[str] = None,
+             partner_profile_id: Optional[str] = None,
+             signing_algorithm: Optional['ConnectorAs2ConfigPropertiesSigningAlgorithm'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if basic_auth_secret_id is not None:
-            pulumi.set(__self__, "basic_auth_secret_id", basic_auth_secret_id)
+            _setter("basic_auth_secret_id", basic_auth_secret_id)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if encryption_algorithm is not None:
-            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+            _setter("encryption_algorithm", encryption_algorithm)
         if local_profile_id is not None:
-            pulumi.set(__self__, "local_profile_id", local_profile_id)
+            _setter("local_profile_id", local_profile_id)
         if mdn_response is not None:
-            pulumi.set(__self__, "mdn_response", mdn_response)
+            _setter("mdn_response", mdn_response)
         if mdn_signing_algorithm is not None:
-            pulumi.set(__self__, "mdn_signing_algorithm", mdn_signing_algorithm)
+            _setter("mdn_signing_algorithm", mdn_signing_algorithm)
         if message_subject is not None:
-            pulumi.set(__self__, "message_subject", message_subject)
+            _setter("message_subject", message_subject)
         if partner_profile_id is not None:
-            pulumi.set(__self__, "partner_profile_id", partner_profile_id)
+            _setter("partner_profile_id", partner_profile_id)
         if signing_algorithm is not None:
-            pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+            _setter("signing_algorithm", signing_algorithm)
 
     @property
     @pulumi.getter(name="basicAuthSecretId")
@@ -241,8 +277,19 @@ class CertificateTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        CertificateTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -274,8 +321,19 @@ class ConnectorTag(dict):
         :param str key: The name assigned to the tag that you create.
         :param str value: Contains one or more values that you assigned to the key name you create.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ConnectorTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -307,8 +365,19 @@ class ProfileTag(dict):
         :param str key: The name assigned to the tag that you create.
         :param str value: Contains one or more values that you assigned to the key name you create.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ProfileTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -330,6 +399,11 @@ class ProfileTag(dict):
 @pulumi.output_type
 class ServerAs2Transport(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -366,16 +440,33 @@ class ServerEndpointDetails(dict):
                  subnet_ids: Optional[Sequence[str]] = None,
                  vpc_endpoint_id: Optional[str] = None,
                  vpc_id: Optional[str] = None):
+        ServerEndpointDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_allocation_ids=address_allocation_ids,
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+            vpc_endpoint_id=vpc_endpoint_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_allocation_ids: Optional[Sequence[str]] = None,
+             security_group_ids: Optional[Sequence[str]] = None,
+             subnet_ids: Optional[Sequence[str]] = None,
+             vpc_endpoint_id: Optional[str] = None,
+             vpc_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address_allocation_ids is not None:
-            pulumi.set(__self__, "address_allocation_ids", address_allocation_ids)
+            _setter("address_allocation_ids", address_allocation_ids)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="addressAllocationIds")
@@ -432,16 +523,33 @@ class ServerIdentityProviderDetails(dict):
                  invocation_role: Optional[str] = None,
                  sftp_authentication_methods: Optional[str] = None,
                  url: Optional[str] = None):
+        ServerIdentityProviderDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_id=directory_id,
+            function=function,
+            invocation_role=invocation_role,
+            sftp_authentication_methods=sftp_authentication_methods,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_id: Optional[str] = None,
+             function: Optional[str] = None,
+             invocation_role: Optional[str] = None,
+             sftp_authentication_methods: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if function is not None:
-            pulumi.set(__self__, "function", function)
+            _setter("function", function)
         if invocation_role is not None:
-            pulumi.set(__self__, "invocation_role", invocation_role)
+            _setter("invocation_role", invocation_role)
         if sftp_authentication_methods is not None:
-            pulumi.set(__self__, "sftp_authentication_methods", sftp_authentication_methods)
+            _setter("sftp_authentication_methods", sftp_authentication_methods)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -472,6 +580,11 @@ class ServerIdentityProviderDetails(dict):
 @pulumi.output_type
 class ServerProtocol(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -505,14 +618,29 @@ class ServerProtocolDetails(dict):
                  passive_ip: Optional[str] = None,
                  set_stat_option: Optional[str] = None,
                  tls_session_resumption_mode: Optional[str] = None):
+        ServerProtocolDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            as2_transports=as2_transports,
+            passive_ip=passive_ip,
+            set_stat_option=set_stat_option,
+            tls_session_resumption_mode=tls_session_resumption_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             as2_transports: Optional[Sequence['outputs.ServerAs2Transport']] = None,
+             passive_ip: Optional[str] = None,
+             set_stat_option: Optional[str] = None,
+             tls_session_resumption_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if as2_transports is not None:
-            pulumi.set(__self__, "as2_transports", as2_transports)
+            _setter("as2_transports", as2_transports)
         if passive_ip is not None:
-            pulumi.set(__self__, "passive_ip", passive_ip)
+            _setter("passive_ip", passive_ip)
         if set_stat_option is not None:
-            pulumi.set(__self__, "set_stat_option", set_stat_option)
+            _setter("set_stat_option", set_stat_option)
         if tls_session_resumption_mode is not None:
-            pulumi.set(__self__, "tls_session_resumption_mode", tls_session_resumption_mode)
+            _setter("tls_session_resumption_mode", tls_session_resumption_mode)
 
     @property
     @pulumi.getter(name="as2Transports")
@@ -539,6 +667,11 @@ class ServerProtocolDetails(dict):
 class ServerStructuredLogDestination(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -546,8 +679,19 @@ class ServerTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ServerTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -584,8 +728,19 @@ class ServerWorkflowDetail(dict):
     def __init__(__self__, *,
                  execution_role: str,
                  workflow_id: str):
-        pulumi.set(__self__, "execution_role", execution_role)
-        pulumi.set(__self__, "workflow_id", workflow_id)
+        ServerWorkflowDetail._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            execution_role=execution_role,
+            workflow_id=workflow_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             execution_role: str,
+             workflow_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("execution_role", execution_role)
+        _setter("workflow_id", workflow_id)
 
     @property
     @pulumi.getter(name="executionRole")
@@ -622,10 +777,21 @@ class ServerWorkflowDetails(dict):
     def __init__(__self__, *,
                  on_partial_upload: Optional[Sequence['outputs.ServerWorkflowDetail']] = None,
                  on_upload: Optional[Sequence['outputs.ServerWorkflowDetail']] = None):
+        ServerWorkflowDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            on_partial_upload=on_partial_upload,
+            on_upload=on_upload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             on_partial_upload: Optional[Sequence['outputs.ServerWorkflowDetail']] = None,
+             on_upload: Optional[Sequence['outputs.ServerWorkflowDetail']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if on_partial_upload is not None:
-            pulumi.set(__self__, "on_partial_upload", on_partial_upload)
+            _setter("on_partial_upload", on_partial_upload)
         if on_upload is not None:
-            pulumi.set(__self__, "on_upload", on_upload)
+            _setter("on_upload", on_upload)
 
     @property
     @pulumi.getter(name="onPartialUpload")
@@ -670,10 +836,21 @@ class SftpConfigProperties(dict):
         :param Sequence[str] trusted_host_keys: List of public host keys, for the external server to which you are connecting.
         :param str user_secret_id: ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
         """
+        SftpConfigProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            trusted_host_keys=trusted_host_keys,
+            user_secret_id=user_secret_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             trusted_host_keys: Optional[Sequence[str]] = None,
+             user_secret_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if trusted_host_keys is not None:
-            pulumi.set(__self__, "trusted_host_keys", trusted_host_keys)
+            _setter("trusted_host_keys", trusted_host_keys)
         if user_secret_id is not None:
-            pulumi.set(__self__, "user_secret_id", user_secret_id)
+            _setter("user_secret_id", user_secret_id)
 
     @property
     @pulumi.getter(name="trustedHostKeys")
@@ -697,8 +874,19 @@ class UserHomeDirectoryMapEntry(dict):
     def __init__(__self__, *,
                  entry: str,
                  target: str):
-        pulumi.set(__self__, "entry", entry)
-        pulumi.set(__self__, "target", target)
+        UserHomeDirectoryMapEntry._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entry=entry,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entry: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("entry", entry)
+        _setter("target", target)
 
     @property
     @pulumi.getter
@@ -734,10 +922,23 @@ class UserPosixProfile(dict):
                  gid: float,
                  uid: float,
                  secondary_gids: Optional[Sequence[float]] = None):
-        pulumi.set(__self__, "gid", gid)
-        pulumi.set(__self__, "uid", uid)
+        UserPosixProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gid=gid,
+            uid=uid,
+            secondary_gids=secondary_gids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gid: float,
+             uid: float,
+             secondary_gids: Optional[Sequence[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("gid", gid)
+        _setter("uid", uid)
         if secondary_gids is not None:
-            pulumi.set(__self__, "secondary_gids", secondary_gids)
+            _setter("secondary_gids", secondary_gids)
 
     @property
     @pulumi.getter
@@ -759,6 +960,11 @@ class UserPosixProfile(dict):
 class UserSshPublicKey(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -766,8 +972,19 @@ class UserTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        UserTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -810,10 +1027,21 @@ class WorkflowEfsInputFileLocation(dict):
         :param str file_system_id: Specifies the EFS filesystem that contains the file.
         :param str path: The name assigned to the file when it was created in EFS. You use the object path to retrieve the object.
         """
+        WorkflowEfsInputFileLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_system_id=file_system_id,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_system_id: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if file_system_id is not None:
-            pulumi.set(__self__, "file_system_id", file_system_id)
+            _setter("file_system_id", file_system_id)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -862,10 +1090,21 @@ class WorkflowInputFileLocation(dict):
         """
         Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
         """
+        WorkflowInputFileLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            efs_file_location=efs_file_location,
+            s3_file_location=s3_file_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             efs_file_location: Optional['outputs.WorkflowEfsInputFileLocation'] = None,
+             s3_file_location: Optional['outputs.WorkflowS3InputFileLocation'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if efs_file_location is not None:
-            pulumi.set(__self__, "efs_file_location", efs_file_location)
+            _setter("efs_file_location", efs_file_location)
         if s3_file_location is not None:
-            pulumi.set(__self__, "s3_file_location", s3_file_location)
+            _setter("s3_file_location", s3_file_location)
 
     @property
     @pulumi.getter(name="efsFileLocation")
@@ -905,8 +1144,17 @@ class WorkflowS3FileLocation(dict):
         """
         Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
         """
+        WorkflowS3FileLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_file_location=s3_file_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_file_location: Optional['outputs.WorkflowS3InputFileLocation'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_file_location is not None:
-            pulumi.set(__self__, "s3_file_location", s3_file_location)
+            _setter("s3_file_location", s3_file_location)
 
     @property
     @pulumi.getter(name="s3FileLocation")
@@ -927,10 +1175,21 @@ class WorkflowS3InputFileLocation(dict):
         :param str bucket: Specifies the S3 bucket that contains the file.
         :param str key: The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         """
+        WorkflowS3InputFileLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[str] = None,
+             key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -962,8 +1221,19 @@ class WorkflowS3Tag(dict):
         :param str key: The name assigned to the tag that you create.
         :param str value: The value that corresponds to the key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        WorkflowS3Tag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1027,18 +1297,37 @@ class WorkflowStep(dict):
         :param 'WorkflowStepDeleteStepDetailsProperties' delete_step_details: Details for a step that deletes the file.
         :param 'WorkflowStepTagStepDetailsProperties' tag_step_details: Details for a step that creates one or more tags.
         """
+        WorkflowStep._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_step_details=copy_step_details,
+            custom_step_details=custom_step_details,
+            decrypt_step_details=decrypt_step_details,
+            delete_step_details=delete_step_details,
+            tag_step_details=tag_step_details,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_step_details: Optional['outputs.WorkflowStepCopyStepDetailsProperties'] = None,
+             custom_step_details: Optional['outputs.WorkflowStepCustomStepDetailsProperties'] = None,
+             decrypt_step_details: Optional['outputs.WorkflowStepDecryptStepDetailsProperties'] = None,
+             delete_step_details: Optional['outputs.WorkflowStepDeleteStepDetailsProperties'] = None,
+             tag_step_details: Optional['outputs.WorkflowStepTagStepDetailsProperties'] = None,
+             type: Optional['WorkflowStepType'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if copy_step_details is not None:
-            pulumi.set(__self__, "copy_step_details", copy_step_details)
+            _setter("copy_step_details", copy_step_details)
         if custom_step_details is not None:
-            pulumi.set(__self__, "custom_step_details", custom_step_details)
+            _setter("custom_step_details", custom_step_details)
         if decrypt_step_details is not None:
-            pulumi.set(__self__, "decrypt_step_details", decrypt_step_details)
+            _setter("decrypt_step_details", decrypt_step_details)
         if delete_step_details is not None:
-            pulumi.set(__self__, "delete_step_details", delete_step_details)
+            _setter("delete_step_details", delete_step_details)
         if tag_step_details is not None:
-            pulumi.set(__self__, "tag_step_details", tag_step_details)
+            _setter("tag_step_details", tag_step_details)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="copyStepDetails")
@@ -1123,14 +1412,29 @@ class WorkflowStepCopyStepDetailsProperties(dict):
         :param 'WorkflowStepCopyStepDetailsPropertiesOverwriteExisting' overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
         :param str source_file_location: Specifies which file to use as input to the workflow step.
         """
+        WorkflowStepCopyStepDetailsProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_file_location=destination_file_location,
+            name=name,
+            overwrite_existing=overwrite_existing,
+            source_file_location=source_file_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_file_location: Optional['outputs.WorkflowS3FileLocation'] = None,
+             name: Optional[str] = None,
+             overwrite_existing: Optional['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting'] = None,
+             source_file_location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_file_location is not None:
-            pulumi.set(__self__, "destination_file_location", destination_file_location)
+            _setter("destination_file_location", destination_file_location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if overwrite_existing is not None:
-            pulumi.set(__self__, "overwrite_existing", overwrite_existing)
+            _setter("overwrite_existing", overwrite_existing)
         if source_file_location is not None:
-            pulumi.set(__self__, "source_file_location", source_file_location)
+            _setter("source_file_location", source_file_location)
 
     @property
     @pulumi.getter(name="destinationFileLocation")
@@ -1198,14 +1502,29 @@ class WorkflowStepCustomStepDetailsProperties(dict):
         :param str target: The ARN for the lambda function that is being called.
         :param int timeout_seconds: Timeout, in seconds, for the step.
         """
+        WorkflowStepCustomStepDetailsProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            source_file_location=source_file_location,
+            target=target,
+            timeout_seconds=timeout_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             source_file_location: Optional[str] = None,
+             target: Optional[str] = None,
+             timeout_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_file_location is not None:
-            pulumi.set(__self__, "source_file_location", source_file_location)
+            _setter("source_file_location", source_file_location)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if timeout_seconds is not None:
-            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+            _setter("timeout_seconds", timeout_seconds)
 
     @property
     @pulumi.getter
@@ -1279,16 +1598,33 @@ class WorkflowStepDecryptStepDetailsProperties(dict):
         :param str source_file_location: Specifies which file to use as input to the workflow step.
         :param 'WorkflowStepDecryptStepDetailsPropertiesType' type: Specifies which encryption method to use.
         """
+        WorkflowStepDecryptStepDetailsProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_file_location=destination_file_location,
+            name=name,
+            overwrite_existing=overwrite_existing,
+            source_file_location=source_file_location,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_file_location: Optional['outputs.WorkflowInputFileLocation'] = None,
+             name: Optional[str] = None,
+             overwrite_existing: Optional['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting'] = None,
+             source_file_location: Optional[str] = None,
+             type: Optional['WorkflowStepDecryptStepDetailsPropertiesType'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_file_location is not None:
-            pulumi.set(__self__, "destination_file_location", destination_file_location)
+            _setter("destination_file_location", destination_file_location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if overwrite_existing is not None:
-            pulumi.set(__self__, "overwrite_existing", overwrite_existing)
+            _setter("overwrite_existing", overwrite_existing)
         if source_file_location is not None:
-            pulumi.set(__self__, "source_file_location", source_file_location)
+            _setter("source_file_location", source_file_location)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="destinationFileLocation")
@@ -1358,10 +1694,21 @@ class WorkflowStepDeleteStepDetailsProperties(dict):
         :param str name: The name of the step, used as an identifier.
         :param str source_file_location: Specifies which file to use as input to the workflow step.
         """
+        WorkflowStepDeleteStepDetailsProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            source_file_location=source_file_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             source_file_location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_file_location is not None:
-            pulumi.set(__self__, "source_file_location", source_file_location)
+            _setter("source_file_location", source_file_location)
 
     @property
     @pulumi.getter
@@ -1412,12 +1759,25 @@ class WorkflowStepTagStepDetailsProperties(dict):
         :param str source_file_location: Specifies which file to use as input to the workflow step.
         :param Sequence['WorkflowS3Tag'] tags: Array that contains from 1 to 10 key/value pairs.
         """
+        WorkflowStepTagStepDetailsProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            source_file_location=source_file_location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             source_file_location: Optional[str] = None,
+             tags: Optional[Sequence['outputs.WorkflowS3Tag']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_file_location is not None:
-            pulumi.set(__self__, "source_file_location", source_file_location)
+            _setter("source_file_location", source_file_location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -1457,8 +1817,19 @@ class WorkflowTag(dict):
         :param str key: The name assigned to the tag that you create.
         :param str value: Contains one or more values that you assigned to the key name you create.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        WorkflowTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

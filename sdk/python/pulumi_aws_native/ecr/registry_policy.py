@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RegistryPolicyArgs', 'RegistryPolicy']
@@ -19,7 +19,16 @@ class RegistryPolicyArgs:
         The set of arguments for constructing a RegistryPolicy resource.
         :param Any policy_text: The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
         """
-        pulumi.set(__self__, "policy_text", policy_text)
+        RegistryPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_text=policy_text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_text: Any,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_text", policy_text)
 
     @property
     @pulumi.getter(name="policyText")
@@ -67,6 +76,10 @@ class RegistryPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,17 +26,38 @@ class ConfigurationArgs:
         """
         The set of arguments for constructing a Configuration resource.
         """
-        pulumi.set(__self__, "data", data)
-        pulumi.set(__self__, "engine_type", engine_type)
-        pulumi.set(__self__, "engine_version", engine_version)
+        ConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data=data,
+            engine_type=engine_type,
+            engine_version=engine_version,
+            authentication_strategy=authentication_strategy,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data: pulumi.Input[str],
+             engine_type: pulumi.Input[str],
+             engine_version: pulumi.Input[str],
+             authentication_strategy: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTagsEntryArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data", data)
+        _setter("engine_type", engine_type)
+        _setter("engine_version", engine_version)
         if authentication_strategy is not None:
-            pulumi.set(__self__, "authentication_strategy", authentication_strategy)
+            _setter("authentication_strategy", authentication_strategy)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -145,6 +166,10 @@ class Configuration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

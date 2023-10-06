@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,13 +28,28 @@ class WorkflowArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] on_exception_steps: Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowTagArgs']]] tags: Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
         """
-        pulumi.set(__self__, "steps", steps)
+        WorkflowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            steps=steps,
+            description=description,
+            on_exception_steps=on_exception_steps,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             steps: pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]],
+             description: Optional[pulumi.Input[str]] = None,
+             on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("steps", steps)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if on_exception_steps is not None:
-            pulumi.set(__self__, "on_exception_steps", on_exception_steps)
+            _setter("on_exception_steps", on_exception_steps)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -124,6 +139,10 @@ class Workflow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkflowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

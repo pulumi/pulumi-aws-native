@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,12 +22,25 @@ class NotebookInstanceLifecycleConfigArgs:
         """
         The set of arguments for constructing a NotebookInstanceLifecycleConfig resource.
         """
+        NotebookInstanceLifecycleConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notebook_instance_lifecycle_config_name=notebook_instance_lifecycle_config_name,
+            on_create=on_create,
+            on_start=on_start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notebook_instance_lifecycle_config_name: Optional[pulumi.Input[str]] = None,
+             on_create: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs']]]] = None,
+             on_start: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if notebook_instance_lifecycle_config_name is not None:
-            pulumi.set(__self__, "notebook_instance_lifecycle_config_name", notebook_instance_lifecycle_config_name)
+            _setter("notebook_instance_lifecycle_config_name", notebook_instance_lifecycle_config_name)
         if on_create is not None:
-            pulumi.set(__self__, "on_create", on_create)
+            _setter("on_create", on_create)
         if on_start is not None:
-            pulumi.set(__self__, "on_start", on_start)
+            _setter("on_start", on_start)
 
     @property
     @pulumi.getter(name="notebookInstanceLifecycleConfigName")
@@ -96,6 +109,10 @@ class NotebookInstanceLifecycleConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotebookInstanceLifecycleConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

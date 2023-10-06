@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -27,7 +27,16 @@ class AgentPermissionsProperties(dict):
         The agent permissions attached to this profiling group.
         :param Sequence[str] principals: The principals for the agent permissions.
         """
-        pulumi.set(__self__, "principals", principals)
+        AgentPermissionsProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principals=principals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principals: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principals", principals)
 
     @property
     @pulumi.getter
@@ -68,9 +77,20 @@ class ProfilingGroupChannel(dict):
         """
         Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
         """
-        pulumi.set(__self__, "channel_uri", channel_uri)
+        ProfilingGroupChannel._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_uri=channel_uri,
+            channel_id=channel_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_uri: str,
+             channel_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_uri", channel_uri)
         if channel_id is not None:
-            pulumi.set(__self__, "channel_id", channel_id)
+            _setter("channel_id", channel_id)
 
     @property
     @pulumi.getter(name="channelUri")
@@ -96,8 +116,19 @@ class ProfilingGroupTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ProfilingGroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

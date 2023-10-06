@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,25 +40,52 @@ class DocumentArgs:
         :param pulumi.Input['DocumentUpdateMethod'] update_method: Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
         :param pulumi.Input[str] version_name: An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         """
-        pulumi.set(__self__, "content", content)
+        DocumentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            attachments=attachments,
+            document_format=document_format,
+            document_type=document_type,
+            name=name,
+            requires=requires,
+            tags=tags,
+            target_type=target_type,
+            update_method=update_method,
+            version_name=version_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Any,
+             attachments: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
+             document_format: Optional[pulumi.Input['DocumentFormat']] = None,
+             document_type: Optional[pulumi.Input['DocumentType']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             requires: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentRequiresArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentTagArgs']]]] = None,
+             target_type: Optional[pulumi.Input[str]] = None,
+             update_method: Optional[pulumi.Input['DocumentUpdateMethod']] = None,
+             version_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
         if attachments is not None:
-            pulumi.set(__self__, "attachments", attachments)
+            _setter("attachments", attachments)
         if document_format is not None:
-            pulumi.set(__self__, "document_format", document_format)
+            _setter("document_format", document_format)
         if document_type is not None:
-            pulumi.set(__self__, "document_type", document_type)
+            _setter("document_type", document_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if requires is not None:
-            pulumi.set(__self__, "requires", requires)
+            _setter("requires", requires)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_type is not None:
-            pulumi.set(__self__, "target_type", target_type)
+            _setter("target_type", target_type)
         if update_method is not None:
-            pulumi.set(__self__, "update_method", update_method)
+            _setter("update_method", update_method)
         if version_name is not None:
-            pulumi.set(__self__, "version_name", version_name)
+            _setter("version_name", version_name)
 
     @property
     @pulumi.getter
@@ -232,6 +259,10 @@ class Document(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DocumentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkInterfacePermissionArgs', 'NetworkInterfacePermission']
@@ -20,9 +20,22 @@ class NetworkInterfacePermissionArgs:
         """
         The set of arguments for constructing a NetworkInterfacePermission resource.
         """
-        pulumi.set(__self__, "aws_account_id", aws_account_id)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
-        pulumi.set(__self__, "permission", permission)
+        NetworkInterfacePermissionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_account_id=aws_account_id,
+            network_interface_id=network_interface_id,
+            permission=permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_account_id: pulumi.Input[str],
+             network_interface_id: pulumi.Input[str],
+             permission: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aws_account_id", aws_account_id)
+        _setter("network_interface_id", network_interface_id)
+        _setter("permission", permission)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -91,6 +104,10 @@ class NetworkInterfacePermission(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfacePermissionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

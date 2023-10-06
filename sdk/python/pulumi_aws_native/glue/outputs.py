@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -123,24 +123,49 @@ class ClassifierCsvClassifier(dict):
                  header: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  quote_symbol: Optional[str] = None):
+        ClassifierCsvClassifier._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_single_column=allow_single_column,
+            contains_custom_datatype=contains_custom_datatype,
+            contains_header=contains_header,
+            custom_datatype_configured=custom_datatype_configured,
+            delimiter=delimiter,
+            disable_value_trimming=disable_value_trimming,
+            header=header,
+            name=name,
+            quote_symbol=quote_symbol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_single_column: Optional[bool] = None,
+             contains_custom_datatype: Optional[Sequence[str]] = None,
+             contains_header: Optional[str] = None,
+             custom_datatype_configured: Optional[bool] = None,
+             delimiter: Optional[str] = None,
+             disable_value_trimming: Optional[bool] = None,
+             header: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             quote_symbol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_single_column is not None:
-            pulumi.set(__self__, "allow_single_column", allow_single_column)
+            _setter("allow_single_column", allow_single_column)
         if contains_custom_datatype is not None:
-            pulumi.set(__self__, "contains_custom_datatype", contains_custom_datatype)
+            _setter("contains_custom_datatype", contains_custom_datatype)
         if contains_header is not None:
-            pulumi.set(__self__, "contains_header", contains_header)
+            _setter("contains_header", contains_header)
         if custom_datatype_configured is not None:
-            pulumi.set(__self__, "custom_datatype_configured", custom_datatype_configured)
+            _setter("custom_datatype_configured", custom_datatype_configured)
         if delimiter is not None:
-            pulumi.set(__self__, "delimiter", delimiter)
+            _setter("delimiter", delimiter)
         if disable_value_trimming is not None:
-            pulumi.set(__self__, "disable_value_trimming", disable_value_trimming)
+            _setter("disable_value_trimming", disable_value_trimming)
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if quote_symbol is not None:
-            pulumi.set(__self__, "quote_symbol", quote_symbol)
+            _setter("quote_symbol", quote_symbol)
 
     @property
     @pulumi.getter(name="allowSingleColumn")
@@ -214,12 +239,27 @@ class ClassifierGrokClassifier(dict):
                  grok_pattern: str,
                  custom_patterns: Optional[str] = None,
                  name: Optional[str] = None):
-        pulumi.set(__self__, "classification", classification)
-        pulumi.set(__self__, "grok_pattern", grok_pattern)
+        ClassifierGrokClassifier._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification=classification,
+            grok_pattern=grok_pattern,
+            custom_patterns=custom_patterns,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification: str,
+             grok_pattern: str,
+             custom_patterns: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("classification", classification)
+        _setter("grok_pattern", grok_pattern)
         if custom_patterns is not None:
-            pulumi.set(__self__, "custom_patterns", custom_patterns)
+            _setter("custom_patterns", custom_patterns)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -264,9 +304,20 @@ class ClassifierJsonClassifier(dict):
     def __init__(__self__, *,
                  json_path: str,
                  name: Optional[str] = None):
-        pulumi.set(__self__, "json_path", json_path)
+        ClassifierJsonClassifier._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            json_path=json_path,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             json_path: str,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("json_path", json_path)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="jsonPath")
@@ -302,10 +353,23 @@ class ClassifierXmlClassifier(dict):
                  classification: str,
                  row_tag: str,
                  name: Optional[str] = None):
-        pulumi.set(__self__, "classification", classification)
-        pulumi.set(__self__, "row_tag", row_tag)
+        ClassifierXmlClassifier._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification=classification,
+            row_tag=row_tag,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification: str,
+             row_tag: str,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("classification", classification)
+        _setter("row_tag", row_tag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -355,17 +419,36 @@ class ConnectionInput(dict):
                  match_criteria: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  physical_connection_requirements: Optional['outputs.ConnectionPhysicalConnectionRequirements'] = None):
-        pulumi.set(__self__, "connection_type", connection_type)
+        ConnectionInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_type=connection_type,
+            connection_properties=connection_properties,
+            description=description,
+            match_criteria=match_criteria,
+            name=name,
+            physical_connection_requirements=physical_connection_requirements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_type: str,
+             connection_properties: Optional[Any] = None,
+             description: Optional[str] = None,
+             match_criteria: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             physical_connection_requirements: Optional['outputs.ConnectionPhysicalConnectionRequirements'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_type", connection_type)
         if connection_properties is not None:
-            pulumi.set(__self__, "connection_properties", connection_properties)
+            _setter("connection_properties", connection_properties)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if match_criteria is not None:
-            pulumi.set(__self__, "match_criteria", match_criteria)
+            _setter("match_criteria", match_criteria)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if physical_connection_requirements is not None:
-            pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
+            _setter("physical_connection_requirements", physical_connection_requirements)
 
     @property
     @pulumi.getter(name="connectionType")
@@ -425,12 +508,25 @@ class ConnectionPhysicalConnectionRequirements(dict):
                  availability_zone: Optional[str] = None,
                  security_group_id_list: Optional[Sequence[str]] = None,
                  subnet_id: Optional[str] = None):
+        ConnectionPhysicalConnectionRequirements._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            security_group_id_list=security_group_id_list,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[str] = None,
+             security_group_id_list: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if security_group_id_list is not None:
-            pulumi.set(__self__, "security_group_id_list", security_group_id_list)
+            _setter("security_group_id_list", security_group_id_list)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -479,16 +575,33 @@ class CrawlerCatalogTarget(dict):
                  dlq_event_queue_arn: Optional[str] = None,
                  event_queue_arn: Optional[str] = None,
                  tables: Optional[Sequence[str]] = None):
+        CrawlerCatalogTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_name=connection_name,
+            database_name=database_name,
+            dlq_event_queue_arn=dlq_event_queue_arn,
+            event_queue_arn=event_queue_arn,
+            tables=tables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_name: Optional[str] = None,
+             database_name: Optional[str] = None,
+             dlq_event_queue_arn: Optional[str] = None,
+             event_queue_arn: Optional[str] = None,
+             tables: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if dlq_event_queue_arn is not None:
-            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+            _setter("dlq_event_queue_arn", dlq_event_queue_arn)
         if event_queue_arn is not None:
-            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
+            _setter("event_queue_arn", event_queue_arn)
         if tables is not None:
-            pulumi.set(__self__, "tables", tables)
+            _setter("tables", tables)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -546,14 +659,29 @@ class CrawlerDeltaTarget(dict):
                  create_native_delta_table: Optional[bool] = None,
                  delta_tables: Optional[Sequence[str]] = None,
                  write_manifest: Optional[bool] = None):
+        CrawlerDeltaTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_name=connection_name,
+            create_native_delta_table=create_native_delta_table,
+            delta_tables=delta_tables,
+            write_manifest=write_manifest,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_name: Optional[str] = None,
+             create_native_delta_table: Optional[bool] = None,
+             delta_tables: Optional[Sequence[str]] = None,
+             write_manifest: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if create_native_delta_table is not None:
-            pulumi.set(__self__, "create_native_delta_table", create_native_delta_table)
+            _setter("create_native_delta_table", create_native_delta_table)
         if delta_tables is not None:
-            pulumi.set(__self__, "delta_tables", delta_tables)
+            _setter("delta_tables", delta_tables)
         if write_manifest is not None:
-            pulumi.set(__self__, "write_manifest", write_manifest)
+            _setter("write_manifest", write_manifest)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -580,8 +708,17 @@ class CrawlerDeltaTarget(dict):
 class CrawlerDynamoDbTarget(dict):
     def __init__(__self__, *,
                  path: Optional[str] = None):
+        CrawlerDynamoDbTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -615,14 +752,29 @@ class CrawlerIcebergTarget(dict):
                  exclusions: Optional[Sequence[str]] = None,
                  maximum_traversal_depth: Optional[int] = None,
                  paths: Optional[Sequence[str]] = None):
+        CrawlerIcebergTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_name=connection_name,
+            exclusions=exclusions,
+            maximum_traversal_depth=maximum_traversal_depth,
+            paths=paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_name: Optional[str] = None,
+             exclusions: Optional[Sequence[str]] = None,
+             maximum_traversal_depth: Optional[int] = None,
+             paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
         if maximum_traversal_depth is not None:
-            pulumi.set(__self__, "maximum_traversal_depth", maximum_traversal_depth)
+            _setter("maximum_traversal_depth", maximum_traversal_depth)
         if paths is not None:
-            pulumi.set(__self__, "paths", paths)
+            _setter("paths", paths)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -668,12 +820,25 @@ class CrawlerJdbcTarget(dict):
                  connection_name: Optional[str] = None,
                  exclusions: Optional[Sequence[str]] = None,
                  path: Optional[str] = None):
+        CrawlerJdbcTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_name=connection_name,
+            exclusions=exclusions,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_name: Optional[str] = None,
+             exclusions: Optional[Sequence[str]] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -713,10 +878,21 @@ class CrawlerMongoDbTarget(dict):
     def __init__(__self__, *,
                  connection_name: Optional[str] = None,
                  path: Optional[str] = None):
+        CrawlerMongoDbTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_name=connection_name,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_name: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -750,8 +926,17 @@ class CrawlerRecrawlPolicy(dict):
 
     def __init__(__self__, *,
                  recrawl_behavior: Optional[str] = None):
+        CrawlerRecrawlPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recrawl_behavior=recrawl_behavior,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recrawl_behavior: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if recrawl_behavior is not None:
-            pulumi.set(__self__, "recrawl_behavior", recrawl_behavior)
+            _setter("recrawl_behavior", recrawl_behavior)
 
     @property
     @pulumi.getter(name="recrawlBehavior")
@@ -791,18 +976,37 @@ class CrawlerS3Target(dict):
                  exclusions: Optional[Sequence[str]] = None,
                  path: Optional[str] = None,
                  sample_size: Optional[int] = None):
+        CrawlerS3Target._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_name=connection_name,
+            dlq_event_queue_arn=dlq_event_queue_arn,
+            event_queue_arn=event_queue_arn,
+            exclusions=exclusions,
+            path=path,
+            sample_size=sample_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_name: Optional[str] = None,
+             dlq_event_queue_arn: Optional[str] = None,
+             event_queue_arn: Optional[str] = None,
+             exclusions: Optional[Sequence[str]] = None,
+             path: Optional[str] = None,
+             sample_size: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if dlq_event_queue_arn is not None:
-            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+            _setter("dlq_event_queue_arn", dlq_event_queue_arn)
         if event_queue_arn is not None:
-            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
+            _setter("event_queue_arn", event_queue_arn)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if sample_size is not None:
-            pulumi.set(__self__, "sample_size", sample_size)
+            _setter("sample_size", sample_size)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -856,8 +1060,17 @@ class CrawlerSchedule(dict):
 
     def __init__(__self__, *,
                  schedule_expression: Optional[str] = None):
+        CrawlerSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedule_expression=schedule_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedule_expression: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if schedule_expression is not None:
-            pulumi.set(__self__, "schedule_expression", schedule_expression)
+            _setter("schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -889,10 +1102,21 @@ class CrawlerSchemaChangePolicy(dict):
     def __init__(__self__, *,
                  delete_behavior: Optional[str] = None,
                  update_behavior: Optional[str] = None):
+        CrawlerSchemaChangePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_behavior=delete_behavior,
+            update_behavior=update_behavior,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_behavior: Optional[str] = None,
+             update_behavior: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_behavior is not None:
-            pulumi.set(__self__, "delete_behavior", delete_behavior)
+            _setter("delete_behavior", delete_behavior)
         if update_behavior is not None:
-            pulumi.set(__self__, "update_behavior", update_behavior)
+            _setter("update_behavior", update_behavior)
 
     @property
     @pulumi.getter(name="deleteBehavior")
@@ -944,20 +1168,41 @@ class CrawlerTargets(dict):
                  jdbc_targets: Optional[Sequence['outputs.CrawlerJdbcTarget']] = None,
                  mongo_db_targets: Optional[Sequence['outputs.CrawlerMongoDbTarget']] = None,
                  s3_targets: Optional[Sequence['outputs.CrawlerS3Target']] = None):
+        CrawlerTargets._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_targets=catalog_targets,
+            delta_targets=delta_targets,
+            dynamo_db_targets=dynamo_db_targets,
+            iceberg_targets=iceberg_targets,
+            jdbc_targets=jdbc_targets,
+            mongo_db_targets=mongo_db_targets,
+            s3_targets=s3_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_targets: Optional[Sequence['outputs.CrawlerCatalogTarget']] = None,
+             delta_targets: Optional[Sequence['outputs.CrawlerDeltaTarget']] = None,
+             dynamo_db_targets: Optional[Sequence['outputs.CrawlerDynamoDbTarget']] = None,
+             iceberg_targets: Optional[Sequence['outputs.CrawlerIcebergTarget']] = None,
+             jdbc_targets: Optional[Sequence['outputs.CrawlerJdbcTarget']] = None,
+             mongo_db_targets: Optional[Sequence['outputs.CrawlerMongoDbTarget']] = None,
+             s3_targets: Optional[Sequence['outputs.CrawlerS3Target']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_targets is not None:
-            pulumi.set(__self__, "catalog_targets", catalog_targets)
+            _setter("catalog_targets", catalog_targets)
         if delta_targets is not None:
-            pulumi.set(__self__, "delta_targets", delta_targets)
+            _setter("delta_targets", delta_targets)
         if dynamo_db_targets is not None:
-            pulumi.set(__self__, "dynamo_db_targets", dynamo_db_targets)
+            _setter("dynamo_db_targets", dynamo_db_targets)
         if iceberg_targets is not None:
-            pulumi.set(__self__, "iceberg_targets", iceberg_targets)
+            _setter("iceberg_targets", iceberg_targets)
         if jdbc_targets is not None:
-            pulumi.set(__self__, "jdbc_targets", jdbc_targets)
+            _setter("jdbc_targets", jdbc_targets)
         if mongo_db_targets is not None:
-            pulumi.set(__self__, "mongo_db_targets", mongo_db_targets)
+            _setter("mongo_db_targets", mongo_db_targets)
         if s3_targets is not None:
-            pulumi.set(__self__, "s3_targets", s3_targets)
+            _setter("s3_targets", s3_targets)
 
     @property
     @pulumi.getter(name="catalogTargets")
@@ -1019,10 +1264,21 @@ class DataCatalogEncryptionSettings(dict):
     def __init__(__self__, *,
                  connection_password_encryption: Optional['outputs.DataCatalogEncryptionSettingsConnectionPasswordEncryption'] = None,
                  encryption_at_rest: Optional['outputs.DataCatalogEncryptionSettingsEncryptionAtRest'] = None):
+        DataCatalogEncryptionSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_password_encryption=connection_password_encryption,
+            encryption_at_rest=encryption_at_rest,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_password_encryption: Optional['outputs.DataCatalogEncryptionSettingsConnectionPasswordEncryption'] = None,
+             encryption_at_rest: Optional['outputs.DataCatalogEncryptionSettingsEncryptionAtRest'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_password_encryption is not None:
-            pulumi.set(__self__, "connection_password_encryption", connection_password_encryption)
+            _setter("connection_password_encryption", connection_password_encryption)
         if encryption_at_rest is not None:
-            pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
+            _setter("encryption_at_rest", encryption_at_rest)
 
     @property
     @pulumi.getter(name="connectionPasswordEncryption")
@@ -1059,10 +1315,21 @@ class DataCatalogEncryptionSettingsConnectionPasswordEncryption(dict):
     def __init__(__self__, *,
                  kms_key_id: Optional[str] = None,
                  return_connection_password_encrypted: Optional[bool] = None):
+        DataCatalogEncryptionSettingsConnectionPasswordEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            return_connection_password_encrypted=return_connection_password_encrypted,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: Optional[str] = None,
+             return_connection_password_encrypted: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if return_connection_password_encrypted is not None:
-            pulumi.set(__self__, "return_connection_password_encrypted", return_connection_password_encrypted)
+            _setter("return_connection_password_encrypted", return_connection_password_encrypted)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -1099,10 +1366,21 @@ class DataCatalogEncryptionSettingsEncryptionAtRest(dict):
     def __init__(__self__, *,
                  catalog_encryption_mode: Optional[str] = None,
                  sse_aws_kms_key_id: Optional[str] = None):
+        DataCatalogEncryptionSettingsEncryptionAtRest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_encryption_mode=catalog_encryption_mode,
+            sse_aws_kms_key_id=sse_aws_kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_encryption_mode: Optional[str] = None,
+             sse_aws_kms_key_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_encryption_mode is not None:
-            pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
+            _setter("catalog_encryption_mode", catalog_encryption_mode)
         if sse_aws_kms_key_id is not None:
-            pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
+            _setter("sse_aws_kms_key_id", sse_aws_kms_key_id)
 
     @property
     @pulumi.getter(name="catalogEncryptionMode")
@@ -1139,10 +1417,21 @@ class DataQualityRulesetDataQualityTargetTable(dict):
     def __init__(__self__, *,
                  database_name: Optional[str] = None,
                  table_name: Optional[str] = None):
+        DataQualityRulesetDataQualityTargetTable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             table_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -1176,8 +1465,17 @@ class DatabaseDataLakePrincipal(dict):
 
     def __init__(__self__, *,
                  data_lake_principal_identifier: Optional[str] = None):
+        DatabaseDataLakePrincipal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_lake_principal_identifier=data_lake_principal_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_lake_principal_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_lake_principal_identifier is not None:
-            pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+            _setter("data_lake_principal_identifier", data_lake_principal_identifier)
 
     @property
     @pulumi.getter(name="dataLakePrincipalIdentifier")
@@ -1207,10 +1505,21 @@ class DatabaseFederatedDatabase(dict):
     def __init__(__self__, *,
                  connection_name: Optional[str] = None,
                  identifier: Optional[str] = None):
+        DatabaseFederatedDatabase._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_name=connection_name,
+            identifier=identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_name: Optional[str] = None,
+             identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -1248,12 +1557,25 @@ class DatabaseIdentifier(dict):
                  catalog_id: Optional[str] = None,
                  database_name: Optional[str] = None,
                  region: Optional[str] = None):
+        DatabaseIdentifier._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[str] = None,
+             database_name: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -1304,20 +1626,41 @@ class DatabaseInput(dict):
                  name: Optional[str] = None,
                  parameters: Optional[Any] = None,
                  target_database: Optional['outputs.DatabaseIdentifier'] = None):
+        DatabaseInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_table_default_permissions=create_table_default_permissions,
+            description=description,
+            federated_database=federated_database,
+            location_uri=location_uri,
+            name=name,
+            parameters=parameters,
+            target_database=target_database,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_table_default_permissions: Optional[Sequence['outputs.DatabasePrincipalPrivileges']] = None,
+             description: Optional[str] = None,
+             federated_database: Optional['outputs.DatabaseFederatedDatabase'] = None,
+             location_uri: Optional[str] = None,
+             name: Optional[str] = None,
+             parameters: Optional[Any] = None,
+             target_database: Optional['outputs.DatabaseIdentifier'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if create_table_default_permissions is not None:
-            pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
+            _setter("create_table_default_permissions", create_table_default_permissions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if federated_database is not None:
-            pulumi.set(__self__, "federated_database", federated_database)
+            _setter("federated_database", federated_database)
         if location_uri is not None:
-            pulumi.set(__self__, "location_uri", location_uri)
+            _setter("location_uri", location_uri)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if target_database is not None:
-            pulumi.set(__self__, "target_database", target_database)
+            _setter("target_database", target_database)
 
     @property
     @pulumi.getter(name="createTableDefaultPermissions")
@@ -1360,10 +1703,21 @@ class DatabasePrincipalPrivileges(dict):
     def __init__(__self__, *,
                  permissions: Optional[Sequence[str]] = None,
                  principal: Optional['outputs.DatabaseDataLakePrincipal'] = None):
+        DatabasePrincipalPrivileges._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Optional[Sequence[str]] = None,
+             principal: Optional['outputs.DatabaseDataLakePrincipal'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -1402,14 +1756,29 @@ class JobCommand(dict):
                  python_version: Optional[str] = None,
                  runtime: Optional[str] = None,
                  script_location: Optional[str] = None):
+        JobCommand._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            python_version=python_version,
+            runtime=runtime,
+            script_location=script_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             python_version: Optional[str] = None,
+             runtime: Optional[str] = None,
+             script_location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if python_version is not None:
-            pulumi.set(__self__, "python_version", python_version)
+            _setter("python_version", python_version)
         if runtime is not None:
-            pulumi.set(__self__, "runtime", runtime)
+            _setter("runtime", runtime)
         if script_location is not None:
-            pulumi.set(__self__, "script_location", script_location)
+            _setter("script_location", script_location)
 
     @property
     @pulumi.getter
@@ -1436,8 +1805,17 @@ class JobCommand(dict):
 class JobConnectionsList(dict):
     def __init__(__self__, *,
                  connections: Optional[Sequence[str]] = None):
+        JobConnectionsList._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connections=connections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connections: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connections is not None:
-            pulumi.set(__self__, "connections", connections)
+            _setter("connections", connections)
 
     @property
     @pulumi.getter
@@ -1466,8 +1844,17 @@ class JobExecutionProperty(dict):
 
     def __init__(__self__, *,
                  max_concurrent_runs: Optional[float] = None):
+        JobExecutionProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_concurrent_runs=max_concurrent_runs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_concurrent_runs: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_concurrent_runs is not None:
-            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
+            _setter("max_concurrent_runs", max_concurrent_runs)
 
     @property
     @pulumi.getter(name="maxConcurrentRuns")
@@ -1496,8 +1883,17 @@ class JobNotificationProperty(dict):
 
     def __init__(__self__, *,
                  notify_delay_after: Optional[int] = None):
+        JobNotificationProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notify_delay_after=notify_delay_after,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notify_delay_after: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if notify_delay_after is not None:
-            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+            _setter("notify_delay_after", notify_delay_after)
 
     @property
     @pulumi.getter(name="notifyDelayAfter")
@@ -1535,13 +1931,28 @@ class MlTransformFindMatchesParameters(dict):
                  accuracy_cost_tradeoff: Optional[float] = None,
                  enforce_provided_labels: Optional[bool] = None,
                  precision_recall_tradeoff: Optional[float] = None):
-        pulumi.set(__self__, "primary_key_column_name", primary_key_column_name)
+        MlTransformFindMatchesParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_key_column_name=primary_key_column_name,
+            accuracy_cost_tradeoff=accuracy_cost_tradeoff,
+            enforce_provided_labels=enforce_provided_labels,
+            precision_recall_tradeoff=precision_recall_tradeoff,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_key_column_name: str,
+             accuracy_cost_tradeoff: Optional[float] = None,
+             enforce_provided_labels: Optional[bool] = None,
+             precision_recall_tradeoff: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("primary_key_column_name", primary_key_column_name)
         if accuracy_cost_tradeoff is not None:
-            pulumi.set(__self__, "accuracy_cost_tradeoff", accuracy_cost_tradeoff)
+            _setter("accuracy_cost_tradeoff", accuracy_cost_tradeoff)
         if enforce_provided_labels is not None:
-            pulumi.set(__self__, "enforce_provided_labels", enforce_provided_labels)
+            _setter("enforce_provided_labels", enforce_provided_labels)
         if precision_recall_tradeoff is not None:
-            pulumi.set(__self__, "precision_recall_tradeoff", precision_recall_tradeoff)
+            _setter("precision_recall_tradeoff", precision_recall_tradeoff)
 
     @property
     @pulumi.getter(name="primaryKeyColumnName")
@@ -1594,12 +2005,27 @@ class MlTransformGlueTables(dict):
                  table_name: str,
                  catalog_id: Optional[str] = None,
                  connection_name: Optional[str] = None):
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "table_name", table_name)
+        MlTransformGlueTables._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            table_name=table_name,
+            catalog_id=catalog_id,
+            connection_name=connection_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             table_name: str,
+             catalog_id: Optional[str] = None,
+             connection_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("table_name", table_name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -1643,8 +2069,17 @@ class MlTransformInputRecordTables(dict):
 
     def __init__(__self__, *,
                  glue_tables: Optional[Sequence['outputs.MlTransformGlueTables']] = None):
+        MlTransformInputRecordTables._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            glue_tables=glue_tables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             glue_tables: Optional[Sequence['outputs.MlTransformGlueTables']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if glue_tables is not None:
-            pulumi.set(__self__, "glue_tables", glue_tables)
+            _setter("glue_tables", glue_tables)
 
     @property
     @pulumi.getter(name="glueTables")
@@ -1676,9 +2111,20 @@ class MlTransformMlUserDataEncryption(dict):
     def __init__(__self__, *,
                  ml_user_data_encryption_mode: str,
                  kms_key_id: Optional[str] = None):
-        pulumi.set(__self__, "ml_user_data_encryption_mode", ml_user_data_encryption_mode)
+        MlTransformMlUserDataEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ml_user_data_encryption_mode=ml_user_data_encryption_mode,
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ml_user_data_encryption_mode: str,
+             kms_key_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ml_user_data_encryption_mode", ml_user_data_encryption_mode)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="mlUserDataEncryptionMode")
@@ -1715,10 +2161,21 @@ class MlTransformTransformEncryption(dict):
     def __init__(__self__, *,
                  ml_user_data_encryption: Optional['outputs.MlTransformMlUserDataEncryption'] = None,
                  task_run_security_configuration_name: Optional[str] = None):
+        MlTransformTransformEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ml_user_data_encryption=ml_user_data_encryption,
+            task_run_security_configuration_name=task_run_security_configuration_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ml_user_data_encryption: Optional['outputs.MlTransformMlUserDataEncryption'] = None,
+             task_run_security_configuration_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ml_user_data_encryption is not None:
-            pulumi.set(__self__, "ml_user_data_encryption", ml_user_data_encryption)
+            _setter("ml_user_data_encryption", ml_user_data_encryption)
         if task_run_security_configuration_name is not None:
-            pulumi.set(__self__, "task_run_security_configuration_name", task_run_security_configuration_name)
+            _setter("task_run_security_configuration_name", task_run_security_configuration_name)
 
     @property
     @pulumi.getter(name="mlUserDataEncryption")
@@ -1755,9 +2212,20 @@ class MlTransformTransformParameters(dict):
     def __init__(__self__, *,
                  transform_type: str,
                  find_matches_parameters: Optional['outputs.MlTransformFindMatchesParameters'] = None):
-        pulumi.set(__self__, "transform_type", transform_type)
+        MlTransformTransformParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transform_type=transform_type,
+            find_matches_parameters=find_matches_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transform_type: str,
+             find_matches_parameters: Optional['outputs.MlTransformFindMatchesParameters'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("transform_type", transform_type)
         if find_matches_parameters is not None:
-            pulumi.set(__self__, "find_matches_parameters", find_matches_parameters)
+            _setter("find_matches_parameters", find_matches_parameters)
 
     @property
     @pulumi.getter(name="transformType")
@@ -1776,11 +2244,24 @@ class PartitionColumn(dict):
                  name: str,
                  comment: Optional[str] = None,
                  type: Optional[str] = None):
-        pulumi.set(__self__, "name", name)
+        PartitionColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            comment=comment,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             comment: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1821,11 +2302,24 @@ class PartitionInput(dict):
                  values: Sequence[str],
                  parameters: Optional[Any] = None,
                  storage_descriptor: Optional['outputs.PartitionStorageDescriptor'] = None):
-        pulumi.set(__self__, "values", values)
+        PartitionInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            values=values,
+            parameters=parameters,
+            storage_descriptor=storage_descriptor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             values: Sequence[str],
+             parameters: Optional[Any] = None,
+             storage_descriptor: Optional['outputs.PartitionStorageDescriptor'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("values", values)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if storage_descriptor is not None:
-            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+            _setter("storage_descriptor", storage_descriptor)
 
     @property
     @pulumi.getter
@@ -1865,9 +2359,20 @@ class PartitionOrder(dict):
     def __init__(__self__, *,
                  column: str,
                  sort_order: Optional[int] = None):
-        pulumi.set(__self__, "column", column)
+        PartitionOrder._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column=column,
+            sort_order=sort_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column: str,
+             sort_order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column", column)
         if sort_order is not None:
-            pulumi.set(__self__, "sort_order", sort_order)
+            _setter("sort_order", sort_order)
 
     @property
     @pulumi.getter
@@ -1907,12 +2412,25 @@ class PartitionSchemaId(dict):
                  registry_name: Optional[str] = None,
                  schema_arn: Optional[str] = None,
                  schema_name: Optional[str] = None):
+        PartitionSchemaId._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            schema_arn=schema_arn,
+            schema_name=schema_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: Optional[str] = None,
+             schema_arn: Optional[str] = None,
+             schema_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
+            _setter("registry_name", registry_name)
         if schema_arn is not None:
-            pulumi.set(__self__, "schema_arn", schema_arn)
+            _setter("schema_arn", schema_arn)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
 
     @property
     @pulumi.getter(name="registryName")
@@ -1957,12 +2475,25 @@ class PartitionSchemaReference(dict):
                  schema_id: Optional['outputs.PartitionSchemaId'] = None,
                  schema_version_id: Optional[str] = None,
                  schema_version_number: Optional[int] = None):
+        PartitionSchemaReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_id=schema_id,
+            schema_version_id=schema_version_id,
+            schema_version_number=schema_version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_id: Optional['outputs.PartitionSchemaId'] = None,
+             schema_version_id: Optional[str] = None,
+             schema_version_number: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if schema_version_id is not None:
-            pulumi.set(__self__, "schema_version_id", schema_version_id)
+            _setter("schema_version_id", schema_version_id)
         if schema_version_number is not None:
-            pulumi.set(__self__, "schema_version_number", schema_version_number)
+            _setter("schema_version_number", schema_version_number)
 
     @property
     @pulumi.getter(name="schemaId")
@@ -2003,12 +2534,25 @@ class PartitionSerdeInfo(dict):
                  name: Optional[str] = None,
                  parameters: Optional[Any] = None,
                  serialization_library: Optional[str] = None):
+        PartitionSerdeInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+            serialization_library=serialization_library,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             parameters: Optional[Any] = None,
+             serialization_library: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if serialization_library is not None:
-            pulumi.set(__self__, "serialization_library", serialization_library)
+            _setter("serialization_library", serialization_library)
 
     @property
     @pulumi.getter
@@ -2053,12 +2597,25 @@ class PartitionSkewedInfo(dict):
                  skewed_column_names: Optional[Sequence[str]] = None,
                  skewed_column_value_location_maps: Optional[Any] = None,
                  skewed_column_values: Optional[Sequence[str]] = None):
+        PartitionSkewedInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            skewed_column_names=skewed_column_names,
+            skewed_column_value_location_maps=skewed_column_value_location_maps,
+            skewed_column_values=skewed_column_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             skewed_column_names: Optional[Sequence[str]] = None,
+             skewed_column_value_location_maps: Optional[Any] = None,
+             skewed_column_values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if skewed_column_names is not None:
-            pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+            _setter("skewed_column_names", skewed_column_names)
         if skewed_column_value_location_maps is not None:
-            pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+            _setter("skewed_column_value_location_maps", skewed_column_value_location_maps)
         if skewed_column_values is not None:
-            pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+            _setter("skewed_column_values", skewed_column_values)
 
     @property
     @pulumi.getter(name="skewedColumnNames")
@@ -2125,32 +2682,65 @@ class PartitionStorageDescriptor(dict):
                  skewed_info: Optional['outputs.PartitionSkewedInfo'] = None,
                  sort_columns: Optional[Sequence['outputs.PartitionOrder']] = None,
                  stored_as_sub_directories: Optional[bool] = None):
+        PartitionStorageDescriptor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_columns=bucket_columns,
+            columns=columns,
+            compressed=compressed,
+            input_format=input_format,
+            location=location,
+            number_of_buckets=number_of_buckets,
+            output_format=output_format,
+            parameters=parameters,
+            schema_reference=schema_reference,
+            serde_info=serde_info,
+            skewed_info=skewed_info,
+            sort_columns=sort_columns,
+            stored_as_sub_directories=stored_as_sub_directories,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_columns: Optional[Sequence[str]] = None,
+             columns: Optional[Sequence['outputs.PartitionColumn']] = None,
+             compressed: Optional[bool] = None,
+             input_format: Optional[str] = None,
+             location: Optional[str] = None,
+             number_of_buckets: Optional[int] = None,
+             output_format: Optional[str] = None,
+             parameters: Optional[Any] = None,
+             schema_reference: Optional['outputs.PartitionSchemaReference'] = None,
+             serde_info: Optional['outputs.PartitionSerdeInfo'] = None,
+             skewed_info: Optional['outputs.PartitionSkewedInfo'] = None,
+             sort_columns: Optional[Sequence['outputs.PartitionOrder']] = None,
+             stored_as_sub_directories: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_columns is not None:
-            pulumi.set(__self__, "bucket_columns", bucket_columns)
+            _setter("bucket_columns", bucket_columns)
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
         if compressed is not None:
-            pulumi.set(__self__, "compressed", compressed)
+            _setter("compressed", compressed)
         if input_format is not None:
-            pulumi.set(__self__, "input_format", input_format)
+            _setter("input_format", input_format)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if number_of_buckets is not None:
-            pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+            _setter("number_of_buckets", number_of_buckets)
         if output_format is not None:
-            pulumi.set(__self__, "output_format", output_format)
+            _setter("output_format", output_format)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if schema_reference is not None:
-            pulumi.set(__self__, "schema_reference", schema_reference)
+            _setter("schema_reference", schema_reference)
         if serde_info is not None:
-            pulumi.set(__self__, "serde_info", serde_info)
+            _setter("serde_info", serde_info)
         if skewed_info is not None:
-            pulumi.set(__self__, "skewed_info", skewed_info)
+            _setter("skewed_info", skewed_info)
         if sort_columns is not None:
-            pulumi.set(__self__, "sort_columns", sort_columns)
+            _setter("sort_columns", sort_columns)
         if stored_as_sub_directories is not None:
-            pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+            _setter("stored_as_sub_directories", stored_as_sub_directories)
 
     @property
     @pulumi.getter(name="bucketColumns")
@@ -2227,8 +2817,19 @@ class RegistryTag(dict):
         :param str key: A key to identify the tag.
         :param str value: Corresponding tag value for the key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        RegistryTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2260,10 +2861,21 @@ class SchemaRegistry(dict):
         :param str arn: Amazon Resource Name for the Registry.
         :param str name: Name of the registry in which the schema will be created.
         """
+        SchemaRegistry._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2291,8 +2903,19 @@ class SchemaTag(dict):
         :param str key: A key to identify the tag.
         :param str value: Corresponding tag value for the key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SchemaTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2343,10 +2966,21 @@ class SchemaVersion(dict):
         :param bool is_latest: Indicates if the latest version needs to be updated.
         :param int version_number: Indicates the version number in the schema to update.
         """
+        SchemaVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_latest=is_latest,
+            version_number=version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_latest: Optional[bool] = None,
+             version_number: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if is_latest is not None:
-            pulumi.set(__self__, "is_latest", is_latest)
+            _setter("is_latest", is_latest)
         if version_number is not None:
-            pulumi.set(__self__, "version_number", version_number)
+            _setter("version_number", version_number)
 
     @property
     @pulumi.getter(name="isLatest")
@@ -2401,12 +3035,25 @@ class SchemaVersionSchema(dict):
         :param str schema_arn: Amazon Resource Name for the Schema. This attribute can be used to uniquely represent the Schema.
         :param str schema_name: Name of the schema. This parameter requires RegistryName to be provided.
         """
+        SchemaVersionSchema._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            schema_arn=schema_arn,
+            schema_name=schema_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: Optional[str] = None,
+             schema_arn: Optional[str] = None,
+             schema_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
+            _setter("registry_name", registry_name)
         if schema_arn is not None:
-            pulumi.set(__self__, "schema_arn", schema_arn)
+            _setter("schema_arn", schema_arn)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
 
     @property
     @pulumi.getter(name="registryName")
@@ -2457,10 +3104,21 @@ class SecurityConfigurationCloudWatchEncryption(dict):
     def __init__(__self__, *,
                  cloud_watch_encryption_mode: Optional[str] = None,
                  kms_key_arn: Optional[str] = None):
+        SecurityConfigurationCloudWatchEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_encryption_mode=cloud_watch_encryption_mode,
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_encryption_mode: Optional[str] = None,
+             kms_key_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_encryption_mode is not None:
-            pulumi.set(__self__, "cloud_watch_encryption_mode", cloud_watch_encryption_mode)
+            _setter("cloud_watch_encryption_mode", cloud_watch_encryption_mode)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="cloudWatchEncryptionMode")
@@ -2500,12 +3158,25 @@ class SecurityConfigurationEncryptionConfiguration(dict):
                  cloud_watch_encryption: Optional['outputs.SecurityConfigurationCloudWatchEncryption'] = None,
                  job_bookmarks_encryption: Optional['outputs.SecurityConfigurationJobBookmarksEncryption'] = None,
                  s3_encryptions: Optional['outputs.SecurityConfigurationS3Encryptions'] = None):
+        SecurityConfigurationEncryptionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_encryption=cloud_watch_encryption,
+            job_bookmarks_encryption=job_bookmarks_encryption,
+            s3_encryptions=s3_encryptions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_encryption: Optional['outputs.SecurityConfigurationCloudWatchEncryption'] = None,
+             job_bookmarks_encryption: Optional['outputs.SecurityConfigurationJobBookmarksEncryption'] = None,
+             s3_encryptions: Optional['outputs.SecurityConfigurationS3Encryptions'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_encryption is not None:
-            pulumi.set(__self__, "cloud_watch_encryption", cloud_watch_encryption)
+            _setter("cloud_watch_encryption", cloud_watch_encryption)
         if job_bookmarks_encryption is not None:
-            pulumi.set(__self__, "job_bookmarks_encryption", job_bookmarks_encryption)
+            _setter("job_bookmarks_encryption", job_bookmarks_encryption)
         if s3_encryptions is not None:
-            pulumi.set(__self__, "s3_encryptions", s3_encryptions)
+            _setter("s3_encryptions", s3_encryptions)
 
     @property
     @pulumi.getter(name="cloudWatchEncryption")
@@ -2547,10 +3218,21 @@ class SecurityConfigurationJobBookmarksEncryption(dict):
     def __init__(__self__, *,
                  job_bookmarks_encryption_mode: Optional[str] = None,
                  kms_key_arn: Optional[str] = None):
+        SecurityConfigurationJobBookmarksEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_bookmarks_encryption_mode=job_bookmarks_encryption_mode,
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_bookmarks_encryption_mode: Optional[str] = None,
+             kms_key_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if job_bookmarks_encryption_mode is not None:
-            pulumi.set(__self__, "job_bookmarks_encryption_mode", job_bookmarks_encryption_mode)
+            _setter("job_bookmarks_encryption_mode", job_bookmarks_encryption_mode)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="jobBookmarksEncryptionMode")
@@ -2567,6 +3249,11 @@ class SecurityConfigurationJobBookmarksEncryption(dict):
 class SecurityConfigurationS3Encryptions(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -2575,11 +3262,24 @@ class TableColumn(dict):
                  name: str,
                  comment: Optional[str] = None,
                  type: Optional[str] = None):
-        pulumi.set(__self__, "name", name)
+        TableColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            comment=comment,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             comment: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2619,10 +3319,21 @@ class TableIcebergInput(dict):
     def __init__(__self__, *,
                  metadata_operation: Optional['outputs.TableMetadataOperation'] = None,
                  version: Optional[str] = None):
+        TableIcebergInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metadata_operation=metadata_operation,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metadata_operation: Optional['outputs.TableMetadataOperation'] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metadata_operation is not None:
-            pulumi.set(__self__, "metadata_operation", metadata_operation)
+            _setter("metadata_operation", metadata_operation)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="metadataOperation")
@@ -2661,14 +3372,29 @@ class TableIdentifier(dict):
                  database_name: Optional[str] = None,
                  name: Optional[str] = None,
                  region: Optional[str] = None):
+        TableIdentifier._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            name=name,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[str] = None,
+             database_name: Optional[str] = None,
+             name: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -2732,28 +3458,57 @@ class TableInput(dict):
                  target_table: Optional['outputs.TableIdentifier'] = None,
                  view_expanded_text: Optional[str] = None,
                  view_original_text: Optional[str] = None):
+        TableInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            owner=owner,
+            parameters=parameters,
+            partition_keys=partition_keys,
+            retention=retention,
+            storage_descriptor=storage_descriptor,
+            table_type=table_type,
+            target_table=target_table,
+            view_expanded_text=view_expanded_text,
+            view_original_text=view_original_text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             name: Optional[str] = None,
+             owner: Optional[str] = None,
+             parameters: Optional[Any] = None,
+             partition_keys: Optional[Sequence['outputs.TableColumn']] = None,
+             retention: Optional[int] = None,
+             storage_descriptor: Optional['outputs.TableStorageDescriptor'] = None,
+             table_type: Optional[str] = None,
+             target_table: Optional['outputs.TableIdentifier'] = None,
+             view_expanded_text: Optional[str] = None,
+             view_original_text: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if partition_keys is not None:
-            pulumi.set(__self__, "partition_keys", partition_keys)
+            _setter("partition_keys", partition_keys)
         if retention is not None:
-            pulumi.set(__self__, "retention", retention)
+            _setter("retention", retention)
         if storage_descriptor is not None:
-            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+            _setter("storage_descriptor", storage_descriptor)
         if table_type is not None:
-            pulumi.set(__self__, "table_type", table_type)
+            _setter("table_type", table_type)
         if target_table is not None:
-            pulumi.set(__self__, "target_table", target_table)
+            _setter("target_table", target_table)
         if view_expanded_text is not None:
-            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+            _setter("view_expanded_text", view_expanded_text)
         if view_original_text is not None:
-            pulumi.set(__self__, "view_original_text", view_original_text)
+            _setter("view_original_text", view_original_text)
 
     @property
     @pulumi.getter
@@ -2815,6 +3570,11 @@ class TableInput(dict):
 class TableMetadataOperation(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -2838,8 +3598,17 @@ class TableOpenTableFormatInput(dict):
 
     def __init__(__self__, *,
                  iceberg_input: Optional['outputs.TableIcebergInput'] = None):
+        TableOpenTableFormatInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iceberg_input=iceberg_input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iceberg_input: Optional['outputs.TableIcebergInput'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if iceberg_input is not None:
-            pulumi.set(__self__, "iceberg_input", iceberg_input)
+            _setter("iceberg_input", iceberg_input)
 
     @property
     @pulumi.getter(name="icebergInput")
@@ -2869,8 +3638,19 @@ class TableOrder(dict):
     def __init__(__self__, *,
                  column: str,
                  sort_order: int):
-        pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "sort_order", sort_order)
+        TableOrder._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column=column,
+            sort_order=sort_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column: str,
+             sort_order: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column", column)
+        _setter("sort_order", sort_order)
 
     @property
     @pulumi.getter
@@ -2910,12 +3690,25 @@ class TableSchemaId(dict):
                  registry_name: Optional[str] = None,
                  schema_arn: Optional[str] = None,
                  schema_name: Optional[str] = None):
+        TableSchemaId._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            schema_arn=schema_arn,
+            schema_name=schema_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: Optional[str] = None,
+             schema_arn: Optional[str] = None,
+             schema_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
+            _setter("registry_name", registry_name)
         if schema_arn is not None:
-            pulumi.set(__self__, "schema_arn", schema_arn)
+            _setter("schema_arn", schema_arn)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
 
     @property
     @pulumi.getter(name="registryName")
@@ -2960,12 +3753,25 @@ class TableSchemaReference(dict):
                  schema_id: Optional['outputs.TableSchemaId'] = None,
                  schema_version_id: Optional[str] = None,
                  schema_version_number: Optional[int] = None):
+        TableSchemaReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_id=schema_id,
+            schema_version_id=schema_version_id,
+            schema_version_number=schema_version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_id: Optional['outputs.TableSchemaId'] = None,
+             schema_version_id: Optional[str] = None,
+             schema_version_number: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if schema_version_id is not None:
-            pulumi.set(__self__, "schema_version_id", schema_version_id)
+            _setter("schema_version_id", schema_version_id)
         if schema_version_number is not None:
-            pulumi.set(__self__, "schema_version_number", schema_version_number)
+            _setter("schema_version_number", schema_version_number)
 
     @property
     @pulumi.getter(name="schemaId")
@@ -3006,12 +3812,25 @@ class TableSerdeInfo(dict):
                  name: Optional[str] = None,
                  parameters: Optional[Any] = None,
                  serialization_library: Optional[str] = None):
+        TableSerdeInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+            serialization_library=serialization_library,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             parameters: Optional[Any] = None,
+             serialization_library: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if serialization_library is not None:
-            pulumi.set(__self__, "serialization_library", serialization_library)
+            _setter("serialization_library", serialization_library)
 
     @property
     @pulumi.getter
@@ -3056,12 +3875,25 @@ class TableSkewedInfo(dict):
                  skewed_column_names: Optional[Sequence[str]] = None,
                  skewed_column_value_location_maps: Optional[Any] = None,
                  skewed_column_values: Optional[Sequence[str]] = None):
+        TableSkewedInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            skewed_column_names=skewed_column_names,
+            skewed_column_value_location_maps=skewed_column_value_location_maps,
+            skewed_column_values=skewed_column_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             skewed_column_names: Optional[Sequence[str]] = None,
+             skewed_column_value_location_maps: Optional[Any] = None,
+             skewed_column_values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if skewed_column_names is not None:
-            pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+            _setter("skewed_column_names", skewed_column_names)
         if skewed_column_value_location_maps is not None:
-            pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+            _setter("skewed_column_value_location_maps", skewed_column_value_location_maps)
         if skewed_column_values is not None:
-            pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+            _setter("skewed_column_values", skewed_column_values)
 
     @property
     @pulumi.getter(name="skewedColumnNames")
@@ -3128,32 +3960,65 @@ class TableStorageDescriptor(dict):
                  skewed_info: Optional['outputs.TableSkewedInfo'] = None,
                  sort_columns: Optional[Sequence['outputs.TableOrder']] = None,
                  stored_as_sub_directories: Optional[bool] = None):
+        TableStorageDescriptor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_columns=bucket_columns,
+            columns=columns,
+            compressed=compressed,
+            input_format=input_format,
+            location=location,
+            number_of_buckets=number_of_buckets,
+            output_format=output_format,
+            parameters=parameters,
+            schema_reference=schema_reference,
+            serde_info=serde_info,
+            skewed_info=skewed_info,
+            sort_columns=sort_columns,
+            stored_as_sub_directories=stored_as_sub_directories,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_columns: Optional[Sequence[str]] = None,
+             columns: Optional[Sequence['outputs.TableColumn']] = None,
+             compressed: Optional[bool] = None,
+             input_format: Optional[str] = None,
+             location: Optional[str] = None,
+             number_of_buckets: Optional[int] = None,
+             output_format: Optional[str] = None,
+             parameters: Optional[Any] = None,
+             schema_reference: Optional['outputs.TableSchemaReference'] = None,
+             serde_info: Optional['outputs.TableSerdeInfo'] = None,
+             skewed_info: Optional['outputs.TableSkewedInfo'] = None,
+             sort_columns: Optional[Sequence['outputs.TableOrder']] = None,
+             stored_as_sub_directories: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_columns is not None:
-            pulumi.set(__self__, "bucket_columns", bucket_columns)
+            _setter("bucket_columns", bucket_columns)
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
         if compressed is not None:
-            pulumi.set(__self__, "compressed", compressed)
+            _setter("compressed", compressed)
         if input_format is not None:
-            pulumi.set(__self__, "input_format", input_format)
+            _setter("input_format", input_format)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if number_of_buckets is not None:
-            pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+            _setter("number_of_buckets", number_of_buckets)
         if output_format is not None:
-            pulumi.set(__self__, "output_format", output_format)
+            _setter("output_format", output_format)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if schema_reference is not None:
-            pulumi.set(__self__, "schema_reference", schema_reference)
+            _setter("schema_reference", schema_reference)
         if serde_info is not None:
-            pulumi.set(__self__, "serde_info", serde_info)
+            _setter("serde_info", serde_info)
         if skewed_info is not None:
-            pulumi.set(__self__, "skewed_info", skewed_info)
+            _setter("skewed_info", skewed_info)
         if sort_columns is not None:
-            pulumi.set(__self__, "sort_columns", sort_columns)
+            _setter("sort_columns", sort_columns)
         if stored_as_sub_directories is not None:
-            pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+            _setter("stored_as_sub_directories", stored_as_sub_directories)
 
     @property
     @pulumi.getter(name="bucketColumns")
@@ -3253,18 +4118,37 @@ class TriggerAction(dict):
                  notification_property: Optional['outputs.TriggerNotificationProperty'] = None,
                  security_configuration: Optional[str] = None,
                  timeout: Optional[int] = None):
+        TriggerAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arguments=arguments,
+            crawler_name=crawler_name,
+            job_name=job_name,
+            notification_property=notification_property,
+            security_configuration=security_configuration,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arguments: Optional[Any] = None,
+             crawler_name: Optional[str] = None,
+             job_name: Optional[str] = None,
+             notification_property: Optional['outputs.TriggerNotificationProperty'] = None,
+             security_configuration: Optional[str] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if crawler_name is not None:
-            pulumi.set(__self__, "crawler_name", crawler_name)
+            _setter("crawler_name", crawler_name)
         if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
+            _setter("job_name", job_name)
         if notification_property is not None:
-            pulumi.set(__self__, "notification_property", notification_property)
+            _setter("notification_property", notification_property)
         if security_configuration is not None:
-            pulumi.set(__self__, "security_configuration", security_configuration)
+            _setter("security_configuration", security_configuration)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -3328,16 +4212,33 @@ class TriggerCondition(dict):
                  job_name: Optional[str] = None,
                  logical_operator: Optional[str] = None,
                  state: Optional[str] = None):
+        TriggerCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crawl_state=crawl_state,
+            crawler_name=crawler_name,
+            job_name=job_name,
+            logical_operator=logical_operator,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crawl_state: Optional[str] = None,
+             crawler_name: Optional[str] = None,
+             job_name: Optional[str] = None,
+             logical_operator: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if crawl_state is not None:
-            pulumi.set(__self__, "crawl_state", crawl_state)
+            _setter("crawl_state", crawl_state)
         if crawler_name is not None:
-            pulumi.set(__self__, "crawler_name", crawler_name)
+            _setter("crawler_name", crawler_name)
         if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
+            _setter("job_name", job_name)
         if logical_operator is not None:
-            pulumi.set(__self__, "logical_operator", logical_operator)
+            _setter("logical_operator", logical_operator)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="crawlState")
@@ -3389,9 +4290,20 @@ class TriggerEventBatchingCondition(dict):
     def __init__(__self__, *,
                  batch_size: int,
                  batch_window: Optional[int] = None):
-        pulumi.set(__self__, "batch_size", batch_size)
+        TriggerEventBatchingCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_size=batch_size,
+            batch_window=batch_window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_size: int,
+             batch_window: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("batch_size", batch_size)
         if batch_window is not None:
-            pulumi.set(__self__, "batch_window", batch_window)
+            _setter("batch_window", batch_window)
 
     @property
     @pulumi.getter(name="batchSize")
@@ -3425,8 +4337,17 @@ class TriggerNotificationProperty(dict):
 
     def __init__(__self__, *,
                  notify_delay_after: Optional[int] = None):
+        TriggerNotificationProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notify_delay_after=notify_delay_after,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notify_delay_after: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if notify_delay_after is not None:
-            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+            _setter("notify_delay_after", notify_delay_after)
 
     @property
     @pulumi.getter(name="notifyDelayAfter")
@@ -3439,10 +4360,21 @@ class TriggerPredicate(dict):
     def __init__(__self__, *,
                  conditions: Optional[Sequence['outputs.TriggerCondition']] = None,
                  logical: Optional[str] = None):
+        TriggerPredicate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conditions=conditions,
+            logical=logical,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conditions: Optional[Sequence['outputs.TriggerCondition']] = None,
+             logical: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if logical is not None:
-            pulumi.set(__self__, "logical", logical)
+            _setter("logical", logical)
 
     @property
     @pulumi.getter

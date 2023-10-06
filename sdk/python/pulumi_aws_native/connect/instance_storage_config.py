@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,17 +28,38 @@ class InstanceStorageConfigArgs:
         The set of arguments for constructing a InstanceStorageConfig resource.
         :param pulumi.Input[str] instance_arn: Connect Instance ID with which the storage config will be associated
         """
-        pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "storage_type", storage_type)
+        InstanceStorageConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            resource_type=resource_type,
+            storage_type=storage_type,
+            kinesis_firehose_config=kinesis_firehose_config,
+            kinesis_stream_config=kinesis_stream_config,
+            kinesis_video_stream_config=kinesis_video_stream_config,
+            s3_config=s3_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: pulumi.Input[str],
+             resource_type: pulumi.Input['InstanceStorageConfigInstanceStorageResourceType'],
+             storage_type: pulumi.Input['InstanceStorageConfigStorageType'],
+             kinesis_firehose_config: Optional[pulumi.Input['InstanceStorageConfigKinesisFirehoseConfigArgs']] = None,
+             kinesis_stream_config: Optional[pulumi.Input['InstanceStorageConfigKinesisStreamConfigArgs']] = None,
+             kinesis_video_stream_config: Optional[pulumi.Input['InstanceStorageConfigKinesisVideoStreamConfigArgs']] = None,
+             s3_config: Optional[pulumi.Input['InstanceStorageConfigS3ConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_arn", instance_arn)
+        _setter("resource_type", resource_type)
+        _setter("storage_type", storage_type)
         if kinesis_firehose_config is not None:
-            pulumi.set(__self__, "kinesis_firehose_config", kinesis_firehose_config)
+            _setter("kinesis_firehose_config", kinesis_firehose_config)
         if kinesis_stream_config is not None:
-            pulumi.set(__self__, "kinesis_stream_config", kinesis_stream_config)
+            _setter("kinesis_stream_config", kinesis_stream_config)
         if kinesis_video_stream_config is not None:
-            pulumi.set(__self__, "kinesis_video_stream_config", kinesis_video_stream_config)
+            _setter("kinesis_video_stream_config", kinesis_video_stream_config)
         if s3_config is not None:
-            pulumi.set(__self__, "s3_config", s3_config)
+            _setter("s3_config", s3_config)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -146,6 +167,10 @@ class InstanceStorageConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceStorageConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -170,12 +195,32 @@ class InstanceStorageConfig(pulumi.CustomResource):
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
+            if kinesis_firehose_config is not None and not isinstance(kinesis_firehose_config, InstanceStorageConfigKinesisFirehoseConfigArgs):
+                kinesis_firehose_config = kinesis_firehose_config or {}
+                def _setter(key, value):
+                    kinesis_firehose_config[key] = value
+                InstanceStorageConfigKinesisFirehoseConfigArgs._configure(_setter, **kinesis_firehose_config)
             __props__.__dict__["kinesis_firehose_config"] = kinesis_firehose_config
+            if kinesis_stream_config is not None and not isinstance(kinesis_stream_config, InstanceStorageConfigKinesisStreamConfigArgs):
+                kinesis_stream_config = kinesis_stream_config or {}
+                def _setter(key, value):
+                    kinesis_stream_config[key] = value
+                InstanceStorageConfigKinesisStreamConfigArgs._configure(_setter, **kinesis_stream_config)
             __props__.__dict__["kinesis_stream_config"] = kinesis_stream_config
+            if kinesis_video_stream_config is not None and not isinstance(kinesis_video_stream_config, InstanceStorageConfigKinesisVideoStreamConfigArgs):
+                kinesis_video_stream_config = kinesis_video_stream_config or {}
+                def _setter(key, value):
+                    kinesis_video_stream_config[key] = value
+                InstanceStorageConfigKinesisVideoStreamConfigArgs._configure(_setter, **kinesis_video_stream_config)
             __props__.__dict__["kinesis_video_stream_config"] = kinesis_video_stream_config
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
+            if s3_config is not None and not isinstance(s3_config, InstanceStorageConfigS3ConfigArgs):
+                s3_config = s3_config or {}
+                def _setter(key, value):
+                    s3_config[key] = value
+                InstanceStorageConfigS3ConfigArgs._configure(_setter, **s3_config)
             __props__.__dict__["s3_config"] = s3_config
             if storage_type is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_type'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -47,7 +47,16 @@ class CampaignAnswerMachineDetectionConfig(dict):
         The configuration used for answering machine detection during outbound calls
         :param bool enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
         """
-        pulumi.set(__self__, "enable_answer_machine_detection", enable_answer_machine_detection)
+        CampaignAnswerMachineDetectionConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_answer_machine_detection=enable_answer_machine_detection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_answer_machine_detection: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enable_answer_machine_detection", enable_answer_machine_detection)
 
     @property
     @pulumi.getter(name="enableAnswerMachineDetection")
@@ -88,10 +97,21 @@ class CampaignDialerConfig(dict):
         """
         The possible types of dialer config parameters
         """
+        CampaignDialerConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            predictive_dialer_config=predictive_dialer_config,
+            progressive_dialer_config=progressive_dialer_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             predictive_dialer_config: Optional['outputs.CampaignPredictiveDialerConfig'] = None,
+             progressive_dialer_config: Optional['outputs.CampaignProgressiveDialerConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if predictive_dialer_config is not None:
-            pulumi.set(__self__, "predictive_dialer_config", predictive_dialer_config)
+            _setter("predictive_dialer_config", predictive_dialer_config)
         if progressive_dialer_config is not None:
-            pulumi.set(__self__, "progressive_dialer_config", progressive_dialer_config)
+            _setter("progressive_dialer_config", progressive_dialer_config)
 
     @property
     @pulumi.getter(name="predictiveDialerConfig")
@@ -143,12 +163,27 @@ class CampaignOutboundCallConfig(dict):
         :param str connect_queue_arn: The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
         :param str connect_source_phone_number: The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
         """
-        pulumi.set(__self__, "connect_contact_flow_arn", connect_contact_flow_arn)
-        pulumi.set(__self__, "connect_queue_arn", connect_queue_arn)
+        CampaignOutboundCallConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connect_contact_flow_arn=connect_contact_flow_arn,
+            connect_queue_arn=connect_queue_arn,
+            answer_machine_detection_config=answer_machine_detection_config,
+            connect_source_phone_number=connect_source_phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connect_contact_flow_arn: str,
+             connect_queue_arn: str,
+             answer_machine_detection_config: Optional['outputs.CampaignAnswerMachineDetectionConfig'] = None,
+             connect_source_phone_number: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connect_contact_flow_arn", connect_contact_flow_arn)
+        _setter("connect_queue_arn", connect_queue_arn)
         if answer_machine_detection_config is not None:
-            pulumi.set(__self__, "answer_machine_detection_config", answer_machine_detection_config)
+            _setter("answer_machine_detection_config", answer_machine_detection_config)
         if connect_source_phone_number is not None:
-            pulumi.set(__self__, "connect_source_phone_number", connect_source_phone_number)
+            _setter("connect_source_phone_number", connect_source_phone_number)
 
     @property
     @pulumi.getter(name="connectContactFlowArn")
@@ -208,7 +243,16 @@ class CampaignPredictiveDialerConfig(dict):
         Predictive Dialer config
         :param float bandwidth_allocation: The bandwidth allocation of a queue resource.
         """
-        pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
+        CampaignPredictiveDialerConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth_allocation=bandwidth_allocation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth_allocation: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bandwidth_allocation", bandwidth_allocation)
 
     @property
     @pulumi.getter(name="bandwidthAllocation")
@@ -247,7 +291,16 @@ class CampaignProgressiveDialerConfig(dict):
         Progressive Dialer config
         :param float bandwidth_allocation: The bandwidth allocation of a queue resource.
         """
-        pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
+        CampaignProgressiveDialerConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth_allocation=bandwidth_allocation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth_allocation: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bandwidth_allocation", bandwidth_allocation)
 
     @property
     @pulumi.getter(name="bandwidthAllocation")
@@ -271,8 +324,19 @@ class CampaignTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that's 1 to 256 characters in length.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        CampaignTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

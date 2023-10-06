@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,34 +35,73 @@ class ClientVpnEndpointArgs:
         """
         The set of arguments for constructing a ClientVpnEndpoint resource.
         """
-        pulumi.set(__self__, "authentication_options", authentication_options)
-        pulumi.set(__self__, "client_cidr_block", client_cidr_block)
-        pulumi.set(__self__, "connection_log_options", connection_log_options)
-        pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
+        ClientVpnEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_options=authentication_options,
+            client_cidr_block=client_cidr_block,
+            connection_log_options=connection_log_options,
+            server_certificate_arn=server_certificate_arn,
+            client_connect_options=client_connect_options,
+            client_login_banner_options=client_login_banner_options,
+            description=description,
+            dns_servers=dns_servers,
+            security_group_ids=security_group_ids,
+            self_service_portal=self_service_portal,
+            session_timeout_hours=session_timeout_hours,
+            split_tunnel=split_tunnel,
+            tag_specifications=tag_specifications,
+            transport_protocol=transport_protocol,
+            vpc_id=vpc_id,
+            vpn_port=vpn_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_options: pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointClientAuthenticationRequestArgs']]],
+             client_cidr_block: pulumi.Input[str],
+             connection_log_options: pulumi.Input['ClientVpnEndpointConnectionLogOptionsArgs'],
+             server_certificate_arn: pulumi.Input[str],
+             client_connect_options: Optional[pulumi.Input['ClientVpnEndpointClientConnectOptionsArgs']] = None,
+             client_login_banner_options: Optional[pulumi.Input['ClientVpnEndpointClientLoginBannerOptionsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             self_service_portal: Optional[pulumi.Input[str]] = None,
+             session_timeout_hours: Optional[pulumi.Input[int]] = None,
+             split_tunnel: Optional[pulumi.Input[bool]] = None,
+             tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagSpecificationArgs']]]] = None,
+             transport_protocol: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             vpn_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication_options", authentication_options)
+        _setter("client_cidr_block", client_cidr_block)
+        _setter("connection_log_options", connection_log_options)
+        _setter("server_certificate_arn", server_certificate_arn)
         if client_connect_options is not None:
-            pulumi.set(__self__, "client_connect_options", client_connect_options)
+            _setter("client_connect_options", client_connect_options)
         if client_login_banner_options is not None:
-            pulumi.set(__self__, "client_login_banner_options", client_login_banner_options)
+            _setter("client_login_banner_options", client_login_banner_options)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if self_service_portal is not None:
-            pulumi.set(__self__, "self_service_portal", self_service_portal)
+            _setter("self_service_portal", self_service_portal)
         if session_timeout_hours is not None:
-            pulumi.set(__self__, "session_timeout_hours", session_timeout_hours)
+            _setter("session_timeout_hours", session_timeout_hours)
         if split_tunnel is not None:
-            pulumi.set(__self__, "split_tunnel", split_tunnel)
+            _setter("split_tunnel", split_tunnel)
         if tag_specifications is not None:
-            pulumi.set(__self__, "tag_specifications", tag_specifications)
+            _setter("tag_specifications", tag_specifications)
         if transport_protocol is not None:
-            pulumi.set(__self__, "transport_protocol", transport_protocol)
+            _setter("transport_protocol", transport_protocol)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if vpn_port is not None:
-            pulumi.set(__self__, "vpn_port", vpn_port)
+            _setter("vpn_port", vpn_port)
 
     @property
     @pulumi.getter(name="authenticationOptions")
@@ -261,6 +300,10 @@ class ClientVpnEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClientVpnEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -298,8 +341,23 @@ class ClientVpnEndpoint(pulumi.CustomResource):
             if client_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'client_cidr_block'")
             __props__.__dict__["client_cidr_block"] = client_cidr_block
+            if client_connect_options is not None and not isinstance(client_connect_options, ClientVpnEndpointClientConnectOptionsArgs):
+                client_connect_options = client_connect_options or {}
+                def _setter(key, value):
+                    client_connect_options[key] = value
+                ClientVpnEndpointClientConnectOptionsArgs._configure(_setter, **client_connect_options)
             __props__.__dict__["client_connect_options"] = client_connect_options
+            if client_login_banner_options is not None and not isinstance(client_login_banner_options, ClientVpnEndpointClientLoginBannerOptionsArgs):
+                client_login_banner_options = client_login_banner_options or {}
+                def _setter(key, value):
+                    client_login_banner_options[key] = value
+                ClientVpnEndpointClientLoginBannerOptionsArgs._configure(_setter, **client_login_banner_options)
             __props__.__dict__["client_login_banner_options"] = client_login_banner_options
+            if connection_log_options is not None and not isinstance(connection_log_options, ClientVpnEndpointConnectionLogOptionsArgs):
+                connection_log_options = connection_log_options or {}
+                def _setter(key, value):
+                    connection_log_options[key] = value
+                ClientVpnEndpointConnectionLogOptionsArgs._configure(_setter, **connection_log_options)
             if connection_log_options is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_log_options'")
             __props__.__dict__["connection_log_options"] = connection_log_options

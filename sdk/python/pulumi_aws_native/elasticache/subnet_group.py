@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,12 +26,27 @@ class SubnetGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The EC2 subnet IDs for the cache subnet group.
         :param pulumi.Input[str] cache_subnet_group_name: The name for the cache subnet group. This value is stored as a lowercase string.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        SubnetGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            subnet_ids=subnet_ids,
+            cache_subnet_group_name=cache_subnet_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: pulumi.Input[str],
+             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("subnet_ids", subnet_ids)
         if cache_subnet_group_name is not None:
-            pulumi.set(__self__, "cache_subnet_group_name", cache_subnet_group_name)
+            _setter("cache_subnet_group_name", cache_subnet_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -117,6 +132,10 @@ class SubnetGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubnetGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,9 +21,20 @@ class FlowTemplateArgs:
         """
         The set of arguments for constructing a FlowTemplate resource.
         """
-        pulumi.set(__self__, "definition", definition)
+        FlowTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definition=definition,
+            compatible_namespace_version=compatible_namespace_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definition: pulumi.Input['FlowTemplateDefinitionDocumentArgs'],
+             compatible_namespace_version: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("definition", definition)
         if compatible_namespace_version is not None:
-            pulumi.set(__self__, "compatible_namespace_version", compatible_namespace_version)
+            _setter("compatible_namespace_version", compatible_namespace_version)
 
     @property
     @pulumi.getter
@@ -82,6 +93,10 @@ class FlowTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlowTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -100,6 +115,11 @@ class FlowTemplate(pulumi.CustomResource):
             __props__ = FlowTemplateArgs.__new__(FlowTemplateArgs)
 
             __props__.__dict__["compatible_namespace_version"] = compatible_namespace_version
+            if definition is not None and not isinstance(definition, FlowTemplateDefinitionDocumentArgs):
+                definition = definition or {}
+                def _setter(key, value):
+                    definition[key] = value
+                FlowTemplateDefinitionDocumentArgs._configure(_setter, **definition)
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition

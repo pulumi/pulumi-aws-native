@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,17 +25,36 @@ class SecurityGroupArgs:
         """
         The set of arguments for constructing a SecurityGroup resource.
         """
-        pulumi.set(__self__, "group_description", group_description)
+        SecurityGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_description=group_description,
+            group_name=group_name,
+            security_group_egress=security_group_egress,
+            security_group_ingress=security_group_ingress,
+            tags=tags,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_description: pulumi.Input[str],
+             group_name: Optional[pulumi.Input[str]] = None,
+             security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]] = None,
+             security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupTagArgs']]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_description", group_description)
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
         if security_group_egress is not None:
-            pulumi.set(__self__, "security_group_egress", security_group_egress)
+            _setter("security_group_egress", security_group_egress)
         if security_group_ingress is not None:
-            pulumi.set(__self__, "security_group_ingress", security_group_ingress)
+            _setter("security_group_ingress", security_group_ingress)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="groupDescription")
@@ -134,6 +153,10 @@ class SecurityGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

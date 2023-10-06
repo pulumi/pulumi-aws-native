@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -135,7 +135,16 @@ class AbortConfigProperties(dict):
         """
         The criteria that determine when and how a job abort takes place.
         """
-        pulumi.set(__self__, "criteria_list", criteria_list)
+        AbortConfigProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criteria_list=criteria_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criteria_list: Sequence['outputs.JobTemplateAbortCriteria'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("criteria_list", criteria_list)
 
     @property
     @pulumi.getter(name="criteriaList")
@@ -154,8 +163,17 @@ class AccountAuditConfigurationAuditCheckConfiguration(dict):
         The configuration for a specific audit check.
         :param bool enabled: True if the check is enabled.
         """
+        AccountAuditConfigurationAuditCheckConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -238,38 +256,77 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
         """
         Specifies which audit checks are enabled and disabled for this account.
         """
+        AccountAuditConfigurationAuditCheckConfigurations._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authenticated_cognito_role_overly_permissive_check=authenticated_cognito_role_overly_permissive_check,
+            ca_certificate_expiring_check=ca_certificate_expiring_check,
+            ca_certificate_key_quality_check=ca_certificate_key_quality_check,
+            conflicting_client_ids_check=conflicting_client_ids_check,
+            device_certificate_expiring_check=device_certificate_expiring_check,
+            device_certificate_key_quality_check=device_certificate_key_quality_check,
+            device_certificate_shared_check=device_certificate_shared_check,
+            intermediate_ca_revoked_for_active_device_certificates_check=intermediate_ca_revoked_for_active_device_certificates_check,
+            io_t_policy_potential_mis_configuration_check=io_t_policy_potential_mis_configuration_check,
+            iot_policy_overly_permissive_check=iot_policy_overly_permissive_check,
+            iot_role_alias_allows_access_to_unused_services_check=iot_role_alias_allows_access_to_unused_services_check,
+            iot_role_alias_overly_permissive_check=iot_role_alias_overly_permissive_check,
+            logging_disabled_check=logging_disabled_check,
+            revoked_ca_certificate_still_active_check=revoked_ca_certificate_still_active_check,
+            revoked_device_certificate_still_active_check=revoked_device_certificate_still_active_check,
+            unauthenticated_cognito_role_overly_permissive_check=unauthenticated_cognito_role_overly_permissive_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authenticated_cognito_role_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             ca_certificate_expiring_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             ca_certificate_key_quality_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             conflicting_client_ids_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             device_certificate_expiring_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             device_certificate_key_quality_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             device_certificate_shared_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             intermediate_ca_revoked_for_active_device_certificates_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             io_t_policy_potential_mis_configuration_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             iot_policy_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             iot_role_alias_allows_access_to_unused_services_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             iot_role_alias_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             logging_disabled_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             revoked_ca_certificate_still_active_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             revoked_device_certificate_still_active_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             unauthenticated_cognito_role_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authenticated_cognito_role_overly_permissive_check is not None:
-            pulumi.set(__self__, "authenticated_cognito_role_overly_permissive_check", authenticated_cognito_role_overly_permissive_check)
+            _setter("authenticated_cognito_role_overly_permissive_check", authenticated_cognito_role_overly_permissive_check)
         if ca_certificate_expiring_check is not None:
-            pulumi.set(__self__, "ca_certificate_expiring_check", ca_certificate_expiring_check)
+            _setter("ca_certificate_expiring_check", ca_certificate_expiring_check)
         if ca_certificate_key_quality_check is not None:
-            pulumi.set(__self__, "ca_certificate_key_quality_check", ca_certificate_key_quality_check)
+            _setter("ca_certificate_key_quality_check", ca_certificate_key_quality_check)
         if conflicting_client_ids_check is not None:
-            pulumi.set(__self__, "conflicting_client_ids_check", conflicting_client_ids_check)
+            _setter("conflicting_client_ids_check", conflicting_client_ids_check)
         if device_certificate_expiring_check is not None:
-            pulumi.set(__self__, "device_certificate_expiring_check", device_certificate_expiring_check)
+            _setter("device_certificate_expiring_check", device_certificate_expiring_check)
         if device_certificate_key_quality_check is not None:
-            pulumi.set(__self__, "device_certificate_key_quality_check", device_certificate_key_quality_check)
+            _setter("device_certificate_key_quality_check", device_certificate_key_quality_check)
         if device_certificate_shared_check is not None:
-            pulumi.set(__self__, "device_certificate_shared_check", device_certificate_shared_check)
+            _setter("device_certificate_shared_check", device_certificate_shared_check)
         if intermediate_ca_revoked_for_active_device_certificates_check is not None:
-            pulumi.set(__self__, "intermediate_ca_revoked_for_active_device_certificates_check", intermediate_ca_revoked_for_active_device_certificates_check)
+            _setter("intermediate_ca_revoked_for_active_device_certificates_check", intermediate_ca_revoked_for_active_device_certificates_check)
         if io_t_policy_potential_mis_configuration_check is not None:
-            pulumi.set(__self__, "io_t_policy_potential_mis_configuration_check", io_t_policy_potential_mis_configuration_check)
+            _setter("io_t_policy_potential_mis_configuration_check", io_t_policy_potential_mis_configuration_check)
         if iot_policy_overly_permissive_check is not None:
-            pulumi.set(__self__, "iot_policy_overly_permissive_check", iot_policy_overly_permissive_check)
+            _setter("iot_policy_overly_permissive_check", iot_policy_overly_permissive_check)
         if iot_role_alias_allows_access_to_unused_services_check is not None:
-            pulumi.set(__self__, "iot_role_alias_allows_access_to_unused_services_check", iot_role_alias_allows_access_to_unused_services_check)
+            _setter("iot_role_alias_allows_access_to_unused_services_check", iot_role_alias_allows_access_to_unused_services_check)
         if iot_role_alias_overly_permissive_check is not None:
-            pulumi.set(__self__, "iot_role_alias_overly_permissive_check", iot_role_alias_overly_permissive_check)
+            _setter("iot_role_alias_overly_permissive_check", iot_role_alias_overly_permissive_check)
         if logging_disabled_check is not None:
-            pulumi.set(__self__, "logging_disabled_check", logging_disabled_check)
+            _setter("logging_disabled_check", logging_disabled_check)
         if revoked_ca_certificate_still_active_check is not None:
-            pulumi.set(__self__, "revoked_ca_certificate_still_active_check", revoked_ca_certificate_still_active_check)
+            _setter("revoked_ca_certificate_still_active_check", revoked_ca_certificate_still_active_check)
         if revoked_device_certificate_still_active_check is not None:
-            pulumi.set(__self__, "revoked_device_certificate_still_active_check", revoked_device_certificate_still_active_check)
+            _setter("revoked_device_certificate_still_active_check", revoked_device_certificate_still_active_check)
         if unauthenticated_cognito_role_overly_permissive_check is not None:
-            pulumi.set(__self__, "unauthenticated_cognito_role_overly_permissive_check", unauthenticated_cognito_role_overly_permissive_check)
+            _setter("unauthenticated_cognito_role_overly_permissive_check", unauthenticated_cognito_role_overly_permissive_check)
 
     @property
     @pulumi.getter(name="authenticatedCognitoRoleOverlyPermissiveCheck")
@@ -382,12 +439,25 @@ class AccountAuditConfigurationAuditNotificationTarget(dict):
         :param str role_arn: The ARN of the role that grants permission to send notifications to the target.
         :param str target_arn: The ARN of the target (SNS topic) to which audit notifications are sent.
         """
+        AccountAuditConfigurationAuditNotificationTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            role_arn=role_arn,
+            target_arn=target_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             role_arn: Optional[str] = None,
+             target_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if target_arn is not None:
-            pulumi.set(__self__, "target_arn", target_arn)
+            _setter("target_arn", target_arn)
 
     @property
     @pulumi.getter
@@ -424,8 +494,17 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurations(dict):
         """
         Information about the targets to which audit notifications are sent.
         """
+        AccountAuditConfigurationAuditNotificationTargetConfigurations._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sns=sns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sns: Optional['outputs.AccountAuditConfigurationAuditNotificationTarget'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sns is not None:
-            pulumi.set(__self__, "sns", sns)
+            _setter("sns", sns)
 
     @property
     @pulumi.getter
@@ -438,8 +517,19 @@ class AuthorizerTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        AuthorizerTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -473,8 +563,17 @@ class BillingGroupPropertiesProperties(dict):
 
     def __init__(__self__, *,
                  billing_group_description: Optional[str] = None):
+        BillingGroupPropertiesProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_group_description=billing_group_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_group_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if billing_group_description is not None:
-            pulumi.set(__self__, "billing_group_description", billing_group_description)
+            _setter("billing_group_description", billing_group_description)
 
     @property
     @pulumi.getter(name="billingGroupDescription")
@@ -495,8 +594,19 @@ class BillingGroupTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        BillingGroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -542,12 +652,25 @@ class CaCertificateRegistrationConfig(dict):
                  role_arn: Optional[str] = None,
                  template_body: Optional[str] = None,
                  template_name: Optional[str] = None):
+        CaCertificateRegistrationConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            template_body=template_body,
+            template_name=template_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: Optional[str] = None,
+             template_body: Optional[str] = None,
+             template_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
+            _setter("template_body", template_body)
         if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
+            _setter("template_name", template_name)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -578,8 +701,19 @@ class CaCertificateTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        CaCertificateTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -611,8 +745,19 @@ class CustomMetricTag(dict):
         :param str key: The tag's key.
         :param str value: The tag's value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        CustomMetricTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -644,8 +789,19 @@ class DimensionTag(dict):
         :param str key: The tag's key.
         :param str value: The tag's value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        DimensionTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -688,10 +844,21 @@ class DomainConfigurationAuthorizerConfig(dict):
     def __init__(__self__, *,
                  allow_authorizer_override: Optional[bool] = None,
                  default_authorizer_name: Optional[str] = None):
+        DomainConfigurationAuthorizerConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_authorizer_override=allow_authorizer_override,
+            default_authorizer_name=default_authorizer_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_authorizer_override: Optional[bool] = None,
+             default_authorizer_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_authorizer_override is not None:
-            pulumi.set(__self__, "allow_authorizer_override", allow_authorizer_override)
+            _setter("allow_authorizer_override", allow_authorizer_override)
         if default_authorizer_name is not None:
-            pulumi.set(__self__, "default_authorizer_name", default_authorizer_name)
+            _setter("default_authorizer_name", default_authorizer_name)
 
     @property
     @pulumi.getter(name="allowAuthorizerOverride")
@@ -731,12 +898,25 @@ class DomainConfigurationServerCertificateSummary(dict):
                  server_certificate_arn: Optional[str] = None,
                  server_certificate_status: Optional['DomainConfigurationServerCertificateSummaryServerCertificateStatus'] = None,
                  server_certificate_status_detail: Optional[str] = None):
+        DomainConfigurationServerCertificateSummary._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_certificate_arn=server_certificate_arn,
+            server_certificate_status=server_certificate_status,
+            server_certificate_status_detail=server_certificate_status_detail,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_certificate_arn: Optional[str] = None,
+             server_certificate_status: Optional['DomainConfigurationServerCertificateSummaryServerCertificateStatus'] = None,
+             server_certificate_status_detail: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if server_certificate_arn is not None:
-            pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
+            _setter("server_certificate_arn", server_certificate_arn)
         if server_certificate_status is not None:
-            pulumi.set(__self__, "server_certificate_status", server_certificate_status)
+            _setter("server_certificate_status", server_certificate_status)
         if server_certificate_status_detail is not None:
-            pulumi.set(__self__, "server_certificate_status_detail", server_certificate_status_detail)
+            _setter("server_certificate_status_detail", server_certificate_status_detail)
 
     @property
     @pulumi.getter(name="serverCertificateArn")
@@ -759,8 +939,19 @@ class DomainConfigurationTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        DomainConfigurationTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -794,8 +985,17 @@ class DomainConfigurationTlsConfig(dict):
 
     def __init__(__self__, *,
                  security_policy: Optional[str] = None):
+        DomainConfigurationTlsConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_policy=security_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_policy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if security_policy is not None:
-            pulumi.set(__self__, "security_policy", security_policy)
+            _setter("security_policy", security_policy)
 
     @property
     @pulumi.getter(name="securityPolicy")
@@ -816,8 +1016,19 @@ class FleetMetricAggregationType(dict):
         :param str name: Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
         :param Sequence[str] values: Fleet Indexing aggregation type values
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        FleetMetricAggregationType._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -849,8 +1060,19 @@ class FleetMetricTag(dict):
         :param str key: The tag's key
         :param str value: The tag's value
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        FleetMetricTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -890,8 +1112,17 @@ class JobExecutionsRetryConfigProperties(dict):
 
     def __init__(__self__, *,
                  retry_criteria_list: Optional[Sequence['outputs.JobTemplateRetryCriteria']] = None):
+        JobExecutionsRetryConfigProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retry_criteria_list=retry_criteria_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retry_criteria_list: Optional[Sequence['outputs.JobTemplateRetryCriteria']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if retry_criteria_list is not None:
-            pulumi.set(__self__, "retry_criteria_list", retry_criteria_list)
+            _setter("retry_criteria_list", retry_criteria_list)
 
     @property
     @pulumi.getter(name="retryCriteriaList")
@@ -931,10 +1162,21 @@ class JobExecutionsRolloutConfigProperties(dict):
         :param 'JobTemplateExponentialRolloutRate' exponential_rollout_rate: The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
         :param int maximum_per_minute: The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
         """
+        JobExecutionsRolloutConfigProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exponential_rollout_rate=exponential_rollout_rate,
+            maximum_per_minute=maximum_per_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exponential_rollout_rate: Optional['outputs.JobTemplateExponentialRolloutRate'] = None,
+             maximum_per_minute: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exponential_rollout_rate is not None:
-            pulumi.set(__self__, "exponential_rollout_rate", exponential_rollout_rate)
+            _setter("exponential_rollout_rate", exponential_rollout_rate)
         if maximum_per_minute is not None:
-            pulumi.set(__self__, "maximum_per_minute", maximum_per_minute)
+            _setter("maximum_per_minute", maximum_per_minute)
 
     @property
     @pulumi.getter(name="exponentialRolloutRate")
@@ -991,10 +1233,25 @@ class JobTemplateAbortCriteria(dict):
         :param int min_number_of_executed_things: The minimum number of things which must receive job execution notifications before the job can be aborted.
         :param float threshold_percentage: The minimum percentage of job execution failures that must occur to initiate the job abort.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "failure_type", failure_type)
-        pulumi.set(__self__, "min_number_of_executed_things", min_number_of_executed_things)
-        pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+        JobTemplateAbortCriteria._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            failure_type=failure_type,
+            min_number_of_executed_things=min_number_of_executed_things,
+            threshold_percentage=threshold_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'JobTemplateAction',
+             failure_type: 'JobTemplateFailureType',
+             min_number_of_executed_things: int,
+             threshold_percentage: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("failure_type", failure_type)
+        _setter("min_number_of_executed_things", min_number_of_executed_things)
+        _setter("threshold_percentage", threshold_percentage)
 
     @property
     @pulumi.getter
@@ -1065,9 +1322,22 @@ class JobTemplateExponentialRolloutRate(dict):
         :param float increment_factor: The exponential factor to increase the rate of rollout for a job.
         :param 'JobTemplateRateIncreaseCriteria' rate_increase_criteria: The criteria to initiate the increase in rate of rollout for a job.
         """
-        pulumi.set(__self__, "base_rate_per_minute", base_rate_per_minute)
-        pulumi.set(__self__, "increment_factor", increment_factor)
-        pulumi.set(__self__, "rate_increase_criteria", rate_increase_criteria)
+        JobTemplateExponentialRolloutRate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_rate_per_minute=base_rate_per_minute,
+            increment_factor=increment_factor,
+            rate_increase_criteria=rate_increase_criteria,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_rate_per_minute: int,
+             increment_factor: float,
+             rate_increase_criteria: 'outputs.JobTemplateRateIncreaseCriteria',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("base_rate_per_minute", base_rate_per_minute)
+        _setter("increment_factor", increment_factor)
+        _setter("rate_increase_criteria", rate_increase_criteria)
 
     @property
     @pulumi.getter(name="baseRatePerMinute")
@@ -1124,10 +1394,21 @@ class JobTemplateMaintenanceWindow(dict):
         """
         Specifies a start time and duration for a scheduled Job.
         """
+        JobTemplateMaintenanceWindow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration_in_minutes=duration_in_minutes,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration_in_minutes: Optional[int] = None,
+             start_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_in_minutes is not None:
-            pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
+            _setter("duration_in_minutes", duration_in_minutes)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="durationInMinutes")
@@ -1164,10 +1445,21 @@ class JobTemplateRateIncreaseCriteria(dict):
     def __init__(__self__, *,
                  number_of_notified_things: Optional[int] = None,
                  number_of_succeeded_things: Optional[int] = None):
+        JobTemplateRateIncreaseCriteria._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            number_of_notified_things=number_of_notified_things,
+            number_of_succeeded_things=number_of_succeeded_things,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             number_of_notified_things: Optional[int] = None,
+             number_of_succeeded_things: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if number_of_notified_things is not None:
-            pulumi.set(__self__, "number_of_notified_things", number_of_notified_things)
+            _setter("number_of_notified_things", number_of_notified_things)
         if number_of_succeeded_things is not None:
-            pulumi.set(__self__, "number_of_succeeded_things", number_of_succeeded_things)
+            _setter("number_of_succeeded_things", number_of_succeeded_things)
 
     @property
     @pulumi.getter(name="numberOfNotifiedThings")
@@ -1210,10 +1502,21 @@ class JobTemplateRetryCriteria(dict):
         """
         Specifies how many times a failure type should be retried.
         """
+        JobTemplateRetryCriteria._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_type=failure_type,
+            number_of_retries=number_of_retries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_type: Optional['JobTemplateJobRetryFailureType'] = None,
+             number_of_retries: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if failure_type is not None:
-            pulumi.set(__self__, "failure_type", failure_type)
+            _setter("failure_type", failure_type)
         if number_of_retries is not None:
-            pulumi.set(__self__, "number_of_retries", number_of_retries)
+            _setter("number_of_retries", number_of_retries)
 
     @property
     @pulumi.getter(name="failureType")
@@ -1239,8 +1542,19 @@ class JobTemplateTag(dict):
         :param str key: The tag's key.
         :param str value: The tag's value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        JobTemplateTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1301,18 +1615,37 @@ class MitigationActionActionParams(dict):
         """
         The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
         """
+        MitigationActionActionParams._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_things_to_thing_group_params=add_things_to_thing_group_params,
+            enable_io_t_logging_params=enable_io_t_logging_params,
+            publish_finding_to_sns_params=publish_finding_to_sns_params,
+            replace_default_policy_version_params=replace_default_policy_version_params,
+            update_ca_certificate_params=update_ca_certificate_params,
+            update_device_certificate_params=update_device_certificate_params,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_things_to_thing_group_params: Optional['outputs.MitigationActionAddThingsToThingGroupParams'] = None,
+             enable_io_t_logging_params: Optional['outputs.MitigationActionEnableIoTLoggingParams'] = None,
+             publish_finding_to_sns_params: Optional['outputs.MitigationActionPublishFindingToSnsParams'] = None,
+             replace_default_policy_version_params: Optional['outputs.MitigationActionReplaceDefaultPolicyVersionParams'] = None,
+             update_ca_certificate_params: Optional['outputs.MitigationActionUpdateCaCertificateParams'] = None,
+             update_device_certificate_params: Optional['outputs.MitigationActionUpdateDeviceCertificateParams'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if add_things_to_thing_group_params is not None:
-            pulumi.set(__self__, "add_things_to_thing_group_params", add_things_to_thing_group_params)
+            _setter("add_things_to_thing_group_params", add_things_to_thing_group_params)
         if enable_io_t_logging_params is not None:
-            pulumi.set(__self__, "enable_io_t_logging_params", enable_io_t_logging_params)
+            _setter("enable_io_t_logging_params", enable_io_t_logging_params)
         if publish_finding_to_sns_params is not None:
-            pulumi.set(__self__, "publish_finding_to_sns_params", publish_finding_to_sns_params)
+            _setter("publish_finding_to_sns_params", publish_finding_to_sns_params)
         if replace_default_policy_version_params is not None:
-            pulumi.set(__self__, "replace_default_policy_version_params", replace_default_policy_version_params)
+            _setter("replace_default_policy_version_params", replace_default_policy_version_params)
         if update_ca_certificate_params is not None:
-            pulumi.set(__self__, "update_ca_certificate_params", update_ca_certificate_params)
+            _setter("update_ca_certificate_params", update_ca_certificate_params)
         if update_device_certificate_params is not None:
-            pulumi.set(__self__, "update_device_certificate_params", update_device_certificate_params)
+            _setter("update_device_certificate_params", update_device_certificate_params)
 
     @property
     @pulumi.getter(name="addThingsToThingGroupParams")
@@ -1377,9 +1710,20 @@ class MitigationActionAddThingsToThingGroupParams(dict):
         :param Sequence[str] thing_group_names: The list of groups to which you want to add the things that triggered the mitigation action.
         :param bool override_dynamic_groups: Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
         """
-        pulumi.set(__self__, "thing_group_names", thing_group_names)
+        MitigationActionAddThingsToThingGroupParams._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            thing_group_names=thing_group_names,
+            override_dynamic_groups=override_dynamic_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             thing_group_names: Sequence[str],
+             override_dynamic_groups: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("thing_group_names", thing_group_names)
         if override_dynamic_groups is not None:
-            pulumi.set(__self__, "override_dynamic_groups", override_dynamic_groups)
+            _setter("override_dynamic_groups", override_dynamic_groups)
 
     @property
     @pulumi.getter(name="thingGroupNames")
@@ -1430,8 +1774,19 @@ class MitigationActionEnableIoTLoggingParams(dict):
         :param 'MitigationActionEnableIoTLoggingParamsLogLevel' log_level:  Specifies which types of information are logged.
         :param str role_arn_for_logging:  The ARN of the IAM role used for logging.
         """
-        pulumi.set(__self__, "log_level", log_level)
-        pulumi.set(__self__, "role_arn_for_logging", role_arn_for_logging)
+        MitigationActionEnableIoTLoggingParams._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_level=log_level,
+            role_arn_for_logging=role_arn_for_logging,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_level: 'MitigationActionEnableIoTLoggingParamsLogLevel',
+             role_arn_for_logging: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_level", log_level)
+        _setter("role_arn_for_logging", role_arn_for_logging)
 
     @property
     @pulumi.getter(name="logLevel")
@@ -1478,7 +1833,16 @@ class MitigationActionPublishFindingToSnsParams(dict):
         Parameters, to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
         :param str topic_arn: The ARN of the topic to which you want to publish the findings.
         """
-        pulumi.set(__self__, "topic_arn", topic_arn)
+        MitigationActionPublishFindingToSnsParams._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="topicArn")
@@ -1516,7 +1880,16 @@ class MitigationActionReplaceDefaultPolicyVersionParams(dict):
         """
         Parameters to define a mitigation action that adds a blank policy to restrict permissions.
         """
-        pulumi.set(__self__, "template_name", template_name)
+        MitigationActionReplaceDefaultPolicyVersionParams._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            template_name=template_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             template_name: 'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("template_name", template_name)
 
     @property
     @pulumi.getter(name="templateName")
@@ -1537,8 +1910,19 @@ class MitigationActionTag(dict):
         :param str key: The tag's key.
         :param str value: The tag's value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        MitigationActionTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1567,7 +1951,16 @@ class MitigationActionUpdateCaCertificateParams(dict):
         """
         Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
         """
-        pulumi.set(__self__, "action", action)
+        MitigationActionUpdateCaCertificateParams._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'MitigationActionUpdateCaCertificateParamsAction',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
 
     @property
     @pulumi.getter
@@ -1585,7 +1978,16 @@ class MitigationActionUpdateDeviceCertificateParams(dict):
         """
         Parameters to define a mitigation action that changes the state of the device certificate to inactive.
         """
-        pulumi.set(__self__, "action", action)
+        MitigationActionUpdateDeviceCertificateParams._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'MitigationActionUpdateDeviceCertificateParamsAction',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
 
     @property
     @pulumi.getter
@@ -1623,9 +2025,20 @@ class PresignedUrlConfigProperties(dict):
         """
         Configuration for pre-signed S3 URLs.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
+        PresignedUrlConfigProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            expires_in_sec=expires_in_sec,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: str,
+             expires_in_sec: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
         if expires_in_sec is not None:
-            pulumi.set(__self__, "expires_in_sec", expires_in_sec)
+            _setter("expires_in_sec", expires_in_sec)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -1662,10 +2075,21 @@ class ProvisioningTemplateProvisioningHook(dict):
     def __init__(__self__, *,
                  payload_version: Optional[str] = None,
                  target_arn: Optional[str] = None):
+        ProvisioningTemplateProvisioningHook._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            payload_version=payload_version,
+            target_arn=target_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             payload_version: Optional[str] = None,
+             target_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if payload_version is not None:
-            pulumi.set(__self__, "payload_version", payload_version)
+            _setter("payload_version", payload_version)
         if target_arn is not None:
-            pulumi.set(__self__, "target_arn", target_arn)
+            _setter("target_arn", target_arn)
 
     @property
     @pulumi.getter(name="payloadVersion")
@@ -1683,8 +2107,19 @@ class ProvisioningTemplateTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ProvisioningTemplateTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1710,8 +2145,19 @@ class RoleAliasTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        RoleAliasTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1743,8 +2189,19 @@ class ScheduledAuditTag(dict):
         :param str key: The tag's key.
         :param str value: The tag's value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ScheduledAuditTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1799,15 +2256,32 @@ class SecurityProfileBehavior(dict):
         :param str metric: What is measured by the behavior.
         :param bool suppress_alerts: Manage Detect alarm SNS notifications by setting behavior notification to on or suppressed. Detect will continue to performing device behavior evaluations. However, suppressed alarms wouldn't be forwarded for SNS notification.
         """
-        pulumi.set(__self__, "name", name)
+        SecurityProfileBehavior._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            criteria=criteria,
+            metric=metric,
+            metric_dimension=metric_dimension,
+            suppress_alerts=suppress_alerts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             criteria: Optional['outputs.SecurityProfileBehaviorCriteria'] = None,
+             metric: Optional[str] = None,
+             metric_dimension: Optional['outputs.SecurityProfileMetricDimension'] = None,
+             suppress_alerts: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
+            _setter("criteria", criteria)
         if metric is not None:
-            pulumi.set(__self__, "metric", metric)
+            _setter("metric", metric)
         if metric_dimension is not None:
-            pulumi.set(__self__, "metric_dimension", metric_dimension)
+            _setter("metric_dimension", metric_dimension)
         if suppress_alerts is not None:
-            pulumi.set(__self__, "suppress_alerts", suppress_alerts)
+            _setter("suppress_alerts", suppress_alerts)
 
     @property
     @pulumi.getter
@@ -1891,20 +2365,41 @@ class SecurityProfileBehaviorCriteria(dict):
         :param int consecutive_datapoints_to_clear: If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
         :param int duration_seconds: Use this to specify the time duration over which the behavior is evaluated.
         """
+        SecurityProfileBehaviorCriteria._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            consecutive_datapoints_to_alarm=consecutive_datapoints_to_alarm,
+            consecutive_datapoints_to_clear=consecutive_datapoints_to_clear,
+            duration_seconds=duration_seconds,
+            ml_detection_config=ml_detection_config,
+            statistical_threshold=statistical_threshold,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: Optional['SecurityProfileBehaviorCriteriaComparisonOperator'] = None,
+             consecutive_datapoints_to_alarm: Optional[int] = None,
+             consecutive_datapoints_to_clear: Optional[int] = None,
+             duration_seconds: Optional[int] = None,
+             ml_detection_config: Optional['outputs.SecurityProfileMachineLearningDetectionConfig'] = None,
+             statistical_threshold: Optional['outputs.SecurityProfileStatisticalThreshold'] = None,
+             value: Optional['outputs.SecurityProfileMetricValue'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if comparison_operator is not None:
-            pulumi.set(__self__, "comparison_operator", comparison_operator)
+            _setter("comparison_operator", comparison_operator)
         if consecutive_datapoints_to_alarm is not None:
-            pulumi.set(__self__, "consecutive_datapoints_to_alarm", consecutive_datapoints_to_alarm)
+            _setter("consecutive_datapoints_to_alarm", consecutive_datapoints_to_alarm)
         if consecutive_datapoints_to_clear is not None:
-            pulumi.set(__self__, "consecutive_datapoints_to_clear", consecutive_datapoints_to_clear)
+            _setter("consecutive_datapoints_to_clear", consecutive_datapoints_to_clear)
         if duration_seconds is not None:
-            pulumi.set(__self__, "duration_seconds", duration_seconds)
+            _setter("duration_seconds", duration_seconds)
         if ml_detection_config is not None:
-            pulumi.set(__self__, "ml_detection_config", ml_detection_config)
+            _setter("ml_detection_config", ml_detection_config)
         if statistical_threshold is not None:
-            pulumi.set(__self__, "statistical_threshold", statistical_threshold)
+            _setter("statistical_threshold", statistical_threshold)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -1982,8 +2477,17 @@ class SecurityProfileMachineLearningDetectionConfig(dict):
         The configuration of an ML Detect Security Profile.
         :param 'SecurityProfileMachineLearningDetectionConfigConfidenceLevel' confidence_level: The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
         """
+        SecurityProfileMachineLearningDetectionConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            confidence_level=confidence_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             confidence_level: Optional['SecurityProfileMachineLearningDetectionConfigConfidenceLevel'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if confidence_level is not None:
-            pulumi.set(__self__, "confidence_level", confidence_level)
+            _setter("confidence_level", confidence_level)
 
     @property
     @pulumi.getter(name="confidenceLevel")
@@ -2024,9 +2528,20 @@ class SecurityProfileMetricDimension(dict):
         :param str dimension_name: A unique identifier for the dimension.
         :param 'SecurityProfileMetricDimensionOperator' operator: Defines how the dimensionValues of a dimension are interpreted.
         """
-        pulumi.set(__self__, "dimension_name", dimension_name)
+        SecurityProfileMetricDimension._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimension_name=dimension_name,
+            operator=operator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimension_name: str,
+             operator: Optional['SecurityProfileMetricDimensionOperator'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dimension_name", dimension_name)
         if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+            _setter("operator", operator)
 
     @property
     @pulumi.getter(name="dimensionName")
@@ -2074,9 +2589,20 @@ class SecurityProfileMetricToRetain(dict):
         The metric you want to retain. Dimensions are optional.
         :param str metric: What is measured by the behavior.
         """
-        pulumi.set(__self__, "metric", metric)
+        SecurityProfileMetricToRetain._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric=metric,
+            metric_dimension=metric_dimension,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric: str,
+             metric_dimension: Optional['outputs.SecurityProfileMetricDimension'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric", metric)
         if metric_dimension is not None:
-            pulumi.set(__self__, "metric_dimension", metric_dimension)
+            _setter("metric_dimension", metric_dimension)
 
     @property
     @pulumi.getter
@@ -2113,18 +2639,37 @@ class SecurityProfileMetricValue(dict):
         :param Sequence[int] ports: If the ComparisonOperator calls for a set of ports, use this to specify that set to be compared with the metric.
         :param Sequence[str] strings: The string values of a metric.
         """
+        SecurityProfileMetricValue._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidrs=cidrs,
+            count=count,
+            number=number,
+            numbers=numbers,
+            ports=ports,
+            strings=strings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidrs: Optional[Sequence[str]] = None,
+             count: Optional[str] = None,
+             number: Optional[float] = None,
+             numbers: Optional[Sequence[float]] = None,
+             ports: Optional[Sequence[int]] = None,
+             strings: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cidrs is not None:
-            pulumi.set(__self__, "cidrs", cidrs)
+            _setter("cidrs", cidrs)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if number is not None:
-            pulumi.set(__self__, "number", number)
+            _setter("number", number)
         if numbers is not None:
-            pulumi.set(__self__, "numbers", numbers)
+            _setter("numbers", numbers)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
         if strings is not None:
-            pulumi.set(__self__, "strings", strings)
+            _setter("strings", strings)
 
     @property
     @pulumi.getter
@@ -2186,8 +2731,17 @@ class SecurityProfileStatisticalThreshold(dict):
         A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
         :param 'SecurityProfileStatisticalThresholdStatistic' statistic: The percentile which resolves to a threshold value by which compliance with a behavior is determined
         """
+        SecurityProfileStatisticalThreshold._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statistic=statistic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statistic: Optional['SecurityProfileStatisticalThresholdStatistic'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if statistic is not None:
-            pulumi.set(__self__, "statistic", statistic)
+            _setter("statistic", statistic)
 
     @property
     @pulumi.getter
@@ -2211,8 +2765,19 @@ class SecurityProfileTag(dict):
         :param str key: The tag's key.
         :param str value: The tag's value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SecurityProfileTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2235,8 +2800,17 @@ class SecurityProfileTag(dict):
 class ThingAttributePayload(dict):
     def __init__(__self__, *,
                  attributes: Optional[Any] = None):
+        ThingAttributePayload._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
 
     @property
     @pulumi.getter
@@ -2248,8 +2822,17 @@ class ThingAttributePayload(dict):
 class ThingGroupAttributePayload(dict):
     def __init__(__self__, *,
                  attributes: Optional[Any] = None):
+        ThingGroupAttributePayload._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
 
     @property
     @pulumi.getter
@@ -2281,10 +2864,21 @@ class ThingGroupPropertiesProperties(dict):
     def __init__(__self__, *,
                  attribute_payload: Optional['outputs.ThingGroupAttributePayload'] = None,
                  thing_group_description: Optional[str] = None):
+        ThingGroupPropertiesProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_payload=attribute_payload,
+            thing_group_description=thing_group_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_payload: Optional['outputs.ThingGroupAttributePayload'] = None,
+             thing_group_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attribute_payload is not None:
-            pulumi.set(__self__, "attribute_payload", attribute_payload)
+            _setter("attribute_payload", attribute_payload)
         if thing_group_description is not None:
-            pulumi.set(__self__, "thing_group_description", thing_group_description)
+            _setter("thing_group_description", thing_group_description)
 
     @property
     @pulumi.getter(name="attributePayload")
@@ -2310,8 +2904,19 @@ class ThingGroupTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ThingGroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2354,10 +2959,21 @@ class ThingTypePropertiesProperties(dict):
     def __init__(__self__, *,
                  searchable_attributes: Optional[Sequence[str]] = None,
                  thing_type_description: Optional[str] = None):
+        ThingTypePropertiesProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            searchable_attributes=searchable_attributes,
+            thing_type_description=thing_type_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             searchable_attributes: Optional[Sequence[str]] = None,
+             thing_type_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if searchable_attributes is not None:
-            pulumi.set(__self__, "searchable_attributes", searchable_attributes)
+            _setter("searchable_attributes", searchable_attributes)
         if thing_type_description is not None:
-            pulumi.set(__self__, "thing_type_description", thing_type_description)
+            _setter("thing_type_description", thing_type_description)
 
     @property
     @pulumi.getter(name="searchableAttributes")
@@ -2383,8 +2999,19 @@ class ThingTypeTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ThingTypeTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2430,7 +3057,16 @@ class TimeoutConfigProperties(dict):
         """
         Specifies the amount of time each device has to finish its execution of the job.
         """
-        pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
+        TimeoutConfigProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_progress_timeout_in_minutes=in_progress_timeout_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_progress_timeout_in_minutes: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
 
     @property
     @pulumi.getter(name="inProgressTimeoutInMinutes")
@@ -2500,50 +3136,101 @@ class TopicRuleAction(dict):
                  sqs: Optional['outputs.TopicRuleSqsAction'] = None,
                  step_functions: Optional['outputs.TopicRuleStepFunctionsAction'] = None,
                  timestream: Optional['outputs.TopicRuleTimestreamAction'] = None):
+        TopicRuleAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_alarm=cloudwatch_alarm,
+            cloudwatch_logs=cloudwatch_logs,
+            cloudwatch_metric=cloudwatch_metric,
+            dynamo_d_bv2=dynamo_d_bv2,
+            dynamo_db=dynamo_db,
+            elasticsearch=elasticsearch,
+            firehose=firehose,
+            http=http,
+            iot_analytics=iot_analytics,
+            iot_events=iot_events,
+            iot_site_wise=iot_site_wise,
+            kafka=kafka,
+            kinesis=kinesis,
+            lambda_=lambda_,
+            location=location,
+            open_search=open_search,
+            republish=republish,
+            s3=s3,
+            sns=sns,
+            sqs=sqs,
+            step_functions=step_functions,
+            timestream=timestream,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_alarm: Optional['outputs.TopicRuleCloudwatchAlarmAction'] = None,
+             cloudwatch_logs: Optional['outputs.TopicRuleCloudwatchLogsAction'] = None,
+             cloudwatch_metric: Optional['outputs.TopicRuleCloudwatchMetricAction'] = None,
+             dynamo_d_bv2: Optional['outputs.TopicRuleDynamoDBv2Action'] = None,
+             dynamo_db: Optional['outputs.TopicRuleDynamoDbAction'] = None,
+             elasticsearch: Optional['outputs.TopicRuleElasticsearchAction'] = None,
+             firehose: Optional['outputs.TopicRuleFirehoseAction'] = None,
+             http: Optional['outputs.TopicRuleHttpAction'] = None,
+             iot_analytics: Optional['outputs.TopicRuleIotAnalyticsAction'] = None,
+             iot_events: Optional['outputs.TopicRuleIotEventsAction'] = None,
+             iot_site_wise: Optional['outputs.TopicRuleIotSiteWiseAction'] = None,
+             kafka: Optional['outputs.TopicRuleKafkaAction'] = None,
+             kinesis: Optional['outputs.TopicRuleKinesisAction'] = None,
+             lambda_: Optional['outputs.TopicRuleLambdaAction'] = None,
+             location: Optional['outputs.TopicRuleLocationAction'] = None,
+             open_search: Optional['outputs.TopicRuleOpenSearchAction'] = None,
+             republish: Optional['outputs.TopicRuleRepublishAction'] = None,
+             s3: Optional['outputs.TopicRuleS3Action'] = None,
+             sns: Optional['outputs.TopicRuleSnsAction'] = None,
+             sqs: Optional['outputs.TopicRuleSqsAction'] = None,
+             step_functions: Optional['outputs.TopicRuleStepFunctionsAction'] = None,
+             timestream: Optional['outputs.TopicRuleTimestreamAction'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloudwatch_alarm is not None:
-            pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
+            _setter("cloudwatch_alarm", cloudwatch_alarm)
         if cloudwatch_logs is not None:
-            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+            _setter("cloudwatch_logs", cloudwatch_logs)
         if cloudwatch_metric is not None:
-            pulumi.set(__self__, "cloudwatch_metric", cloudwatch_metric)
+            _setter("cloudwatch_metric", cloudwatch_metric)
         if dynamo_d_bv2 is not None:
-            pulumi.set(__self__, "dynamo_d_bv2", dynamo_d_bv2)
+            _setter("dynamo_d_bv2", dynamo_d_bv2)
         if dynamo_db is not None:
-            pulumi.set(__self__, "dynamo_db", dynamo_db)
+            _setter("dynamo_db", dynamo_db)
         if elasticsearch is not None:
-            pulumi.set(__self__, "elasticsearch", elasticsearch)
+            _setter("elasticsearch", elasticsearch)
         if firehose is not None:
-            pulumi.set(__self__, "firehose", firehose)
+            _setter("firehose", firehose)
         if http is not None:
-            pulumi.set(__self__, "http", http)
+            _setter("http", http)
         if iot_analytics is not None:
-            pulumi.set(__self__, "iot_analytics", iot_analytics)
+            _setter("iot_analytics", iot_analytics)
         if iot_events is not None:
-            pulumi.set(__self__, "iot_events", iot_events)
+            _setter("iot_events", iot_events)
         if iot_site_wise is not None:
-            pulumi.set(__self__, "iot_site_wise", iot_site_wise)
+            _setter("iot_site_wise", iot_site_wise)
         if kafka is not None:
-            pulumi.set(__self__, "kafka", kafka)
+            _setter("kafka", kafka)
         if kinesis is not None:
-            pulumi.set(__self__, "kinesis", kinesis)
+            _setter("kinesis", kinesis)
         if lambda_ is not None:
-            pulumi.set(__self__, "lambda_", lambda_)
+            _setter("lambda_", lambda_)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if open_search is not None:
-            pulumi.set(__self__, "open_search", open_search)
+            _setter("open_search", open_search)
         if republish is not None:
-            pulumi.set(__self__, "republish", republish)
+            _setter("republish", republish)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if sns is not None:
-            pulumi.set(__self__, "sns", sns)
+            _setter("sns", sns)
         if sqs is not None:
-            pulumi.set(__self__, "sqs", sqs)
+            _setter("sqs", sqs)
         if step_functions is not None:
-            pulumi.set(__self__, "step_functions", step_functions)
+            _setter("step_functions", step_functions)
         if timestream is not None:
-            pulumi.set(__self__, "timestream", timestream)
+            _setter("timestream", timestream)
 
     @property
     @pulumi.getter(name="cloudwatchAlarm")
@@ -2680,9 +3367,20 @@ class TopicRuleAssetPropertyTimestamp(dict):
     def __init__(__self__, *,
                  time_in_seconds: str,
                  offset_in_nanos: Optional[str] = None):
-        pulumi.set(__self__, "time_in_seconds", time_in_seconds)
+        TopicRuleAssetPropertyTimestamp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time_in_seconds=time_in_seconds,
+            offset_in_nanos=offset_in_nanos,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time_in_seconds: str,
+             offset_in_nanos: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
-            pulumi.set(__self__, "offset_in_nanos", offset_in_nanos)
+            _setter("offset_in_nanos", offset_in_nanos)
 
     @property
     @pulumi.getter(name="timeInSeconds")
@@ -2701,10 +3399,23 @@ class TopicRuleAssetPropertyValue(dict):
                  timestamp: 'outputs.TopicRuleAssetPropertyTimestamp',
                  value: 'outputs.TopicRuleAssetPropertyVariant',
                  quality: Optional[str] = None):
-        pulumi.set(__self__, "timestamp", timestamp)
-        pulumi.set(__self__, "value", value)
+        TopicRuleAssetPropertyValue._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            timestamp=timestamp,
+            value=value,
+            quality=quality,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             timestamp: 'outputs.TopicRuleAssetPropertyTimestamp',
+             value: 'outputs.TopicRuleAssetPropertyVariant',
+             quality: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("timestamp", timestamp)
+        _setter("value", value)
         if quality is not None:
-            pulumi.set(__self__, "quality", quality)
+            _setter("quality", quality)
 
     @property
     @pulumi.getter
@@ -2752,14 +3463,29 @@ class TopicRuleAssetPropertyVariant(dict):
                  double_value: Optional[str] = None,
                  integer_value: Optional[str] = None,
                  string_value: Optional[str] = None):
+        TopicRuleAssetPropertyVariant._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            boolean_value=boolean_value,
+            double_value=double_value,
+            integer_value=integer_value,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             boolean_value: Optional[str] = None,
+             double_value: Optional[str] = None,
+             integer_value: Optional[str] = None,
+             string_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if boolean_value is not None:
-            pulumi.set(__self__, "boolean_value", boolean_value)
+            _setter("boolean_value", boolean_value)
         if double_value is not None:
-            pulumi.set(__self__, "double_value", double_value)
+            _setter("double_value", double_value)
         if integer_value is not None:
-            pulumi.set(__self__, "integer_value", integer_value)
+            _setter("integer_value", integer_value)
         if string_value is not None:
-            pulumi.set(__self__, "string_value", string_value)
+            _setter("string_value", string_value)
 
     @property
     @pulumi.getter(name="booleanValue")
@@ -2812,10 +3538,25 @@ class TopicRuleCloudwatchAlarmAction(dict):
                  role_arn: str,
                  state_reason: str,
                  state_value: str):
-        pulumi.set(__self__, "alarm_name", alarm_name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "state_reason", state_reason)
-        pulumi.set(__self__, "state_value", state_value)
+        TopicRuleCloudwatchAlarmAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarm_name=alarm_name,
+            role_arn=role_arn,
+            state_reason=state_reason,
+            state_value=state_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarm_name: str,
+             role_arn: str,
+             state_reason: str,
+             state_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alarm_name", alarm_name)
+        _setter("role_arn", role_arn)
+        _setter("state_reason", state_reason)
+        _setter("state_value", state_value)
 
     @property
     @pulumi.getter(name="alarmName")
@@ -2865,10 +3606,23 @@ class TopicRuleCloudwatchLogsAction(dict):
                  log_group_name: str,
                  role_arn: str,
                  batch_mode: Optional[bool] = None):
-        pulumi.set(__self__, "log_group_name", log_group_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleCloudwatchLogsAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            role_arn=role_arn,
+            batch_mode=batch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: str,
+             role_arn: str,
+             batch_mode: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_group_name", log_group_name)
+        _setter("role_arn", role_arn)
         if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
+            _setter("batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -2922,13 +3676,32 @@ class TopicRuleCloudwatchMetricAction(dict):
                  metric_value: str,
                  role_arn: str,
                  metric_timestamp: Optional[str] = None):
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "metric_namespace", metric_namespace)
-        pulumi.set(__self__, "metric_unit", metric_unit)
-        pulumi.set(__self__, "metric_value", metric_value)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleCloudwatchMetricAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            metric_namespace=metric_namespace,
+            metric_unit=metric_unit,
+            metric_value=metric_value,
+            role_arn=role_arn,
+            metric_timestamp=metric_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: str,
+             metric_namespace: str,
+             metric_unit: str,
+             metric_value: str,
+             role_arn: str,
+             metric_timestamp: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_name", metric_name)
+        _setter("metric_namespace", metric_namespace)
+        _setter("metric_unit", metric_unit)
+        _setter("metric_value", metric_value)
+        _setter("role_arn", role_arn)
         if metric_timestamp is not None:
-            pulumi.set(__self__, "metric_timestamp", metric_timestamp)
+            _setter("metric_timestamp", metric_timestamp)
 
     @property
     @pulumi.getter(name="metricName")
@@ -2982,8 +3755,17 @@ class TopicRuleDestinationHttpUrlDestinationSummary(dict):
 
     def __init__(__self__, *,
                  confirmation_url: Optional[str] = None):
+        TopicRuleDestinationHttpUrlDestinationSummary._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            confirmation_url=confirmation_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             confirmation_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if confirmation_url is not None:
-            pulumi.set(__self__, "confirmation_url", confirmation_url)
+            _setter("confirmation_url", confirmation_url)
 
     @property
     @pulumi.getter(name="confirmationUrl")
@@ -3021,14 +3803,29 @@ class TopicRuleDestinationVpcDestinationProperties(dict):
                  security_groups: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None,
                  vpc_id: Optional[str] = None):
+        TopicRuleDestinationVpcDestinationProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            security_groups=security_groups,
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: Optional[str] = None,
+             security_groups: Optional[Sequence[str]] = None,
+             subnet_ids: Optional[Sequence[str]] = None,
+             vpc_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -3075,10 +3872,21 @@ class TopicRuleDynamoDBv2Action(dict):
     def __init__(__self__, *,
                  put_item: Optional['outputs.TopicRulePutItemInput'] = None,
                  role_arn: Optional[str] = None):
+        TopicRuleDynamoDBv2Action._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            put_item=put_item,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             put_item: Optional['outputs.TopicRulePutItemInput'] = None,
+             role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if put_item is not None:
-            pulumi.set(__self__, "put_item", put_item)
+            _setter("put_item", put_item)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="putItem")
@@ -3136,20 +3944,45 @@ class TopicRuleDynamoDbAction(dict):
                  range_key_field: Optional[str] = None,
                  range_key_type: Optional[str] = None,
                  range_key_value: Optional[str] = None):
-        pulumi.set(__self__, "hash_key_field", hash_key_field)
-        pulumi.set(__self__, "hash_key_value", hash_key_value)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "table_name", table_name)
+        TopicRuleDynamoDbAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hash_key_field=hash_key_field,
+            hash_key_value=hash_key_value,
+            role_arn=role_arn,
+            table_name=table_name,
+            hash_key_type=hash_key_type,
+            payload_field=payload_field,
+            range_key_field=range_key_field,
+            range_key_type=range_key_type,
+            range_key_value=range_key_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hash_key_field: str,
+             hash_key_value: str,
+             role_arn: str,
+             table_name: str,
+             hash_key_type: Optional[str] = None,
+             payload_field: Optional[str] = None,
+             range_key_field: Optional[str] = None,
+             range_key_type: Optional[str] = None,
+             range_key_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hash_key_field", hash_key_field)
+        _setter("hash_key_value", hash_key_value)
+        _setter("role_arn", role_arn)
+        _setter("table_name", table_name)
         if hash_key_type is not None:
-            pulumi.set(__self__, "hash_key_type", hash_key_type)
+            _setter("hash_key_type", hash_key_type)
         if payload_field is not None:
-            pulumi.set(__self__, "payload_field", payload_field)
+            _setter("payload_field", payload_field)
         if range_key_field is not None:
-            pulumi.set(__self__, "range_key_field", range_key_field)
+            _setter("range_key_field", range_key_field)
         if range_key_type is not None:
-            pulumi.set(__self__, "range_key_type", range_key_type)
+            _setter("range_key_type", range_key_type)
         if range_key_value is not None:
-            pulumi.set(__self__, "range_key_value", range_key_value)
+            _setter("range_key_value", range_key_value)
 
     @property
     @pulumi.getter(name="hashKeyField")
@@ -3222,11 +4055,28 @@ class TopicRuleElasticsearchAction(dict):
                  index: str,
                  role_arn: str,
                  type: str):
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "index", index)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "type", type)
+        TopicRuleElasticsearchAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            id=id,
+            index=index,
+            role_arn=role_arn,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: str,
+             id: str,
+             index: str,
+             role_arn: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint", endpoint)
+        _setter("id", id)
+        _setter("index", index)
+        _setter("role_arn", role_arn)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3282,12 +4132,27 @@ class TopicRuleFirehoseAction(dict):
                  role_arn: str,
                  batch_mode: Optional[bool] = None,
                  separator: Optional[str] = None):
-        pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleFirehoseAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_stream_name=delivery_stream_name,
+            role_arn=role_arn,
+            batch_mode=batch_mode,
+            separator=separator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_stream_name: str,
+             role_arn: str,
+             batch_mode: Optional[bool] = None,
+             separator: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("delivery_stream_name", delivery_stream_name)
+        _setter("role_arn", role_arn)
         if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
+            _setter("batch_mode", batch_mode)
         if separator is not None:
-            pulumi.set(__self__, "separator", separator)
+            _setter("separator", separator)
 
     @property
     @pulumi.getter(name="deliveryStreamName")
@@ -3334,13 +4199,28 @@ class TopicRuleHttpAction(dict):
                  auth: Optional['outputs.TopicRuleHttpAuthorization'] = None,
                  confirmation_url: Optional[str] = None,
                  headers: Optional[Sequence['outputs.TopicRuleHttpActionHeader']] = None):
-        pulumi.set(__self__, "url", url)
+        TopicRuleHttpAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            auth=auth,
+            confirmation_url=confirmation_url,
+            headers=headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: str,
+             auth: Optional['outputs.TopicRuleHttpAuthorization'] = None,
+             confirmation_url: Optional[str] = None,
+             headers: Optional[Sequence['outputs.TopicRuleHttpActionHeader']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("url", url)
         if auth is not None:
-            pulumi.set(__self__, "auth", auth)
+            _setter("auth", auth)
         if confirmation_url is not None:
-            pulumi.set(__self__, "confirmation_url", confirmation_url)
+            _setter("confirmation_url", confirmation_url)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
 
     @property
     @pulumi.getter
@@ -3368,8 +4248,19 @@ class TopicRuleHttpActionHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        TopicRuleHttpActionHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3386,8 +4277,17 @@ class TopicRuleHttpActionHeader(dict):
 class TopicRuleHttpAuthorization(dict):
     def __init__(__self__, *,
                  sigv4: Optional['outputs.TopicRuleSigV4Authorization'] = None):
+        TopicRuleHttpAuthorization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sigv4=sigv4,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sigv4: Optional['outputs.TopicRuleSigV4Authorization'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sigv4 is not None:
-            pulumi.set(__self__, "sigv4", sigv4)
+            _setter("sigv4", sigv4)
 
     @property
     @pulumi.getter
@@ -3422,10 +4322,23 @@ class TopicRuleIotAnalyticsAction(dict):
                  channel_name: str,
                  role_arn: str,
                  batch_mode: Optional[bool] = None):
-        pulumi.set(__self__, "channel_name", channel_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleIotAnalyticsAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            role_arn=role_arn,
+            batch_mode=batch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             role_arn: str,
+             batch_mode: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", channel_name)
+        _setter("role_arn", role_arn)
         if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
+            _setter("batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="channelName")
@@ -3473,12 +4386,27 @@ class TopicRuleIotEventsAction(dict):
                  role_arn: str,
                  batch_mode: Optional[bool] = None,
                  message_id: Optional[str] = None):
-        pulumi.set(__self__, "input_name", input_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleIotEventsAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_name=input_name,
+            role_arn=role_arn,
+            batch_mode=batch_mode,
+            message_id=message_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_name: str,
+             role_arn: str,
+             batch_mode: Optional[bool] = None,
+             message_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("input_name", input_name)
+        _setter("role_arn", role_arn)
         if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
+            _setter("batch_mode", batch_mode)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
 
     @property
     @pulumi.getter(name="inputName")
@@ -3525,8 +4453,19 @@ class TopicRuleIotSiteWiseAction(dict):
     def __init__(__self__, *,
                  put_asset_property_value_entries: Sequence['outputs.TopicRulePutAssetPropertyValueEntry'],
                  role_arn: str):
-        pulumi.set(__self__, "put_asset_property_value_entries", put_asset_property_value_entries)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleIotSiteWiseAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            put_asset_property_value_entries=put_asset_property_value_entries,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             put_asset_property_value_entries: Sequence['outputs.TopicRulePutAssetPropertyValueEntry'],
+             role_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("put_asset_property_value_entries", put_asset_property_value_entries)
+        _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="putAssetPropertyValueEntries")
@@ -3566,13 +4505,30 @@ class TopicRuleKafkaAction(dict):
                  topic: str,
                  key: Optional[str] = None,
                  partition: Optional[str] = None):
-        pulumi.set(__self__, "client_properties", client_properties)
-        pulumi.set(__self__, "destination_arn", destination_arn)
-        pulumi.set(__self__, "topic", topic)
+        TopicRuleKafkaAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_properties=client_properties,
+            destination_arn=destination_arn,
+            topic=topic,
+            key=key,
+            partition=partition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_properties: Any,
+             destination_arn: str,
+             topic: str,
+             key: Optional[str] = None,
+             partition: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_properties", client_properties)
+        _setter("destination_arn", destination_arn)
+        _setter("topic", topic)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
 
     @property
     @pulumi.getter(name="clientProperties")
@@ -3627,10 +4583,23 @@ class TopicRuleKinesisAction(dict):
                  role_arn: str,
                  stream_name: str,
                  partition_key: Optional[str] = None):
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "stream_name", stream_name)
+        TopicRuleKinesisAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            stream_name=stream_name,
+            partition_key=partition_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: str,
+             stream_name: str,
+             partition_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
+        _setter("stream_name", stream_name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -3669,8 +4638,17 @@ class TopicRuleLambdaAction(dict):
 
     def __init__(__self__, *,
                  function_arn: Optional[str] = None):
+        TopicRuleLambdaAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_arn=function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if function_arn is not None:
-            pulumi.set(__self__, "function_arn", function_arn)
+            _setter("function_arn", function_arn)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -3708,13 +4686,32 @@ class TopicRuleLocationAction(dict):
                  role_arn: str,
                  tracker_name: str,
                  timestamp: Optional['outputs.TopicRuleTimestamp'] = None):
-        pulumi.set(__self__, "device_id", device_id)
-        pulumi.set(__self__, "latitude", latitude)
-        pulumi.set(__self__, "longitude", longitude)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "tracker_name", tracker_name)
+        TopicRuleLocationAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_id=device_id,
+            latitude=latitude,
+            longitude=longitude,
+            role_arn=role_arn,
+            tracker_name=tracker_name,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_id: str,
+             latitude: str,
+             longitude: str,
+             role_arn: str,
+             tracker_name: str,
+             timestamp: Optional['outputs.TopicRuleTimestamp'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("device_id", device_id)
+        _setter("latitude", latitude)
+        _setter("longitude", longitude)
+        _setter("role_arn", role_arn)
+        _setter("tracker_name", tracker_name)
         if timestamp is not None:
-            pulumi.set(__self__, "timestamp", timestamp)
+            _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter(name="deviceId")
@@ -3772,11 +4769,28 @@ class TopicRuleOpenSearchAction(dict):
                  index: str,
                  role_arn: str,
                  type: str):
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "index", index)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "type", type)
+        TopicRuleOpenSearchAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            id=id,
+            index=index,
+            role_arn=role_arn,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: str,
+             id: str,
+             index: str,
+             role_arn: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint", endpoint)
+        _setter("id", id)
+        _setter("index", index)
+        _setter("role_arn", role_arn)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3834,16 +4848,35 @@ class TopicRulePayload(dict):
                  description: Optional[str] = None,
                  error_action: Optional['outputs.TopicRuleAction'] = None,
                  rule_disabled: Optional[bool] = None):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "sql", sql)
+        TopicRulePayload._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            sql=sql,
+            aws_iot_sql_version=aws_iot_sql_version,
+            description=description,
+            error_action=error_action,
+            rule_disabled=rule_disabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence['outputs.TopicRuleAction'],
+             sql: str,
+             aws_iot_sql_version: Optional[str] = None,
+             description: Optional[str] = None,
+             error_action: Optional['outputs.TopicRuleAction'] = None,
+             rule_disabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("sql", sql)
         if aws_iot_sql_version is not None:
-            pulumi.set(__self__, "aws_iot_sql_version", aws_iot_sql_version)
+            _setter("aws_iot_sql_version", aws_iot_sql_version)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if error_action is not None:
-            pulumi.set(__self__, "error_action", error_action)
+            _setter("error_action", error_action)
         if rule_disabled is not None:
-            pulumi.set(__self__, "rule_disabled", rule_disabled)
+            _setter("rule_disabled", rule_disabled)
 
     @property
     @pulumi.getter
@@ -3909,15 +4942,32 @@ class TopicRulePutAssetPropertyValueEntry(dict):
                  entry_id: Optional[str] = None,
                  property_alias: Optional[str] = None,
                  property_id: Optional[str] = None):
-        pulumi.set(__self__, "property_values", property_values)
+        TopicRulePutAssetPropertyValueEntry._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            property_values=property_values,
+            asset_id=asset_id,
+            entry_id=entry_id,
+            property_alias=property_alias,
+            property_id=property_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             property_values: Sequence['outputs.TopicRuleAssetPropertyValue'],
+             asset_id: Optional[str] = None,
+             entry_id: Optional[str] = None,
+             property_alias: Optional[str] = None,
+             property_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("property_values", property_values)
         if asset_id is not None:
-            pulumi.set(__self__, "asset_id", asset_id)
+            _setter("asset_id", asset_id)
         if entry_id is not None:
-            pulumi.set(__self__, "entry_id", entry_id)
+            _setter("entry_id", entry_id)
         if property_alias is not None:
-            pulumi.set(__self__, "property_alias", property_alias)
+            _setter("property_alias", property_alias)
         if property_id is not None:
-            pulumi.set(__self__, "property_id", property_id)
+            _setter("property_id", property_id)
 
     @property
     @pulumi.getter(name="propertyValues")
@@ -3966,7 +5016,16 @@ class TopicRulePutItemInput(dict):
 
     def __init__(__self__, *,
                  table_name: str):
-        pulumi.set(__self__, "table_name", table_name)
+        TopicRulePutItemInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             table_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="tableName")
@@ -3998,12 +5057,27 @@ class TopicRuleRepublishAction(dict):
                  topic: str,
                  headers: Optional['outputs.TopicRuleRepublishActionHeaders'] = None,
                  qos: Optional[int] = None):
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "topic", topic)
+        TopicRuleRepublishAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            topic=topic,
+            headers=headers,
+            qos=qos,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: str,
+             topic: str,
+             headers: Optional['outputs.TopicRuleRepublishActionHeaders'] = None,
+             qos: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
+        _setter("topic", topic)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if qos is not None:
-            pulumi.set(__self__, "qos", qos)
+            _setter("qos", qos)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -4062,18 +5136,37 @@ class TopicRuleRepublishActionHeaders(dict):
                  payload_format_indicator: Optional[str] = None,
                  response_topic: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.TopicRuleUserProperty']] = None):
+        TopicRuleRepublishActionHeaders._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            correlation_data=correlation_data,
+            message_expiry=message_expiry,
+            payload_format_indicator=payload_format_indicator,
+            response_topic=response_topic,
+            user_properties=user_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: Optional[str] = None,
+             correlation_data: Optional[str] = None,
+             message_expiry: Optional[str] = None,
+             payload_format_indicator: Optional[str] = None,
+             response_topic: Optional[str] = None,
+             user_properties: Optional[Sequence['outputs.TopicRuleUserProperty']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if correlation_data is not None:
-            pulumi.set(__self__, "correlation_data", correlation_data)
+            _setter("correlation_data", correlation_data)
         if message_expiry is not None:
-            pulumi.set(__self__, "message_expiry", message_expiry)
+            _setter("message_expiry", message_expiry)
         if payload_format_indicator is not None:
-            pulumi.set(__self__, "payload_format_indicator", payload_format_indicator)
+            _setter("payload_format_indicator", payload_format_indicator)
         if response_topic is not None:
-            pulumi.set(__self__, "response_topic", response_topic)
+            _setter("response_topic", response_topic)
         if user_properties is not None:
-            pulumi.set(__self__, "user_properties", user_properties)
+            _setter("user_properties", user_properties)
 
     @property
     @pulumi.getter(name="contentType")
@@ -4134,11 +5227,26 @@ class TopicRuleS3Action(dict):
                  key: str,
                  role_arn: str,
                  canned_acl: Optional['TopicRuleCannedAccessControlList'] = None):
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleS3Action._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            key=key,
+            role_arn=role_arn,
+            canned_acl=canned_acl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: str,
+             key: str,
+             role_arn: str,
+             canned_acl: Optional['TopicRuleCannedAccessControlList'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
+        _setter("key", key)
+        _setter("role_arn", role_arn)
         if canned_acl is not None:
-            pulumi.set(__self__, "canned_acl", canned_acl)
+            _setter("canned_acl", canned_acl)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -4188,9 +5296,22 @@ class TopicRuleSigV4Authorization(dict):
                  role_arn: str,
                  service_name: str,
                  signing_region: str):
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "signing_region", signing_region)
+        TopicRuleSigV4Authorization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            service_name=service_name,
+            signing_region=signing_region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: str,
+             service_name: str,
+             signing_region: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
+        _setter("service_name", service_name)
+        _setter("signing_region", signing_region)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -4235,10 +5356,23 @@ class TopicRuleSnsAction(dict):
                  role_arn: str,
                  target_arn: str,
                  message_format: Optional[str] = None):
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "target_arn", target_arn)
+        TopicRuleSnsAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            target_arn=target_arn,
+            message_format=message_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: str,
+             target_arn: str,
+             message_format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
+        _setter("target_arn", target_arn)
         if message_format is not None:
-            pulumi.set(__self__, "message_format", message_format)
+            _setter("message_format", message_format)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -4283,10 +5417,23 @@ class TopicRuleSqsAction(dict):
                  queue_url: str,
                  role_arn: str,
                  use_base64: Optional[bool] = None):
-        pulumi.set(__self__, "queue_url", queue_url)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleSqsAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            queue_url=queue_url,
+            role_arn=role_arn,
+            use_base64=use_base64,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             queue_url: str,
+             role_arn: str,
+             use_base64: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("queue_url", queue_url)
+        _setter("role_arn", role_arn)
         if use_base64 is not None:
-            pulumi.set(__self__, "use_base64", use_base64)
+            _setter("use_base64", use_base64)
 
     @property
     @pulumi.getter(name="queueUrl")
@@ -4331,10 +5478,23 @@ class TopicRuleStepFunctionsAction(dict):
                  role_arn: str,
                  state_machine_name: str,
                  execution_name_prefix: Optional[str] = None):
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "state_machine_name", state_machine_name)
+        TopicRuleStepFunctionsAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            state_machine_name=state_machine_name,
+            execution_name_prefix=execution_name_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: str,
+             state_machine_name: str,
+             execution_name_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
+        _setter("state_machine_name", state_machine_name)
         if execution_name_prefix is not None:
-            pulumi.set(__self__, "execution_name_prefix", execution_name_prefix)
+            _setter("execution_name_prefix", execution_name_prefix)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -4357,8 +5517,19 @@ class TopicRuleTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        TopicRuleTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4376,9 +5547,20 @@ class TopicRuleTimestamp(dict):
     def __init__(__self__, *,
                  value: str,
                  unit: Optional[str] = None):
-        pulumi.set(__self__, "value", value)
+        TopicRuleTimestamp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: str,
+             unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -4420,12 +5602,29 @@ class TopicRuleTimestreamAction(dict):
                  role_arn: str,
                  table_name: str,
                  timestamp: Optional['outputs.TopicRuleTimestreamTimestamp'] = None):
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "dimensions", dimensions)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "table_name", table_name)
+        TopicRuleTimestreamAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            dimensions=dimensions,
+            role_arn=role_arn,
+            table_name=table_name,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             dimensions: Sequence['outputs.TopicRuleTimestreamDimension'],
+             role_arn: str,
+             table_name: str,
+             timestamp: Optional['outputs.TopicRuleTimestreamTimestamp'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("dimensions", dimensions)
+        _setter("role_arn", role_arn)
+        _setter("table_name", table_name)
         if timestamp is not None:
-            pulumi.set(__self__, "timestamp", timestamp)
+            _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -4458,8 +5657,19 @@ class TopicRuleTimestreamDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        TopicRuleTimestreamDimension._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4477,8 +5687,19 @@ class TopicRuleTimestreamTimestamp(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: str):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        TopicRuleTimestreamTimestamp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4496,8 +5717,19 @@ class TopicRuleUserProperty(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        TopicRuleUserProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

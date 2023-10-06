@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachment']
@@ -25,11 +25,26 @@ class NetworkInterfaceAttachmentArgs:
         :param pulumi.Input[str] network_interface_id: The ID of the ENI that you want to attach.
         :param pulumi.Input[bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to true.
         """
-        pulumi.set(__self__, "device_index", device_index)
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        NetworkInterfaceAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_index=device_index,
+            instance_id=instance_id,
+            network_interface_id=network_interface_id,
+            delete_on_termination=delete_on_termination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_index: pulumi.Input[str],
+             instance_id: pulumi.Input[str],
+             network_interface_id: pulumi.Input[str],
+             delete_on_termination: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("device_index", device_index)
+        _setter("instance_id", instance_id)
+        _setter("network_interface_id", network_interface_id)
         if delete_on_termination is not None:
-            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+            _setter("delete_on_termination", delete_on_termination)
 
     @property
     @pulumi.getter(name="deviceIndex")
@@ -119,6 +134,10 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

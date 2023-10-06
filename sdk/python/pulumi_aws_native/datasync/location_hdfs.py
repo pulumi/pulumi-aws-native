@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -45,29 +45,62 @@ class LocationHdfsArgs:
         :param pulumi.Input[str] subdirectory: The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
         :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "agent_arns", agent_arns)
-        pulumi.set(__self__, "authentication_type", authentication_type)
-        pulumi.set(__self__, "name_nodes", name_nodes)
+        LocationHdfsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_arns=agent_arns,
+            authentication_type=authentication_type,
+            name_nodes=name_nodes,
+            block_size=block_size,
+            kerberos_keytab=kerberos_keytab,
+            kerberos_krb5_conf=kerberos_krb5_conf,
+            kerberos_principal=kerberos_principal,
+            kms_key_provider_uri=kms_key_provider_uri,
+            qop_configuration=qop_configuration,
+            replication_factor=replication_factor,
+            simple_user=simple_user,
+            subdirectory=subdirectory,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             authentication_type: pulumi.Input['LocationHdfsAuthenticationType'],
+             name_nodes: pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]],
+             block_size: Optional[pulumi.Input[int]] = None,
+             kerberos_keytab: Optional[pulumi.Input[str]] = None,
+             kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
+             kerberos_principal: Optional[pulumi.Input[str]] = None,
+             kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
+             qop_configuration: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']] = None,
+             replication_factor: Optional[pulumi.Input[int]] = None,
+             simple_user: Optional[pulumi.Input[str]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_arns", agent_arns)
+        _setter("authentication_type", authentication_type)
+        _setter("name_nodes", name_nodes)
         if block_size is not None:
-            pulumi.set(__self__, "block_size", block_size)
+            _setter("block_size", block_size)
         if kerberos_keytab is not None:
-            pulumi.set(__self__, "kerberos_keytab", kerberos_keytab)
+            _setter("kerberos_keytab", kerberos_keytab)
         if kerberos_krb5_conf is not None:
-            pulumi.set(__self__, "kerberos_krb5_conf", kerberos_krb5_conf)
+            _setter("kerberos_krb5_conf", kerberos_krb5_conf)
         if kerberos_principal is not None:
-            pulumi.set(__self__, "kerberos_principal", kerberos_principal)
+            _setter("kerberos_principal", kerberos_principal)
         if kms_key_provider_uri is not None:
-            pulumi.set(__self__, "kms_key_provider_uri", kms_key_provider_uri)
+            _setter("kms_key_provider_uri", kms_key_provider_uri)
         if qop_configuration is not None:
-            pulumi.set(__self__, "qop_configuration", qop_configuration)
+            _setter("qop_configuration", qop_configuration)
         if replication_factor is not None:
-            pulumi.set(__self__, "replication_factor", replication_factor)
+            _setter("replication_factor", replication_factor)
         if simple_user is not None:
-            pulumi.set(__self__, "simple_user", simple_user)
+            _setter("simple_user", simple_user)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -279,6 +312,10 @@ class LocationHdfs(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocationHdfsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -320,6 +357,11 @@ class LocationHdfs(pulumi.CustomResource):
             if name_nodes is None and not opts.urn:
                 raise TypeError("Missing required property 'name_nodes'")
             __props__.__dict__["name_nodes"] = name_nodes
+            if qop_configuration is not None and not isinstance(qop_configuration, LocationHdfsQopConfigurationArgs):
+                qop_configuration = qop_configuration or {}
+                def _setter(key, value):
+                    qop_configuration[key] = value
+                LocationHdfsQopConfigurationArgs._configure(_setter, **qop_configuration)
             __props__.__dict__["qop_configuration"] = qop_configuration
             __props__.__dict__["replication_factor"] = replication_factor
             __props__.__dict__["simple_user"] = simple_user

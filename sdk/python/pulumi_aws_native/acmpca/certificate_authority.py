@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,20 +36,45 @@ class CertificateAuthorityArgs:
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
         :param pulumi.Input[str] usage_mode: Usage mode of the ceritificate authority.
         """
-        pulumi.set(__self__, "key_algorithm", key_algorithm)
-        pulumi.set(__self__, "signing_algorithm", signing_algorithm)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "type", type)
+        CertificateAuthorityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_algorithm=key_algorithm,
+            signing_algorithm=signing_algorithm,
+            subject=subject,
+            type=type,
+            csr_extensions=csr_extensions,
+            key_storage_security_standard=key_storage_security_standard,
+            revocation_configuration=revocation_configuration,
+            tags=tags,
+            usage_mode=usage_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_algorithm: pulumi.Input[str],
+             signing_algorithm: pulumi.Input[str],
+             subject: pulumi.Input['CertificateAuthoritySubjectArgs'],
+             type: pulumi.Input[str],
+             csr_extensions: Optional[pulumi.Input['CertificateAuthorityCsrExtensionsArgs']] = None,
+             key_storage_security_standard: Optional[pulumi.Input[str]] = None,
+             revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityTagArgs']]]] = None,
+             usage_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_algorithm", key_algorithm)
+        _setter("signing_algorithm", signing_algorithm)
+        _setter("subject", subject)
+        _setter("type", type)
         if csr_extensions is not None:
-            pulumi.set(__self__, "csr_extensions", csr_extensions)
+            _setter("csr_extensions", csr_extensions)
         if key_storage_security_standard is not None:
-            pulumi.set(__self__, "key_storage_security_standard", key_storage_security_standard)
+            _setter("key_storage_security_standard", key_storage_security_standard)
         if revocation_configuration is not None:
-            pulumi.set(__self__, "revocation_configuration", revocation_configuration)
+            _setter("revocation_configuration", revocation_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if usage_mode is not None:
-            pulumi.set(__self__, "usage_mode", usage_mode)
+            _setter("usage_mode", usage_mode)
 
     @property
     @pulumi.getter(name="keyAlgorithm")
@@ -205,6 +230,10 @@ class CertificateAuthority(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateAuthorityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -228,15 +257,30 @@ class CertificateAuthority(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateAuthorityArgs.__new__(CertificateAuthorityArgs)
 
+            if csr_extensions is not None and not isinstance(csr_extensions, CertificateAuthorityCsrExtensionsArgs):
+                csr_extensions = csr_extensions or {}
+                def _setter(key, value):
+                    csr_extensions[key] = value
+                CertificateAuthorityCsrExtensionsArgs._configure(_setter, **csr_extensions)
             __props__.__dict__["csr_extensions"] = csr_extensions
             if key_algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'key_algorithm'")
             __props__.__dict__["key_algorithm"] = key_algorithm
             __props__.__dict__["key_storage_security_standard"] = key_storage_security_standard
+            if revocation_configuration is not None and not isinstance(revocation_configuration, CertificateAuthorityRevocationConfigurationArgs):
+                revocation_configuration = revocation_configuration or {}
+                def _setter(key, value):
+                    revocation_configuration[key] = value
+                CertificateAuthorityRevocationConfigurationArgs._configure(_setter, **revocation_configuration)
             __props__.__dict__["revocation_configuration"] = revocation_configuration
             if signing_algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'signing_algorithm'")
             __props__.__dict__["signing_algorithm"] = signing_algorithm
+            if subject is not None and not isinstance(subject, CertificateAuthoritySubjectArgs):
+                subject = subject or {}
+                def _setter(key, value):
+                    subject[key] = value
+                CertificateAuthoritySubjectArgs._configure(_setter, **subject)
             if subject is None and not opts.urn:
                 raise TypeError("Missing required property 'subject'")
             __props__.__dict__["subject"] = subject

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -54,9 +54,20 @@ class CustomDbEngineVersionTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        CustomDbEngineVersionTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -107,9 +118,20 @@ class DbClusterDbClusterRole(dict):
         :param str role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
         :param str feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
+        DbClusterDbClusterRole._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            feature_name=feature_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: str,
+             feature_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
         if feature_name is not None:
-            pulumi.set(__self__, "feature_name", feature_name)
+            _setter("feature_name", feature_name)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -137,10 +159,21 @@ class DbClusterEndpoint(dict):
         :param str address: The connection endpoint for the DB cluster.
         :param str port: The port number that will accept connections on this DB cluster.
         """
+        DbClusterEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             port: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -187,10 +220,21 @@ class DbClusterMasterUserSecret(dict):
         :param str kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
         :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
         """
+        DbClusterMasterUserSecret._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            secret_arn=secret_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: Optional[str] = None,
+             secret_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -222,9 +266,20 @@ class DbClusterParameterGroupTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        DbClusterParameterGroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -250,8 +305,17 @@ class DbClusterReadEndpoint(dict):
         """
         :param str address: The reader endpoint for the DB cluster.
         """
+        DbClusterReadEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
 
     @property
     @pulumi.getter
@@ -321,18 +385,37 @@ class DbClusterScalingConfiguration(dict):
                
                For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
         """
+        DbClusterScalingConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_pause=auto_pause,
+            max_capacity=max_capacity,
+            min_capacity=min_capacity,
+            seconds_before_timeout=seconds_before_timeout,
+            seconds_until_auto_pause=seconds_until_auto_pause,
+            timeout_action=timeout_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_pause: Optional[bool] = None,
+             max_capacity: Optional[int] = None,
+             min_capacity: Optional[int] = None,
+             seconds_before_timeout: Optional[int] = None,
+             seconds_until_auto_pause: Optional[int] = None,
+             timeout_action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_pause is not None:
-            pulumi.set(__self__, "auto_pause", auto_pause)
+            _setter("auto_pause", auto_pause)
         if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
+            _setter("max_capacity", max_capacity)
         if min_capacity is not None:
-            pulumi.set(__self__, "min_capacity", min_capacity)
+            _setter("min_capacity", min_capacity)
         if seconds_before_timeout is not None:
-            pulumi.set(__self__, "seconds_before_timeout", seconds_before_timeout)
+            _setter("seconds_before_timeout", seconds_before_timeout)
         if seconds_until_auto_pause is not None:
-            pulumi.set(__self__, "seconds_until_auto_pause", seconds_until_auto_pause)
+            _setter("seconds_until_auto_pause", seconds_until_auto_pause)
         if timeout_action is not None:
-            pulumi.set(__self__, "timeout_action", timeout_action)
+            _setter("timeout_action", timeout_action)
 
     @property
     @pulumi.getter(name="autoPause")
@@ -426,10 +509,21 @@ class DbClusterServerlessV2ScalingConfiguration(dict):
         :param float max_capacity: The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
         :param float min_capacity: The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
         """
+        DbClusterServerlessV2ScalingConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_capacity=max_capacity,
+            min_capacity=min_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_capacity: Optional[float] = None,
+             min_capacity: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
+            _setter("max_capacity", max_capacity)
         if min_capacity is not None:
-            pulumi.set(__self__, "min_capacity", min_capacity)
+            _setter("min_capacity", min_capacity)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -461,9 +555,20 @@ class DbClusterTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
+        DbClusterTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -510,10 +615,21 @@ class DbInstanceCertificateDetails(dict):
         :param str ca_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
         :param str valid_till: The expiration date of the DB instance’s server certificate.
         """
+        DbInstanceCertificateDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ca_identifier=ca_identifier,
+            valid_till=valid_till,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ca_identifier: Optional[str] = None,
+             valid_till: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ca_identifier is not None:
-            pulumi.set(__self__, "ca_identifier", ca_identifier)
+            _setter("ca_identifier", ca_identifier)
         if valid_till is not None:
-            pulumi.set(__self__, "valid_till", valid_till)
+            _setter("valid_till", valid_till)
 
     @property
     @pulumi.getter(name="caIdentifier")
@@ -560,8 +676,19 @@ class DbInstanceDbInstanceRole(dict):
         :param str feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
         :param str role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
         """
-        pulumi.set(__self__, "feature_name", feature_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        DbInstanceDbInstanceRole._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            feature_name=feature_name,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             feature_name: str,
+             role_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("feature_name", feature_name)
+        _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="featureName")
@@ -608,12 +735,25 @@ class DbInstanceEndpoint(dict):
         :param str hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         :param str port: Specifies the port that the database engine is listening on.
         """
+        DbInstanceEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            hosted_zone_id=hosted_zone_id,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             hosted_zone_id: Optional[str] = None,
+             port: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -668,10 +808,21 @@ class DbInstanceMasterUserSecret(dict):
         :param str kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
         :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
         """
+        DbInstanceMasterUserSecret._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            secret_arn=secret_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: Optional[str] = None,
+             secret_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -699,10 +850,21 @@ class DbInstanceProcessorFeature(dict):
         :param 'DbInstanceProcessorFeatureName' name: The name of the processor feature. Valid names are coreCount and threadsPerCore.
         :param str value: The value of a processor feature name.
         """
+        DbInstanceProcessorFeature._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional['DbInstanceProcessorFeatureName'] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -734,9 +896,20 @@ class DbInstanceTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
+        DbInstanceTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -768,9 +941,20 @@ class DbParameterGroupTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        DbParameterGroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -827,16 +1011,33 @@ class DbProxyAuthFormat(dict):
         :param 'DbProxyAuthFormatIamAuth' iam_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         :param str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         """
+        DbProxyAuthFormat._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_scheme=auth_scheme,
+            client_password_auth_type=client_password_auth_type,
+            description=description,
+            iam_auth=iam_auth,
+            secret_arn=secret_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_scheme: Optional['DbProxyAuthFormatAuthScheme'] = None,
+             client_password_auth_type: Optional['DbProxyAuthFormatClientPasswordAuthType'] = None,
+             description: Optional[str] = None,
+             iam_auth: Optional['DbProxyAuthFormatIamAuth'] = None,
+             secret_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_scheme is not None:
-            pulumi.set(__self__, "auth_scheme", auth_scheme)
+            _setter("auth_scheme", auth_scheme)
         if client_password_auth_type is not None:
-            pulumi.set(__self__, "client_password_auth_type", client_password_auth_type)
+            _setter("client_password_auth_type", client_password_auth_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if iam_auth is not None:
-            pulumi.set(__self__, "iam_auth", iam_auth)
+            _setter("iam_auth", iam_auth)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
 
     @property
     @pulumi.getter(name="authScheme")
@@ -884,10 +1085,21 @@ class DbProxyEndpointTagFormat(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
+        DbProxyEndpointTagFormat._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -905,10 +1117,21 @@ class DbProxyTagFormat(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
+        DbProxyTagFormat._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -961,16 +1184,33 @@ class DbProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
         :param int max_idle_connections_percent: Controls how actively the proxy closes idle database connections in the connection pool.
         :param Sequence[str] session_pinning_filters: Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
         """
+        DbProxyTargetGroupConnectionPoolConfigurationInfoFormat._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_borrow_timeout=connection_borrow_timeout,
+            init_query=init_query,
+            max_connections_percent=max_connections_percent,
+            max_idle_connections_percent=max_idle_connections_percent,
+            session_pinning_filters=session_pinning_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_borrow_timeout: Optional[int] = None,
+             init_query: Optional[str] = None,
+             max_connections_percent: Optional[int] = None,
+             max_idle_connections_percent: Optional[int] = None,
+             session_pinning_filters: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_borrow_timeout is not None:
-            pulumi.set(__self__, "connection_borrow_timeout", connection_borrow_timeout)
+            _setter("connection_borrow_timeout", connection_borrow_timeout)
         if init_query is not None:
-            pulumi.set(__self__, "init_query", init_query)
+            _setter("init_query", init_query)
         if max_connections_percent is not None:
-            pulumi.set(__self__, "max_connections_percent", max_connections_percent)
+            _setter("max_connections_percent", max_connections_percent)
         if max_idle_connections_percent is not None:
-            pulumi.set(__self__, "max_idle_connections_percent", max_idle_connections_percent)
+            _setter("max_idle_connections_percent", max_idle_connections_percent)
         if session_pinning_filters is not None:
-            pulumi.set(__self__, "session_pinning_filters", session_pinning_filters)
+            _setter("session_pinning_filters", session_pinning_filters)
 
     @property
     @pulumi.getter(name="connectionBorrowTimeout")
@@ -1041,14 +1281,29 @@ class DbSecurityGroupIngress(dict):
                  ec2_security_group_id: Optional[str] = None,
                  ec2_security_group_name: Optional[str] = None,
                  ec2_security_group_owner_id: Optional[str] = None):
+        DbSecurityGroupIngress._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidrip=cidrip,
+            ec2_security_group_id=ec2_security_group_id,
+            ec2_security_group_name=ec2_security_group_name,
+            ec2_security_group_owner_id=ec2_security_group_owner_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidrip: Optional[str] = None,
+             ec2_security_group_id: Optional[str] = None,
+             ec2_security_group_name: Optional[str] = None,
+             ec2_security_group_owner_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cidrip is not None:
-            pulumi.set(__self__, "cidrip", cidrip)
+            _setter("cidrip", cidrip)
         if ec2_security_group_id is not None:
-            pulumi.set(__self__, "ec2_security_group_id", ec2_security_group_id)
+            _setter("ec2_security_group_id", ec2_security_group_id)
         if ec2_security_group_name is not None:
-            pulumi.set(__self__, "ec2_security_group_name", ec2_security_group_name)
+            _setter("ec2_security_group_name", ec2_security_group_name)
         if ec2_security_group_owner_id is not None:
-            pulumi.set(__self__, "ec2_security_group_owner_id", ec2_security_group_owner_id)
+            _setter("ec2_security_group_owner_id", ec2_security_group_owner_id)
 
     @property
     @pulumi.getter
@@ -1076,8 +1331,19 @@ class DbSecurityGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        DbSecurityGroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1103,9 +1369,20 @@ class DbSubnetGroupTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
+        DbSubnetGroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1137,9 +1414,20 @@ class EventSubscriptionTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
+        EventSubscriptionTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1204,17 +1492,36 @@ class OptionGroupOptionConfiguration(dict):
         :param int port: The optional port for the option.
         :param Sequence[str] vpc_security_group_memberships: A list of VpcSecurityGroupMembership name strings used for this option.
         """
-        pulumi.set(__self__, "option_name", option_name)
+        OptionGroupOptionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            option_name=option_name,
+            db_security_group_memberships=db_security_group_memberships,
+            option_settings=option_settings,
+            option_version=option_version,
+            port=port,
+            vpc_security_group_memberships=vpc_security_group_memberships,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             option_name: str,
+             db_security_group_memberships: Optional[Sequence[str]] = None,
+             option_settings: Optional[Sequence['outputs.OptionGroupOptionSetting']] = None,
+             option_version: Optional[str] = None,
+             port: Optional[int] = None,
+             vpc_security_group_memberships: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("option_name", option_name)
         if db_security_group_memberships is not None:
-            pulumi.set(__self__, "db_security_group_memberships", db_security_group_memberships)
+            _setter("db_security_group_memberships", db_security_group_memberships)
         if option_settings is not None:
-            pulumi.set(__self__, "option_settings", option_settings)
+            _setter("option_settings", option_settings)
         if option_version is not None:
-            pulumi.set(__self__, "option_version", option_version)
+            _setter("option_version", option_version)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if vpc_security_group_memberships is not None:
-            pulumi.set(__self__, "vpc_security_group_memberships", vpc_security_group_memberships)
+            _setter("vpc_security_group_memberships", vpc_security_group_memberships)
 
     @property
     @pulumi.getter(name="optionName")
@@ -1278,10 +1585,21 @@ class OptionGroupOptionSetting(dict):
         :param str name: The name of the option that has settings that you can set.
         :param str value: The current value of the option setting.
         """
+        OptionGroupOptionSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1313,9 +1631,20 @@ class OptionGroupTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        pulumi.set(__self__, "key", key)
+        OptionGroupTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter

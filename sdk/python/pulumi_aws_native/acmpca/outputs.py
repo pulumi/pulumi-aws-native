@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -51,10 +51,21 @@ class CertificateApiPassthrough(dict):
         """
         Structure that specifies fields to be overridden in a certificate at the time of issuance. These requires an API Passthrough template be used or they will be ignored.
         """
+        CertificateApiPassthrough._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extensions=extensions,
+            subject=subject,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extensions: Optional['outputs.CertificateExtensions'] = None,
+             subject: Optional['outputs.CertificateSubject'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
 
     @property
     @pulumi.getter
@@ -97,8 +108,19 @@ class CertificateAuthorityAccessDescription(dict):
         """
         Structure that contains X.509 AccessDescription information.
         """
-        pulumi.set(__self__, "access_location", access_location)
-        pulumi.set(__self__, "access_method", access_method)
+        CertificateAuthorityAccessDescription._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_location=access_location,
+            access_method=access_method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_location: 'outputs.CertificateAuthorityGeneralName',
+             access_method: 'outputs.CertificateAuthorityAccessMethod',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_location", access_location)
+        _setter("access_method", access_method)
 
     @property
     @pulumi.getter(name="accessLocation")
@@ -141,10 +163,21 @@ class CertificateAuthorityAccessMethod(dict):
         """
         Structure that contains X.509 AccessMethod information. Assign one and ONLY one field.
         """
+        CertificateAuthorityAccessMethod._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_method_type=access_method_type,
+            custom_object_identifier=custom_object_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_method_type: Optional[str] = None,
+             custom_object_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_method_type is not None:
-            pulumi.set(__self__, "access_method_type", access_method_type)
+            _setter("access_method_type", access_method_type)
         if custom_object_identifier is not None:
-            pulumi.set(__self__, "custom_object_identifier", custom_object_identifier)
+            _setter("custom_object_identifier", custom_object_identifier)
 
     @property
     @pulumi.getter(name="accessMethodType")
@@ -194,16 +227,33 @@ class CertificateAuthorityCrlConfiguration(dict):
         """
         Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
         """
+        CertificateAuthorityCrlConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_cname=custom_cname,
+            enabled=enabled,
+            expiration_in_days=expiration_in_days,
+            s3_bucket_name=s3_bucket_name,
+            s3_object_acl=s3_object_acl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_cname: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             expiration_in_days: Optional[int] = None,
+             s3_bucket_name: Optional[str] = None,
+             s3_object_acl: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_cname is not None:
-            pulumi.set(__self__, "custom_cname", custom_cname)
+            _setter("custom_cname", custom_cname)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expiration_in_days is not None:
-            pulumi.set(__self__, "expiration_in_days", expiration_in_days)
+            _setter("expiration_in_days", expiration_in_days)
         if s3_bucket_name is not None:
-            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+            _setter("s3_bucket_name", s3_bucket_name)
         if s3_object_acl is not None:
-            pulumi.set(__self__, "s3_object_acl", s3_object_acl)
+            _setter("s3_object_acl", s3_object_acl)
 
     @property
     @pulumi.getter(name="customCname")
@@ -261,10 +311,21 @@ class CertificateAuthorityCsrExtensions(dict):
         """
         Structure that contains CSR pass though extensions information.
         """
+        CertificateAuthorityCsrExtensions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_usage=key_usage,
+            subject_information_access=subject_information_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_usage: Optional['outputs.CertificateAuthorityKeyUsage'] = None,
+             subject_information_access: Optional[Sequence['outputs.CertificateAuthorityAccessDescription']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_usage is not None:
-            pulumi.set(__self__, "key_usage", key_usage)
+            _setter("key_usage", key_usage)
         if subject_information_access is not None:
-            pulumi.set(__self__, "subject_information_access", subject_information_access)
+            _setter("subject_information_access", subject_information_access)
 
     @property
     @pulumi.getter(name="keyUsage")
@@ -305,8 +366,19 @@ class CertificateAuthorityCustomAttribute(dict):
         """
         Structure that contains X.500 attribute type and value.
         """
-        pulumi.set(__self__, "object_identifier", object_identifier)
-        pulumi.set(__self__, "value", value)
+        CertificateAuthorityCustomAttribute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_identifier=object_identifier,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_identifier: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object_identifier", object_identifier)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="objectIdentifier")
@@ -349,8 +421,19 @@ class CertificateAuthorityEdiPartyName(dict):
         """
         Structure that contains X.509 EdiPartyName information.
         """
-        pulumi.set(__self__, "name_assigner", name_assigner)
-        pulumi.set(__self__, "party_name", party_name)
+        CertificateAuthorityEdiPartyName._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name_assigner=name_assigner,
+            party_name=party_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name_assigner: str,
+             party_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name_assigner", name_assigner)
+        _setter("party_name", party_name)
 
     @property
     @pulumi.getter(name="nameAssigner")
@@ -411,22 +494,45 @@ class CertificateAuthorityGeneralName(dict):
         """
         Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
         """
+        CertificateAuthorityGeneralName._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_name=directory_name,
+            dns_name=dns_name,
+            edi_party_name=edi_party_name,
+            ip_address=ip_address,
+            other_name=other_name,
+            registered_id=registered_id,
+            rfc822_name=rfc822_name,
+            uniform_resource_identifier=uniform_resource_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_name: Optional['outputs.CertificateAuthoritySubject'] = None,
+             dns_name: Optional[str] = None,
+             edi_party_name: Optional['outputs.CertificateAuthorityEdiPartyName'] = None,
+             ip_address: Optional[str] = None,
+             other_name: Optional['outputs.CertificateAuthorityOtherName'] = None,
+             registered_id: Optional[str] = None,
+             rfc822_name: Optional[str] = None,
+             uniform_resource_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if directory_name is not None:
-            pulumi.set(__self__, "directory_name", directory_name)
+            _setter("directory_name", directory_name)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if edi_party_name is not None:
-            pulumi.set(__self__, "edi_party_name", edi_party_name)
+            _setter("edi_party_name", edi_party_name)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if other_name is not None:
-            pulumi.set(__self__, "other_name", other_name)
+            _setter("other_name", other_name)
         if registered_id is not None:
-            pulumi.set(__self__, "registered_id", registered_id)
+            _setter("registered_id", registered_id)
         if rfc822_name is not None:
-            pulumi.set(__self__, "rfc822_name", rfc822_name)
+            _setter("rfc822_name", rfc822_name)
         if uniform_resource_identifier is not None:
-            pulumi.set(__self__, "uniform_resource_identifier", uniform_resource_identifier)
+            _setter("uniform_resource_identifier", uniform_resource_identifier)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -520,24 +626,49 @@ class CertificateAuthorityKeyUsage(dict):
         """
         Structure that contains X.509 KeyUsage information.
         """
+        CertificateAuthorityKeyUsage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crl_sign=crl_sign,
+            data_encipherment=data_encipherment,
+            decipher_only=decipher_only,
+            digital_signature=digital_signature,
+            encipher_only=encipher_only,
+            key_agreement=key_agreement,
+            key_cert_sign=key_cert_sign,
+            key_encipherment=key_encipherment,
+            non_repudiation=non_repudiation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crl_sign: Optional[bool] = None,
+             data_encipherment: Optional[bool] = None,
+             decipher_only: Optional[bool] = None,
+             digital_signature: Optional[bool] = None,
+             encipher_only: Optional[bool] = None,
+             key_agreement: Optional[bool] = None,
+             key_cert_sign: Optional[bool] = None,
+             key_encipherment: Optional[bool] = None,
+             non_repudiation: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if crl_sign is not None:
-            pulumi.set(__self__, "crl_sign", crl_sign)
+            _setter("crl_sign", crl_sign)
         if data_encipherment is not None:
-            pulumi.set(__self__, "data_encipherment", data_encipherment)
+            _setter("data_encipherment", data_encipherment)
         if decipher_only is not None:
-            pulumi.set(__self__, "decipher_only", decipher_only)
+            _setter("decipher_only", decipher_only)
         if digital_signature is not None:
-            pulumi.set(__self__, "digital_signature", digital_signature)
+            _setter("digital_signature", digital_signature)
         if encipher_only is not None:
-            pulumi.set(__self__, "encipher_only", encipher_only)
+            _setter("encipher_only", encipher_only)
         if key_agreement is not None:
-            pulumi.set(__self__, "key_agreement", key_agreement)
+            _setter("key_agreement", key_agreement)
         if key_cert_sign is not None:
-            pulumi.set(__self__, "key_cert_sign", key_cert_sign)
+            _setter("key_cert_sign", key_cert_sign)
         if key_encipherment is not None:
-            pulumi.set(__self__, "key_encipherment", key_encipherment)
+            _setter("key_encipherment", key_encipherment)
         if non_repudiation is not None:
-            pulumi.set(__self__, "non_repudiation", non_repudiation)
+            _setter("non_repudiation", non_repudiation)
 
     @property
     @pulumi.getter(name="crlSign")
@@ -613,10 +744,21 @@ class CertificateAuthorityOcspConfiguration(dict):
         """
         Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
         """
+        CertificateAuthorityOcspConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            ocsp_custom_cname=ocsp_custom_cname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             ocsp_custom_cname: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if ocsp_custom_cname is not None:
-            pulumi.set(__self__, "ocsp_custom_cname", ocsp_custom_cname)
+            _setter("ocsp_custom_cname", ocsp_custom_cname)
 
     @property
     @pulumi.getter
@@ -657,8 +799,19 @@ class CertificateAuthorityOtherName(dict):
         """
         Structure that contains X.509 OtherName information.
         """
-        pulumi.set(__self__, "type_id", type_id)
-        pulumi.set(__self__, "value", value)
+        CertificateAuthorityOtherName._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type_id=type_id,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type_id: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type_id", type_id)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="typeId")
@@ -701,10 +854,21 @@ class CertificateAuthorityRevocationConfiguration(dict):
         """
         Certificate Authority revocation information.
         """
+        CertificateAuthorityRevocationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crl_configuration=crl_configuration,
+            ocsp_configuration=ocsp_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crl_configuration: Optional['outputs.CertificateAuthorityCrlConfiguration'] = None,
+             ocsp_configuration: Optional['outputs.CertificateAuthorityOcspConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if crl_configuration is not None:
-            pulumi.set(__self__, "crl_configuration", crl_configuration)
+            _setter("crl_configuration", crl_configuration)
         if ocsp_configuration is not None:
-            pulumi.set(__self__, "ocsp_configuration", ocsp_configuration)
+            _setter("ocsp_configuration", ocsp_configuration)
 
     @property
     @pulumi.getter(name="crlConfiguration")
@@ -770,36 +934,73 @@ class CertificateAuthoritySubject(dict):
         """
         Structure that contains X.500 distinguished name information for your CA.
         """
+        CertificateAuthoritySubject._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            common_name=common_name,
+            country=country,
+            custom_attributes=custom_attributes,
+            distinguished_name_qualifier=distinguished_name_qualifier,
+            generation_qualifier=generation_qualifier,
+            given_name=given_name,
+            initials=initials,
+            locality=locality,
+            organization=organization,
+            organizational_unit=organizational_unit,
+            pseudonym=pseudonym,
+            serial_number=serial_number,
+            state=state,
+            surname=surname,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             common_name: Optional[str] = None,
+             country: Optional[str] = None,
+             custom_attributes: Optional[Sequence['outputs.CertificateAuthorityCustomAttribute']] = None,
+             distinguished_name_qualifier: Optional[str] = None,
+             generation_qualifier: Optional[str] = None,
+             given_name: Optional[str] = None,
+             initials: Optional[str] = None,
+             locality: Optional[str] = None,
+             organization: Optional[str] = None,
+             organizational_unit: Optional[str] = None,
+             pseudonym: Optional[str] = None,
+             serial_number: Optional[str] = None,
+             state: Optional[str] = None,
+             surname: Optional[str] = None,
+             title: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if common_name is not None:
-            pulumi.set(__self__, "common_name", common_name)
+            _setter("common_name", common_name)
         if country is not None:
-            pulumi.set(__self__, "country", country)
+            _setter("country", country)
         if custom_attributes is not None:
-            pulumi.set(__self__, "custom_attributes", custom_attributes)
+            _setter("custom_attributes", custom_attributes)
         if distinguished_name_qualifier is not None:
-            pulumi.set(__self__, "distinguished_name_qualifier", distinguished_name_qualifier)
+            _setter("distinguished_name_qualifier", distinguished_name_qualifier)
         if generation_qualifier is not None:
-            pulumi.set(__self__, "generation_qualifier", generation_qualifier)
+            _setter("generation_qualifier", generation_qualifier)
         if given_name is not None:
-            pulumi.set(__self__, "given_name", given_name)
+            _setter("given_name", given_name)
         if initials is not None:
-            pulumi.set(__self__, "initials", initials)
+            _setter("initials", initials)
         if locality is not None:
-            pulumi.set(__self__, "locality", locality)
+            _setter("locality", locality)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if organizational_unit is not None:
-            pulumi.set(__self__, "organizational_unit", organizational_unit)
+            _setter("organizational_unit", organizational_unit)
         if pseudonym is not None:
-            pulumi.set(__self__, "pseudonym", pseudonym)
+            _setter("pseudonym", pseudonym)
         if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
+            _setter("serial_number", serial_number)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if surname is not None:
-            pulumi.set(__self__, "surname", surname)
+            _setter("surname", surname)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter(name="commonName")
@@ -882,10 +1083,21 @@ class CertificateAuthorityTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
+        CertificateAuthorityTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -926,8 +1138,19 @@ class CertificateCustomAttribute(dict):
         """
         Structure that contains X.500 attribute type and value.
         """
-        pulumi.set(__self__, "object_identifier", object_identifier)
-        pulumi.set(__self__, "value", value)
+        CertificateCustomAttribute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_identifier=object_identifier,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_identifier: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object_identifier", object_identifier)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="objectIdentifier")
@@ -969,10 +1192,23 @@ class CertificateCustomExtension(dict):
         """
         Structure that contains X.509 extension information for a certificate.
         """
-        pulumi.set(__self__, "object_identifier", object_identifier)
-        pulumi.set(__self__, "value", value)
+        CertificateCustomExtension._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_identifier=object_identifier,
+            value=value,
+            critical=critical,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_identifier: str,
+             value: str,
+             critical: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object_identifier", object_identifier)
+        _setter("value", value)
         if critical is not None:
-            pulumi.set(__self__, "critical", critical)
+            _setter("critical", critical)
 
     @property
     @pulumi.getter(name="objectIdentifier")
@@ -1020,8 +1256,19 @@ class CertificateEdiPartyName(dict):
         """
         Structure that contains X.509 EdiPartyName information.
         """
-        pulumi.set(__self__, "name_assigner", name_assigner)
-        pulumi.set(__self__, "party_name", party_name)
+        CertificateEdiPartyName._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name_assigner=name_assigner,
+            party_name=party_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name_assigner: str,
+             party_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name_assigner", name_assigner)
+        _setter("party_name", party_name)
 
     @property
     @pulumi.getter(name="nameAssigner")
@@ -1064,10 +1311,21 @@ class CertificateExtendedKeyUsage(dict):
         """
         Structure that contains X.509 ExtendedKeyUsage information.
         """
+        CertificateExtendedKeyUsage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extended_key_usage_object_identifier=extended_key_usage_object_identifier,
+            extended_key_usage_type=extended_key_usage_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extended_key_usage_object_identifier: Optional[str] = None,
+             extended_key_usage_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if extended_key_usage_object_identifier is not None:
-            pulumi.set(__self__, "extended_key_usage_object_identifier", extended_key_usage_object_identifier)
+            _setter("extended_key_usage_object_identifier", extended_key_usage_object_identifier)
         if extended_key_usage_type is not None:
-            pulumi.set(__self__, "extended_key_usage_type", extended_key_usage_type)
+            _setter("extended_key_usage_type", extended_key_usage_type)
 
     @property
     @pulumi.getter(name="extendedKeyUsageObjectIdentifier")
@@ -1119,16 +1377,33 @@ class CertificateExtensions(dict):
         """
         Structure that contains X.500 extensions for a Certificate.
         """
+        CertificateExtensions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_policies=certificate_policies,
+            custom_extensions=custom_extensions,
+            extended_key_usage=extended_key_usage,
+            key_usage=key_usage,
+            subject_alternative_names=subject_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_policies: Optional[Sequence['outputs.CertificatePolicyInformation']] = None,
+             custom_extensions: Optional[Sequence['outputs.CertificateCustomExtension']] = None,
+             extended_key_usage: Optional[Sequence['outputs.CertificateExtendedKeyUsage']] = None,
+             key_usage: Optional['outputs.CertificateKeyUsage'] = None,
+             subject_alternative_names: Optional[Sequence['outputs.CertificateGeneralName']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_policies is not None:
-            pulumi.set(__self__, "certificate_policies", certificate_policies)
+            _setter("certificate_policies", certificate_policies)
         if custom_extensions is not None:
-            pulumi.set(__self__, "custom_extensions", custom_extensions)
+            _setter("custom_extensions", custom_extensions)
         if extended_key_usage is not None:
-            pulumi.set(__self__, "extended_key_usage", extended_key_usage)
+            _setter("extended_key_usage", extended_key_usage)
         if key_usage is not None:
-            pulumi.set(__self__, "key_usage", key_usage)
+            _setter("key_usage", key_usage)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter(name="certificatePolicies")
@@ -1204,22 +1479,45 @@ class CertificateGeneralName(dict):
         """
         Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
         """
+        CertificateGeneralName._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_name=directory_name,
+            dns_name=dns_name,
+            edi_party_name=edi_party_name,
+            ip_address=ip_address,
+            other_name=other_name,
+            registered_id=registered_id,
+            rfc822_name=rfc822_name,
+            uniform_resource_identifier=uniform_resource_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_name: Optional['outputs.CertificateSubject'] = None,
+             dns_name: Optional[str] = None,
+             edi_party_name: Optional['outputs.CertificateEdiPartyName'] = None,
+             ip_address: Optional[str] = None,
+             other_name: Optional['outputs.CertificateOtherName'] = None,
+             registered_id: Optional[str] = None,
+             rfc822_name: Optional[str] = None,
+             uniform_resource_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if directory_name is not None:
-            pulumi.set(__self__, "directory_name", directory_name)
+            _setter("directory_name", directory_name)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if edi_party_name is not None:
-            pulumi.set(__self__, "edi_party_name", edi_party_name)
+            _setter("edi_party_name", edi_party_name)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if other_name is not None:
-            pulumi.set(__self__, "other_name", other_name)
+            _setter("other_name", other_name)
         if registered_id is not None:
-            pulumi.set(__self__, "registered_id", registered_id)
+            _setter("registered_id", registered_id)
         if rfc822_name is not None:
-            pulumi.set(__self__, "rfc822_name", rfc822_name)
+            _setter("rfc822_name", rfc822_name)
         if uniform_resource_identifier is not None:
-            pulumi.set(__self__, "uniform_resource_identifier", uniform_resource_identifier)
+            _setter("uniform_resource_identifier", uniform_resource_identifier)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -1313,24 +1611,49 @@ class CertificateKeyUsage(dict):
         """
         Structure that contains X.509 KeyUsage information.
         """
+        CertificateKeyUsage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crl_sign=crl_sign,
+            data_encipherment=data_encipherment,
+            decipher_only=decipher_only,
+            digital_signature=digital_signature,
+            encipher_only=encipher_only,
+            key_agreement=key_agreement,
+            key_cert_sign=key_cert_sign,
+            key_encipherment=key_encipherment,
+            non_repudiation=non_repudiation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crl_sign: Optional[bool] = None,
+             data_encipherment: Optional[bool] = None,
+             decipher_only: Optional[bool] = None,
+             digital_signature: Optional[bool] = None,
+             encipher_only: Optional[bool] = None,
+             key_agreement: Optional[bool] = None,
+             key_cert_sign: Optional[bool] = None,
+             key_encipherment: Optional[bool] = None,
+             non_repudiation: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if crl_sign is not None:
-            pulumi.set(__self__, "crl_sign", crl_sign)
+            _setter("crl_sign", crl_sign)
         if data_encipherment is not None:
-            pulumi.set(__self__, "data_encipherment", data_encipherment)
+            _setter("data_encipherment", data_encipherment)
         if decipher_only is not None:
-            pulumi.set(__self__, "decipher_only", decipher_only)
+            _setter("decipher_only", decipher_only)
         if digital_signature is not None:
-            pulumi.set(__self__, "digital_signature", digital_signature)
+            _setter("digital_signature", digital_signature)
         if encipher_only is not None:
-            pulumi.set(__self__, "encipher_only", encipher_only)
+            _setter("encipher_only", encipher_only)
         if key_agreement is not None:
-            pulumi.set(__self__, "key_agreement", key_agreement)
+            _setter("key_agreement", key_agreement)
         if key_cert_sign is not None:
-            pulumi.set(__self__, "key_cert_sign", key_cert_sign)
+            _setter("key_cert_sign", key_cert_sign)
         if key_encipherment is not None:
-            pulumi.set(__self__, "key_encipherment", key_encipherment)
+            _setter("key_encipherment", key_encipherment)
         if non_repudiation is not None:
-            pulumi.set(__self__, "non_repudiation", non_repudiation)
+            _setter("non_repudiation", non_repudiation)
 
     @property
     @pulumi.getter(name="crlSign")
@@ -1406,8 +1729,19 @@ class CertificateOtherName(dict):
         """
         Structure that contains X.509 OtherName information.
         """
-        pulumi.set(__self__, "type_id", type_id)
-        pulumi.set(__self__, "value", value)
+        CertificateOtherName._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type_id=type_id,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type_id: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type_id", type_id)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="typeId")
@@ -1450,9 +1784,20 @@ class CertificatePolicyInformation(dict):
         """
         Structure that contains X.509 Policy information.
         """
-        pulumi.set(__self__, "cert_policy_id", cert_policy_id)
+        CertificatePolicyInformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert_policy_id=cert_policy_id,
+            policy_qualifiers=policy_qualifiers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert_policy_id: str,
+             policy_qualifiers: Optional[Sequence['outputs.CertificatePolicyQualifierInfo']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cert_policy_id", cert_policy_id)
         if policy_qualifiers is not None:
-            pulumi.set(__self__, "policy_qualifiers", policy_qualifiers)
+            _setter("policy_qualifiers", policy_qualifiers)
 
     @property
     @pulumi.getter(name="certPolicyId")
@@ -1493,8 +1838,19 @@ class CertificatePolicyQualifierInfo(dict):
         """
         Structure that contains X.509 Policy qualifier information.
         """
-        pulumi.set(__self__, "policy_qualifier_id", policy_qualifier_id)
-        pulumi.set(__self__, "qualifier", qualifier)
+        CertificatePolicyQualifierInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_qualifier_id=policy_qualifier_id,
+            qualifier=qualifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_qualifier_id: str,
+             qualifier: 'outputs.CertificateQualifier',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_qualifier_id", policy_qualifier_id)
+        _setter("qualifier", qualifier)
 
     @property
     @pulumi.getter(name="policyQualifierId")
@@ -1534,7 +1890,16 @@ class CertificateQualifier(dict):
         """
         Structure that contains a X.509 policy qualifier.
         """
-        pulumi.set(__self__, "cps_uri", cps_uri)
+        CertificateQualifier._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cps_uri=cps_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cps_uri: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cps_uri", cps_uri)
 
     @property
     @pulumi.getter(name="cpsUri")
@@ -1595,36 +1960,73 @@ class CertificateSubject(dict):
         """
         Structure that contains X.500 distinguished name information.
         """
+        CertificateSubject._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            common_name=common_name,
+            country=country,
+            custom_attributes=custom_attributes,
+            distinguished_name_qualifier=distinguished_name_qualifier,
+            generation_qualifier=generation_qualifier,
+            given_name=given_name,
+            initials=initials,
+            locality=locality,
+            organization=organization,
+            organizational_unit=organizational_unit,
+            pseudonym=pseudonym,
+            serial_number=serial_number,
+            state=state,
+            surname=surname,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             common_name: Optional[str] = None,
+             country: Optional[str] = None,
+             custom_attributes: Optional[Sequence['outputs.CertificateCustomAttribute']] = None,
+             distinguished_name_qualifier: Optional[str] = None,
+             generation_qualifier: Optional[str] = None,
+             given_name: Optional[str] = None,
+             initials: Optional[str] = None,
+             locality: Optional[str] = None,
+             organization: Optional[str] = None,
+             organizational_unit: Optional[str] = None,
+             pseudonym: Optional[str] = None,
+             serial_number: Optional[str] = None,
+             state: Optional[str] = None,
+             surname: Optional[str] = None,
+             title: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if common_name is not None:
-            pulumi.set(__self__, "common_name", common_name)
+            _setter("common_name", common_name)
         if country is not None:
-            pulumi.set(__self__, "country", country)
+            _setter("country", country)
         if custom_attributes is not None:
-            pulumi.set(__self__, "custom_attributes", custom_attributes)
+            _setter("custom_attributes", custom_attributes)
         if distinguished_name_qualifier is not None:
-            pulumi.set(__self__, "distinguished_name_qualifier", distinguished_name_qualifier)
+            _setter("distinguished_name_qualifier", distinguished_name_qualifier)
         if generation_qualifier is not None:
-            pulumi.set(__self__, "generation_qualifier", generation_qualifier)
+            _setter("generation_qualifier", generation_qualifier)
         if given_name is not None:
-            pulumi.set(__self__, "given_name", given_name)
+            _setter("given_name", given_name)
         if initials is not None:
-            pulumi.set(__self__, "initials", initials)
+            _setter("initials", initials)
         if locality is not None:
-            pulumi.set(__self__, "locality", locality)
+            _setter("locality", locality)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if organizational_unit is not None:
-            pulumi.set(__self__, "organizational_unit", organizational_unit)
+            _setter("organizational_unit", organizational_unit)
         if pseudonym is not None:
-            pulumi.set(__self__, "pseudonym", pseudonym)
+            _setter("pseudonym", pseudonym)
         if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
+            _setter("serial_number", serial_number)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if surname is not None:
-            pulumi.set(__self__, "surname", surname)
+            _setter("surname", surname)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter(name="commonName")
@@ -1713,8 +2115,19 @@ class CertificateValidity(dict):
         """
         Validity for a certificate.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        CertificateValidity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             value: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter

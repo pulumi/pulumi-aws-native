@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -37,22 +37,47 @@ class ComponentTypeArgs:
         :param Any property_groups: An map of the property groups in the component type. Each property group's key must be unique to this map.
         :param Any tags: A map of key-value pairs to associate with a resource.
         """
-        pulumi.set(__self__, "component_type_id", component_type_id)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        ComponentTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_type_id=component_type_id,
+            workspace_id=workspace_id,
+            description=description,
+            extends_from=extends_from,
+            functions=functions,
+            is_singleton=is_singleton,
+            property_definitions=property_definitions,
+            property_groups=property_groups,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_type_id: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             extends_from: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             functions: Optional[Any] = None,
+             is_singleton: Optional[pulumi.Input[bool]] = None,
+             property_definitions: Optional[Any] = None,
+             property_groups: Optional[Any] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("component_type_id", component_type_id)
+        _setter("workspace_id", workspace_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if extends_from is not None:
-            pulumi.set(__self__, "extends_from", extends_from)
+            _setter("extends_from", extends_from)
         if functions is not None:
-            pulumi.set(__self__, "functions", functions)
+            _setter("functions", functions)
         if is_singleton is not None:
-            pulumi.set(__self__, "is_singleton", is_singleton)
+            _setter("is_singleton", is_singleton)
         if property_definitions is not None:
-            pulumi.set(__self__, "property_definitions", property_definitions)
+            _setter("property_definitions", property_definitions)
         if property_groups is not None:
-            pulumi.set(__self__, "property_groups", property_groups)
+            _setter("property_groups", property_groups)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="componentTypeId")
@@ -212,6 +237,10 @@ class ComponentType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ComponentTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

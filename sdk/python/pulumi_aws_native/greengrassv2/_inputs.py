@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -36,10 +36,21 @@ class ComponentVersionComponentPlatformArgs:
     def __init__(__self__, *,
                  attributes: Optional[Any] = None,
                  name: Optional[pulumi.Input[str]] = None):
+        ComponentVersionComponentPlatformArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[Any] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -67,14 +78,29 @@ class ComponentVersionLambdaContainerParamsArgs:
                  memory_size_in_kb: Optional[pulumi.Input[int]] = None,
                  mount_ro_sysfs: Optional[pulumi.Input[bool]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgs']]]] = None):
+        ComponentVersionLambdaContainerParamsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            devices=devices,
+            memory_size_in_kb=memory_size_in_kb,
+            mount_ro_sysfs=mount_ro_sysfs,
+            volumes=volumes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             devices: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgs']]]] = None,
+             memory_size_in_kb: Optional[pulumi.Input[int]] = None,
+             mount_ro_sysfs: Optional[pulumi.Input[bool]] = None,
+             volumes: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if devices is not None:
-            pulumi.set(__self__, "devices", devices)
+            _setter("devices", devices)
         if memory_size_in_kb is not None:
-            pulumi.set(__self__, "memory_size_in_kb", memory_size_in_kb)
+            _setter("memory_size_in_kb", memory_size_in_kb)
         if mount_ro_sysfs is not None:
-            pulumi.set(__self__, "mount_ro_sysfs", mount_ro_sysfs)
+            _setter("mount_ro_sysfs", mount_ro_sysfs)
         if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
+            _setter("volumes", volumes)
 
     @property
     @pulumi.getter
@@ -119,12 +145,25 @@ class ComponentVersionLambdaDeviceMountArgs:
                  add_group_owner: Optional[pulumi.Input[bool]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  permission: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']] = None):
+        ComponentVersionLambdaDeviceMountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_group_owner=add_group_owner,
+            path=path,
+            permission=permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_group_owner: Optional[pulumi.Input[bool]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             permission: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if add_group_owner is not None:
-            pulumi.set(__self__, "add_group_owner", add_group_owner)
+            _setter("add_group_owner", add_group_owner)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
 
     @property
     @pulumi.getter(name="addGroupOwner")
@@ -159,10 +198,21 @@ class ComponentVersionLambdaEventSourceArgs:
     def __init__(__self__, *,
                  topic: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input['ComponentVersionLambdaEventSourceType']] = None):
+        ComponentVersionLambdaEventSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic=topic,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['ComponentVersionLambdaEventSourceType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if topic is not None:
-            pulumi.set(__self__, "topic", topic)
+            _setter("topic", topic)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -197,28 +247,57 @@ class ComponentVersionLambdaExecutionParametersArgs:
                  pinned: Optional[pulumi.Input[bool]] = None,
                  status_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        ComponentVersionLambdaExecutionParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_variables=environment_variables,
+            event_sources=event_sources,
+            exec_args=exec_args,
+            input_payload_encoding_type=input_payload_encoding_type,
+            linux_process_params=linux_process_params,
+            max_idle_time_in_seconds=max_idle_time_in_seconds,
+            max_instances_count=max_instances_count,
+            max_queue_size=max_queue_size,
+            pinned=pinned,
+            status_timeout_in_seconds=status_timeout_in_seconds,
+            timeout_in_seconds=timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_variables: Optional[Any] = None,
+             event_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgs']]]] = None,
+             exec_args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             input_payload_encoding_type: Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']] = None,
+             linux_process_params: Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsArgs']] = None,
+             max_idle_time_in_seconds: Optional[pulumi.Input[int]] = None,
+             max_instances_count: Optional[pulumi.Input[int]] = None,
+             max_queue_size: Optional[pulumi.Input[int]] = None,
+             pinned: Optional[pulumi.Input[bool]] = None,
+             status_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if event_sources is not None:
-            pulumi.set(__self__, "event_sources", event_sources)
+            _setter("event_sources", event_sources)
         if exec_args is not None:
-            pulumi.set(__self__, "exec_args", exec_args)
+            _setter("exec_args", exec_args)
         if input_payload_encoding_type is not None:
-            pulumi.set(__self__, "input_payload_encoding_type", input_payload_encoding_type)
+            _setter("input_payload_encoding_type", input_payload_encoding_type)
         if linux_process_params is not None:
-            pulumi.set(__self__, "linux_process_params", linux_process_params)
+            _setter("linux_process_params", linux_process_params)
         if max_idle_time_in_seconds is not None:
-            pulumi.set(__self__, "max_idle_time_in_seconds", max_idle_time_in_seconds)
+            _setter("max_idle_time_in_seconds", max_idle_time_in_seconds)
         if max_instances_count is not None:
-            pulumi.set(__self__, "max_instances_count", max_instances_count)
+            _setter("max_instances_count", max_instances_count)
         if max_queue_size is not None:
-            pulumi.set(__self__, "max_queue_size", max_queue_size)
+            _setter("max_queue_size", max_queue_size)
         if pinned is not None:
-            pulumi.set(__self__, "pinned", pinned)
+            _setter("pinned", pinned)
         if status_timeout_in_seconds is not None:
-            pulumi.set(__self__, "status_timeout_in_seconds", status_timeout_in_seconds)
+            _setter("status_timeout_in_seconds", status_timeout_in_seconds)
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -329,18 +408,37 @@ class ComponentVersionLambdaFunctionRecipeSourceArgs:
                  component_platforms: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgs']]]] = None,
                  component_version: Optional[pulumi.Input[str]] = None,
                  lambda_arn: Optional[pulumi.Input[str]] = None):
+        ComponentVersionLambdaFunctionRecipeSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_dependencies=component_dependencies,
+            component_lambda_parameters=component_lambda_parameters,
+            component_name=component_name,
+            component_platforms=component_platforms,
+            component_version=component_version,
+            lambda_arn=lambda_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_dependencies: Optional[Any] = None,
+             component_lambda_parameters: Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersArgs']] = None,
+             component_name: Optional[pulumi.Input[str]] = None,
+             component_platforms: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgs']]]] = None,
+             component_version: Optional[pulumi.Input[str]] = None,
+             lambda_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if component_dependencies is not None:
-            pulumi.set(__self__, "component_dependencies", component_dependencies)
+            _setter("component_dependencies", component_dependencies)
         if component_lambda_parameters is not None:
-            pulumi.set(__self__, "component_lambda_parameters", component_lambda_parameters)
+            _setter("component_lambda_parameters", component_lambda_parameters)
         if component_name is not None:
-            pulumi.set(__self__, "component_name", component_name)
+            _setter("component_name", component_name)
         if component_platforms is not None:
-            pulumi.set(__self__, "component_platforms", component_platforms)
+            _setter("component_platforms", component_platforms)
         if component_version is not None:
-            pulumi.set(__self__, "component_version", component_version)
+            _setter("component_version", component_version)
         if lambda_arn is not None:
-            pulumi.set(__self__, "lambda_arn", lambda_arn)
+            _setter("lambda_arn", lambda_arn)
 
     @property
     @pulumi.getter(name="componentDependencies")
@@ -402,10 +500,21 @@ class ComponentVersionLambdaLinuxProcessParamsArgs:
     def __init__(__self__, *,
                  container_params: Optional[pulumi.Input['ComponentVersionLambdaContainerParamsArgs']] = None,
                  isolation_mode: Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']] = None):
+        ComponentVersionLambdaLinuxProcessParamsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_params=container_params,
+            isolation_mode=isolation_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_params: Optional[pulumi.Input['ComponentVersionLambdaContainerParamsArgs']] = None,
+             isolation_mode: Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_params is not None:
-            pulumi.set(__self__, "container_params", container_params)
+            _setter("container_params", container_params)
         if isolation_mode is not None:
-            pulumi.set(__self__, "isolation_mode", isolation_mode)
+            _setter("isolation_mode", isolation_mode)
 
     @property
     @pulumi.getter(name="containerParams")
@@ -433,14 +542,29 @@ class ComponentVersionLambdaVolumeMountArgs:
                  destination_path: Optional[pulumi.Input[str]] = None,
                  permission: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']] = None,
                  source_path: Optional[pulumi.Input[str]] = None):
+        ComponentVersionLambdaVolumeMountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_group_owner=add_group_owner,
+            destination_path=destination_path,
+            permission=permission,
+            source_path=source_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_group_owner: Optional[pulumi.Input[bool]] = None,
+             destination_path: Optional[pulumi.Input[str]] = None,
+             permission: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']] = None,
+             source_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if add_group_owner is not None:
-            pulumi.set(__self__, "add_group_owner", add_group_owner)
+            _setter("add_group_owner", add_group_owner)
         if destination_path is not None:
-            pulumi.set(__self__, "destination_path", destination_path)
+            _setter("destination_path", destination_path)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
         if source_path is not None:
-            pulumi.set(__self__, "source_path", source_path)
+            _setter("source_path", source_path)
 
     @property
     @pulumi.getter(name="addGroupOwner")
@@ -484,10 +608,21 @@ class DeploymentComponentUpdatePolicyArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input['DeploymentComponentUpdatePolicyAction']] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        DeploymentComponentUpdatePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            timeout_in_seconds=timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['DeploymentComponentUpdatePolicyAction']] = None,
+             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter
@@ -512,8 +647,17 @@ class DeploymentComponentUpdatePolicyArgs:
 class DeploymentConfigurationValidationPolicyArgs:
     def __init__(__self__, *,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        DeploymentConfigurationValidationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            timeout_in_seconds=timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="timeoutInSeconds")
@@ -529,7 +673,16 @@ class DeploymentConfigurationValidationPolicyArgs:
 class DeploymentIoTJobAbortConfigArgs:
     def __init__(__self__, *,
                  criteria_list: pulumi.Input[Sequence[pulumi.Input['DeploymentIoTJobAbortCriteriaArgs']]]):
-        pulumi.set(__self__, "criteria_list", criteria_list)
+        DeploymentIoTJobAbortConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criteria_list=criteria_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criteria_list: pulumi.Input[Sequence[pulumi.Input['DeploymentIoTJobAbortCriteriaArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("criteria_list", criteria_list)
 
     @property
     @pulumi.getter(name="criteriaList")
@@ -548,10 +701,25 @@ class DeploymentIoTJobAbortCriteriaArgs:
                  failure_type: pulumi.Input['DeploymentIoTJobAbortCriteriaFailureType'],
                  min_number_of_executed_things: pulumi.Input[int],
                  threshold_percentage: pulumi.Input[float]):
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "failure_type", failure_type)
-        pulumi.set(__self__, "min_number_of_executed_things", min_number_of_executed_things)
-        pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+        DeploymentIoTJobAbortCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            failure_type=failure_type,
+            min_number_of_executed_things=min_number_of_executed_things,
+            threshold_percentage=threshold_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input['DeploymentIoTJobAbortCriteriaAction'],
+             failure_type: pulumi.Input['DeploymentIoTJobAbortCriteriaFailureType'],
+             min_number_of_executed_things: pulumi.Input[int],
+             threshold_percentage: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("failure_type", failure_type)
+        _setter("min_number_of_executed_things", min_number_of_executed_things)
+        _setter("threshold_percentage", threshold_percentage)
 
     @property
     @pulumi.getter
@@ -596,12 +764,25 @@ class DeploymentIoTJobConfigurationArgs:
                  abort_config: Optional[pulumi.Input['DeploymentIoTJobAbortConfigArgs']] = None,
                  job_executions_rollout_config: Optional[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgs']] = None,
                  timeout_config: Optional[pulumi.Input['DeploymentIoTJobTimeoutConfigArgs']] = None):
+        DeploymentIoTJobConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            abort_config=abort_config,
+            job_executions_rollout_config=job_executions_rollout_config,
+            timeout_config=timeout_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             abort_config: Optional[pulumi.Input['DeploymentIoTJobAbortConfigArgs']] = None,
+             job_executions_rollout_config: Optional[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgs']] = None,
+             timeout_config: Optional[pulumi.Input['DeploymentIoTJobTimeoutConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if abort_config is not None:
-            pulumi.set(__self__, "abort_config", abort_config)
+            _setter("abort_config", abort_config)
         if job_executions_rollout_config is not None:
-            pulumi.set(__self__, "job_executions_rollout_config", job_executions_rollout_config)
+            _setter("job_executions_rollout_config", job_executions_rollout_config)
         if timeout_config is not None:
-            pulumi.set(__self__, "timeout_config", timeout_config)
+            _setter("timeout_config", timeout_config)
 
     @property
     @pulumi.getter(name="abortConfig")
@@ -636,10 +817,21 @@ class DeploymentIoTJobExecutionsRolloutConfigArgs:
     def __init__(__self__, *,
                  exponential_rate: Optional[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgs']] = None,
                  maximum_per_minute: Optional[pulumi.Input[int]] = None):
+        DeploymentIoTJobExecutionsRolloutConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exponential_rate=exponential_rate,
+            maximum_per_minute=maximum_per_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exponential_rate: Optional[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgs']] = None,
+             maximum_per_minute: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exponential_rate is not None:
-            pulumi.set(__self__, "exponential_rate", exponential_rate)
+            _setter("exponential_rate", exponential_rate)
         if maximum_per_minute is not None:
-            pulumi.set(__self__, "maximum_per_minute", maximum_per_minute)
+            _setter("maximum_per_minute", maximum_per_minute)
 
     @property
     @pulumi.getter(name="exponentialRate")
@@ -666,9 +858,22 @@ class DeploymentIoTJobExponentialRolloutRateArgs:
                  base_rate_per_minute: pulumi.Input[int],
                  increment_factor: pulumi.Input[float],
                  rate_increase_criteria: pulumi.Input['DeploymentIoTJobRateIncreaseCriteriaArgs']):
-        pulumi.set(__self__, "base_rate_per_minute", base_rate_per_minute)
-        pulumi.set(__self__, "increment_factor", increment_factor)
-        pulumi.set(__self__, "rate_increase_criteria", rate_increase_criteria)
+        DeploymentIoTJobExponentialRolloutRateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_rate_per_minute=base_rate_per_minute,
+            increment_factor=increment_factor,
+            rate_increase_criteria=rate_increase_criteria,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_rate_per_minute: pulumi.Input[int],
+             increment_factor: pulumi.Input[float],
+             rate_increase_criteria: pulumi.Input['DeploymentIoTJobRateIncreaseCriteriaArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("base_rate_per_minute", base_rate_per_minute)
+        _setter("increment_factor", increment_factor)
+        _setter("rate_increase_criteria", rate_increase_criteria)
 
     @property
     @pulumi.getter(name="baseRatePerMinute")
@@ -702,14 +907,28 @@ class DeploymentIoTJobExponentialRolloutRateArgs:
 class DeploymentIoTJobRateIncreaseCriteriaArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
 class DeploymentIoTJobTimeoutConfigArgs:
     def __init__(__self__, *,
                  in_progress_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
+        DeploymentIoTJobTimeoutConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_progress_timeout_in_minutes=in_progress_timeout_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_progress_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if in_progress_timeout_in_minutes is not None:
-            pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
+            _setter("in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
 
     @property
     @pulumi.getter(name="inProgressTimeoutInMinutes")
@@ -727,12 +946,25 @@ class DeploymentPoliciesArgs:
                  component_update_policy: Optional[pulumi.Input['DeploymentComponentUpdatePolicyArgs']] = None,
                  configuration_validation_policy: Optional[pulumi.Input['DeploymentConfigurationValidationPolicyArgs']] = None,
                  failure_handling_policy: Optional[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']] = None):
+        DeploymentPoliciesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_update_policy=component_update_policy,
+            configuration_validation_policy=configuration_validation_policy,
+            failure_handling_policy=failure_handling_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_update_policy: Optional[pulumi.Input['DeploymentComponentUpdatePolicyArgs']] = None,
+             configuration_validation_policy: Optional[pulumi.Input['DeploymentConfigurationValidationPolicyArgs']] = None,
+             failure_handling_policy: Optional[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if component_update_policy is not None:
-            pulumi.set(__self__, "component_update_policy", component_update_policy)
+            _setter("component_update_policy", component_update_policy)
         if configuration_validation_policy is not None:
-            pulumi.set(__self__, "configuration_validation_policy", configuration_validation_policy)
+            _setter("configuration_validation_policy", configuration_validation_policy)
         if failure_handling_policy is not None:
-            pulumi.set(__self__, "failure_handling_policy", failure_handling_policy)
+            _setter("failure_handling_policy", failure_handling_policy)
 
     @property
     @pulumi.getter(name="componentUpdatePolicy")

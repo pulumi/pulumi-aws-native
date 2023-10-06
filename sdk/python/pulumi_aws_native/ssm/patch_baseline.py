@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,32 +32,65 @@ class PatchBaselineArgs:
         """
         The set of arguments for constructing a PatchBaseline resource.
         """
+        PatchBaselineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approval_rules=approval_rules,
+            approved_patches=approved_patches,
+            approved_patches_compliance_level=approved_patches_compliance_level,
+            approved_patches_enable_non_security=approved_patches_enable_non_security,
+            description=description,
+            global_filters=global_filters,
+            name=name,
+            operating_system=operating_system,
+            patch_groups=patch_groups,
+            rejected_patches=rejected_patches,
+            rejected_patches_action=rejected_patches_action,
+            sources=sources,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approval_rules: Optional[pulumi.Input['PatchBaselineRuleGroupArgs']] = None,
+             approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             approved_patches_compliance_level: Optional[pulumi.Input[str]] = None,
+             approved_patches_enable_non_security: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             global_filters: Optional[pulumi.Input['PatchBaselinePatchFilterGroupArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             operating_system: Optional[pulumi.Input[str]] = None,
+             patch_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rejected_patches_action: Optional[pulumi.Input[str]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchSourceArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if approval_rules is not None:
-            pulumi.set(__self__, "approval_rules", approval_rules)
+            _setter("approval_rules", approval_rules)
         if approved_patches is not None:
-            pulumi.set(__self__, "approved_patches", approved_patches)
+            _setter("approved_patches", approved_patches)
         if approved_patches_compliance_level is not None:
-            pulumi.set(__self__, "approved_patches_compliance_level", approved_patches_compliance_level)
+            _setter("approved_patches_compliance_level", approved_patches_compliance_level)
         if approved_patches_enable_non_security is not None:
-            pulumi.set(__self__, "approved_patches_enable_non_security", approved_patches_enable_non_security)
+            _setter("approved_patches_enable_non_security", approved_patches_enable_non_security)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if global_filters is not None:
-            pulumi.set(__self__, "global_filters", global_filters)
+            _setter("global_filters", global_filters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if operating_system is not None:
-            pulumi.set(__self__, "operating_system", operating_system)
+            _setter("operating_system", operating_system)
         if patch_groups is not None:
-            pulumi.set(__self__, "patch_groups", patch_groups)
+            _setter("patch_groups", patch_groups)
         if rejected_patches is not None:
-            pulumi.set(__self__, "rejected_patches", rejected_patches)
+            _setter("rejected_patches", rejected_patches)
         if rejected_patches_action is not None:
-            pulumi.set(__self__, "rejected_patches_action", rejected_patches_action)
+            _setter("rejected_patches_action", rejected_patches_action)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="approvalRules")
@@ -226,6 +259,10 @@ class PatchBaseline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PatchBaselineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -254,11 +291,21 @@ class PatchBaseline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PatchBaselineArgs.__new__(PatchBaselineArgs)
 
+            if approval_rules is not None and not isinstance(approval_rules, PatchBaselineRuleGroupArgs):
+                approval_rules = approval_rules or {}
+                def _setter(key, value):
+                    approval_rules[key] = value
+                PatchBaselineRuleGroupArgs._configure(_setter, **approval_rules)
             __props__.__dict__["approval_rules"] = approval_rules
             __props__.__dict__["approved_patches"] = approved_patches
             __props__.__dict__["approved_patches_compliance_level"] = approved_patches_compliance_level
             __props__.__dict__["approved_patches_enable_non_security"] = approved_patches_enable_non_security
             __props__.__dict__["description"] = description
+            if global_filters is not None and not isinstance(global_filters, PatchBaselinePatchFilterGroupArgs):
+                global_filters = global_filters or {}
+                def _setter(key, value):
+                    global_filters[key] = value
+                PatchBaselinePatchFilterGroupArgs._configure(_setter, **global_filters)
             __props__.__dict__["global_filters"] = global_filters
             __props__.__dict__["name"] = name
             __props__.__dict__["operating_system"] = operating_system

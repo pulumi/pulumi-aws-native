@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,9 +21,20 @@ class AccessPointAwsLambdaArgs:
     def __init__(__self__, *,
                  function_arn: pulumi.Input[str],
                  function_payload: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "function_arn", function_arn)
+        AccessPointAwsLambdaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_arn=function_arn,
+            function_payload=function_payload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_arn: pulumi.Input[str],
+             function_payload: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_arn", function_arn)
         if function_payload is not None:
-            pulumi.set(__self__, "function_payload", function_payload)
+            _setter("function_payload", function_payload)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -54,12 +65,27 @@ class AccessPointObjectLambdaConfigurationArgs:
         """
         Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
         """
-        pulumi.set(__self__, "supporting_access_point", supporting_access_point)
-        pulumi.set(__self__, "transformation_configurations", transformation_configurations)
+        AccessPointObjectLambdaConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            supporting_access_point=supporting_access_point,
+            transformation_configurations=transformation_configurations,
+            allowed_features=allowed_features,
+            cloud_watch_metrics_enabled=cloud_watch_metrics_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             supporting_access_point: pulumi.Input[str],
+             transformation_configurations: pulumi.Input[Sequence[pulumi.Input['AccessPointTransformationConfigurationArgs']]],
+             allowed_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("supporting_access_point", supporting_access_point)
+        _setter("transformation_configurations", transformation_configurations)
         if allowed_features is not None:
-            pulumi.set(__self__, "allowed_features", allowed_features)
+            _setter("allowed_features", allowed_features)
         if cloud_watch_metrics_enabled is not None:
-            pulumi.set(__self__, "cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
+            _setter("cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
 
     @property
     @pulumi.getter(name="supportingAccessPoint")
@@ -102,7 +128,16 @@ class AccessPointObjectLambdaConfigurationArgs:
 class AccessPointTransformationConfigurationContentTransformationPropertiesArgs:
     def __init__(__self__, *,
                  aws_lambda: pulumi.Input['AccessPointAwsLambdaArgs']):
-        pulumi.set(__self__, "aws_lambda", aws_lambda)
+        AccessPointTransformationConfigurationContentTransformationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_lambda=aws_lambda,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_lambda: pulumi.Input['AccessPointAwsLambdaArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aws_lambda", aws_lambda)
 
     @property
     @pulumi.getter(name="awsLambda")
@@ -122,8 +157,19 @@ class AccessPointTransformationConfigurationArgs:
         """
         Configuration to define what content transformation will be applied on which S3 Action.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "content_transformation", content_transformation)
+        AccessPointTransformationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            content_transformation=content_transformation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             content_transformation: pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("content_transformation", content_transformation)
 
     @property
     @pulumi.getter

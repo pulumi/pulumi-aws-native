@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,13 +27,28 @@ class LaunchTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]] tag_specifications: The tags to apply to the launch template on creation.
         :param pulumi.Input[str] version_description: A description for the first version of the launch template.
         """
-        pulumi.set(__self__, "launch_template_data", launch_template_data)
+        LaunchTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            launch_template_data=launch_template_data,
+            launch_template_name=launch_template_name,
+            tag_specifications=tag_specifications,
+            version_description=version_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             launch_template_data: pulumi.Input['LaunchTemplateDataArgs'],
+             launch_template_name: Optional[pulumi.Input[str]] = None,
+             tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
+             version_description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("launch_template_data", launch_template_data)
         if launch_template_name is not None:
-            pulumi.set(__self__, "launch_template_name", launch_template_name)
+            _setter("launch_template_name", launch_template_name)
         if tag_specifications is not None:
-            pulumi.set(__self__, "tag_specifications", tag_specifications)
+            _setter("tag_specifications", tag_specifications)
         if version_description is not None:
-            pulumi.set(__self__, "version_description", version_description)
+            _setter("version_description", version_description)
 
     @property
     @pulumi.getter(name="launchTemplateData")
@@ -119,6 +134,10 @@ class LaunchTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LaunchTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -137,6 +156,11 @@ class LaunchTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LaunchTemplateArgs.__new__(LaunchTemplateArgs)
 
+            if launch_template_data is not None and not isinstance(launch_template_data, LaunchTemplateDataArgs):
+                launch_template_data = launch_template_data or {}
+                def _setter(key, value):
+                    launch_template_data[key] = value
+                LaunchTemplateDataArgs._configure(_setter, **launch_template_data)
             if launch_template_data is None and not opts.urn:
                 raise TypeError("Missing required property 'launch_template_data'")
             __props__.__dict__["launch_template_data"] = launch_template_data

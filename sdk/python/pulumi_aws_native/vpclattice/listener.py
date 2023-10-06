@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,16 +26,35 @@ class ListenerArgs:
         """
         The set of arguments for constructing a Listener resource.
         """
-        pulumi.set(__self__, "default_action", default_action)
-        pulumi.set(__self__, "protocol", protocol)
+        ListenerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            protocol=protocol,
+            name=name,
+            port=port,
+            service_identifier=service_identifier,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: pulumi.Input['ListenerDefaultActionArgs'],
+             protocol: pulumi.Input['ListenerProtocol'],
+             name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             service_identifier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_action", default_action)
+        _setter("protocol", protocol)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if service_identifier is not None:
-            pulumi.set(__self__, "service_identifier", service_identifier)
+            _setter("service_identifier", service_identifier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -129,6 +148,10 @@ class Listener(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ListenerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -149,6 +172,11 @@ class Listener(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ListenerArgs.__new__(ListenerArgs)
 
+            if default_action is not None and not isinstance(default_action, ListenerDefaultActionArgs):
+                default_action = default_action or {}
+                def _setter(key, value):
+                    default_action[key] = value
+                ListenerDefaultActionArgs._configure(_setter, **default_action)
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SubscriptionArgs', 'Subscription']
@@ -27,24 +27,51 @@ class SubscriptionArgs:
         """
         The set of arguments for constructing a Subscription resource.
         """
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "topic_arn", topic_arn)
+        SubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            topic_arn=topic_arn,
+            delivery_policy=delivery_policy,
+            endpoint=endpoint,
+            filter_policy=filter_policy,
+            filter_policy_scope=filter_policy_scope,
+            raw_message_delivery=raw_message_delivery,
+            redrive_policy=redrive_policy,
+            region=region,
+            subscription_role_arn=subscription_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: pulumi.Input[str],
+             topic_arn: pulumi.Input[str],
+             delivery_policy: Optional[Any] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             filter_policy: Optional[Any] = None,
+             filter_policy_scope: Optional[pulumi.Input[str]] = None,
+             raw_message_delivery: Optional[pulumi.Input[bool]] = None,
+             redrive_policy: Optional[Any] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             subscription_role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("protocol", protocol)
+        _setter("topic_arn", topic_arn)
         if delivery_policy is not None:
-            pulumi.set(__self__, "delivery_policy", delivery_policy)
+            _setter("delivery_policy", delivery_policy)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if filter_policy is not None:
-            pulumi.set(__self__, "filter_policy", filter_policy)
+            _setter("filter_policy", filter_policy)
         if filter_policy_scope is not None:
-            pulumi.set(__self__, "filter_policy_scope", filter_policy_scope)
+            _setter("filter_policy_scope", filter_policy_scope)
         if raw_message_delivery is not None:
-            pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
+            _setter("raw_message_delivery", raw_message_delivery)
         if redrive_policy is not None:
-            pulumi.set(__self__, "redrive_policy", redrive_policy)
+            _setter("redrive_policy", redrive_policy)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if subscription_role_arn is not None:
-            pulumi.set(__self__, "subscription_role_arn", subscription_role_arn)
+            _setter("subscription_role_arn", subscription_role_arn)
 
     @property
     @pulumi.getter
@@ -183,6 +210,10 @@ class Subscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,31 +33,66 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         """
-        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
-        pulumi.set(__self__, "node_type", node_type)
-        pulumi.set(__self__, "replication_factor", replication_factor)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iam_role_arn=iam_role_arn,
+            node_type=node_type,
+            replication_factor=replication_factor,
+            availability_zones=availability_zones,
+            cluster_endpoint_encryption_type=cluster_endpoint_encryption_type,
+            cluster_name=cluster_name,
+            description=description,
+            notification_topic_arn=notification_topic_arn,
+            parameter_group_name=parameter_group_name,
+            preferred_maintenance_window=preferred_maintenance_window,
+            security_group_ids=security_group_ids,
+            sse_specification=sse_specification,
+            subnet_group_name=subnet_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iam_role_arn: pulumi.Input[str],
+             node_type: pulumi.Input[str],
+             replication_factor: pulumi.Input[int],
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cluster_endpoint_encryption_type: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             notification_topic_arn: Optional[pulumi.Input[str]] = None,
+             parameter_group_name: Optional[pulumi.Input[str]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sse_specification: Optional[pulumi.Input['ClusterSseSpecificationArgs']] = None,
+             subnet_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("iam_role_arn", iam_role_arn)
+        _setter("node_type", node_type)
+        _setter("replication_factor", replication_factor)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if cluster_endpoint_encryption_type is not None:
-            pulumi.set(__self__, "cluster_endpoint_encryption_type", cluster_endpoint_encryption_type)
+            _setter("cluster_endpoint_encryption_type", cluster_endpoint_encryption_type)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if notification_topic_arn is not None:
-            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+            _setter("notification_topic_arn", notification_topic_arn)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if sse_specification is not None:
-            pulumi.set(__self__, "sse_specification", sse_specification)
+            _setter("sse_specification", sse_specification)
         if subnet_group_name is not None:
-            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+            _setter("subnet_group_name", subnet_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="iamRoleArn")
@@ -236,6 +271,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -282,6 +321,11 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'replication_factor'")
             __props__.__dict__["replication_factor"] = replication_factor
             __props__.__dict__["security_group_ids"] = security_group_ids
+            if sse_specification is not None and not isinstance(sse_specification, ClusterSseSpecificationArgs):
+                sse_specification = sse_specification or {}
+                def _setter(key, value):
+                    sse_specification[key] = value
+                ClusterSseSpecificationArgs._configure(_setter, **sse_specification)
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["subnet_group_name"] = subnet_group_name
             __props__.__dict__["tags"] = tags

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,35 @@ class ReplicaKeyArgs:
         :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicaKeyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "key_policy", key_policy)
-        pulumi.set(__self__, "primary_key_arn", primary_key_arn)
+        ReplicaKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_policy=key_policy,
+            primary_key_arn=primary_key_arn,
+            description=description,
+            enabled=enabled,
+            pending_window_in_days=pending_window_in_days,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_policy: Any,
+             primary_key_arn: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             pending_window_in_days: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicaKeyTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_policy", key_policy)
+        _setter("primary_key_arn", primary_key_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if pending_window_in_days is not None:
-            pulumi.set(__self__, "pending_window_in_days", pending_window_in_days)
+            _setter("pending_window_in_days", pending_window_in_days)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="keyPolicy")
@@ -158,6 +177,10 @@ class ReplicaKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicaKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

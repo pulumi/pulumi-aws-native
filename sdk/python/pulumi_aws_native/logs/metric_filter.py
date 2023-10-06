@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,11 +28,26 @@ class MetricFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]] metric_transformations: A collection of information that defines how metric data gets emitted.
         :param pulumi.Input[str] filter_name: A name for the metric filter.
         """
-        pulumi.set(__self__, "filter_pattern", filter_pattern)
-        pulumi.set(__self__, "log_group_name", log_group_name)
-        pulumi.set(__self__, "metric_transformations", metric_transformations)
+        MetricFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_pattern=filter_pattern,
+            log_group_name=log_group_name,
+            metric_transformations=metric_transformations,
+            filter_name=filter_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_pattern: pulumi.Input[str],
+             log_group_name: pulumi.Input[str],
+             metric_transformations: pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]],
+             filter_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filter_pattern", filter_pattern)
+        _setter("log_group_name", log_group_name)
+        _setter("metric_transformations", metric_transformations)
         if filter_name is not None:
-            pulumi.set(__self__, "filter_name", filter_name)
+            _setter("filter_name", filter_name)
 
     @property
     @pulumi.getter(name="filterPattern")
@@ -122,6 +137,10 @@ class MetricFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MetricFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LifecycleHookArgs', 'LifecycleHook']
@@ -33,20 +33,43 @@ class LifecycleHookArgs:
         :param pulumi.Input[str] notification_target_arn: The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
         """
-        pulumi.set(__self__, "auto_scaling_group_name", auto_scaling_group_name)
-        pulumi.set(__self__, "lifecycle_transition", lifecycle_transition)
+        LifecycleHookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_scaling_group_name=auto_scaling_group_name,
+            lifecycle_transition=lifecycle_transition,
+            default_result=default_result,
+            heartbeat_timeout=heartbeat_timeout,
+            lifecycle_hook_name=lifecycle_hook_name,
+            notification_metadata=notification_metadata,
+            notification_target_arn=notification_target_arn,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_scaling_group_name: pulumi.Input[str],
+             lifecycle_transition: pulumi.Input[str],
+             default_result: Optional[pulumi.Input[str]] = None,
+             heartbeat_timeout: Optional[pulumi.Input[int]] = None,
+             lifecycle_hook_name: Optional[pulumi.Input[str]] = None,
+             notification_metadata: Optional[pulumi.Input[str]] = None,
+             notification_target_arn: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_scaling_group_name", auto_scaling_group_name)
+        _setter("lifecycle_transition", lifecycle_transition)
         if default_result is not None:
-            pulumi.set(__self__, "default_result", default_result)
+            _setter("default_result", default_result)
         if heartbeat_timeout is not None:
-            pulumi.set(__self__, "heartbeat_timeout", heartbeat_timeout)
+            _setter("heartbeat_timeout", heartbeat_timeout)
         if lifecycle_hook_name is not None:
-            pulumi.set(__self__, "lifecycle_hook_name", lifecycle_hook_name)
+            _setter("lifecycle_hook_name", lifecycle_hook_name)
         if notification_metadata is not None:
-            pulumi.set(__self__, "notification_metadata", notification_metadata)
+            _setter("notification_metadata", notification_metadata)
         if notification_target_arn is not None:
-            pulumi.set(__self__, "notification_target_arn", notification_target_arn)
+            _setter("notification_target_arn", notification_target_arn)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="autoScalingGroupName")
@@ -192,6 +215,10 @@ class LifecycleHook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LifecycleHookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

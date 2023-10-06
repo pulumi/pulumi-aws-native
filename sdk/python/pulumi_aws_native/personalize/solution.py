@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,19 +33,40 @@ class SolutionArgs:
         :param pulumi.Input[bool] perform_hpo: Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
         :param pulumi.Input[str] recipe_arn: The ARN of the recipe to use for model training. Only specified when performAutoML is false.
         """
-        pulumi.set(__self__, "dataset_group_arn", dataset_group_arn)
+        SolutionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dataset_group_arn=dataset_group_arn,
+            event_type=event_type,
+            name=name,
+            perform_auto_ml=perform_auto_ml,
+            perform_hpo=perform_hpo,
+            recipe_arn=recipe_arn,
+            solution_config=solution_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dataset_group_arn: pulumi.Input[str],
+             event_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             perform_auto_ml: Optional[pulumi.Input[bool]] = None,
+             perform_hpo: Optional[pulumi.Input[bool]] = None,
+             recipe_arn: Optional[pulumi.Input[str]] = None,
+             solution_config: Optional[pulumi.Input['SolutionConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dataset_group_arn", dataset_group_arn)
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if perform_auto_ml is not None:
-            pulumi.set(__self__, "perform_auto_ml", perform_auto_ml)
+            _setter("perform_auto_ml", perform_auto_ml)
         if perform_hpo is not None:
-            pulumi.set(__self__, "perform_hpo", perform_hpo)
+            _setter("perform_hpo", perform_hpo)
         if recipe_arn is not None:
-            pulumi.set(__self__, "recipe_arn", recipe_arn)
+            _setter("recipe_arn", recipe_arn)
         if solution_config is not None:
-            pulumi.set(__self__, "solution_config", solution_config)
+            _setter("solution_config", solution_config)
 
     @property
     @pulumi.getter(name="datasetGroupArn")
@@ -173,6 +194,10 @@ class Solution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SolutionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -202,6 +227,11 @@ class Solution(pulumi.CustomResource):
             __props__.__dict__["perform_auto_ml"] = perform_auto_ml
             __props__.__dict__["perform_hpo"] = perform_hpo
             __props__.__dict__["recipe_arn"] = recipe_arn
+            if solution_config is not None and not isinstance(solution_config, SolutionConfigArgs):
+                solution_config = solution_config or {}
+                def _setter(key, value):
+                    solution_config[key] = value
+                SolutionConfigArgs._configure(_setter, **solution_config)
             __props__.__dict__["solution_config"] = solution_config
             __props__.__dict__["solution_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataset_group_arn", "event_type", "name", "perform_auto_ml", "perform_hpo", "recipe_arn", "solution_config"])

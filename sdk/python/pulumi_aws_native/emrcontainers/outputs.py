@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -38,7 +38,16 @@ class VirtualClusterContainerInfo(dict):
 
     def __init__(__self__, *,
                  eks_info: 'outputs.VirtualClusterEksInfo'):
-        pulumi.set(__self__, "eks_info", eks_info)
+        VirtualClusterContainerInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eks_info=eks_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eks_info: 'outputs.VirtualClusterEksInfo',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("eks_info", eks_info)
 
     @property
     @pulumi.getter(name="eksInfo")
@@ -56,9 +65,22 @@ class VirtualClusterContainerProvider(dict):
         :param str id: The ID of the container cluster
         :param str type: The type of the container provider
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        VirtualClusterContainerProvider._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             info: 'outputs.VirtualClusterContainerInfo',
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -86,7 +108,16 @@ class VirtualClusterContainerProvider(dict):
 class VirtualClusterEksInfo(dict):
     def __init__(__self__, *,
                  namespace: str):
-        pulumi.set(__self__, "namespace", namespace)
+        VirtualClusterEksInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace", namespace)
 
     @property
     @pulumi.getter
@@ -107,8 +138,19 @@ class VirtualClusterTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        VirtualClusterTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

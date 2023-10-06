@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,26 +30,53 @@ class WorkgroupArgs:
         """
         The set of arguments for constructing a Workgroup resource.
         """
+        WorkgroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_capacity=base_capacity,
+            config_parameters=config_parameters,
+            enhanced_vpc_routing=enhanced_vpc_routing,
+            namespace_name=namespace_name,
+            port=port,
+            publicly_accessible=publicly_accessible,
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            workgroup_name=workgroup_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_capacity: Optional[pulumi.Input[int]] = None,
+             config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]] = None,
+             enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             publicly_accessible: Optional[pulumi.Input[bool]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupTagArgs']]]] = None,
+             workgroup_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if base_capacity is not None:
-            pulumi.set(__self__, "base_capacity", base_capacity)
+            _setter("base_capacity", base_capacity)
         if config_parameters is not None:
-            pulumi.set(__self__, "config_parameters", config_parameters)
+            _setter("config_parameters", config_parameters)
         if enhanced_vpc_routing is not None:
-            pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
+            _setter("enhanced_vpc_routing", enhanced_vpc_routing)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if publicly_accessible is not None:
-            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+            _setter("publicly_accessible", publicly_accessible)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workgroup_name is not None:
-            pulumi.set(__self__, "workgroup_name", workgroup_name)
+            _setter("workgroup_name", workgroup_name)
 
     @property
     @pulumi.getter(name="baseCapacity")
@@ -183,6 +210,10 @@ class Workgroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkgroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

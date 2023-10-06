@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,42 @@ class ContainerInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ContainerPublicDomainNameArgs']]] public_domain_names: The public domain names to use with the container service, such as example.com and www.example.com.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "power", power)
-        pulumi.set(__self__, "scale", scale)
-        pulumi.set(__self__, "service_name", service_name)
+        ContainerInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            power=power,
+            scale=scale,
+            service_name=service_name,
+            container_service_deployment=container_service_deployment,
+            is_disabled=is_disabled,
+            private_registry_access=private_registry_access,
+            public_domain_names=public_domain_names,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             power: pulumi.Input[str],
+             scale: pulumi.Input[int],
+             service_name: pulumi.Input[str],
+             container_service_deployment: Optional[pulumi.Input['ContainerServiceDeploymentArgs']] = None,
+             is_disabled: Optional[pulumi.Input[bool]] = None,
+             private_registry_access: Optional[pulumi.Input['ContainerPrivateRegistryAccessArgs']] = None,
+             public_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPublicDomainNameArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("power", power)
+        _setter("scale", scale)
+        _setter("service_name", service_name)
         if container_service_deployment is not None:
-            pulumi.set(__self__, "container_service_deployment", container_service_deployment)
+            _setter("container_service_deployment", container_service_deployment)
         if is_disabled is not None:
-            pulumi.set(__self__, "is_disabled", is_disabled)
+            _setter("is_disabled", is_disabled)
         if private_registry_access is not None:
-            pulumi.set(__self__, "private_registry_access", private_registry_access)
+            _setter("private_registry_access", private_registry_access)
         if public_domain_names is not None:
-            pulumi.set(__self__, "public_domain_names", public_domain_names)
+            _setter("public_domain_names", public_domain_names)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -193,6 +216,10 @@ class Container(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -215,11 +242,21 @@ class Container(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContainerInitArgs.__new__(ContainerInitArgs)
 
+            if container_service_deployment is not None and not isinstance(container_service_deployment, ContainerServiceDeploymentArgs):
+                container_service_deployment = container_service_deployment or {}
+                def _setter(key, value):
+                    container_service_deployment[key] = value
+                ContainerServiceDeploymentArgs._configure(_setter, **container_service_deployment)
             __props__.__dict__["container_service_deployment"] = container_service_deployment
             __props__.__dict__["is_disabled"] = is_disabled
             if power is None and not opts.urn:
                 raise TypeError("Missing required property 'power'")
             __props__.__dict__["power"] = power
+            if private_registry_access is not None and not isinstance(private_registry_access, ContainerPrivateRegistryAccessArgs):
+                private_registry_access = private_registry_access or {}
+                def _setter(key, value):
+                    private_registry_access[key] = value
+                ContainerPrivateRegistryAccessArgs._configure(_setter, **private_registry_access)
             __props__.__dict__["private_registry_access"] = private_registry_access
             __props__.__dict__["public_domain_names"] = public_domain_names
             if scale is None and not opts.urn:

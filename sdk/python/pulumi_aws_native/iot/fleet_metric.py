@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -38,25 +38,52 @@ class FleetMetricArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]] tags: An array of key-value pairs to apply to this resource
         :param pulumi.Input[str] unit: The unit of data points emitted by a fleet metric
         """
-        pulumi.set(__self__, "metric_name", metric_name)
+        FleetMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            aggregation_field=aggregation_field,
+            aggregation_type=aggregation_type,
+            description=description,
+            index_name=index_name,
+            period=period,
+            query_string=query_string,
+            query_version=query_version,
+            tags=tags,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: pulumi.Input[str],
+             aggregation_field: Optional[pulumi.Input[str]] = None,
+             aggregation_type: Optional[pulumi.Input['FleetMetricAggregationTypeArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             index_name: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[int]] = None,
+             query_string: Optional[pulumi.Input[str]] = None,
+             query_version: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_name", metric_name)
         if aggregation_field is not None:
-            pulumi.set(__self__, "aggregation_field", aggregation_field)
+            _setter("aggregation_field", aggregation_field)
         if aggregation_type is not None:
-            pulumi.set(__self__, "aggregation_type", aggregation_type)
+            _setter("aggregation_type", aggregation_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if index_name is not None:
-            pulumi.set(__self__, "index_name", index_name)
+            _setter("index_name", index_name)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if query_version is not None:
-            pulumi.set(__self__, "query_version", query_version)
+            _setter("query_version", query_version)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter(name="metricName")
@@ -226,6 +253,10 @@ class FleetMetric(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FleetMetricArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -251,6 +282,11 @@ class FleetMetric(pulumi.CustomResource):
             __props__ = FleetMetricArgs.__new__(FleetMetricArgs)
 
             __props__.__dict__["aggregation_field"] = aggregation_field
+            if aggregation_type is not None and not isinstance(aggregation_type, FleetMetricAggregationTypeArgs):
+                aggregation_type = aggregation_type or {}
+                def _setter(key, value):
+                    aggregation_type[key] = value
+                FleetMetricAggregationTypeArgs._configure(_setter, **aggregation_type)
             __props__.__dict__["aggregation_type"] = aggregation_type
             __props__.__dict__["description"] = description
             __props__.__dict__["index_name"] = index_name

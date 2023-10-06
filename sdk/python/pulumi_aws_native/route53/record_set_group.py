@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,14 +23,29 @@ class RecordSetGroupArgs:
         """
         The set of arguments for constructing a RecordSetGroup resource.
         """
+        RecordSetGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            hosted_zone_id=hosted_zone_id,
+            hosted_zone_name=hosted_zone_name,
+            record_sets=record_sets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             hosted_zone_name: Optional[pulumi.Input[str]] = None,
+             record_sets: Optional[pulumi.Input[Sequence[pulumi.Input['RecordSetGroupRecordSetArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if hosted_zone_name is not None:
-            pulumi.set(__self__, "hosted_zone_name", hosted_zone_name)
+            _setter("hosted_zone_name", hosted_zone_name)
         if record_sets is not None:
-            pulumi.set(__self__, "record_sets", record_sets)
+            _setter("record_sets", record_sets)
 
     @property
     @pulumi.getter
@@ -109,6 +124,10 @@ class RecordSetGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RecordSetGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,38 @@ class FlowEntitlementArgs:
         :param pulumi.Input['FlowEntitlementEntitlementStatus'] entitlement_status:  An indication of whether the entitlement is enabled.
         :param pulumi.Input[str] name: The name of the entitlement.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "flow_arn", flow_arn)
-        pulumi.set(__self__, "subscribers", subscribers)
+        FlowEntitlementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            flow_arn=flow_arn,
+            subscribers=subscribers,
+            data_transfer_subscriber_fee_percent=data_transfer_subscriber_fee_percent,
+            encryption=encryption,
+            entitlement_status=entitlement_status,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: pulumi.Input[str],
+             flow_arn: pulumi.Input[str],
+             subscribers: pulumi.Input[Sequence[pulumi.Input[str]]],
+             data_transfer_subscriber_fee_percent: Optional[pulumi.Input[int]] = None,
+             encryption: Optional[pulumi.Input['FlowEntitlementEncryptionArgs']] = None,
+             entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("flow_arn", flow_arn)
+        _setter("subscribers", subscribers)
         if data_transfer_subscriber_fee_percent is not None:
-            pulumi.set(__self__, "data_transfer_subscriber_fee_percent", data_transfer_subscriber_fee_percent)
+            _setter("data_transfer_subscriber_fee_percent", data_transfer_subscriber_fee_percent)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if entitlement_status is not None:
-            pulumi.set(__self__, "entitlement_status", entitlement_status)
+            _setter("entitlement_status", entitlement_status)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -176,6 +197,10 @@ class FlowEntitlement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlowEntitlementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -201,6 +226,11 @@ class FlowEntitlement(pulumi.CustomResource):
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
+            if encryption is not None and not isinstance(encryption, FlowEntitlementEncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                FlowEntitlementEncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["entitlement_status"] = entitlement_status
             if flow_arn is None and not opts.urn:

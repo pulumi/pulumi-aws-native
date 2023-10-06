@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,34 @@ class VpcAttachmentArgs:
         :param pulumi.Input['VpcAttachmentProposedSegmentChangeArgs'] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]] tags: Tags for the attachment.
         """
-        pulumi.set(__self__, "core_network_id", core_network_id)
-        pulumi.set(__self__, "subnet_arns", subnet_arns)
-        pulumi.set(__self__, "vpc_arn", vpc_arn)
+        VpcAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            core_network_id=core_network_id,
+            subnet_arns=subnet_arns,
+            vpc_arn=vpc_arn,
+            options=options,
+            proposed_segment_change=proposed_segment_change,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             core_network_id: pulumi.Input[str],
+             subnet_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             vpc_arn: pulumi.Input[str],
+             options: Optional[pulumi.Input['VpcAttachmentVpcOptionsArgs']] = None,
+             proposed_segment_change: Optional[pulumi.Input['VpcAttachmentProposedSegmentChangeArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("core_network_id", core_network_id)
+        _setter("subnet_arns", subnet_arns)
+        _setter("vpc_arn", vpc_arn)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if proposed_segment_change is not None:
-            pulumi.set(__self__, "proposed_segment_change", proposed_segment_change)
+            _setter("proposed_segment_change", proposed_segment_change)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="coreNetworkId")
@@ -157,6 +176,10 @@ class VpcAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,7 +203,17 @@ class VpcAttachment(pulumi.CustomResource):
             if core_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'core_network_id'")
             __props__.__dict__["core_network_id"] = core_network_id
+            if options is not None and not isinstance(options, VpcAttachmentVpcOptionsArgs):
+                options = options or {}
+                def _setter(key, value):
+                    options[key] = value
+                VpcAttachmentVpcOptionsArgs._configure(_setter, **options)
             __props__.__dict__["options"] = options
+            if proposed_segment_change is not None and not isinstance(proposed_segment_change, VpcAttachmentProposedSegmentChangeArgs):
+                proposed_segment_change = proposed_segment_change or {}
+                def _setter(key, value):
+                    proposed_segment_change[key] = value
+                VpcAttachmentProposedSegmentChangeArgs._configure(_setter, **proposed_segment_change)
             __props__.__dict__["proposed_segment_change"] = proposed_segment_change
             if subnet_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_arns'")

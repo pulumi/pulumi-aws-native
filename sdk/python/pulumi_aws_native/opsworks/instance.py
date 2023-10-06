@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,45 +40,94 @@ class InstanceArgs:
         """
         The set of arguments for constructing a Instance resource.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "layer_ids", layer_ids)
-        pulumi.set(__self__, "stack_id", stack_id)
+        InstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            layer_ids=layer_ids,
+            stack_id=stack_id,
+            agent_version=agent_version,
+            ami_id=ami_id,
+            architecture=architecture,
+            auto_scaling_type=auto_scaling_type,
+            availability_zone=availability_zone,
+            block_device_mappings=block_device_mappings,
+            ebs_optimized=ebs_optimized,
+            elastic_ips=elastic_ips,
+            hostname=hostname,
+            install_updates_on_boot=install_updates_on_boot,
+            os=os,
+            root_device_type=root_device_type,
+            ssh_key_name=ssh_key_name,
+            subnet_id=subnet_id,
+            tenancy=tenancy,
+            time_based_auto_scaling=time_based_auto_scaling,
+            virtualization_type=virtualization_type,
+            volumes=volumes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             layer_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             stack_id: pulumi.Input[str],
+             agent_version: Optional[pulumi.Input[str]] = None,
+             ami_id: Optional[pulumi.Input[str]] = None,
+             architecture: Optional[pulumi.Input[str]] = None,
+             auto_scaling_type: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceBlockDeviceMappingArgs']]]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             elastic_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
+             os: Optional[pulumi.Input[str]] = None,
+             root_device_type: Optional[pulumi.Input[str]] = None,
+             ssh_key_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tenancy: Optional[pulumi.Input[str]] = None,
+             time_based_auto_scaling: Optional[pulumi.Input['InstanceTimeBasedAutoScalingArgs']] = None,
+             virtualization_type: Optional[pulumi.Input[str]] = None,
+             volumes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", instance_type)
+        _setter("layer_ids", layer_ids)
+        _setter("stack_id", stack_id)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if ami_id is not None:
-            pulumi.set(__self__, "ami_id", ami_id)
+            _setter("ami_id", ami_id)
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if auto_scaling_type is not None:
-            pulumi.set(__self__, "auto_scaling_type", auto_scaling_type)
+            _setter("auto_scaling_type", auto_scaling_type)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if block_device_mappings is not None:
-            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+            _setter("block_device_mappings", block_device_mappings)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if elastic_ips is not None:
-            pulumi.set(__self__, "elastic_ips", elastic_ips)
+            _setter("elastic_ips", elastic_ips)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if install_updates_on_boot is not None:
-            pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
+            _setter("install_updates_on_boot", install_updates_on_boot)
         if os is not None:
-            pulumi.set(__self__, "os", os)
+            _setter("os", os)
         if root_device_type is not None:
-            pulumi.set(__self__, "root_device_type", root_device_type)
+            _setter("root_device_type", root_device_type)
         if ssh_key_name is not None:
-            pulumi.set(__self__, "ssh_key_name", ssh_key_name)
+            _setter("ssh_key_name", ssh_key_name)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tenancy is not None:
-            pulumi.set(__self__, "tenancy", tenancy)
+            _setter("tenancy", tenancy)
         if time_based_auto_scaling is not None:
-            pulumi.set(__self__, "time_based_auto_scaling", time_based_auto_scaling)
+            _setter("time_based_auto_scaling", time_based_auto_scaling)
         if virtualization_type is not None:
-            pulumi.set(__self__, "virtualization_type", virtualization_type)
+            _setter("virtualization_type", virtualization_type)
         if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
+            _setter("volumes", volumes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -327,6 +376,10 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -387,6 +440,11 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["stack_id"] = stack_id
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tenancy"] = tenancy
+            if time_based_auto_scaling is not None and not isinstance(time_based_auto_scaling, InstanceTimeBasedAutoScalingArgs):
+                time_based_auto_scaling = time_based_auto_scaling or {}
+                def _setter(key, value):
+                    time_based_auto_scaling[key] = value
+                InstanceTimeBasedAutoScalingArgs._configure(_setter, **time_based_auto_scaling)
             __props__.__dict__["time_based_auto_scaling"] = time_based_auto_scaling
             __props__.__dict__["virtualization_type"] = virtualization_type
             __props__.__dict__["volumes"] = volumes

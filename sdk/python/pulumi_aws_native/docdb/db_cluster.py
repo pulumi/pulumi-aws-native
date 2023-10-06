@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -42,52 +42,105 @@ class DbClusterArgs:
         """
         The set of arguments for constructing a DbCluster resource.
         """
+        DbClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zones=availability_zones,
+            backup_retention_period=backup_retention_period,
+            copy_tags_to_snapshot=copy_tags_to_snapshot,
+            db_cluster_identifier=db_cluster_identifier,
+            db_cluster_parameter_group_name=db_cluster_parameter_group_name,
+            db_subnet_group_name=db_subnet_group_name,
+            deletion_protection=deletion_protection,
+            enable_cloudwatch_logs_exports=enable_cloudwatch_logs_exports,
+            engine_version=engine_version,
+            kms_key_id=kms_key_id,
+            master_user_password=master_user_password,
+            master_username=master_username,
+            port=port,
+            preferred_backup_window=preferred_backup_window,
+            preferred_maintenance_window=preferred_maintenance_window,
+            restore_to_time=restore_to_time,
+            restore_type=restore_type,
+            snapshot_identifier=snapshot_identifier,
+            source_db_cluster_identifier=source_db_cluster_identifier,
+            storage_encrypted=storage_encrypted,
+            tags=tags,
+            use_latest_restorable_time=use_latest_restorable_time,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             backup_retention_period: Optional[pulumi.Input[int]] = None,
+             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+             db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+             deletion_protection: Optional[pulumi.Input[bool]] = None,
+             enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             master_user_password: Optional[pulumi.Input[str]] = None,
+             master_username: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             preferred_backup_window: Optional[pulumi.Input[str]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             restore_to_time: Optional[pulumi.Input[str]] = None,
+             restore_type: Optional[pulumi.Input[str]] = None,
+             snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             storage_encrypted: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]] = None,
+             use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if backup_retention_period is not None:
-            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+            _setter("backup_retention_period", backup_retention_period)
         if copy_tags_to_snapshot is not None:
-            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+            _setter("copy_tags_to_snapshot", copy_tags_to_snapshot)
         if db_cluster_identifier is not None:
-            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+            _setter("db_cluster_identifier", db_cluster_identifier)
         if db_cluster_parameter_group_name is not None:
-            pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+            _setter("db_cluster_parameter_group_name", db_cluster_parameter_group_name)
         if db_subnet_group_name is not None:
-            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+            _setter("db_subnet_group_name", db_subnet_group_name)
         if deletion_protection is not None:
-            pulumi.set(__self__, "deletion_protection", deletion_protection)
+            _setter("deletion_protection", deletion_protection)
         if enable_cloudwatch_logs_exports is not None:
-            pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
+            _setter("enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if master_user_password is not None:
-            pulumi.set(__self__, "master_user_password", master_user_password)
+            _setter("master_user_password", master_user_password)
         if master_username is not None:
-            pulumi.set(__self__, "master_username", master_username)
+            _setter("master_username", master_username)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if preferred_backup_window is not None:
-            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
+            _setter("preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if restore_to_time is not None:
-            pulumi.set(__self__, "restore_to_time", restore_to_time)
+            _setter("restore_to_time", restore_to_time)
         if restore_type is not None:
-            pulumi.set(__self__, "restore_type", restore_type)
+            _setter("restore_type", restore_type)
         if snapshot_identifier is not None:
-            pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
+            _setter("snapshot_identifier", snapshot_identifier)
         if source_db_cluster_identifier is not None:
-            pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
+            _setter("source_db_cluster_identifier", source_db_cluster_identifier)
         if storage_encrypted is not None:
-            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+            _setter("storage_encrypted", storage_encrypted)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if use_latest_restorable_time is not None:
-            pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
+            _setter("use_latest_restorable_time", use_latest_restorable_time)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -356,6 +409,10 @@ class DbCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DbClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

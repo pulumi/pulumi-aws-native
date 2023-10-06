@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,24 +30,51 @@ class AnalysisArgs:
         """
         The set of arguments for constructing a Analysis resource.
         """
-        pulumi.set(__self__, "analysis_id", analysis_id)
-        pulumi.set(__self__, "aws_account_id", aws_account_id)
+        AnalysisArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            analysis_id=analysis_id,
+            aws_account_id=aws_account_id,
+            definition=definition,
+            name=name,
+            parameters=parameters,
+            permissions=permissions,
+            source_entity=source_entity,
+            status=status,
+            tags=tags,
+            theme_arn=theme_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             analysis_id: pulumi.Input[str],
+             aws_account_id: pulumi.Input[str],
+             definition: Optional[pulumi.Input['AnalysisDefinitionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]] = None,
+             source_entity: Optional[pulumi.Input['AnalysisSourceEntityArgs']] = None,
+             status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
+             theme_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("analysis_id", analysis_id)
+        _setter("aws_account_id", aws_account_id)
         if definition is not None:
-            pulumi.set(__self__, "definition", definition)
+            _setter("definition", definition)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if source_entity is not None:
-            pulumi.set(__self__, "source_entity", source_entity)
+            _setter("source_entity", source_entity)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if theme_arn is not None:
-            pulumi.set(__self__, "theme_arn", theme_arn)
+            _setter("theme_arn", theme_arn)
 
     @property
     @pulumi.getter(name="analysisId")
@@ -181,6 +208,10 @@ class Analysis(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AnalysisArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -211,10 +242,25 @@ class Analysis(pulumi.CustomResource):
             if aws_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_account_id'")
             __props__.__dict__["aws_account_id"] = aws_account_id
+            if definition is not None and not isinstance(definition, AnalysisDefinitionArgs):
+                definition = definition or {}
+                def _setter(key, value):
+                    definition[key] = value
+                AnalysisDefinitionArgs._configure(_setter, **definition)
             __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
+            if parameters is not None and not isinstance(parameters, AnalysisParametersArgs):
+                parameters = parameters or {}
+                def _setter(key, value):
+                    parameters[key] = value
+                AnalysisParametersArgs._configure(_setter, **parameters)
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
+            if source_entity is not None and not isinstance(source_entity, AnalysisSourceEntityArgs):
+                source_entity = source_entity or {}
+                def _setter(key, value):
+                    source_entity[key] = value
+                AnalysisSourceEntityArgs._configure(_setter, **source_entity)
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags

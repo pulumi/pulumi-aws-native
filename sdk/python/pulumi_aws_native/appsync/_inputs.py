@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -45,9 +45,20 @@ class DataSourceAuthorizationConfigArgs:
     def __init__(__self__, *,
                  authorization_type: pulumi.Input[str],
                  aws_iam_config: Optional[pulumi.Input['DataSourceAwsIamConfigArgs']] = None):
-        pulumi.set(__self__, "authorization_type", authorization_type)
+        DataSourceAuthorizationConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_type=authorization_type,
+            aws_iam_config=aws_iam_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_type: pulumi.Input[str],
+             aws_iam_config: Optional[pulumi.Input['DataSourceAwsIamConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization_type", authorization_type)
         if aws_iam_config is not None:
-            pulumi.set(__self__, "aws_iam_config", aws_iam_config)
+            _setter("aws_iam_config", aws_iam_config)
 
     @property
     @pulumi.getter(name="authorizationType")
@@ -73,10 +84,21 @@ class DataSourceAwsIamConfigArgs:
     def __init__(__self__, *,
                  signing_region: Optional[pulumi.Input[str]] = None,
                  signing_service_name: Optional[pulumi.Input[str]] = None):
+        DataSourceAwsIamConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            signing_region=signing_region,
+            signing_service_name=signing_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             signing_region: Optional[pulumi.Input[str]] = None,
+             signing_service_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if signing_region is not None:
-            pulumi.set(__self__, "signing_region", signing_region)
+            _setter("signing_region", signing_region)
         if signing_service_name is not None:
-            pulumi.set(__self__, "signing_service_name", signing_service_name)
+            _setter("signing_service_name", signing_service_name)
 
     @property
     @pulumi.getter(name="signingRegion")
@@ -103,9 +125,22 @@ class DataSourceDeltaSyncConfigArgs:
                  base_table_ttl: pulumi.Input[str],
                  delta_sync_table_name: pulumi.Input[str],
                  delta_sync_table_ttl: pulumi.Input[str]):
-        pulumi.set(__self__, "base_table_ttl", base_table_ttl)
-        pulumi.set(__self__, "delta_sync_table_name", delta_sync_table_name)
-        pulumi.set(__self__, "delta_sync_table_ttl", delta_sync_table_ttl)
+        DataSourceDeltaSyncConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_table_ttl=base_table_ttl,
+            delta_sync_table_name=delta_sync_table_name,
+            delta_sync_table_ttl=delta_sync_table_ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_table_ttl: pulumi.Input[str],
+             delta_sync_table_name: pulumi.Input[str],
+             delta_sync_table_ttl: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("base_table_ttl", base_table_ttl)
+        _setter("delta_sync_table_name", delta_sync_table_name)
+        _setter("delta_sync_table_ttl", delta_sync_table_ttl)
 
     @property
     @pulumi.getter(name="baseTableTtl")
@@ -143,14 +178,31 @@ class DataSourceDynamoDbConfigArgs:
                  delta_sync_config: Optional[pulumi.Input['DataSourceDeltaSyncConfigArgs']] = None,
                  use_caller_credentials: Optional[pulumi.Input[bool]] = None,
                  versioned: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "aws_region", aws_region)
-        pulumi.set(__self__, "table_name", table_name)
+        DataSourceDynamoDbConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_region=aws_region,
+            table_name=table_name,
+            delta_sync_config=delta_sync_config,
+            use_caller_credentials=use_caller_credentials,
+            versioned=versioned,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_region: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             delta_sync_config: Optional[pulumi.Input['DataSourceDeltaSyncConfigArgs']] = None,
+             use_caller_credentials: Optional[pulumi.Input[bool]] = None,
+             versioned: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aws_region", aws_region)
+        _setter("table_name", table_name)
         if delta_sync_config is not None:
-            pulumi.set(__self__, "delta_sync_config", delta_sync_config)
+            _setter("delta_sync_config", delta_sync_config)
         if use_caller_credentials is not None:
-            pulumi.set(__self__, "use_caller_credentials", use_caller_credentials)
+            _setter("use_caller_credentials", use_caller_credentials)
         if versioned is not None:
-            pulumi.set(__self__, "versioned", versioned)
+            _setter("versioned", versioned)
 
     @property
     @pulumi.getter(name="awsRegion")
@@ -203,8 +255,19 @@ class DataSourceElasticsearchConfigArgs:
     def __init__(__self__, *,
                  aws_region: pulumi.Input[str],
                  endpoint: pulumi.Input[str]):
-        pulumi.set(__self__, "aws_region", aws_region)
-        pulumi.set(__self__, "endpoint", endpoint)
+        DataSourceElasticsearchConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_region=aws_region,
+            endpoint=endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_region: pulumi.Input[str],
+             endpoint: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aws_region", aws_region)
+        _setter("endpoint", endpoint)
 
     @property
     @pulumi.getter(name="awsRegion")
@@ -229,7 +292,16 @@ class DataSourceElasticsearchConfigArgs:
 class DataSourceEventBridgeConfigArgs:
     def __init__(__self__, *,
                  event_bus_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+        DataSourceEventBridgeConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_bus_arn=event_bus_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_bus_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_bus_arn", event_bus_arn)
 
     @property
     @pulumi.getter(name="eventBusArn")
@@ -246,9 +318,20 @@ class DataSourceHttpConfigArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  authorization_config: Optional[pulumi.Input['DataSourceAuthorizationConfigArgs']] = None):
-        pulumi.set(__self__, "endpoint", endpoint)
+        DataSourceHttpConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            authorization_config=authorization_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: pulumi.Input[str],
+             authorization_config: Optional[pulumi.Input['DataSourceAuthorizationConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint", endpoint)
         if authorization_config is not None:
-            pulumi.set(__self__, "authorization_config", authorization_config)
+            _setter("authorization_config", authorization_config)
 
     @property
     @pulumi.getter
@@ -273,7 +356,16 @@ class DataSourceHttpConfigArgs:
 class DataSourceLambdaConfigArgs:
     def __init__(__self__, *,
                  lambda_function_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+        DataSourceLambdaConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_function_arn=lambda_function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_function_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lambda_function_arn", lambda_function_arn)
 
     @property
     @pulumi.getter(name="lambdaFunctionArn")
@@ -290,8 +382,19 @@ class DataSourceOpenSearchServiceConfigArgs:
     def __init__(__self__, *,
                  aws_region: pulumi.Input[str],
                  endpoint: pulumi.Input[str]):
-        pulumi.set(__self__, "aws_region", aws_region)
-        pulumi.set(__self__, "endpoint", endpoint)
+        DataSourceOpenSearchServiceConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_region=aws_region,
+            endpoint=endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_region: pulumi.Input[str],
+             endpoint: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aws_region", aws_region)
+        _setter("endpoint", endpoint)
 
     @property
     @pulumi.getter(name="awsRegion")
@@ -320,13 +423,30 @@ class DataSourceRdsHttpEndpointConfigArgs:
                  db_cluster_identifier: pulumi.Input[str],
                  database_name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "aws_region", aws_region)
-        pulumi.set(__self__, "aws_secret_store_arn", aws_secret_store_arn)
-        pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        DataSourceRdsHttpEndpointConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_region=aws_region,
+            aws_secret_store_arn=aws_secret_store_arn,
+            db_cluster_identifier=db_cluster_identifier,
+            database_name=database_name,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_region: pulumi.Input[str],
+             aws_secret_store_arn: pulumi.Input[str],
+             db_cluster_identifier: pulumi.Input[str],
+             database_name: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aws_region", aws_region)
+        _setter("aws_secret_store_arn", aws_secret_store_arn)
+        _setter("db_cluster_identifier", db_cluster_identifier)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
 
     @property
     @pulumi.getter(name="awsRegion")
@@ -379,9 +499,20 @@ class DataSourceRelationalDatabaseConfigArgs:
     def __init__(__self__, *,
                  relational_database_source_type: pulumi.Input[str],
                  rds_http_endpoint_config: Optional[pulumi.Input['DataSourceRdsHttpEndpointConfigArgs']] = None):
-        pulumi.set(__self__, "relational_database_source_type", relational_database_source_type)
+        DataSourceRelationalDatabaseConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            relational_database_source_type=relational_database_source_type,
+            rds_http_endpoint_config=rds_http_endpoint_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             relational_database_source_type: pulumi.Input[str],
+             rds_http_endpoint_config: Optional[pulumi.Input['DataSourceRdsHttpEndpointConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("relational_database_source_type", relational_database_source_type)
         if rds_http_endpoint_config is not None:
-            pulumi.set(__self__, "rds_http_endpoint_config", rds_http_endpoint_config)
+            _setter("rds_http_endpoint_config", rds_http_endpoint_config)
 
     @property
     @pulumi.getter(name="relationalDatabaseSourceType")
@@ -407,8 +538,19 @@ class FunctionConfigurationAppSyncRuntimeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  runtime_version: pulumi.Input[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "runtime_version", runtime_version)
+        FunctionConfigurationAppSyncRuntimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            runtime_version=runtime_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             runtime_version: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("runtime_version", runtime_version)
 
     @property
     @pulumi.getter
@@ -433,8 +575,17 @@ class FunctionConfigurationAppSyncRuntimeArgs:
 class FunctionConfigurationLambdaConflictHandlerConfigArgs:
     def __init__(__self__, *,
                  lambda_conflict_handler_arn: Optional[pulumi.Input[str]] = None):
+        FunctionConfigurationLambdaConflictHandlerConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_conflict_handler_arn=lambda_conflict_handler_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_conflict_handler_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lambda_conflict_handler_arn is not None:
-            pulumi.set(__self__, "lambda_conflict_handler_arn", lambda_conflict_handler_arn)
+            _setter("lambda_conflict_handler_arn", lambda_conflict_handler_arn)
 
     @property
     @pulumi.getter(name="lambdaConflictHandlerArn")
@@ -452,11 +603,24 @@ class FunctionConfigurationSyncConfigArgs:
                  conflict_detection: pulumi.Input[str],
                  conflict_handler: Optional[pulumi.Input[str]] = None,
                  lambda_conflict_handler_config: Optional[pulumi.Input['FunctionConfigurationLambdaConflictHandlerConfigArgs']] = None):
-        pulumi.set(__self__, "conflict_detection", conflict_detection)
+        FunctionConfigurationSyncConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conflict_detection=conflict_detection,
+            conflict_handler=conflict_handler,
+            lambda_conflict_handler_config=lambda_conflict_handler_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conflict_detection: pulumi.Input[str],
+             conflict_handler: Optional[pulumi.Input[str]] = None,
+             lambda_conflict_handler_config: Optional[pulumi.Input['FunctionConfigurationLambdaConflictHandlerConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("conflict_detection", conflict_detection)
         if conflict_handler is not None:
-            pulumi.set(__self__, "conflict_handler", conflict_handler)
+            _setter("conflict_handler", conflict_handler)
         if lambda_conflict_handler_config is not None:
-            pulumi.set(__self__, "lambda_conflict_handler_config", lambda_conflict_handler_config)
+            _setter("lambda_conflict_handler_config", lambda_conflict_handler_config)
 
     @property
     @pulumi.getter(name="conflictDetection")
@@ -493,13 +657,28 @@ class GraphQlApiAdditionalAuthenticationProviderArgs:
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']] = None,
                  open_id_connect_config: Optional[pulumi.Input['GraphQlApiOpenIdConnectConfigArgs']] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQlApiCognitoUserPoolConfigArgs']] = None):
-        pulumi.set(__self__, "authentication_type", authentication_type)
+        GraphQlApiAdditionalAuthenticationProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            lambda_authorizer_config=lambda_authorizer_config,
+            open_id_connect_config=open_id_connect_config,
+            user_pool_config=user_pool_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: pulumi.Input[str],
+             lambda_authorizer_config: Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']] = None,
+             open_id_connect_config: Optional[pulumi.Input['GraphQlApiOpenIdConnectConfigArgs']] = None,
+             user_pool_config: Optional[pulumi.Input['GraphQlApiCognitoUserPoolConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication_type", authentication_type)
         if lambda_authorizer_config is not None:
-            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
+            _setter("lambda_authorizer_config", lambda_authorizer_config)
         if open_id_connect_config is not None:
-            pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
+            _setter("open_id_connect_config", open_id_connect_config)
         if user_pool_config is not None:
-            pulumi.set(__self__, "user_pool_config", user_pool_config)
+            _setter("user_pool_config", user_pool_config)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -544,12 +723,25 @@ class GraphQlApiCognitoUserPoolConfigArgs:
                  app_id_client_regex: Optional[pulumi.Input[str]] = None,
                  aws_region: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None):
+        GraphQlApiCognitoUserPoolConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id_client_regex=app_id_client_regex,
+            aws_region=aws_region,
+            user_pool_id=user_pool_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id_client_regex: Optional[pulumi.Input[str]] = None,
+             aws_region: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_id_client_regex is not None:
-            pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
+            _setter("app_id_client_regex", app_id_client_regex)
         if aws_region is not None:
-            pulumi.set(__self__, "aws_region", aws_region)
+            _setter("aws_region", aws_region)
         if user_pool_id is not None:
-            pulumi.set(__self__, "user_pool_id", user_pool_id)
+            _setter("user_pool_id", user_pool_id)
 
     @property
     @pulumi.getter(name="appIdClientRegex")
@@ -585,12 +777,25 @@ class GraphQlApiLambdaAuthorizerConfigArgs:
                  authorizer_result_ttl_in_seconds: Optional[pulumi.Input[float]] = None,
                  authorizer_uri: Optional[pulumi.Input[str]] = None,
                  identity_validation_expression: Optional[pulumi.Input[str]] = None):
+        GraphQlApiLambdaAuthorizerConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorizer_result_ttl_in_seconds=authorizer_result_ttl_in_seconds,
+            authorizer_uri=authorizer_uri,
+            identity_validation_expression=identity_validation_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorizer_result_ttl_in_seconds: Optional[pulumi.Input[float]] = None,
+             authorizer_uri: Optional[pulumi.Input[str]] = None,
+             identity_validation_expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorizer_result_ttl_in_seconds is not None:
-            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+            _setter("authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
         if authorizer_uri is not None:
-            pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+            _setter("authorizer_uri", authorizer_uri)
         if identity_validation_expression is not None:
-            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+            _setter("identity_validation_expression", identity_validation_expression)
 
     @property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
@@ -626,12 +831,25 @@ class GraphQlApiLogConfigArgs:
                  cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
                  exclude_verbose_content: Optional[pulumi.Input[bool]] = None,
                  field_log_level: Optional[pulumi.Input[str]] = None):
+        GraphQlApiLogConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_logs_role_arn=cloud_watch_logs_role_arn,
+            exclude_verbose_content=exclude_verbose_content,
+            field_log_level=field_log_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
+             exclude_verbose_content: Optional[pulumi.Input[bool]] = None,
+             field_log_level: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_logs_role_arn is not None:
-            pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+            _setter("cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
         if exclude_verbose_content is not None:
-            pulumi.set(__self__, "exclude_verbose_content", exclude_verbose_content)
+            _setter("exclude_verbose_content", exclude_verbose_content)
         if field_log_level is not None:
-            pulumi.set(__self__, "field_log_level", field_log_level)
+            _setter("field_log_level", field_log_level)
 
     @property
     @pulumi.getter(name="cloudWatchLogsRoleArn")
@@ -668,14 +886,29 @@ class GraphQlApiOpenIdConnectConfigArgs:
                  client_id: Optional[pulumi.Input[str]] = None,
                  iat_ttl: Optional[pulumi.Input[float]] = None,
                  issuer: Optional[pulumi.Input[str]] = None):
+        GraphQlApiOpenIdConnectConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_ttl=auth_ttl,
+            client_id=client_id,
+            iat_ttl=iat_ttl,
+            issuer=issuer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_ttl: Optional[pulumi.Input[float]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             iat_ttl: Optional[pulumi.Input[float]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_ttl is not None:
-            pulumi.set(__self__, "auth_ttl", auth_ttl)
+            _setter("auth_ttl", auth_ttl)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if iat_ttl is not None:
-            pulumi.set(__self__, "iat_ttl", iat_ttl)
+            _setter("iat_ttl", iat_ttl)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
 
     @property
     @pulumi.getter(name="authTtl")
@@ -719,8 +952,19 @@ class GraphQlApiTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        GraphQlApiTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -748,14 +992,29 @@ class GraphQlApiUserPoolConfigArgs:
                  aws_region: Optional[pulumi.Input[str]] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None):
+        GraphQlApiUserPoolConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id_client_regex=app_id_client_regex,
+            aws_region=aws_region,
+            default_action=default_action,
+            user_pool_id=user_pool_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id_client_regex: Optional[pulumi.Input[str]] = None,
+             aws_region: Optional[pulumi.Input[str]] = None,
+             default_action: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_id_client_regex is not None:
-            pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
+            _setter("app_id_client_regex", app_id_client_regex)
         if aws_region is not None:
-            pulumi.set(__self__, "aws_region", aws_region)
+            _setter("aws_region", aws_region)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if user_pool_id is not None:
-            pulumi.set(__self__, "user_pool_id", user_pool_id)
+            _setter("user_pool_id", user_pool_id)
 
     @property
     @pulumi.getter(name="appIdClientRegex")
@@ -799,8 +1058,19 @@ class ResolverAppSyncRuntimeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  runtime_version: pulumi.Input[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "runtime_version", runtime_version)
+        ResolverAppSyncRuntimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            runtime_version=runtime_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             runtime_version: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("runtime_version", runtime_version)
 
     @property
     @pulumi.getter
@@ -826,9 +1096,20 @@ class ResolverCachingConfigArgs:
     def __init__(__self__, *,
                  ttl: pulumi.Input[float],
                  caching_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "ttl", ttl)
+        ResolverCachingConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ttl=ttl,
+            caching_keys=caching_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ttl: pulumi.Input[float],
+             caching_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ttl", ttl)
         if caching_keys is not None:
-            pulumi.set(__self__, "caching_keys", caching_keys)
+            _setter("caching_keys", caching_keys)
 
     @property
     @pulumi.getter
@@ -853,8 +1134,17 @@ class ResolverCachingConfigArgs:
 class ResolverLambdaConflictHandlerConfigArgs:
     def __init__(__self__, *,
                  lambda_conflict_handler_arn: Optional[pulumi.Input[str]] = None):
+        ResolverLambdaConflictHandlerConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_conflict_handler_arn=lambda_conflict_handler_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_conflict_handler_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lambda_conflict_handler_arn is not None:
-            pulumi.set(__self__, "lambda_conflict_handler_arn", lambda_conflict_handler_arn)
+            _setter("lambda_conflict_handler_arn", lambda_conflict_handler_arn)
 
     @property
     @pulumi.getter(name="lambdaConflictHandlerArn")
@@ -870,8 +1160,17 @@ class ResolverLambdaConflictHandlerConfigArgs:
 class ResolverPipelineConfigArgs:
     def __init__(__self__, *,
                  functions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        ResolverPipelineConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            functions=functions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             functions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if functions is not None:
-            pulumi.set(__self__, "functions", functions)
+            _setter("functions", functions)
 
     @property
     @pulumi.getter
@@ -889,11 +1188,24 @@ class ResolverSyncConfigArgs:
                  conflict_detection: pulumi.Input[str],
                  conflict_handler: Optional[pulumi.Input[str]] = None,
                  lambda_conflict_handler_config: Optional[pulumi.Input['ResolverLambdaConflictHandlerConfigArgs']] = None):
-        pulumi.set(__self__, "conflict_detection", conflict_detection)
+        ResolverSyncConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conflict_detection=conflict_detection,
+            conflict_handler=conflict_handler,
+            lambda_conflict_handler_config=lambda_conflict_handler_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conflict_detection: pulumi.Input[str],
+             conflict_handler: Optional[pulumi.Input[str]] = None,
+             lambda_conflict_handler_config: Optional[pulumi.Input['ResolverLambdaConflictHandlerConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("conflict_detection", conflict_detection)
         if conflict_handler is not None:
-            pulumi.set(__self__, "conflict_handler", conflict_handler)
+            _setter("conflict_handler", conflict_handler)
         if lambda_conflict_handler_config is not None:
-            pulumi.set(__self__, "lambda_conflict_handler_config", lambda_conflict_handler_config)
+            _setter("lambda_conflict_handler_config", lambda_conflict_handler_config)
 
     @property
     @pulumi.getter(name="conflictDetection")
@@ -930,8 +1242,17 @@ class SourceApiAssociationConfigArgs:
         """
         :param pulumi.Input['SourceApiAssociationConfigMergeType'] merge_type: Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
         """
+        SourceApiAssociationConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            merge_type=merge_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             merge_type: Optional[pulumi.Input['SourceApiAssociationConfigMergeType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if merge_type is not None:
-            pulumi.set(__self__, "merge_type", merge_type)
+            _setter("merge_type", merge_type)
 
     @property
     @pulumi.getter(name="mergeType")

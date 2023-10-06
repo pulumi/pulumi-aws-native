@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,27 +42,56 @@ class ObjectTypeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]] tags: The tags (keys and values) associated with the integration.
         :param pulumi.Input[str] template_id: A unique identifier for the object template.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
+        ObjectTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            allow_profile_creation=allow_profile_creation,
+            description=description,
+            encryption_key=encryption_key,
+            expiration_days=expiration_days,
+            fields=fields,
+            keys=keys,
+            object_type_name=object_type_name,
+            source_last_updated_timestamp_format=source_last_updated_timestamp_format,
+            tags=tags,
+            template_id=template_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             allow_profile_creation: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encryption_key: Optional[pulumi.Input[str]] = None,
+             expiration_days: Optional[pulumi.Input[int]] = None,
+             fields: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeFieldMapArgs']]]] = None,
+             keys: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyMapArgs']]]] = None,
+             object_type_name: Optional[pulumi.Input[str]] = None,
+             source_last_updated_timestamp_format: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]]] = None,
+             template_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
         if allow_profile_creation is not None:
-            pulumi.set(__self__, "allow_profile_creation", allow_profile_creation)
+            _setter("allow_profile_creation", allow_profile_creation)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
+            _setter("encryption_key", encryption_key)
         if expiration_days is not None:
-            pulumi.set(__self__, "expiration_days", expiration_days)
+            _setter("expiration_days", expiration_days)
         if fields is not None:
-            pulumi.set(__self__, "fields", fields)
+            _setter("fields", fields)
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
         if object_type_name is not None:
-            pulumi.set(__self__, "object_type_name", object_type_name)
+            _setter("object_type_name", object_type_name)
         if source_last_updated_timestamp_format is not None:
-            pulumi.set(__self__, "source_last_updated_timestamp_format", source_last_updated_timestamp_format)
+            _setter("source_last_updated_timestamp_format", source_last_updated_timestamp_format)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
+            _setter("template_id", template_id)
 
     @property
     @pulumi.getter(name="domainName")
@@ -250,6 +279,10 @@ class ObjectType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ObjectTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

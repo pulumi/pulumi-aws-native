@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,17 +35,40 @@ class ScalableTargetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]] scheduled_actions: The scheduled actions for the scalable target. Duplicates aren't allowed.
         :param pulumi.Input['ScalableTargetSuspendedStateArgs'] suspended_state: An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
         """
-        pulumi.set(__self__, "max_capacity", max_capacity)
-        pulumi.set(__self__, "min_capacity", min_capacity)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "scalable_dimension", scalable_dimension)
-        pulumi.set(__self__, "service_namespace", service_namespace)
+        ScalableTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_capacity=max_capacity,
+            min_capacity=min_capacity,
+            resource_id=resource_id,
+            scalable_dimension=scalable_dimension,
+            service_namespace=service_namespace,
+            role_arn=role_arn,
+            scheduled_actions=scheduled_actions,
+            suspended_state=suspended_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_capacity: pulumi.Input[int],
+             min_capacity: pulumi.Input[int],
+             resource_id: pulumi.Input[str],
+             scalable_dimension: pulumi.Input[str],
+             service_namespace: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
+             scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]] = None,
+             suspended_state: Optional[pulumi.Input['ScalableTargetSuspendedStateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_capacity", max_capacity)
+        _setter("min_capacity", min_capacity)
+        _setter("resource_id", resource_id)
+        _setter("scalable_dimension", scalable_dimension)
+        _setter("service_namespace", service_namespace)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if scheduled_actions is not None:
-            pulumi.set(__self__, "scheduled_actions", scheduled_actions)
+            _setter("scheduled_actions", scheduled_actions)
         if suspended_state is not None:
-            pulumi.set(__self__, "suspended_state", suspended_state)
+            _setter("suspended_state", suspended_state)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -191,6 +214,10 @@ class ScalableTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScalableTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -230,6 +257,11 @@ class ScalableTarget(pulumi.CustomResource):
             if service_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'service_namespace'")
             __props__.__dict__["service_namespace"] = service_namespace
+            if suspended_state is not None and not isinstance(suspended_state, ScalableTargetSuspendedStateArgs):
+                suspended_state = suspended_state or {}
+                def _setter(key, value):
+                    suspended_state[key] = value
+                ScalableTargetSuspendedStateArgs._configure(_setter, **suspended_state)
             __props__.__dict__["suspended_state"] = suspended_state
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_id", "scalable_dimension", "service_namespace"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

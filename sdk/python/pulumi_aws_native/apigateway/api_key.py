@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,22 +35,45 @@ class ApiKeyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApiKeyTagArgs']]] tags: An array of arbitrary tags (key-value pairs) to associate with the API key.
         :param pulumi.Input[str] value: The value of the API key. Must be at least 20 characters long.
         """
+        ApiKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_id=customer_id,
+            description=description,
+            enabled=enabled,
+            generate_distinct_id=generate_distinct_id,
+            name=name,
+            stage_keys=stage_keys,
+            tags=tags,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             generate_distinct_id: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             stage_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyStageKeyArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyTagArgs']]]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if customer_id is not None:
-            pulumi.set(__self__, "customer_id", customer_id)
+            _setter("customer_id", customer_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if generate_distinct_id is not None:
-            pulumi.set(__self__, "generate_distinct_id", generate_distinct_id)
+            _setter("generate_distinct_id", generate_distinct_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if stage_keys is not None:
-            pulumi.set(__self__, "stage_keys", stage_keys)
+            _setter("stage_keys", stage_keys)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="customerId")
@@ -196,6 +219,10 @@ class ApiKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

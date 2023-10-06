@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,9 +23,20 @@ class StorageLensArgs:
         The set of arguments for constructing a StorageLens resource.
         :param pulumi.Input[Sequence[pulumi.Input['StorageLensTagArgs']]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
         """
-        pulumi.set(__self__, "storage_lens_configuration", storage_lens_configuration)
+        StorageLensArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_lens_configuration=storage_lens_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_lens_configuration: pulumi.Input['StorageLensConfigurationArgs'],
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_lens_configuration", storage_lens_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="storageLensConfiguration")
@@ -83,6 +94,10 @@ class StorageLens(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageLensArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -99,6 +114,11 @@ class StorageLens(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageLensArgs.__new__(StorageLensArgs)
 
+            if storage_lens_configuration is not None and not isinstance(storage_lens_configuration, StorageLensConfigurationArgs):
+                storage_lens_configuration = storage_lens_configuration or {}
+                def _setter(key, value):
+                    storage_lens_configuration[key] = value
+                StorageLensConfigurationArgs._configure(_setter, **storage_lens_configuration)
             if storage_lens_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_lens_configuration'")
             __props__.__dict__["storage_lens_configuration"] = storage_lens_configuration

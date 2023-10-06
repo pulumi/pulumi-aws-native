@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,17 +28,36 @@ class ExtensionArgs:
         :param pulumi.Input[str] name: Name of the extension.
         :param pulumi.Input[Sequence[pulumi.Input['ExtensionTagArgs']]] tags: An array of key-value tags to apply to this resource.
         """
-        pulumi.set(__self__, "actions", actions)
+        ExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            description=description,
+            latest_version_number=latest_version_number,
+            name=name,
+            parameters=parameters,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Any,
+             description: Optional[pulumi.Input[str]] = None,
+             latest_version_number: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[Any] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if latest_version_number is not None:
-            pulumi.set(__self__, "latest_version_number", latest_version_number)
+            _setter("latest_version_number", latest_version_number)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -144,6 +163,10 @@ class Extension(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExtensionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

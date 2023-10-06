@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,24 +36,49 @@ class EventDataStoreArgs:
         :param pulumi.Input[int] retention_period: The retention period, in days.
         :param pulumi.Input[bool] termination_protection_enabled: Indicates whether the event data store is protected from termination.
         """
+        EventDataStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            advanced_event_selectors=advanced_event_selectors,
+            ingestion_enabled=ingestion_enabled,
+            kms_key_id=kms_key_id,
+            multi_region_enabled=multi_region_enabled,
+            name=name,
+            organization_enabled=organization_enabled,
+            retention_period=retention_period,
+            tags=tags,
+            termination_protection_enabled=termination_protection_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
+             ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             multi_region_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             organization_enabled: Optional[pulumi.Input[bool]] = None,
+             retention_period: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreTagArgs']]]] = None,
+             termination_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if advanced_event_selectors is not None:
-            pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+            _setter("advanced_event_selectors", advanced_event_selectors)
         if ingestion_enabled is not None:
-            pulumi.set(__self__, "ingestion_enabled", ingestion_enabled)
+            _setter("ingestion_enabled", ingestion_enabled)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if multi_region_enabled is not None:
-            pulumi.set(__self__, "multi_region_enabled", multi_region_enabled)
+            _setter("multi_region_enabled", multi_region_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if organization_enabled is not None:
-            pulumi.set(__self__, "organization_enabled", organization_enabled)
+            _setter("organization_enabled", organization_enabled)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if termination_protection_enabled is not None:
-            pulumi.set(__self__, "termination_protection_enabled", termination_protection_enabled)
+            _setter("termination_protection_enabled", termination_protection_enabled)
 
     @property
     @pulumi.getter(name="advancedEventSelectors")
@@ -209,6 +234,10 @@ class EventDataStore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventDataStoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

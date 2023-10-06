@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,12 +30,31 @@ class AssignmentArgs:
         :param pulumi.Input[str] target_id: The account id to be provisioned.
         :param pulumi.Input['AssignmentTargetType'] target_type: The type of resource to be provsioned to, only aws account now
         """
-        pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "permission_set_arn", permission_set_arn)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "principal_type", principal_type)
-        pulumi.set(__self__, "target_id", target_id)
-        pulumi.set(__self__, "target_type", target_type)
+        AssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            permission_set_arn=permission_set_arn,
+            principal_id=principal_id,
+            principal_type=principal_type,
+            target_id=target_id,
+            target_type=target_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: pulumi.Input[str],
+             permission_set_arn: pulumi.Input[str],
+             principal_id: pulumi.Input[str],
+             principal_type: pulumi.Input['AssignmentPrincipalType'],
+             target_id: pulumi.Input[str],
+             target_type: pulumi.Input['AssignmentTargetType'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_arn", instance_arn)
+        _setter("permission_set_arn", permission_set_arn)
+        _setter("principal_id", principal_id)
+        _setter("principal_type", principal_type)
+        _setter("target_id", target_id)
+        _setter("target_type", target_type)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -153,6 +172,10 @@ class Assignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,14 +28,31 @@ class AnomalyMonitorArgs:
         :param pulumi.Input['AnomalyMonitorMonitorDimension'] monitor_dimension: The dimensions to evaluate
         :param pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]] resource_tags: Tags to assign to monitor.
         """
-        pulumi.set(__self__, "monitor_name", monitor_name)
-        pulumi.set(__self__, "monitor_type", monitor_type)
+        AnomalyMonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitor_name=monitor_name,
+            monitor_type=monitor_type,
+            monitor_dimension=monitor_dimension,
+            monitor_specification=monitor_specification,
+            resource_tags=resource_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitor_name: pulumi.Input[str],
+             monitor_type: pulumi.Input['AnomalyMonitorMonitorType'],
+             monitor_dimension: Optional[pulumi.Input['AnomalyMonitorMonitorDimension']] = None,
+             monitor_specification: Optional[pulumi.Input[str]] = None,
+             resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("monitor_name", monitor_name)
+        _setter("monitor_type", monitor_type)
         if monitor_dimension is not None:
-            pulumi.set(__self__, "monitor_dimension", monitor_dimension)
+            _setter("monitor_dimension", monitor_dimension)
         if monitor_specification is not None:
-            pulumi.set(__self__, "monitor_specification", monitor_specification)
+            _setter("monitor_specification", monitor_specification)
         if resource_tags is not None:
-            pulumi.set(__self__, "resource_tags", resource_tags)
+            _setter("resource_tags", resource_tags)
 
     @property
     @pulumi.getter(name="monitorName")
@@ -136,6 +153,10 @@ class AnomalyMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AnomalyMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

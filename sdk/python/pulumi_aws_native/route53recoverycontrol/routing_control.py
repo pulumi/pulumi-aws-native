@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -24,12 +24,25 @@ class RoutingControlArgs:
         :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
         :param pulumi.Input[str] name: The name of the routing control. You can use any non-white space character in the name.
         """
+        RoutingControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_arn=cluster_arn,
+            control_panel_arn=control_panel_arn,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_arn: Optional[pulumi.Input[str]] = None,
+             control_panel_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_arn is not None:
-            pulumi.set(__self__, "cluster_arn", cluster_arn)
+            _setter("cluster_arn", cluster_arn)
         if control_panel_arn is not None:
-            pulumi.set(__self__, "control_panel_arn", control_panel_arn)
+            _setter("control_panel_arn", control_panel_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -105,6 +118,10 @@ class RoutingControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoutingControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

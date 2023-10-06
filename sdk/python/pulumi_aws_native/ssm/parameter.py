@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -36,22 +36,47 @@ class ParameterArgs:
         :param Any tags: A key-value pair to associate with a resource.
         :param pulumi.Input['ParameterTier'] tier: The corresponding tier of the parameter.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        ParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+            allowed_pattern=allowed_pattern,
+            data_type=data_type,
+            description=description,
+            name=name,
+            policies=policies,
+            tags=tags,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input['ParameterType'],
+             value: pulumi.Input[str],
+             allowed_pattern: Optional[pulumi.Input[str]] = None,
+             data_type: Optional[pulumi.Input['ParameterDataType']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policies: Optional[pulumi.Input[str]] = None,
+             tags: Optional[Any] = None,
+             tier: Optional[pulumi.Input['ParameterTier']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        _setter("value", value)
         if allowed_pattern is not None:
-            pulumi.set(__self__, "allowed_pattern", allowed_pattern)
+            _setter("allowed_pattern", allowed_pattern)
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -211,6 +236,10 @@ class Parameter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ParameterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

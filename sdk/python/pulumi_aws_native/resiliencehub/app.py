@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,22 +36,47 @@ class AppArgs:
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resiliency_policy_arn: Amazon Resource Name (ARN) of the Resiliency Policy.
         """
-        pulumi.set(__self__, "app_template_body", app_template_body)
-        pulumi.set(__self__, "resource_mappings", resource_mappings)
+        AppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_template_body=app_template_body,
+            resource_mappings=resource_mappings,
+            app_assessment_schedule=app_assessment_schedule,
+            description=description,
+            event_subscriptions=event_subscriptions,
+            name=name,
+            permission_model=permission_model,
+            resiliency_policy_arn=resiliency_policy_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_template_body: pulumi.Input[str],
+             resource_mappings: pulumi.Input[Sequence[pulumi.Input['AppResourceMappingArgs']]],
+             app_assessment_schedule: Optional[pulumi.Input['AppAssessmentSchedule']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permission_model: Optional[pulumi.Input['AppPermissionModelArgs']] = None,
+             resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input['AppTagMapArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_template_body", app_template_body)
+        _setter("resource_mappings", resource_mappings)
         if app_assessment_schedule is not None:
-            pulumi.set(__self__, "app_assessment_schedule", app_assessment_schedule)
+            _setter("app_assessment_schedule", app_assessment_schedule)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if event_subscriptions is not None:
-            pulumi.set(__self__, "event_subscriptions", event_subscriptions)
+            _setter("event_subscriptions", event_subscriptions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permission_model is not None:
-            pulumi.set(__self__, "permission_model", permission_model)
+            _setter("permission_model", permission_model)
         if resiliency_policy_arn is not None:
-            pulumi.set(__self__, "resiliency_policy_arn", resiliency_policy_arn)
+            _setter("resiliency_policy_arn", resiliency_policy_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="appTemplateBody")
@@ -203,6 +228,10 @@ class App(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -233,11 +262,21 @@ class App(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["event_subscriptions"] = event_subscriptions
             __props__.__dict__["name"] = name
+            if permission_model is not None and not isinstance(permission_model, AppPermissionModelArgs):
+                permission_model = permission_model or {}
+                def _setter(key, value):
+                    permission_model[key] = value
+                AppPermissionModelArgs._configure(_setter, **permission_model)
             __props__.__dict__["permission_model"] = permission_model
             __props__.__dict__["resiliency_policy_arn"] = resiliency_policy_arn
             if resource_mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_mappings'")
             __props__.__dict__["resource_mappings"] = resource_mappings
+            if tags is not None and not isinstance(tags, AppTagMapArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                AppTagMapArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["app_arn"] = None
             __props__.__dict__["drift_status"] = None

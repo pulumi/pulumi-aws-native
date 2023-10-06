@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,14 +27,29 @@ class PlacementGroupArgs:
         :param pulumi.Input[str] strategy: The placement strategy.
         :param pulumi.Input[Sequence[pulumi.Input['PlacementGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        PlacementGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partition_count=partition_count,
+            spread_level=spread_level,
+            strategy=strategy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partition_count: Optional[pulumi.Input[int]] = None,
+             spread_level: Optional[pulumi.Input[str]] = None,
+             strategy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if partition_count is not None:
-            pulumi.set(__self__, "partition_count", partition_count)
+            _setter("partition_count", partition_count)
         if spread_level is not None:
-            pulumi.set(__self__, "spread_level", spread_level)
+            _setter("spread_level", spread_level)
         if strategy is not None:
-            pulumi.set(__self__, "strategy", strategy)
+            _setter("strategy", strategy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="partitionCount")
@@ -124,6 +139,10 @@ class PlacementGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PlacementGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

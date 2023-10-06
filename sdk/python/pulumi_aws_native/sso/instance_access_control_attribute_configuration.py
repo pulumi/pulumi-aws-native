@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,11 +24,24 @@ class InstanceAccessControlAttributeConfigurationArgs:
         :param pulumi.Input[str] instance_arn: The ARN of the AWS SSO instance under which the operation will be executed.
         :param pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs'] instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         """
-        pulumi.set(__self__, "instance_arn", instance_arn)
+        InstanceAccessControlAttributeConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            access_control_attributes=access_control_attributes,
+            instance_access_control_attribute_configuration=instance_access_control_attribute_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: pulumi.Input[str],
+             access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] = None,
+             instance_access_control_attribute_configuration: Optional[pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_arn", instance_arn)
         if access_control_attributes is not None:
-            pulumi.set(__self__, "access_control_attributes", access_control_attributes)
+            _setter("access_control_attributes", access_control_attributes)
         if instance_access_control_attribute_configuration is not None:
-            pulumi.set(__self__, "instance_access_control_attribute_configuration", instance_access_control_attribute_configuration)
+            _setter("instance_access_control_attribute_configuration", instance_access_control_attribute_configuration)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -100,6 +113,10 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceAccessControlAttributeConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -118,6 +135,11 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
             __props__ = InstanceAccessControlAttributeConfigurationArgs.__new__(InstanceAccessControlAttributeConfigurationArgs)
 
             __props__.__dict__["access_control_attributes"] = access_control_attributes
+            if instance_access_control_attribute_configuration is not None and not isinstance(instance_access_control_attribute_configuration, InstanceAccessControlAttributeConfigurationPropertiesArgs):
+                instance_access_control_attribute_configuration = instance_access_control_attribute_configuration or {}
+                def _setter(key, value):
+                    instance_access_control_attribute_configuration[key] = value
+                InstanceAccessControlAttributeConfigurationPropertiesArgs._configure(_setter, **instance_access_control_attribute_configuration)
             __props__.__dict__["instance_access_control_attribute_configuration"] = instance_access_control_attribute_configuration
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,19 +33,40 @@ class EntityArgs:
         :param pulumi.Input[str] parent_entity_id: The ID of the parent entity.
         :param Any tags: A key-value pair to associate with a resource.
         """
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        EntityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            workspace_id=workspace_id,
+            components=components,
+            description=description,
+            entity_id=entity_id,
+            entity_name=entity_name,
+            parent_entity_id=parent_entity_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             workspace_id: pulumi.Input[str],
+             components: Optional[Any] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             entity_id: Optional[pulumi.Input[str]] = None,
+             entity_name: Optional[pulumi.Input[str]] = None,
+             parent_entity_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("workspace_id", workspace_id)
         if components is not None:
-            pulumi.set(__self__, "components", components)
+            _setter("components", components)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if entity_id is not None:
-            pulumi.set(__self__, "entity_id", entity_id)
+            _setter("entity_id", entity_id)
         if entity_name is not None:
-            pulumi.set(__self__, "entity_name", entity_name)
+            _setter("entity_name", entity_name)
         if parent_entity_id is not None:
-            pulumi.set(__self__, "parent_entity_id", parent_entity_id)
+            _setter("parent_entity_id", parent_entity_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="workspaceId")
@@ -177,6 +198,10 @@ class Entity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EntityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -68,103 +68,208 @@ class ReplicationGroupArgs:
         """
         The set of arguments for constructing a ReplicationGroup resource.
         """
-        pulumi.set(__self__, "replication_group_description", replication_group_description)
+        ReplicationGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            replication_group_description=replication_group_description,
+            at_rest_encryption_enabled=at_rest_encryption_enabled,
+            auth_token=auth_token,
+            auto_minor_version_upgrade=auto_minor_version_upgrade,
+            automatic_failover_enabled=automatic_failover_enabled,
+            cache_node_type=cache_node_type,
+            cache_parameter_group_name=cache_parameter_group_name,
+            cache_security_group_names=cache_security_group_names,
+            cache_subnet_group_name=cache_subnet_group_name,
+            cluster_mode=cluster_mode,
+            configuration_end_point_address=configuration_end_point_address,
+            configuration_end_point_port=configuration_end_point_port,
+            data_tiering_enabled=data_tiering_enabled,
+            engine=engine,
+            engine_version=engine_version,
+            global_replication_group_id=global_replication_group_id,
+            ip_discovery=ip_discovery,
+            kms_key_id=kms_key_id,
+            log_delivery_configurations=log_delivery_configurations,
+            multi_az_enabled=multi_az_enabled,
+            network_type=network_type,
+            node_group_configuration=node_group_configuration,
+            notification_topic_arn=notification_topic_arn,
+            num_cache_clusters=num_cache_clusters,
+            num_node_groups=num_node_groups,
+            port=port,
+            preferred_cache_cluster_azs=preferred_cache_cluster_azs,
+            preferred_maintenance_window=preferred_maintenance_window,
+            primary_cluster_id=primary_cluster_id,
+            primary_end_point_address=primary_end_point_address,
+            primary_end_point_port=primary_end_point_port,
+            read_end_point_addresses=read_end_point_addresses,
+            read_end_point_addresses_list=read_end_point_addresses_list,
+            read_end_point_ports=read_end_point_ports,
+            read_end_point_ports_list=read_end_point_ports_list,
+            reader_end_point_address=reader_end_point_address,
+            reader_end_point_port=reader_end_point_port,
+            replicas_per_node_group=replicas_per_node_group,
+            replication_group_id=replication_group_id,
+            security_group_ids=security_group_ids,
+            snapshot_arns=snapshot_arns,
+            snapshot_name=snapshot_name,
+            snapshot_retention_limit=snapshot_retention_limit,
+            snapshot_window=snapshot_window,
+            snapshotting_cluster_id=snapshotting_cluster_id,
+            tags=tags,
+            transit_encryption_enabled=transit_encryption_enabled,
+            transit_encryption_mode=transit_encryption_mode,
+            user_group_ids=user_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             replication_group_description: pulumi.Input[str],
+             at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             auth_token: Optional[pulumi.Input[str]] = None,
+             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
+             cache_node_type: Optional[pulumi.Input[str]] = None,
+             cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
+             cluster_mode: Optional[pulumi.Input[str]] = None,
+             configuration_end_point_address: Optional[pulumi.Input[str]] = None,
+             configuration_end_point_port: Optional[pulumi.Input[str]] = None,
+             data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             global_replication_group_id: Optional[pulumi.Input[str]] = None,
+             ip_discovery: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationRequestArgs']]]] = None,
+             multi_az_enabled: Optional[pulumi.Input[bool]] = None,
+             network_type: Optional[pulumi.Input[str]] = None,
+             node_group_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]] = None,
+             notification_topic_arn: Optional[pulumi.Input[str]] = None,
+             num_cache_clusters: Optional[pulumi.Input[int]] = None,
+             num_node_groups: Optional[pulumi.Input[int]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             primary_cluster_id: Optional[pulumi.Input[str]] = None,
+             primary_end_point_address: Optional[pulumi.Input[str]] = None,
+             primary_end_point_port: Optional[pulumi.Input[str]] = None,
+             read_end_point_addresses: Optional[pulumi.Input[str]] = None,
+             read_end_point_addresses_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             read_end_point_ports: Optional[pulumi.Input[str]] = None,
+             read_end_point_ports_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             reader_end_point_address: Optional[pulumi.Input[str]] = None,
+             reader_end_point_port: Optional[pulumi.Input[str]] = None,
+             replicas_per_node_group: Optional[pulumi.Input[int]] = None,
+             replication_group_id: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
+             snapshot_window: Optional[pulumi.Input[str]] = None,
+             snapshotting_cluster_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupTagArgs']]]] = None,
+             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             transit_encryption_mode: Optional[pulumi.Input[str]] = None,
+             user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("replication_group_description", replication_group_description)
         if at_rest_encryption_enabled is not None:
-            pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
+            _setter("at_rest_encryption_enabled", at_rest_encryption_enabled)
         if auth_token is not None:
-            pulumi.set(__self__, "auth_token", auth_token)
+            _setter("auth_token", auth_token)
         if auto_minor_version_upgrade is not None:
-            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         if automatic_failover_enabled is not None:
-            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
+            _setter("automatic_failover_enabled", automatic_failover_enabled)
         if cache_node_type is not None:
-            pulumi.set(__self__, "cache_node_type", cache_node_type)
+            _setter("cache_node_type", cache_node_type)
         if cache_parameter_group_name is not None:
-            pulumi.set(__self__, "cache_parameter_group_name", cache_parameter_group_name)
+            _setter("cache_parameter_group_name", cache_parameter_group_name)
         if cache_security_group_names is not None:
-            pulumi.set(__self__, "cache_security_group_names", cache_security_group_names)
+            _setter("cache_security_group_names", cache_security_group_names)
         if cache_subnet_group_name is not None:
-            pulumi.set(__self__, "cache_subnet_group_name", cache_subnet_group_name)
+            _setter("cache_subnet_group_name", cache_subnet_group_name)
         if cluster_mode is not None:
-            pulumi.set(__self__, "cluster_mode", cluster_mode)
+            _setter("cluster_mode", cluster_mode)
         if configuration_end_point_address is not None:
-            pulumi.set(__self__, "configuration_end_point_address", configuration_end_point_address)
+            _setter("configuration_end_point_address", configuration_end_point_address)
         if configuration_end_point_port is not None:
-            pulumi.set(__self__, "configuration_end_point_port", configuration_end_point_port)
+            _setter("configuration_end_point_port", configuration_end_point_port)
         if data_tiering_enabled is not None:
-            pulumi.set(__self__, "data_tiering_enabled", data_tiering_enabled)
+            _setter("data_tiering_enabled", data_tiering_enabled)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if global_replication_group_id is not None:
-            pulumi.set(__self__, "global_replication_group_id", global_replication_group_id)
+            _setter("global_replication_group_id", global_replication_group_id)
         if ip_discovery is not None:
-            pulumi.set(__self__, "ip_discovery", ip_discovery)
+            _setter("ip_discovery", ip_discovery)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if log_delivery_configurations is not None:
-            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
+            _setter("log_delivery_configurations", log_delivery_configurations)
         if multi_az_enabled is not None:
-            pulumi.set(__self__, "multi_az_enabled", multi_az_enabled)
+            _setter("multi_az_enabled", multi_az_enabled)
         if network_type is not None:
-            pulumi.set(__self__, "network_type", network_type)
+            _setter("network_type", network_type)
         if node_group_configuration is not None:
-            pulumi.set(__self__, "node_group_configuration", node_group_configuration)
+            _setter("node_group_configuration", node_group_configuration)
         if notification_topic_arn is not None:
-            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+            _setter("notification_topic_arn", notification_topic_arn)
         if num_cache_clusters is not None:
-            pulumi.set(__self__, "num_cache_clusters", num_cache_clusters)
+            _setter("num_cache_clusters", num_cache_clusters)
         if num_node_groups is not None:
-            pulumi.set(__self__, "num_node_groups", num_node_groups)
+            _setter("num_node_groups", num_node_groups)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if preferred_cache_cluster_azs is not None:
-            pulumi.set(__self__, "preferred_cache_cluster_azs", preferred_cache_cluster_azs)
+            _setter("preferred_cache_cluster_azs", preferred_cache_cluster_azs)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if primary_cluster_id is not None:
-            pulumi.set(__self__, "primary_cluster_id", primary_cluster_id)
+            _setter("primary_cluster_id", primary_cluster_id)
         if primary_end_point_address is not None:
-            pulumi.set(__self__, "primary_end_point_address", primary_end_point_address)
+            _setter("primary_end_point_address", primary_end_point_address)
         if primary_end_point_port is not None:
-            pulumi.set(__self__, "primary_end_point_port", primary_end_point_port)
+            _setter("primary_end_point_port", primary_end_point_port)
         if read_end_point_addresses is not None:
-            pulumi.set(__self__, "read_end_point_addresses", read_end_point_addresses)
+            _setter("read_end_point_addresses", read_end_point_addresses)
         if read_end_point_addresses_list is not None:
-            pulumi.set(__self__, "read_end_point_addresses_list", read_end_point_addresses_list)
+            _setter("read_end_point_addresses_list", read_end_point_addresses_list)
         if read_end_point_ports is not None:
-            pulumi.set(__self__, "read_end_point_ports", read_end_point_ports)
+            _setter("read_end_point_ports", read_end_point_ports)
         if read_end_point_ports_list is not None:
-            pulumi.set(__self__, "read_end_point_ports_list", read_end_point_ports_list)
+            _setter("read_end_point_ports_list", read_end_point_ports_list)
         if reader_end_point_address is not None:
-            pulumi.set(__self__, "reader_end_point_address", reader_end_point_address)
+            _setter("reader_end_point_address", reader_end_point_address)
         if reader_end_point_port is not None:
-            pulumi.set(__self__, "reader_end_point_port", reader_end_point_port)
+            _setter("reader_end_point_port", reader_end_point_port)
         if replicas_per_node_group is not None:
-            pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
+            _setter("replicas_per_node_group", replicas_per_node_group)
         if replication_group_id is not None:
-            pulumi.set(__self__, "replication_group_id", replication_group_id)
+            _setter("replication_group_id", replication_group_id)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if snapshot_arns is not None:
-            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
+            _setter("snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+            _setter("snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            pulumi.set(__self__, "snapshot_window", snapshot_window)
+            _setter("snapshot_window", snapshot_window)
         if snapshotting_cluster_id is not None:
-            pulumi.set(__self__, "snapshotting_cluster_id", snapshotting_cluster_id)
+            _setter("snapshotting_cluster_id", snapshotting_cluster_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transit_encryption_enabled is not None:
-            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+            _setter("transit_encryption_enabled", transit_encryption_enabled)
         if transit_encryption_mode is not None:
-            pulumi.set(__self__, "transit_encryption_mode", transit_encryption_mode)
+            _setter("transit_encryption_mode", transit_encryption_mode)
         if user_group_ids is not None:
-            pulumi.set(__self__, "user_group_ids", user_group_ids)
+            _setter("user_group_ids", user_group_ids)
 
     @property
     @pulumi.getter(name="replicationGroupDescription")
@@ -693,6 +798,10 @@ class ReplicationGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

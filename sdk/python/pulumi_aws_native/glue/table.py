@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,11 +23,26 @@ class TableArgs:
         """
         The set of arguments for constructing a Table resource.
         """
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "table_input", table_input)
+        TableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            table_input=table_input,
+            open_table_format_input=open_table_format_input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             table_input: pulumi.Input['TableInputArgs'],
+             open_table_format_input: Optional[pulumi.Input['TableOpenTableFormatInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("database_name", database_name)
+        _setter("table_input", table_input)
         if open_table_format_input is not None:
-            pulumi.set(__self__, "open_table_format_input", open_table_format_input)
+            _setter("open_table_format_input", open_table_format_input)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -106,6 +121,10 @@ class Table(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -131,7 +150,17 @@ class Table(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            if open_table_format_input is not None and not isinstance(open_table_format_input, TableOpenTableFormatInputArgs):
+                open_table_format_input = open_table_format_input or {}
+                def _setter(key, value):
+                    open_table_format_input[key] = value
+                TableOpenTableFormatInputArgs._configure(_setter, **open_table_format_input)
             __props__.__dict__["open_table_format_input"] = open_table_format_input
+            if table_input is not None and not isinstance(table_input, TableInputArgs):
+                table_input = table_input or {}
+                def _setter(key, value):
+                    table_input[key] = value
+                TableInputArgs._configure(_setter, **table_input)
             if table_input is None and not opts.urn:
                 raise TypeError("Missing required property 'table_input'")
             __props__.__dict__["table_input"] = table_input

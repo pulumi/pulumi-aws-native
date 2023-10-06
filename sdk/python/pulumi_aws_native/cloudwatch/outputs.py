@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -43,8 +43,19 @@ class AlarmDimension(dict):
         :param str name: The name of the dimension.
         :param str value: The value for the dimension.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AlarmDimension._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -95,12 +106,25 @@ class AlarmMetric(dict):
         :param str metric_name: The name of the metric.
         :param str namespace: The namespace of the metric.
         """
+        AlarmMetric._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            metric_name=metric_name,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: Optional[Sequence['outputs.AlarmDimension']] = None,
+             metric_name: Optional[str] = None,
+             namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
 
     @property
     @pulumi.getter
@@ -171,19 +195,40 @@ class AlarmMetricDataQuery(dict):
         :param int period: The period in seconds, over which the statistic is applied.
         :param bool return_data: This option indicates whether to return the timestamps and raw data values of this metric.
         """
-        pulumi.set(__self__, "id", id)
+        AlarmMetricDataQuery._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            account_id=account_id,
+            expression=expression,
+            label=label,
+            metric_stat=metric_stat,
+            period=period,
+            return_data=return_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             account_id: Optional[str] = None,
+             expression: Optional[str] = None,
+             label: Optional[str] = None,
+             metric_stat: Optional['outputs.AlarmMetricStat'] = None,
+             period: Optional[int] = None,
+             return_data: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if metric_stat is not None:
-            pulumi.set(__self__, "metric_stat", metric_stat)
+            _setter("metric_stat", metric_stat)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if return_data is not None:
-            pulumi.set(__self__, "return_data", return_data)
+            _setter("return_data", return_data)
 
     @property
     @pulumi.getter
@@ -259,11 +304,26 @@ class AlarmMetricStat(dict):
         :param str stat: The statistic to return.
         :param str unit: The unit to use for the returned data points.
         """
-        pulumi.set(__self__, "metric", metric)
-        pulumi.set(__self__, "period", period)
-        pulumi.set(__self__, "stat", stat)
+        AlarmMetricStat._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric=metric,
+            period=period,
+            stat=stat,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric: 'outputs.AlarmMetric',
+             period: int,
+             stat: str,
+             unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric", metric)
+        _setter("period", period)
+        _setter("stat", stat)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -322,10 +382,21 @@ class AnomalyDetectorConfiguration(dict):
     def __init__(__self__, *,
                  excluded_time_ranges: Optional[Sequence['outputs.AnomalyDetectorRange']] = None,
                  metric_time_zone: Optional[str] = None):
+        AnomalyDetectorConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excluded_time_ranges=excluded_time_ranges,
+            metric_time_zone=metric_time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excluded_time_ranges: Optional[Sequence['outputs.AnomalyDetectorRange']] = None,
+             metric_time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if excluded_time_ranges is not None:
-            pulumi.set(__self__, "excluded_time_ranges", excluded_time_ranges)
+            _setter("excluded_time_ranges", excluded_time_ranges)
         if metric_time_zone is not None:
-            pulumi.set(__self__, "metric_time_zone", metric_time_zone)
+            _setter("metric_time_zone", metric_time_zone)
 
     @property
     @pulumi.getter(name="excludedTimeRanges")
@@ -343,8 +414,19 @@ class AnomalyDetectorDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AnomalyDetectorDimension._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -380,10 +462,23 @@ class AnomalyDetectorMetric(dict):
                  metric_name: str,
                  namespace: str,
                  dimensions: Optional[Sequence['outputs.AnomalyDetectorDimension']] = None):
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "namespace", namespace)
+        AnomalyDetectorMetric._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            namespace=namespace,
+            dimensions=dimensions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: str,
+             namespace: str,
+             dimensions: Optional[Sequence['outputs.AnomalyDetectorDimension']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_name", metric_name)
+        _setter("namespace", namespace)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
 
     @property
     @pulumi.getter(name="metricName")
@@ -432,19 +527,40 @@ class AnomalyDetectorMetricDataQuery(dict):
                  metric_stat: Optional['outputs.AnomalyDetectorMetricStat'] = None,
                  period: Optional[int] = None,
                  return_data: Optional[bool] = None):
-        pulumi.set(__self__, "id", id)
+        AnomalyDetectorMetricDataQuery._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            account_id=account_id,
+            expression=expression,
+            label=label,
+            metric_stat=metric_stat,
+            period=period,
+            return_data=return_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             account_id: Optional[str] = None,
+             expression: Optional[str] = None,
+             label: Optional[str] = None,
+             metric_stat: Optional['outputs.AnomalyDetectorMetricStat'] = None,
+             period: Optional[int] = None,
+             return_data: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if metric_stat is not None:
-            pulumi.set(__self__, "metric_stat", metric_stat)
+            _setter("metric_stat", metric_stat)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if return_data is not None:
-            pulumi.set(__self__, "return_data", return_data)
+            _setter("return_data", return_data)
 
     @property
     @pulumi.getter
@@ -503,8 +619,17 @@ class AnomalyDetectorMetricMathAnomalyDetector(dict):
 
     def __init__(__self__, *,
                  metric_data_queries: Optional[Sequence['outputs.AnomalyDetectorMetricDataQuery']] = None):
+        AnomalyDetectorMetricMathAnomalyDetector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_data_queries=metric_data_queries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_data_queries: Optional[Sequence['outputs.AnomalyDetectorMetricDataQuery']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metric_data_queries is not None:
-            pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+            _setter("metric_data_queries", metric_data_queries)
 
     @property
     @pulumi.getter(name="metricDataQueries")
@@ -519,11 +644,26 @@ class AnomalyDetectorMetricStat(dict):
                  period: int,
                  stat: str,
                  unit: Optional[str] = None):
-        pulumi.set(__self__, "metric", metric)
-        pulumi.set(__self__, "period", period)
-        pulumi.set(__self__, "stat", stat)
+        AnomalyDetectorMetricStat._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric=metric,
+            period=period,
+            stat=stat,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric: 'outputs.AnomalyDetectorMetric',
+             period: int,
+             stat: str,
+             unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric", metric)
+        _setter("period", period)
+        _setter("stat", stat)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -570,8 +710,19 @@ class AnomalyDetectorRange(dict):
     def __init__(__self__, *,
                  end_time: str,
                  start_time: str):
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "start_time", start_time)
+        AnomalyDetectorRange._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: str,
+             start_time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_time", end_time)
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="endTime")
@@ -608,14 +759,29 @@ class AnomalyDetectorSingleMetricAnomalyDetector(dict):
                  metric_name: Optional[str] = None,
                  namespace: Optional[str] = None,
                  stat: Optional[str] = None):
+        AnomalyDetectorSingleMetricAnomalyDetector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            metric_name=metric_name,
+            namespace=namespace,
+            stat=stat,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: Optional[Sequence['outputs.AnomalyDetectorDimension']] = None,
+             metric_name: Optional[str] = None,
+             namespace: Optional[str] = None,
+             stat: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if stat is not None:
-            pulumi.set(__self__, "stat", stat)
+            _setter("stat", stat)
 
     @property
     @pulumi.getter
@@ -641,6 +807,11 @@ class AnomalyDetectorSingleMetricAnomalyDetector(dict):
 @pulumi.output_type
 class InsightRuleTags(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -674,9 +845,20 @@ class MetricStreamFilter(dict):
         :param str namespace: Only metrics with Namespace matching this value will be streamed.
         :param Sequence[str] metric_names: Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
         """
-        pulumi.set(__self__, "namespace", namespace)
+        MetricStreamFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+            metric_names=metric_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: str,
+             metric_names: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace", namespace)
         if metric_names is not None:
-            pulumi.set(__self__, "metric_names", metric_names)
+            _setter("metric_names", metric_names)
 
     @property
     @pulumi.getter
@@ -727,8 +909,19 @@ class MetricStreamStatisticsConfiguration(dict):
         :param Sequence[str] additional_statistics: The additional statistics to stream for the metrics listed in IncludeMetrics.
         :param Sequence['MetricStreamStatisticsMetric'] include_metrics: An array that defines the metrics that are to have additional statistics streamed.
         """
-        pulumi.set(__self__, "additional_statistics", additional_statistics)
-        pulumi.set(__self__, "include_metrics", include_metrics)
+        MetricStreamStatisticsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_statistics=additional_statistics,
+            include_metrics=include_metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_statistics: Sequence[str],
+             include_metrics: Sequence['outputs.MetricStreamStatisticsMetric'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("additional_statistics", additional_statistics)
+        _setter("include_metrics", include_metrics)
 
     @property
     @pulumi.getter(name="additionalStatistics")
@@ -777,8 +970,19 @@ class MetricStreamStatisticsMetric(dict):
         :param str metric_name: The name of the metric.
         :param str namespace: The namespace of the metric.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "namespace", namespace)
+        MetricStreamStatisticsMetric._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: str,
+             namespace: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_name", metric_name)
+        _setter("namespace", namespace)
 
     @property
     @pulumi.getter(name="metricName")
@@ -810,8 +1014,19 @@ class MetricStreamTag(dict):
         :param str key: A unique identifier for the tag.
         :param str value: String which you can use to describe or define the tag.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        MetricStreamTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

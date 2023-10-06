@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,15 +24,32 @@ class CrlArgs:
         """
         The set of arguments for constructing a Crl resource.
         """
-        pulumi.set(__self__, "crl_data", crl_data)
+        CrlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crl_data=crl_data,
+            enabled=enabled,
+            name=name,
+            tags=tags,
+            trust_anchor_arn=trust_anchor_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crl_data: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CrlTagArgs']]]] = None,
+             trust_anchor_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("crl_data", crl_data)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trust_anchor_arn is not None:
-            pulumi.set(__self__, "trust_anchor_arn", trust_anchor_arn)
+            _setter("trust_anchor_arn", trust_anchor_arn)
 
     @property
     @pulumi.getter(name="crlData")
@@ -116,6 +133,10 @@ class Crl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CrlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,64 +49,131 @@ class AutoScalingGroupArgs:
         """
         The set of arguments for constructing a AutoScalingGroup resource.
         """
-        pulumi.set(__self__, "max_size", max_size)
-        pulumi.set(__self__, "min_size", min_size)
+        AutoScalingGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_size=max_size,
+            min_size=min_size,
+            auto_scaling_group_name=auto_scaling_group_name,
+            availability_zones=availability_zones,
+            capacity_rebalance=capacity_rebalance,
+            context=context,
+            cooldown=cooldown,
+            default_instance_warmup=default_instance_warmup,
+            desired_capacity=desired_capacity,
+            desired_capacity_type=desired_capacity_type,
+            health_check_grace_period=health_check_grace_period,
+            health_check_type=health_check_type,
+            instance_id=instance_id,
+            instance_maintenance_policy=instance_maintenance_policy,
+            launch_configuration_name=launch_configuration_name,
+            launch_template=launch_template,
+            lifecycle_hook_specification_list=lifecycle_hook_specification_list,
+            load_balancer_names=load_balancer_names,
+            max_instance_lifetime=max_instance_lifetime,
+            metrics_collection=metrics_collection,
+            mixed_instances_policy=mixed_instances_policy,
+            new_instances_protected_from_scale_in=new_instances_protected_from_scale_in,
+            notification_configuration=notification_configuration,
+            notification_configurations=notification_configurations,
+            placement_group=placement_group,
+            service_linked_role_arn=service_linked_role_arn,
+            tags=tags,
+            target_group_arns=target_group_arns,
+            termination_policies=termination_policies,
+            vpc_zone_identifier=vpc_zone_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_size: pulumi.Input[str],
+             min_size: pulumi.Input[str],
+             auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+             context: Optional[pulumi.Input[str]] = None,
+             cooldown: Optional[pulumi.Input[str]] = None,
+             default_instance_warmup: Optional[pulumi.Input[int]] = None,
+             desired_capacity: Optional[pulumi.Input[str]] = None,
+             desired_capacity_type: Optional[pulumi.Input[str]] = None,
+             health_check_grace_period: Optional[pulumi.Input[int]] = None,
+             health_check_type: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             instance_maintenance_policy: Optional[pulumi.Input['AutoScalingGroupInstanceMaintenancePolicyArgs']] = None,
+             launch_configuration_name: Optional[pulumi.Input[str]] = None,
+             launch_template: Optional[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']] = None,
+             lifecycle_hook_specification_list: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLifecycleHookSpecificationArgs']]]] = None,
+             load_balancer_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_instance_lifetime: Optional[pulumi.Input[int]] = None,
+             metrics_collection: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupMetricsCollectionArgs']]]] = None,
+             mixed_instances_policy: Optional[pulumi.Input['AutoScalingGroupMixedInstancesPolicyArgs']] = None,
+             new_instances_protected_from_scale_in: Optional[pulumi.Input[bool]] = None,
+             notification_configuration: Optional[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']] = None,
+             notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]]] = None,
+             placement_group: Optional[pulumi.Input[str]] = None,
+             service_linked_role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTagPropertyArgs']]]] = None,
+             target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_size", max_size)
+        _setter("min_size", min_size)
         if auto_scaling_group_name is not None:
-            pulumi.set(__self__, "auto_scaling_group_name", auto_scaling_group_name)
+            _setter("auto_scaling_group_name", auto_scaling_group_name)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if capacity_rebalance is not None:
-            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+            _setter("capacity_rebalance", capacity_rebalance)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if cooldown is not None:
-            pulumi.set(__self__, "cooldown", cooldown)
+            _setter("cooldown", cooldown)
         if default_instance_warmup is not None:
-            pulumi.set(__self__, "default_instance_warmup", default_instance_warmup)
+            _setter("default_instance_warmup", default_instance_warmup)
         if desired_capacity is not None:
-            pulumi.set(__self__, "desired_capacity", desired_capacity)
+            _setter("desired_capacity", desired_capacity)
         if desired_capacity_type is not None:
-            pulumi.set(__self__, "desired_capacity_type", desired_capacity_type)
+            _setter("desired_capacity_type", desired_capacity_type)
         if health_check_grace_period is not None:
-            pulumi.set(__self__, "health_check_grace_period", health_check_grace_period)
+            _setter("health_check_grace_period", health_check_grace_period)
         if health_check_type is not None:
-            pulumi.set(__self__, "health_check_type", health_check_type)
+            _setter("health_check_type", health_check_type)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if instance_maintenance_policy is not None:
-            pulumi.set(__self__, "instance_maintenance_policy", instance_maintenance_policy)
+            _setter("instance_maintenance_policy", instance_maintenance_policy)
         if launch_configuration_name is not None:
-            pulumi.set(__self__, "launch_configuration_name", launch_configuration_name)
+            _setter("launch_configuration_name", launch_configuration_name)
         if launch_template is not None:
-            pulumi.set(__self__, "launch_template", launch_template)
+            _setter("launch_template", launch_template)
         if lifecycle_hook_specification_list is not None:
-            pulumi.set(__self__, "lifecycle_hook_specification_list", lifecycle_hook_specification_list)
+            _setter("lifecycle_hook_specification_list", lifecycle_hook_specification_list)
         if load_balancer_names is not None:
-            pulumi.set(__self__, "load_balancer_names", load_balancer_names)
+            _setter("load_balancer_names", load_balancer_names)
         if max_instance_lifetime is not None:
-            pulumi.set(__self__, "max_instance_lifetime", max_instance_lifetime)
+            _setter("max_instance_lifetime", max_instance_lifetime)
         if metrics_collection is not None:
-            pulumi.set(__self__, "metrics_collection", metrics_collection)
+            _setter("metrics_collection", metrics_collection)
         if mixed_instances_policy is not None:
-            pulumi.set(__self__, "mixed_instances_policy", mixed_instances_policy)
+            _setter("mixed_instances_policy", mixed_instances_policy)
         if new_instances_protected_from_scale_in is not None:
-            pulumi.set(__self__, "new_instances_protected_from_scale_in", new_instances_protected_from_scale_in)
+            _setter("new_instances_protected_from_scale_in", new_instances_protected_from_scale_in)
         if notification_configuration is not None:
-            pulumi.set(__self__, "notification_configuration", notification_configuration)
+            _setter("notification_configuration", notification_configuration)
         if notification_configurations is not None:
-            pulumi.set(__self__, "notification_configurations", notification_configurations)
+            _setter("notification_configurations", notification_configurations)
         if placement_group is not None:
-            pulumi.set(__self__, "placement_group", placement_group)
+            _setter("placement_group", placement_group)
         if service_linked_role_arn is not None:
-            pulumi.set(__self__, "service_linked_role_arn", service_linked_role_arn)
+            _setter("service_linked_role_arn", service_linked_role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_group_arns is not None:
-            pulumi.set(__self__, "target_group_arns", target_group_arns)
+            _setter("target_group_arns", target_group_arns)
         if termination_policies is not None:
-            pulumi.set(__self__, "termination_policies", termination_policies)
+            _setter("termination_policies", termination_policies)
         if vpc_zone_identifier is not None:
-            pulumi.set(__self__, "vpc_zone_identifier", vpc_zone_identifier)
+            _setter("vpc_zone_identifier", vpc_zone_identifier)
 
     @property
     @pulumi.getter(name="maxSize")
@@ -440,6 +507,10 @@ class AutoScalingGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AutoScalingGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -495,8 +566,18 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["health_check_grace_period"] = health_check_grace_period
             __props__.__dict__["health_check_type"] = health_check_type
             __props__.__dict__["instance_id"] = instance_id
+            if instance_maintenance_policy is not None and not isinstance(instance_maintenance_policy, AutoScalingGroupInstanceMaintenancePolicyArgs):
+                instance_maintenance_policy = instance_maintenance_policy or {}
+                def _setter(key, value):
+                    instance_maintenance_policy[key] = value
+                AutoScalingGroupInstanceMaintenancePolicyArgs._configure(_setter, **instance_maintenance_policy)
             __props__.__dict__["instance_maintenance_policy"] = instance_maintenance_policy
             __props__.__dict__["launch_configuration_name"] = launch_configuration_name
+            if launch_template is not None and not isinstance(launch_template, AutoScalingGroupLaunchTemplateSpecificationArgs):
+                launch_template = launch_template or {}
+                def _setter(key, value):
+                    launch_template[key] = value
+                AutoScalingGroupLaunchTemplateSpecificationArgs._configure(_setter, **launch_template)
             __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["lifecycle_hook_specification_list"] = lifecycle_hook_specification_list
             __props__.__dict__["load_balancer_names"] = load_balancer_names
@@ -508,8 +589,18 @@ class AutoScalingGroup(pulumi.CustomResource):
             if min_size is None and not opts.urn:
                 raise TypeError("Missing required property 'min_size'")
             __props__.__dict__["min_size"] = min_size
+            if mixed_instances_policy is not None and not isinstance(mixed_instances_policy, AutoScalingGroupMixedInstancesPolicyArgs):
+                mixed_instances_policy = mixed_instances_policy or {}
+                def _setter(key, value):
+                    mixed_instances_policy[key] = value
+                AutoScalingGroupMixedInstancesPolicyArgs._configure(_setter, **mixed_instances_policy)
             __props__.__dict__["mixed_instances_policy"] = mixed_instances_policy
             __props__.__dict__["new_instances_protected_from_scale_in"] = new_instances_protected_from_scale_in
+            if notification_configuration is not None and not isinstance(notification_configuration, AutoScalingGroupNotificationConfigurationArgs):
+                notification_configuration = notification_configuration or {}
+                def _setter(key, value):
+                    notification_configuration[key] = value
+                AutoScalingGroupNotificationConfigurationArgs._configure(_setter, **notification_configuration)
             __props__.__dict__["notification_configuration"] = notification_configuration
             __props__.__dict__["notification_configurations"] = notification_configurations
             __props__.__dict__["placement_group"] = placement_group

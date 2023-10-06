@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserPolicyInitArgs', 'UserPolicy']
@@ -23,10 +23,23 @@ class UserPolicyInitArgs:
         :param pulumi.Input[str] user_name: The name of the user to associate the policy with.
         :param Any policy_document: The policy document.
         """
-        pulumi.set(__self__, "policy_name", policy_name)
-        pulumi.set(__self__, "user_name", user_name)
+        UserPolicyInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_name=policy_name,
+            user_name=user_name,
+            policy_document=policy_document,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_name: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             policy_document: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_name", policy_name)
+        _setter("user_name", user_name)
         if policy_document is not None:
-            pulumi.set(__self__, "policy_document", policy_document)
+            _setter("policy_document", policy_document)
 
     @property
     @pulumi.getter(name="policyName")
@@ -102,6 +115,10 @@ class UserPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserPolicyInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

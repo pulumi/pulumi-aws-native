@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -65,12 +65,25 @@ class ApplicationSettingsCampaignHookArgs:
                  lambda_function_name: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  web_url: Optional[pulumi.Input[str]] = None):
+        ApplicationSettingsCampaignHookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_function_name=lambda_function_name,
+            mode=mode,
+            web_url=web_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_function_name: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             web_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lambda_function_name is not None:
-            pulumi.set(__self__, "lambda_function_name", lambda_function_name)
+            _setter("lambda_function_name", lambda_function_name)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if web_url is not None:
-            pulumi.set(__self__, "web_url", web_url)
+            _setter("web_url", web_url)
 
     @property
     @pulumi.getter(name="lambdaFunctionName")
@@ -107,14 +120,29 @@ class ApplicationSettingsLimitsArgs:
                  maximum_duration: Optional[pulumi.Input[int]] = None,
                  messages_per_second: Optional[pulumi.Input[int]] = None,
                  total: Optional[pulumi.Input[int]] = None):
+        ApplicationSettingsLimitsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            daily=daily,
+            maximum_duration=maximum_duration,
+            messages_per_second=messages_per_second,
+            total=total,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             daily: Optional[pulumi.Input[int]] = None,
+             maximum_duration: Optional[pulumi.Input[int]] = None,
+             messages_per_second: Optional[pulumi.Input[int]] = None,
+             total: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if daily is not None:
-            pulumi.set(__self__, "daily", daily)
+            _setter("daily", daily)
         if maximum_duration is not None:
-            pulumi.set(__self__, "maximum_duration", maximum_duration)
+            _setter("maximum_duration", maximum_duration)
         if messages_per_second is not None:
-            pulumi.set(__self__, "messages_per_second", messages_per_second)
+            _setter("messages_per_second", messages_per_second)
         if total is not None:
-            pulumi.set(__self__, "total", total)
+            _setter("total", total)
 
     @property
     @pulumi.getter
@@ -158,8 +186,19 @@ class ApplicationSettingsQuietTimeArgs:
     def __init__(__self__, *,
                  end: pulumi.Input[str],
                  start: pulumi.Input[str]):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        ApplicationSettingsQuietTimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: pulumi.Input[str],
+             start: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -185,10 +224,21 @@ class CampaignCustomDeliveryConfigurationArgs:
     def __init__(__self__, *,
                  delivery_uri: Optional[pulumi.Input[str]] = None,
                  endpoint_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        CampaignCustomDeliveryConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_uri=delivery_uri,
+            endpoint_types=endpoint_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_uri: Optional[pulumi.Input[str]] = None,
+             endpoint_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delivery_uri is not None:
-            pulumi.set(__self__, "delivery_uri", delivery_uri)
+            _setter("delivery_uri", delivery_uri)
         if endpoint_types is not None:
-            pulumi.set(__self__, "endpoint_types", endpoint_types)
+            _setter("endpoint_types", endpoint_types)
 
     @property
     @pulumi.getter(name="deliveryUri")
@@ -213,8 +263,17 @@ class CampaignCustomDeliveryConfigurationArgs:
 class CampaignCustomMessageArgs:
     def __init__(__self__, *,
                  data: Optional[pulumi.Input[str]] = None):
+        CampaignCustomMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter
@@ -235,18 +294,37 @@ class CampaignDefaultButtonConfigurationArgs:
                  link: Optional[pulumi.Input[str]] = None,
                  text: Optional[pulumi.Input[str]] = None,
                  text_color: Optional[pulumi.Input[str]] = None):
+        CampaignDefaultButtonConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            background_color=background_color,
+            border_radius=border_radius,
+            button_action=button_action,
+            link=link,
+            text=text,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             background_color: Optional[pulumi.Input[str]] = None,
+             border_radius: Optional[pulumi.Input[int]] = None,
+             button_action: Optional[pulumi.Input[str]] = None,
+             link: Optional[pulumi.Input[str]] = None,
+             text: Optional[pulumi.Input[str]] = None,
+             text_color: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if background_color is not None:
-            pulumi.set(__self__, "background_color", background_color)
+            _setter("background_color", background_color)
         if border_radius is not None:
-            pulumi.set(__self__, "border_radius", border_radius)
+            _setter("border_radius", border_radius)
         if button_action is not None:
-            pulumi.set(__self__, "button_action", button_action)
+            _setter("button_action", button_action)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
         if text_color is not None:
-            pulumi.set(__self__, "text_color", text_color)
+            _setter("text_color", text_color)
 
     @property
     @pulumi.getter(name="backgroundColor")
@@ -310,14 +388,29 @@ class CampaignEmailMessageArgs:
                  from_address: Optional[pulumi.Input[str]] = None,
                  html_body: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None):
+        CampaignEmailMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            from_address=from_address,
+            html_body=html_body,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional[pulumi.Input[str]] = None,
+             from_address: Optional[pulumi.Input[str]] = None,
+             html_body: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if from_address is not None:
-            pulumi.set(__self__, "from_address", from_address)
+            _setter("from_address", from_address)
         if html_body is not None:
-            pulumi.set(__self__, "html_body", html_body)
+            _setter("html_body", html_body)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter
@@ -362,12 +455,25 @@ class CampaignEventDimensionsArgs:
                  attributes: Optional[Any] = None,
                  event_type: Optional[pulumi.Input['CampaignSetDimensionArgs']] = None,
                  metrics: Optional[Any] = None):
+        CampaignEventDimensionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            event_type=event_type,
+            metrics=metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[Any] = None,
+             event_type: Optional[pulumi.Input['CampaignSetDimensionArgs']] = None,
+             metrics: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
         if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
+            _setter("metrics", metrics)
 
     @property
     @pulumi.getter
@@ -402,10 +508,21 @@ class CampaignEventFilterArgs:
     def __init__(__self__, *,
                  dimensions: Optional[pulumi.Input['CampaignEventDimensionsArgs']] = None,
                  filter_type: Optional[pulumi.Input[str]] = None):
+        CampaignEventFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            filter_type=filter_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: Optional[pulumi.Input['CampaignEventDimensionsArgs']] = None,
+             filter_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if filter_type is not None:
-            pulumi.set(__self__, "filter_type", filter_type)
+            _setter("filter_type", filter_type)
 
     @property
     @pulumi.getter
@@ -432,12 +549,25 @@ class CampaignHookArgs:
                  lambda_function_name: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  web_url: Optional[pulumi.Input[str]] = None):
+        CampaignHookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_function_name=lambda_function_name,
+            mode=mode,
+            web_url=web_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_function_name: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             web_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lambda_function_name is not None:
-            pulumi.set(__self__, "lambda_function_name", lambda_function_name)
+            _setter("lambda_function_name", lambda_function_name)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if web_url is not None:
-            pulumi.set(__self__, "web_url", web_url)
+            _setter("web_url", web_url)
 
     @property
     @pulumi.getter(name="lambdaFunctionName")
@@ -473,12 +603,25 @@ class CampaignInAppMessageBodyConfigArgs:
                  alignment: Optional[pulumi.Input[str]] = None,
                  body: Optional[pulumi.Input[str]] = None,
                  text_color: Optional[pulumi.Input[str]] = None):
+        CampaignInAppMessageBodyConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alignment=alignment,
+            body=body,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alignment: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             text_color: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alignment is not None:
-            pulumi.set(__self__, "alignment", alignment)
+            _setter("alignment", alignment)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if text_color is not None:
-            pulumi.set(__self__, "text_color", text_color)
+            _setter("text_color", text_color)
 
     @property
     @pulumi.getter
@@ -515,14 +658,29 @@ class CampaignInAppMessageButtonArgs:
                  default_config: Optional[pulumi.Input['CampaignDefaultButtonConfigurationArgs']] = None,
                  ios: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None,
                  web: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None):
+        CampaignInAppMessageButtonArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            android=android,
+            default_config=default_config,
+            ios=ios,
+            web=web,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             android: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None,
+             default_config: Optional[pulumi.Input['CampaignDefaultButtonConfigurationArgs']] = None,
+             ios: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None,
+             web: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if android is not None:
-            pulumi.set(__self__, "android", android)
+            _setter("android", android)
         if default_config is not None:
-            pulumi.set(__self__, "default_config", default_config)
+            _setter("default_config", default_config)
         if ios is not None:
-            pulumi.set(__self__, "ios", ios)
+            _setter("ios", ios)
         if web is not None:
-            pulumi.set(__self__, "web", web)
+            _setter("web", web)
 
     @property
     @pulumi.getter
@@ -570,18 +728,37 @@ class CampaignInAppMessageContentArgs:
                  image_url: Optional[pulumi.Input[str]] = None,
                  primary_btn: Optional[pulumi.Input['CampaignInAppMessageButtonArgs']] = None,
                  secondary_btn: Optional[pulumi.Input['CampaignInAppMessageButtonArgs']] = None):
+        CampaignInAppMessageContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            background_color=background_color,
+            body_config=body_config,
+            header_config=header_config,
+            image_url=image_url,
+            primary_btn=primary_btn,
+            secondary_btn=secondary_btn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             background_color: Optional[pulumi.Input[str]] = None,
+             body_config: Optional[pulumi.Input['CampaignInAppMessageBodyConfigArgs']] = None,
+             header_config: Optional[pulumi.Input['CampaignInAppMessageHeaderConfigArgs']] = None,
+             image_url: Optional[pulumi.Input[str]] = None,
+             primary_btn: Optional[pulumi.Input['CampaignInAppMessageButtonArgs']] = None,
+             secondary_btn: Optional[pulumi.Input['CampaignInAppMessageButtonArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if background_color is not None:
-            pulumi.set(__self__, "background_color", background_color)
+            _setter("background_color", background_color)
         if body_config is not None:
-            pulumi.set(__self__, "body_config", body_config)
+            _setter("body_config", body_config)
         if header_config is not None:
-            pulumi.set(__self__, "header_config", header_config)
+            _setter("header_config", header_config)
         if image_url is not None:
-            pulumi.set(__self__, "image_url", image_url)
+            _setter("image_url", image_url)
         if primary_btn is not None:
-            pulumi.set(__self__, "primary_btn", primary_btn)
+            _setter("primary_btn", primary_btn)
         if secondary_btn is not None:
-            pulumi.set(__self__, "secondary_btn", secondary_btn)
+            _setter("secondary_btn", secondary_btn)
 
     @property
     @pulumi.getter(name="backgroundColor")
@@ -644,12 +821,25 @@ class CampaignInAppMessageHeaderConfigArgs:
                  alignment: Optional[pulumi.Input[str]] = None,
                  header: Optional[pulumi.Input[str]] = None,
                  text_color: Optional[pulumi.Input[str]] = None):
+        CampaignInAppMessageHeaderConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alignment=alignment,
+            header=header,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alignment: Optional[pulumi.Input[str]] = None,
+             header: Optional[pulumi.Input[str]] = None,
+             text_color: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alignment is not None:
-            pulumi.set(__self__, "alignment", alignment)
+            _setter("alignment", alignment)
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if text_color is not None:
-            pulumi.set(__self__, "text_color", text_color)
+            _setter("text_color", text_color)
 
     @property
     @pulumi.getter
@@ -685,12 +875,25 @@ class CampaignInAppMessageArgs:
                  content: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignInAppMessageContentArgs']]]] = None,
                  custom_config: Optional[Any] = None,
                  layout: Optional[pulumi.Input[str]] = None):
+        CampaignInAppMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            custom_config=custom_config,
+            layout=layout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignInAppMessageContentArgs']]]] = None,
+             custom_config: Optional[Any] = None,
+             layout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if custom_config is not None:
-            pulumi.set(__self__, "custom_config", custom_config)
+            _setter("custom_config", custom_config)
         if layout is not None:
-            pulumi.set(__self__, "layout", layout)
+            _setter("layout", layout)
 
     @property
     @pulumi.getter
@@ -728,16 +931,33 @@ class CampaignLimitsArgs:
                  messages_per_second: Optional[pulumi.Input[int]] = None,
                  session: Optional[pulumi.Input[int]] = None,
                  total: Optional[pulumi.Input[int]] = None):
+        CampaignLimitsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            daily=daily,
+            maximum_duration=maximum_duration,
+            messages_per_second=messages_per_second,
+            session=session,
+            total=total,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             daily: Optional[pulumi.Input[int]] = None,
+             maximum_duration: Optional[pulumi.Input[int]] = None,
+             messages_per_second: Optional[pulumi.Input[int]] = None,
+             session: Optional[pulumi.Input[int]] = None,
+             total: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if daily is not None:
-            pulumi.set(__self__, "daily", daily)
+            _setter("daily", daily)
         if maximum_duration is not None:
-            pulumi.set(__self__, "maximum_duration", maximum_duration)
+            _setter("maximum_duration", maximum_duration)
         if messages_per_second is not None:
-            pulumi.set(__self__, "messages_per_second", messages_per_second)
+            _setter("messages_per_second", messages_per_second)
         if session is not None:
-            pulumi.set(__self__, "session", session)
+            _setter("session", session)
         if total is not None:
-            pulumi.set(__self__, "total", total)
+            _setter("total", total)
 
     @property
     @pulumi.getter
@@ -797,24 +1017,49 @@ class CampaignMessageConfigurationArgs:
                  gcm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
                  in_app_message: Optional[pulumi.Input['CampaignInAppMessageArgs']] = None,
                  sms_message: Optional[pulumi.Input['CampaignSmsMessageArgs']] = None):
+        CampaignMessageConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adm_message=adm_message,
+            apns_message=apns_message,
+            baidu_message=baidu_message,
+            custom_message=custom_message,
+            default_message=default_message,
+            email_message=email_message,
+            gcm_message=gcm_message,
+            in_app_message=in_app_message,
+            sms_message=sms_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
+             apns_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
+             baidu_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
+             custom_message: Optional[pulumi.Input['CampaignCustomMessageArgs']] = None,
+             default_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
+             email_message: Optional[pulumi.Input['CampaignEmailMessageArgs']] = None,
+             gcm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
+             in_app_message: Optional[pulumi.Input['CampaignInAppMessageArgs']] = None,
+             sms_message: Optional[pulumi.Input['CampaignSmsMessageArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if adm_message is not None:
-            pulumi.set(__self__, "adm_message", adm_message)
+            _setter("adm_message", adm_message)
         if apns_message is not None:
-            pulumi.set(__self__, "apns_message", apns_message)
+            _setter("apns_message", apns_message)
         if baidu_message is not None:
-            pulumi.set(__self__, "baidu_message", baidu_message)
+            _setter("baidu_message", baidu_message)
         if custom_message is not None:
-            pulumi.set(__self__, "custom_message", custom_message)
+            _setter("custom_message", custom_message)
         if default_message is not None:
-            pulumi.set(__self__, "default_message", default_message)
+            _setter("default_message", default_message)
         if email_message is not None:
-            pulumi.set(__self__, "email_message", email_message)
+            _setter("email_message", email_message)
         if gcm_message is not None:
-            pulumi.set(__self__, "gcm_message", gcm_message)
+            _setter("gcm_message", gcm_message)
         if in_app_message is not None:
-            pulumi.set(__self__, "in_app_message", in_app_message)
+            _setter("in_app_message", in_app_message)
         if sms_message is not None:
-            pulumi.set(__self__, "sms_message", sms_message)
+            _setter("sms_message", sms_message)
 
     @property
     @pulumi.getter(name="admMessage")
@@ -913,30 +1158,61 @@ class CampaignMessageArgs:
                  time_to_live: Optional[pulumi.Input[int]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
+        CampaignMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            body=body,
+            image_icon_url=image_icon_url,
+            image_small_icon_url=image_small_icon_url,
+            image_url=image_url,
+            json_body=json_body,
+            media_url=media_url,
+            raw_content=raw_content,
+            silent_push=silent_push,
+            time_to_live=time_to_live,
+            title=title,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             image_icon_url: Optional[pulumi.Input[str]] = None,
+             image_small_icon_url: Optional[pulumi.Input[str]] = None,
+             image_url: Optional[pulumi.Input[str]] = None,
+             json_body: Optional[pulumi.Input[str]] = None,
+             media_url: Optional[pulumi.Input[str]] = None,
+             raw_content: Optional[pulumi.Input[str]] = None,
+             silent_push: Optional[pulumi.Input[bool]] = None,
+             time_to_live: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if image_icon_url is not None:
-            pulumi.set(__self__, "image_icon_url", image_icon_url)
+            _setter("image_icon_url", image_icon_url)
         if image_small_icon_url is not None:
-            pulumi.set(__self__, "image_small_icon_url", image_small_icon_url)
+            _setter("image_small_icon_url", image_small_icon_url)
         if image_url is not None:
-            pulumi.set(__self__, "image_url", image_url)
+            _setter("image_url", image_url)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if media_url is not None:
-            pulumi.set(__self__, "media_url", media_url)
+            _setter("media_url", media_url)
         if raw_content is not None:
-            pulumi.set(__self__, "raw_content", raw_content)
+            _setter("raw_content", raw_content)
         if silent_push is not None:
-            pulumi.set(__self__, "silent_push", silent_push)
+            _setter("silent_push", silent_push)
         if time_to_live is not None:
-            pulumi.set(__self__, "time_to_live", time_to_live)
+            _setter("time_to_live", time_to_live)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -1052,10 +1328,21 @@ class CampaignOverrideButtonConfigurationArgs:
     def __init__(__self__, *,
                  button_action: Optional[pulumi.Input[str]] = None,
                  link: Optional[pulumi.Input[str]] = None):
+        CampaignOverrideButtonConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            button_action=button_action,
+            link=link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             button_action: Optional[pulumi.Input[str]] = None,
+             link: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if button_action is not None:
-            pulumi.set(__self__, "button_action", button_action)
+            _setter("button_action", button_action)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
 
     @property
     @pulumi.getter(name="buttonAction")
@@ -1081,8 +1368,19 @@ class CampaignQuietTimeArgs:
     def __init__(__self__, *,
                  end: pulumi.Input[str],
                  start: pulumi.Input[str]):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        CampaignQuietTimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: pulumi.Input[str],
+             start: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -1113,20 +1411,41 @@ class CampaignScheduleArgs:
                  quiet_time: Optional[pulumi.Input['CampaignQuietTimeArgs']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
+        CampaignScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            event_filter=event_filter,
+            frequency=frequency,
+            is_local_time=is_local_time,
+            quiet_time=quiet_time,
+            start_time=start_time,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: Optional[pulumi.Input[str]] = None,
+             event_filter: Optional[pulumi.Input['CampaignEventFilterArgs']] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             is_local_time: Optional[pulumi.Input[bool]] = None,
+             quiet_time: Optional[pulumi.Input['CampaignQuietTimeArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if event_filter is not None:
-            pulumi.set(__self__, "event_filter", event_filter)
+            _setter("event_filter", event_filter)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if is_local_time is not None:
-            pulumi.set(__self__, "is_local_time", is_local_time)
+            _setter("is_local_time", is_local_time)
         if quiet_time is not None:
-            pulumi.set(__self__, "quiet_time", quiet_time)
+            _setter("quiet_time", quiet_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="endTime")
@@ -1197,10 +1516,21 @@ class CampaignSetDimensionArgs:
     def __init__(__self__, *,
                  dimension_type: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        CampaignSetDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimension_type=dimension_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimension_type: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dimension_type is not None:
-            pulumi.set(__self__, "dimension_type", dimension_type)
+            _setter("dimension_type", dimension_type)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="dimensionType")
@@ -1230,18 +1560,37 @@ class CampaignSmsMessageArgs:
                  origination_number: Optional[pulumi.Input[str]] = None,
                  sender_id: Optional[pulumi.Input[str]] = None,
                  template_id: Optional[pulumi.Input[str]] = None):
+        CampaignSmsMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            entity_id=entity_id,
+            message_type=message_type,
+            origination_number=origination_number,
+            sender_id=sender_id,
+            template_id=template_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional[pulumi.Input[str]] = None,
+             entity_id: Optional[pulumi.Input[str]] = None,
+             message_type: Optional[pulumi.Input[str]] = None,
+             origination_number: Optional[pulumi.Input[str]] = None,
+             sender_id: Optional[pulumi.Input[str]] = None,
+             template_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if entity_id is not None:
-            pulumi.set(__self__, "entity_id", entity_id)
+            _setter("entity_id", entity_id)
         if message_type is not None:
-            pulumi.set(__self__, "message_type", message_type)
+            _setter("message_type", message_type)
         if origination_number is not None:
-            pulumi.set(__self__, "origination_number", origination_number)
+            _setter("origination_number", origination_number)
         if sender_id is not None:
-            pulumi.set(__self__, "sender_id", sender_id)
+            _setter("sender_id", sender_id)
         if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
+            _setter("template_id", template_id)
 
     @property
     @pulumi.getter
@@ -1305,14 +1654,29 @@ class CampaignTemplateConfigurationArgs:
                  push_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
                  sms_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
                  voice_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None):
+        CampaignTemplateConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_template=email_template,
+            push_template=push_template,
+            sms_template=sms_template,
+            voice_template=voice_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
+             push_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
+             sms_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
+             voice_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email_template is not None:
-            pulumi.set(__self__, "email_template", email_template)
+            _setter("email_template", email_template)
         if push_template is not None:
-            pulumi.set(__self__, "push_template", push_template)
+            _setter("push_template", push_template)
         if sms_template is not None:
-            pulumi.set(__self__, "sms_template", sms_template)
+            _setter("sms_template", sms_template)
         if voice_template is not None:
-            pulumi.set(__self__, "voice_template", voice_template)
+            _setter("voice_template", voice_template)
 
     @property
     @pulumi.getter(name="emailTemplate")
@@ -1356,10 +1720,21 @@ class CampaignTemplateArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
+        CampaignTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -1390,20 +1765,41 @@ class CampaignWriteTreatmentResourceArgs:
                  template_configuration: Optional[pulumi.Input['CampaignTemplateConfigurationArgs']] = None,
                  treatment_description: Optional[pulumi.Input[str]] = None,
                  treatment_name: Optional[pulumi.Input[str]] = None):
+        CampaignWriteTreatmentResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_delivery_configuration=custom_delivery_configuration,
+            message_configuration=message_configuration,
+            schedule=schedule,
+            size_percent=size_percent,
+            template_configuration=template_configuration,
+            treatment_description=treatment_description,
+            treatment_name=treatment_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_delivery_configuration: Optional[pulumi.Input['CampaignCustomDeliveryConfigurationArgs']] = None,
+             message_configuration: Optional[pulumi.Input['CampaignMessageConfigurationArgs']] = None,
+             schedule: Optional[pulumi.Input['CampaignScheduleArgs']] = None,
+             size_percent: Optional[pulumi.Input[int]] = None,
+             template_configuration: Optional[pulumi.Input['CampaignTemplateConfigurationArgs']] = None,
+             treatment_description: Optional[pulumi.Input[str]] = None,
+             treatment_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_delivery_configuration is not None:
-            pulumi.set(__self__, "custom_delivery_configuration", custom_delivery_configuration)
+            _setter("custom_delivery_configuration", custom_delivery_configuration)
         if message_configuration is not None:
-            pulumi.set(__self__, "message_configuration", message_configuration)
+            _setter("message_configuration", message_configuration)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if size_percent is not None:
-            pulumi.set(__self__, "size_percent", size_percent)
+            _setter("size_percent", size_percent)
         if template_configuration is not None:
-            pulumi.set(__self__, "template_configuration", template_configuration)
+            _setter("template_configuration", template_configuration)
         if treatment_description is not None:
-            pulumi.set(__self__, "treatment_description", treatment_description)
+            _setter("treatment_description", treatment_description)
         if treatment_name is not None:
-            pulumi.set(__self__, "treatment_name", treatment_name)
+            _setter("treatment_name", treatment_name)
 
     @property
     @pulumi.getter(name="customDeliveryConfiguration")
@@ -1476,14 +1872,29 @@ class GroupsArgs:
                  source_segments: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSourceSegmentsArgs']]]] = None,
                  source_type: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        GroupsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            source_segments=source_segments,
+            source_type=source_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDimensionsArgs']]]] = None,
+             source_segments: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSourceSegmentsArgs']]]] = None,
+             source_type: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if source_segments is not None:
-            pulumi.set(__self__, "source_segments", source_segments)
+            _setter("source_segments", source_segments)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1528,12 +1939,25 @@ class InAppTemplateBodyConfigArgs:
                  alignment: Optional[pulumi.Input['InAppTemplateAlignment']] = None,
                  body: Optional[pulumi.Input[str]] = None,
                  text_color: Optional[pulumi.Input[str]] = None):
+        InAppTemplateBodyConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alignment=alignment,
+            body=body,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alignment: Optional[pulumi.Input['InAppTemplateAlignment']] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             text_color: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alignment is not None:
-            pulumi.set(__self__, "alignment", alignment)
+            _setter("alignment", alignment)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if text_color is not None:
-            pulumi.set(__self__, "text_color", text_color)
+            _setter("text_color", text_color)
 
     @property
     @pulumi.getter
@@ -1570,14 +1994,29 @@ class InAppTemplateButtonConfigArgs:
                  default_config: Optional[pulumi.Input['InAppTemplateDefaultButtonConfigurationArgs']] = None,
                  ios: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None,
                  web: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None):
+        InAppTemplateButtonConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            android=android,
+            default_config=default_config,
+            ios=ios,
+            web=web,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             android: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None,
+             default_config: Optional[pulumi.Input['InAppTemplateDefaultButtonConfigurationArgs']] = None,
+             ios: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None,
+             web: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if android is not None:
-            pulumi.set(__self__, "android", android)
+            _setter("android", android)
         if default_config is not None:
-            pulumi.set(__self__, "default_config", default_config)
+            _setter("default_config", default_config)
         if ios is not None:
-            pulumi.set(__self__, "ios", ios)
+            _setter("ios", ios)
         if web is not None:
-            pulumi.set(__self__, "web", web)
+            _setter("web", web)
 
     @property
     @pulumi.getter
@@ -1625,18 +2064,37 @@ class InAppTemplateDefaultButtonConfigurationArgs:
                  link: Optional[pulumi.Input[str]] = None,
                  text: Optional[pulumi.Input[str]] = None,
                  text_color: Optional[pulumi.Input[str]] = None):
+        InAppTemplateDefaultButtonConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            background_color=background_color,
+            border_radius=border_radius,
+            button_action=button_action,
+            link=link,
+            text=text,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             background_color: Optional[pulumi.Input[str]] = None,
+             border_radius: Optional[pulumi.Input[int]] = None,
+             button_action: Optional[pulumi.Input['InAppTemplateButtonAction']] = None,
+             link: Optional[pulumi.Input[str]] = None,
+             text: Optional[pulumi.Input[str]] = None,
+             text_color: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if background_color is not None:
-            pulumi.set(__self__, "background_color", background_color)
+            _setter("background_color", background_color)
         if border_radius is not None:
-            pulumi.set(__self__, "border_radius", border_radius)
+            _setter("border_radius", border_radius)
         if button_action is not None:
-            pulumi.set(__self__, "button_action", button_action)
+            _setter("button_action", button_action)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
         if text_color is not None:
-            pulumi.set(__self__, "text_color", text_color)
+            _setter("text_color", text_color)
 
     @property
     @pulumi.getter(name="backgroundColor")
@@ -1699,12 +2157,25 @@ class InAppTemplateHeaderConfigArgs:
                  alignment: Optional[pulumi.Input['InAppTemplateAlignment']] = None,
                  header: Optional[pulumi.Input[str]] = None,
                  text_color: Optional[pulumi.Input[str]] = None):
+        InAppTemplateHeaderConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alignment=alignment,
+            header=header,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alignment: Optional[pulumi.Input['InAppTemplateAlignment']] = None,
+             header: Optional[pulumi.Input[str]] = None,
+             text_color: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alignment is not None:
-            pulumi.set(__self__, "alignment", alignment)
+            _setter("alignment", alignment)
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if text_color is not None:
-            pulumi.set(__self__, "text_color", text_color)
+            _setter("text_color", text_color)
 
     @property
     @pulumi.getter
@@ -1743,18 +2214,37 @@ class InAppTemplateInAppMessageContentArgs:
                  image_url: Optional[pulumi.Input[str]] = None,
                  primary_btn: Optional[pulumi.Input['InAppTemplateButtonConfigArgs']] = None,
                  secondary_btn: Optional[pulumi.Input['InAppTemplateButtonConfigArgs']] = None):
+        InAppTemplateInAppMessageContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            background_color=background_color,
+            body_config=body_config,
+            header_config=header_config,
+            image_url=image_url,
+            primary_btn=primary_btn,
+            secondary_btn=secondary_btn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             background_color: Optional[pulumi.Input[str]] = None,
+             body_config: Optional[pulumi.Input['InAppTemplateBodyConfigArgs']] = None,
+             header_config: Optional[pulumi.Input['InAppTemplateHeaderConfigArgs']] = None,
+             image_url: Optional[pulumi.Input[str]] = None,
+             primary_btn: Optional[pulumi.Input['InAppTemplateButtonConfigArgs']] = None,
+             secondary_btn: Optional[pulumi.Input['InAppTemplateButtonConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if background_color is not None:
-            pulumi.set(__self__, "background_color", background_color)
+            _setter("background_color", background_color)
         if body_config is not None:
-            pulumi.set(__self__, "body_config", body_config)
+            _setter("body_config", body_config)
         if header_config is not None:
-            pulumi.set(__self__, "header_config", header_config)
+            _setter("header_config", header_config)
         if image_url is not None:
-            pulumi.set(__self__, "image_url", image_url)
+            _setter("image_url", image_url)
         if primary_btn is not None:
-            pulumi.set(__self__, "primary_btn", primary_btn)
+            _setter("primary_btn", primary_btn)
         if secondary_btn is not None:
-            pulumi.set(__self__, "secondary_btn", secondary_btn)
+            _setter("secondary_btn", secondary_btn)
 
     @property
     @pulumi.getter(name="backgroundColor")
@@ -1816,10 +2306,21 @@ class InAppTemplateOverrideButtonConfigurationArgs:
     def __init__(__self__, *,
                  button_action: Optional[pulumi.Input['InAppTemplateButtonAction']] = None,
                  link: Optional[pulumi.Input[str]] = None):
+        InAppTemplateOverrideButtonConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            button_action=button_action,
+            link=link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             button_action: Optional[pulumi.Input['InAppTemplateButtonAction']] = None,
+             link: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if button_action is not None:
-            pulumi.set(__self__, "button_action", button_action)
+            _setter("button_action", button_action)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
 
     @property
     @pulumi.getter(name="buttonAction")
@@ -1851,22 +2352,45 @@ class PushTemplateAndroidPushNotificationTemplateArgs:
                  sound: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
+        PushTemplateAndroidPushNotificationTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            body=body,
+            image_icon_url=image_icon_url,
+            image_url=image_url,
+            small_image_icon_url=small_image_icon_url,
+            sound=sound,
+            title=title,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             image_icon_url: Optional[pulumi.Input[str]] = None,
+             image_url: Optional[pulumi.Input[str]] = None,
+             small_image_icon_url: Optional[pulumi.Input[str]] = None,
+             sound: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if image_icon_url is not None:
-            pulumi.set(__self__, "image_icon_url", image_icon_url)
+            _setter("image_icon_url", image_icon_url)
         if image_url is not None:
-            pulumi.set(__self__, "image_url", image_url)
+            _setter("image_url", image_url)
         if small_image_icon_url is not None:
-            pulumi.set(__self__, "small_image_icon_url", small_image_icon_url)
+            _setter("small_image_icon_url", small_image_icon_url)
         if sound is not None:
-            pulumi.set(__self__, "sound", sound)
+            _setter("sound", sound)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -1950,18 +2474,37 @@ class PushTemplateApnsPushNotificationTemplateArgs:
                  sound: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
+        PushTemplateApnsPushNotificationTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            body=body,
+            media_url=media_url,
+            sound=sound,
+            title=title,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             media_url: Optional[pulumi.Input[str]] = None,
+             sound: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if media_url is not None:
-            pulumi.set(__self__, "media_url", media_url)
+            _setter("media_url", media_url)
         if sound is not None:
-            pulumi.set(__self__, "sound", sound)
+            _setter("sound", sound)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -2026,16 +2569,33 @@ class PushTemplateDefaultPushNotificationTemplateArgs:
                  sound: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
+        PushTemplateDefaultPushNotificationTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            body=body,
+            sound=sound,
+            title=title,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             sound: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if sound is not None:
-            pulumi.set(__self__, "sound", sound)
+            _setter("sound", sound)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -2087,8 +2647,17 @@ class PushTemplateDefaultPushNotificationTemplateArgs:
 class SegmentBehaviorArgs:
     def __init__(__self__, *,
                  recency: Optional[pulumi.Input['SegmentRecencyArgs']] = None):
+        SegmentBehaviorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recency=recency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recency: Optional[pulumi.Input['SegmentRecencyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if recency is not None:
-            pulumi.set(__self__, "recency", recency)
+            _setter("recency", recency)
 
     @property
     @pulumi.getter
@@ -2105,8 +2674,19 @@ class SegmentCoordinatesArgs:
     def __init__(__self__, *,
                  latitude: pulumi.Input[float],
                  longitude: pulumi.Input[float]):
-        pulumi.set(__self__, "latitude", latitude)
-        pulumi.set(__self__, "longitude", longitude)
+        SegmentCoordinatesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            latitude=latitude,
+            longitude=longitude,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             latitude: pulumi.Input[float],
+             longitude: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("latitude", latitude)
+        _setter("longitude", longitude)
 
     @property
     @pulumi.getter
@@ -2136,18 +2716,37 @@ class SegmentDemographicArgs:
                  make: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
                  model: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
                  platform: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None):
+        SegmentDemographicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_version=app_version,
+            channel=channel,
+            device_type=device_type,
+            make=make,
+            model=model,
+            platform=platform,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_version: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
+             channel: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
+             device_type: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
+             make: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
+             model: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
+             platform: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_version is not None:
-            pulumi.set(__self__, "app_version", app_version)
+            _setter("app_version", app_version)
         if channel is not None:
-            pulumi.set(__self__, "channel", channel)
+            _setter("channel", channel)
         if device_type is not None:
-            pulumi.set(__self__, "device_type", device_type)
+            _setter("device_type", device_type)
         if make is not None:
-            pulumi.set(__self__, "make", make)
+            _setter("make", make)
         if model is not None:
-            pulumi.set(__self__, "model", model)
+            _setter("model", model)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
 
     @property
     @pulumi.getter(name="appVersion")
@@ -2213,18 +2812,37 @@ class SegmentDimensionsArgs:
                  location: Optional[pulumi.Input['SegmentLocationArgs']] = None,
                  metrics: Optional[Any] = None,
                  user_attributes: Optional[Any] = None):
+        SegmentDimensionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            behavior=behavior,
+            demographic=demographic,
+            location=location,
+            metrics=metrics,
+            user_attributes=user_attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[Any] = None,
+             behavior: Optional[pulumi.Input['SegmentBehaviorArgs']] = None,
+             demographic: Optional[pulumi.Input['SegmentDemographicArgs']] = None,
+             location: Optional[pulumi.Input['SegmentLocationArgs']] = None,
+             metrics: Optional[Any] = None,
+             user_attributes: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if behavior is not None:
-            pulumi.set(__self__, "behavior", behavior)
+            _setter("behavior", behavior)
         if demographic is not None:
-            pulumi.set(__self__, "demographic", demographic)
+            _setter("demographic", demographic)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
+            _setter("metrics", metrics)
         if user_attributes is not None:
-            pulumi.set(__self__, "user_attributes", user_attributes)
+            _setter("user_attributes", user_attributes)
 
     @property
     @pulumi.getter
@@ -2286,8 +2904,19 @@ class SegmentGpsPointArgs:
     def __init__(__self__, *,
                  coordinates: pulumi.Input['SegmentCoordinatesArgs'],
                  range_in_kilometers: pulumi.Input[float]):
-        pulumi.set(__self__, "coordinates", coordinates)
-        pulumi.set(__self__, "range_in_kilometers", range_in_kilometers)
+        SegmentGpsPointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            coordinates=coordinates,
+            range_in_kilometers=range_in_kilometers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             coordinates: pulumi.Input['SegmentCoordinatesArgs'],
+             range_in_kilometers: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("coordinates", coordinates)
+        _setter("range_in_kilometers", range_in_kilometers)
 
     @property
     @pulumi.getter
@@ -2313,10 +2942,21 @@ class SegmentGroupsArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['GroupsArgs']]]] = None,
                  include: Optional[pulumi.Input[str]] = None):
+        SegmentGroupsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            include=include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input['GroupsArgs']]]] = None,
+             include: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if include is not None:
-            pulumi.set(__self__, "include", include)
+            _setter("include", include)
 
     @property
     @pulumi.getter
@@ -2342,10 +2982,21 @@ class SegmentLocationArgs:
     def __init__(__self__, *,
                  country: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
                  gps_point: Optional[pulumi.Input['SegmentGpsPointArgs']] = None):
+        SegmentLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country=country,
+            gps_point=gps_point,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
+             gps_point: Optional[pulumi.Input['SegmentGpsPointArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if country is not None:
-            pulumi.set(__self__, "country", country)
+            _setter("country", country)
         if gps_point is not None:
-            pulumi.set(__self__, "gps_point", gps_point)
+            _setter("gps_point", gps_point)
 
     @property
     @pulumi.getter
@@ -2371,8 +3022,19 @@ class SegmentRecencyArgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[str],
                  recency_type: pulumi.Input[str]):
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "recency_type", recency_type)
+        SegmentRecencyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            recency_type=recency_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: pulumi.Input[str],
+             recency_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("duration", duration)
+        _setter("recency_type", recency_type)
 
     @property
     @pulumi.getter
@@ -2398,10 +3060,21 @@ class SegmentSetDimensionArgs:
     def __init__(__self__, *,
                  dimension_type: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        SegmentSetDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimension_type=dimension_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimension_type: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dimension_type is not None:
-            pulumi.set(__self__, "dimension_type", dimension_type)
+            _setter("dimension_type", dimension_type)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="dimensionType")
@@ -2427,9 +3100,20 @@ class SegmentSourceSegmentsArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  version: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "id", id)
+        SegmentSourceSegmentsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter

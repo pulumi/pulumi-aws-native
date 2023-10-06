@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,25 +30,52 @@ class StateMachineArgs:
         """
         The set of arguments for constructing a StateMachine resource.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
+        StateMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            definition=definition,
+            definition_s3_location=definition_s3_location,
+            definition_string=definition_string,
+            definition_substitutions=definition_substitutions,
+            logging_configuration=logging_configuration,
+            state_machine_name=state_machine_name,
+            state_machine_type=state_machine_type,
+            tags=tags,
+            tracing_configuration=tracing_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             definition: Optional[pulumi.Input['StateMachineDefinitionArgs']] = None,
+             definition_s3_location: Optional[pulumi.Input['StateMachineS3LocationArgs']] = None,
+             definition_string: Optional[pulumi.Input[str]] = None,
+             definition_substitutions: Optional[pulumi.Input['StateMachineDefinitionSubstitutionsArgs']] = None,
+             logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
+             state_machine_name: Optional[pulumi.Input[str]] = None,
+             state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineTagsEntryArgs']]]] = None,
+             tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_arn", role_arn)
         if definition is not None:
-            pulumi.set(__self__, "definition", definition)
+            _setter("definition", definition)
         if definition_s3_location is not None:
-            pulumi.set(__self__, "definition_s3_location", definition_s3_location)
+            _setter("definition_s3_location", definition_s3_location)
         if definition_string is not None:
-            pulumi.set(__self__, "definition_string", definition_string)
+            _setter("definition_string", definition_string)
         if definition_substitutions is not None:
-            pulumi.set(__self__, "definition_substitutions", definition_substitutions)
+            _setter("definition_substitutions", definition_substitutions)
         if logging_configuration is not None:
-            pulumi.set(__self__, "logging_configuration", logging_configuration)
+            _setter("logging_configuration", logging_configuration)
         if state_machine_name is not None:
-            pulumi.set(__self__, "state_machine_name", state_machine_name)
+            _setter("state_machine_name", state_machine_name)
         if state_machine_type is not None:
-            pulumi.set(__self__, "state_machine_type", state_machine_type)
+            _setter("state_machine_type", state_machine_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tracing_configuration is not None:
-            pulumi.set(__self__, "tracing_configuration", tracing_configuration)
+            _setter("tracing_configuration", tracing_configuration)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -182,6 +209,10 @@ class StateMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StateMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -206,10 +237,30 @@ class StateMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StateMachineArgs.__new__(StateMachineArgs)
 
+            if definition is not None and not isinstance(definition, StateMachineDefinitionArgs):
+                definition = definition or {}
+                def _setter(key, value):
+                    definition[key] = value
+                StateMachineDefinitionArgs._configure(_setter, **definition)
             __props__.__dict__["definition"] = definition
+            if definition_s3_location is not None and not isinstance(definition_s3_location, StateMachineS3LocationArgs):
+                definition_s3_location = definition_s3_location or {}
+                def _setter(key, value):
+                    definition_s3_location[key] = value
+                StateMachineS3LocationArgs._configure(_setter, **definition_s3_location)
             __props__.__dict__["definition_s3_location"] = definition_s3_location
             __props__.__dict__["definition_string"] = definition_string
+            if definition_substitutions is not None and not isinstance(definition_substitutions, StateMachineDefinitionSubstitutionsArgs):
+                definition_substitutions = definition_substitutions or {}
+                def _setter(key, value):
+                    definition_substitutions[key] = value
+                StateMachineDefinitionSubstitutionsArgs._configure(_setter, **definition_substitutions)
             __props__.__dict__["definition_substitutions"] = definition_substitutions
+            if logging_configuration is not None and not isinstance(logging_configuration, StateMachineLoggingConfigurationArgs):
+                logging_configuration = logging_configuration or {}
+                def _setter(key, value):
+                    logging_configuration[key] = value
+                StateMachineLoggingConfigurationArgs._configure(_setter, **logging_configuration)
             __props__.__dict__["logging_configuration"] = logging_configuration
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -217,6 +268,11 @@ class StateMachine(pulumi.CustomResource):
             __props__.__dict__["state_machine_name"] = state_machine_name
             __props__.__dict__["state_machine_type"] = state_machine_type
             __props__.__dict__["tags"] = tags
+            if tracing_configuration is not None and not isinstance(tracing_configuration, StateMachineTracingConfigurationArgs):
+                tracing_configuration = tracing_configuration or {}
+                def _setter(key, value):
+                    tracing_configuration[key] = value
+                StateMachineTracingConfigurationArgs._configure(_setter, **tracing_configuration)
             __props__.__dict__["tracing_configuration"] = tracing_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["name"] = None

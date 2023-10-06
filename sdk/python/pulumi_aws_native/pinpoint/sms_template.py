@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SmsTemplateArgs', 'SmsTemplate']
@@ -22,14 +22,31 @@ class SmsTemplateArgs:
         """
         The set of arguments for constructing a SmsTemplate resource.
         """
-        pulumi.set(__self__, "body", body)
-        pulumi.set(__self__, "template_name", template_name)
+        SmsTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            template_name=template_name,
+            default_substitutions=default_substitutions,
+            tags=tags,
+            template_description=template_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: pulumi.Input[str],
+             template_name: pulumi.Input[str],
+             default_substitutions: Optional[pulumi.Input[str]] = None,
+             tags: Optional[Any] = None,
+             template_description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("body", body)
+        _setter("template_name", template_name)
         if default_substitutions is not None:
-            pulumi.set(__self__, "default_substitutions", default_substitutions)
+            _setter("default_substitutions", default_substitutions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_description is not None:
-            pulumi.set(__self__, "template_description", template_description)
+            _setter("template_description", template_description)
 
     @property
     @pulumi.getter
@@ -118,6 +135,10 @@ class SmsTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SmsTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

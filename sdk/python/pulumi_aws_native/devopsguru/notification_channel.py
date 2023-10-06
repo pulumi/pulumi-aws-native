@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -21,7 +21,16 @@ class NotificationChannelArgs:
         """
         The set of arguments for constructing a NotificationChannel resource.
         """
-        pulumi.set(__self__, "config", config)
+        NotificationChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: pulumi.Input['NotificationChannelConfigArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("config", config)
 
     @property
     @pulumi.getter
@@ -65,6 +74,10 @@ class NotificationChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -80,6 +93,11 @@ class NotificationChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NotificationChannelArgs.__new__(NotificationChannelArgs)
 
+            if config is not None and not isinstance(config, NotificationChannelConfigArgs):
+                config = config or {}
+                def _setter(key, value):
+                    config[key] = value
+                NotificationChannelConfigArgs._configure(_setter, **config)
             if config is None and not opts.urn:
                 raise TypeError("Missing required property 'config'")
             __props__.__dict__["config"] = config

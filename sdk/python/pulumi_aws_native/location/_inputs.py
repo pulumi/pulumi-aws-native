@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -19,7 +19,16 @@ __all__ = [
 class MapConfigurationArgs:
     def __init__(__self__, *,
                  style: pulumi.Input[str]):
-        pulumi.set(__self__, "style", style)
+        MapConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            style=style,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             style: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("style", style)
 
     @property
     @pulumi.getter
@@ -35,8 +44,17 @@ class MapConfigurationArgs:
 class PlaceIndexDataSourceConfigurationArgs:
     def __init__(__self__, *,
                  intended_use: Optional[pulumi.Input['PlaceIndexIntendedUse']] = None):
+        PlaceIndexDataSourceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            intended_use=intended_use,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             intended_use: Optional[pulumi.Input['PlaceIndexIntendedUse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if intended_use is not None:
-            pulumi.set(__self__, "intended_use", intended_use)
+            _setter("intended_use", intended_use)
 
     @property
     @pulumi.getter(name="intendedUse")

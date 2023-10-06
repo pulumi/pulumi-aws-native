@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,24 @@ class VpnGatewayArgs:
         :param pulumi.Input[int] amazon_side_asn: The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayTagArgs']]] tags: Any tags assigned to the virtual private gateway.
         """
-        pulumi.set(__self__, "type", type)
+        VpnGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            amazon_side_asn=amazon_side_asn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             amazon_side_asn: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if amazon_side_asn is not None:
-            pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+            _setter("amazon_side_asn", amazon_side_asn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -105,6 +118,10 @@ class VpnGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

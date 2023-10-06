@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,17 +25,36 @@ class ThemeArgs:
         """
         The set of arguments for constructing a Theme resource.
         """
-        pulumi.set(__self__, "values", values)
+        ThemeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            values=values,
+            app_id=app_id,
+            environment_name=environment_name,
+            name=name,
+            overrides=overrides,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             values: pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]],
+             app_id: Optional[pulumi.Input[str]] = None,
+             environment_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]] = None,
+             tags: Optional[pulumi.Input['ThemeTagsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("values", values)
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
+            _setter("environment_name", environment_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
+            _setter("overrides", overrides)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -129,6 +148,10 @@ class Theme(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ThemeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -153,6 +176,11 @@ class Theme(pulumi.CustomResource):
             __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["name"] = name
             __props__.__dict__["overrides"] = overrides
+            if tags is not None and not isinstance(tags, ThemeTagsArgs):
+                tags = tags or {}
+                def _setter(key, value):
+                    tags[key] = value
+                ThemeTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             if values is None and not opts.urn:
                 raise TypeError("Missing required property 'values'")

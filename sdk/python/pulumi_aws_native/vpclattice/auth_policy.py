@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -20,8 +20,19 @@ class AuthPolicyArgs:
         """
         The set of arguments for constructing a AuthPolicy resource.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "resource_identifier", resource_identifier)
+        AuthPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            resource_identifier=resource_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Any,
+             resource_identifier: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy", policy)
+        _setter("resource_identifier", resource_identifier)
 
     @property
     @pulumi.getter
@@ -75,6 +86,10 @@ class AuthPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

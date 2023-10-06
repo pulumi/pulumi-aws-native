@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,28 @@ class LocationFSxLustreArgs:
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
         :param pulumi.Input[Sequence[pulumi.Input['LocationFSxLustreTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "security_group_arns", security_group_arns)
+        LocationFSxLustreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_arns=security_group_arns,
+            fsx_filesystem_arn=fsx_filesystem_arn,
+            subdirectory=subdirectory,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxLustreTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("security_group_arns", security_group_arns)
         if fsx_filesystem_arn is not None:
-            pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
+            _setter("fsx_filesystem_arn", fsx_filesystem_arn)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="securityGroupArns")
@@ -123,6 +138,10 @@ class LocationFSxLustre(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocationFSxLustreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

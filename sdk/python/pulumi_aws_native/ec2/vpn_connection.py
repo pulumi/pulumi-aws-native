@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,39 @@ class VpnConnectionArgs:
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
         """
-        pulumi.set(__self__, "customer_gateway_id", customer_gateway_id)
-        pulumi.set(__self__, "type", type)
+        VpnConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_gateway_id=customer_gateway_id,
+            type=type,
+            static_routes_only=static_routes_only,
+            tags=tags,
+            transit_gateway_id=transit_gateway_id,
+            vpn_gateway_id=vpn_gateway_id,
+            vpn_tunnel_options_specifications=vpn_tunnel_options_specifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_gateway_id: pulumi.Input[str],
+             type: pulumi.Input[str],
+             static_routes_only: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionTagArgs']]]] = None,
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+             vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("customer_gateway_id", customer_gateway_id)
+        _setter("type", type)
         if static_routes_only is not None:
-            pulumi.set(__self__, "static_routes_only", static_routes_only)
+            _setter("static_routes_only", static_routes_only)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transit_gateway_id is not None:
-            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+            _setter("transit_gateway_id", transit_gateway_id)
         if vpn_gateway_id is not None:
-            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+            _setter("vpn_gateway_id", vpn_gateway_id)
         if vpn_tunnel_options_specifications is not None:
-            pulumi.set(__self__, "vpn_tunnel_options_specifications", vpn_tunnel_options_specifications)
+            _setter("vpn_tunnel_options_specifications", vpn_tunnel_options_specifications)
 
     @property
     @pulumi.getter(name="customerGatewayId")
@@ -176,6 +197,10 @@ class VpnConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
