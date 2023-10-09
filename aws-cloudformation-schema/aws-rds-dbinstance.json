@@ -122,6 +122,10 @@
       "type" : "boolean",
       "description" : "A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically."
     },
+    "AutomaticBackupReplicationRegion" : {
+      "type" : "string",
+      "description" : "Enables replication of automated backups to a different Amazon Web Services Region."
+    },
     "AvailabilityZone" : {
       "type" : "string",
       "description" : "The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones."
@@ -480,14 +484,14 @@
   "primaryIdentifier" : [ "/properties/DBInstanceIdentifier" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcAttribute", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "iam:GetRole", "iam:ListRoles", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "rds:AddRoleToDBInstance", "rds:AddTagsToResource", "rds:CreateDBInstance", "rds:CreateDBInstanceReadReplica", "rds:DescribeDBInstances", "rds:DescribeDBClusters", "rds:DescribeDBClusterSnapshots", "rds:DescribeDBInstanceAutomatedBackups", "rds:DescribeDBSnapshots", "rds:DescribeEvents", "rds:ModifyDBInstance", "rds:RebootDBInstance", "rds:RestoreDBInstanceFromDBSnapshot", "rds:RestoreDBInstanceToPointInTime", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
+      "permissions" : [ "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcAttribute", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "iam:GetRole", "iam:ListRoles", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "rds:AddRoleToDBInstance", "rds:AddTagsToResource", "rds:CreateDBInstance", "rds:CreateDBInstanceReadReplica", "rds:DescribeDBInstances", "rds:DescribeDBClusters", "rds:DescribeDBClusterSnapshots", "rds:DescribeDBInstanceAutomatedBackups", "rds:DescribeDBSnapshots", "rds:DescribeEvents", "rds:ModifyDBInstance", "rds:RebootDBInstance", "rds:RestoreDBInstanceFromDBSnapshot", "rds:RestoreDBInstanceToPointInTime", "rds:StartDBInstanceAutomatedBackupsReplication", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {
       "permissions" : [ "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcAttribute", "ec2:DescribeVpcs", "rds:DescribeDBInstances" ]
     },
     "update" : {
-      "permissions" : [ "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcAttribute", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "iam:GetRole", "iam:ListRoles", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "rds:AddRoleToDBInstance", "rds:AddTagsToResource", "rds:DescribeDBClusters", "rds:DescribeDBEngineVersions", "rds:DescribeDBInstances", "rds:DescribeDBParameterGroups", "rds:DescribeEvents", "rds:ModifyDBInstance", "rds:PromoteReadReplica", "rds:RebootDBInstance", "rds:RemoveRoleFromDBInstance", "rds:RemoveTagsFromResource", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
+      "permissions" : [ "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcAttribute", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "iam:GetRole", "iam:ListRoles", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "rds:AddRoleToDBInstance", "rds:AddTagsToResource", "rds:DescribeDBClusters", "rds:DescribeDBEngineVersions", "rds:DescribeDBInstances", "rds:DescribeDBParameterGroups", "rds:DescribeEvents", "rds:ModifyDBInstance", "rds:PromoteReadReplica", "rds:RebootDBInstance", "rds:RemoveRoleFromDBInstance", "rds:RemoveTagsFromResource", "rds:StartDBInstanceAutomatedBackupsReplication", "rds:StopDBInstanceAutomatedBackupsReplication", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {

@@ -185,13 +185,13 @@
     "tagProperty" : "/properties/Tags"
   },
   "additionalProperties" : false,
-  "required" : [ "Name", "KmsKey", "ScheduleConfig", "SourceURI" ],
+  "required" : [ "Name", "KmsKey", "SourceURI" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/DataIntegrationArn" ],
   "createOnlyProperties" : [ "/properties/KmsKey", "/properties/ScheduleConfig", "/properties/SourceURI" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "app-integrations:CreateDataIntegration", "app-integrations:TagResource", "appflow:DescribeConnectorProfiles", "appflow:CreateFlow", "appflow:DeleteFlow", "appflow:DescribeConnectorEntity", "appflow:UseConnectorProfile", "appflow:TagResource", "appflow:UntagResource", "kms:CreateGrant", "kms:DescribeKey", "kms:ListAliases", "kms:ListGrants", "kms:ListKeys" ]
+      "permissions" : [ "app-integrations:CreateDataIntegration", "app-integrations:TagResource", "appflow:DescribeConnectorProfiles", "appflow:CreateFlow", "appflow:DeleteFlow", "appflow:DescribeConnectorEntity", "appflow:UseConnectorProfile", "appflow:TagResource", "appflow:UntagResource", "kms:CreateGrant", "kms:DescribeKey", "kms:ListAliases", "kms:ListGrants", "kms:ListKeys", "s3:GetBucketNotification", "s3:PutBucketNotification", "s3:GetEncryptionConfiguration" ]
     },
     "read" : {
       "permissions" : [ "app-integrations:GetDataIntegration", "app-integrations:ListTagsForResource" ]
