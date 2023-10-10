@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class GetRuleArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
+        /// </summary>
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetRuleArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class GetRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetRuleInvokeArgs()
         {
@@ -51,14 +57,38 @@ namespace Pulumi.AwsNative.Events
     [OutputType]
     public sealed class GetRuleResult
     {
+        /// <summary>
+        /// The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The description of the rule.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+        /// </summary>
         public readonly string? EventBusName;
-        public readonly object? EventPattern;
-        public readonly string? Id;
+        /// <summary>
+        /// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        /// </summary>
+        public readonly string? EventPattern;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role that is used for target invocation.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
+        /// </summary>
         public readonly string? ScheduleExpression;
-        public readonly string? State;
+        /// <summary>
+        /// The state of the rule.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Events.RuleState? State;
+        /// <summary>
+        /// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+        /// Targets are the resources that are invoked when a rule is triggered.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleTarget> Targets;
 
         [OutputConstructor]
@@ -69,15 +99,13 @@ namespace Pulumi.AwsNative.Events
 
             string? eventBusName,
 
-            object? eventPattern,
-
-            string? id,
+            string? eventPattern,
 
             string? roleArn,
 
             string? scheduleExpression,
 
-            string? state,
+            Pulumi.AwsNative.Events.RuleState? state,
 
             ImmutableArray<Outputs.RuleTarget> targets)
         {
@@ -85,7 +113,6 @@ namespace Pulumi.AwsNative.Events
             Description = description;
             EventBusName = eventBusName;
             EventPattern = eventPattern;
-            Id = id;
             RoleArn = roleArn;
             ScheduleExpression = scheduleExpression;
             State = state;

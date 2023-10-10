@@ -1840,16 +1840,44 @@ export namespace apigatewayv2 {
         issuer?: pulumi.Input<string>;
     }
 
+    /**
+     * The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
+     *  ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
+     */
     export interface DomainNameConfigurationArgs {
+        /**
+         * An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+         */
         certificateArn?: pulumi.Input<string>;
+        /**
+         * The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
+         */
         certificateName?: pulumi.Input<string>;
+        /**
+         * The endpoint type.
+         */
         endpointType?: pulumi.Input<string>;
+        /**
+         * The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
+         */
         ownershipVerificationCertificateArn?: pulumi.Input<string>;
+        /**
+         * The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
+         */
         securityPolicy?: pulumi.Input<string>;
     }
 
+    /**
+     * If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
+     */
     export interface DomainNameMutualTlsAuthenticationArgs {
+        /**
+         * An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, ``s3://bucket-name/key-name``. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
+         */
         truststoreUri?: pulumi.Input<string>;
+        /**
+         * The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+         */
         truststoreVersion?: pulumi.Input<string>;
     }
 
@@ -7886,6 +7914,16 @@ export namespace cognito {
         roleArn?: pulumi.Input<string>;
     }
 
+    export interface LogDeliveryConfigurationCloudWatchLogsConfigurationArgs {
+        logGroupArn?: pulumi.Input<string>;
+    }
+
+    export interface LogDeliveryConfigurationLogConfigurationArgs {
+        cloudWatchLogsConfiguration?: pulumi.Input<inputs.cognito.LogDeliveryConfigurationCloudWatchLogsConfigurationArgs>;
+        eventSource?: pulumi.Input<string>;
+        logLevel?: pulumi.Input<string>;
+    }
+
     export interface UserPoolAccountRecoverySettingArgs {
         recoveryMechanisms?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolRecoveryOptionArgs>[]>;
     }
@@ -9146,6 +9184,20 @@ export namespace connect {
         key: pulumi.Input<string>;
         /**
          * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface UserHierarchyGroupTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: pulumi.Input<string>;
     }
@@ -15246,7 +15298,7 @@ export namespace elasticloadbalancingv2 {
 
     export interface LoadBalancerTagArgs {
         key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
     }
 
     export interface TargetGroupAttributeArgs {
@@ -16165,8 +16217,8 @@ export namespace events {
     }
 
     export interface RuleTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
     }
 
     export interface RuleTargetArgs {
@@ -20120,6 +20172,37 @@ export namespace iot {
         key: pulumi.Input<string>;
         /**
          * The tag's value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface SoftwarePackageTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface SoftwarePackageVersionResourceAttributesArgs {
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface SoftwarePackageVersionTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: pulumi.Input<string>;
     }
@@ -29938,6 +30021,10 @@ export namespace mediatailor {
      */
     export interface ChannelHlsPlaylistSettingsArgs {
         /**
+         * <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
+         */
+        adMarkupType?: pulumi.Input<pulumi.Input<enums.mediatailor.ChannelAdMarkupType>[]>;
+        /**
          * <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
          */
         manifestWindowSeconds?: pulumi.Input<number>;
@@ -34612,11 +34699,23 @@ export namespace quicksight {
         otherCategories?: pulumi.Input<enums.quicksight.AnalysisOtherCategories>;
     }
 
+    export interface AnalysisKpiActualValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+    }
+
+    export interface AnalysisKpiComparisonValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+    }
+
     export interface AnalysisKpiConditionalFormattingArgs {
         conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisKpiConditionalFormattingOptionArgs>[]>;
     }
 
     export interface AnalysisKpiConditionalFormattingOptionArgs {
+        actualValue?: pulumi.Input<inputs.quicksight.AnalysisKpiActualValueConditionalFormattingArgs>;
+        comparisonValue?: pulumi.Input<inputs.quicksight.AnalysisKpiComparisonValueConditionalFormattingArgs>;
         primaryValue?: pulumi.Input<inputs.quicksight.AnalysisKpiPrimaryValueConditionalFormattingArgs>;
         progressBar?: pulumi.Input<inputs.quicksight.AnalysisKpiProgressBarConditionalFormattingArgs>;
     }
@@ -34640,7 +34739,9 @@ export namespace quicksight {
         progressBar?: pulumi.Input<inputs.quicksight.AnalysisProgressBarOptionsArgs>;
         secondaryValue?: pulumi.Input<inputs.quicksight.AnalysisSecondaryValueOptionsArgs>;
         secondaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+        sparkline?: pulumi.Input<inputs.quicksight.AnalysisKpiSparklineOptionsArgs>;
         trendArrows?: pulumi.Input<inputs.quicksight.AnalysisTrendArrowOptionsArgs>;
+        visualLayoutOptions?: pulumi.Input<inputs.quicksight.AnalysisKpiVisualLayoutOptionsArgs>;
     }
 
     export interface AnalysisKpiPrimaryValueConditionalFormattingArgs {
@@ -34656,6 +34757,13 @@ export namespace quicksight {
         trendGroupSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
     }
 
+    export interface AnalysisKpiSparklineOptionsArgs {
+        color?: pulumi.Input<string>;
+        tooltipVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        type: pulumi.Input<enums.quicksight.AnalysisKpiSparklineType>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
     export interface AnalysisKpiVisualArgs {
         actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
         chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisKpiConfigurationArgs>;
@@ -34664,6 +34772,14 @@ export namespace quicksight {
         subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
         title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
         visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisKpiVisualLayoutOptionsArgs {
+        standardLayout?: pulumi.Input<inputs.quicksight.AnalysisKpiVisualStandardLayoutArgs>;
+    }
+
+    export interface AnalysisKpiVisualStandardLayoutArgs {
+        type: pulumi.Input<enums.quicksight.AnalysisKpiVisualStandardLayoutType>;
     }
 
     export interface AnalysisLabelOptionsArgs {
@@ -35780,6 +35896,7 @@ export namespace quicksight {
 
     export interface AnalysisTableFieldOptionsArgs {
         order?: pulumi.Input<pulumi.Input<string>[]>;
+        pinnedFieldOptions?: pulumi.Input<inputs.quicksight.AnalysisTablePinnedFieldOptionsArgs>;
         selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTableFieldOptionArgs>[]>;
     }
 
@@ -35807,6 +35924,10 @@ export namespace quicksight {
     export interface AnalysisTablePaginatedReportOptionsArgs {
         overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         verticalOverflowVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisTablePinnedFieldOptionsArgs {
+        pinnedLeftFields?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AnalysisTableRowConditionalFormattingArgs {
@@ -37591,11 +37712,23 @@ export namespace quicksight {
         otherCategories?: pulumi.Input<enums.quicksight.DashboardOtherCategories>;
     }
 
+    export interface DashboardKpiActualValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingColorArgs>;
+    }
+
+    export interface DashboardKpiComparisonValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingColorArgs>;
+    }
+
     export interface DashboardKpiConditionalFormattingArgs {
         conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardKpiConditionalFormattingOptionArgs>[]>;
     }
 
     export interface DashboardKpiConditionalFormattingOptionArgs {
+        actualValue?: pulumi.Input<inputs.quicksight.DashboardKpiActualValueConditionalFormattingArgs>;
+        comparisonValue?: pulumi.Input<inputs.quicksight.DashboardKpiComparisonValueConditionalFormattingArgs>;
         primaryValue?: pulumi.Input<inputs.quicksight.DashboardKpiPrimaryValueConditionalFormattingArgs>;
         progressBar?: pulumi.Input<inputs.quicksight.DashboardKpiProgressBarConditionalFormattingArgs>;
     }
@@ -37619,7 +37752,9 @@ export namespace quicksight {
         progressBar?: pulumi.Input<inputs.quicksight.DashboardProgressBarOptionsArgs>;
         secondaryValue?: pulumi.Input<inputs.quicksight.DashboardSecondaryValueOptionsArgs>;
         secondaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+        sparkline?: pulumi.Input<inputs.quicksight.DashboardKpiSparklineOptionsArgs>;
         trendArrows?: pulumi.Input<inputs.quicksight.DashboardTrendArrowOptionsArgs>;
+        visualLayoutOptions?: pulumi.Input<inputs.quicksight.DashboardKpiVisualLayoutOptionsArgs>;
     }
 
     export interface DashboardKpiPrimaryValueConditionalFormattingArgs {
@@ -37635,6 +37770,13 @@ export namespace quicksight {
         trendGroupSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
     }
 
+    export interface DashboardKpiSparklineOptionsArgs {
+        color?: pulumi.Input<string>;
+        tooltipVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        type: pulumi.Input<enums.quicksight.DashboardKpiSparklineType>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
     export interface DashboardKpiVisualArgs {
         actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
         chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardKpiConfigurationArgs>;
@@ -37643,6 +37785,14 @@ export namespace quicksight {
         subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
         title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
         visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardKpiVisualLayoutOptionsArgs {
+        standardLayout?: pulumi.Input<inputs.quicksight.DashboardKpiVisualStandardLayoutArgs>;
+    }
+
+    export interface DashboardKpiVisualStandardLayoutArgs {
+        type: pulumi.Input<enums.quicksight.DashboardKpiVisualStandardLayoutType>;
     }
 
     export interface DashboardLabelOptionsArgs {
@@ -38781,6 +38931,7 @@ export namespace quicksight {
 
     export interface DashboardTableFieldOptionsArgs {
         order?: pulumi.Input<pulumi.Input<string>[]>;
+        pinnedFieldOptions?: pulumi.Input<inputs.quicksight.DashboardTablePinnedFieldOptionsArgs>;
         selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardTableFieldOptionArgs>[]>;
     }
 
@@ -38808,6 +38959,10 @@ export namespace quicksight {
     export interface DashboardTablePaginatedReportOptionsArgs {
         overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
         verticalOverflowVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardTablePinnedFieldOptionsArgs {
+        pinnedLeftFields?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DashboardTableRowConditionalFormattingArgs {
@@ -41364,11 +41519,23 @@ export namespace quicksight {
         otherCategories?: pulumi.Input<enums.quicksight.TemplateOtherCategories>;
     }
 
+    export interface TemplateKpiActualValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
+    }
+
+    export interface TemplateKpiComparisonValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
+    }
+
     export interface TemplateKpiConditionalFormattingArgs {
         conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateKpiConditionalFormattingOptionArgs>[]>;
     }
 
     export interface TemplateKpiConditionalFormattingOptionArgs {
+        actualValue?: pulumi.Input<inputs.quicksight.TemplateKpiActualValueConditionalFormattingArgs>;
+        comparisonValue?: pulumi.Input<inputs.quicksight.TemplateKpiComparisonValueConditionalFormattingArgs>;
         primaryValue?: pulumi.Input<inputs.quicksight.TemplateKpiPrimaryValueConditionalFormattingArgs>;
         progressBar?: pulumi.Input<inputs.quicksight.TemplateKpiProgressBarConditionalFormattingArgs>;
     }
@@ -41392,7 +41559,9 @@ export namespace quicksight {
         progressBar?: pulumi.Input<inputs.quicksight.TemplateProgressBarOptionsArgs>;
         secondaryValue?: pulumi.Input<inputs.quicksight.TemplateSecondaryValueOptionsArgs>;
         secondaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+        sparkline?: pulumi.Input<inputs.quicksight.TemplateKpiSparklineOptionsArgs>;
         trendArrows?: pulumi.Input<inputs.quicksight.TemplateTrendArrowOptionsArgs>;
+        visualLayoutOptions?: pulumi.Input<inputs.quicksight.TemplateKpiVisualLayoutOptionsArgs>;
     }
 
     export interface TemplateKpiPrimaryValueConditionalFormattingArgs {
@@ -41408,6 +41577,13 @@ export namespace quicksight {
         trendGroupSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
     }
 
+    export interface TemplateKpiSparklineOptionsArgs {
+        color?: pulumi.Input<string>;
+        tooltipVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        type: pulumi.Input<enums.quicksight.TemplateKpiSparklineType>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
     export interface TemplateKpiVisualArgs {
         actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
         chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateKpiConfigurationArgs>;
@@ -41416,6 +41592,14 @@ export namespace quicksight {
         subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
         title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
         visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateKpiVisualLayoutOptionsArgs {
+        standardLayout?: pulumi.Input<inputs.quicksight.TemplateKpiVisualStandardLayoutArgs>;
+    }
+
+    export interface TemplateKpiVisualStandardLayoutArgs {
+        type: pulumi.Input<enums.quicksight.TemplateKpiVisualStandardLayoutType>;
     }
 
     export interface TemplateLabelOptionsArgs {
@@ -42525,6 +42709,7 @@ export namespace quicksight {
 
     export interface TemplateTableFieldOptionsArgs {
         order?: pulumi.Input<pulumi.Input<string>[]>;
+        pinnedFieldOptions?: pulumi.Input<inputs.quicksight.TemplateTablePinnedFieldOptionsArgs>;
         selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateTableFieldOptionArgs>[]>;
     }
 
@@ -42552,6 +42737,10 @@ export namespace quicksight {
     export interface TemplateTablePaginatedReportOptionsArgs {
         overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
         verticalOverflowVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateTablePinnedFieldOptionsArgs {
+        pinnedLeftFields?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface TemplateTableRowConditionalFormattingArgs {

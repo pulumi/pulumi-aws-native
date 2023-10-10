@@ -288,6 +288,14 @@ export const SecurityProfileStatisticalThresholdStatistic = {
  */
 export type SecurityProfileStatisticalThresholdStatistic = (typeof SecurityProfileStatisticalThresholdStatistic)[keyof typeof SecurityProfileStatisticalThresholdStatistic];
 
+export const SoftwarePackageVersionPackageVersionStatus = {
+    Draft: "DRAFT",
+    Published: "PUBLISHED",
+    Deprecated: "DEPRECATED",
+} as const;
+
+export type SoftwarePackageVersionPackageVersionStatus = (typeof SoftwarePackageVersionPackageVersionStatus)[keyof typeof SoftwarePackageVersionPackageVersionStatus];
+
 export const TopicRuleCannedAccessControlList = {
     Private: "private",
     PublicRead: "public-read",

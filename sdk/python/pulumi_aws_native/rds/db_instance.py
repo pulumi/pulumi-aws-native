@@ -21,6 +21,7 @@ class DbInstanceArgs:
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceRoleArgs']]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 automatic_backup_replication_region: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
@@ -97,6 +98,7 @@ class DbInstanceArgs:
         :param pulumi.Input[bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
         :param pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceRoleArgs']]] associated_roles: The AWS Identity and Access Management (IAM) roles associated with the DB instance.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
+        :param pulumi.Input[str] automatic_backup_replication_region: Enables replication of automated backups to a different Amazon Web Services Region.
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
         :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
         :param pulumi.Input[str] ca_certificate_identifier: The identifier of the CA certificate for this DB instance.
@@ -191,6 +193,7 @@ class DbInstanceArgs:
             allow_major_version_upgrade=allow_major_version_upgrade,
             associated_roles=associated_roles,
             auto_minor_version_upgrade=auto_minor_version_upgrade,
+            automatic_backup_replication_region=automatic_backup_replication_region,
             availability_zone=availability_zone,
             backup_retention_period=backup_retention_period,
             ca_certificate_identifier=ca_certificate_identifier,
@@ -269,6 +272,7 @@ class DbInstanceArgs:
              allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
              associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceRoleArgs']]]] = None,
              auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             automatic_backup_replication_region: Optional[pulumi.Input[str]] = None,
              availability_zone: Optional[pulumi.Input[str]] = None,
              backup_retention_period: Optional[pulumi.Input[int]] = None,
              ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
@@ -348,6 +352,8 @@ class DbInstanceArgs:
             _setter("associated_roles", associated_roles)
         if auto_minor_version_upgrade is not None:
             _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+        if automatic_backup_replication_region is not None:
+            _setter("automatic_backup_replication_region", automatic_backup_replication_region)
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if backup_retention_period is not None:
@@ -536,6 +542,18 @@ class DbInstanceArgs:
     @auto_minor_version_upgrade.setter
     def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="automaticBackupReplicationRegion")
+    def automatic_backup_replication_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables replication of automated backups to a different Amazon Web Services Region.
+        """
+        return pulumi.get(self, "automatic_backup_replication_region")
+
+    @automatic_backup_replication_region.setter
+    def automatic_backup_replication_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "automatic_backup_replication_region", value)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -1404,6 +1422,7 @@ class DbInstance(pulumi.CustomResource):
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceDbInstanceRoleArgs']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 automatic_backup_replication_region: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
@@ -1484,6 +1503,7 @@ class DbInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceDbInstanceRoleArgs']]]] associated_roles: The AWS Identity and Access Management (IAM) roles associated with the DB instance.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
+        :param pulumi.Input[str] automatic_backup_replication_region: Enables replication of automated backups to a different Amazon Web Services Region.
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
         :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
         :param pulumi.Input[str] ca_certificate_identifier: The identifier of the CA certificate for this DB instance.
@@ -1604,6 +1624,7 @@ class DbInstance(pulumi.CustomResource):
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceDbInstanceRoleArgs']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 automatic_backup_replication_region: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
@@ -1687,6 +1708,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["allow_major_version_upgrade"] = allow_major_version_upgrade
             __props__.__dict__["associated_roles"] = associated_roles
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            __props__.__dict__["automatic_backup_replication_region"] = automatic_backup_replication_region
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["ca_certificate_identifier"] = ca_certificate_identifier
@@ -1803,6 +1825,7 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["allow_major_version_upgrade"] = None
         __props__.__dict__["associated_roles"] = None
         __props__.__dict__["auto_minor_version_upgrade"] = None
+        __props__.__dict__["automatic_backup_replication_region"] = None
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["ca_certificate_identifier"] = None
@@ -1909,6 +1932,14 @@ class DbInstance(pulumi.CustomResource):
         A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @property
+    @pulumi.getter(name="automaticBackupReplicationRegion")
+    def automatic_backup_replication_region(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enables replication of automated backups to a different Amazon Web Services Region.
+        """
+        return pulumi.get(self, "automatic_backup_replication_region")
 
     @property
     @pulumi.getter(name="availabilityZone")

@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'ChannelAdMarkupType',
     'ChannelLogType',
     'ChannelPlaybackMode',
     'ChannelTier',
@@ -14,6 +15,11 @@ __all__ = [
     'SourceLocationAccessType',
     'VodSourceType',
 ]
+
+
+class ChannelAdMarkupType(str, Enum):
+    DATERANGE = "DATERANGE"
+    SCTE35_ENHANCED = "SCTE35_ENHANCED"
 
 
 class ChannelLogType(str, Enum):

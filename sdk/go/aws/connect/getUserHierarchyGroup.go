@@ -33,6 +33,8 @@ type LookupUserHierarchyGroupResult struct {
 	InstanceArn *string `pulumi:"instanceArn"`
 	// The name of the user hierarchy group.
 	Name *string `pulumi:"name"`
+	// One or more tags.
+	Tags []UserHierarchyGroupTag `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) for the user hierarchy group.
 	UserHierarchyGroupArn *string `pulumi:"userHierarchyGroupArn"`
 }
@@ -87,6 +89,11 @@ func (o LookupUserHierarchyGroupResultOutput) InstanceArn() pulumi.StringPtrOutp
 // The name of the user hierarchy group.
 func (o LookupUserHierarchyGroupResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// One or more tags.
+func (o LookupUserHierarchyGroupResultOutput) Tags() UserHierarchyGroupTagArrayOutput {
+	return o.ApplyT(func(v LookupUserHierarchyGroupResult) []UserHierarchyGroupTag { return v.Tags }).(UserHierarchyGroupTagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) for the user hierarchy group.

@@ -8706,6 +8706,139 @@ func (o TrafficDistributionGroupTagArrayOutput) Index(i pulumi.IntInput) Traffic
 	}).(TrafficDistributionGroupTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type UserHierarchyGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// UserHierarchyGroupTagInput is an input type that accepts UserHierarchyGroupTagArgs and UserHierarchyGroupTagOutput values.
+// You can construct a concrete instance of `UserHierarchyGroupTagInput` via:
+//
+//	UserHierarchyGroupTagArgs{...}
+type UserHierarchyGroupTagInput interface {
+	pulumi.Input
+
+	ToUserHierarchyGroupTagOutput() UserHierarchyGroupTagOutput
+	ToUserHierarchyGroupTagOutputWithContext(context.Context) UserHierarchyGroupTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type UserHierarchyGroupTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (UserHierarchyGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyGroupTag)(nil)).Elem()
+}
+
+func (i UserHierarchyGroupTagArgs) ToUserHierarchyGroupTagOutput() UserHierarchyGroupTagOutput {
+	return i.ToUserHierarchyGroupTagOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyGroupTagArgs) ToUserHierarchyGroupTagOutputWithContext(ctx context.Context) UserHierarchyGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyGroupTagOutput)
+}
+
+func (i UserHierarchyGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[UserHierarchyGroupTag] {
+	return pulumix.Output[UserHierarchyGroupTag]{
+		OutputState: i.ToUserHierarchyGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// UserHierarchyGroupTagArrayInput is an input type that accepts UserHierarchyGroupTagArray and UserHierarchyGroupTagArrayOutput values.
+// You can construct a concrete instance of `UserHierarchyGroupTagArrayInput` via:
+//
+//	UserHierarchyGroupTagArray{ UserHierarchyGroupTagArgs{...} }
+type UserHierarchyGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToUserHierarchyGroupTagArrayOutput() UserHierarchyGroupTagArrayOutput
+	ToUserHierarchyGroupTagArrayOutputWithContext(context.Context) UserHierarchyGroupTagArrayOutput
+}
+
+type UserHierarchyGroupTagArray []UserHierarchyGroupTagInput
+
+func (UserHierarchyGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserHierarchyGroupTag)(nil)).Elem()
+}
+
+func (i UserHierarchyGroupTagArray) ToUserHierarchyGroupTagArrayOutput() UserHierarchyGroupTagArrayOutput {
+	return i.ToUserHierarchyGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyGroupTagArray) ToUserHierarchyGroupTagArrayOutputWithContext(ctx context.Context) UserHierarchyGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyGroupTagArrayOutput)
+}
+
+func (i UserHierarchyGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]UserHierarchyGroupTag] {
+	return pulumix.Output[[]UserHierarchyGroupTag]{
+		OutputState: i.ToUserHierarchyGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type UserHierarchyGroupTagOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyGroupTag)(nil)).Elem()
+}
+
+func (o UserHierarchyGroupTagOutput) ToUserHierarchyGroupTagOutput() UserHierarchyGroupTagOutput {
+	return o
+}
+
+func (o UserHierarchyGroupTagOutput) ToUserHierarchyGroupTagOutputWithContext(ctx context.Context) UserHierarchyGroupTagOutput {
+	return o
+}
+
+func (o UserHierarchyGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[UserHierarchyGroupTag] {
+	return pulumix.Output[UserHierarchyGroupTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o UserHierarchyGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHierarchyGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o UserHierarchyGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHierarchyGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type UserHierarchyGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserHierarchyGroupTag)(nil)).Elem()
+}
+
+func (o UserHierarchyGroupTagArrayOutput) ToUserHierarchyGroupTagArrayOutput() UserHierarchyGroupTagArrayOutput {
+	return o
+}
+
+func (o UserHierarchyGroupTagArrayOutput) ToUserHierarchyGroupTagArrayOutputWithContext(ctx context.Context) UserHierarchyGroupTagArrayOutput {
+	return o
+}
+
+func (o UserHierarchyGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserHierarchyGroupTag] {
+	return pulumix.Output[[]UserHierarchyGroupTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserHierarchyGroupTagArrayOutput) Index(i pulumi.IntInput) UserHierarchyGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserHierarchyGroupTag {
+		return vs[0].([]UserHierarchyGroupTag)[vs[1].(int)]
+	}).(UserHierarchyGroupTagOutput)
+}
+
 // Contains information about the identity of a user.
 type UserIdentityInfo struct {
 	Email          *string `pulumi:"email"`
@@ -9450,6 +9583,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateTagArrayInput)(nil)).Elem(), TaskTemplateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficDistributionGroupTagInput)(nil)).Elem(), TrafficDistributionGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficDistributionGroupTagArrayInput)(nil)).Elem(), TrafficDistributionGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyGroupTagInput)(nil)).Elem(), UserHierarchyGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyGroupTagArrayInput)(nil)).Elem(), UserHierarchyGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoPtrInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigInput)(nil)).Elem(), UserPhoneConfigArgs{})
@@ -9569,6 +9704,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(TrafficDistributionGroupTagOutput{})
 	pulumi.RegisterOutputType(TrafficDistributionGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(UserHierarchyGroupTagOutput{})
+	pulumi.RegisterOutputType(UserHierarchyGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneConfigOutput{})

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     public sealed class LoadBalancerTag
     {
         public readonly string Key;
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private LoadBalancerTag(
             string key,
 
-            string value)
+            string? value)
         {
             Key = key;
             Value = value;

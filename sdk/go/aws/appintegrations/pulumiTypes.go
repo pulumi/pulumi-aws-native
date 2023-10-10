@@ -389,6 +389,53 @@ func (i DataIntegrationScheduleConfigArgs) ToOutput(ctx context.Context) pulumix
 	}
 }
 
+func (i DataIntegrationScheduleConfigArgs) ToDataIntegrationScheduleConfigPtrOutput() DataIntegrationScheduleConfigPtrOutput {
+	return i.ToDataIntegrationScheduleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataIntegrationScheduleConfigArgs) ToDataIntegrationScheduleConfigPtrOutputWithContext(ctx context.Context) DataIntegrationScheduleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationScheduleConfigOutput).ToDataIntegrationScheduleConfigPtrOutputWithContext(ctx)
+}
+
+// DataIntegrationScheduleConfigPtrInput is an input type that accepts DataIntegrationScheduleConfigArgs, DataIntegrationScheduleConfigPtr and DataIntegrationScheduleConfigPtrOutput values.
+// You can construct a concrete instance of `DataIntegrationScheduleConfigPtrInput` via:
+//
+//	        DataIntegrationScheduleConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataIntegrationScheduleConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataIntegrationScheduleConfigPtrOutput() DataIntegrationScheduleConfigPtrOutput
+	ToDataIntegrationScheduleConfigPtrOutputWithContext(context.Context) DataIntegrationScheduleConfigPtrOutput
+}
+
+type dataIntegrationScheduleConfigPtrType DataIntegrationScheduleConfigArgs
+
+func DataIntegrationScheduleConfigPtr(v *DataIntegrationScheduleConfigArgs) DataIntegrationScheduleConfigPtrInput {
+	return (*dataIntegrationScheduleConfigPtrType)(v)
+}
+
+func (*dataIntegrationScheduleConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataIntegrationScheduleConfig)(nil)).Elem()
+}
+
+func (i *dataIntegrationScheduleConfigPtrType) ToDataIntegrationScheduleConfigPtrOutput() DataIntegrationScheduleConfigPtrOutput {
+	return i.ToDataIntegrationScheduleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataIntegrationScheduleConfigPtrType) ToDataIntegrationScheduleConfigPtrOutputWithContext(ctx context.Context) DataIntegrationScheduleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationScheduleConfigPtrOutput)
+}
+
+func (i *dataIntegrationScheduleConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataIntegrationScheduleConfig] {
+	return pulumix.Output[*DataIntegrationScheduleConfig]{
+		OutputState: i.ToDataIntegrationScheduleConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataIntegrationScheduleConfigOutput struct{ *pulumi.OutputState }
 
 func (DataIntegrationScheduleConfigOutput) ElementType() reflect.Type {
@@ -401,6 +448,16 @@ func (o DataIntegrationScheduleConfigOutput) ToDataIntegrationScheduleConfigOutp
 
 func (o DataIntegrationScheduleConfigOutput) ToDataIntegrationScheduleConfigOutputWithContext(ctx context.Context) DataIntegrationScheduleConfigOutput {
 	return o
+}
+
+func (o DataIntegrationScheduleConfigOutput) ToDataIntegrationScheduleConfigPtrOutput() DataIntegrationScheduleConfigPtrOutput {
+	return o.ToDataIntegrationScheduleConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataIntegrationScheduleConfigOutput) ToDataIntegrationScheduleConfigPtrOutputWithContext(ctx context.Context) DataIntegrationScheduleConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataIntegrationScheduleConfig) *DataIntegrationScheduleConfig {
+		return &v
+	}).(DataIntegrationScheduleConfigPtrOutput)
 }
 
 func (o DataIntegrationScheduleConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataIntegrationScheduleConfig] {
@@ -422,6 +479,66 @@ func (o DataIntegrationScheduleConfigOutput) Object() pulumi.StringPtrOutput {
 // How often the data should be pulled from data source.
 func (o DataIntegrationScheduleConfigOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v DataIntegrationScheduleConfig) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+}
+
+type DataIntegrationScheduleConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataIntegrationScheduleConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataIntegrationScheduleConfig)(nil)).Elem()
+}
+
+func (o DataIntegrationScheduleConfigPtrOutput) ToDataIntegrationScheduleConfigPtrOutput() DataIntegrationScheduleConfigPtrOutput {
+	return o
+}
+
+func (o DataIntegrationScheduleConfigPtrOutput) ToDataIntegrationScheduleConfigPtrOutputWithContext(ctx context.Context) DataIntegrationScheduleConfigPtrOutput {
+	return o
+}
+
+func (o DataIntegrationScheduleConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataIntegrationScheduleConfig] {
+	return pulumix.Output[*DataIntegrationScheduleConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DataIntegrationScheduleConfigPtrOutput) Elem() DataIntegrationScheduleConfigOutput {
+	return o.ApplyT(func(v *DataIntegrationScheduleConfig) DataIntegrationScheduleConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataIntegrationScheduleConfig
+		return ret
+	}).(DataIntegrationScheduleConfigOutput)
+}
+
+// The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
+func (o DataIntegrationScheduleConfigPtrOutput) FirstExecutionFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataIntegrationScheduleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstExecutionFrom
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the object to pull from the data source.
+func (o DataIntegrationScheduleConfigPtrOutput) Object() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataIntegrationScheduleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Object
+	}).(pulumi.StringPtrOutput)
+}
+
+// How often the data should be pulled from data source.
+func (o DataIntegrationScheduleConfigPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataIntegrationScheduleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
 }
 
 // A label for tagging DataIntegration resources
@@ -757,6 +874,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationObjectConfigurationInput)(nil)).Elem(), DataIntegrationObjectConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationObjectConfigurationPtrInput)(nil)).Elem(), DataIntegrationObjectConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigPtrInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationTagInput)(nil)).Elem(), DataIntegrationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationTagArrayInput)(nil)).Elem(), DataIntegrationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
@@ -767,6 +885,7 @@ func init() {
 	pulumi.RegisterOutputType(DataIntegrationObjectConfigurationOutput{})
 	pulumi.RegisterOutputType(DataIntegrationObjectConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataIntegrationScheduleConfigOutput{})
+	pulumi.RegisterOutputType(DataIntegrationScheduleConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataIntegrationTagOutput{})
 	pulumi.RegisterOutputType(DataIntegrationTagArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterOutput{})

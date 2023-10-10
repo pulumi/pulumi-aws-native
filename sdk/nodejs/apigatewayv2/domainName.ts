@@ -8,9 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGatewayV2::DomainName
- *
- * @deprecated DomainName is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
+ *  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
  */
 export class DomainName extends pulumi.CustomResource {
     /**
@@ -22,7 +21,6 @@ export class DomainName extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DomainName {
-        pulumi.log.warn("DomainName is deprecated: DomainName is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new DomainName(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,11 +38,29 @@ export class DomainName extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainName.__pulumiType;
     }
 
+    /**
+     * The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+     */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * The domain name configurations.
+     */
     public readonly domainNameConfigurations!: pulumi.Output<outputs.apigatewayv2.DomainNameConfiguration[] | undefined>;
+    /**
+     * The mutual TLS authentication configuration for a custom domain name.
+     */
     public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
+    /**
+     * The domain name associated with the regional endpoint for this custom domain name.
+     */
     public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
+    /**
+     * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+     */
     public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
+    /**
+     * The collection of tags associated with a domain name.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -54,9 +70,7 @@ export class DomainName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated DomainName is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DomainNameArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DomainName is deprecated: DomainName is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -88,8 +102,20 @@ export class DomainName extends pulumi.CustomResource {
  * The set of arguments for constructing a DomainName resource.
  */
 export interface DomainNameArgs {
+    /**
+     * The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+     */
     domainName: pulumi.Input<string>;
+    /**
+     * The domain name configurations.
+     */
     domainNameConfigurations?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.DomainNameConfigurationArgs>[]>;
+    /**
+     * The mutual TLS authentication configuration for a custom domain name.
+     */
     mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthenticationArgs>;
+    /**
+     * The collection of tags associated with a domain name.
+     */
     tags?: any;
 }

@@ -10,6 +10,7 @@ __all__ = [
     'ConnectionOAuthParametersHttpMethod',
     'EndpointReplicationState',
     'EndpointState',
+    'RuleState',
 ]
 
 
@@ -47,3 +48,11 @@ class EndpointState(str, Enum):
     DELETING = "DELETING"
     CREATE_FAILED = "CREATE_FAILED"
     UPDATE_FAILED = "UPDATE_FAILED"
+
+
+class RuleState(str, Enum):
+    """
+    The state of the rule.
+    """
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"

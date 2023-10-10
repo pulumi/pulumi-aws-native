@@ -23,6 +23,8 @@ type UserHierarchyGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) for the parent user hierarchy group.
 	ParentGroupArn pulumi.StringPtrOutput `pulumi:"parentGroupArn"`
+	// One or more tags.
+	Tags UserHierarchyGroupTagArrayOutput `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) for the user hierarchy group.
 	UserHierarchyGroupArn pulumi.StringOutput `pulumi:"userHierarchyGroupArn"`
 }
@@ -80,6 +82,8 @@ type userHierarchyGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) for the parent user hierarchy group.
 	ParentGroupArn *string `pulumi:"parentGroupArn"`
+	// One or more tags.
+	Tags []UserHierarchyGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a UserHierarchyGroup resource.
@@ -90,6 +94,8 @@ type UserHierarchyGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the parent user hierarchy group.
 	ParentGroupArn pulumi.StringPtrInput
+	// One or more tags.
+	Tags UserHierarchyGroupTagArrayInput
 }
 
 func (UserHierarchyGroupArgs) ElementType() reflect.Type {
@@ -154,6 +160,11 @@ func (o UserHierarchyGroupOutput) Name() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) for the parent user hierarchy group.
 func (o UserHierarchyGroupOutput) ParentGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringPtrOutput { return v.ParentGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// One or more tags.
+func (o UserHierarchyGroupOutput) Tags() UserHierarchyGroupTagArrayOutput {
+	return o.ApplyT(func(v *UserHierarchyGroup) UserHierarchyGroupTagArrayOutput { return v.Tags }).(UserHierarchyGroupTagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) for the user hierarchy group.

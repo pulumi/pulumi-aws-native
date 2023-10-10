@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisKpiConditionalFormattingOptionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("actualValue")]
+        public Input<Inputs.AnalysisKpiActualValueConditionalFormattingArgs>? ActualValue { get; set; }
+
+        [Input("comparisonValue")]
+        public Input<Inputs.AnalysisKpiComparisonValueConditionalFormattingArgs>? ComparisonValue { get; set; }
+
         [Input("primaryValue")]
         public Input<Inputs.AnalysisKpiPrimaryValueConditionalFormattingArgs>? PrimaryValue { get; set; }
 

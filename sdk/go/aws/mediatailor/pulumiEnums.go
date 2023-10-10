@@ -11,6 +11,245 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+type ChannelAdMarkupType string
+
+const (
+	ChannelAdMarkupTypeDaterange      = ChannelAdMarkupType("DATERANGE")
+	ChannelAdMarkupTypeScte35Enhanced = ChannelAdMarkupType("SCTE35_ENHANCED")
+)
+
+func (ChannelAdMarkupType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelAdMarkupType)(nil)).Elem()
+}
+
+func (e ChannelAdMarkupType) ToChannelAdMarkupTypeOutput() ChannelAdMarkupTypeOutput {
+	return pulumi.ToOutput(e).(ChannelAdMarkupTypeOutput)
+}
+
+func (e ChannelAdMarkupType) ToChannelAdMarkupTypeOutputWithContext(ctx context.Context) ChannelAdMarkupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelAdMarkupTypeOutput)
+}
+
+func (e ChannelAdMarkupType) ToChannelAdMarkupTypePtrOutput() ChannelAdMarkupTypePtrOutput {
+	return e.ToChannelAdMarkupTypePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelAdMarkupType) ToChannelAdMarkupTypePtrOutputWithContext(ctx context.Context) ChannelAdMarkupTypePtrOutput {
+	return ChannelAdMarkupType(e).ToChannelAdMarkupTypeOutputWithContext(ctx).ToChannelAdMarkupTypePtrOutputWithContext(ctx)
+}
+
+func (e ChannelAdMarkupType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelAdMarkupType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelAdMarkupType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelAdMarkupType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelAdMarkupTypeOutput struct{ *pulumi.OutputState }
+
+func (ChannelAdMarkupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelAdMarkupType)(nil)).Elem()
+}
+
+func (o ChannelAdMarkupTypeOutput) ToChannelAdMarkupTypeOutput() ChannelAdMarkupTypeOutput {
+	return o
+}
+
+func (o ChannelAdMarkupTypeOutput) ToChannelAdMarkupTypeOutputWithContext(ctx context.Context) ChannelAdMarkupTypeOutput {
+	return o
+}
+
+func (o ChannelAdMarkupTypeOutput) ToChannelAdMarkupTypePtrOutput() ChannelAdMarkupTypePtrOutput {
+	return o.ToChannelAdMarkupTypePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelAdMarkupTypeOutput) ToChannelAdMarkupTypePtrOutputWithContext(ctx context.Context) ChannelAdMarkupTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAdMarkupType) *ChannelAdMarkupType {
+		return &v
+	}).(ChannelAdMarkupTypePtrOutput)
+}
+
+func (o ChannelAdMarkupTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAdMarkupType] {
+	return pulumix.Output[ChannelAdMarkupType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelAdMarkupTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelAdMarkupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelAdMarkupType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelAdMarkupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelAdMarkupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelAdMarkupType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelAdMarkupTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelAdMarkupTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelAdMarkupType)(nil)).Elem()
+}
+
+func (o ChannelAdMarkupTypePtrOutput) ToChannelAdMarkupTypePtrOutput() ChannelAdMarkupTypePtrOutput {
+	return o
+}
+
+func (o ChannelAdMarkupTypePtrOutput) ToChannelAdMarkupTypePtrOutputWithContext(ctx context.Context) ChannelAdMarkupTypePtrOutput {
+	return o
+}
+
+func (o ChannelAdMarkupTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAdMarkupType] {
+	return pulumix.Output[*ChannelAdMarkupType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelAdMarkupTypePtrOutput) Elem() ChannelAdMarkupTypeOutput {
+	return o.ApplyT(func(v *ChannelAdMarkupType) ChannelAdMarkupType {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelAdMarkupType
+		return ret
+	}).(ChannelAdMarkupTypeOutput)
+}
+
+func (o ChannelAdMarkupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelAdMarkupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelAdMarkupType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelAdMarkupTypeInput is an input type that accepts ChannelAdMarkupTypeArgs and ChannelAdMarkupTypeOutput values.
+// You can construct a concrete instance of `ChannelAdMarkupTypeInput` via:
+//
+//	ChannelAdMarkupTypeArgs{...}
+type ChannelAdMarkupTypeInput interface {
+	pulumi.Input
+
+	ToChannelAdMarkupTypeOutput() ChannelAdMarkupTypeOutput
+	ToChannelAdMarkupTypeOutputWithContext(context.Context) ChannelAdMarkupTypeOutput
+}
+
+var channelAdMarkupTypePtrType = reflect.TypeOf((**ChannelAdMarkupType)(nil)).Elem()
+
+type ChannelAdMarkupTypePtrInput interface {
+	pulumi.Input
+
+	ToChannelAdMarkupTypePtrOutput() ChannelAdMarkupTypePtrOutput
+	ToChannelAdMarkupTypePtrOutputWithContext(context.Context) ChannelAdMarkupTypePtrOutput
+}
+
+type channelAdMarkupTypePtr string
+
+func ChannelAdMarkupTypePtr(v string) ChannelAdMarkupTypePtrInput {
+	return (*channelAdMarkupTypePtr)(&v)
+}
+
+func (*channelAdMarkupTypePtr) ElementType() reflect.Type {
+	return channelAdMarkupTypePtrType
+}
+
+func (in *channelAdMarkupTypePtr) ToChannelAdMarkupTypePtrOutput() ChannelAdMarkupTypePtrOutput {
+	return pulumi.ToOutput(in).(ChannelAdMarkupTypePtrOutput)
+}
+
+func (in *channelAdMarkupTypePtr) ToChannelAdMarkupTypePtrOutputWithContext(ctx context.Context) ChannelAdMarkupTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelAdMarkupTypePtrOutput)
+}
+
+func (in *channelAdMarkupTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ChannelAdMarkupType] {
+	return pulumix.Output[*ChannelAdMarkupType]{
+		OutputState: in.ToChannelAdMarkupTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ChannelAdMarkupTypeArrayInput is an input type that accepts ChannelAdMarkupTypeArray and ChannelAdMarkupTypeArrayOutput values.
+// You can construct a concrete instance of `ChannelAdMarkupTypeArrayInput` via:
+//
+//	ChannelAdMarkupTypeArray{ ChannelAdMarkupTypeArgs{...} }
+type ChannelAdMarkupTypeArrayInput interface {
+	pulumi.Input
+
+	ToChannelAdMarkupTypeArrayOutput() ChannelAdMarkupTypeArrayOutput
+	ToChannelAdMarkupTypeArrayOutputWithContext(context.Context) ChannelAdMarkupTypeArrayOutput
+}
+
+type ChannelAdMarkupTypeArray []ChannelAdMarkupType
+
+func (ChannelAdMarkupTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelAdMarkupType)(nil)).Elem()
+}
+
+func (i ChannelAdMarkupTypeArray) ToChannelAdMarkupTypeArrayOutput() ChannelAdMarkupTypeArrayOutput {
+	return i.ToChannelAdMarkupTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelAdMarkupTypeArray) ToChannelAdMarkupTypeArrayOutputWithContext(ctx context.Context) ChannelAdMarkupTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelAdMarkupTypeArrayOutput)
+}
+
+func (i ChannelAdMarkupTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAdMarkupType] {
+	return pulumix.Output[[]ChannelAdMarkupType]{
+		OutputState: i.ToChannelAdMarkupTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ChannelAdMarkupTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelAdMarkupTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelAdMarkupType)(nil)).Elem()
+}
+
+func (o ChannelAdMarkupTypeArrayOutput) ToChannelAdMarkupTypeArrayOutput() ChannelAdMarkupTypeArrayOutput {
+	return o
+}
+
+func (o ChannelAdMarkupTypeArrayOutput) ToChannelAdMarkupTypeArrayOutputWithContext(ctx context.Context) ChannelAdMarkupTypeArrayOutput {
+	return o
+}
+
+func (o ChannelAdMarkupTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAdMarkupType] {
+	return pulumix.Output[[]ChannelAdMarkupType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelAdMarkupTypeArrayOutput) Index(i pulumi.IntInput) ChannelAdMarkupTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelAdMarkupType {
+		return vs[0].([]ChannelAdMarkupType)[vs[1].(int)]
+	}).(ChannelAdMarkupTypeOutput)
+}
+
 type ChannelLogType string
 
 const (
@@ -1527,6 +1766,9 @@ func (in *vodSourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*VodSou
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAdMarkupTypeInput)(nil)).Elem(), ChannelAdMarkupType("DATERANGE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAdMarkupTypePtrInput)(nil)).Elem(), ChannelAdMarkupType("DATERANGE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAdMarkupTypeArrayInput)(nil)).Elem(), ChannelAdMarkupTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogTypeInput)(nil)).Elem(), ChannelLogType("AS_RUN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogTypePtrInput)(nil)).Elem(), ChannelLogType("AS_RUN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogTypeArrayInput)(nil)).Elem(), ChannelLogTypeArray{})
@@ -1544,6 +1786,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessTypePtrInput)(nil)).Elem(), SourceLocationAccessType("S3_SIGV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceTypeInput)(nil)).Elem(), VodSourceType("DASH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceTypePtrInput)(nil)).Elem(), VodSourceType("DASH"))
+	pulumi.RegisterOutputType(ChannelAdMarkupTypeOutput{})
+	pulumi.RegisterOutputType(ChannelAdMarkupTypePtrOutput{})
+	pulumi.RegisterOutputType(ChannelAdMarkupTypeArrayOutput{})
 	pulumi.RegisterOutputType(ChannelLogTypeOutput{})
 	pulumi.RegisterOutputType(ChannelLogTypePtrOutput{})
 	pulumi.RegisterOutputType(ChannelLogTypeArrayOutput{})

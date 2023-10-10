@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -47,6 +50,10 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
      */
     public readonly parentGroupArn!: pulumi.Output<string | undefined>;
     /**
+     * One or more tags.
+     */
+    public readonly tags!: pulumi.Output<outputs.connect.UserHierarchyGroupTag[] | undefined>;
+    /**
      * The Amazon Resource Name (ARN) for the user hierarchy group.
      */
     public /*out*/ readonly userHierarchyGroupArn!: pulumi.Output<string>;
@@ -68,11 +75,13 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentGroupArn"] = args ? args.parentGroupArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userHierarchyGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parentGroupArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["userHierarchyGroupArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -98,4 +107,8 @@ export interface UserHierarchyGroupArgs {
      * The Amazon Resource Name (ARN) for the parent user hierarchy group.
      */
     parentGroupArn?: pulumi.Input<string>;
+    /**
+     * One or more tags.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.connect.UserHierarchyGroupTagArgs>[]>;
 }

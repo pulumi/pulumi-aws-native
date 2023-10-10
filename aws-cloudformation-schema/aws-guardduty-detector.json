@@ -162,7 +162,7 @@
       "permissions" : [ "guardduty:GetDetector" ]
     },
     "delete" : {
-      "permissions" : [ "guardduty:ListDetectors", "guardduty:DeleteDetector" ]
+      "permissions" : [ "guardduty:ListDetectors", "guardduty:DeleteDetector", "guardduty:GetDetector" ]
     },
     "update" : {
       "permissions" : [ "guardduty:UpdateDetector", "guardduty:GetDetector", "guardduty:ListDetectors", "iam:CreateServiceLinkedRole", "iam:GetRole" ]

@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.MediaTailor
 {
     [EnumType]
+    public readonly struct ChannelAdMarkupType : IEquatable<ChannelAdMarkupType>
+    {
+        private readonly string _value;
+
+        private ChannelAdMarkupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelAdMarkupType Daterange { get; } = new ChannelAdMarkupType("DATERANGE");
+        public static ChannelAdMarkupType Scte35Enhanced { get; } = new ChannelAdMarkupType("SCTE35_ENHANCED");
+
+        public static bool operator ==(ChannelAdMarkupType left, ChannelAdMarkupType right) => left.Equals(right);
+        public static bool operator !=(ChannelAdMarkupType left, ChannelAdMarkupType right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelAdMarkupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelAdMarkupType other && Equals(other);
+        public bool Equals(ChannelAdMarkupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ChannelLogType : IEquatable<ChannelLogType>
     {
         private readonly string _value;

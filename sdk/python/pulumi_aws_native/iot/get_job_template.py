@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobTemplateResult:
-    def __init__(__self__, arn=None, job_executions_retry_config=None, maintenance_windows=None):
+    def __init__(__self__, arn=None, destination_package_versions=None, job_executions_retry_config=None, maintenance_windows=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if destination_package_versions and not isinstance(destination_package_versions, list):
+            raise TypeError("Expected argument 'destination_package_versions' to be a list")
+        pulumi.set(__self__, "destination_package_versions", destination_package_versions)
         if job_executions_retry_config and not isinstance(job_executions_retry_config, dict):
             raise TypeError("Expected argument 'job_executions_retry_config' to be a dict")
         pulumi.set(__self__, "job_executions_retry_config", job_executions_retry_config)
@@ -35,6 +38,11 @@ class GetJobTemplateResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="destinationPackageVersions")
+    def destination_package_versions(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "destination_package_versions")
 
     @property
     @pulumi.getter(name="jobExecutionsRetryConfig")
@@ -54,6 +62,7 @@ class AwaitableGetJobTemplateResult(GetJobTemplateResult):
             yield self
         return GetJobTemplateResult(
             arn=self.arn,
+            destination_package_versions=self.destination_package_versions,
             job_executions_retry_config=self.job_executions_retry_config,
             maintenance_windows=self.maintenance_windows)
 
@@ -70,6 +79,7 @@ def get_job_template(job_template_id: Optional[str] = None,
 
     return AwaitableGetJobTemplateResult(
         arn=pulumi.get(__ret__, 'arn'),
+        destination_package_versions=pulumi.get(__ret__, 'destination_package_versions'),
         job_executions_retry_config=pulumi.get(__ret__, 'job_executions_retry_config'),
         maintenance_windows=pulumi.get(__ret__, 'maintenance_windows'))
 

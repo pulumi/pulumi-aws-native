@@ -40,6 +40,8 @@ __all__ = [
     'AnalysisHistogramBinType',
     'AnalysisHorizontalTextAlignment',
     'AnalysisIcon',
+    'AnalysisKpiSparklineType',
+    'AnalysisKpiVisualStandardLayoutType',
     'AnalysisLayoutElementType',
     'AnalysisLegendPosition',
     'AnalysisLineChartLineStyle',
@@ -149,6 +151,8 @@ __all__ = [
     'DashboardHistogramBinType',
     'DashboardHorizontalTextAlignment',
     'DashboardIcon',
+    'DashboardKpiSparklineType',
+    'DashboardKpiVisualStandardLayoutType',
     'DashboardLayoutElementType',
     'DashboardLegendPosition',
     'DashboardLineChartLineStyle',
@@ -273,6 +277,8 @@ __all__ = [
     'TemplateHistogramBinType',
     'TemplateHorizontalTextAlignment',
     'TemplateIcon',
+    'TemplateKpiSparklineType',
+    'TemplateKpiVisualStandardLayoutType',
     'TemplateLayoutElementType',
     'TemplateLegendPosition',
     'TemplateLineChartLineStyle',
@@ -612,6 +618,16 @@ class AnalysisIcon(str, Enum):
     THUMBS_DOWN = "THUMBS_DOWN"
     CHECKMARK = "CHECKMARK"
     X = "X"
+
+
+class AnalysisKpiSparklineType(str, Enum):
+    LINE = "LINE"
+    AREA = "AREA"
+
+
+class AnalysisKpiVisualStandardLayoutType(str, Enum):
+    CLASSIC = "CLASSIC"
+    VERTICAL = "VERTICAL"
 
 
 class AnalysisLayoutElementType(str, Enum):
@@ -1283,6 +1299,16 @@ class DashboardIcon(str, Enum):
     THUMBS_DOWN = "THUMBS_DOWN"
     CHECKMARK = "CHECKMARK"
     X = "X"
+
+
+class DashboardKpiSparklineType(str, Enum):
+    LINE = "LINE"
+    AREA = "AREA"
+
+
+class DashboardKpiVisualStandardLayoutType(str, Enum):
+    CLASSIC = "CLASSIC"
+    VERTICAL = "VERTICAL"
 
 
 class DashboardLayoutElementType(str, Enum):
@@ -2078,6 +2104,16 @@ class TemplateIcon(str, Enum):
     THUMBS_DOWN = "THUMBS_DOWN"
     CHECKMARK = "CHECKMARK"
     X = "X"
+
+
+class TemplateKpiSparklineType(str, Enum):
+    LINE = "LINE"
+    AREA = "AREA"
+
+
+class TemplateKpiVisualStandardLayoutType(str, Enum):
+    CLASSIC = "CLASSIC"
+    VERTICAL = "VERTICAL"
 
 
 class TemplateLayoutElementType(str, Enum):

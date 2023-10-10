@@ -62,10 +62,6 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? Address;
         /// <summary>
-        /// The description of the phone number.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// The phone number ARN
         /// </summary>
         public readonly string? PhoneNumberArn;
@@ -82,8 +78,6 @@ namespace Pulumi.AwsNative.Connect
         private GetPhoneNumberResult(
             string? address,
 
-            string? description,
-
             string? phoneNumberArn,
 
             ImmutableArray<Outputs.PhoneNumberTag> tags,
@@ -91,7 +85,6 @@ namespace Pulumi.AwsNative.Connect
             string? targetArn)
         {
             Address = address;
-            Description = description;
             PhoneNumberArn = phoneNumberArn;
             Tags = tags;
             TargetArn = targetArn;

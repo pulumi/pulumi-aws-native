@@ -7691,6 +7691,414 @@ func (o SecurityProfileTagArrayOutput) Index(i pulumi.IntInput) SecurityProfileT
 	}).(SecurityProfileTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type SoftwarePackageTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// SoftwarePackageTagInput is an input type that accepts SoftwarePackageTagArgs and SoftwarePackageTagOutput values.
+// You can construct a concrete instance of `SoftwarePackageTagInput` via:
+//
+//	SoftwarePackageTagArgs{...}
+type SoftwarePackageTagInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageTagOutput() SoftwarePackageTagOutput
+	ToSoftwarePackageTagOutputWithContext(context.Context) SoftwarePackageTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type SoftwarePackageTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SoftwarePackageTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageTag)(nil)).Elem()
+}
+
+func (i SoftwarePackageTagArgs) ToSoftwarePackageTagOutput() SoftwarePackageTagOutput {
+	return i.ToSoftwarePackageTagOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageTagArgs) ToSoftwarePackageTagOutputWithContext(ctx context.Context) SoftwarePackageTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageTagOutput)
+}
+
+func (i SoftwarePackageTagArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwarePackageTag] {
+	return pulumix.Output[SoftwarePackageTag]{
+		OutputState: i.ToSoftwarePackageTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// SoftwarePackageTagArrayInput is an input type that accepts SoftwarePackageTagArray and SoftwarePackageTagArrayOutput values.
+// You can construct a concrete instance of `SoftwarePackageTagArrayInput` via:
+//
+//	SoftwarePackageTagArray{ SoftwarePackageTagArgs{...} }
+type SoftwarePackageTagArrayInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageTagArrayOutput() SoftwarePackageTagArrayOutput
+	ToSoftwarePackageTagArrayOutputWithContext(context.Context) SoftwarePackageTagArrayOutput
+}
+
+type SoftwarePackageTagArray []SoftwarePackageTagInput
+
+func (SoftwarePackageTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SoftwarePackageTag)(nil)).Elem()
+}
+
+func (i SoftwarePackageTagArray) ToSoftwarePackageTagArrayOutput() SoftwarePackageTagArrayOutput {
+	return i.ToSoftwarePackageTagArrayOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageTagArray) ToSoftwarePackageTagArrayOutputWithContext(ctx context.Context) SoftwarePackageTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageTagArrayOutput)
+}
+
+func (i SoftwarePackageTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SoftwarePackageTag] {
+	return pulumix.Output[[]SoftwarePackageTag]{
+		OutputState: i.ToSoftwarePackageTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type SoftwarePackageTagOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageTag)(nil)).Elem()
+}
+
+func (o SoftwarePackageTagOutput) ToSoftwarePackageTagOutput() SoftwarePackageTagOutput {
+	return o
+}
+
+func (o SoftwarePackageTagOutput) ToSoftwarePackageTagOutputWithContext(ctx context.Context) SoftwarePackageTagOutput {
+	return o
+}
+
+func (o SoftwarePackageTagOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwarePackageTag] {
+	return pulumix.Output[SoftwarePackageTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SoftwarePackageTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SoftwarePackageTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SoftwarePackageTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SoftwarePackageTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SoftwarePackageTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SoftwarePackageTag)(nil)).Elem()
+}
+
+func (o SoftwarePackageTagArrayOutput) ToSoftwarePackageTagArrayOutput() SoftwarePackageTagArrayOutput {
+	return o
+}
+
+func (o SoftwarePackageTagArrayOutput) ToSoftwarePackageTagArrayOutputWithContext(ctx context.Context) SoftwarePackageTagArrayOutput {
+	return o
+}
+
+func (o SoftwarePackageTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SoftwarePackageTag] {
+	return pulumix.Output[[]SoftwarePackageTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SoftwarePackageTagArrayOutput) Index(i pulumi.IntInput) SoftwarePackageTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SoftwarePackageTag {
+		return vs[0].([]SoftwarePackageTag)[vs[1].(int)]
+	}).(SoftwarePackageTagOutput)
+}
+
+type SoftwarePackageVersionResourceAttributes struct {
+}
+
+// SoftwarePackageVersionResourceAttributesInput is an input type that accepts SoftwarePackageVersionResourceAttributesArgs and SoftwarePackageVersionResourceAttributesOutput values.
+// You can construct a concrete instance of `SoftwarePackageVersionResourceAttributesInput` via:
+//
+//	SoftwarePackageVersionResourceAttributesArgs{...}
+type SoftwarePackageVersionResourceAttributesInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageVersionResourceAttributesOutput() SoftwarePackageVersionResourceAttributesOutput
+	ToSoftwarePackageVersionResourceAttributesOutputWithContext(context.Context) SoftwarePackageVersionResourceAttributesOutput
+}
+
+type SoftwarePackageVersionResourceAttributesArgs struct {
+}
+
+func (SoftwarePackageVersionResourceAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionResourceAttributes)(nil)).Elem()
+}
+
+func (i SoftwarePackageVersionResourceAttributesArgs) ToSoftwarePackageVersionResourceAttributesOutput() SoftwarePackageVersionResourceAttributesOutput {
+	return i.ToSoftwarePackageVersionResourceAttributesOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageVersionResourceAttributesArgs) ToSoftwarePackageVersionResourceAttributesOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionResourceAttributesOutput)
+}
+
+func (i SoftwarePackageVersionResourceAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwarePackageVersionResourceAttributes] {
+	return pulumix.Output[SoftwarePackageVersionResourceAttributes]{
+		OutputState: i.ToSoftwarePackageVersionResourceAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i SoftwarePackageVersionResourceAttributesArgs) ToSoftwarePackageVersionResourceAttributesPtrOutput() SoftwarePackageVersionResourceAttributesPtrOutput {
+	return i.ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageVersionResourceAttributesArgs) ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionResourceAttributesOutput).ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(ctx)
+}
+
+// SoftwarePackageVersionResourceAttributesPtrInput is an input type that accepts SoftwarePackageVersionResourceAttributesArgs, SoftwarePackageVersionResourceAttributesPtr and SoftwarePackageVersionResourceAttributesPtrOutput values.
+// You can construct a concrete instance of `SoftwarePackageVersionResourceAttributesPtrInput` via:
+//
+//	        SoftwarePackageVersionResourceAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SoftwarePackageVersionResourceAttributesPtrInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageVersionResourceAttributesPtrOutput() SoftwarePackageVersionResourceAttributesPtrOutput
+	ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(context.Context) SoftwarePackageVersionResourceAttributesPtrOutput
+}
+
+type softwarePackageVersionResourceAttributesPtrType SoftwarePackageVersionResourceAttributesArgs
+
+func SoftwarePackageVersionResourceAttributesPtr(v *SoftwarePackageVersionResourceAttributesArgs) SoftwarePackageVersionResourceAttributesPtrInput {
+	return (*softwarePackageVersionResourceAttributesPtrType)(v)
+}
+
+func (*softwarePackageVersionResourceAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwarePackageVersionResourceAttributes)(nil)).Elem()
+}
+
+func (i *softwarePackageVersionResourceAttributesPtrType) ToSoftwarePackageVersionResourceAttributesPtrOutput() SoftwarePackageVersionResourceAttributesPtrOutput {
+	return i.ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *softwarePackageVersionResourceAttributesPtrType) ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionResourceAttributesPtrOutput)
+}
+
+func (i *softwarePackageVersionResourceAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SoftwarePackageVersionResourceAttributes] {
+	return pulumix.Output[*SoftwarePackageVersionResourceAttributes]{
+		OutputState: i.ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type SoftwarePackageVersionResourceAttributesOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionResourceAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionResourceAttributes)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionResourceAttributesOutput) ToSoftwarePackageVersionResourceAttributesOutput() SoftwarePackageVersionResourceAttributesOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionResourceAttributesOutput) ToSoftwarePackageVersionResourceAttributesOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionResourceAttributesOutput) ToSoftwarePackageVersionResourceAttributesPtrOutput() SoftwarePackageVersionResourceAttributesPtrOutput {
+	return o.ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionResourceAttributesOutput) ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwarePackageVersionResourceAttributes) *SoftwarePackageVersionResourceAttributes {
+		return &v
+	}).(SoftwarePackageVersionResourceAttributesPtrOutput)
+}
+
+func (o SoftwarePackageVersionResourceAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwarePackageVersionResourceAttributes] {
+	return pulumix.Output[SoftwarePackageVersionResourceAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
+type SoftwarePackageVersionResourceAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionResourceAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwarePackageVersionResourceAttributes)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionResourceAttributesPtrOutput) ToSoftwarePackageVersionResourceAttributesPtrOutput() SoftwarePackageVersionResourceAttributesPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionResourceAttributesPtrOutput) ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionResourceAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SoftwarePackageVersionResourceAttributes] {
+	return pulumix.Output[*SoftwarePackageVersionResourceAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SoftwarePackageVersionResourceAttributesPtrOutput) Elem() SoftwarePackageVersionResourceAttributesOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersionResourceAttributes) SoftwarePackageVersionResourceAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwarePackageVersionResourceAttributes
+		return ret
+	}).(SoftwarePackageVersionResourceAttributesOutput)
+}
+
+// A key-value pair to associate with a resource.
+type SoftwarePackageVersionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// SoftwarePackageVersionTagInput is an input type that accepts SoftwarePackageVersionTagArgs and SoftwarePackageVersionTagOutput values.
+// You can construct a concrete instance of `SoftwarePackageVersionTagInput` via:
+//
+//	SoftwarePackageVersionTagArgs{...}
+type SoftwarePackageVersionTagInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageVersionTagOutput() SoftwarePackageVersionTagOutput
+	ToSoftwarePackageVersionTagOutputWithContext(context.Context) SoftwarePackageVersionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type SoftwarePackageVersionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SoftwarePackageVersionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionTag)(nil)).Elem()
+}
+
+func (i SoftwarePackageVersionTagArgs) ToSoftwarePackageVersionTagOutput() SoftwarePackageVersionTagOutput {
+	return i.ToSoftwarePackageVersionTagOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageVersionTagArgs) ToSoftwarePackageVersionTagOutputWithContext(ctx context.Context) SoftwarePackageVersionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionTagOutput)
+}
+
+func (i SoftwarePackageVersionTagArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwarePackageVersionTag] {
+	return pulumix.Output[SoftwarePackageVersionTag]{
+		OutputState: i.ToSoftwarePackageVersionTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// SoftwarePackageVersionTagArrayInput is an input type that accepts SoftwarePackageVersionTagArray and SoftwarePackageVersionTagArrayOutput values.
+// You can construct a concrete instance of `SoftwarePackageVersionTagArrayInput` via:
+//
+//	SoftwarePackageVersionTagArray{ SoftwarePackageVersionTagArgs{...} }
+type SoftwarePackageVersionTagArrayInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageVersionTagArrayOutput() SoftwarePackageVersionTagArrayOutput
+	ToSoftwarePackageVersionTagArrayOutputWithContext(context.Context) SoftwarePackageVersionTagArrayOutput
+}
+
+type SoftwarePackageVersionTagArray []SoftwarePackageVersionTagInput
+
+func (SoftwarePackageVersionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SoftwarePackageVersionTag)(nil)).Elem()
+}
+
+func (i SoftwarePackageVersionTagArray) ToSoftwarePackageVersionTagArrayOutput() SoftwarePackageVersionTagArrayOutput {
+	return i.ToSoftwarePackageVersionTagArrayOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageVersionTagArray) ToSoftwarePackageVersionTagArrayOutputWithContext(ctx context.Context) SoftwarePackageVersionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionTagArrayOutput)
+}
+
+func (i SoftwarePackageVersionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SoftwarePackageVersionTag] {
+	return pulumix.Output[[]SoftwarePackageVersionTag]{
+		OutputState: i.ToSoftwarePackageVersionTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type SoftwarePackageVersionTagOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionTag)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionTagOutput) ToSoftwarePackageVersionTagOutput() SoftwarePackageVersionTagOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionTagOutput) ToSoftwarePackageVersionTagOutputWithContext(ctx context.Context) SoftwarePackageVersionTagOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionTagOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwarePackageVersionTag] {
+	return pulumix.Output[SoftwarePackageVersionTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SoftwarePackageVersionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SoftwarePackageVersionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SoftwarePackageVersionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SoftwarePackageVersionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SoftwarePackageVersionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SoftwarePackageVersionTag)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionTagArrayOutput) ToSoftwarePackageVersionTagArrayOutput() SoftwarePackageVersionTagArrayOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionTagArrayOutput) ToSoftwarePackageVersionTagArrayOutputWithContext(ctx context.Context) SoftwarePackageVersionTagArrayOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SoftwarePackageVersionTag] {
+	return pulumix.Output[[]SoftwarePackageVersionTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SoftwarePackageVersionTagArrayOutput) Index(i pulumi.IntInput) SoftwarePackageVersionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SoftwarePackageVersionTag {
+		return vs[0].([]SoftwarePackageVersionTag)[vs[1].(int)]
+	}).(SoftwarePackageVersionTagOutput)
+}
+
 type ThingAttributePayload struct {
 	Attributes interface{} `pulumi:"attributes"`
 }
@@ -16366,6 +16774,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileStatisticalThresholdPtrInput)(nil)).Elem(), SecurityProfileStatisticalThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileTagInput)(nil)).Elem(), SecurityProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileTagArrayInput)(nil)).Elem(), SecurityProfileTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageTagInput)(nil)).Elem(), SoftwarePackageTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageTagArrayInput)(nil)).Elem(), SoftwarePackageTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionResourceAttributesInput)(nil)).Elem(), SoftwarePackageVersionResourceAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionResourceAttributesPtrInput)(nil)).Elem(), SoftwarePackageVersionResourceAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionTagInput)(nil)).Elem(), SoftwarePackageVersionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionTagArrayInput)(nil)).Elem(), SoftwarePackageVersionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingAttributePayloadInput)(nil)).Elem(), ThingAttributePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingAttributePayloadPtrInput)(nil)).Elem(), ThingAttributePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupAttributePayloadInput)(nil)).Elem(), ThingGroupAttributePayloadArgs{})
@@ -16552,6 +16966,12 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdPtrOutput{})
 	pulumi.RegisterOutputType(SecurityProfileTagOutput{})
 	pulumi.RegisterOutputType(SecurityProfileTagArrayOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageTagOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageTagArrayOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionResourceAttributesOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionResourceAttributesPtrOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionTagOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionTagArrayOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadPtrOutput{})
 	pulumi.RegisterOutputType(ThingGroupAttributePayloadOutput{})

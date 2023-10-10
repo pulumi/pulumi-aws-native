@@ -237,6 +237,8 @@ func (o ChannelDashPlaylistSettingsPtrOutput) SuggestedPresentationDelaySeconds(
 
 // <p>HLS playlist configuration parameters.</p>
 type ChannelHlsPlaylistSettings struct {
+	// <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
+	AdMarkupType []ChannelAdMarkupType `pulumi:"adMarkupType"`
 	// <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
 	ManifestWindowSeconds *float64 `pulumi:"manifestWindowSeconds"`
 }
@@ -254,6 +256,8 @@ type ChannelHlsPlaylistSettingsInput interface {
 
 // <p>HLS playlist configuration parameters.</p>
 type ChannelHlsPlaylistSettingsArgs struct {
+	// <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
+	AdMarkupType ChannelAdMarkupTypeArrayInput `pulumi:"adMarkupType"`
 	// <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
 	ManifestWindowSeconds pulumi.Float64PtrInput `pulumi:"manifestWindowSeconds"`
 }
@@ -354,6 +358,11 @@ func (o ChannelHlsPlaylistSettingsOutput) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
+// <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
+func (o ChannelHlsPlaylistSettingsOutput) AdMarkupType() ChannelAdMarkupTypeArrayOutput {
+	return o.ApplyT(func(v ChannelHlsPlaylistSettings) []ChannelAdMarkupType { return v.AdMarkupType }).(ChannelAdMarkupTypeArrayOutput)
+}
+
 // <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
 func (o ChannelHlsPlaylistSettingsOutput) ManifestWindowSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ChannelHlsPlaylistSettings) *float64 { return v.ManifestWindowSeconds }).(pulumi.Float64PtrOutput)
@@ -387,6 +396,16 @@ func (o ChannelHlsPlaylistSettingsPtrOutput) Elem() ChannelHlsPlaylistSettingsOu
 		var ret ChannelHlsPlaylistSettings
 		return ret
 	}).(ChannelHlsPlaylistSettingsOutput)
+}
+
+// <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
+func (o ChannelHlsPlaylistSettingsPtrOutput) AdMarkupType() ChannelAdMarkupTypeArrayOutput {
+	return o.ApplyT(func(v *ChannelHlsPlaylistSettings) []ChannelAdMarkupType {
+		if v == nil {
+			return nil
+		}
+		return v.AdMarkupType
+	}).(ChannelAdMarkupTypeArrayOutput)
 }
 
 // <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>

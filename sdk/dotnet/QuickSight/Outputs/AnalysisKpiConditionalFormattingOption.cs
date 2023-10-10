@@ -13,15 +13,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisKpiConditionalFormattingOption
     {
+        public readonly Outputs.AnalysisKpiActualValueConditionalFormatting? ActualValue;
+        public readonly Outputs.AnalysisKpiComparisonValueConditionalFormatting? ComparisonValue;
         public readonly Outputs.AnalysisKpiPrimaryValueConditionalFormatting? PrimaryValue;
         public readonly Outputs.AnalysisKpiProgressBarConditionalFormatting? ProgressBar;
 
         [OutputConstructor]
         private AnalysisKpiConditionalFormattingOption(
+            Outputs.AnalysisKpiActualValueConditionalFormatting? actualValue,
+
+            Outputs.AnalysisKpiComparisonValueConditionalFormatting? comparisonValue,
+
             Outputs.AnalysisKpiPrimaryValueConditionalFormatting? primaryValue,
 
             Outputs.AnalysisKpiProgressBarConditionalFormatting? progressBar)
         {
+            ActualValue = actualValue;
+            ComparisonValue = comparisonValue;
             PrimaryValue = primaryValue;
             ProgressBar = progressBar;
         }

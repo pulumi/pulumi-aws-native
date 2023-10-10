@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// The name of the data and how often it should be pulled from the source.
         /// </summary>
         [Output("scheduleConfig")]
-        public Output<Outputs.DataIntegrationScheduleConfig> ScheduleConfig { get; private set; } = null!;
+        public Output<Outputs.DataIntegrationScheduleConfig?> ScheduleConfig { get; private set; } = null!;
 
         /// <summary>
         /// The URI of the data source.
@@ -153,8 +153,8 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <summary>
         /// The name of the data and how often it should be pulled from the source.
         /// </summary>
-        [Input("scheduleConfig", required: true)]
-        public Input<Inputs.DataIntegrationScheduleConfigArgs> ScheduleConfig { get; set; } = null!;
+        [Input("scheduleConfig")]
+        public Input<Inputs.DataIntegrationScheduleConfigArgs>? ScheduleConfig { get; set; }
 
         /// <summary>
         /// The URI of the data source.

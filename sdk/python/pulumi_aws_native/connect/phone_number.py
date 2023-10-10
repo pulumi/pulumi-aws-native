@@ -214,7 +214,7 @@ class PhoneNumber(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["address"] = None
             __props__.__dict__["phone_number_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["country_code", "prefix", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["country_code", "description", "prefix", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PhoneNumber, __self__).__init__(
             'aws-native:connect:PhoneNumber',

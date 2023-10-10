@@ -24,6 +24,7 @@ export interface GetJobTemplateArgs {
 
 export interface GetJobTemplateResult {
     readonly arn?: string;
+    readonly destinationPackageVersions?: string[];
     readonly jobExecutionsRetryConfig?: outputs.iot.JobExecutionsRetryConfigProperties;
     readonly maintenanceWindows?: outputs.iot.JobTemplateMaintenanceWindow[];
 }

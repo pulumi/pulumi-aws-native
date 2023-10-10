@@ -1916,7 +1916,7 @@ class LoadBalancerSubnetMappingArgs:
 class LoadBalancerTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 value: Optional[pulumi.Input[str]] = None):
         LoadBalancerTagArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             key=key,
@@ -1926,10 +1926,11 @@ class LoadBalancerTagArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
-             value: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("key", key)
-        _setter("value", value)
+        if value is not None:
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1942,11 +1943,11 @@ class LoadBalancerTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def value(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 

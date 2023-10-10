@@ -34,6 +34,8 @@ from .get_resource_specific_logging import *
 from .get_role_alias import *
 from .get_scheduled_audit import *
 from .get_security_profile import *
+from .get_software_package import *
+from .get_software_package_version import *
 from .get_thing import *
 from .get_thing_group import *
 from .get_thing_principal_attachment import *
@@ -50,6 +52,8 @@ from .resource_specific_logging import *
 from .role_alias import *
 from .scheduled_audit import *
 from .security_profile import *
+from .software_package import *
+from .software_package_version import *
 from .thing import *
 from .thing_group import *
 from .thing_principal_attachment import *

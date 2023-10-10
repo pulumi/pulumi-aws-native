@@ -5533,8 +5533,8 @@ func (o RuleSqsParametersPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
 }
 
 type RuleTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
 }
 
 // RuleTagInput is an input type that accepts RuleTagArgs and RuleTagOutput values.
@@ -5549,8 +5549,8 @@ type RuleTagInput interface {
 }
 
 type RuleTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (RuleTagArgs) ElementType() reflect.Type {
@@ -5622,12 +5622,12 @@ func (o RuleTagOutput) ToOutput(ctx context.Context) pulumix.Output[RuleTag] {
 	}
 }
 
-func (o RuleTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleTag) string { return v.Key }).(pulumi.StringOutput)
+func (o RuleTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-func (o RuleTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleTag) string { return v.Value }).(pulumi.StringOutput)
+func (o RuleTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type RuleTagArrayOutput struct{ *pulumi.OutputState }

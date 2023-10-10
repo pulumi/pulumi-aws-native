@@ -54,6 +54,10 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
+     * Enables replication of automated backups to a different Amazon Web Services Region.
+     */
+    public readonly automaticBackupReplicationRegion!: pulumi.Output<string | undefined>;
+    /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
@@ -378,6 +382,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
             resourceInputs["associatedRoles"] = args ? args.associatedRoles : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["automaticBackupReplicationRegion"] = args ? args.automaticBackupReplicationRegion : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             resourceInputs["caCertificateIdentifier"] = args ? args.caCertificateIdentifier : undefined;
@@ -456,6 +461,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["associatedRoles"] = undefined /*out*/;
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["automaticBackupReplicationRegion"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
             resourceInputs["caCertificateIdentifier"] = undefined /*out*/;
@@ -557,6 +563,10 @@ export interface DbInstanceArgs {
      * A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * Enables replication of automated backups to a different Amazon Web Services Region.
+     */
+    automaticBackupReplicationRegion?: pulumi.Input<string>;
     /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
      */

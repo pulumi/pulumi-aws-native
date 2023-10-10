@@ -47,3 +47,13 @@ export const EndpointState = {
 } as const;
 
 export type EndpointState = (typeof EndpointState)[keyof typeof EndpointState];
+
+export const RuleState = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+} as const;
+
+/**
+ * The state of the rule.
+ */
+export type RuleState = (typeof RuleState)[keyof typeof RuleState];

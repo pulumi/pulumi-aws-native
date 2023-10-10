@@ -1739,8 +1739,8 @@ class RuleSqsParameters(dict):
 @pulumi.output_type
 class RuleTag(dict):
     def __init__(__self__, *,
-                 key: str,
-                 value: str):
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
         RuleTag._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             key=key,
@@ -1749,20 +1749,22 @@ class RuleTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
+             key: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        if key is not None:
+            _setter("key", key)
+        if value is not None:
+            _setter("value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> Optional[str]:
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
 

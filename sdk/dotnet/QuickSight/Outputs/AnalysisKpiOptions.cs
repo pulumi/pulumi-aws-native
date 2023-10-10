@@ -19,7 +19,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.AnalysisProgressBarOptions? ProgressBar;
         public readonly Outputs.AnalysisSecondaryValueOptions? SecondaryValue;
         public readonly Outputs.AnalysisFontConfiguration? SecondaryValueFontConfiguration;
+        public readonly Outputs.AnalysisKpiSparklineOptions? Sparkline;
         public readonly Outputs.AnalysisTrendArrowOptions? TrendArrows;
+        public readonly Outputs.AnalysisKpiVisualLayoutOptions? VisualLayoutOptions;
 
         [OutputConstructor]
         private AnalysisKpiOptions(
@@ -35,7 +37,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisFontConfiguration? secondaryValueFontConfiguration,
 
-            Outputs.AnalysisTrendArrowOptions? trendArrows)
+            Outputs.AnalysisKpiSparklineOptions? sparkline,
+
+            Outputs.AnalysisTrendArrowOptions? trendArrows,
+
+            Outputs.AnalysisKpiVisualLayoutOptions? visualLayoutOptions)
         {
             Comparison = comparison;
             PrimaryValueDisplayType = primaryValueDisplayType;
@@ -43,7 +49,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ProgressBar = progressBar;
             SecondaryValue = secondaryValue;
             SecondaryValueFontConfiguration = secondaryValueFontConfiguration;
+            Sparkline = sparkline;
             TrendArrows = trendArrows;
+            VisualLayoutOptions = visualLayoutOptions;
         }
     }
 }

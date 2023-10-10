@@ -10,13 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Outputs
 {
 
+    /// <summary>
+    /// The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
+    ///  ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
+    /// </summary>
     [OutputType]
     public sealed class DomainNameConfiguration
     {
+        /// <summary>
+        /// An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        /// </summary>
         public readonly string? CertificateArn;
+        /// <summary>
+        /// The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
+        /// </summary>
         public readonly string? CertificateName;
+        /// <summary>
+        /// The endpoint type.
+        /// </summary>
         public readonly string? EndpointType;
+        /// <summary>
+        /// The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
+        /// </summary>
         public readonly string? OwnershipVerificationCertificateArn;
+        /// <summary>
+        /// The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
+        /// </summary>
         public readonly string? SecurityPolicy;
 
         [OutputConstructor]

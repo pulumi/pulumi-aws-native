@@ -66,6 +66,10 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// One or more tags.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserHierarchyGroupTag> Tags;
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the user hierarchy group.
         /// </summary>
         public readonly string? UserHierarchyGroupArn;
@@ -76,10 +80,13 @@ namespace Pulumi.AwsNative.Connect
 
             string? name,
 
+            ImmutableArray<Outputs.UserHierarchyGroupTag> tags,
+
             string? userHierarchyGroupArn)
         {
             InstanceArn = instanceArn;
             Name = name;
+            Tags = tags;
             UserHierarchyGroupArn = userHierarchyGroupArn;
         }
     }

@@ -22,6 +22,10 @@ class StepArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Step resource.
+        :param pulumi.Input[str] action_on_failure: This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
+        :param pulumi.Input['StepHadoopJarStepConfigArgs'] hadoop_jar_step: The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+        :param pulumi.Input[str] job_flow_id: A string that uniquely identifies the cluster (job flow).
+        :param pulumi.Input[str] name: The name of the cluster step.
         """
         StepArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -47,6 +51,9 @@ class StepArgs:
     @property
     @pulumi.getter(name="actionOnFailure")
     def action_on_failure(self) -> pulumi.Input[str]:
+        """
+        This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
+        """
         return pulumi.get(self, "action_on_failure")
 
     @action_on_failure.setter
@@ -56,6 +63,9 @@ class StepArgs:
     @property
     @pulumi.getter(name="hadoopJarStep")
     def hadoop_jar_step(self) -> pulumi.Input['StepHadoopJarStepConfigArgs']:
+        """
+        The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+        """
         return pulumi.get(self, "hadoop_jar_step")
 
     @hadoop_jar_step.setter
@@ -65,6 +75,9 @@ class StepArgs:
     @property
     @pulumi.getter(name="jobFlowId")
     def job_flow_id(self) -> pulumi.Input[str]:
+        """
+        A string that uniquely identifies the cluster (job flow).
+        """
         return pulumi.get(self, "job_flow_id")
 
     @job_flow_id.setter
@@ -74,6 +87,9 @@ class StepArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the cluster step.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -97,10 +113,14 @@ class Step(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EMR::Step
+        Schema for AWS::EMR::Step
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action_on_failure: This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
+        :param pulumi.Input[pulumi.InputType['StepHadoopJarStepConfigArgs']] hadoop_jar_step: The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+        :param pulumi.Input[str] job_flow_id: A string that uniquely identifies the cluster (job flow).
+        :param pulumi.Input[str] name: The name of the cluster step.
         """
         ...
     @overload
@@ -109,7 +129,7 @@ class Step(pulumi.CustomResource):
                  args: StepArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EMR::Step
+        Schema for AWS::EMR::Step
 
         :param str resource_name: The name of the resource.
         :param StepArgs args: The arguments to use to populate this resource's properties.
@@ -192,20 +212,32 @@ class Step(pulumi.CustomResource):
     @property
     @pulumi.getter(name="actionOnFailure")
     def action_on_failure(self) -> pulumi.Output[str]:
+        """
+        This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
+        """
         return pulumi.get(self, "action_on_failure")
 
     @property
     @pulumi.getter(name="hadoopJarStep")
     def hadoop_jar_step(self) -> pulumi.Output['outputs.StepHadoopJarStepConfig']:
+        """
+        The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+        """
         return pulumi.get(self, "hadoop_jar_step")
 
     @property
     @pulumi.getter(name="jobFlowId")
     def job_flow_id(self) -> pulumi.Output[str]:
+        """
+        A string that uniquely identifies the cluster (job flow).
+        """
         return pulumi.get(self, "job_flow_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the cluster step.
+        """
         return pulumi.get(self, "name")
 

@@ -1053,6 +1053,62 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisKpiSparklineType : IEquatable<AnalysisKpiSparklineType>
+    {
+        private readonly string _value;
+
+        private AnalysisKpiSparklineType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisKpiSparklineType Line { get; } = new AnalysisKpiSparklineType("LINE");
+        public static AnalysisKpiSparklineType Area { get; } = new AnalysisKpiSparklineType("AREA");
+
+        public static bool operator ==(AnalysisKpiSparklineType left, AnalysisKpiSparklineType right) => left.Equals(right);
+        public static bool operator !=(AnalysisKpiSparklineType left, AnalysisKpiSparklineType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisKpiSparklineType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisKpiSparklineType other && Equals(other);
+        public bool Equals(AnalysisKpiSparklineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisKpiVisualStandardLayoutType : IEquatable<AnalysisKpiVisualStandardLayoutType>
+    {
+        private readonly string _value;
+
+        private AnalysisKpiVisualStandardLayoutType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisKpiVisualStandardLayoutType Classic { get; } = new AnalysisKpiVisualStandardLayoutType("CLASSIC");
+        public static AnalysisKpiVisualStandardLayoutType Vertical { get; } = new AnalysisKpiVisualStandardLayoutType("VERTICAL");
+
+        public static bool operator ==(AnalysisKpiVisualStandardLayoutType left, AnalysisKpiVisualStandardLayoutType right) => left.Equals(right);
+        public static bool operator !=(AnalysisKpiVisualStandardLayoutType left, AnalysisKpiVisualStandardLayoutType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisKpiVisualStandardLayoutType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisKpiVisualStandardLayoutType other && Equals(other);
+        public bool Equals(AnalysisKpiVisualStandardLayoutType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisLayoutElementType : IEquatable<AnalysisLayoutElementType>
     {
         private readonly string _value;
@@ -4223,6 +4279,62 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardIcon other && Equals(other);
         public bool Equals(DashboardIcon other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardKpiSparklineType : IEquatable<DashboardKpiSparklineType>
+    {
+        private readonly string _value;
+
+        private DashboardKpiSparklineType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardKpiSparklineType Line { get; } = new DashboardKpiSparklineType("LINE");
+        public static DashboardKpiSparklineType Area { get; } = new DashboardKpiSparklineType("AREA");
+
+        public static bool operator ==(DashboardKpiSparklineType left, DashboardKpiSparklineType right) => left.Equals(right);
+        public static bool operator !=(DashboardKpiSparklineType left, DashboardKpiSparklineType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardKpiSparklineType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardKpiSparklineType other && Equals(other);
+        public bool Equals(DashboardKpiSparklineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardKpiVisualStandardLayoutType : IEquatable<DashboardKpiVisualStandardLayoutType>
+    {
+        private readonly string _value;
+
+        private DashboardKpiVisualStandardLayoutType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardKpiVisualStandardLayoutType Classic { get; } = new DashboardKpiVisualStandardLayoutType("CLASSIC");
+        public static DashboardKpiVisualStandardLayoutType Vertical { get; } = new DashboardKpiVisualStandardLayoutType("VERTICAL");
+
+        public static bool operator ==(DashboardKpiVisualStandardLayoutType left, DashboardKpiVisualStandardLayoutType right) => left.Equals(right);
+        public static bool operator !=(DashboardKpiVisualStandardLayoutType left, DashboardKpiVisualStandardLayoutType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardKpiVisualStandardLayoutType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardKpiVisualStandardLayoutType other && Equals(other);
+        public bool Equals(DashboardKpiVisualStandardLayoutType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -7870,6 +7982,62 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateIcon other && Equals(other);
         public bool Equals(TemplateIcon other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateKpiSparklineType : IEquatable<TemplateKpiSparklineType>
+    {
+        private readonly string _value;
+
+        private TemplateKpiSparklineType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateKpiSparklineType Line { get; } = new TemplateKpiSparklineType("LINE");
+        public static TemplateKpiSparklineType Area { get; } = new TemplateKpiSparklineType("AREA");
+
+        public static bool operator ==(TemplateKpiSparklineType left, TemplateKpiSparklineType right) => left.Equals(right);
+        public static bool operator !=(TemplateKpiSparklineType left, TemplateKpiSparklineType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateKpiSparklineType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateKpiSparklineType other && Equals(other);
+        public bool Equals(TemplateKpiSparklineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateKpiVisualStandardLayoutType : IEquatable<TemplateKpiVisualStandardLayoutType>
+    {
+        private readonly string _value;
+
+        private TemplateKpiVisualStandardLayoutType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateKpiVisualStandardLayoutType Classic { get; } = new TemplateKpiVisualStandardLayoutType("CLASSIC");
+        public static TemplateKpiVisualStandardLayoutType Vertical { get; } = new TemplateKpiVisualStandardLayoutType("VERTICAL");
+
+        public static bool operator ==(TemplateKpiVisualStandardLayoutType left, TemplateKpiVisualStandardLayoutType right) => left.Equals(right);
+        public static bool operator !=(TemplateKpiVisualStandardLayoutType left, TemplateKpiVisualStandardLayoutType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateKpiVisualStandardLayoutType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateKpiVisualStandardLayoutType other && Equals(other);
+        public bool Equals(TemplateKpiVisualStandardLayoutType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

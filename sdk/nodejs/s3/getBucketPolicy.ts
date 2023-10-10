@@ -11,16 +11,21 @@ export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3:getBucketPolicy", {
-        "id": args.id,
+        "bucket": args.bucket,
     }, opts);
 }
 
 export interface GetBucketPolicyArgs {
-    id: string;
+    /**
+     * The name of the Amazon S3 bucket to which the policy applies.
+     */
+    bucket: string;
 }
 
 export interface GetBucketPolicyResult {
-    readonly id?: string;
+    /**
+     * A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+     */
     readonly policyDocument?: any;
 }
 /**
@@ -31,5 +36,8 @@ export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pu
 }
 
 export interface GetBucketPolicyOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the Amazon S3 bucket to which the policy applies.
+     */
+    bucket: pulumi.Input<string>;
 }

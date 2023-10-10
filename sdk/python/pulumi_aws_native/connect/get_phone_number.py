@@ -19,13 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetPhoneNumberResult:
-    def __init__(__self__, address=None, description=None, phone_number_arn=None, tags=None, target_arn=None):
+    def __init__(__self__, address=None, phone_number_arn=None, tags=None, target_arn=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
         if phone_number_arn and not isinstance(phone_number_arn, str):
             raise TypeError("Expected argument 'phone_number_arn' to be a str")
         pulumi.set(__self__, "phone_number_arn", phone_number_arn)
@@ -43,14 +40,6 @@ class GetPhoneNumberResult:
         The phone number e164 address.
         """
         return pulumi.get(self, "address")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the phone number.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="phoneNumberArn")
@@ -84,7 +73,6 @@ class AwaitableGetPhoneNumberResult(GetPhoneNumberResult):
             yield self
         return GetPhoneNumberResult(
             address=self.address,
-            description=self.description,
             phone_number_arn=self.phone_number_arn,
             tags=self.tags,
             target_arn=self.target_arn)
@@ -105,7 +93,6 @@ def get_phone_number(phone_number_arn: Optional[str] = None,
 
     return AwaitableGetPhoneNumberResult(
         address=pulumi.get(__ret__, 'address'),
-        description=pulumi.get(__ret__, 'description'),
         phone_number_arn=pulumi.get(__ret__, 'phone_number_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         target_arn=pulumi.get(__ret__, 'target_arn'))

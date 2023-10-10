@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        [Output("destinationPackageVersions")]
+        public Output<ImmutableArray<string>> DestinationPackageVersions { get; private set; } = null!;
+
         /// <summary>
         /// The job document. Required if you don't specify a value for documentSource.
         /// </summary>
@@ -150,6 +153,14 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
+
+        [Input("destinationPackageVersions")]
+        private InputList<string>? _destinationPackageVersions;
+        public InputList<string> DestinationPackageVersions
+        {
+            get => _destinationPackageVersions ?? (_destinationPackageVersions = new InputList<string>());
+            set => _destinationPackageVersions = value;
+        }
 
         /// <summary>
         /// The job document. Required if you don't specify a value for documentSource.

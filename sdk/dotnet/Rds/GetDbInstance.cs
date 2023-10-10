@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly bool? AutoMinorVersionUpgrade;
         /// <summary>
+        /// Enables replication of automated backups to a different Amazon Web Services Region.
+        /// </summary>
+        public readonly string? AutomaticBackupReplicationRegion;
+        /// <summary>
         /// The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
         /// </summary>
         public readonly string? AvailabilityZone;
@@ -282,6 +286,8 @@ namespace Pulumi.AwsNative.Rds
 
             bool? autoMinorVersionUpgrade,
 
+            string? automaticBackupReplicationRegion,
+
             string? availabilityZone,
 
             int? backupRetentionPeriod,
@@ -383,6 +389,7 @@ namespace Pulumi.AwsNative.Rds
             AllocatedStorage = allocatedStorage;
             AssociatedRoles = associatedRoles;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
+            AutomaticBackupReplicationRegion = automaticBackupReplicationRegion;
             AvailabilityZone = availabilityZone;
             BackupRetentionPeriod = backupRetentionPeriod;
             CaCertificateIdentifier = caCertificateIdentifier;

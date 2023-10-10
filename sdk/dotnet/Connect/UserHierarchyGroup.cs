@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Connect
         public Output<string?> ParentGroupArn { get; private set; } = null!;
 
         /// <summary>
+        /// One or more tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.UserHierarchyGroupTag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the user hierarchy group.
         /// </summary>
         [Output("userHierarchyGroupArn")]
@@ -105,6 +111,18 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("parentGroupArn")]
         public Input<string>? ParentGroupArn { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.UserHierarchyGroupTagArgs>? _tags;
+
+        /// <summary>
+        /// One or more tags.
+        /// </summary>
+        public InputList<Inputs.UserHierarchyGroupTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.UserHierarchyGroupTagArgs>());
+            set => _tags = value;
+        }
 
         public UserHierarchyGroupArgs()
         {

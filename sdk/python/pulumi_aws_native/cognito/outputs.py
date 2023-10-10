@@ -14,6 +14,8 @@ __all__ = [
     'IdentityPoolCognitoIdentityProvider',
     'IdentityPoolCognitoStreams',
     'IdentityPoolPushSync',
+    'LogDeliveryConfigurationCloudWatchLogsConfiguration',
+    'LogDeliveryConfigurationLogConfiguration',
     'UserPoolAccountRecoverySetting',
     'UserPoolAddOns',
     'UserPoolAdminCreateUserConfig',
@@ -223,6 +225,108 @@ class IdentityPoolPushSync(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class LogDeliveryConfigurationCloudWatchLogsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupArn":
+            suggest = "log_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryConfigurationCloudWatchLogsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryConfigurationCloudWatchLogsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryConfigurationCloudWatchLogsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_arn: Optional[str] = None):
+        LogDeliveryConfigurationCloudWatchLogsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_arn=log_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if log_group_arn is not None:
+            _setter("log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[str]:
+        return pulumi.get(self, "log_group_arn")
+
+
+@pulumi.output_type
+class LogDeliveryConfigurationLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogsConfiguration":
+            suggest = "cloud_watch_logs_configuration"
+        elif key == "eventSource":
+            suggest = "event_source"
+        elif key == "logLevel":
+            suggest = "log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryConfigurationLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryConfigurationLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryConfigurationLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logs_configuration: Optional['outputs.LogDeliveryConfigurationCloudWatchLogsConfiguration'] = None,
+                 event_source: Optional[str] = None,
+                 log_level: Optional[str] = None):
+        LogDeliveryConfigurationLogConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_logs_configuration=cloud_watch_logs_configuration,
+            event_source=event_source,
+            log_level=log_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_logs_configuration: Optional['outputs.LogDeliveryConfigurationCloudWatchLogsConfiguration'] = None,
+             event_source: Optional[str] = None,
+             log_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if cloud_watch_logs_configuration is not None:
+            _setter("cloud_watch_logs_configuration", cloud_watch_logs_configuration)
+        if event_source is not None:
+            _setter("event_source", event_source)
+        if log_level is not None:
+            _setter("log_level", log_level)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsConfiguration")
+    def cloud_watch_logs_configuration(self) -> Optional['outputs.LogDeliveryConfigurationCloudWatchLogsConfiguration']:
+        return pulumi.get(self, "cloud_watch_logs_configuration")
+
+    @property
+    @pulumi.getter(name="eventSource")
+    def event_source(self) -> Optional[str]:
+        return pulumi.get(self, "event_source")
+
+    @property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> Optional[str]:
+        return pulumi.get(self, "log_level")
 
 
 @pulumi.output_type

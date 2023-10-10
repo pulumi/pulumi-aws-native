@@ -24,6 +24,8 @@ type DbInstance struct {
 	AssociatedRoles DbInstanceDbInstanceRoleArrayOutput `pulumi:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
+	// Enables replication of automated backups to a different Amazon Web Services Region.
+	AutomaticBackupReplicationRegion pulumi.StringPtrOutput `pulumi:"automaticBackupReplicationRegion"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
@@ -253,6 +255,8 @@ type dbInstanceArgs struct {
 	AssociatedRoles []DbInstanceDbInstanceRole `pulumi:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
+	// Enables replication of automated backups to a different Amazon Web Services Region.
+	AutomaticBackupReplicationRegion *string `pulumi:"automaticBackupReplicationRegion"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
@@ -422,6 +426,8 @@ type DbInstanceArgs struct {
 	AssociatedRoles DbInstanceDbInstanceRoleArrayInput
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
+	// Enables replication of automated backups to a different Amazon Web Services Region.
+	AutomaticBackupReplicationRegion pulumi.StringPtrInput
 	// The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
 	AvailabilityZone pulumi.StringPtrInput
 	// The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
@@ -648,6 +654,11 @@ func (o DbInstanceOutput) AssociatedRoles() DbInstanceDbInstanceRoleArrayOutput 
 // A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
 func (o DbInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+// Enables replication of automated backups to a different Amazon Web Services Region.
+func (o DbInstanceOutput) AutomaticBackupReplicationRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.AutomaticBackupReplicationRegion }).(pulumi.StringPtrOutput)
 }
 
 // The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.

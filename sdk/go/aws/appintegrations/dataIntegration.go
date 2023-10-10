@@ -30,7 +30,7 @@ type DataIntegration struct {
 	// The configuration for what data should be pulled from the source.
 	ObjectConfiguration DataIntegrationObjectConfigurationPtrOutput `pulumi:"objectConfiguration"`
 	// The name of the data and how often it should be pulled from the source.
-	ScheduleConfig DataIntegrationScheduleConfigOutput `pulumi:"scheduleConfig"`
+	ScheduleConfig DataIntegrationScheduleConfigPtrOutput `pulumi:"scheduleConfig"`
 	// The URI of the data source.
 	SourceUri pulumi.StringOutput `pulumi:"sourceUri"`
 	// The tags (keys and values) associated with the data integration.
@@ -46,9 +46,6 @@ func NewDataIntegration(ctx *pulumi.Context,
 
 	if args.KmsKey == nil {
 		return nil, errors.New("invalid value for required argument 'KmsKey'")
-	}
-	if args.ScheduleConfig == nil {
-		return nil, errors.New("invalid value for required argument 'ScheduleConfig'")
 	}
 	if args.SourceUri == nil {
 		return nil, errors.New("invalid value for required argument 'SourceUri'")
@@ -103,7 +100,7 @@ type dataIntegrationArgs struct {
 	// The configuration for what data should be pulled from the source.
 	ObjectConfiguration *DataIntegrationObjectConfiguration `pulumi:"objectConfiguration"`
 	// The name of the data and how often it should be pulled from the source.
-	ScheduleConfig DataIntegrationScheduleConfig `pulumi:"scheduleConfig"`
+	ScheduleConfig *DataIntegrationScheduleConfig `pulumi:"scheduleConfig"`
 	// The URI of the data source.
 	SourceUri string `pulumi:"sourceUri"`
 	// The tags (keys and values) associated with the data integration.
@@ -123,7 +120,7 @@ type DataIntegrationArgs struct {
 	// The configuration for what data should be pulled from the source.
 	ObjectConfiguration DataIntegrationObjectConfigurationPtrInput
 	// The name of the data and how often it should be pulled from the source.
-	ScheduleConfig DataIntegrationScheduleConfigInput
+	ScheduleConfig DataIntegrationScheduleConfigPtrInput
 	// The URI of the data source.
 	SourceUri pulumi.StringInput
 	// The tags (keys and values) associated with the data integration.
@@ -210,8 +207,8 @@ func (o DataIntegrationOutput) ObjectConfiguration() DataIntegrationObjectConfig
 }
 
 // The name of the data and how often it should be pulled from the source.
-func (o DataIntegrationOutput) ScheduleConfig() DataIntegrationScheduleConfigOutput {
-	return o.ApplyT(func(v *DataIntegration) DataIntegrationScheduleConfigOutput { return v.ScheduleConfig }).(DataIntegrationScheduleConfigOutput)
+func (o DataIntegrationOutput) ScheduleConfig() DataIntegrationScheduleConfigPtrOutput {
+	return o.ApplyT(func(v *DataIntegration) DataIntegrationScheduleConfigPtrOutput { return v.ScheduleConfig }).(DataIntegrationScheduleConfigPtrOutput)
 }
 
 // The URI of the data source.

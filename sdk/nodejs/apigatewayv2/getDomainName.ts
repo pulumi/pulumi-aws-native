@@ -8,35 +8,57 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGatewayV2::DomainName
+ * The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
+ *  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
  */
 export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getDomainName", {
-        "id": args.id,
+        "domainName": args.domainName,
     }, opts);
 }
 
 export interface GetDomainNameArgs {
-    id: string;
+    /**
+     * The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+     */
+    domainName: string;
 }
 
 export interface GetDomainNameResult {
+    /**
+     * The domain name configurations.
+     */
     readonly domainNameConfigurations?: outputs.apigatewayv2.DomainNameConfiguration[];
-    readonly id?: string;
+    /**
+     * The mutual TLS authentication configuration for a custom domain name.
+     */
     readonly mutualTlsAuthentication?: outputs.apigatewayv2.DomainNameMutualTlsAuthentication;
+    /**
+     * The domain name associated with the regional endpoint for this custom domain name.
+     */
     readonly regionalDomainName?: string;
+    /**
+     * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+     */
     readonly regionalHostedZoneId?: string;
+    /**
+     * The collection of tags associated with a domain name.
+     */
     readonly tags?: any;
 }
 /**
- * Resource Type definition for AWS::ApiGatewayV2::DomainName
+ * The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
+ *  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
  */
 export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
     return pulumi.output(args).apply((a: any) => getDomainName(a, opts))
 }
 
 export interface GetDomainNameOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+     */
+    domainName: pulumi.Input<string>;
 }

@@ -65,22 +65,28 @@
       "$ref" : "#/definitions/VpcDestinationProperties"
     }
   },
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : true
+  },
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/Arn", "/properties/StatusReason" ],
   "createOnlyProperties" : [ "/properties/HttpUrlProperties", "/properties/VpcProperties" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iot:CreateTopicRuleDestination", "iam:PassRole" ]
+      "permissions" : [ "iam:PassRole", "iot:CreateTopicRuleDestination", "iot:GetTopicRuleDestination", "iot:UpdateTopicRuleDestination" ]
     },
     "read" : {
       "permissions" : [ "iot:GetTopicRuleDestination" ]
     },
     "update" : {
-      "permissions" : [ "iot:UpdateTopicRuleDestination" ]
+      "permissions" : [ "iam:PassRole", "iot:GetTopicRuleDestination", "iot:UpdateTopicRuleDestination" ]
     },
     "delete" : {
-      "permissions" : [ "iot:DeleteTopicRuleDestination" ]
+      "permissions" : [ "iot:GetTopicRuleDestination", "iot:DeleteTopicRuleDestination" ]
     },
     "list" : {
       "permissions" : [ "iot:ListTopicRuleDestinations" ]

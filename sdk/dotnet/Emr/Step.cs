@@ -10,21 +10,33 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Emr
 {
     /// <summary>
-    /// Resource Type definition for AWS::EMR::Step
+    /// Schema for AWS::EMR::Step
     /// </summary>
     [Obsolete(@"Step is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:emr:Step")]
     public partial class Step : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
+        /// </summary>
         [Output("actionOnFailure")]
         public Output<string> ActionOnFailure { get; private set; } = null!;
 
+        /// <summary>
+        /// The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+        /// </summary>
         [Output("hadoopJarStep")]
         public Output<Outputs.StepHadoopJarStepConfig> HadoopJarStep { get; private set; } = null!;
 
+        /// <summary>
+        /// A string that uniquely identifies the cluster (job flow).
+        /// </summary>
         [Output("jobFlowId")]
         public Output<string> JobFlowId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the cluster step.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -80,15 +92,27 @@ namespace Pulumi.AwsNative.Emr
 
     public sealed class StepArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
+        /// </summary>
         [Input("actionOnFailure", required: true)]
         public Input<string> ActionOnFailure { get; set; } = null!;
 
+        /// <summary>
+        /// The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+        /// </summary>
         [Input("hadoopJarStep", required: true)]
         public Input<Inputs.StepHadoopJarStepConfigArgs> HadoopJarStep { get; set; } = null!;
 
+        /// <summary>
+        /// A string that uniquely identifies the cluster (job flow).
+        /// </summary>
         [Input("jobFlowId", required: true)]
         public Input<string> JobFlowId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the cluster step.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

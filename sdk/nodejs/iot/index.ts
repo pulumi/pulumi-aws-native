@@ -145,6 +145,16 @@ export const getSecurityProfile: typeof import("./getSecurityProfile").getSecuri
 export const getSecurityProfileOutput: typeof import("./getSecurityProfile").getSecurityProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityProfile","getSecurityProfileOutput"], () => require("./getSecurityProfile"));
 
+export { GetSoftwarePackageArgs, GetSoftwarePackageResult, GetSoftwarePackageOutputArgs } from "./getSoftwarePackage";
+export const getSoftwarePackage: typeof import("./getSoftwarePackage").getSoftwarePackage = null as any;
+export const getSoftwarePackageOutput: typeof import("./getSoftwarePackage").getSoftwarePackageOutput = null as any;
+utilities.lazyLoad(exports, ["getSoftwarePackage","getSoftwarePackageOutput"], () => require("./getSoftwarePackage"));
+
+export { GetSoftwarePackageVersionArgs, GetSoftwarePackageVersionResult, GetSoftwarePackageVersionOutputArgs } from "./getSoftwarePackageVersion";
+export const getSoftwarePackageVersion: typeof import("./getSoftwarePackageVersion").getSoftwarePackageVersion = null as any;
+export const getSoftwarePackageVersionOutput: typeof import("./getSoftwarePackageVersion").getSoftwarePackageVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getSoftwarePackageVersion","getSoftwarePackageVersionOutput"], () => require("./getSoftwarePackageVersion"));
+
 export { GetThingArgs, GetThingResult, GetThingOutputArgs } from "./getThing";
 export const getThing: typeof import("./getThing").getThing = null as any;
 export const getThingOutput: typeof import("./getThing").getThingOutput = null as any;
@@ -225,6 +235,16 @@ export type SecurityProfile = import("./securityProfile").SecurityProfile;
 export const SecurityProfile: typeof import("./securityProfile").SecurityProfile = null as any;
 utilities.lazyLoad(exports, ["SecurityProfile"], () => require("./securityProfile"));
 
+export { SoftwarePackageArgs } from "./softwarePackage";
+export type SoftwarePackage = import("./softwarePackage").SoftwarePackage;
+export const SoftwarePackage: typeof import("./softwarePackage").SoftwarePackage = null as any;
+utilities.lazyLoad(exports, ["SoftwarePackage"], () => require("./softwarePackage"));
+
+export { SoftwarePackageVersionArgs } from "./softwarePackageVersion";
+export type SoftwarePackageVersion = import("./softwarePackageVersion").SoftwarePackageVersion;
+export const SoftwarePackageVersion: typeof import("./softwarePackageVersion").SoftwarePackageVersion = null as any;
+utilities.lazyLoad(exports, ["SoftwarePackageVersion"], () => require("./softwarePackageVersion"));
+
 export { ThingArgs } from "./thing";
 export type Thing = import("./thing").Thing;
 export const Thing: typeof import("./thing").Thing = null as any;
@@ -301,6 +321,10 @@ const _module = {
                 return new ScheduledAudit(name, <any>undefined, { urn })
             case "aws-native:iot:SecurityProfile":
                 return new SecurityProfile(name, <any>undefined, { urn })
+            case "aws-native:iot:SoftwarePackage":
+                return new SoftwarePackage(name, <any>undefined, { urn })
+            case "aws-native:iot:SoftwarePackageVersion":
+                return new SoftwarePackageVersion(name, <any>undefined, { urn })
             case "aws-native:iot:Thing":
                 return new Thing(name, <any>undefined, { urn })
             case "aws-native:iot:ThingGroup":

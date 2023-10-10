@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 
 type AccessPointAlias struct {
 	// The status of the Object Lambda alias.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// The value of the Object Lambda alias.
 	Value string `pulumi:"value"`
 }
@@ -42,8 +42,8 @@ func (o AccessPointAliasOutput) ToOutput(ctx context.Context) pulumix.Output[Acc
 }
 
 // The status of the Object Lambda alias.
-func (o AccessPointAliasOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessPointAlias) string { return v.Status }).(pulumi.StringOutput)
+func (o AccessPointAliasOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPointAlias) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The value of the Object Lambda alias.
@@ -87,7 +87,7 @@ func (o AccessPointAliasPtrOutput) Status() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Status
+		return v.Status
 	}).(pulumi.StringPtrOutput)
 }
 

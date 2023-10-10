@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetUserHierarchyGroupResult',
@@ -18,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserHierarchyGroupResult:
-    def __init__(__self__, instance_arn=None, name=None, user_hierarchy_group_arn=None):
+    def __init__(__self__, instance_arn=None, name=None, tags=None, user_hierarchy_group_arn=None):
         if instance_arn and not isinstance(instance_arn, str):
             raise TypeError("Expected argument 'instance_arn' to be a str")
         pulumi.set(__self__, "instance_arn", instance_arn)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if user_hierarchy_group_arn and not isinstance(user_hierarchy_group_arn, str):
             raise TypeError("Expected argument 'user_hierarchy_group_arn' to be a str")
         pulumi.set(__self__, "user_hierarchy_group_arn", user_hierarchy_group_arn)
@@ -46,6 +50,14 @@ class GetUserHierarchyGroupResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.UserHierarchyGroupTag']]:
+        """
+        One or more tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="userHierarchyGroupArn")
     def user_hierarchy_group_arn(self) -> Optional[str]:
         """
@@ -62,6 +74,7 @@ class AwaitableGetUserHierarchyGroupResult(GetUserHierarchyGroupResult):
         return GetUserHierarchyGroupResult(
             instance_arn=self.instance_arn,
             name=self.name,
+            tags=self.tags,
             user_hierarchy_group_arn=self.user_hierarchy_group_arn)
 
 
@@ -81,6 +94,7 @@ def get_user_hierarchy_group(user_hierarchy_group_arn: Optional[str] = None,
     return AwaitableGetUserHierarchyGroupResult(
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
         user_hierarchy_group_arn=pulumi.get(__ret__, 'user_hierarchy_group_arn'))
 
 

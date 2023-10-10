@@ -13,16 +13,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::EMR::Step
+// Schema for AWS::EMR::Step
 //
 // Deprecated: Step is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Step struct {
 	pulumi.CustomResourceState
 
-	ActionOnFailure pulumi.StringOutput           `pulumi:"actionOnFailure"`
-	HadoopJarStep   StepHadoopJarStepConfigOutput `pulumi:"hadoopJarStep"`
-	JobFlowId       pulumi.StringOutput           `pulumi:"jobFlowId"`
-	Name            pulumi.StringOutput           `pulumi:"name"`
+	// This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
+	ActionOnFailure pulumi.StringOutput `pulumi:"actionOnFailure"`
+	// The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+	HadoopJarStep StepHadoopJarStepConfigOutput `pulumi:"hadoopJarStep"`
+	// A string that uniquely identifies the cluster (job flow).
+	JobFlowId pulumi.StringOutput `pulumi:"jobFlowId"`
+	// The name of the cluster step.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewStep registers a new resource with the given unique name, arguments, and options.
@@ -81,18 +85,26 @@ func (StepState) ElementType() reflect.Type {
 }
 
 type stepArgs struct {
-	ActionOnFailure string                  `pulumi:"actionOnFailure"`
-	HadoopJarStep   StepHadoopJarStepConfig `pulumi:"hadoopJarStep"`
-	JobFlowId       string                  `pulumi:"jobFlowId"`
-	Name            *string                 `pulumi:"name"`
+	// This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
+	ActionOnFailure string `pulumi:"actionOnFailure"`
+	// The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+	HadoopJarStep StepHadoopJarStepConfig `pulumi:"hadoopJarStep"`
+	// A string that uniquely identifies the cluster (job flow).
+	JobFlowId string `pulumi:"jobFlowId"`
+	// The name of the cluster step.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Step resource.
 type StepArgs struct {
+	// This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
 	ActionOnFailure pulumi.StringInput
-	HadoopJarStep   StepHadoopJarStepConfigInput
-	JobFlowId       pulumi.StringInput
-	Name            pulumi.StringPtrInput
+	// The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+	HadoopJarStep StepHadoopJarStepConfigInput
+	// A string that uniquely identifies the cluster (job flow).
+	JobFlowId pulumi.StringInput
+	// The name of the cluster step.
+	Name pulumi.StringPtrInput
 }
 
 func (StepArgs) ElementType() reflect.Type {
@@ -144,18 +156,22 @@ func (o StepOutput) ToOutput(ctx context.Context) pulumix.Output[*Step] {
 	}
 }
 
+// This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
 func (o StepOutput) ActionOnFailure() pulumi.StringOutput {
 	return o.ApplyT(func(v *Step) pulumi.StringOutput { return v.ActionOnFailure }).(pulumi.StringOutput)
 }
 
+// The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
 func (o StepOutput) HadoopJarStep() StepHadoopJarStepConfigOutput {
 	return o.ApplyT(func(v *Step) StepHadoopJarStepConfigOutput { return v.HadoopJarStep }).(StepHadoopJarStepConfigOutput)
 }
 
+// A string that uniquely identifies the cluster (job flow).
 func (o StepOutput) JobFlowId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Step) pulumi.StringOutput { return v.JobFlowId }).(pulumi.StringOutput)
 }
 
+// The name of the cluster step.
 func (o StepOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Step) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

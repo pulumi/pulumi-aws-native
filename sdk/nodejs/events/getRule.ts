@@ -14,23 +14,50 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:events:getRule", {
-        "id": args.id,
+        "arn": args.arn,
     }, opts);
 }
 
 export interface GetRuleArgs {
-    id: string;
+    /**
+     * The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
+     */
+    arn: string;
 }
 
 export interface GetRuleResult {
+    /**
+     * The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
+     */
     readonly arn?: string;
+    /**
+     * The description of the rule.
+     */
     readonly description?: string;
+    /**
+     * The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+     */
     readonly eventBusName?: string;
-    readonly eventPattern?: any;
-    readonly id?: string;
+    /**
+     * The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+     */
+    readonly eventPattern?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the role that is used for target invocation.
+     */
     readonly roleArn?: string;
+    /**
+     * The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
+     */
     readonly scheduleExpression?: string;
-    readonly state?: string;
+    /**
+     * The state of the rule.
+     */
+    readonly state?: enums.events.RuleState;
+    /**
+     * Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+     * Targets are the resources that are invoked when a rule is triggered.
+     */
     readonly targets?: outputs.events.RuleTarget[];
 }
 /**
@@ -41,5 +68,8 @@ export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetRuleOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
+     */
+    arn: pulumi.Input<string>;
 }

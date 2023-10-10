@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
         /// <summary>
         /// The status of the Object Lambda alias.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// The value of the Object Lambda alias.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
 
         [OutputConstructor]
         private AccessPointAlias(
-            string status,
+            string? status,
 
             string value)
         {

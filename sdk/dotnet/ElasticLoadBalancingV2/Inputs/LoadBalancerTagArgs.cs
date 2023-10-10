@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public LoadBalancerTagArgs()
         {

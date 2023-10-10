@@ -10,27 +10,45 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGatewayV2::DomainName
+    /// The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
+    ///  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
     /// </summary>
-    [Obsolete(@"DomainName is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:DomainName")]
     public partial class DomainName : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainNameValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name configurations.
+        /// </summary>
         [Output("domainNameConfigurations")]
         public Output<ImmutableArray<Outputs.DomainNameConfiguration>> DomainNameConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The mutual TLS authentication configuration for a custom domain name.
+        /// </summary>
         [Output("mutualTlsAuthentication")]
         public Output<Outputs.DomainNameMutualTlsAuthentication?> MutualTlsAuthentication { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name associated with the regional endpoint for this custom domain name.
+        /// </summary>
         [Output("regionalDomainName")]
         public Output<string> RegionalDomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+        /// </summary>
         [Output("regionalHostedZoneId")]
         public Output<string> RegionalHostedZoneId { get; private set; } = null!;
 
+        /// <summary>
+        /// The collection of tags associated with a domain name.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -83,20 +101,33 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class DomainNameArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainNameValue { get; set; } = null!;
 
         [Input("domainNameConfigurations")]
         private InputList<Inputs.DomainNameConfigurationArgs>? _domainNameConfigurations;
+
+        /// <summary>
+        /// The domain name configurations.
+        /// </summary>
         public InputList<Inputs.DomainNameConfigurationArgs> DomainNameConfigurations
         {
             get => _domainNameConfigurations ?? (_domainNameConfigurations = new InputList<Inputs.DomainNameConfigurationArgs>());
             set => _domainNameConfigurations = value;
         }
 
+        /// <summary>
+        /// The mutual TLS authentication configuration for a custom domain name.
+        /// </summary>
         [Input("mutualTlsAuthentication")]
         public Input<Inputs.DomainNameMutualTlsAuthenticationArgs>? MutualTlsAuthentication { get; set; }
 
+        /// <summary>
+        /// The collection of tags associated with a domain name.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

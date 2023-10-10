@@ -523,7 +523,7 @@
       "permissions" : [ "databrew:DescribeJob", "databrew:ListTagsForResource", "iam:ListRoles" ]
     },
     "update" : {
-      "permissions" : [ "databrew:UpdateProfileJob", "databrew:UpdateRecipeJob" ]
+      "permissions" : [ "databrew:UpdateProfileJob", "databrew:UpdateRecipeJob", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "databrew:DeleteJob" ]

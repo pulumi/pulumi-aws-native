@@ -20,6 +20,11 @@ export const getIdentityPoolRoleAttachment: typeof import("./getIdentityPoolRole
 export const getIdentityPoolRoleAttachmentOutput: typeof import("./getIdentityPoolRoleAttachment").getIdentityPoolRoleAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getIdentityPoolRoleAttachment","getIdentityPoolRoleAttachmentOutput"], () => require("./getIdentityPoolRoleAttachment"));
 
+export { GetLogDeliveryConfigurationArgs, GetLogDeliveryConfigurationResult, GetLogDeliveryConfigurationOutputArgs } from "./getLogDeliveryConfiguration";
+export const getLogDeliveryConfiguration: typeof import("./getLogDeliveryConfiguration").getLogDeliveryConfiguration = null as any;
+export const getLogDeliveryConfigurationOutput: typeof import("./getLogDeliveryConfiguration").getLogDeliveryConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getLogDeliveryConfiguration","getLogDeliveryConfigurationOutput"], () => require("./getLogDeliveryConfiguration"));
+
 export { GetUserPoolArgs, GetUserPoolResult, GetUserPoolOutputArgs } from "./getUserPool";
 export const getUserPool: typeof import("./getUserPool").getUserPool = null as any;
 export const getUserPoolOutput: typeof import("./getUserPool").getUserPoolOutput = null as any;
@@ -79,6 +84,11 @@ export { IdentityPoolRoleAttachmentArgs } from "./identityPoolRoleAttachment";
 export type IdentityPoolRoleAttachment = import("./identityPoolRoleAttachment").IdentityPoolRoleAttachment;
 export const IdentityPoolRoleAttachment: typeof import("./identityPoolRoleAttachment").IdentityPoolRoleAttachment = null as any;
 utilities.lazyLoad(exports, ["IdentityPoolRoleAttachment"], () => require("./identityPoolRoleAttachment"));
+
+export { LogDeliveryConfigurationArgs } from "./logDeliveryConfiguration";
+export type LogDeliveryConfiguration = import("./logDeliveryConfiguration").LogDeliveryConfiguration;
+export const LogDeliveryConfiguration: typeof import("./logDeliveryConfiguration").LogDeliveryConfiguration = null as any;
+utilities.lazyLoad(exports, ["LogDeliveryConfiguration"], () => require("./logDeliveryConfiguration"));
 
 export { UserPoolArgs } from "./userPool";
 export type UserPool = import("./userPool").UserPool;
@@ -141,6 +151,8 @@ const _module = {
                 return new IdentityPoolPrincipalTag(name, <any>undefined, { urn })
             case "aws-native:cognito:IdentityPoolRoleAttachment":
                 return new IdentityPoolRoleAttachment(name, <any>undefined, { urn })
+            case "aws-native:cognito:LogDeliveryConfiguration":
+                return new LogDeliveryConfiguration(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPool":
                 return new UserPool(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolClient":

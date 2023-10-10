@@ -64,7 +64,7 @@ export class DataIntegration extends pulumi.CustomResource {
     /**
      * The name of the data and how often it should be pulled from the source.
      */
-    public readonly scheduleConfig!: pulumi.Output<outputs.appintegrations.DataIntegrationScheduleConfig>;
+    public readonly scheduleConfig!: pulumi.Output<outputs.appintegrations.DataIntegrationScheduleConfig | undefined>;
     /**
      * The URI of the data source.
      */
@@ -87,9 +87,6 @@ export class DataIntegration extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.kmsKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kmsKey'");
-            }
-            if ((!args || args.scheduleConfig === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'scheduleConfig'");
             }
             if ((!args || args.sourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceUri'");
@@ -148,7 +145,7 @@ export interface DataIntegrationArgs {
     /**
      * The name of the data and how often it should be pulled from the source.
      */
-    scheduleConfig: pulumi.Input<inputs.appintegrations.DataIntegrationScheduleConfigArgs>;
+    scheduleConfig?: pulumi.Input<inputs.appintegrations.DataIntegrationScheduleConfigArgs>;
     /**
      * The URI of the data source.
      */

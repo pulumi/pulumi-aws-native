@@ -59,6 +59,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ScheduledAudit{}
 	case "aws-native:iot:SecurityProfile":
 		r = &SecurityProfile{}
+	case "aws-native:iot:SoftwarePackage":
+		r = &SoftwarePackage{}
+	case "aws-native:iot:SoftwarePackageVersion":
+		r = &SoftwarePackageVersion{}
 	case "aws-native:iot:Thing":
 		r = &Thing{}
 	case "aws-native:iot:ThingGroup":

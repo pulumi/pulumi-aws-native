@@ -128,22 +128,40 @@ class ChannelDashPlaylistSettingsArgs:
 @pulumi.input_type
 class ChannelHlsPlaylistSettingsArgs:
     def __init__(__self__, *,
+                 ad_markup_type: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelAdMarkupType']]]] = None,
                  manifest_window_seconds: Optional[pulumi.Input[float]] = None):
         """
         <p>HLS playlist configuration parameters.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelAdMarkupType']]] ad_markup_type: <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
         :param pulumi.Input[float] manifest_window_seconds: <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
         """
         ChannelHlsPlaylistSettingsArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
+            ad_markup_type=ad_markup_type,
             manifest_window_seconds=manifest_window_seconds,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
+             ad_markup_type: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelAdMarkupType']]]] = None,
              manifest_window_seconds: Optional[pulumi.Input[float]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
+        if ad_markup_type is not None:
+            _setter("ad_markup_type", ad_markup_type)
         if manifest_window_seconds is not None:
             _setter("manifest_window_seconds", manifest_window_seconds)
+
+    @property
+    @pulumi.getter(name="adMarkupType")
+    def ad_markup_type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelAdMarkupType']]]]:
+        """
+        <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
+        """
+        return pulumi.get(self, "ad_markup_type")
+
+    @ad_markup_type.setter
+    def ad_markup_type(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelAdMarkupType']]]]):
+        pulumi.set(self, "ad_markup_type", value)
 
     @property
     @pulumi.getter(name="manifestWindowSeconds")

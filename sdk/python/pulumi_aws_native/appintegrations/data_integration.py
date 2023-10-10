@@ -17,49 +17,48 @@ __all__ = ['DataIntegrationArgs', 'DataIntegration']
 class DataIntegrationArgs:
     def __init__(__self__, *,
                  kms_key: pulumi.Input[str],
-                 schedule_config: pulumi.Input['DataIntegrationScheduleConfigArgs'],
                  source_uri: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  file_configuration: Optional[pulumi.Input['DataIntegrationFileConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  object_configuration: Optional[pulumi.Input['DataIntegrationObjectConfigurationArgs']] = None,
+                 schedule_config: Optional[pulumi.Input['DataIntegrationScheduleConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]]] = None):
         """
         The set of arguments for constructing a DataIntegration resource.
         :param pulumi.Input[str] kms_key: The KMS key of the data integration.
-        :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: The name of the data and how often it should be pulled from the source.
         :param pulumi.Input[str] source_uri: The URI of the data source.
         :param pulumi.Input[str] description: The data integration description.
         :param pulumi.Input['DataIntegrationFileConfigurationArgs'] file_configuration: The configuration for what files should be pulled from the source.
         :param pulumi.Input[str] name: The name of the data integration.
         :param pulumi.Input['DataIntegrationObjectConfigurationArgs'] object_configuration: The configuration for what data should be pulled from the source.
+        :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: The name of the data and how often it should be pulled from the source.
         :param pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]] tags: The tags (keys and values) associated with the data integration.
         """
         DataIntegrationArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             kms_key=kms_key,
-            schedule_config=schedule_config,
             source_uri=source_uri,
             description=description,
             file_configuration=file_configuration,
             name=name,
             object_configuration=object_configuration,
+            schedule_config=schedule_config,
             tags=tags,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_key: pulumi.Input[str],
-             schedule_config: pulumi.Input['DataIntegrationScheduleConfigArgs'],
              source_uri: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              file_configuration: Optional[pulumi.Input['DataIntegrationFileConfigurationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              object_configuration: Optional[pulumi.Input['DataIntegrationObjectConfigurationArgs']] = None,
+             schedule_config: Optional[pulumi.Input['DataIntegrationScheduleConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("kms_key", kms_key)
-        _setter("schedule_config", schedule_config)
         _setter("source_uri", source_uri)
         if description is not None:
             _setter("description", description)
@@ -69,6 +68,8 @@ class DataIntegrationArgs:
             _setter("name", name)
         if object_configuration is not None:
             _setter("object_configuration", object_configuration)
+        if schedule_config is not None:
+            _setter("schedule_config", schedule_config)
         if tags is not None:
             _setter("tags", tags)
 
@@ -83,18 +84,6 @@ class DataIntegrationArgs:
     @kms_key.setter
     def kms_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "kms_key", value)
-
-    @property
-    @pulumi.getter(name="scheduleConfig")
-    def schedule_config(self) -> pulumi.Input['DataIntegrationScheduleConfigArgs']:
-        """
-        The name of the data and how often it should be pulled from the source.
-        """
-        return pulumi.get(self, "schedule_config")
-
-    @schedule_config.setter
-    def schedule_config(self, value: pulumi.Input['DataIntegrationScheduleConfigArgs']):
-        pulumi.set(self, "schedule_config", value)
 
     @property
     @pulumi.getter(name="sourceUri")
@@ -155,6 +144,18 @@ class DataIntegrationArgs:
     @object_configuration.setter
     def object_configuration(self, value: Optional[pulumi.Input['DataIntegrationObjectConfigurationArgs']]):
         pulumi.set(self, "object_configuration", value)
+
+    @property
+    @pulumi.getter(name="scheduleConfig")
+    def schedule_config(self) -> Optional[pulumi.Input['DataIntegrationScheduleConfigArgs']]:
+        """
+        The name of the data and how often it should be pulled from the source.
+        """
+        return pulumi.get(self, "schedule_config")
+
+    @schedule_config.setter
+    def schedule_config(self, value: Optional[pulumi.Input['DataIntegrationScheduleConfigArgs']]):
+        pulumi.set(self, "schedule_config", value)
 
     @property
     @pulumi.getter
@@ -264,8 +265,6 @@ class DataIntegration(pulumi.CustomResource):
                 def _setter(key, value):
                     schedule_config[key] = value
                 DataIntegrationScheduleConfigArgs._configure(_setter, **schedule_config)
-            if schedule_config is None and not opts.urn:
-                raise TypeError("Missing required property 'schedule_config'")
             __props__.__dict__["schedule_config"] = schedule_config
             if source_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'source_uri'")
@@ -357,7 +356,7 @@ class DataIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduleConfig")
-    def schedule_config(self) -> pulumi.Output['outputs.DataIntegrationScheduleConfig']:
+    def schedule_config(self) -> pulumi.Output[Optional['outputs.DataIntegrationScheduleConfig']]:
         """
         The name of the data and how often it should be pulled from the source.
         """

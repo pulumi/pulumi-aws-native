@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardTableFieldOptions
     {
         public readonly ImmutableArray<string> Order;
+        public readonly Outputs.DashboardTablePinnedFieldOptions? PinnedFieldOptions;
         public readonly ImmutableArray<Outputs.DashboardTableFieldOption> SelectedFieldOptions;
 
         [OutputConstructor]
         private DashboardTableFieldOptions(
             ImmutableArray<string> order,
 
+            Outputs.DashboardTablePinnedFieldOptions? pinnedFieldOptions,
+
             ImmutableArray<Outputs.DashboardTableFieldOption> selectedFieldOptions)
         {
             Order = order;
+            PinnedFieldOptions = pinnedFieldOptions;
             SelectedFieldOptions = selectedFieldOptions;
         }
     }

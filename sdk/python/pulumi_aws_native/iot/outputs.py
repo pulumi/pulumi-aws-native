@@ -59,6 +59,9 @@ __all__ = [
     'SecurityProfileMetricValue',
     'SecurityProfileStatisticalThreshold',
     'SecurityProfileTag',
+    'SoftwarePackageTag',
+    'SoftwarePackageVersionResourceAttributes',
+    'SoftwarePackageVersionTag',
     'ThingAttributePayload',
     'ThingGroupAttributePayload',
     'ThingGroupPropertiesProperties',
@@ -2792,6 +2795,105 @@ class SecurityProfileTag(dict):
     def value(self) -> str:
         """
         The tag's value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SoftwarePackageTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        SoftwarePackageTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SoftwarePackageVersionResourceAttributes(dict):
+    def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
+
+
+@pulumi.output_type
+class SoftwarePackageVersionTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        SoftwarePackageVersionTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
 

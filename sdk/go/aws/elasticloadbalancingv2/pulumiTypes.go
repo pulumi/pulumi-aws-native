@@ -5020,8 +5020,8 @@ func (o LoadBalancerSubnetMappingArrayOutput) Index(i pulumi.IntInput) LoadBalan
 }
 
 type LoadBalancerTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
+	Key   string  `pulumi:"key"`
+	Value *string `pulumi:"value"`
 }
 
 // LoadBalancerTagInput is an input type that accepts LoadBalancerTagArgs and LoadBalancerTagOutput values.
@@ -5036,8 +5036,8 @@ type LoadBalancerTagInput interface {
 }
 
 type LoadBalancerTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (LoadBalancerTagArgs) ElementType() reflect.Type {
@@ -5113,8 +5113,8 @@ func (o LoadBalancerTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o LoadBalancerTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LoadBalancerTag) string { return v.Value }).(pulumi.StringOutput)
+func (o LoadBalancerTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type LoadBalancerTagArrayOutput struct{ *pulumi.OutputState }

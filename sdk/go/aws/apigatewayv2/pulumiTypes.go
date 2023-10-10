@@ -1710,12 +1710,20 @@ func (o AuthorizerJwtConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The “DomainNameConfiguration“ property type specifies the configuration for an API's domain name.
+//
+//	``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
 type DomainNameConfiguration struct {
-	CertificateArn                      *string `pulumi:"certificateArn"`
-	CertificateName                     *string `pulumi:"certificateName"`
-	EndpointType                        *string `pulumi:"endpointType"`
+	// An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
+	CertificateName *string `pulumi:"certificateName"`
+	// The endpoint type.
+	EndpointType *string `pulumi:"endpointType"`
+	// The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
-	SecurityPolicy                      *string `pulumi:"securityPolicy"`
+	// The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
+	SecurityPolicy *string `pulumi:"securityPolicy"`
 }
 
 // DomainNameConfigurationInput is an input type that accepts DomainNameConfigurationArgs and DomainNameConfigurationOutput values.
@@ -1729,12 +1737,20 @@ type DomainNameConfigurationInput interface {
 	ToDomainNameConfigurationOutputWithContext(context.Context) DomainNameConfigurationOutput
 }
 
+// The “DomainNameConfiguration“ property type specifies the configuration for an API's domain name.
+//
+//	``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
 type DomainNameConfigurationArgs struct {
-	CertificateArn                      pulumi.StringPtrInput `pulumi:"certificateArn"`
-	CertificateName                     pulumi.StringPtrInput `pulumi:"certificateName"`
-	EndpointType                        pulumi.StringPtrInput `pulumi:"endpointType"`
+	// An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
+	CertificateName pulumi.StringPtrInput `pulumi:"certificateName"`
+	// The endpoint type.
+	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
+	// The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput `pulumi:"ownershipVerificationCertificateArn"`
-	SecurityPolicy                      pulumi.StringPtrInput `pulumi:"securityPolicy"`
+	// The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
+	SecurityPolicy pulumi.StringPtrInput `pulumi:"securityPolicy"`
 }
 
 func (DomainNameConfigurationArgs) ElementType() reflect.Type {
@@ -1786,6 +1802,9 @@ func (i DomainNameConfigurationArray) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
+// The “DomainNameConfiguration“ property type specifies the configuration for an API's domain name.
+//
+//	``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
 type DomainNameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameConfigurationOutput) ElementType() reflect.Type {
@@ -1806,22 +1825,27 @@ func (o DomainNameConfigurationOutput) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
+// An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
 func (o DomainNameConfigurationOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
 func (o DomainNameConfigurationOutput) CertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.CertificateName }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint type.
 func (o DomainNameConfigurationOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
 func (o DomainNameConfigurationOutput) OwnershipVerificationCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.OwnershipVerificationCertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are “TLS_1_0“ and “TLS_1_2“.
 func (o DomainNameConfigurationOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }
@@ -1852,8 +1876,11 @@ func (o DomainNameConfigurationArrayOutput) Index(i pulumi.IntInput) DomainNameC
 	}).(DomainNameConfigurationOutput)
 }
 
+// If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 type DomainNameMutualTlsAuthentication struct {
-	TruststoreUri     *string `pulumi:"truststoreUri"`
+	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, ``s3://bucket-name/key-name``. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
+	TruststoreUri *string `pulumi:"truststoreUri"`
+	// The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 	TruststoreVersion *string `pulumi:"truststoreVersion"`
 }
 
@@ -1868,8 +1895,11 @@ type DomainNameMutualTlsAuthenticationInput interface {
 	ToDomainNameMutualTlsAuthenticationOutputWithContext(context.Context) DomainNameMutualTlsAuthenticationOutput
 }
 
+// If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 type DomainNameMutualTlsAuthenticationArgs struct {
-	TruststoreUri     pulumi.StringPtrInput `pulumi:"truststoreUri"`
+	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, ``s3://bucket-name/key-name``. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
+	TruststoreUri pulumi.StringPtrInput `pulumi:"truststoreUri"`
+	// The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 	TruststoreVersion pulumi.StringPtrInput `pulumi:"truststoreVersion"`
 }
 
@@ -1938,6 +1968,7 @@ func (i *domainNameMutualTlsAuthenticationPtrType) ToOutput(ctx context.Context)
 	}
 }
 
+// If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 type DomainNameMutualTlsAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameMutualTlsAuthenticationOutput) ElementType() reflect.Type {
@@ -1968,10 +1999,12 @@ func (o DomainNameMutualTlsAuthenticationOutput) ToOutput(ctx context.Context) p
 	}
 }
 
+// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, “s3://bucket-name/key-name“. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreUri }).(pulumi.StringPtrOutput)
 }
 
+// The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreVersion }).(pulumi.StringPtrOutput)
 }
@@ -2006,6 +2039,7 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAu
 	}).(DomainNameMutualTlsAuthenticationOutput)
 }
 
+// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, “s3://bucket-name/key-name“. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
 func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
 		if v == nil {
@@ -2015,6 +2049,7 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
 		if v == nil {

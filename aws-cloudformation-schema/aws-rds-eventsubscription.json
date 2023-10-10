@@ -80,7 +80,7 @@
   "primaryIdentifier" : [ "/properties/SubscriptionName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:CreateEventSubscription", "rds:DescribeEventSubscriptions", "rds:ListTagsForResource", "rds:AddTagsToResource", "rds:RemoveTagsFromResource" ]
+      "permissions" : [ "iam:CreateServiceLinkedRole", "rds:CreateEventSubscription", "rds:DescribeEventSubscriptions", "rds:ListTagsForResource", "rds:AddTagsToResource", "rds:RemoveTagsFromResource" ]
     },
     "read" : {
       "permissions" : [ "rds:DescribeEventSubscriptions", "rds:ListTagsForResource" ]

@@ -19,13 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainNameResult:
-    def __init__(__self__, domain_name_configurations=None, id=None, mutual_tls_authentication=None, regional_domain_name=None, regional_hosted_zone_id=None, tags=None):
+    def __init__(__self__, domain_name_configurations=None, mutual_tls_authentication=None, regional_domain_name=None, regional_hosted_zone_id=None, tags=None):
         if domain_name_configurations and not isinstance(domain_name_configurations, list):
             raise TypeError("Expected argument 'domain_name_configurations' to be a list")
         pulumi.set(__self__, "domain_name_configurations", domain_name_configurations)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if mutual_tls_authentication and not isinstance(mutual_tls_authentication, dict):
             raise TypeError("Expected argument 'mutual_tls_authentication' to be a dict")
         pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
@@ -42,31 +39,41 @@ class GetDomainNameResult:
     @property
     @pulumi.getter(name="domainNameConfigurations")
     def domain_name_configurations(self) -> Optional[Sequence['outputs.DomainNameConfiguration']]:
+        """
+        The domain name configurations.
+        """
         return pulumi.get(self, "domain_name_configurations")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="mutualTlsAuthentication")
     def mutual_tls_authentication(self) -> Optional['outputs.DomainNameMutualTlsAuthentication']:
+        """
+        The mutual TLS authentication configuration for a custom domain name.
+        """
         return pulumi.get(self, "mutual_tls_authentication")
 
     @property
     @pulumi.getter(name="regionalDomainName")
     def regional_domain_name(self) -> Optional[str]:
+        """
+        The domain name associated with the regional endpoint for this custom domain name.
+        """
         return pulumi.get(self, "regional_domain_name")
 
     @property
     @pulumi.getter(name="regionalHostedZoneId")
     def regional_hosted_zone_id(self) -> Optional[str]:
+        """
+        The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+        """
         return pulumi.get(self, "regional_hosted_zone_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        The collection of tags associated with a domain name.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -77,26 +84,28 @@ class AwaitableGetDomainNameResult(GetDomainNameResult):
             yield self
         return GetDomainNameResult(
             domain_name_configurations=self.domain_name_configurations,
-            id=self.id,
             mutual_tls_authentication=self.mutual_tls_authentication,
             regional_domain_name=self.regional_domain_name,
             regional_hosted_zone_id=self.regional_hosted_zone_id,
             tags=self.tags)
 
 
-def get_domain_name(id: Optional[str] = None,
+def get_domain_name(domain_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainNameResult:
     """
-    Resource Type definition for AWS::ApiGatewayV2::DomainName
+    The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
+     You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
+
+
+    :param str domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['domainName'] = domain_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getDomainName', __args__, opts=opts, typ=GetDomainNameResult).value
 
     return AwaitableGetDomainNameResult(
         domain_name_configurations=pulumi.get(__ret__, 'domain_name_configurations'),
-        id=pulumi.get(__ret__, 'id'),
         mutual_tls_authentication=pulumi.get(__ret__, 'mutual_tls_authentication'),
         regional_domain_name=pulumi.get(__ret__, 'regional_domain_name'),
         regional_hosted_zone_id=pulumi.get(__ret__, 'regional_hosted_zone_id'),
@@ -104,9 +113,13 @@ def get_domain_name(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_domain_name)
-def get_domain_name_output(id: Optional[pulumi.Input[str]] = None,
+def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameResult]:
     """
-    Resource Type definition for AWS::ApiGatewayV2::DomainName
+    The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
+     You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
+
+
+    :param str domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
     """
     ...

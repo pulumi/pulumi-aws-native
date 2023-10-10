@@ -237,6 +237,8 @@ __all__ = [
     'AnalysisIntegerParameterDeclaration',
     'AnalysisIntegerValueWhenUnsetConfiguration',
     'AnalysisItemsLimitConfiguration',
+    'AnalysisKpiActualValueConditionalFormatting',
+    'AnalysisKpiComparisonValueConditionalFormatting',
     'AnalysisKpiConditionalFormatting',
     'AnalysisKpiConditionalFormattingOption',
     'AnalysisKpiConfiguration',
@@ -245,7 +247,10 @@ __all__ = [
     'AnalysisKpiPrimaryValueConditionalFormatting',
     'AnalysisKpiProgressBarConditionalFormatting',
     'AnalysisKpiSortConfiguration',
+    'AnalysisKpiSparklineOptions',
     'AnalysisKpiVisual',
+    'AnalysisKpiVisualLayoutOptions',
+    'AnalysisKpiVisualStandardLayout',
     'AnalysisLabelOptions',
     'AnalysisLayout',
     'AnalysisLayoutConfiguration',
@@ -422,6 +427,7 @@ __all__ = [
     'AnalysisTableInlineVisualization',
     'AnalysisTableOptions',
     'AnalysisTablePaginatedReportOptions',
+    'AnalysisTablePinnedFieldOptions',
     'AnalysisTableRowConditionalFormatting',
     'AnalysisTableSideBorderOptions',
     'AnalysisTableSortConfiguration',
@@ -706,6 +712,8 @@ __all__ = [
     'DashboardIntegerParameterDeclaration',
     'DashboardIntegerValueWhenUnsetConfiguration',
     'DashboardItemsLimitConfiguration',
+    'DashboardKpiActualValueConditionalFormatting',
+    'DashboardKpiComparisonValueConditionalFormatting',
     'DashboardKpiConditionalFormatting',
     'DashboardKpiConditionalFormattingOption',
     'DashboardKpiConfiguration',
@@ -714,7 +722,10 @@ __all__ = [
     'DashboardKpiPrimaryValueConditionalFormatting',
     'DashboardKpiProgressBarConditionalFormatting',
     'DashboardKpiSortConfiguration',
+    'DashboardKpiSparklineOptions',
     'DashboardKpiVisual',
+    'DashboardKpiVisualLayoutOptions',
+    'DashboardKpiVisualStandardLayout',
     'DashboardLabelOptions',
     'DashboardLayout',
     'DashboardLayoutConfiguration',
@@ -894,6 +905,7 @@ __all__ = [
     'DashboardTableInlineVisualization',
     'DashboardTableOptions',
     'DashboardTablePaginatedReportOptions',
+    'DashboardTablePinnedFieldOptions',
     'DashboardTableRowConditionalFormatting',
     'DashboardTableSideBorderOptions',
     'DashboardTableSortConfiguration',
@@ -1234,6 +1246,8 @@ __all__ = [
     'TemplateIntegerParameterDeclaration',
     'TemplateIntegerValueWhenUnsetConfiguration',
     'TemplateItemsLimitConfiguration',
+    'TemplateKpiActualValueConditionalFormatting',
+    'TemplateKpiComparisonValueConditionalFormatting',
     'TemplateKpiConditionalFormatting',
     'TemplateKpiConditionalFormattingOption',
     'TemplateKpiConfiguration',
@@ -1242,7 +1256,10 @@ __all__ = [
     'TemplateKpiPrimaryValueConditionalFormatting',
     'TemplateKpiProgressBarConditionalFormatting',
     'TemplateKpiSortConfiguration',
+    'TemplateKpiSparklineOptions',
     'TemplateKpiVisual',
+    'TemplateKpiVisualLayoutOptions',
+    'TemplateKpiVisualStandardLayout',
     'TemplateLabelOptions',
     'TemplateLayout',
     'TemplateLayoutConfiguration',
@@ -1418,6 +1435,7 @@ __all__ = [
     'TemplateTableInlineVisualization',
     'TemplateTableOptions',
     'TemplateTablePaginatedReportOptions',
+    'TemplateTablePinnedFieldOptions',
     'TemplateTableRowConditionalFormatting',
     'TemplateTableSideBorderOptions',
     'TemplateTableSortConfiguration',
@@ -15070,6 +15088,104 @@ class AnalysisItemsLimitConfiguration(dict):
 
 
 @pulumi.output_type
+class AnalysisKpiActualValueConditionalFormatting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textColor":
+            suggest = "text_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisKpiActualValueConditionalFormatting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisKpiActualValueConditionalFormatting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisKpiActualValueConditionalFormatting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 icon: Optional['outputs.AnalysisConditionalFormattingIcon'] = None,
+                 text_color: Optional['outputs.AnalysisConditionalFormattingColor'] = None):
+        AnalysisKpiActualValueConditionalFormatting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            icon=icon,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             icon: Optional['outputs.AnalysisConditionalFormattingIcon'] = None,
+             text_color: Optional['outputs.AnalysisConditionalFormattingColor'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if icon is not None:
+            _setter("icon", icon)
+        if text_color is not None:
+            _setter("text_color", text_color)
+
+    @property
+    @pulumi.getter
+    def icon(self) -> Optional['outputs.AnalysisConditionalFormattingIcon']:
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional['outputs.AnalysisConditionalFormattingColor']:
+        return pulumi.get(self, "text_color")
+
+
+@pulumi.output_type
+class AnalysisKpiComparisonValueConditionalFormatting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textColor":
+            suggest = "text_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisKpiComparisonValueConditionalFormatting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisKpiComparisonValueConditionalFormatting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisKpiComparisonValueConditionalFormatting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 icon: Optional['outputs.AnalysisConditionalFormattingIcon'] = None,
+                 text_color: Optional['outputs.AnalysisConditionalFormattingColor'] = None):
+        AnalysisKpiComparisonValueConditionalFormatting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            icon=icon,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             icon: Optional['outputs.AnalysisConditionalFormattingIcon'] = None,
+             text_color: Optional['outputs.AnalysisConditionalFormattingColor'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if icon is not None:
+            _setter("icon", icon)
+        if text_color is not None:
+            _setter("text_color", text_color)
+
+    @property
+    @pulumi.getter
+    def icon(self) -> Optional['outputs.AnalysisConditionalFormattingIcon']:
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional['outputs.AnalysisConditionalFormattingColor']:
+        return pulumi.get(self, "text_color")
+
+
+@pulumi.output_type
 class AnalysisKpiConditionalFormatting(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -15113,7 +15229,11 @@ class AnalysisKpiConditionalFormattingOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "primaryValue":
+        if key == "actualValue":
+            suggest = "actual_value"
+        elif key == "comparisonValue":
+            suggest = "comparison_value"
+        elif key == "primaryValue":
             suggest = "primary_value"
         elif key == "progressBar":
             suggest = "progress_bar"
@@ -15130,23 +15250,43 @@ class AnalysisKpiConditionalFormattingOption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 actual_value: Optional['outputs.AnalysisKpiActualValueConditionalFormatting'] = None,
+                 comparison_value: Optional['outputs.AnalysisKpiComparisonValueConditionalFormatting'] = None,
                  primary_value: Optional['outputs.AnalysisKpiPrimaryValueConditionalFormatting'] = None,
                  progress_bar: Optional['outputs.AnalysisKpiProgressBarConditionalFormatting'] = None):
         AnalysisKpiConditionalFormattingOption._configure(
             lambda key, value: pulumi.set(__self__, key, value),
+            actual_value=actual_value,
+            comparison_value=comparison_value,
             primary_value=primary_value,
             progress_bar=progress_bar,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
+             actual_value: Optional['outputs.AnalysisKpiActualValueConditionalFormatting'] = None,
+             comparison_value: Optional['outputs.AnalysisKpiComparisonValueConditionalFormatting'] = None,
              primary_value: Optional['outputs.AnalysisKpiPrimaryValueConditionalFormatting'] = None,
              progress_bar: Optional['outputs.AnalysisKpiProgressBarConditionalFormatting'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
+        if actual_value is not None:
+            _setter("actual_value", actual_value)
+        if comparison_value is not None:
+            _setter("comparison_value", comparison_value)
         if primary_value is not None:
             _setter("primary_value", primary_value)
         if progress_bar is not None:
             _setter("progress_bar", progress_bar)
+
+    @property
+    @pulumi.getter(name="actualValue")
+    def actual_value(self) -> Optional['outputs.AnalysisKpiActualValueConditionalFormatting']:
+        return pulumi.get(self, "actual_value")
+
+    @property
+    @pulumi.getter(name="comparisonValue")
+    def comparison_value(self) -> Optional['outputs.AnalysisKpiComparisonValueConditionalFormatting']:
+        return pulumi.get(self, "comparison_value")
 
     @property
     @pulumi.getter(name="primaryValue")
@@ -15300,6 +15440,8 @@ class AnalysisKpiOptions(dict):
             suggest = "secondary_value_font_configuration"
         elif key == "trendArrows":
             suggest = "trend_arrows"
+        elif key == "visualLayoutOptions":
+            suggest = "visual_layout_options"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisKpiOptions. Access the value via the '{suggest}' property getter instead.")
@@ -15319,7 +15461,9 @@ class AnalysisKpiOptions(dict):
                  progress_bar: Optional['outputs.AnalysisProgressBarOptions'] = None,
                  secondary_value: Optional['outputs.AnalysisSecondaryValueOptions'] = None,
                  secondary_value_font_configuration: Optional['outputs.AnalysisFontConfiguration'] = None,
-                 trend_arrows: Optional['outputs.AnalysisTrendArrowOptions'] = None):
+                 sparkline: Optional['outputs.AnalysisKpiSparklineOptions'] = None,
+                 trend_arrows: Optional['outputs.AnalysisTrendArrowOptions'] = None,
+                 visual_layout_options: Optional['outputs.AnalysisKpiVisualLayoutOptions'] = None):
         AnalysisKpiOptions._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             comparison=comparison,
@@ -15328,7 +15472,9 @@ class AnalysisKpiOptions(dict):
             progress_bar=progress_bar,
             secondary_value=secondary_value,
             secondary_value_font_configuration=secondary_value_font_configuration,
+            sparkline=sparkline,
             trend_arrows=trend_arrows,
+            visual_layout_options=visual_layout_options,
         )
     @staticmethod
     def _configure(
@@ -15339,7 +15485,9 @@ class AnalysisKpiOptions(dict):
              progress_bar: Optional['outputs.AnalysisProgressBarOptions'] = None,
              secondary_value: Optional['outputs.AnalysisSecondaryValueOptions'] = None,
              secondary_value_font_configuration: Optional['outputs.AnalysisFontConfiguration'] = None,
+             sparkline: Optional['outputs.AnalysisKpiSparklineOptions'] = None,
              trend_arrows: Optional['outputs.AnalysisTrendArrowOptions'] = None,
+             visual_layout_options: Optional['outputs.AnalysisKpiVisualLayoutOptions'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         if comparison is not None:
             _setter("comparison", comparison)
@@ -15353,8 +15501,12 @@ class AnalysisKpiOptions(dict):
             _setter("secondary_value", secondary_value)
         if secondary_value_font_configuration is not None:
             _setter("secondary_value_font_configuration", secondary_value_font_configuration)
+        if sparkline is not None:
+            _setter("sparkline", sparkline)
         if trend_arrows is not None:
             _setter("trend_arrows", trend_arrows)
+        if visual_layout_options is not None:
+            _setter("visual_layout_options", visual_layout_options)
 
     @property
     @pulumi.getter
@@ -15387,9 +15539,19 @@ class AnalysisKpiOptions(dict):
         return pulumi.get(self, "secondary_value_font_configuration")
 
     @property
+    @pulumi.getter
+    def sparkline(self) -> Optional['outputs.AnalysisKpiSparklineOptions']:
+        return pulumi.get(self, "sparkline")
+
+    @property
     @pulumi.getter(name="trendArrows")
     def trend_arrows(self) -> Optional['outputs.AnalysisTrendArrowOptions']:
         return pulumi.get(self, "trend_arrows")
+
+    @property
+    @pulumi.getter(name="visualLayoutOptions")
+    def visual_layout_options(self) -> Optional['outputs.AnalysisKpiVisualLayoutOptions']:
+        return pulumi.get(self, "visual_layout_options")
 
 
 @pulumi.output_type
@@ -15520,6 +15682,74 @@ class AnalysisKpiSortConfiguration(dict):
 
 
 @pulumi.output_type
+class AnalysisKpiSparklineOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tooltipVisibility":
+            suggest = "tooltip_visibility"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisKpiSparklineOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisKpiSparklineOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisKpiSparklineOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'AnalysisKpiSparklineType',
+                 color: Optional[str] = None,
+                 tooltip_visibility: Optional['AnalysisVisibility'] = None,
+                 visibility: Optional['AnalysisVisibility'] = None):
+        AnalysisKpiSparklineOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            color=color,
+            tooltip_visibility=tooltip_visibility,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: 'AnalysisKpiSparklineType',
+             color: Optional[str] = None,
+             tooltip_visibility: Optional['AnalysisVisibility'] = None,
+             visibility: Optional['AnalysisVisibility'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        if color is not None:
+            _setter("color", color)
+        if tooltip_visibility is not None:
+            _setter("tooltip_visibility", tooltip_visibility)
+        if visibility is not None:
+            _setter("visibility", visibility)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AnalysisKpiSparklineType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="tooltipVisibility")
+    def tooltip_visibility(self) -> Optional['AnalysisVisibility']:
+        return pulumi.get(self, "tooltip_visibility")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional['AnalysisVisibility']:
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
 class AnalysisKpiVisual(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -15621,6 +15851,66 @@ class AnalysisKpiVisual(dict):
     @pulumi.getter
     def title(self) -> Optional['outputs.AnalysisVisualTitleLabelOptions']:
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class AnalysisKpiVisualLayoutOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "standardLayout":
+            suggest = "standard_layout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisKpiVisualLayoutOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisKpiVisualLayoutOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisKpiVisualLayoutOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 standard_layout: Optional['outputs.AnalysisKpiVisualStandardLayout'] = None):
+        AnalysisKpiVisualLayoutOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            standard_layout=standard_layout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             standard_layout: Optional['outputs.AnalysisKpiVisualStandardLayout'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if standard_layout is not None:
+            _setter("standard_layout", standard_layout)
+
+    @property
+    @pulumi.getter(name="standardLayout")
+    def standard_layout(self) -> Optional['outputs.AnalysisKpiVisualStandardLayout']:
+        return pulumi.get(self, "standard_layout")
+
+
+@pulumi.output_type
+class AnalysisKpiVisualStandardLayout(dict):
+    def __init__(__self__, *,
+                 type: 'AnalysisKpiVisualStandardLayoutType'):
+        AnalysisKpiVisualStandardLayout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: 'AnalysisKpiVisualStandardLayoutType',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AnalysisKpiVisualStandardLayoutType':
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -26096,7 +26386,9 @@ class AnalysisTableFieldOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "selectedFieldOptions":
+        if key == "pinnedFieldOptions":
+            suggest = "pinned_field_options"
+        elif key == "selectedFieldOptions":
             suggest = "selected_field_options"
 
         if suggest:
@@ -26112,20 +26404,25 @@ class AnalysisTableFieldOptions(dict):
 
     def __init__(__self__, *,
                  order: Optional[Sequence[str]] = None,
+                 pinned_field_options: Optional['outputs.AnalysisTablePinnedFieldOptions'] = None,
                  selected_field_options: Optional[Sequence['outputs.AnalysisTableFieldOption']] = None):
         AnalysisTableFieldOptions._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             order=order,
+            pinned_field_options=pinned_field_options,
             selected_field_options=selected_field_options,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              order: Optional[Sequence[str]] = None,
+             pinned_field_options: Optional['outputs.AnalysisTablePinnedFieldOptions'] = None,
              selected_field_options: Optional[Sequence['outputs.AnalysisTableFieldOption']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         if order is not None:
             _setter("order", order)
+        if pinned_field_options is not None:
+            _setter("pinned_field_options", pinned_field_options)
         if selected_field_options is not None:
             _setter("selected_field_options", selected_field_options)
 
@@ -26133,6 +26430,11 @@ class AnalysisTableFieldOptions(dict):
     @pulumi.getter
     def order(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter(name="pinnedFieldOptions")
+    def pinned_field_options(self) -> Optional['outputs.AnalysisTablePinnedFieldOptions']:
+        return pulumi.get(self, "pinned_field_options")
 
     @property
     @pulumi.getter(name="selectedFieldOptions")
@@ -26403,6 +26705,45 @@ class AnalysisTablePaginatedReportOptions(dict):
     @pulumi.getter(name="verticalOverflowVisibility")
     def vertical_overflow_visibility(self) -> Optional['AnalysisVisibility']:
         return pulumi.get(self, "vertical_overflow_visibility")
+
+
+@pulumi.output_type
+class AnalysisTablePinnedFieldOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pinnedLeftFields":
+            suggest = "pinned_left_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisTablePinnedFieldOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisTablePinnedFieldOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisTablePinnedFieldOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pinned_left_fields: Optional[Sequence[str]] = None):
+        AnalysisTablePinnedFieldOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pinned_left_fields=pinned_left_fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pinned_left_fields: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if pinned_left_fields is not None:
+            _setter("pinned_left_fields", pinned_left_fields)
+
+    @property
+    @pulumi.getter(name="pinnedLeftFields")
+    def pinned_left_fields(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "pinned_left_fields")
 
 
 @pulumi.output_type
@@ -43762,6 +44103,104 @@ class DashboardItemsLimitConfiguration(dict):
 
 
 @pulumi.output_type
+class DashboardKpiActualValueConditionalFormatting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textColor":
+            suggest = "text_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardKpiActualValueConditionalFormatting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardKpiActualValueConditionalFormatting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardKpiActualValueConditionalFormatting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 icon: Optional['outputs.DashboardConditionalFormattingIcon'] = None,
+                 text_color: Optional['outputs.DashboardConditionalFormattingColor'] = None):
+        DashboardKpiActualValueConditionalFormatting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            icon=icon,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             icon: Optional['outputs.DashboardConditionalFormattingIcon'] = None,
+             text_color: Optional['outputs.DashboardConditionalFormattingColor'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if icon is not None:
+            _setter("icon", icon)
+        if text_color is not None:
+            _setter("text_color", text_color)
+
+    @property
+    @pulumi.getter
+    def icon(self) -> Optional['outputs.DashboardConditionalFormattingIcon']:
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional['outputs.DashboardConditionalFormattingColor']:
+        return pulumi.get(self, "text_color")
+
+
+@pulumi.output_type
+class DashboardKpiComparisonValueConditionalFormatting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textColor":
+            suggest = "text_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardKpiComparisonValueConditionalFormatting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardKpiComparisonValueConditionalFormatting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardKpiComparisonValueConditionalFormatting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 icon: Optional['outputs.DashboardConditionalFormattingIcon'] = None,
+                 text_color: Optional['outputs.DashboardConditionalFormattingColor'] = None):
+        DashboardKpiComparisonValueConditionalFormatting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            icon=icon,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             icon: Optional['outputs.DashboardConditionalFormattingIcon'] = None,
+             text_color: Optional['outputs.DashboardConditionalFormattingColor'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if icon is not None:
+            _setter("icon", icon)
+        if text_color is not None:
+            _setter("text_color", text_color)
+
+    @property
+    @pulumi.getter
+    def icon(self) -> Optional['outputs.DashboardConditionalFormattingIcon']:
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional['outputs.DashboardConditionalFormattingColor']:
+        return pulumi.get(self, "text_color")
+
+
+@pulumi.output_type
 class DashboardKpiConditionalFormatting(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -43805,7 +44244,11 @@ class DashboardKpiConditionalFormattingOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "primaryValue":
+        if key == "actualValue":
+            suggest = "actual_value"
+        elif key == "comparisonValue":
+            suggest = "comparison_value"
+        elif key == "primaryValue":
             suggest = "primary_value"
         elif key == "progressBar":
             suggest = "progress_bar"
@@ -43822,23 +44265,43 @@ class DashboardKpiConditionalFormattingOption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 actual_value: Optional['outputs.DashboardKpiActualValueConditionalFormatting'] = None,
+                 comparison_value: Optional['outputs.DashboardKpiComparisonValueConditionalFormatting'] = None,
                  primary_value: Optional['outputs.DashboardKpiPrimaryValueConditionalFormatting'] = None,
                  progress_bar: Optional['outputs.DashboardKpiProgressBarConditionalFormatting'] = None):
         DashboardKpiConditionalFormattingOption._configure(
             lambda key, value: pulumi.set(__self__, key, value),
+            actual_value=actual_value,
+            comparison_value=comparison_value,
             primary_value=primary_value,
             progress_bar=progress_bar,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
+             actual_value: Optional['outputs.DashboardKpiActualValueConditionalFormatting'] = None,
+             comparison_value: Optional['outputs.DashboardKpiComparisonValueConditionalFormatting'] = None,
              primary_value: Optional['outputs.DashboardKpiPrimaryValueConditionalFormatting'] = None,
              progress_bar: Optional['outputs.DashboardKpiProgressBarConditionalFormatting'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
+        if actual_value is not None:
+            _setter("actual_value", actual_value)
+        if comparison_value is not None:
+            _setter("comparison_value", comparison_value)
         if primary_value is not None:
             _setter("primary_value", primary_value)
         if progress_bar is not None:
             _setter("progress_bar", progress_bar)
+
+    @property
+    @pulumi.getter(name="actualValue")
+    def actual_value(self) -> Optional['outputs.DashboardKpiActualValueConditionalFormatting']:
+        return pulumi.get(self, "actual_value")
+
+    @property
+    @pulumi.getter(name="comparisonValue")
+    def comparison_value(self) -> Optional['outputs.DashboardKpiComparisonValueConditionalFormatting']:
+        return pulumi.get(self, "comparison_value")
 
     @property
     @pulumi.getter(name="primaryValue")
@@ -43992,6 +44455,8 @@ class DashboardKpiOptions(dict):
             suggest = "secondary_value_font_configuration"
         elif key == "trendArrows":
             suggest = "trend_arrows"
+        elif key == "visualLayoutOptions":
+            suggest = "visual_layout_options"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardKpiOptions. Access the value via the '{suggest}' property getter instead.")
@@ -44011,7 +44476,9 @@ class DashboardKpiOptions(dict):
                  progress_bar: Optional['outputs.DashboardProgressBarOptions'] = None,
                  secondary_value: Optional['outputs.DashboardSecondaryValueOptions'] = None,
                  secondary_value_font_configuration: Optional['outputs.DashboardFontConfiguration'] = None,
-                 trend_arrows: Optional['outputs.DashboardTrendArrowOptions'] = None):
+                 sparkline: Optional['outputs.DashboardKpiSparklineOptions'] = None,
+                 trend_arrows: Optional['outputs.DashboardTrendArrowOptions'] = None,
+                 visual_layout_options: Optional['outputs.DashboardKpiVisualLayoutOptions'] = None):
         DashboardKpiOptions._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             comparison=comparison,
@@ -44020,7 +44487,9 @@ class DashboardKpiOptions(dict):
             progress_bar=progress_bar,
             secondary_value=secondary_value,
             secondary_value_font_configuration=secondary_value_font_configuration,
+            sparkline=sparkline,
             trend_arrows=trend_arrows,
+            visual_layout_options=visual_layout_options,
         )
     @staticmethod
     def _configure(
@@ -44031,7 +44500,9 @@ class DashboardKpiOptions(dict):
              progress_bar: Optional['outputs.DashboardProgressBarOptions'] = None,
              secondary_value: Optional['outputs.DashboardSecondaryValueOptions'] = None,
              secondary_value_font_configuration: Optional['outputs.DashboardFontConfiguration'] = None,
+             sparkline: Optional['outputs.DashboardKpiSparklineOptions'] = None,
              trend_arrows: Optional['outputs.DashboardTrendArrowOptions'] = None,
+             visual_layout_options: Optional['outputs.DashboardKpiVisualLayoutOptions'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         if comparison is not None:
             _setter("comparison", comparison)
@@ -44045,8 +44516,12 @@ class DashboardKpiOptions(dict):
             _setter("secondary_value", secondary_value)
         if secondary_value_font_configuration is not None:
             _setter("secondary_value_font_configuration", secondary_value_font_configuration)
+        if sparkline is not None:
+            _setter("sparkline", sparkline)
         if trend_arrows is not None:
             _setter("trend_arrows", trend_arrows)
+        if visual_layout_options is not None:
+            _setter("visual_layout_options", visual_layout_options)
 
     @property
     @pulumi.getter
@@ -44079,9 +44554,19 @@ class DashboardKpiOptions(dict):
         return pulumi.get(self, "secondary_value_font_configuration")
 
     @property
+    @pulumi.getter
+    def sparkline(self) -> Optional['outputs.DashboardKpiSparklineOptions']:
+        return pulumi.get(self, "sparkline")
+
+    @property
     @pulumi.getter(name="trendArrows")
     def trend_arrows(self) -> Optional['outputs.DashboardTrendArrowOptions']:
         return pulumi.get(self, "trend_arrows")
+
+    @property
+    @pulumi.getter(name="visualLayoutOptions")
+    def visual_layout_options(self) -> Optional['outputs.DashboardKpiVisualLayoutOptions']:
+        return pulumi.get(self, "visual_layout_options")
 
 
 @pulumi.output_type
@@ -44212,6 +44697,74 @@ class DashboardKpiSortConfiguration(dict):
 
 
 @pulumi.output_type
+class DashboardKpiSparklineOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tooltipVisibility":
+            suggest = "tooltip_visibility"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardKpiSparklineOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardKpiSparklineOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardKpiSparklineOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'DashboardKpiSparklineType',
+                 color: Optional[str] = None,
+                 tooltip_visibility: Optional['DashboardVisibility'] = None,
+                 visibility: Optional['DashboardVisibility'] = None):
+        DashboardKpiSparklineOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            color=color,
+            tooltip_visibility=tooltip_visibility,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: 'DashboardKpiSparklineType',
+             color: Optional[str] = None,
+             tooltip_visibility: Optional['DashboardVisibility'] = None,
+             visibility: Optional['DashboardVisibility'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        if color is not None:
+            _setter("color", color)
+        if tooltip_visibility is not None:
+            _setter("tooltip_visibility", tooltip_visibility)
+        if visibility is not None:
+            _setter("visibility", visibility)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'DashboardKpiSparklineType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="tooltipVisibility")
+    def tooltip_visibility(self) -> Optional['DashboardVisibility']:
+        return pulumi.get(self, "tooltip_visibility")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional['DashboardVisibility']:
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
 class DashboardKpiVisual(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -44313,6 +44866,66 @@ class DashboardKpiVisual(dict):
     @pulumi.getter
     def title(self) -> Optional['outputs.DashboardVisualTitleLabelOptions']:
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class DashboardKpiVisualLayoutOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "standardLayout":
+            suggest = "standard_layout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardKpiVisualLayoutOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardKpiVisualLayoutOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardKpiVisualLayoutOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 standard_layout: Optional['outputs.DashboardKpiVisualStandardLayout'] = None):
+        DashboardKpiVisualLayoutOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            standard_layout=standard_layout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             standard_layout: Optional['outputs.DashboardKpiVisualStandardLayout'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if standard_layout is not None:
+            _setter("standard_layout", standard_layout)
+
+    @property
+    @pulumi.getter(name="standardLayout")
+    def standard_layout(self) -> Optional['outputs.DashboardKpiVisualStandardLayout']:
+        return pulumi.get(self, "standard_layout")
+
+
+@pulumi.output_type
+class DashboardKpiVisualStandardLayout(dict):
+    def __init__(__self__, *,
+                 type: 'DashboardKpiVisualStandardLayoutType'):
+        DashboardKpiVisualStandardLayout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: 'DashboardKpiVisualStandardLayoutType',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'DashboardKpiVisualStandardLayoutType':
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -55025,7 +55638,9 @@ class DashboardTableFieldOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "selectedFieldOptions":
+        if key == "pinnedFieldOptions":
+            suggest = "pinned_field_options"
+        elif key == "selectedFieldOptions":
             suggest = "selected_field_options"
 
         if suggest:
@@ -55041,20 +55656,25 @@ class DashboardTableFieldOptions(dict):
 
     def __init__(__self__, *,
                  order: Optional[Sequence[str]] = None,
+                 pinned_field_options: Optional['outputs.DashboardTablePinnedFieldOptions'] = None,
                  selected_field_options: Optional[Sequence['outputs.DashboardTableFieldOption']] = None):
         DashboardTableFieldOptions._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             order=order,
+            pinned_field_options=pinned_field_options,
             selected_field_options=selected_field_options,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              order: Optional[Sequence[str]] = None,
+             pinned_field_options: Optional['outputs.DashboardTablePinnedFieldOptions'] = None,
              selected_field_options: Optional[Sequence['outputs.DashboardTableFieldOption']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         if order is not None:
             _setter("order", order)
+        if pinned_field_options is not None:
+            _setter("pinned_field_options", pinned_field_options)
         if selected_field_options is not None:
             _setter("selected_field_options", selected_field_options)
 
@@ -55062,6 +55682,11 @@ class DashboardTableFieldOptions(dict):
     @pulumi.getter
     def order(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter(name="pinnedFieldOptions")
+    def pinned_field_options(self) -> Optional['outputs.DashboardTablePinnedFieldOptions']:
+        return pulumi.get(self, "pinned_field_options")
 
     @property
     @pulumi.getter(name="selectedFieldOptions")
@@ -55332,6 +55957,45 @@ class DashboardTablePaginatedReportOptions(dict):
     @pulumi.getter(name="verticalOverflowVisibility")
     def vertical_overflow_visibility(self) -> Optional['DashboardVisibility']:
         return pulumi.get(self, "vertical_overflow_visibility")
+
+
+@pulumi.output_type
+class DashboardTablePinnedFieldOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pinnedLeftFields":
+            suggest = "pinned_left_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardTablePinnedFieldOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardTablePinnedFieldOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardTablePinnedFieldOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pinned_left_fields: Optional[Sequence[str]] = None):
+        DashboardTablePinnedFieldOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pinned_left_fields=pinned_left_fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pinned_left_fields: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if pinned_left_fields is not None:
+            _setter("pinned_left_fields", pinned_left_fields)
+
+    @property
+    @pulumi.getter(name="pinnedLeftFields")
+    def pinned_left_fields(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "pinned_left_fields")
 
 
 @pulumi.output_type
@@ -76417,6 +77081,104 @@ class TemplateItemsLimitConfiguration(dict):
 
 
 @pulumi.output_type
+class TemplateKpiActualValueConditionalFormatting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textColor":
+            suggest = "text_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateKpiActualValueConditionalFormatting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateKpiActualValueConditionalFormatting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateKpiActualValueConditionalFormatting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 icon: Optional['outputs.TemplateConditionalFormattingIcon'] = None,
+                 text_color: Optional['outputs.TemplateConditionalFormattingColor'] = None):
+        TemplateKpiActualValueConditionalFormatting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            icon=icon,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             icon: Optional['outputs.TemplateConditionalFormattingIcon'] = None,
+             text_color: Optional['outputs.TemplateConditionalFormattingColor'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if icon is not None:
+            _setter("icon", icon)
+        if text_color is not None:
+            _setter("text_color", text_color)
+
+    @property
+    @pulumi.getter
+    def icon(self) -> Optional['outputs.TemplateConditionalFormattingIcon']:
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional['outputs.TemplateConditionalFormattingColor']:
+        return pulumi.get(self, "text_color")
+
+
+@pulumi.output_type
+class TemplateKpiComparisonValueConditionalFormatting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textColor":
+            suggest = "text_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateKpiComparisonValueConditionalFormatting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateKpiComparisonValueConditionalFormatting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateKpiComparisonValueConditionalFormatting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 icon: Optional['outputs.TemplateConditionalFormattingIcon'] = None,
+                 text_color: Optional['outputs.TemplateConditionalFormattingColor'] = None):
+        TemplateKpiComparisonValueConditionalFormatting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            icon=icon,
+            text_color=text_color,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             icon: Optional['outputs.TemplateConditionalFormattingIcon'] = None,
+             text_color: Optional['outputs.TemplateConditionalFormattingColor'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if icon is not None:
+            _setter("icon", icon)
+        if text_color is not None:
+            _setter("text_color", text_color)
+
+    @property
+    @pulumi.getter
+    def icon(self) -> Optional['outputs.TemplateConditionalFormattingIcon']:
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional['outputs.TemplateConditionalFormattingColor']:
+        return pulumi.get(self, "text_color")
+
+
+@pulumi.output_type
 class TemplateKpiConditionalFormatting(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -76460,7 +77222,11 @@ class TemplateKpiConditionalFormattingOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "primaryValue":
+        if key == "actualValue":
+            suggest = "actual_value"
+        elif key == "comparisonValue":
+            suggest = "comparison_value"
+        elif key == "primaryValue":
             suggest = "primary_value"
         elif key == "progressBar":
             suggest = "progress_bar"
@@ -76477,23 +77243,43 @@ class TemplateKpiConditionalFormattingOption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 actual_value: Optional['outputs.TemplateKpiActualValueConditionalFormatting'] = None,
+                 comparison_value: Optional['outputs.TemplateKpiComparisonValueConditionalFormatting'] = None,
                  primary_value: Optional['outputs.TemplateKpiPrimaryValueConditionalFormatting'] = None,
                  progress_bar: Optional['outputs.TemplateKpiProgressBarConditionalFormatting'] = None):
         TemplateKpiConditionalFormattingOption._configure(
             lambda key, value: pulumi.set(__self__, key, value),
+            actual_value=actual_value,
+            comparison_value=comparison_value,
             primary_value=primary_value,
             progress_bar=progress_bar,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
+             actual_value: Optional['outputs.TemplateKpiActualValueConditionalFormatting'] = None,
+             comparison_value: Optional['outputs.TemplateKpiComparisonValueConditionalFormatting'] = None,
              primary_value: Optional['outputs.TemplateKpiPrimaryValueConditionalFormatting'] = None,
              progress_bar: Optional['outputs.TemplateKpiProgressBarConditionalFormatting'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
+        if actual_value is not None:
+            _setter("actual_value", actual_value)
+        if comparison_value is not None:
+            _setter("comparison_value", comparison_value)
         if primary_value is not None:
             _setter("primary_value", primary_value)
         if progress_bar is not None:
             _setter("progress_bar", progress_bar)
+
+    @property
+    @pulumi.getter(name="actualValue")
+    def actual_value(self) -> Optional['outputs.TemplateKpiActualValueConditionalFormatting']:
+        return pulumi.get(self, "actual_value")
+
+    @property
+    @pulumi.getter(name="comparisonValue")
+    def comparison_value(self) -> Optional['outputs.TemplateKpiComparisonValueConditionalFormatting']:
+        return pulumi.get(self, "comparison_value")
 
     @property
     @pulumi.getter(name="primaryValue")
@@ -76647,6 +77433,8 @@ class TemplateKpiOptions(dict):
             suggest = "secondary_value_font_configuration"
         elif key == "trendArrows":
             suggest = "trend_arrows"
+        elif key == "visualLayoutOptions":
+            suggest = "visual_layout_options"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateKpiOptions. Access the value via the '{suggest}' property getter instead.")
@@ -76666,7 +77454,9 @@ class TemplateKpiOptions(dict):
                  progress_bar: Optional['outputs.TemplateProgressBarOptions'] = None,
                  secondary_value: Optional['outputs.TemplateSecondaryValueOptions'] = None,
                  secondary_value_font_configuration: Optional['outputs.TemplateFontConfiguration'] = None,
-                 trend_arrows: Optional['outputs.TemplateTrendArrowOptions'] = None):
+                 sparkline: Optional['outputs.TemplateKpiSparklineOptions'] = None,
+                 trend_arrows: Optional['outputs.TemplateTrendArrowOptions'] = None,
+                 visual_layout_options: Optional['outputs.TemplateKpiVisualLayoutOptions'] = None):
         TemplateKpiOptions._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             comparison=comparison,
@@ -76675,7 +77465,9 @@ class TemplateKpiOptions(dict):
             progress_bar=progress_bar,
             secondary_value=secondary_value,
             secondary_value_font_configuration=secondary_value_font_configuration,
+            sparkline=sparkline,
             trend_arrows=trend_arrows,
+            visual_layout_options=visual_layout_options,
         )
     @staticmethod
     def _configure(
@@ -76686,7 +77478,9 @@ class TemplateKpiOptions(dict):
              progress_bar: Optional['outputs.TemplateProgressBarOptions'] = None,
              secondary_value: Optional['outputs.TemplateSecondaryValueOptions'] = None,
              secondary_value_font_configuration: Optional['outputs.TemplateFontConfiguration'] = None,
+             sparkline: Optional['outputs.TemplateKpiSparklineOptions'] = None,
              trend_arrows: Optional['outputs.TemplateTrendArrowOptions'] = None,
+             visual_layout_options: Optional['outputs.TemplateKpiVisualLayoutOptions'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         if comparison is not None:
             _setter("comparison", comparison)
@@ -76700,8 +77494,12 @@ class TemplateKpiOptions(dict):
             _setter("secondary_value", secondary_value)
         if secondary_value_font_configuration is not None:
             _setter("secondary_value_font_configuration", secondary_value_font_configuration)
+        if sparkline is not None:
+            _setter("sparkline", sparkline)
         if trend_arrows is not None:
             _setter("trend_arrows", trend_arrows)
+        if visual_layout_options is not None:
+            _setter("visual_layout_options", visual_layout_options)
 
     @property
     @pulumi.getter
@@ -76734,9 +77532,19 @@ class TemplateKpiOptions(dict):
         return pulumi.get(self, "secondary_value_font_configuration")
 
     @property
+    @pulumi.getter
+    def sparkline(self) -> Optional['outputs.TemplateKpiSparklineOptions']:
+        return pulumi.get(self, "sparkline")
+
+    @property
     @pulumi.getter(name="trendArrows")
     def trend_arrows(self) -> Optional['outputs.TemplateTrendArrowOptions']:
         return pulumi.get(self, "trend_arrows")
+
+    @property
+    @pulumi.getter(name="visualLayoutOptions")
+    def visual_layout_options(self) -> Optional['outputs.TemplateKpiVisualLayoutOptions']:
+        return pulumi.get(self, "visual_layout_options")
 
 
 @pulumi.output_type
@@ -76867,6 +77675,74 @@ class TemplateKpiSortConfiguration(dict):
 
 
 @pulumi.output_type
+class TemplateKpiSparklineOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tooltipVisibility":
+            suggest = "tooltip_visibility"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateKpiSparklineOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateKpiSparklineOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateKpiSparklineOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'TemplateKpiSparklineType',
+                 color: Optional[str] = None,
+                 tooltip_visibility: Optional['TemplateVisibility'] = None,
+                 visibility: Optional['TemplateVisibility'] = None):
+        TemplateKpiSparklineOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            color=color,
+            tooltip_visibility=tooltip_visibility,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: 'TemplateKpiSparklineType',
+             color: Optional[str] = None,
+             tooltip_visibility: Optional['TemplateVisibility'] = None,
+             visibility: Optional['TemplateVisibility'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        if color is not None:
+            _setter("color", color)
+        if tooltip_visibility is not None:
+            _setter("tooltip_visibility", tooltip_visibility)
+        if visibility is not None:
+            _setter("visibility", visibility)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'TemplateKpiSparklineType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="tooltipVisibility")
+    def tooltip_visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "tooltip_visibility")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
 class TemplateKpiVisual(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -76968,6 +77844,66 @@ class TemplateKpiVisual(dict):
     @pulumi.getter
     def title(self) -> Optional['outputs.TemplateVisualTitleLabelOptions']:
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class TemplateKpiVisualLayoutOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "standardLayout":
+            suggest = "standard_layout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateKpiVisualLayoutOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateKpiVisualLayoutOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateKpiVisualLayoutOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 standard_layout: Optional['outputs.TemplateKpiVisualStandardLayout'] = None):
+        TemplateKpiVisualLayoutOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            standard_layout=standard_layout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             standard_layout: Optional['outputs.TemplateKpiVisualStandardLayout'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if standard_layout is not None:
+            _setter("standard_layout", standard_layout)
+
+    @property
+    @pulumi.getter(name="standardLayout")
+    def standard_layout(self) -> Optional['outputs.TemplateKpiVisualStandardLayout']:
+        return pulumi.get(self, "standard_layout")
+
+
+@pulumi.output_type
+class TemplateKpiVisualStandardLayout(dict):
+    def __init__(__self__, *,
+                 type: 'TemplateKpiVisualStandardLayoutType'):
+        TemplateKpiVisualStandardLayout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: 'TemplateKpiVisualStandardLayoutType',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'TemplateKpiVisualStandardLayoutType':
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -87371,7 +88307,9 @@ class TemplateTableFieldOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "selectedFieldOptions":
+        if key == "pinnedFieldOptions":
+            suggest = "pinned_field_options"
+        elif key == "selectedFieldOptions":
             suggest = "selected_field_options"
 
         if suggest:
@@ -87387,20 +88325,25 @@ class TemplateTableFieldOptions(dict):
 
     def __init__(__self__, *,
                  order: Optional[Sequence[str]] = None,
+                 pinned_field_options: Optional['outputs.TemplateTablePinnedFieldOptions'] = None,
                  selected_field_options: Optional[Sequence['outputs.TemplateTableFieldOption']] = None):
         TemplateTableFieldOptions._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             order=order,
+            pinned_field_options=pinned_field_options,
             selected_field_options=selected_field_options,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              order: Optional[Sequence[str]] = None,
+             pinned_field_options: Optional['outputs.TemplateTablePinnedFieldOptions'] = None,
              selected_field_options: Optional[Sequence['outputs.TemplateTableFieldOption']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         if order is not None:
             _setter("order", order)
+        if pinned_field_options is not None:
+            _setter("pinned_field_options", pinned_field_options)
         if selected_field_options is not None:
             _setter("selected_field_options", selected_field_options)
 
@@ -87408,6 +88351,11 @@ class TemplateTableFieldOptions(dict):
     @pulumi.getter
     def order(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter(name="pinnedFieldOptions")
+    def pinned_field_options(self) -> Optional['outputs.TemplateTablePinnedFieldOptions']:
+        return pulumi.get(self, "pinned_field_options")
 
     @property
     @pulumi.getter(name="selectedFieldOptions")
@@ -87678,6 +88626,45 @@ class TemplateTablePaginatedReportOptions(dict):
     @pulumi.getter(name="verticalOverflowVisibility")
     def vertical_overflow_visibility(self) -> Optional['TemplateVisibility']:
         return pulumi.get(self, "vertical_overflow_visibility")
+
+
+@pulumi.output_type
+class TemplateTablePinnedFieldOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pinnedLeftFields":
+            suggest = "pinned_left_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateTablePinnedFieldOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateTablePinnedFieldOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateTablePinnedFieldOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pinned_left_fields: Optional[Sequence[str]] = None):
+        TemplateTablePinnedFieldOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pinned_left_fields=pinned_left_fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pinned_left_fields: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if pinned_left_fields is not None:
+            _setter("pinned_left_fields", pinned_left_fields)
+
+    @property
+    @pulumi.getter(name="pinnedLeftFields")
+    def pinned_left_fields(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "pinned_left_fields")
 
 
 @pulumi.output_type

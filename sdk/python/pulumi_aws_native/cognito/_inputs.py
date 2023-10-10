@@ -13,6 +13,8 @@ __all__ = [
     'IdentityPoolCognitoIdentityProviderArgs',
     'IdentityPoolCognitoStreamsArgs',
     'IdentityPoolPushSyncArgs',
+    'LogDeliveryConfigurationCloudWatchLogsConfigurationArgs',
+    'LogDeliveryConfigurationLogConfigurationArgs',
     'UserPoolAccountRecoverySettingArgs',
     'UserPoolAddOnsArgs',
     'UserPoolAdminCreateUserConfigArgs',
@@ -193,6 +195,86 @@ class IdentityPoolPushSyncArgs:
     @role_arn.setter
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class LogDeliveryConfigurationCloudWatchLogsConfigurationArgs:
+    def __init__(__self__, *,
+                 log_group_arn: Optional[pulumi.Input[str]] = None):
+        LogDeliveryConfigurationCloudWatchLogsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_arn=log_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if log_group_arn is not None:
+            _setter("log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "log_group_arn")
+
+    @log_group_arn.setter
+    def log_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group_arn", value)
+
+
+@pulumi.input_type
+class LogDeliveryConfigurationLogConfigurationArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs_configuration: Optional[pulumi.Input['LogDeliveryConfigurationCloudWatchLogsConfigurationArgs']] = None,
+                 event_source: Optional[pulumi.Input[str]] = None,
+                 log_level: Optional[pulumi.Input[str]] = None):
+        LogDeliveryConfigurationLogConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_logs_configuration=cloud_watch_logs_configuration,
+            event_source=event_source,
+            log_level=log_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_logs_configuration: Optional[pulumi.Input['LogDeliveryConfigurationCloudWatchLogsConfigurationArgs']] = None,
+             event_source: Optional[pulumi.Input[str]] = None,
+             log_level: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if cloud_watch_logs_configuration is not None:
+            _setter("cloud_watch_logs_configuration", cloud_watch_logs_configuration)
+        if event_source is not None:
+            _setter("event_source", event_source)
+        if log_level is not None:
+            _setter("log_level", log_level)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsConfiguration")
+    def cloud_watch_logs_configuration(self) -> Optional[pulumi.Input['LogDeliveryConfigurationCloudWatchLogsConfigurationArgs']]:
+        return pulumi.get(self, "cloud_watch_logs_configuration")
+
+    @cloud_watch_logs_configuration.setter
+    def cloud_watch_logs_configuration(self, value: Optional[pulumi.Input['LogDeliveryConfigurationCloudWatchLogsConfigurationArgs']]):
+        pulumi.set(self, "cloud_watch_logs_configuration", value)
+
+    @property
+    @pulumi.getter(name="eventSource")
+    def event_source(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "event_source")
+
+    @event_source.setter
+    def event_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_source", value)
+
+    @property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "log_level")
+
+    @log_level.setter
+    def log_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_level", value)
 
 
 @pulumi.input_type

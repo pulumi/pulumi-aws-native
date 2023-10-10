@@ -39,6 +39,10 @@ export interface GetDbInstanceResult {
      */
     readonly autoMinorVersionUpgrade?: boolean;
     /**
+     * Enables replication of automated backups to a different Amazon Web Services Region.
+     */
+    readonly automaticBackupReplicationRegion?: string;
+    /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
      */
     readonly availabilityZone?: string;

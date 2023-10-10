@@ -1143,16 +1143,44 @@ export namespace apigatewayv2 {
         issuer?: string;
     }
 
+    /**
+     * The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
+     *  ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
+     */
     export interface DomainNameConfiguration {
+        /**
+         * An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+         */
         certificateArn?: string;
+        /**
+         * The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
+         */
         certificateName?: string;
+        /**
+         * The endpoint type.
+         */
         endpointType?: string;
+        /**
+         * The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
+         */
         ownershipVerificationCertificateArn?: string;
+        /**
+         * The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
+         */
         securityPolicy?: string;
     }
 
+    /**
+     * If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
+     */
     export interface DomainNameMutualTlsAuthentication {
+        /**
+         * An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, ``s3://bucket-name/key-name``. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
+         */
         truststoreUri?: string;
+        /**
+         * The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+         */
         truststoreVersion?: string;
     }
 
@@ -7240,6 +7268,16 @@ export namespace cognito {
         roleArn?: string;
     }
 
+    export interface LogDeliveryConfigurationCloudWatchLogsConfiguration {
+        logGroupArn?: string;
+    }
+
+    export interface LogDeliveryConfigurationLogConfiguration {
+        cloudWatchLogsConfiguration?: outputs.cognito.LogDeliveryConfigurationCloudWatchLogsConfiguration;
+        eventSource?: string;
+        logLevel?: string;
+    }
+
     export interface UserPoolAccountRecoverySetting {
         recoveryMechanisms?: outputs.cognito.UserPoolRecoveryOption[];
     }
@@ -9207,6 +9245,20 @@ export namespace connect {
         key: string;
         /**
          * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface UserHierarchyGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: string;
     }
@@ -15508,7 +15560,7 @@ export namespace elasticloadbalancingv2 {
 
     export interface LoadBalancerTag {
         key: string;
-        value: string;
+        value?: string;
     }
 
     export interface TargetGroupAttribute {
@@ -16433,8 +16485,8 @@ export namespace events {
     }
 
     export interface RuleTag {
-        key: string;
-        value: string;
+        key?: string;
+        value?: string;
     }
 
     export interface RuleTarget {
@@ -20433,6 +20485,37 @@ export namespace iot {
         key: string;
         /**
          * The tag's value.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface SoftwarePackageTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+    export interface SoftwarePackageVersionResourceAttributes {
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface SoftwarePackageVersionTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: string;
     }
@@ -30335,6 +30418,10 @@ export namespace mediatailor {
      */
     export interface ChannelHlsPlaylistSettings {
         /**
+         * <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
+         */
+        adMarkupType?: enums.mediatailor.ChannelAdMarkupType[];
+        /**
          * <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
          */
         manifestWindowSeconds?: number;
@@ -35139,11 +35226,23 @@ export namespace quicksight {
         otherCategories?: enums.quicksight.AnalysisOtherCategories;
     }
 
+    export interface AnalysisKpiActualValueConditionalFormatting {
+        icon?: outputs.quicksight.AnalysisConditionalFormattingIcon;
+        textColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
+    }
+
+    export interface AnalysisKpiComparisonValueConditionalFormatting {
+        icon?: outputs.quicksight.AnalysisConditionalFormattingIcon;
+        textColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
+    }
+
     export interface AnalysisKpiConditionalFormatting {
         conditionalFormattingOptions?: outputs.quicksight.AnalysisKpiConditionalFormattingOption[];
     }
 
     export interface AnalysisKpiConditionalFormattingOption {
+        actualValue?: outputs.quicksight.AnalysisKpiActualValueConditionalFormatting;
+        comparisonValue?: outputs.quicksight.AnalysisKpiComparisonValueConditionalFormatting;
         primaryValue?: outputs.quicksight.AnalysisKpiPrimaryValueConditionalFormatting;
         progressBar?: outputs.quicksight.AnalysisKpiProgressBarConditionalFormatting;
     }
@@ -35167,7 +35266,9 @@ export namespace quicksight {
         progressBar?: outputs.quicksight.AnalysisProgressBarOptions;
         secondaryValue?: outputs.quicksight.AnalysisSecondaryValueOptions;
         secondaryValueFontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
+        sparkline?: outputs.quicksight.AnalysisKpiSparklineOptions;
         trendArrows?: outputs.quicksight.AnalysisTrendArrowOptions;
+        visualLayoutOptions?: outputs.quicksight.AnalysisKpiVisualLayoutOptions;
     }
 
     export interface AnalysisKpiPrimaryValueConditionalFormatting {
@@ -35183,6 +35284,13 @@ export namespace quicksight {
         trendGroupSort?: outputs.quicksight.AnalysisFieldSortOptions[];
     }
 
+    export interface AnalysisKpiSparklineOptions {
+        color?: string;
+        tooltipVisibility?: enums.quicksight.AnalysisVisibility;
+        type: enums.quicksight.AnalysisKpiSparklineType;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
     export interface AnalysisKpiVisual {
         actions?: outputs.quicksight.AnalysisVisualCustomAction[];
         chartConfiguration?: outputs.quicksight.AnalysisKpiConfiguration;
@@ -35191,6 +35299,14 @@ export namespace quicksight {
         subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
         title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
         visualId: string;
+    }
+
+    export interface AnalysisKpiVisualLayoutOptions {
+        standardLayout?: outputs.quicksight.AnalysisKpiVisualStandardLayout;
+    }
+
+    export interface AnalysisKpiVisualStandardLayout {
+        type: enums.quicksight.AnalysisKpiVisualStandardLayoutType;
     }
 
     export interface AnalysisLabelOptions {
@@ -36312,6 +36428,7 @@ export namespace quicksight {
 
     export interface AnalysisTableFieldOptions {
         order?: string[];
+        pinnedFieldOptions?: outputs.quicksight.AnalysisTablePinnedFieldOptions;
         selectedFieldOptions?: outputs.quicksight.AnalysisTableFieldOption[];
     }
 
@@ -36339,6 +36456,10 @@ export namespace quicksight {
     export interface AnalysisTablePaginatedReportOptions {
         overflowColumnHeaderVisibility?: enums.quicksight.AnalysisVisibility;
         verticalOverflowVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisTablePinnedFieldOptions {
+        pinnedLeftFields?: string[];
     }
 
     export interface AnalysisTableRowConditionalFormatting {
@@ -38133,11 +38254,23 @@ export namespace quicksight {
         otherCategories?: enums.quicksight.DashboardOtherCategories;
     }
 
+    export interface DashboardKpiActualValueConditionalFormatting {
+        icon?: outputs.quicksight.DashboardConditionalFormattingIcon;
+        textColor?: outputs.quicksight.DashboardConditionalFormattingColor;
+    }
+
+    export interface DashboardKpiComparisonValueConditionalFormatting {
+        icon?: outputs.quicksight.DashboardConditionalFormattingIcon;
+        textColor?: outputs.quicksight.DashboardConditionalFormattingColor;
+    }
+
     export interface DashboardKpiConditionalFormatting {
         conditionalFormattingOptions?: outputs.quicksight.DashboardKpiConditionalFormattingOption[];
     }
 
     export interface DashboardKpiConditionalFormattingOption {
+        actualValue?: outputs.quicksight.DashboardKpiActualValueConditionalFormatting;
+        comparisonValue?: outputs.quicksight.DashboardKpiComparisonValueConditionalFormatting;
         primaryValue?: outputs.quicksight.DashboardKpiPrimaryValueConditionalFormatting;
         progressBar?: outputs.quicksight.DashboardKpiProgressBarConditionalFormatting;
     }
@@ -38161,7 +38294,9 @@ export namespace quicksight {
         progressBar?: outputs.quicksight.DashboardProgressBarOptions;
         secondaryValue?: outputs.quicksight.DashboardSecondaryValueOptions;
         secondaryValueFontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
+        sparkline?: outputs.quicksight.DashboardKpiSparklineOptions;
         trendArrows?: outputs.quicksight.DashboardTrendArrowOptions;
+        visualLayoutOptions?: outputs.quicksight.DashboardKpiVisualLayoutOptions;
     }
 
     export interface DashboardKpiPrimaryValueConditionalFormatting {
@@ -38177,6 +38312,13 @@ export namespace quicksight {
         trendGroupSort?: outputs.quicksight.DashboardFieldSortOptions[];
     }
 
+    export interface DashboardKpiSparklineOptions {
+        color?: string;
+        tooltipVisibility?: enums.quicksight.DashboardVisibility;
+        type: enums.quicksight.DashboardKpiSparklineType;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
     export interface DashboardKpiVisual {
         actions?: outputs.quicksight.DashboardVisualCustomAction[];
         chartConfiguration?: outputs.quicksight.DashboardKpiConfiguration;
@@ -38185,6 +38327,14 @@ export namespace quicksight {
         subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
         title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
         visualId: string;
+    }
+
+    export interface DashboardKpiVisualLayoutOptions {
+        standardLayout?: outputs.quicksight.DashboardKpiVisualStandardLayout;
+    }
+
+    export interface DashboardKpiVisualStandardLayout {
+        type: enums.quicksight.DashboardKpiVisualStandardLayoutType;
     }
 
     export interface DashboardLabelOptions {
@@ -39328,6 +39478,7 @@ export namespace quicksight {
 
     export interface DashboardTableFieldOptions {
         order?: string[];
+        pinnedFieldOptions?: outputs.quicksight.DashboardTablePinnedFieldOptions;
         selectedFieldOptions?: outputs.quicksight.DashboardTableFieldOption[];
     }
 
@@ -39355,6 +39506,10 @@ export namespace quicksight {
     export interface DashboardTablePaginatedReportOptions {
         overflowColumnHeaderVisibility?: enums.quicksight.DashboardVisibility;
         verticalOverflowVisibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardTablePinnedFieldOptions {
+        pinnedLeftFields?: string[];
     }
 
     export interface DashboardTableRowConditionalFormatting {
@@ -41949,11 +42104,23 @@ export namespace quicksight {
         otherCategories?: enums.quicksight.TemplateOtherCategories;
     }
 
+    export interface TemplateKpiActualValueConditionalFormatting {
+        icon?: outputs.quicksight.TemplateConditionalFormattingIcon;
+        textColor?: outputs.quicksight.TemplateConditionalFormattingColor;
+    }
+
+    export interface TemplateKpiComparisonValueConditionalFormatting {
+        icon?: outputs.quicksight.TemplateConditionalFormattingIcon;
+        textColor?: outputs.quicksight.TemplateConditionalFormattingColor;
+    }
+
     export interface TemplateKpiConditionalFormatting {
         conditionalFormattingOptions?: outputs.quicksight.TemplateKpiConditionalFormattingOption[];
     }
 
     export interface TemplateKpiConditionalFormattingOption {
+        actualValue?: outputs.quicksight.TemplateKpiActualValueConditionalFormatting;
+        comparisonValue?: outputs.quicksight.TemplateKpiComparisonValueConditionalFormatting;
         primaryValue?: outputs.quicksight.TemplateKpiPrimaryValueConditionalFormatting;
         progressBar?: outputs.quicksight.TemplateKpiProgressBarConditionalFormatting;
     }
@@ -41977,7 +42144,9 @@ export namespace quicksight {
         progressBar?: outputs.quicksight.TemplateProgressBarOptions;
         secondaryValue?: outputs.quicksight.TemplateSecondaryValueOptions;
         secondaryValueFontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
+        sparkline?: outputs.quicksight.TemplateKpiSparklineOptions;
         trendArrows?: outputs.quicksight.TemplateTrendArrowOptions;
+        visualLayoutOptions?: outputs.quicksight.TemplateKpiVisualLayoutOptions;
     }
 
     export interface TemplateKpiPrimaryValueConditionalFormatting {
@@ -41993,6 +42162,13 @@ export namespace quicksight {
         trendGroupSort?: outputs.quicksight.TemplateFieldSortOptions[];
     }
 
+    export interface TemplateKpiSparklineOptions {
+        color?: string;
+        tooltipVisibility?: enums.quicksight.TemplateVisibility;
+        type: enums.quicksight.TemplateKpiSparklineType;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
     export interface TemplateKpiVisual {
         actions?: outputs.quicksight.TemplateVisualCustomAction[];
         chartConfiguration?: outputs.quicksight.TemplateKpiConfiguration;
@@ -42001,6 +42177,14 @@ export namespace quicksight {
         subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
         title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
         visualId: string;
+    }
+
+    export interface TemplateKpiVisualLayoutOptions {
+        standardLayout?: outputs.quicksight.TemplateKpiVisualStandardLayout;
+    }
+
+    export interface TemplateKpiVisualStandardLayout {
+        type: enums.quicksight.TemplateKpiVisualStandardLayoutType;
     }
 
     export interface TemplateLabelOptions {
@@ -43115,6 +43299,7 @@ export namespace quicksight {
 
     export interface TemplateTableFieldOptions {
         order?: string[];
+        pinnedFieldOptions?: outputs.quicksight.TemplateTablePinnedFieldOptions;
         selectedFieldOptions?: outputs.quicksight.TemplateTableFieldOption[];
     }
 
@@ -43142,6 +43327,10 @@ export namespace quicksight {
     export interface TemplateTablePaginatedReportOptions {
         overflowColumnHeaderVisibility?: enums.quicksight.TemplateVisibility;
         verticalOverflowVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateTablePinnedFieldOptions {
+        pinnedLeftFields?: string[];
     }
 
     export interface TemplateTableRowConditionalFormatting {
@@ -46532,7 +46721,7 @@ export namespace s3objectlambda {
         /**
          * The status of the Object Lambda alias.
          */
-        status: string;
+        status?: string;
         /**
          * The value of the Object Lambda alias.
          */

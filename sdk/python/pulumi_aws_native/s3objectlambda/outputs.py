@@ -23,33 +23,26 @@ __all__ = [
 @pulumi.output_type
 class AccessPointAlias(dict):
     def __init__(__self__, *,
-                 status: str,
-                 value: str):
+                 value: str,
+                 status: Optional[str] = None):
         """
-        :param str status: The status of the Object Lambda alias.
         :param str value: The value of the Object Lambda alias.
+        :param str status: The status of the Object Lambda alias.
         """
         AccessPointAlias._configure(
             lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
             value=value,
+            status=status,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status: str,
              value: str,
+             status: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
         _setter("value", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        The status of the Object Lambda alias.
-        """
-        return pulumi.get(self, "status")
+        if status is not None:
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -58,6 +51,14 @@ class AccessPointAlias(dict):
         The value of the Object Lambda alias.
         """
         return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the Object Lambda alias.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

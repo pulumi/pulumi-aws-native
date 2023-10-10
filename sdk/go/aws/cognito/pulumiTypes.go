@@ -503,6 +503,295 @@ func (o IdentityPoolPushSyncPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type LogDeliveryConfigurationCloudWatchLogsConfiguration struct {
+	LogGroupArn *string `pulumi:"logGroupArn"`
+}
+
+// LogDeliveryConfigurationCloudWatchLogsConfigurationInput is an input type that accepts LogDeliveryConfigurationCloudWatchLogsConfigurationArgs and LogDeliveryConfigurationCloudWatchLogsConfigurationOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationCloudWatchLogsConfigurationInput` via:
+//
+//	LogDeliveryConfigurationCloudWatchLogsConfigurationArgs{...}
+type LogDeliveryConfigurationCloudWatchLogsConfigurationInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationCloudWatchLogsConfigurationOutput() LogDeliveryConfigurationCloudWatchLogsConfigurationOutput
+	ToLogDeliveryConfigurationCloudWatchLogsConfigurationOutputWithContext(context.Context) LogDeliveryConfigurationCloudWatchLogsConfigurationOutput
+}
+
+type LogDeliveryConfigurationCloudWatchLogsConfigurationArgs struct {
+	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
+}
+
+func (LogDeliveryConfigurationCloudWatchLogsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationCloudWatchLogsConfigurationArgs) ToLogDeliveryConfigurationCloudWatchLogsConfigurationOutput() LogDeliveryConfigurationCloudWatchLogsConfigurationOutput {
+	return i.ToLogDeliveryConfigurationCloudWatchLogsConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationCloudWatchLogsConfigurationArgs) ToLogDeliveryConfigurationCloudWatchLogsConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationCloudWatchLogsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationCloudWatchLogsConfigurationOutput)
+}
+
+func (i LogDeliveryConfigurationCloudWatchLogsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LogDeliveryConfigurationCloudWatchLogsConfiguration] {
+	return pulumix.Output[LogDeliveryConfigurationCloudWatchLogsConfiguration]{
+		OutputState: i.ToLogDeliveryConfigurationCloudWatchLogsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LogDeliveryConfigurationCloudWatchLogsConfigurationArgs) ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput() LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationCloudWatchLogsConfigurationArgs) ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationCloudWatchLogsConfigurationOutput).ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx)
+}
+
+// LogDeliveryConfigurationCloudWatchLogsConfigurationPtrInput is an input type that accepts LogDeliveryConfigurationCloudWatchLogsConfigurationArgs, LogDeliveryConfigurationCloudWatchLogsConfigurationPtr and LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationCloudWatchLogsConfigurationPtrInput` via:
+//
+//	        LogDeliveryConfigurationCloudWatchLogsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogDeliveryConfigurationCloudWatchLogsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput() LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput
+	ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(context.Context) LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput
+}
+
+type logDeliveryConfigurationCloudWatchLogsConfigurationPtrType LogDeliveryConfigurationCloudWatchLogsConfigurationArgs
+
+func LogDeliveryConfigurationCloudWatchLogsConfigurationPtr(v *LogDeliveryConfigurationCloudWatchLogsConfigurationArgs) LogDeliveryConfigurationCloudWatchLogsConfigurationPtrInput {
+	return (*logDeliveryConfigurationCloudWatchLogsConfigurationPtrType)(v)
+}
+
+func (*logDeliveryConfigurationCloudWatchLogsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (i *logDeliveryConfigurationCloudWatchLogsConfigurationPtrType) ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput() LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *logDeliveryConfigurationCloudWatchLogsConfigurationPtrType) ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput)
+}
+
+func (i *logDeliveryConfigurationCloudWatchLogsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LogDeliveryConfigurationCloudWatchLogsConfiguration] {
+	return pulumix.Output[*LogDeliveryConfigurationCloudWatchLogsConfiguration]{
+		OutputState: i.ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type LogDeliveryConfigurationCloudWatchLogsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationCloudWatchLogsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationCloudWatchLogsConfigurationOutput) ToLogDeliveryConfigurationCloudWatchLogsConfigurationOutput() LogDeliveryConfigurationCloudWatchLogsConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationCloudWatchLogsConfigurationOutput) ToLogDeliveryConfigurationCloudWatchLogsConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationCloudWatchLogsConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationCloudWatchLogsConfigurationOutput) ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput() LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return o.ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LogDeliveryConfigurationCloudWatchLogsConfigurationOutput) ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDeliveryConfigurationCloudWatchLogsConfiguration) *LogDeliveryConfigurationCloudWatchLogsConfiguration {
+		return &v
+	}).(LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput)
+}
+
+func (o LogDeliveryConfigurationCloudWatchLogsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LogDeliveryConfigurationCloudWatchLogsConfiguration] {
+	return pulumix.Output[LogDeliveryConfigurationCloudWatchLogsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LogDeliveryConfigurationCloudWatchLogsConfigurationOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationCloudWatchLogsConfiguration) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+type LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput) ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput() LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput) ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LogDeliveryConfigurationCloudWatchLogsConfiguration] {
+	return pulumix.Output[*LogDeliveryConfigurationCloudWatchLogsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput) Elem() LogDeliveryConfigurationCloudWatchLogsConfigurationOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationCloudWatchLogsConfiguration) LogDeliveryConfigurationCloudWatchLogsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LogDeliveryConfigurationCloudWatchLogsConfiguration
+		return ret
+	}).(LogDeliveryConfigurationCloudWatchLogsConfigurationOutput)
+}
+
+func (o LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationCloudWatchLogsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogDeliveryConfigurationLogConfiguration struct {
+	CloudWatchLogsConfiguration *LogDeliveryConfigurationCloudWatchLogsConfiguration `pulumi:"cloudWatchLogsConfiguration"`
+	EventSource                 *string                                              `pulumi:"eventSource"`
+	LogLevel                    *string                                              `pulumi:"logLevel"`
+}
+
+// LogDeliveryConfigurationLogConfigurationInput is an input type that accepts LogDeliveryConfigurationLogConfigurationArgs and LogDeliveryConfigurationLogConfigurationOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationLogConfigurationInput` via:
+//
+//	LogDeliveryConfigurationLogConfigurationArgs{...}
+type LogDeliveryConfigurationLogConfigurationInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationLogConfigurationOutput() LogDeliveryConfigurationLogConfigurationOutput
+	ToLogDeliveryConfigurationLogConfigurationOutputWithContext(context.Context) LogDeliveryConfigurationLogConfigurationOutput
+}
+
+type LogDeliveryConfigurationLogConfigurationArgs struct {
+	CloudWatchLogsConfiguration LogDeliveryConfigurationCloudWatchLogsConfigurationPtrInput `pulumi:"cloudWatchLogsConfiguration"`
+	EventSource                 pulumi.StringPtrInput                                       `pulumi:"eventSource"`
+	LogLevel                    pulumi.StringPtrInput                                       `pulumi:"logLevel"`
+}
+
+func (LogDeliveryConfigurationLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationLogConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationOutput() LogDeliveryConfigurationLogConfigurationOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationLogConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationOutput)
+}
+
+func (i LogDeliveryConfigurationLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LogDeliveryConfigurationLogConfiguration] {
+	return pulumix.Output[LogDeliveryConfigurationLogConfiguration]{
+		OutputState: i.ToLogDeliveryConfigurationLogConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// LogDeliveryConfigurationLogConfigurationArrayInput is an input type that accepts LogDeliveryConfigurationLogConfigurationArray and LogDeliveryConfigurationLogConfigurationArrayOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationLogConfigurationArrayInput` via:
+//
+//	LogDeliveryConfigurationLogConfigurationArray{ LogDeliveryConfigurationLogConfigurationArgs{...} }
+type LogDeliveryConfigurationLogConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationLogConfigurationArrayOutput() LogDeliveryConfigurationLogConfigurationArrayOutput
+	ToLogDeliveryConfigurationLogConfigurationArrayOutputWithContext(context.Context) LogDeliveryConfigurationLogConfigurationArrayOutput
+}
+
+type LogDeliveryConfigurationLogConfigurationArray []LogDeliveryConfigurationLogConfigurationInput
+
+func (LogDeliveryConfigurationLogConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogDeliveryConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationLogConfigurationArray) ToLogDeliveryConfigurationLogConfigurationArrayOutput() LogDeliveryConfigurationLogConfigurationArrayOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationLogConfigurationArray) ToLogDeliveryConfigurationLogConfigurationArrayOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationArrayOutput)
+}
+
+func (i LogDeliveryConfigurationLogConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]LogDeliveryConfigurationLogConfiguration] {
+	return pulumix.Output[[]LogDeliveryConfigurationLogConfiguration]{
+		OutputState: i.ToLogDeliveryConfigurationLogConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type LogDeliveryConfigurationLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationLogConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationOutput() LogDeliveryConfigurationLogConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LogDeliveryConfigurationLogConfiguration] {
+	return pulumix.Output[LogDeliveryConfigurationLogConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LogDeliveryConfigurationLogConfigurationOutput) CloudWatchLogsConfiguration() LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) *LogDeliveryConfigurationCloudWatchLogsConfiguration {
+		return v.CloudWatchLogsConfiguration
+	}).(LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput)
+}
+
+func (o LogDeliveryConfigurationLogConfigurationOutput) EventSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) *string { return v.EventSource }).(pulumi.StringPtrOutput)
+}
+
+func (o LogDeliveryConfigurationLogConfigurationOutput) LogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationLogConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogDeliveryConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationLogConfigurationArrayOutput) ToLogDeliveryConfigurationLogConfigurationArrayOutput() LogDeliveryConfigurationLogConfigurationArrayOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationArrayOutput) ToLogDeliveryConfigurationLogConfigurationArrayOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationArrayOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LogDeliveryConfigurationLogConfiguration] {
+	return pulumix.Output[[]LogDeliveryConfigurationLogConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LogDeliveryConfigurationLogConfigurationArrayOutput) Index(i pulumi.IntInput) LogDeliveryConfigurationLogConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogDeliveryConfigurationLogConfiguration {
+		return vs[0].([]LogDeliveryConfigurationLogConfiguration)[vs[1].(int)]
+	}).(LogDeliveryConfigurationLogConfigurationOutput)
+}
+
 type UserPoolAccountRecoverySetting struct {
 	RecoveryMechanisms []UserPoolRecoveryOption `pulumi:"recoveryMechanisms"`
 }
@@ -6304,6 +6593,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolCognitoStreamsPtrInput)(nil)).Elem(), IdentityPoolCognitoStreamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolPushSyncInput)(nil)).Elem(), IdentityPoolPushSyncArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolPushSyncPtrInput)(nil)).Elem(), IdentityPoolPushSyncArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationCloudWatchLogsConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationCloudWatchLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationCloudWatchLogsConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationCloudWatchLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationArrayInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAccountRecoverySettingInput)(nil)).Elem(), UserPoolAccountRecoverySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAccountRecoverySettingPtrInput)(nil)).Elem(), UserPoolAccountRecoverySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAddOnsInput)(nil)).Elem(), UserPoolAddOnsArgs{})
@@ -6374,6 +6667,10 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPoolCognitoStreamsPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPoolPushSyncOutput{})
 	pulumi.RegisterOutputType(IdentityPoolPushSyncPtrOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationCloudWatchLogsConfigurationOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingOutput{})
 	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolAddOnsOutput{})

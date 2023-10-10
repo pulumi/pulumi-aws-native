@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ChannelAdMarkupType = {
+    Daterange: "DATERANGE",
+    Scte35Enhanced: "SCTE35_ENHANCED",
+} as const;
+
+export type ChannelAdMarkupType = (typeof ChannelAdMarkupType)[keyof typeof ChannelAdMarkupType];
+
 export const ChannelLogType = {
     AsRun: "AS_RUN",
 } as const;

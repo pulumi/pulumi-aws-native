@@ -34,6 +34,7 @@ __all__ = [
     'SecurityProfileMachineLearningDetectionConfigConfidenceLevel',
     'SecurityProfileMetricDimensionOperator',
     'SecurityProfileStatisticalThresholdStatistic',
+    'SoftwarePackageVersionPackageVersionStatus',
     'TopicRuleCannedAccessControlList',
     'TopicRuleDestinationStatus',
 ]
@@ -265,6 +266,12 @@ class SecurityProfileStatisticalThresholdStatistic(str, Enum):
     P999 = "p99.9"
     P9999 = "p99.99"
     P100 = "p100"
+
+
+class SoftwarePackageVersionPackageVersionStatus(str, Enum):
+    DRAFT = "DRAFT"
+    PUBLISHED = "PUBLISHED"
+    DEPRECATED = "DEPRECATED"
 
 
 class TopicRuleCannedAccessControlList(str, Enum):

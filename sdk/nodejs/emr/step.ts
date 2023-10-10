@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EMR::Step
+ * Schema for AWS::EMR::Step
  *
  * @deprecated Step is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
@@ -40,9 +40,21 @@ export class Step extends pulumi.CustomResource {
         return obj['__pulumiType'] === Step.__pulumiType;
     }
 
+    /**
+     * This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
+     */
     public readonly actionOnFailure!: pulumi.Output<string>;
+    /**
+     * The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+     */
     public readonly hadoopJarStep!: pulumi.Output<outputs.emr.StepHadoopJarStepConfig>;
+    /**
+     * A string that uniquely identifies the cluster (job flow).
+     */
     public readonly jobFlowId!: pulumi.Output<string>;
+    /**
+     * The name of the cluster step.
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -88,8 +100,20 @@ export class Step extends pulumi.CustomResource {
  * The set of arguments for constructing a Step resource.
  */
 export interface StepArgs {
+    /**
+     * This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
+     */
     actionOnFailure: pulumi.Input<string>;
+    /**
+     * The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+     */
     hadoopJarStep: pulumi.Input<inputs.emr.StepHadoopJarStepConfigArgs>;
+    /**
+     * A string that uniquely identifies the cluster (job flow).
+     */
     jobFlowId: pulumi.Input<string>;
+    /**
+     * The name of the cluster step.
+     */
     name?: pulumi.Input<string>;
 }

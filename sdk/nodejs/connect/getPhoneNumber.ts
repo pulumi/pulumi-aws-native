@@ -31,10 +31,6 @@ export interface GetPhoneNumberResult {
      */
     readonly address?: string;
     /**
-     * The description of the phone number.
-     */
-    readonly description?: string;
-    /**
      * The phone number ARN
      */
     readonly phoneNumberArn?: string;

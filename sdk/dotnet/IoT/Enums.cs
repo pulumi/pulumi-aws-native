@@ -903,6 +903,35 @@ namespace Pulumi.AwsNative.IoT
     }
 
     [EnumType]
+    public readonly struct SoftwarePackageVersionPackageVersionStatus : IEquatable<SoftwarePackageVersionPackageVersionStatus>
+    {
+        private readonly string _value;
+
+        private SoftwarePackageVersionPackageVersionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SoftwarePackageVersionPackageVersionStatus Draft { get; } = new SoftwarePackageVersionPackageVersionStatus("DRAFT");
+        public static SoftwarePackageVersionPackageVersionStatus Published { get; } = new SoftwarePackageVersionPackageVersionStatus("PUBLISHED");
+        public static SoftwarePackageVersionPackageVersionStatus Deprecated { get; } = new SoftwarePackageVersionPackageVersionStatus("DEPRECATED");
+
+        public static bool operator ==(SoftwarePackageVersionPackageVersionStatus left, SoftwarePackageVersionPackageVersionStatus right) => left.Equals(right);
+        public static bool operator !=(SoftwarePackageVersionPackageVersionStatus left, SoftwarePackageVersionPackageVersionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SoftwarePackageVersionPackageVersionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SoftwarePackageVersionPackageVersionStatus other && Equals(other);
+        public bool Equals(SoftwarePackageVersionPackageVersionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TopicRuleCannedAccessControlList : IEquatable<TopicRuleCannedAccessControlList>
     {
         private readonly string _value;

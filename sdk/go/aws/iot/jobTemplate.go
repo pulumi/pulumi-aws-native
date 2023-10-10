@@ -21,7 +21,8 @@ type JobTemplate struct {
 	AbortConfig AbortConfigPropertiesPtrOutput `pulumi:"abortConfig"`
 	Arn         pulumi.StringOutput            `pulumi:"arn"`
 	// A description of the Job Template.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description                pulumi.StringOutput      `pulumi:"description"`
+	DestinationPackageVersions pulumi.StringArrayOutput `pulumi:"destinationPackageVersions"`
 	// The job document. Required if you don't specify a value for documentSource.
 	Document pulumi.StringPtrOutput `pulumi:"document"`
 	// An S3 link to the job document to use in the template. Required if you don't specify a value for document.
@@ -103,7 +104,8 @@ type jobTemplateArgs struct {
 	// The criteria that determine when and how a job abort takes place.
 	AbortConfig *AbortConfigProperties `pulumi:"abortConfig"`
 	// A description of the Job Template.
-	Description string `pulumi:"description"`
+	Description                string   `pulumi:"description"`
+	DestinationPackageVersions []string `pulumi:"destinationPackageVersions"`
 	// The job document. Required if you don't specify a value for documentSource.
 	Document *string `pulumi:"document"`
 	// An S3 link to the job document to use in the template. Required if you don't specify a value for document.
@@ -128,7 +130,8 @@ type JobTemplateArgs struct {
 	// The criteria that determine when and how a job abort takes place.
 	AbortConfig AbortConfigPropertiesPtrInput
 	// A description of the Job Template.
-	Description pulumi.StringInput
+	Description                pulumi.StringInput
+	DestinationPackageVersions pulumi.StringArrayInput
 	// The job document. Required if you don't specify a value for documentSource.
 	Document pulumi.StringPtrInput
 	// An S3 link to the job document to use in the template. Required if you don't specify a value for document.
@@ -209,6 +212,10 @@ func (o JobTemplateOutput) Arn() pulumi.StringOutput {
 // A description of the Job Template.
 func (o JobTemplateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o JobTemplateOutput) DestinationPackageVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringArrayOutput { return v.DestinationPackageVersions }).(pulumi.StringArrayOutput)
 }
 
 // The job document. Required if you don't specify a value for documentSource.

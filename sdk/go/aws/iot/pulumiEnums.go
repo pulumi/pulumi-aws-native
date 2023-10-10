@@ -5188,6 +5188,109 @@ func (in *securityProfileStatisticalThresholdStatisticPtr) ToOutput(ctx context.
 	}
 }
 
+type SoftwarePackageVersionPackageVersionStatus string
+
+const (
+	SoftwarePackageVersionPackageVersionStatusDraft      = SoftwarePackageVersionPackageVersionStatus("DRAFT")
+	SoftwarePackageVersionPackageVersionStatusPublished  = SoftwarePackageVersionPackageVersionStatus("PUBLISHED")
+	SoftwarePackageVersionPackageVersionStatusDeprecated = SoftwarePackageVersionPackageVersionStatus("DEPRECATED")
+)
+
+type SoftwarePackageVersionPackageVersionStatusOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionPackageVersionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionPackageVersionStatus)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusOutput) ToSoftwarePackageVersionPackageVersionStatusOutput() SoftwarePackageVersionPackageVersionStatusOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusOutput) ToSoftwarePackageVersionPackageVersionStatusOutputWithContext(ctx context.Context) SoftwarePackageVersionPackageVersionStatusOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusOutput) ToSoftwarePackageVersionPackageVersionStatusPtrOutput() SoftwarePackageVersionPackageVersionStatusPtrOutput {
+	return o.ToSoftwarePackageVersionPackageVersionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusOutput) ToSoftwarePackageVersionPackageVersionStatusPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionPackageVersionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwarePackageVersionPackageVersionStatus) *SoftwarePackageVersionPackageVersionStatus {
+		return &v
+	}).(SoftwarePackageVersionPackageVersionStatusPtrOutput)
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwarePackageVersionPackageVersionStatus] {
+	return pulumix.Output[SoftwarePackageVersionPackageVersionStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SoftwarePackageVersionPackageVersionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SoftwarePackageVersionPackageVersionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SoftwarePackageVersionPackageVersionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionPackageVersionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwarePackageVersionPackageVersionStatus)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusPtrOutput) ToSoftwarePackageVersionPackageVersionStatusPtrOutput() SoftwarePackageVersionPackageVersionStatusPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusPtrOutput) ToSoftwarePackageVersionPackageVersionStatusPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionPackageVersionStatusPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SoftwarePackageVersionPackageVersionStatus] {
+	return pulumix.Output[*SoftwarePackageVersionPackageVersionStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusPtrOutput) Elem() SoftwarePackageVersionPackageVersionStatusOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersionPackageVersionStatus) SoftwarePackageVersionPackageVersionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwarePackageVersionPackageVersionStatus
+		return ret
+	}).(SoftwarePackageVersionPackageVersionStatusOutput)
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionPackageVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SoftwarePackageVersionPackageVersionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type TopicRuleCannedAccessControlList string
 
 const (
@@ -5676,6 +5779,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileMetricDimensionOperatorPtrOutput{})
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdStatisticOutput{})
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdStatisticPtrOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionPackageVersionStatusOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionPackageVersionStatusPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleCannedAccessControlListOutput{})
 	pulumi.RegisterOutputType(TopicRuleCannedAccessControlListPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDestinationStatusOutput{})

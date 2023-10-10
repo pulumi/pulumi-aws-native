@@ -30,8 +30,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("secondaryValueFontConfiguration")]
         public Input<Inputs.TemplateFontConfigurationArgs>? SecondaryValueFontConfiguration { get; set; }
 
+        [Input("sparkline")]
+        public Input<Inputs.TemplateKpiSparklineOptionsArgs>? Sparkline { get; set; }
+
         [Input("trendArrows")]
         public Input<Inputs.TemplateTrendArrowOptionsArgs>? TrendArrows { get; set; }
+
+        [Input("visualLayoutOptions")]
+        public Input<Inputs.TemplateKpiVisualLayoutOptionsArgs>? VisualLayoutOptions { get; set; }
 
         public TemplateKpiOptionsArgs()
         {

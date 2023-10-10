@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
+        /// Enables replication of automated backups to a different Amazon Web Services Region.
+        /// </summary>
+        [Output("automaticBackupReplicationRegion")]
+        public Output<string?> AutomaticBackupReplicationRegion { get; private set; } = null!;
+
+        /// <summary>
         /// The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
         /// </summary>
         [Output("availabilityZone")]
@@ -584,6 +590,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
+
+        /// <summary>
+        /// Enables replication of automated backups to a different Amazon Web Services Region.
+        /// </summary>
+        [Input("automaticBackupReplicationRegion")]
+        public Input<string>? AutomaticBackupReplicationRegion { get; set; }
 
         /// <summary>
         /// The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.

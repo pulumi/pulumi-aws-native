@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _order = value;
         }
 
+        [Input("pinnedFieldOptions")]
+        public Input<Inputs.AnalysisTablePinnedFieldOptionsArgs>? PinnedFieldOptions { get; set; }
+
         [Input("selectedFieldOptions")]
         private InputList<Inputs.AnalysisTableFieldOptionArgs>? _selectedFieldOptions;
         public InputList<Inputs.AnalysisTableFieldOptionArgs> SelectedFieldOptions

@@ -46,6 +46,7 @@ export class JobTemplate extends pulumi.CustomResource {
      * A description of the Job Template.
      */
     public readonly description!: pulumi.Output<string>;
+    public readonly destinationPackageVersions!: pulumi.Output<string[] | undefined>;
     /**
      * The job document. Required if you don't specify a value for documentSource.
      */
@@ -97,6 +98,7 @@ export class JobTemplate extends pulumi.CustomResource {
             }
             resourceInputs["abortConfig"] = args ? args.abortConfig : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationPackageVersions"] = args ? args.destinationPackageVersions : undefined;
             resourceInputs["document"] = args ? args.document : undefined;
             resourceInputs["documentSource"] = args ? args.documentSource : undefined;
             resourceInputs["jobArn"] = args ? args.jobArn : undefined;
@@ -112,6 +114,7 @@ export class JobTemplate extends pulumi.CustomResource {
             resourceInputs["abortConfig"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinationPackageVersions"] = undefined /*out*/;
             resourceInputs["document"] = undefined /*out*/;
             resourceInputs["documentSource"] = undefined /*out*/;
             resourceInputs["jobArn"] = undefined /*out*/;
@@ -142,6 +145,7 @@ export interface JobTemplateArgs {
      * A description of the Job Template.
      */
     description: pulumi.Input<string>;
+    destinationPackageVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The job document. Required if you don't specify a value for documentSource.
      */

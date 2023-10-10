@@ -1642,8 +1642,8 @@ class RuleSqsParametersArgs:
 @pulumi.input_type
 class RuleTagArgs:
     def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
         RuleTagArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             key=key,
@@ -1652,28 +1652,30 @@ class RuleTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        if key is not None:
+            _setter("key", key)
+        if value is not None:
+            _setter("value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
+    def key(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: pulumi.Input[str]):
+    def key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def value(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 

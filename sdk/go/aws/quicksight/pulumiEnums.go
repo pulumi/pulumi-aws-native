@@ -6366,6 +6366,370 @@ func (in *analysisIconPtr) ToOutput(ctx context.Context) pulumix.Output[*Analysi
 	}
 }
 
+type AnalysisKpiSparklineType string
+
+const (
+	AnalysisKpiSparklineTypeLine = AnalysisKpiSparklineType("LINE")
+	AnalysisKpiSparklineTypeArea = AnalysisKpiSparklineType("AREA")
+)
+
+func (AnalysisKpiSparklineType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiSparklineType)(nil)).Elem()
+}
+
+func (e AnalysisKpiSparklineType) ToAnalysisKpiSparklineTypeOutput() AnalysisKpiSparklineTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisKpiSparklineTypeOutput)
+}
+
+func (e AnalysisKpiSparklineType) ToAnalysisKpiSparklineTypeOutputWithContext(ctx context.Context) AnalysisKpiSparklineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisKpiSparklineTypeOutput)
+}
+
+func (e AnalysisKpiSparklineType) ToAnalysisKpiSparklineTypePtrOutput() AnalysisKpiSparklineTypePtrOutput {
+	return e.ToAnalysisKpiSparklineTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisKpiSparklineType) ToAnalysisKpiSparklineTypePtrOutputWithContext(ctx context.Context) AnalysisKpiSparklineTypePtrOutput {
+	return AnalysisKpiSparklineType(e).ToAnalysisKpiSparklineTypeOutputWithContext(ctx).ToAnalysisKpiSparklineTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisKpiSparklineType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisKpiSparklineType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisKpiSparklineType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisKpiSparklineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisKpiSparklineTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisKpiSparklineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiSparklineType)(nil)).Elem()
+}
+
+func (o AnalysisKpiSparklineTypeOutput) ToAnalysisKpiSparklineTypeOutput() AnalysisKpiSparklineTypeOutput {
+	return o
+}
+
+func (o AnalysisKpiSparklineTypeOutput) ToAnalysisKpiSparklineTypeOutputWithContext(ctx context.Context) AnalysisKpiSparklineTypeOutput {
+	return o
+}
+
+func (o AnalysisKpiSparklineTypeOutput) ToAnalysisKpiSparklineTypePtrOutput() AnalysisKpiSparklineTypePtrOutput {
+	return o.ToAnalysisKpiSparklineTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisKpiSparklineTypeOutput) ToAnalysisKpiSparklineTypePtrOutputWithContext(ctx context.Context) AnalysisKpiSparklineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKpiSparklineType) *AnalysisKpiSparklineType {
+		return &v
+	}).(AnalysisKpiSparklineTypePtrOutput)
+}
+
+func (o AnalysisKpiSparklineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisKpiSparklineType] {
+	return pulumix.Output[AnalysisKpiSparklineType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisKpiSparklineTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisKpiSparklineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisKpiSparklineType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisKpiSparklineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisKpiSparklineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisKpiSparklineType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisKpiSparklineTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisKpiSparklineTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiSparklineType)(nil)).Elem()
+}
+
+func (o AnalysisKpiSparklineTypePtrOutput) ToAnalysisKpiSparklineTypePtrOutput() AnalysisKpiSparklineTypePtrOutput {
+	return o
+}
+
+func (o AnalysisKpiSparklineTypePtrOutput) ToAnalysisKpiSparklineTypePtrOutputWithContext(ctx context.Context) AnalysisKpiSparklineTypePtrOutput {
+	return o
+}
+
+func (o AnalysisKpiSparklineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisKpiSparklineType] {
+	return pulumix.Output[*AnalysisKpiSparklineType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisKpiSparklineTypePtrOutput) Elem() AnalysisKpiSparklineTypeOutput {
+	return o.ApplyT(func(v *AnalysisKpiSparklineType) AnalysisKpiSparklineType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisKpiSparklineType
+		return ret
+	}).(AnalysisKpiSparklineTypeOutput)
+}
+
+func (o AnalysisKpiSparklineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisKpiSparklineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisKpiSparklineType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisKpiSparklineTypeInput is an input type that accepts AnalysisKpiSparklineTypeArgs and AnalysisKpiSparklineTypeOutput values.
+// You can construct a concrete instance of `AnalysisKpiSparklineTypeInput` via:
+//
+//	AnalysisKpiSparklineTypeArgs{...}
+type AnalysisKpiSparklineTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisKpiSparklineTypeOutput() AnalysisKpiSparklineTypeOutput
+	ToAnalysisKpiSparklineTypeOutputWithContext(context.Context) AnalysisKpiSparklineTypeOutput
+}
+
+var analysisKpiSparklineTypePtrType = reflect.TypeOf((**AnalysisKpiSparklineType)(nil)).Elem()
+
+type AnalysisKpiSparklineTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisKpiSparklineTypePtrOutput() AnalysisKpiSparklineTypePtrOutput
+	ToAnalysisKpiSparklineTypePtrOutputWithContext(context.Context) AnalysisKpiSparklineTypePtrOutput
+}
+
+type analysisKpiSparklineTypePtr string
+
+func AnalysisKpiSparklineTypePtr(v string) AnalysisKpiSparklineTypePtrInput {
+	return (*analysisKpiSparklineTypePtr)(&v)
+}
+
+func (*analysisKpiSparklineTypePtr) ElementType() reflect.Type {
+	return analysisKpiSparklineTypePtrType
+}
+
+func (in *analysisKpiSparklineTypePtr) ToAnalysisKpiSparklineTypePtrOutput() AnalysisKpiSparklineTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisKpiSparklineTypePtrOutput)
+}
+
+func (in *analysisKpiSparklineTypePtr) ToAnalysisKpiSparklineTypePtrOutputWithContext(ctx context.Context) AnalysisKpiSparklineTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisKpiSparklineTypePtrOutput)
+}
+
+func (in *analysisKpiSparklineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisKpiSparklineType] {
+	return pulumix.Output[*AnalysisKpiSparklineType]{
+		OutputState: in.ToAnalysisKpiSparklineTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AnalysisKpiVisualStandardLayoutType string
+
+const (
+	AnalysisKpiVisualStandardLayoutTypeClassic  = AnalysisKpiVisualStandardLayoutType("CLASSIC")
+	AnalysisKpiVisualStandardLayoutTypeVertical = AnalysisKpiVisualStandardLayoutType("VERTICAL")
+)
+
+func (AnalysisKpiVisualStandardLayoutType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiVisualStandardLayoutType)(nil)).Elem()
+}
+
+func (e AnalysisKpiVisualStandardLayoutType) ToAnalysisKpiVisualStandardLayoutTypeOutput() AnalysisKpiVisualStandardLayoutTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisKpiVisualStandardLayoutTypeOutput)
+}
+
+func (e AnalysisKpiVisualStandardLayoutType) ToAnalysisKpiVisualStandardLayoutTypeOutputWithContext(ctx context.Context) AnalysisKpiVisualStandardLayoutTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisKpiVisualStandardLayoutTypeOutput)
+}
+
+func (e AnalysisKpiVisualStandardLayoutType) ToAnalysisKpiVisualStandardLayoutTypePtrOutput() AnalysisKpiVisualStandardLayoutTypePtrOutput {
+	return e.ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisKpiVisualStandardLayoutType) ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) AnalysisKpiVisualStandardLayoutTypePtrOutput {
+	return AnalysisKpiVisualStandardLayoutType(e).ToAnalysisKpiVisualStandardLayoutTypeOutputWithContext(ctx).ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisKpiVisualStandardLayoutType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisKpiVisualStandardLayoutType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisKpiVisualStandardLayoutType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisKpiVisualStandardLayoutType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisKpiVisualStandardLayoutTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisKpiVisualStandardLayoutTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiVisualStandardLayoutType)(nil)).Elem()
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToAnalysisKpiVisualStandardLayoutTypeOutput() AnalysisKpiVisualStandardLayoutTypeOutput {
+	return o
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToAnalysisKpiVisualStandardLayoutTypeOutputWithContext(ctx context.Context) AnalysisKpiVisualStandardLayoutTypeOutput {
+	return o
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToAnalysisKpiVisualStandardLayoutTypePtrOutput() AnalysisKpiVisualStandardLayoutTypePtrOutput {
+	return o.ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) AnalysisKpiVisualStandardLayoutTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKpiVisualStandardLayoutType) *AnalysisKpiVisualStandardLayoutType {
+		return &v
+	}).(AnalysisKpiVisualStandardLayoutTypePtrOutput)
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisKpiVisualStandardLayoutType] {
+	return pulumix.Output[AnalysisKpiVisualStandardLayoutType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisKpiVisualStandardLayoutType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisKpiVisualStandardLayoutType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisKpiVisualStandardLayoutTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisKpiVisualStandardLayoutTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiVisualStandardLayoutType)(nil)).Elem()
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) ToAnalysisKpiVisualStandardLayoutTypePtrOutput() AnalysisKpiVisualStandardLayoutTypePtrOutput {
+	return o
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) AnalysisKpiVisualStandardLayoutTypePtrOutput {
+	return o
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisKpiVisualStandardLayoutType] {
+	return pulumix.Output[*AnalysisKpiVisualStandardLayoutType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) Elem() AnalysisKpiVisualStandardLayoutTypeOutput {
+	return o.ApplyT(func(v *AnalysisKpiVisualStandardLayoutType) AnalysisKpiVisualStandardLayoutType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisKpiVisualStandardLayoutType
+		return ret
+	}).(AnalysisKpiVisualStandardLayoutTypeOutput)
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisKpiVisualStandardLayoutType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisKpiVisualStandardLayoutTypeInput is an input type that accepts AnalysisKpiVisualStandardLayoutTypeArgs and AnalysisKpiVisualStandardLayoutTypeOutput values.
+// You can construct a concrete instance of `AnalysisKpiVisualStandardLayoutTypeInput` via:
+//
+//	AnalysisKpiVisualStandardLayoutTypeArgs{...}
+type AnalysisKpiVisualStandardLayoutTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisKpiVisualStandardLayoutTypeOutput() AnalysisKpiVisualStandardLayoutTypeOutput
+	ToAnalysisKpiVisualStandardLayoutTypeOutputWithContext(context.Context) AnalysisKpiVisualStandardLayoutTypeOutput
+}
+
+var analysisKpiVisualStandardLayoutTypePtrType = reflect.TypeOf((**AnalysisKpiVisualStandardLayoutType)(nil)).Elem()
+
+type AnalysisKpiVisualStandardLayoutTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisKpiVisualStandardLayoutTypePtrOutput() AnalysisKpiVisualStandardLayoutTypePtrOutput
+	ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(context.Context) AnalysisKpiVisualStandardLayoutTypePtrOutput
+}
+
+type analysisKpiVisualStandardLayoutTypePtr string
+
+func AnalysisKpiVisualStandardLayoutTypePtr(v string) AnalysisKpiVisualStandardLayoutTypePtrInput {
+	return (*analysisKpiVisualStandardLayoutTypePtr)(&v)
+}
+
+func (*analysisKpiVisualStandardLayoutTypePtr) ElementType() reflect.Type {
+	return analysisKpiVisualStandardLayoutTypePtrType
+}
+
+func (in *analysisKpiVisualStandardLayoutTypePtr) ToAnalysisKpiVisualStandardLayoutTypePtrOutput() AnalysisKpiVisualStandardLayoutTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisKpiVisualStandardLayoutTypePtrOutput)
+}
+
+func (in *analysisKpiVisualStandardLayoutTypePtr) ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) AnalysisKpiVisualStandardLayoutTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisKpiVisualStandardLayoutTypePtrOutput)
+}
+
+func (in *analysisKpiVisualStandardLayoutTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisKpiVisualStandardLayoutType] {
+	return pulumix.Output[*AnalysisKpiVisualStandardLayoutType]{
+		OutputState: in.ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalysisLayoutElementType string
 
 const (
@@ -26247,6 +26611,370 @@ func (in *dashboardIconPtr) ToDashboardIconPtrOutputWithContext(ctx context.Cont
 func (in *dashboardIconPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardIcon] {
 	return pulumix.Output[*DashboardIcon]{
 		OutputState: in.ToDashboardIconPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DashboardKpiSparklineType string
+
+const (
+	DashboardKpiSparklineTypeLine = DashboardKpiSparklineType("LINE")
+	DashboardKpiSparklineTypeArea = DashboardKpiSparklineType("AREA")
+)
+
+func (DashboardKpiSparklineType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiSparklineType)(nil)).Elem()
+}
+
+func (e DashboardKpiSparklineType) ToDashboardKpiSparklineTypeOutput() DashboardKpiSparklineTypeOutput {
+	return pulumi.ToOutput(e).(DashboardKpiSparklineTypeOutput)
+}
+
+func (e DashboardKpiSparklineType) ToDashboardKpiSparklineTypeOutputWithContext(ctx context.Context) DashboardKpiSparklineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardKpiSparklineTypeOutput)
+}
+
+func (e DashboardKpiSparklineType) ToDashboardKpiSparklineTypePtrOutput() DashboardKpiSparklineTypePtrOutput {
+	return e.ToDashboardKpiSparklineTypePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardKpiSparklineType) ToDashboardKpiSparklineTypePtrOutputWithContext(ctx context.Context) DashboardKpiSparklineTypePtrOutput {
+	return DashboardKpiSparklineType(e).ToDashboardKpiSparklineTypeOutputWithContext(ctx).ToDashboardKpiSparklineTypePtrOutputWithContext(ctx)
+}
+
+func (e DashboardKpiSparklineType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardKpiSparklineType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardKpiSparklineType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardKpiSparklineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardKpiSparklineTypeOutput struct{ *pulumi.OutputState }
+
+func (DashboardKpiSparklineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiSparklineType)(nil)).Elem()
+}
+
+func (o DashboardKpiSparklineTypeOutput) ToDashboardKpiSparklineTypeOutput() DashboardKpiSparklineTypeOutput {
+	return o
+}
+
+func (o DashboardKpiSparklineTypeOutput) ToDashboardKpiSparklineTypeOutputWithContext(ctx context.Context) DashboardKpiSparklineTypeOutput {
+	return o
+}
+
+func (o DashboardKpiSparklineTypeOutput) ToDashboardKpiSparklineTypePtrOutput() DashboardKpiSparklineTypePtrOutput {
+	return o.ToDashboardKpiSparklineTypePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardKpiSparklineTypeOutput) ToDashboardKpiSparklineTypePtrOutputWithContext(ctx context.Context) DashboardKpiSparklineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKpiSparklineType) *DashboardKpiSparklineType {
+		return &v
+	}).(DashboardKpiSparklineTypePtrOutput)
+}
+
+func (o DashboardKpiSparklineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardKpiSparklineType] {
+	return pulumix.Output[DashboardKpiSparklineType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardKpiSparklineTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardKpiSparklineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardKpiSparklineType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardKpiSparklineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardKpiSparklineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardKpiSparklineType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardKpiSparklineTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardKpiSparklineTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiSparklineType)(nil)).Elem()
+}
+
+func (o DashboardKpiSparklineTypePtrOutput) ToDashboardKpiSparklineTypePtrOutput() DashboardKpiSparklineTypePtrOutput {
+	return o
+}
+
+func (o DashboardKpiSparklineTypePtrOutput) ToDashboardKpiSparklineTypePtrOutputWithContext(ctx context.Context) DashboardKpiSparklineTypePtrOutput {
+	return o
+}
+
+func (o DashboardKpiSparklineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardKpiSparklineType] {
+	return pulumix.Output[*DashboardKpiSparklineType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardKpiSparklineTypePtrOutput) Elem() DashboardKpiSparklineTypeOutput {
+	return o.ApplyT(func(v *DashboardKpiSparklineType) DashboardKpiSparklineType {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardKpiSparklineType
+		return ret
+	}).(DashboardKpiSparklineTypeOutput)
+}
+
+func (o DashboardKpiSparklineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardKpiSparklineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardKpiSparklineType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardKpiSparklineTypeInput is an input type that accepts DashboardKpiSparklineTypeArgs and DashboardKpiSparklineTypeOutput values.
+// You can construct a concrete instance of `DashboardKpiSparklineTypeInput` via:
+//
+//	DashboardKpiSparklineTypeArgs{...}
+type DashboardKpiSparklineTypeInput interface {
+	pulumi.Input
+
+	ToDashboardKpiSparklineTypeOutput() DashboardKpiSparklineTypeOutput
+	ToDashboardKpiSparklineTypeOutputWithContext(context.Context) DashboardKpiSparklineTypeOutput
+}
+
+var dashboardKpiSparklineTypePtrType = reflect.TypeOf((**DashboardKpiSparklineType)(nil)).Elem()
+
+type DashboardKpiSparklineTypePtrInput interface {
+	pulumi.Input
+
+	ToDashboardKpiSparklineTypePtrOutput() DashboardKpiSparklineTypePtrOutput
+	ToDashboardKpiSparklineTypePtrOutputWithContext(context.Context) DashboardKpiSparklineTypePtrOutput
+}
+
+type dashboardKpiSparklineTypePtr string
+
+func DashboardKpiSparklineTypePtr(v string) DashboardKpiSparklineTypePtrInput {
+	return (*dashboardKpiSparklineTypePtr)(&v)
+}
+
+func (*dashboardKpiSparklineTypePtr) ElementType() reflect.Type {
+	return dashboardKpiSparklineTypePtrType
+}
+
+func (in *dashboardKpiSparklineTypePtr) ToDashboardKpiSparklineTypePtrOutput() DashboardKpiSparklineTypePtrOutput {
+	return pulumi.ToOutput(in).(DashboardKpiSparklineTypePtrOutput)
+}
+
+func (in *dashboardKpiSparklineTypePtr) ToDashboardKpiSparklineTypePtrOutputWithContext(ctx context.Context) DashboardKpiSparklineTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardKpiSparklineTypePtrOutput)
+}
+
+func (in *dashboardKpiSparklineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardKpiSparklineType] {
+	return pulumix.Output[*DashboardKpiSparklineType]{
+		OutputState: in.ToDashboardKpiSparklineTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DashboardKpiVisualStandardLayoutType string
+
+const (
+	DashboardKpiVisualStandardLayoutTypeClassic  = DashboardKpiVisualStandardLayoutType("CLASSIC")
+	DashboardKpiVisualStandardLayoutTypeVertical = DashboardKpiVisualStandardLayoutType("VERTICAL")
+)
+
+func (DashboardKpiVisualStandardLayoutType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiVisualStandardLayoutType)(nil)).Elem()
+}
+
+func (e DashboardKpiVisualStandardLayoutType) ToDashboardKpiVisualStandardLayoutTypeOutput() DashboardKpiVisualStandardLayoutTypeOutput {
+	return pulumi.ToOutput(e).(DashboardKpiVisualStandardLayoutTypeOutput)
+}
+
+func (e DashboardKpiVisualStandardLayoutType) ToDashboardKpiVisualStandardLayoutTypeOutputWithContext(ctx context.Context) DashboardKpiVisualStandardLayoutTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardKpiVisualStandardLayoutTypeOutput)
+}
+
+func (e DashboardKpiVisualStandardLayoutType) ToDashboardKpiVisualStandardLayoutTypePtrOutput() DashboardKpiVisualStandardLayoutTypePtrOutput {
+	return e.ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardKpiVisualStandardLayoutType) ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) DashboardKpiVisualStandardLayoutTypePtrOutput {
+	return DashboardKpiVisualStandardLayoutType(e).ToDashboardKpiVisualStandardLayoutTypeOutputWithContext(ctx).ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(ctx)
+}
+
+func (e DashboardKpiVisualStandardLayoutType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardKpiVisualStandardLayoutType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardKpiVisualStandardLayoutType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardKpiVisualStandardLayoutType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardKpiVisualStandardLayoutTypeOutput struct{ *pulumi.OutputState }
+
+func (DashboardKpiVisualStandardLayoutTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiVisualStandardLayoutType)(nil)).Elem()
+}
+
+func (o DashboardKpiVisualStandardLayoutTypeOutput) ToDashboardKpiVisualStandardLayoutTypeOutput() DashboardKpiVisualStandardLayoutTypeOutput {
+	return o
+}
+
+func (o DashboardKpiVisualStandardLayoutTypeOutput) ToDashboardKpiVisualStandardLayoutTypeOutputWithContext(ctx context.Context) DashboardKpiVisualStandardLayoutTypeOutput {
+	return o
+}
+
+func (o DashboardKpiVisualStandardLayoutTypeOutput) ToDashboardKpiVisualStandardLayoutTypePtrOutput() DashboardKpiVisualStandardLayoutTypePtrOutput {
+	return o.ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardKpiVisualStandardLayoutTypeOutput) ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) DashboardKpiVisualStandardLayoutTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKpiVisualStandardLayoutType) *DashboardKpiVisualStandardLayoutType {
+		return &v
+	}).(DashboardKpiVisualStandardLayoutTypePtrOutput)
+}
+
+func (o DashboardKpiVisualStandardLayoutTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardKpiVisualStandardLayoutType] {
+	return pulumix.Output[DashboardKpiVisualStandardLayoutType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardKpiVisualStandardLayoutTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardKpiVisualStandardLayoutTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardKpiVisualStandardLayoutType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardKpiVisualStandardLayoutTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardKpiVisualStandardLayoutTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardKpiVisualStandardLayoutType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardKpiVisualStandardLayoutTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardKpiVisualStandardLayoutTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiVisualStandardLayoutType)(nil)).Elem()
+}
+
+func (o DashboardKpiVisualStandardLayoutTypePtrOutput) ToDashboardKpiVisualStandardLayoutTypePtrOutput() DashboardKpiVisualStandardLayoutTypePtrOutput {
+	return o
+}
+
+func (o DashboardKpiVisualStandardLayoutTypePtrOutput) ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) DashboardKpiVisualStandardLayoutTypePtrOutput {
+	return o
+}
+
+func (o DashboardKpiVisualStandardLayoutTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardKpiVisualStandardLayoutType] {
+	return pulumix.Output[*DashboardKpiVisualStandardLayoutType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardKpiVisualStandardLayoutTypePtrOutput) Elem() DashboardKpiVisualStandardLayoutTypeOutput {
+	return o.ApplyT(func(v *DashboardKpiVisualStandardLayoutType) DashboardKpiVisualStandardLayoutType {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardKpiVisualStandardLayoutType
+		return ret
+	}).(DashboardKpiVisualStandardLayoutTypeOutput)
+}
+
+func (o DashboardKpiVisualStandardLayoutTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardKpiVisualStandardLayoutTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardKpiVisualStandardLayoutType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardKpiVisualStandardLayoutTypeInput is an input type that accepts DashboardKpiVisualStandardLayoutTypeArgs and DashboardKpiVisualStandardLayoutTypeOutput values.
+// You can construct a concrete instance of `DashboardKpiVisualStandardLayoutTypeInput` via:
+//
+//	DashboardKpiVisualStandardLayoutTypeArgs{...}
+type DashboardKpiVisualStandardLayoutTypeInput interface {
+	pulumi.Input
+
+	ToDashboardKpiVisualStandardLayoutTypeOutput() DashboardKpiVisualStandardLayoutTypeOutput
+	ToDashboardKpiVisualStandardLayoutTypeOutputWithContext(context.Context) DashboardKpiVisualStandardLayoutTypeOutput
+}
+
+var dashboardKpiVisualStandardLayoutTypePtrType = reflect.TypeOf((**DashboardKpiVisualStandardLayoutType)(nil)).Elem()
+
+type DashboardKpiVisualStandardLayoutTypePtrInput interface {
+	pulumi.Input
+
+	ToDashboardKpiVisualStandardLayoutTypePtrOutput() DashboardKpiVisualStandardLayoutTypePtrOutput
+	ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(context.Context) DashboardKpiVisualStandardLayoutTypePtrOutput
+}
+
+type dashboardKpiVisualStandardLayoutTypePtr string
+
+func DashboardKpiVisualStandardLayoutTypePtr(v string) DashboardKpiVisualStandardLayoutTypePtrInput {
+	return (*dashboardKpiVisualStandardLayoutTypePtr)(&v)
+}
+
+func (*dashboardKpiVisualStandardLayoutTypePtr) ElementType() reflect.Type {
+	return dashboardKpiVisualStandardLayoutTypePtrType
+}
+
+func (in *dashboardKpiVisualStandardLayoutTypePtr) ToDashboardKpiVisualStandardLayoutTypePtrOutput() DashboardKpiVisualStandardLayoutTypePtrOutput {
+	return pulumi.ToOutput(in).(DashboardKpiVisualStandardLayoutTypePtrOutput)
+}
+
+func (in *dashboardKpiVisualStandardLayoutTypePtr) ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) DashboardKpiVisualStandardLayoutTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardKpiVisualStandardLayoutTypePtrOutput)
+}
+
+func (in *dashboardKpiVisualStandardLayoutTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardKpiVisualStandardLayoutType] {
+	return pulumix.Output[*DashboardKpiVisualStandardLayoutType]{
+		OutputState: in.ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(ctx).OutputState,
 	}
 }
 
@@ -48671,6 +49399,370 @@ func (in *templateIconPtr) ToOutput(ctx context.Context) pulumix.Output[*Templat
 	}
 }
 
+type TemplateKpiSparklineType string
+
+const (
+	TemplateKpiSparklineTypeLine = TemplateKpiSparklineType("LINE")
+	TemplateKpiSparklineTypeArea = TemplateKpiSparklineType("AREA")
+)
+
+func (TemplateKpiSparklineType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateKpiSparklineType)(nil)).Elem()
+}
+
+func (e TemplateKpiSparklineType) ToTemplateKpiSparklineTypeOutput() TemplateKpiSparklineTypeOutput {
+	return pulumi.ToOutput(e).(TemplateKpiSparklineTypeOutput)
+}
+
+func (e TemplateKpiSparklineType) ToTemplateKpiSparklineTypeOutputWithContext(ctx context.Context) TemplateKpiSparklineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateKpiSparklineTypeOutput)
+}
+
+func (e TemplateKpiSparklineType) ToTemplateKpiSparklineTypePtrOutput() TemplateKpiSparklineTypePtrOutput {
+	return e.ToTemplateKpiSparklineTypePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateKpiSparklineType) ToTemplateKpiSparklineTypePtrOutputWithContext(ctx context.Context) TemplateKpiSparklineTypePtrOutput {
+	return TemplateKpiSparklineType(e).ToTemplateKpiSparklineTypeOutputWithContext(ctx).ToTemplateKpiSparklineTypePtrOutputWithContext(ctx)
+}
+
+func (e TemplateKpiSparklineType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateKpiSparklineType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateKpiSparklineType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateKpiSparklineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateKpiSparklineTypeOutput struct{ *pulumi.OutputState }
+
+func (TemplateKpiSparklineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateKpiSparklineType)(nil)).Elem()
+}
+
+func (o TemplateKpiSparklineTypeOutput) ToTemplateKpiSparklineTypeOutput() TemplateKpiSparklineTypeOutput {
+	return o
+}
+
+func (o TemplateKpiSparklineTypeOutput) ToTemplateKpiSparklineTypeOutputWithContext(ctx context.Context) TemplateKpiSparklineTypeOutput {
+	return o
+}
+
+func (o TemplateKpiSparklineTypeOutput) ToTemplateKpiSparklineTypePtrOutput() TemplateKpiSparklineTypePtrOutput {
+	return o.ToTemplateKpiSparklineTypePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateKpiSparklineTypeOutput) ToTemplateKpiSparklineTypePtrOutputWithContext(ctx context.Context) TemplateKpiSparklineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateKpiSparklineType) *TemplateKpiSparklineType {
+		return &v
+	}).(TemplateKpiSparklineTypePtrOutput)
+}
+
+func (o TemplateKpiSparklineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateKpiSparklineType] {
+	return pulumix.Output[TemplateKpiSparklineType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TemplateKpiSparklineTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateKpiSparklineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateKpiSparklineType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateKpiSparklineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateKpiSparklineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateKpiSparklineType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateKpiSparklineTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateKpiSparklineTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateKpiSparklineType)(nil)).Elem()
+}
+
+func (o TemplateKpiSparklineTypePtrOutput) ToTemplateKpiSparklineTypePtrOutput() TemplateKpiSparklineTypePtrOutput {
+	return o
+}
+
+func (o TemplateKpiSparklineTypePtrOutput) ToTemplateKpiSparklineTypePtrOutputWithContext(ctx context.Context) TemplateKpiSparklineTypePtrOutput {
+	return o
+}
+
+func (o TemplateKpiSparklineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateKpiSparklineType] {
+	return pulumix.Output[*TemplateKpiSparklineType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TemplateKpiSparklineTypePtrOutput) Elem() TemplateKpiSparklineTypeOutput {
+	return o.ApplyT(func(v *TemplateKpiSparklineType) TemplateKpiSparklineType {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateKpiSparklineType
+		return ret
+	}).(TemplateKpiSparklineTypeOutput)
+}
+
+func (o TemplateKpiSparklineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateKpiSparklineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateKpiSparklineType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateKpiSparklineTypeInput is an input type that accepts TemplateKpiSparklineTypeArgs and TemplateKpiSparklineTypeOutput values.
+// You can construct a concrete instance of `TemplateKpiSparklineTypeInput` via:
+//
+//	TemplateKpiSparklineTypeArgs{...}
+type TemplateKpiSparklineTypeInput interface {
+	pulumi.Input
+
+	ToTemplateKpiSparklineTypeOutput() TemplateKpiSparklineTypeOutput
+	ToTemplateKpiSparklineTypeOutputWithContext(context.Context) TemplateKpiSparklineTypeOutput
+}
+
+var templateKpiSparklineTypePtrType = reflect.TypeOf((**TemplateKpiSparklineType)(nil)).Elem()
+
+type TemplateKpiSparklineTypePtrInput interface {
+	pulumi.Input
+
+	ToTemplateKpiSparklineTypePtrOutput() TemplateKpiSparklineTypePtrOutput
+	ToTemplateKpiSparklineTypePtrOutputWithContext(context.Context) TemplateKpiSparklineTypePtrOutput
+}
+
+type templateKpiSparklineTypePtr string
+
+func TemplateKpiSparklineTypePtr(v string) TemplateKpiSparklineTypePtrInput {
+	return (*templateKpiSparklineTypePtr)(&v)
+}
+
+func (*templateKpiSparklineTypePtr) ElementType() reflect.Type {
+	return templateKpiSparklineTypePtrType
+}
+
+func (in *templateKpiSparklineTypePtr) ToTemplateKpiSparklineTypePtrOutput() TemplateKpiSparklineTypePtrOutput {
+	return pulumi.ToOutput(in).(TemplateKpiSparklineTypePtrOutput)
+}
+
+func (in *templateKpiSparklineTypePtr) ToTemplateKpiSparklineTypePtrOutputWithContext(ctx context.Context) TemplateKpiSparklineTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateKpiSparklineTypePtrOutput)
+}
+
+func (in *templateKpiSparklineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateKpiSparklineType] {
+	return pulumix.Output[*TemplateKpiSparklineType]{
+		OutputState: in.ToTemplateKpiSparklineTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TemplateKpiVisualStandardLayoutType string
+
+const (
+	TemplateKpiVisualStandardLayoutTypeClassic  = TemplateKpiVisualStandardLayoutType("CLASSIC")
+	TemplateKpiVisualStandardLayoutTypeVertical = TemplateKpiVisualStandardLayoutType("VERTICAL")
+)
+
+func (TemplateKpiVisualStandardLayoutType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateKpiVisualStandardLayoutType)(nil)).Elem()
+}
+
+func (e TemplateKpiVisualStandardLayoutType) ToTemplateKpiVisualStandardLayoutTypeOutput() TemplateKpiVisualStandardLayoutTypeOutput {
+	return pulumi.ToOutput(e).(TemplateKpiVisualStandardLayoutTypeOutput)
+}
+
+func (e TemplateKpiVisualStandardLayoutType) ToTemplateKpiVisualStandardLayoutTypeOutputWithContext(ctx context.Context) TemplateKpiVisualStandardLayoutTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateKpiVisualStandardLayoutTypeOutput)
+}
+
+func (e TemplateKpiVisualStandardLayoutType) ToTemplateKpiVisualStandardLayoutTypePtrOutput() TemplateKpiVisualStandardLayoutTypePtrOutput {
+	return e.ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateKpiVisualStandardLayoutType) ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) TemplateKpiVisualStandardLayoutTypePtrOutput {
+	return TemplateKpiVisualStandardLayoutType(e).ToTemplateKpiVisualStandardLayoutTypeOutputWithContext(ctx).ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(ctx)
+}
+
+func (e TemplateKpiVisualStandardLayoutType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateKpiVisualStandardLayoutType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateKpiVisualStandardLayoutType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateKpiVisualStandardLayoutType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateKpiVisualStandardLayoutTypeOutput struct{ *pulumi.OutputState }
+
+func (TemplateKpiVisualStandardLayoutTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateKpiVisualStandardLayoutType)(nil)).Elem()
+}
+
+func (o TemplateKpiVisualStandardLayoutTypeOutput) ToTemplateKpiVisualStandardLayoutTypeOutput() TemplateKpiVisualStandardLayoutTypeOutput {
+	return o
+}
+
+func (o TemplateKpiVisualStandardLayoutTypeOutput) ToTemplateKpiVisualStandardLayoutTypeOutputWithContext(ctx context.Context) TemplateKpiVisualStandardLayoutTypeOutput {
+	return o
+}
+
+func (o TemplateKpiVisualStandardLayoutTypeOutput) ToTemplateKpiVisualStandardLayoutTypePtrOutput() TemplateKpiVisualStandardLayoutTypePtrOutput {
+	return o.ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateKpiVisualStandardLayoutTypeOutput) ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) TemplateKpiVisualStandardLayoutTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateKpiVisualStandardLayoutType) *TemplateKpiVisualStandardLayoutType {
+		return &v
+	}).(TemplateKpiVisualStandardLayoutTypePtrOutput)
+}
+
+func (o TemplateKpiVisualStandardLayoutTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateKpiVisualStandardLayoutType] {
+	return pulumix.Output[TemplateKpiVisualStandardLayoutType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TemplateKpiVisualStandardLayoutTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateKpiVisualStandardLayoutTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateKpiVisualStandardLayoutType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateKpiVisualStandardLayoutTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateKpiVisualStandardLayoutTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateKpiVisualStandardLayoutType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateKpiVisualStandardLayoutTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateKpiVisualStandardLayoutTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateKpiVisualStandardLayoutType)(nil)).Elem()
+}
+
+func (o TemplateKpiVisualStandardLayoutTypePtrOutput) ToTemplateKpiVisualStandardLayoutTypePtrOutput() TemplateKpiVisualStandardLayoutTypePtrOutput {
+	return o
+}
+
+func (o TemplateKpiVisualStandardLayoutTypePtrOutput) ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) TemplateKpiVisualStandardLayoutTypePtrOutput {
+	return o
+}
+
+func (o TemplateKpiVisualStandardLayoutTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateKpiVisualStandardLayoutType] {
+	return pulumix.Output[*TemplateKpiVisualStandardLayoutType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TemplateKpiVisualStandardLayoutTypePtrOutput) Elem() TemplateKpiVisualStandardLayoutTypeOutput {
+	return o.ApplyT(func(v *TemplateKpiVisualStandardLayoutType) TemplateKpiVisualStandardLayoutType {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateKpiVisualStandardLayoutType
+		return ret
+	}).(TemplateKpiVisualStandardLayoutTypeOutput)
+}
+
+func (o TemplateKpiVisualStandardLayoutTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateKpiVisualStandardLayoutTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateKpiVisualStandardLayoutType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateKpiVisualStandardLayoutTypeInput is an input type that accepts TemplateKpiVisualStandardLayoutTypeArgs and TemplateKpiVisualStandardLayoutTypeOutput values.
+// You can construct a concrete instance of `TemplateKpiVisualStandardLayoutTypeInput` via:
+//
+//	TemplateKpiVisualStandardLayoutTypeArgs{...}
+type TemplateKpiVisualStandardLayoutTypeInput interface {
+	pulumi.Input
+
+	ToTemplateKpiVisualStandardLayoutTypeOutput() TemplateKpiVisualStandardLayoutTypeOutput
+	ToTemplateKpiVisualStandardLayoutTypeOutputWithContext(context.Context) TemplateKpiVisualStandardLayoutTypeOutput
+}
+
+var templateKpiVisualStandardLayoutTypePtrType = reflect.TypeOf((**TemplateKpiVisualStandardLayoutType)(nil)).Elem()
+
+type TemplateKpiVisualStandardLayoutTypePtrInput interface {
+	pulumi.Input
+
+	ToTemplateKpiVisualStandardLayoutTypePtrOutput() TemplateKpiVisualStandardLayoutTypePtrOutput
+	ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(context.Context) TemplateKpiVisualStandardLayoutTypePtrOutput
+}
+
+type templateKpiVisualStandardLayoutTypePtr string
+
+func TemplateKpiVisualStandardLayoutTypePtr(v string) TemplateKpiVisualStandardLayoutTypePtrInput {
+	return (*templateKpiVisualStandardLayoutTypePtr)(&v)
+}
+
+func (*templateKpiVisualStandardLayoutTypePtr) ElementType() reflect.Type {
+	return templateKpiVisualStandardLayoutTypePtrType
+}
+
+func (in *templateKpiVisualStandardLayoutTypePtr) ToTemplateKpiVisualStandardLayoutTypePtrOutput() TemplateKpiVisualStandardLayoutTypePtrOutput {
+	return pulumi.ToOutput(in).(TemplateKpiVisualStandardLayoutTypePtrOutput)
+}
+
+func (in *templateKpiVisualStandardLayoutTypePtr) ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) TemplateKpiVisualStandardLayoutTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateKpiVisualStandardLayoutTypePtrOutput)
+}
+
+func (in *templateKpiVisualStandardLayoutTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateKpiVisualStandardLayoutType] {
+	return pulumix.Output[*TemplateKpiVisualStandardLayoutType]{
+		OutputState: in.ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TemplateLayoutElementType string
 
 const (
@@ -66295,6 +67387,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisHorizontalTextAlignmentPtrInput)(nil)).Elem(), AnalysisHorizontalTextAlignment("LEFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisIconInput)(nil)).Elem(), AnalysisIcon("CARET_UP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisIconPtrInput)(nil)).Elem(), AnalysisIcon("CARET_UP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiSparklineTypeInput)(nil)).Elem(), AnalysisKpiSparklineType("LINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiSparklineTypePtrInput)(nil)).Elem(), AnalysisKpiSparklineType("LINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiVisualStandardLayoutTypeInput)(nil)).Elem(), AnalysisKpiVisualStandardLayoutType("CLASSIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiVisualStandardLayoutTypePtrInput)(nil)).Elem(), AnalysisKpiVisualStandardLayoutType("CLASSIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisLayoutElementTypeInput)(nil)).Elem(), AnalysisLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisLayoutElementTypePtrInput)(nil)).Elem(), AnalysisLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisLegendPositionInput)(nil)).Elem(), AnalysisLegendPosition("AUTO"))
@@ -66511,6 +67607,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardHorizontalTextAlignmentPtrInput)(nil)).Elem(), DashboardHorizontalTextAlignment("LEFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardIconInput)(nil)).Elem(), DashboardIcon("CARET_UP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardIconPtrInput)(nil)).Elem(), DashboardIcon("CARET_UP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiSparklineTypeInput)(nil)).Elem(), DashboardKpiSparklineType("LINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiSparklineTypePtrInput)(nil)).Elem(), DashboardKpiSparklineType("LINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiVisualStandardLayoutTypeInput)(nil)).Elem(), DashboardKpiVisualStandardLayoutType("CLASSIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiVisualStandardLayoutTypePtrInput)(nil)).Elem(), DashboardKpiVisualStandardLayoutType("CLASSIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLayoutElementTypeInput)(nil)).Elem(), DashboardLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLayoutElementTypePtrInput)(nil)).Elem(), DashboardLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLegendPositionInput)(nil)).Elem(), DashboardLegendPosition("AUTO"))
@@ -66751,6 +67851,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateHorizontalTextAlignmentPtrInput)(nil)).Elem(), TemplateHorizontalTextAlignment("LEFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateIconInput)(nil)).Elem(), TemplateIcon("CARET_UP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateIconPtrInput)(nil)).Elem(), TemplateIcon("CARET_UP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateKpiSparklineTypeInput)(nil)).Elem(), TemplateKpiSparklineType("LINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateKpiSparklineTypePtrInput)(nil)).Elem(), TemplateKpiSparklineType("LINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateKpiVisualStandardLayoutTypeInput)(nil)).Elem(), TemplateKpiVisualStandardLayoutType("CLASSIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateKpiVisualStandardLayoutTypePtrInput)(nil)).Elem(), TemplateKpiVisualStandardLayoutType("CLASSIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLayoutElementTypeInput)(nil)).Elem(), TemplateLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLayoutElementTypePtrInput)(nil)).Elem(), TemplateLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLegendPositionInput)(nil)).Elem(), TemplateLegendPosition("AUTO"))
@@ -67006,6 +68110,10 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisHorizontalTextAlignmentPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisIconOutput{})
 	pulumi.RegisterOutputType(AnalysisIconPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiSparklineTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiSparklineTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiVisualStandardLayoutTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiVisualStandardLayoutTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisLayoutElementTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisLayoutElementTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisLegendPositionOutput{})
@@ -67224,6 +68332,10 @@ func init() {
 	pulumi.RegisterOutputType(DashboardHorizontalTextAlignmentPtrOutput{})
 	pulumi.RegisterOutputType(DashboardIconOutput{})
 	pulumi.RegisterOutputType(DashboardIconPtrOutput{})
+	pulumi.RegisterOutputType(DashboardKpiSparklineTypeOutput{})
+	pulumi.RegisterOutputType(DashboardKpiSparklineTypePtrOutput{})
+	pulumi.RegisterOutputType(DashboardKpiVisualStandardLayoutTypeOutput{})
+	pulumi.RegisterOutputType(DashboardKpiVisualStandardLayoutTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardLayoutElementTypeOutput{})
 	pulumi.RegisterOutputType(DashboardLayoutElementTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardLegendPositionOutput{})
@@ -67472,6 +68584,10 @@ func init() {
 	pulumi.RegisterOutputType(TemplateHorizontalTextAlignmentPtrOutput{})
 	pulumi.RegisterOutputType(TemplateIconOutput{})
 	pulumi.RegisterOutputType(TemplateIconPtrOutput{})
+	pulumi.RegisterOutputType(TemplateKpiSparklineTypeOutput{})
+	pulumi.RegisterOutputType(TemplateKpiSparklineTypePtrOutput{})
+	pulumi.RegisterOutputType(TemplateKpiVisualStandardLayoutTypeOutput{})
+	pulumi.RegisterOutputType(TemplateKpiVisualStandardLayoutTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateLayoutElementTypeOutput{})
 	pulumi.RegisterOutputType(TemplateLayoutElementTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateLegendPositionOutput{})

@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGatewayV2::DomainName
+// The “AWS::ApiGatewayV2::DomainName“ resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
+//
+//	You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 func LookupDomainName(ctx *pulumi.Context, args *LookupDomainNameArgs, opts ...pulumi.InvokeOption) (*LookupDomainNameResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainNameResult
@@ -24,16 +26,21 @@ func LookupDomainName(ctx *pulumi.Context, args *LookupDomainNameArgs, opts ...p
 }
 
 type LookupDomainNameArgs struct {
-	Id string `pulumi:"id"`
+	// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+	DomainName string `pulumi:"domainName"`
 }
 
 type LookupDomainNameResult struct {
-	DomainNameConfigurations []DomainNameConfiguration          `pulumi:"domainNameConfigurations"`
-	Id                       *string                            `pulumi:"id"`
-	MutualTlsAuthentication  *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
-	RegionalDomainName       *string                            `pulumi:"regionalDomainName"`
-	RegionalHostedZoneId     *string                            `pulumi:"regionalHostedZoneId"`
-	Tags                     interface{}                        `pulumi:"tags"`
+	// The domain name configurations.
+	DomainNameConfigurations []DomainNameConfiguration `pulumi:"domainNameConfigurations"`
+	// The mutual TLS authentication configuration for a custom domain name.
+	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
+	// The domain name associated with the regional endpoint for this custom domain name.
+	RegionalDomainName *string `pulumi:"regionalDomainName"`
+	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+	RegionalHostedZoneId *string `pulumi:"regionalHostedZoneId"`
+	// The collection of tags associated with a domain name.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameResultOutput {
@@ -50,7 +57,8 @@ func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs
 }
 
 type LookupDomainNameOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 }
 
 func (LookupDomainNameOutputArgs) ElementType() reflect.Type {
@@ -77,26 +85,27 @@ func (o LookupDomainNameResultOutput) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
+// The domain name configurations.
 func (o LookupDomainNameResultOutput) DomainNameConfigurations() DomainNameConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) []DomainNameConfiguration { return v.DomainNameConfigurations }).(DomainNameConfigurationArrayOutput)
 }
 
-func (o LookupDomainNameResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// The mutual TLS authentication configuration for a custom domain name.
 func (o LookupDomainNameResultOutput) MutualTlsAuthentication() DomainNameMutualTlsAuthenticationPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *DomainNameMutualTlsAuthentication { return v.MutualTlsAuthentication }).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
+// The domain name associated with the regional endpoint for this custom domain name.
 func (o LookupDomainNameResultOutput) RegionalDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.RegionalDomainName }).(pulumi.StringPtrOutput)
 }
 
+// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
 func (o LookupDomainNameResultOutput) RegionalHostedZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.RegionalHostedZoneId }).(pulumi.StringPtrOutput)
 }
 
+// The collection of tags associated with a domain name.
 func (o LookupDomainNameResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

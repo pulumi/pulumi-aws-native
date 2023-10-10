@@ -18,6 +18,8 @@ class BucketPolicyArgs:
                  policy_document: Any):
         """
         The set of arguments for constructing a BucketPolicy resource.
+        :param pulumi.Input[str] bucket: The name of the Amazon S3 bucket to which the policy applies.
+        :param Any policy_document: A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
         """
         BucketPolicyArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -36,6 +38,9 @@ class BucketPolicyArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the Amazon S3 bucket to which the policy applies.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -45,6 +50,9 @@ class BucketPolicyArgs:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Any:
+        """
+        A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -65,6 +73,8 @@ class BucketPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: The name of the Amazon S3 bucket to which the policy applies.
+        :param Any policy_document: A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
         """
         ...
     @overload
@@ -142,10 +152,16 @@ class BucketPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
+        """
+        The name of the Amazon S3 bucket to which the policy applies.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[Any]:
+        """
+        A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+        """
         return pulumi.get(self, "policy_document")
 

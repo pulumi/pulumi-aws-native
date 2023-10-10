@@ -1938,7 +1938,7 @@ class LoadBalancerSubnetMapping(dict):
 class LoadBalancerTag(dict):
     def __init__(__self__, *,
                  key: str,
-                 value: str):
+                 value: Optional[str] = None):
         LoadBalancerTag._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             key=key,
@@ -1948,10 +1948,11 @@ class LoadBalancerTag(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              key: str,
-             value: str,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("key", key)
-        _setter("value", value)
+        if value is not None:
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1960,7 +1961,7 @@ class LoadBalancerTag(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
 

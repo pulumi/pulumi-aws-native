@@ -31,8 +31,6 @@ type LookupPhoneNumberArgs struct {
 type LookupPhoneNumberResult struct {
 	// The phone number e164 address.
 	Address *string `pulumi:"address"`
-	// The description of the phone number.
-	Description *string `pulumi:"description"`
 	// The phone number ARN
 	PhoneNumberArn *string `pulumi:"phoneNumberArn"`
 	// One or more tags.
@@ -86,11 +84,6 @@ func (o LookupPhoneNumberResultOutput) ToOutput(ctx context.Context) pulumix.Out
 // The phone number e164 address.
 func (o LookupPhoneNumberResultOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPhoneNumberResult) *string { return v.Address }).(pulumi.StringPtrOutput)
-}
-
-// The description of the phone number.
-func (o LookupPhoneNumberResultOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPhoneNumberResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The phone number ARN

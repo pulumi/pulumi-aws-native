@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class RuleTagArgs : global::Pulumi.ResourceArgs
     {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
+        [Input("key")]
+        public Input<string>? Key { get; set; }
 
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public RuleTagArgs()
         {

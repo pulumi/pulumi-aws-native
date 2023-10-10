@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisTableFieldOptions
     {
         public readonly ImmutableArray<string> Order;
+        public readonly Outputs.AnalysisTablePinnedFieldOptions? PinnedFieldOptions;
         public readonly ImmutableArray<Outputs.AnalysisTableFieldOption> SelectedFieldOptions;
 
         [OutputConstructor]
         private AnalysisTableFieldOptions(
             ImmutableArray<string> order,
 
+            Outputs.AnalysisTablePinnedFieldOptions? pinnedFieldOptions,
+
             ImmutableArray<Outputs.AnalysisTableFieldOption> selectedFieldOptions)
         {
             Order = order;
+            PinnedFieldOptions = pinnedFieldOptions;
             SelectedFieldOptions = selectedFieldOptions;
         }
     }

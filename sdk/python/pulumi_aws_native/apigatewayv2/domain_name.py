@@ -22,6 +22,10 @@ class DomainNameArgs:
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a DomainName resource.
+        :param pulumi.Input[str] domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]] domain_name_configurations: The domain name configurations.
+        :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name.
+        :param Any tags: The collection of tags associated with a domain name.
         """
         DomainNameArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -49,6 +53,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -58,6 +65,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="domainNameConfigurations")
     def domain_name_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]]:
+        """
+        The domain name configurations.
+        """
         return pulumi.get(self, "domain_name_configurations")
 
     @domain_name_configurations.setter
@@ -67,6 +77,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="mutualTlsAuthentication")
     def mutual_tls_authentication(self) -> Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]:
+        """
+        The mutual TLS authentication configuration for a custom domain name.
+        """
         return pulumi.get(self, "mutual_tls_authentication")
 
     @mutual_tls_authentication.setter
@@ -76,6 +89,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        The collection of tags associated with a domain name.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -83,12 +99,7 @@ class DomainNameArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""DomainName is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class DomainName(pulumi.CustomResource):
-    warnings.warn("""DomainName is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -99,10 +110,15 @@ class DomainName(pulumi.CustomResource):
                  tags: Optional[Any] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::DomainName
+        The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
+         You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainNameConfigurationArgs']]]] domain_name_configurations: The domain name configurations.
+        :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name.
+        :param Any tags: The collection of tags associated with a domain name.
         """
         ...
     @overload
@@ -111,7 +127,8 @@ class DomainName(pulumi.CustomResource):
                  args: DomainNameArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::DomainName
+        The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
+         You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param DomainNameArgs args: The arguments to use to populate this resource's properties.
@@ -137,7 +154,6 @@ class DomainName(pulumi.CustomResource):
                  mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""DomainName is deprecated: DomainName is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -194,30 +210,48 @@ class DomainName(pulumi.CustomResource):
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="domainNameConfigurations")
     def domain_name_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.DomainNameConfiguration']]]:
+        """
+        The domain name configurations.
+        """
         return pulumi.get(self, "domain_name_configurations")
 
     @property
     @pulumi.getter(name="mutualTlsAuthentication")
     def mutual_tls_authentication(self) -> pulumi.Output[Optional['outputs.DomainNameMutualTlsAuthentication']]:
+        """
+        The mutual TLS authentication configuration for a custom domain name.
+        """
         return pulumi.get(self, "mutual_tls_authentication")
 
     @property
     @pulumi.getter(name="regionalDomainName")
     def regional_domain_name(self) -> pulumi.Output[str]:
+        """
+        The domain name associated with the regional endpoint for this custom domain name.
+        """
         return pulumi.get(self, "regional_domain_name")
 
     @property
     @pulumi.getter(name="regionalHostedZoneId")
     def regional_hosted_zone_id(self) -> pulumi.Output[str]:
+        """
+        The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+        """
         return pulumi.get(self, "regional_hosted_zone_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The collection of tags associated with a domain name.
+        """
         return pulumi.get(self, "tags")
 

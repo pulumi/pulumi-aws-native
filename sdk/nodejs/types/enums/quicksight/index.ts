@@ -312,6 +312,20 @@ export const AnalysisIcon = {
 
 export type AnalysisIcon = (typeof AnalysisIcon)[keyof typeof AnalysisIcon];
 
+export const AnalysisKpiSparklineType = {
+    Line: "LINE",
+    Area: "AREA",
+} as const;
+
+export type AnalysisKpiSparklineType = (typeof AnalysisKpiSparklineType)[keyof typeof AnalysisKpiSparklineType];
+
+export const AnalysisKpiVisualStandardLayoutType = {
+    Classic: "CLASSIC",
+    Vertical: "VERTICAL",
+} as const;
+
+export type AnalysisKpiVisualStandardLayoutType = (typeof AnalysisKpiVisualStandardLayoutType)[keyof typeof AnalysisKpiVisualStandardLayoutType];
+
 export const AnalysisLayoutElementType = {
     Visual: "VISUAL",
     FilterControl: "FILTER_CONTROL",
@@ -1200,6 +1214,20 @@ export const DashboardIcon = {
 } as const;
 
 export type DashboardIcon = (typeof DashboardIcon)[keyof typeof DashboardIcon];
+
+export const DashboardKpiSparklineType = {
+    Line: "LINE",
+    Area: "AREA",
+} as const;
+
+export type DashboardKpiSparklineType = (typeof DashboardKpiSparklineType)[keyof typeof DashboardKpiSparklineType];
+
+export const DashboardKpiVisualStandardLayoutType = {
+    Classic: "CLASSIC",
+    Vertical: "VERTICAL",
+} as const;
+
+export type DashboardKpiVisualStandardLayoutType = (typeof DashboardKpiVisualStandardLayoutType)[keyof typeof DashboardKpiVisualStandardLayoutType];
 
 export const DashboardLayoutElementType = {
     Visual: "VISUAL",
@@ -2243,6 +2271,20 @@ export const TemplateIcon = {
 } as const;
 
 export type TemplateIcon = (typeof TemplateIcon)[keyof typeof TemplateIcon];
+
+export const TemplateKpiSparklineType = {
+    Line: "LINE",
+    Area: "AREA",
+} as const;
+
+export type TemplateKpiSparklineType = (typeof TemplateKpiSparklineType)[keyof typeof TemplateKpiSparklineType];
+
+export const TemplateKpiVisualStandardLayoutType = {
+    Classic: "CLASSIC",
+    Vertical: "VERTICAL",
+} as const;
+
+export type TemplateKpiVisualStandardLayoutType = (typeof TemplateKpiVisualStandardLayoutType)[keyof typeof TemplateKpiVisualStandardLayoutType];
 
 export const TemplateLayoutElementType = {
     Visual: "VISUAL",

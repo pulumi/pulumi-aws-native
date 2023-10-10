@@ -20,6 +20,7 @@ class JobTemplateArgs:
                  description: pulumi.Input[str],
                  job_template_id: pulumi.Input[str],
                  abort_config: Optional[pulumi.Input['AbortConfigPropertiesArgs']] = None,
+                 destination_package_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  document: Optional[pulumi.Input[str]] = None,
                  document_source: Optional[pulumi.Input[str]] = None,
                  job_arn: Optional[pulumi.Input[str]] = None,
@@ -46,6 +47,7 @@ class JobTemplateArgs:
             description=description,
             job_template_id=job_template_id,
             abort_config=abort_config,
+            destination_package_versions=destination_package_versions,
             document=document,
             document_source=document_source,
             job_arn=job_arn,
@@ -62,6 +64,7 @@ class JobTemplateArgs:
              description: pulumi.Input[str],
              job_template_id: pulumi.Input[str],
              abort_config: Optional[pulumi.Input['AbortConfigPropertiesArgs']] = None,
+             destination_package_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              document: Optional[pulumi.Input[str]] = None,
              document_source: Optional[pulumi.Input[str]] = None,
              job_arn: Optional[pulumi.Input[str]] = None,
@@ -76,6 +79,8 @@ class JobTemplateArgs:
         _setter("job_template_id", job_template_id)
         if abort_config is not None:
             _setter("abort_config", abort_config)
+        if destination_package_versions is not None:
+            _setter("destination_package_versions", destination_package_versions)
         if document is not None:
             _setter("document", document)
         if document_source is not None:
@@ -127,6 +132,15 @@ class JobTemplateArgs:
     @abort_config.setter
     def abort_config(self, value: Optional[pulumi.Input['AbortConfigPropertiesArgs']]):
         pulumi.set(self, "abort_config", value)
+
+    @property
+    @pulumi.getter(name="destinationPackageVersions")
+    def destination_package_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "destination_package_versions")
+
+    @destination_package_versions.setter
+    def destination_package_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_package_versions", value)
 
     @property
     @pulumi.getter
@@ -238,6 +252,7 @@ class JobTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  abort_config: Optional[pulumi.Input[pulumi.InputType['AbortConfigPropertiesArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 destination_package_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  document: Optional[pulumi.Input[str]] = None,
                  document_source: Optional[pulumi.Input[str]] = None,
                  job_arn: Optional[pulumi.Input[str]] = None,
@@ -294,6 +309,7 @@ class JobTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  abort_config: Optional[pulumi.Input[pulumi.InputType['AbortConfigPropertiesArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 destination_package_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  document: Optional[pulumi.Input[str]] = None,
                  document_source: Optional[pulumi.Input[str]] = None,
                  job_arn: Optional[pulumi.Input[str]] = None,
@@ -322,6 +338,7 @@ class JobTemplate(pulumi.CustomResource):
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
+            __props__.__dict__["destination_package_versions"] = destination_package_versions
             __props__.__dict__["document"] = document
             __props__.__dict__["document_source"] = document_source
             __props__.__dict__["job_arn"] = job_arn
@@ -382,6 +399,7 @@ class JobTemplate(pulumi.CustomResource):
         __props__.__dict__["abort_config"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["destination_package_versions"] = None
         __props__.__dict__["document"] = None
         __props__.__dict__["document_source"] = None
         __props__.__dict__["job_arn"] = None
@@ -414,6 +432,11 @@ class JobTemplate(pulumi.CustomResource):
         A description of the Job Template.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationPackageVersions")
+    def destination_package_versions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "destination_package_versions")
 
     @property
     @pulumi.getter

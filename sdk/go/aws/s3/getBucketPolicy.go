@@ -24,11 +24,12 @@ func LookupBucketPolicy(ctx *pulumi.Context, args *LookupBucketPolicyArgs, opts 
 }
 
 type LookupBucketPolicyArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the Amazon S3 bucket to which the policy applies.
+	Bucket string `pulumi:"bucket"`
 }
 
 type LookupBucketPolicyResult struct {
-	Id             *string     `pulumi:"id"`
+	// A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
@@ -46,7 +47,8 @@ func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutput
 }
 
 type LookupBucketPolicyOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Amazon S3 bucket to which the policy applies.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
 }
 
 func (LookupBucketPolicyOutputArgs) ElementType() reflect.Type {
@@ -73,10 +75,7 @@ func (o LookupBucketPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
-func (o LookupBucketPolicyResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupBucketPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
 func (o LookupBucketPolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupBucketPolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
