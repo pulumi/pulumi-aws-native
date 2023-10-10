@@ -19,6 +19,9 @@
   "required" : [ "ObjectLambdaAccessPoint", "PolicyDocument" ],
   "createOnlyProperties" : [ "/properties/ObjectLambdaAccessPoint" ],
   "primaryIdentifier" : [ "/properties/ObjectLambdaAccessPoint" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "s3:PutAccessPointPolicyForObjectLambda", "s3:GetAccessPointPolicyForObjectLambda" ]

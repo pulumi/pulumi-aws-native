@@ -417,7 +417,7 @@
   "writeOnlyProperties" : [ "/properties/DBInstanceParameterGroupName", "/properties/MasterUserPassword", "/properties/RestoreToTime", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/UseLatestRestorableTime" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:DescribeEvents", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
+      "permissions" : [ "iam:CreateServiceLinkedRole", "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:DescribeEvents", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {

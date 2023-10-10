@@ -113,7 +113,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:CreateRole", "iam:PutRolePolicy", "iam:AttachRolePolicy", "iam:GetRolePolicy", "iam:TagRole", "iam:UntagRole" ]
+      "permissions" : [ "iam:CreateRole", "iam:PutRolePolicy", "iam:AttachRolePolicy", "iam:GetRolePolicy", "iam:TagRole", "iam:UntagRole", "iam:GetRole" ]
     },
     "read" : {
       "permissions" : [ "iam:GetRole", "iam:ListAttachedRolePolicies", "iam:ListRolePolicies", "iam:GetRolePolicy" ]

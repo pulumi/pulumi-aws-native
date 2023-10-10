@@ -119,7 +119,7 @@
           "pattern" : "^[a-z0-9\\-]*$"
         }
       },
-      "required" : [ "Status", "Value" ]
+      "required" : [ "Value" ]
     },
     "PolicyStatus" : {
       "type" : "object",
@@ -166,17 +166,21 @@
   "required" : [ "ObjectLambdaConfiguration" ],
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/Name" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/Alias", "/properties/Alias/Value", "/properties/Alias/Status", "/properties/CreationDate", "/properties/PolicyStatus", "/properties/PolicyStatus/IsPublic", "/properties/PublicAccessBlockConfiguration" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Alias", "/properties/Alias/Value", "/properties/Alias/Status", "/properties/PolicyStatus", "/properties/PolicyStatus/IsPublic", "/properties/CreationDate", "/properties/PublicAccessBlockConfiguration" ],
+  "deprecatedProperties" : [ "/properties/PolicyStatus", "/properties/PolicyStatus/IsPublic" ],
   "primaryIdentifier" : [ "/properties/Name" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "s3:CreateAccessPointForObjectLambda", "s3:PutAccessPointConfigurationForObjectLambda" ]
+      "permissions" : [ "s3:CreateAccessPointForObjectLambda", "s3:PutAccessPointConfigurationForObjectLambda", "s3:GetAccessPointForObjectLambda", "s3:GetAccessPointPolicyStatusForObjectLambda", "s3:GetAccessPointConfigurationForObjectLambda" ]
     },
     "read" : {
       "permissions" : [ "s3:GetAccessPointForObjectLambda", "s3:GetAccessPointPolicyStatusForObjectLambda", "s3:GetAccessPointConfigurationForObjectLambda" ]
     },
     "update" : {
-      "permissions" : [ "s3:PutAccessPointConfigurationForObjectLambda" ]
+      "permissions" : [ "s3:PutAccessPointConfigurationForObjectLambda", "s3:GetAccessPointForObjectLambda", "s3:GetAccessPointPolicyStatusForObjectLambda", "s3:GetAccessPointConfigurationForObjectLambda" ]
     },
     "delete" : {
       "permissions" : [ "s3:DeleteAccessPointForObjectLambda" ]

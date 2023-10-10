@@ -91,12 +91,12 @@
       "permissions" : [ "connect:ReleasePhoneNumber", "connect:UntagResource" ]
     },
     "update" : {
-      "permissions" : [ "connect:UpdatePhoneNumber", "connect:UpdatePhoneNumberMetadata", "connect:DescribePhoneNumber", "connect:TagResource", "connect:UntagResource" ]
+      "permissions" : [ "connect:UpdatePhoneNumber", "connect:DescribePhoneNumber", "connect:TagResource", "connect:UntagResource" ]
     }
   },
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/PhoneNumberArn" ],
   "readOnlyProperties" : [ "/properties/PhoneNumberArn", "/properties/Address" ],
   "writeOnlyProperties" : [ "/properties/Prefix" ],
-  "createOnlyProperties" : [ "/properties/Type", "/properties/CountryCode", "/properties/Prefix" ]
+  "createOnlyProperties" : [ "/properties/Type", "/properties/CountryCode", "/properties/Prefix", "/properties/Description" ]
 }

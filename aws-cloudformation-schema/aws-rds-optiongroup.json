@@ -129,7 +129,7 @@
   "primaryIdentifier" : [ "/properties/OptionGroupName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:AddTagsToResource", "rds:CreateOptionGroup", "rds:DescribeOptionGroups", "rds:ListTagsForResource", "rds:ModifyOptionGroup", "rds:RemoveTagsFromResource" ]
+      "permissions" : [ "iam:CreateServiceLinkedRole", "rds:AddTagsToResource", "rds:CreateOptionGroup", "rds:DescribeOptionGroups", "rds:ListTagsForResource", "rds:ModifyOptionGroup", "rds:RemoveTagsFromResource" ]
     },
     "read" : {
       "permissions" : [ "rds:DescribeOptionGroups", "rds:ListTagsForResource" ]

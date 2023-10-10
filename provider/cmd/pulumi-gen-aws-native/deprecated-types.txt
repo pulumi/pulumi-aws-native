@@ -1,7 +1,6 @@
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::Lambda::EventInvokeConfig
-AWS::S3::BucketPolicy
 AWS::SNS::TopicPolicy
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
