@@ -4,8 +4,12 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetAccountId(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetAccountIdResult, error) {
@@ -20,4 +24,43 @@ func GetAccountId(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetAccount
 
 type GetAccountIdResult struct {
 	AccountId string `pulumi:"accountId"`
+}
+
+func GetAccountIdOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetAccountIdResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetAccountIdResult, error) {
+		r, err := GetAccountId(ctx, opts...)
+		var s GetAccountIdResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetAccountIdResultOutput)
+}
+
+type GetAccountIdResultOutput struct{ *pulumi.OutputState }
+
+func (GetAccountIdResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountIdResult)(nil)).Elem()
+}
+
+func (o GetAccountIdResultOutput) ToGetAccountIdResultOutput() GetAccountIdResultOutput {
+	return o
+}
+
+func (o GetAccountIdResultOutput) ToGetAccountIdResultOutputWithContext(ctx context.Context) GetAccountIdResultOutput {
+	return o
+}
+
+func (o GetAccountIdResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountIdResult] {
+	return pulumix.Output[GetAccountIdResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAccountIdResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountIdResult) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAccountIdResultOutput{})
 }
