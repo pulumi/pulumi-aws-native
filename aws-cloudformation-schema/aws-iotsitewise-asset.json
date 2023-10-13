@@ -116,7 +116,7 @@
   "primaryIdentifier" : [ "/properties/AssetId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotsitewise:AssociateAssets", "iotsitewise:CreateAsset", "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel", "iotsitewise:ListAssociatedAssets", "iotsitewise:ListTagsForResource", "iotsitewise:UpdateAssetProperty" ]
+      "permissions" : [ "iotsitewise:AssociateAssets", "iotsitewise:CreateAsset", "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel", "iotsitewise:ListAssociatedAssets", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:UpdateAssetProperty" ]
     },
     "read" : {
       "permissions" : [ "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel", "iotsitewise:ListAssociatedAssets", "iotsitewise:ListTagsForResource" ]

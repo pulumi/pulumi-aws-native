@@ -1,61 +1,29 @@
 {
   "typeName" : "AWS::Events::EventBus",
-  "description" : "Resource type definition for AWS::Events::EventBus",
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-events",
+  "description" : "Resource Type definition for AWS::Events::EventBus",
+  "additionalProperties" : false,
   "properties" : {
-    "EventSourceName" : {
-      "description" : "If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.",
+    "Policy" : {
+      "type" : "object"
+    },
+    "Id" : {
       "type" : "string"
     },
-    "Name" : {
-      "description" : "The name of the event bus.",
+    "Arn" : {
+      "type" : "string"
+    },
+    "EventSourceName" : {
       "type" : "string"
     },
     "Tags" : {
-      "description" : "Any tags assigned to the event bus.",
       "type" : "array",
       "uniqueItems" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
     },
-    "Policy" : {
-      "description" : "A JSON string that describes the permission policy statement for the event bus.",
-      "type" : [ "object", "string" ]
-    },
-    "Arn" : {
-      "description" : "The Amazon Resource Name (ARN) for the event bus.",
+    "Name" : {
       "type" : "string"
-    }
-  },
-  "tagging" : {
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
-  },
-  "additionalProperties" : false,
-  "required" : [ "Name" ],
-  "createOnlyProperties" : [ "/properties/Name" ],
-  "writeOnlyProperties" : [ "/properties/EventSourceName" ],
-  "readOnlyProperties" : [ "/properties/Arn" ],
-  "primaryIdentifier" : [ "/properties/Name" ],
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "events:CreateEventBus", "events:DescribeEventBus", "events:PutPermission", "events:ListTagsForResource", "events:TagResource" ]
-    },
-    "read" : {
-      "permissions" : [ "events:DescribeEventBus", "events:ListTagsForResource" ]
-    },
-    "update" : {
-      "permissions" : [ "events:TagResource", "events:UntagResource", "events:PutPermission", "events:DescribeEventBus" ]
-    },
-    "delete" : {
-      "permissions" : [ "events:DescribeEventBus", "events:DeleteEventBus" ]
-    },
-    "list" : {
-      "permissions" : [ "events:ListEventBuses", "events:ListTagsForResource" ]
     }
   },
   "definitions" : {
@@ -63,14 +31,18 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Key" : {
+        "Value" : {
           "type" : "string"
         },
-        "Value" : {
+        "Key" : {
           "type" : "string"
         }
       },
       "required" : [ "Value", "Key" ]
     }
-  }
+  },
+  "required" : [ "Name" ],
+  "createOnlyProperties" : [ "/properties/Name" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ]
 }

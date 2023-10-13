@@ -14,7 +14,7 @@
       "permissions" : [ "lambda:CreateFunction", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:GetLayerVersion", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:TagResource" ]
     },
     "update" : {
-      "permissions" : [ "lambda:DeleteFunctionConcurrency", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "lambda:ListTags", "lambda:TagResource", "lambda:UntagResource", "lambda:UpdateFunctionConfiguration", "lambda:UpdateFunctionCode", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "kms:CreateGrant", "kms:Decrypt", "kms:GenerateDataKey", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:PutFunctionCodeSigningConfig", "lambda:DeleteFunctionCodeSigningConfig", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig" ]
+      "permissions" : [ "lambda:DeleteFunctionConcurrency", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "lambda:ListTags", "lambda:TagResource", "lambda:UntagResource", "lambda:UpdateFunctionConfiguration", "lambda:UpdateFunctionCode", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:GenerateDataKey", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:PutFunctionCodeSigningConfig", "lambda:DeleteFunctionCodeSigningConfig", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig" ]
     },
     "list" : {
       "permissions" : [ "lambda:ListFunctions" ]
@@ -76,6 +76,10 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "Ipv6AllowedForDualStack" : {
+          "description" : "A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets",
+          "type" : "boolean"
+        },
         "SecurityGroupIds" : {
           "maxItems" : 5,
           "uniqueItems" : false,

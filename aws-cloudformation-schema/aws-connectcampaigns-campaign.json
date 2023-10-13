@@ -11,6 +11,9 @@
         },
         "PredictiveDialerConfig" : {
           "$ref" : "#/definitions/PredictiveDialerConfig"
+        },
+        "AgentlessDialerConfig" : {
+          "$ref" : "#/definitions/AgentlessDialerConfig"
         }
       },
       "additionalProperties" : false,
@@ -18,6 +21,8 @@
         "required" : [ "ProgressiveDialerConfig" ]
       }, {
         "required" : [ "PredictiveDialerConfig" ]
+      }, {
+        "required" : [ "AgentlessDialerConfig" ]
       } ]
     },
     "OutboundCallConfig" : {
@@ -45,7 +50,7 @@
           "$ref" : "#/definitions/AnswerMachineDetectionConfig"
         }
       },
-      "required" : [ "ConnectContactFlowArn", "ConnectQueueArn" ],
+      "required" : [ "ConnectContactFlowArn" ],
       "additionalProperties" : false
     },
     "PredictiveDialerConfig" : {
@@ -57,6 +62,12 @@
           "maximum" : 1,
           "minimum" : 0,
           "description" : "The bandwidth allocation of a queue resource."
+        },
+        "DialingCapacity" : {
+          "type" : "number",
+          "maximum" : 1,
+          "minimum" : 0.01,
+          "description" : "Allocates dialing capacity for this campaign between multiple active campaigns."
         }
       },
       "required" : [ "BandwidthAllocation" ],
@@ -71,9 +82,29 @@
           "maximum" : 1,
           "minimum" : 0,
           "description" : "The bandwidth allocation of a queue resource."
+        },
+        "DialingCapacity" : {
+          "type" : "number",
+          "maximum" : 1,
+          "minimum" : 0.01,
+          "description" : "Allocates dialing capacity for this campaign between multiple active campaigns."
         }
       },
       "required" : [ "BandwidthAllocation" ],
+      "additionalProperties" : false
+    },
+    "AgentlessDialerConfig" : {
+      "type" : "object",
+      "description" : "Agentless Dialer config",
+      "properties" : {
+        "DialingCapacity" : {
+          "type" : "number",
+          "maximum" : 1,
+          "minimum" : 0.01,
+          "description" : "Allocates dialing capacity for this campaign between multiple active campaigns."
+        }
+      },
+      "required" : [ ],
       "additionalProperties" : false
     },
     "AnswerMachineDetectionConfig" : {

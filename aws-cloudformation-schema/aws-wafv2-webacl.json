@@ -1169,6 +1169,9 @@
         "InspectionLevel" : {
           "type" : "string",
           "enum" : [ "COMMON", "TARGETED" ]
+        },
+        "EnableMachineLearning" : {
+          "type" : "boolean"
         }
       },
       "required" : [ "InspectionLevel" ],

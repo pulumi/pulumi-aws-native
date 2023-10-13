@@ -16,7 +16,12 @@
       "type" : "string"
     }
   },
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "additionalProperties" : false,
   "required" : [ "GlobalNetworkId", "DeviceId", "LinkId" ],
   "primaryIdentifier" : [ "/properties/GlobalNetworkId", "/properties/DeviceId", "/properties/LinkId" ],
@@ -29,6 +34,14 @@
       "permissions" : [ "networkmanager:GetLinkAssociations" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "GlobalNetworkId" : {
+            "$ref" : "resource-schema.json#/properties/GlobalNetworkId"
+          }
+        },
+        "required" : [ "GlobalNetworkId" ]
+      },
       "permissions" : [ "networkmanager:GetLinkAssociations" ]
     },
     "delete" : {
