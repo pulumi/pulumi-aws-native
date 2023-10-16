@@ -4,8 +4,12 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetRegion(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRegionResult, error) {
@@ -20,4 +24,43 @@ func GetRegion(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRegionResu
 
 type GetRegionResult struct {
 	Region string `pulumi:"region"`
+}
+
+func GetRegionOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetRegionResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetRegionResult, error) {
+		r, err := GetRegion(ctx, opts...)
+		var s GetRegionResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetRegionResultOutput)
+}
+
+type GetRegionResultOutput struct{ *pulumi.OutputState }
+
+func (GetRegionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegionResult)(nil)).Elem()
+}
+
+func (o GetRegionResultOutput) ToGetRegionResultOutput() GetRegionResultOutput {
+	return o
+}
+
+func (o GetRegionResultOutput) ToGetRegionResultOutputWithContext(ctx context.Context) GetRegionResultOutput {
+	return o
+}
+
+func (o GetRegionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRegionResult] {
+	return pulumix.Output[GetRegionResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetRegionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegionResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRegionResultOutput{})
 }

@@ -18,13 +18,13 @@ require (
 	github.com/golang/glog v1.1.0
 	github.com/golang/protobuf v1.5.3
 	github.com/google/uuid v1.3.0
-	github.com/hashicorp/hcl/v2 v2.16.2
+	github.com/hashicorp/hcl/v2 v2.17.0
 	github.com/lestrrat-go/jsschema v0.0.0-20181205002244-5c81c58ffcc3
 	github.com/mattbaird/jsonpatch v0.0.0-20200820163806-098863c1fc24
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v3 v3.86.0
-	github.com/pulumi/pulumi/sdk/v3 v3.86.0
-	github.com/stretchr/testify v1.8.3
+	github.com/pulumi/pulumi/pkg/v3 v3.88.1
+	github.com/pulumi/pulumi/sdk/v3 v3.88.1
+	github.com/stretchr/testify v1.8.4
 	github.com/zclconf/go-cty v1.13.2
 	google.golang.org/grpc v1.57.0
 	google.golang.org/protobuf v1.31.0
@@ -178,8 +178,9 @@ require (
 	github.com/pkg/browser v0.0.0-20210115035449-ce105d075bb4 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/pulumi/esc v0.5.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
-	github.com/rogpeppe/go-internal v1.9.0 // indirect
+	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
 	github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 // indirect
@@ -203,11 +204,12 @@ require (
 	gocloud.dev v0.27.0 // indirect
 	gocloud.dev/secrets/hashivault v0.27.0 // indirect
 	golang.org/x/crypto v0.9.0 // indirect
-	golang.org/x/mod v0.10.0 // indirect
+	golang.org/x/exp v0.0.0-20231006140011-7918f672742d // indirect
+	golang.org/x/mod v0.13.0 // indirect
 	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/oauth2 v0.8.0 // indirect
 	golang.org/x/sync v0.2.0 // indirect
-	golang.org/x/sys v0.9.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/term v0.8.0 // indirect
 	golang.org/x/text v0.9.0 // indirect
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
