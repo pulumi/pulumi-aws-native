@@ -22,7 +22,7 @@
     },
     "SchemaAttributeType" : {
       "type" : "string",
-      "enum" : [ "NAME", "NAME_FIRST", "NAME_MIDDLE", "NAME_LAST", "ADDRESS", "ADDRESS_STREET1", "ADDRESS_STREET2", "ADDRESS_STREET3", "ADDRESS_CITY", "ADDRESS_STATE", "ADDRESS_COUNTRY", "ADDRESS_POSTALCODE", "PHONE", "PHONE_NUMBER", "PHONE_COUNTRYCODE", "EMAIL_ADDRESS", "UNIQUE_ID", "DATE", "STRING" ]
+      "enum" : [ "NAME", "NAME_FIRST", "NAME_MIDDLE", "NAME_LAST", "ADDRESS", "ADDRESS_STREET1", "ADDRESS_STREET2", "ADDRESS_STREET3", "ADDRESS_CITY", "ADDRESS_STATE", "ADDRESS_COUNTRY", "ADDRESS_POSTALCODE", "PHONE", "PHONE_NUMBER", "PHONE_COUNTRYCODE", "EMAIL_ADDRESS", "UNIQUE_ID", "DATE", "STRING", "PROVIDER_ID" ]
     },
     "MappedInputFields" : {
       "type" : "array",
@@ -41,6 +41,10 @@
         },
         "Type" : {
           "$ref" : "#/definitions/SchemaAttributeType"
+        },
+        "SubType" : {
+          "type" : "string",
+          "description" : "The subtype of the Attribute. Would be required only when type is PROVIDER_ID"
         },
         "GroupName" : {
           "$ref" : "#/definitions/AttributeName"

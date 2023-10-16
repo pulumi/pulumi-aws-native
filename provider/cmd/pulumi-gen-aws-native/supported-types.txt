@@ -137,6 +137,7 @@ AWS::CodeGuruReviewer::RepositoryAssociation
 AWS::CodePipeline::CustomActionType
 AWS::CodeStarConnections::Connection
 AWS::CodeStarNotifications::NotificationRule
+AWS::Cognito::IdentityPool
 AWS::Cognito::IdentityPoolPrincipalTag
 AWS::Cognito::LogDeliveryConfiguration
 AWS::Cognito::UserPoolUser
@@ -332,6 +333,7 @@ AWS::Events::Archive
 AWS::Events::Connection
 AWS::Events::Endpoint
 AWS::Events::EventBus
+AWS::Events::Rule
 AWS::Evidently::Experiment
 AWS::Evidently::Feature
 AWS::Evidently::Launch
@@ -486,6 +488,7 @@ AWS::Lambda::LayerVersion
 AWS::Lambda::LayerVersionPermission
 AWS::Lambda::Permission
 AWS::Lambda::Url
+AWS::Lambda::Version
 AWS::Lex::Bot
 AWS::Lex::BotAlias
 AWS::Lex::BotVersion

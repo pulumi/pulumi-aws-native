@@ -20,6 +20,12 @@
   "createOnlyProperties" : [ "/properties/BackupSelection", "/properties/BackupPlanId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/SelectionId", "/properties/Id" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "additionalProperties" : false,
   "definitions" : {
     "BackupSelectionResourceType" : {
@@ -126,7 +132,6 @@
       "required" : [ "ConditionValue", "ConditionKey", "ConditionType" ]
     }
   },
-  "taggable" : false,
   "handlers" : {
     "delete" : {
       "permissions" : [ "backup:GetBackupSelection", "backup:DeleteBackupSelection" ]

@@ -18,6 +18,12 @@
   },
   "additionalProperties" : false,
   "required" : [ "Cluster", "Service", "TaskSetId" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "createOnlyProperties" : [ "/properties/Cluster", "/properties/Service" ],
   "primaryIdentifier" : [ "/properties/Cluster", "/properties/Service" ],
   "handlers" : {
@@ -25,13 +31,13 @@
       "permissions" : [ "ecs:DescribeTaskSets", "ecs:UpdateServicePrimaryTaskSet" ]
     },
     "read" : {
-      "permissions" : [ "" ]
+      "permissions" : [ ]
     },
     "update" : {
       "permissions" : [ "ecs:DescribeTaskSets", "ecs:UpdateServicePrimaryTaskSet" ]
     },
     "delete" : {
-      "permissions" : [ "" ]
+      "permissions" : [ ]
     }
   }
 }

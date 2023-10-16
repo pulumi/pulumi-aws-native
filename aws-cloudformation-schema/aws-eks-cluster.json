@@ -278,7 +278,7 @@
   "additionalProperties" : false,
   "required" : [ "RoleArn", "ResourcesVpcConfig" ],
   "primaryIdentifier" : [ "/properties/Name" ],
-  "createOnlyProperties" : [ "/properties/OutpostConfig", "/properties/EncryptionConfig", "/properties/KubernetesNetworkConfig", "/properties/Name", "/properties/RoleArn", "/properties/ResourcesVpcConfig/SubnetIds", "/properties/ResourcesVpcConfig/SecurityGroupIds" ],
+  "createOnlyProperties" : [ "/properties/OutpostConfig", "/properties/EncryptionConfig", "/properties/KubernetesNetworkConfig", "/properties/Name", "/properties/RoleArn" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/Endpoint", "/properties/CertificateAuthorityData", "/properties/ClusterSecurityGroupId", "/properties/EncryptionConfigKeyArn", "/properties/OpenIdConnectIssuerUrl", "/properties/KubernetesNetworkConfig/ServiceIpv6Cidr" ],
   "handlers" : {
     "create" : {
@@ -289,7 +289,7 @@
     },
     "update" : {
       "permissions" : [ "iam:PassRole", "eks:UpdateClusterConfig", "eks:UpdateClusterVersion", "eks:DescribeCluster", "eks:DescribeUpdate", "eks:TagResource", "eks:UntagResource" ],
-      "timeoutInMinutes" : 150
+      "timeoutInMinutes" : 180
     },
     "delete" : {
       "permissions" : [ "eks:DeleteCluster", "eks:DescribeCluster" ]

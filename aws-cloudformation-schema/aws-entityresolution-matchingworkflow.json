@@ -106,10 +106,13 @@
       "properties" : {
         "ResolutionType" : {
           "type" : "string",
-          "enum" : [ "RULE_MATCHING", "ML_MATCHING" ]
+          "enum" : [ "RULE_MATCHING", "ML_MATCHING", "PROVIDER" ]
         },
         "RuleBasedProperties" : {
           "$ref" : "#/definitions/RuleBasedProperties"
+        },
+        "ProviderProperties" : {
+          "$ref" : "#/definitions/ProviderProperties"
         }
       },
       "additionalProperties" : false
@@ -154,6 +157,41 @@
         }
       },
       "required" : [ "RuleName", "MatchingKeys" ],
+      "additionalProperties" : false
+    },
+    "ProviderProperties" : {
+      "type" : "object",
+      "properties" : {
+        "ProviderServiceArn" : {
+          "type" : "string",
+          "description" : "Arn of the Provider service being used."
+        },
+        "ProviderConfiguration" : {
+          "type" : "object",
+          "additionalProperties" : false,
+          "patternProperties" : {
+            "^.+$" : {
+              "type" : "string"
+            }
+          },
+          "description" : "Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format"
+        },
+        "IntermediateSourceConfiguration" : {
+          "$ref" : "#/definitions/IntermediateSourceConfiguration"
+        }
+      },
+      "required" : [ "ProviderServiceArn" ],
+      "additionalProperties" : false
+    },
+    "IntermediateSourceConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "IntermediateS3Path" : {
+          "type" : "string",
+          "description" : "The s3 path that would be used to stage the intermediate data being generated during workflow execution."
+        }
+      },
+      "required" : [ "IntermediateS3Path" ],
       "additionalProperties" : false
     },
     "Tag" : {
@@ -249,7 +287,7 @@
       "permissions" : [ "entityresolution:GetMatchingWorkflow", "entityresolution:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "entityresolution:DeleteMatchingWorkflow", "entityresolution:GetMatchingWorkflow" ]
+      "permissions" : [ "entityresolution:DeleteMatchingWorkflow", "entityresolution:GetMatchingWorkflow", "entityresolution:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "entityresolution:ListMatchingWorkflows" ]

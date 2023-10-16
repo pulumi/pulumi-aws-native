@@ -72,6 +72,10 @@
     "CreatedAt" : {
       "description" : "The date and time that the device was created.",
       "type" : "string"
+    },
+    "State" : {
+      "description" : "The state of the site.",
+      "type" : "string"
     }
   },
   "tagging" : {
@@ -83,7 +87,7 @@
   },
   "additionalProperties" : false,
   "required" : [ "GlobalNetworkId" ],
-  "readOnlyProperties" : [ "/properties/SiteId", "/properties/SiteArn", "/properties/CreatedAt" ],
+  "readOnlyProperties" : [ "/properties/SiteId", "/properties/SiteArn", "/properties/State", "/properties/CreatedAt" ],
   "createOnlyProperties" : [ "/properties/GlobalNetworkId" ],
   "primaryIdentifier" : [ "/properties/GlobalNetworkId", "/properties/SiteId" ],
   "additionalIdentifiers" : [ [ "/properties/SiteArn" ] ],
@@ -98,7 +102,7 @@
       "permissions" : [ "networkmanager:GetSites", "networkmanager:ListTagsForResource", "networkmanager:TagResource", "networkmanager:UntagResource", "networkmanager:UpdateSite" ]
     },
     "delete" : {
-      "permissions" : [ "networkmanager:DeleteSite" ]
+      "permissions" : [ "networkmanager:GetSites", "networkmanager:DeleteSite" ]
     },
     "list" : {
       "handlerSchema" : {

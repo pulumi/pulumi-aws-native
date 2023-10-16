@@ -20,7 +20,12 @@
       "type" : "string"
     }
   },
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "additionalProperties" : false,
   "required" : [ "GlobalNetworkId", "CustomerGatewayArn", "DeviceId" ],
   "createOnlyProperties" : [ "/properties/GlobalNetworkId", "/properties/CustomerGatewayArn", "/properties/DeviceId", "/properties/LinkId" ],
@@ -33,6 +38,14 @@
       "permissions" : [ "networkmanager:GetCustomerGatewayAssociations" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "GlobalNetworkId" : {
+            "$ref" : "resource-schema.json#/properties/GlobalNetworkId"
+          }
+        },
+        "required" : [ "GlobalNetworkId" ]
+      },
       "permissions" : [ "networkmanager:GetCustomerGatewayAssociations" ]
     },
     "delete" : {

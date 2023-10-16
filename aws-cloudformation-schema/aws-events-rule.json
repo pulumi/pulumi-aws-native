@@ -48,7 +48,7 @@
       "properties" : {
         "PathParameterValues" : {
           "uniqueItems" : true,
-          "insertionOrder" : false,
+          "insertionOrder" : true,
           "type" : "array",
           "items" : {
             "type" : "string"
@@ -89,7 +89,7 @@
       "properties" : {
         "RunCommandTargets" : {
           "uniqueItems" : true,
-          "insertionOrder" : false,
+          "insertionOrder" : true,
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/RunCommandTarget"
@@ -157,7 +157,7 @@
         },
         "Sqls" : {
           "uniqueItems" : false,
-          "insertionOrder" : false,
+          "insertionOrder" : true,
           "type" : "array",
           "items" : {
             "type" : "string"
@@ -179,7 +179,7 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "Database", "Sql" ]
+      "required" : [ "Database" ]
     },
     "Target" : {
       "additionalProperties" : false,
@@ -254,7 +254,7 @@
       "properties" : {
         "SecurityGroups" : {
           "uniqueItems" : true,
-          "insertionOrder" : false,
+          "insertionOrder" : true,
           "type" : "array",
           "items" : {
             "type" : "string"
@@ -262,7 +262,7 @@
         },
         "Subnets" : {
           "uniqueItems" : true,
-          "insertionOrder" : false,
+          "insertionOrder" : true,
           "type" : "array",
           "items" : {
             "type" : "string"
@@ -290,7 +290,7 @@
       "properties" : {
         "Values" : {
           "uniqueItems" : true,
-          "insertionOrder" : false,
+          "insertionOrder" : true,
           "type" : "array",
           "items" : {
             "type" : "string"
@@ -320,7 +320,7 @@
         },
         "PlacementConstraints" : {
           "uniqueItems" : true,
-          "insertionOrder" : false,
+          "insertionOrder" : true,
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/PlacementConstraint"
@@ -334,7 +334,7 @@
         },
         "PlacementStrategies" : {
           "uniqueItems" : true,
-          "insertionOrder" : false,
+          "insertionOrder" : true,
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/PlacementStrategy"
@@ -342,7 +342,7 @@
         },
         "CapacityProviderStrategy" : {
           "uniqueItems" : true,
-          "insertionOrder" : false,
+          "insertionOrder" : true,
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/CapacityProviderStrategyItem"
@@ -356,7 +356,7 @@
         },
         "TagList" : {
           "uniqueItems" : true,
-          "insertionOrder" : false,
+          "insertionOrder" : true,
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/Tag"
@@ -417,7 +417,7 @@
       "properties" : {
         "PipelineParameterList" : {
           "uniqueItems" : true,
-          "insertionOrder" : false,
+          "insertionOrder" : true,
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/SageMakerPipelineParameter"
