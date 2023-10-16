@@ -1,7 +1,40 @@
 ## HEAD (Unreleased)
 
-### Breaking Changes
+## 0.81.0 (2023-10-16)
 
+Resource "aws-native:autoscaling:AutoScalingGroup" property "instanceMaintenancePolicy" removed
+Type "aws-native:kendra:DataSourceConfiguration" property "templateConfiguration" removed
+
+### New resources
+
+- `cognito.IdentityPool`
+- `events.Rule`
+- `lambda.Version`
+
+### New functions
+
+- `cognito.getIdentityPool`
+- `events.getRule`
+- `lambda.getVersion`
+
+## 0.80.0 (2023-10-10)
+
+Function "aws-native:connect:getPhoneNumber" output "description" removed
+Function "aws-native:s3:getBucketPolicy" property "id" removed
+
+### New resources
+
+- `apigatewayv2.DomainName`
+- `cognito.LogDeliveryConfiguration`
+- `iot.SoftwarePackage`
+- `iot.SoftwarePackageVersion`
+
+### New functions
+
+- `apigatewayv2.getDomainName`
+- `cognito.getLogDeliveryConfiguration`
+- `iot.getSoftwarePackage`
+- `iot.getSoftwarePackageVersion`
 
 ## 0.79.0 (2023-10-02)
 
