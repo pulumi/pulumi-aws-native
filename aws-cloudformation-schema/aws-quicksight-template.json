@@ -2916,6 +2916,9 @@
         },
         "SelectAllOptions" : {
           "$ref" : "#/definitions/CategoryFilterSelectAllOptions"
+        },
+        "NullOption" : {
+          "$ref" : "#/definitions/FilterNullOption"
         }
       },
       "required" : [ "MatchOperator" ],
@@ -8497,7 +8500,7 @@
     },
     "TableTotalsPlacement" : {
       "type" : "string",
-      "enum" : [ "START", "END" ]
+      "enum" : [ "START", "END", "AUTO" ]
     },
     "TableTotalsScrollStatus" : {
       "type" : "string",

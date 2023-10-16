@@ -1434,18 +1434,18 @@ class RuleRedshiftDataParameters(dict):
 
     def __init__(__self__, *,
                  database: str,
-                 sql: str,
                  db_user: Optional[str] = None,
                  secret_manager_arn: Optional[str] = None,
+                 sql: Optional[str] = None,
                  sqls: Optional[Sequence[str]] = None,
                  statement_name: Optional[str] = None,
                  with_event: Optional[bool] = None):
         RuleRedshiftDataParameters._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             database=database,
-            sql=sql,
             db_user=db_user,
             secret_manager_arn=secret_manager_arn,
+            sql=sql,
             sqls=sqls,
             statement_name=statement_name,
             with_event=with_event,
@@ -1454,19 +1454,20 @@ class RuleRedshiftDataParameters(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              database: str,
-             sql: str,
              db_user: Optional[str] = None,
              secret_manager_arn: Optional[str] = None,
+             sql: Optional[str] = None,
              sqls: Optional[Sequence[str]] = None,
              statement_name: Optional[str] = None,
              with_event: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("database", database)
-        _setter("sql", sql)
         if db_user is not None:
             _setter("db_user", db_user)
         if secret_manager_arn is not None:
             _setter("secret_manager_arn", secret_manager_arn)
+        if sql is not None:
+            _setter("sql", sql)
         if sqls is not None:
             _setter("sqls", sqls)
         if statement_name is not None:
@@ -1480,11 +1481,6 @@ class RuleRedshiftDataParameters(dict):
         return pulumi.get(self, "database")
 
     @property
-    @pulumi.getter
-    def sql(self) -> str:
-        return pulumi.get(self, "sql")
-
-    @property
     @pulumi.getter(name="dbUser")
     def db_user(self) -> Optional[str]:
         return pulumi.get(self, "db_user")
@@ -1493,6 +1489,11 @@ class RuleRedshiftDataParameters(dict):
     @pulumi.getter(name="secretManagerArn")
     def secret_manager_arn(self) -> Optional[str]:
         return pulumi.get(self, "secret_manager_arn")
+
+    @property
+    @pulumi.getter
+    def sql(self) -> Optional[str]:
+        return pulumi.get(self, "sql")
 
     @property
     @pulumi.getter

@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("neverAggregateInFilter")]
         public Input<bool>? NeverAggregateInFilter { get; set; }
 
+        [Input("nonAdditive")]
+        public Input<bool>? NonAdditive { get; set; }
+
         [Input("notAllowedAggregations")]
         private InputList<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation>? _notAllowedAggregations;
         public InputList<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation> NotAllowedAggregations

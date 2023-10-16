@@ -12,22 +12,48 @@ namespace Pulumi.AwsNative.Lambda
     /// <summary>
     /// Resource Type definition for AWS::Lambda::Version
     /// </summary>
-    [Obsolete(@"Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lambda:Version")]
     public partial class Version : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
+        /// </summary>
         [Output("codeSha256")]
         public Output<string?> CodeSha256 { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the version to override the description in the function configuration. Updates are not supported for this property.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the version.
+        /// </summary>
+        [Output("functionArn")]
+        public Output<string> FunctionArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Lambda function.
+        /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
+        /// </summary>
         [Output("provisionedConcurrencyConfig")]
         public Output<Outputs.VersionProvisionedConcurrencyConfiguration?> ProvisionedConcurrencyConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
+        /// </summary>
+        [Output("runtimePolicy")]
+        public Output<Outputs.VersionRuntimePolicy?> RuntimePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The version number.
+        /// </summary>
         [Output("version")]
         public Output<string> VersionValue { get; private set; } = null!;
 
@@ -56,7 +82,11 @@ namespace Pulumi.AwsNative.Lambda
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "codeSha256",
+                    "description",
                     "functionName",
+                    "provisionedConcurrencyConfig",
+                    "runtimePolicy",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -80,17 +110,35 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class VersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
+        /// </summary>
         [Input("codeSha256")]
         public Input<string>? CodeSha256 { get; set; }
 
+        /// <summary>
+        /// A description for the version to override the description in the function configuration. Updates are not supported for this property.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the Lambda function.
+        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
+        /// </summary>
         [Input("provisionedConcurrencyConfig")]
         public Input<Inputs.VersionProvisionedConcurrencyConfigurationArgs>? ProvisionedConcurrencyConfig { get; set; }
+
+        /// <summary>
+        /// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
+        /// </summary>
+        [Input("runtimePolicy")]
+        public Input<Inputs.VersionRuntimePolicyArgs>? RuntimePolicy { get; set; }
 
         public VersionArgs()
         {

@@ -4059,6 +4059,8 @@ class WebAclAwsManagedRulesBotControlRuleSet(dict):
         suggest = None
         if key == "inspectionLevel":
             suggest = "inspection_level"
+        elif key == "enableMachineLearning":
+            suggest = "enable_machine_learning"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebAclAwsManagedRulesBotControlRuleSet. Access the value via the '{suggest}' property getter instead.")
@@ -4072,25 +4074,35 @@ class WebAclAwsManagedRulesBotControlRuleSet(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 inspection_level: 'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel'):
+                 inspection_level: 'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel',
+                 enable_machine_learning: Optional[bool] = None):
         """
         Configures how to use the Bot Control managed rule group in the web ACL
         """
         WebAclAwsManagedRulesBotControlRuleSet._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             inspection_level=inspection_level,
+            enable_machine_learning=enable_machine_learning,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              inspection_level: 'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel',
+             enable_machine_learning: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("inspection_level", inspection_level)
+        if enable_machine_learning is not None:
+            _setter("enable_machine_learning", enable_machine_learning)
 
     @property
     @pulumi.getter(name="inspectionLevel")
     def inspection_level(self) -> 'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel':
         return pulumi.get(self, "inspection_level")
+
+    @property
+    @pulumi.getter(name="enableMachineLearning")
+    def enable_machine_learning(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_machine_learning")
 
 
 @pulumi.output_type

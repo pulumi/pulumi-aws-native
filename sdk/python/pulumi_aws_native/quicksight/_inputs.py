@@ -9484,11 +9484,13 @@ class AnalysisFilterListConfigurationArgs:
     def __init__(__self__, *,
                  match_operator: pulumi.Input['AnalysisCategoryFilterMatchOperator'],
                  category_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 null_option: Optional[pulumi.Input['AnalysisFilterNullOption']] = None,
                  select_all_options: Optional[pulumi.Input['AnalysisCategoryFilterSelectAllOptions']] = None):
         AnalysisFilterListConfigurationArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             match_operator=match_operator,
             category_values=category_values,
+            null_option=null_option,
             select_all_options=select_all_options,
         )
     @staticmethod
@@ -9496,11 +9498,14 @@ class AnalysisFilterListConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              match_operator: pulumi.Input['AnalysisCategoryFilterMatchOperator'],
              category_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             null_option: Optional[pulumi.Input['AnalysisFilterNullOption']] = None,
              select_all_options: Optional[pulumi.Input['AnalysisCategoryFilterSelectAllOptions']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("match_operator", match_operator)
         if category_values is not None:
             _setter("category_values", category_values)
+        if null_option is not None:
+            _setter("null_option", null_option)
         if select_all_options is not None:
             _setter("select_all_options", select_all_options)
 
@@ -9521,6 +9526,15 @@ class AnalysisFilterListConfigurationArgs:
     @category_values.setter
     def category_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "category_values", value)
+
+    @property
+    @pulumi.getter(name="nullOption")
+    def null_option(self) -> Optional[pulumi.Input['AnalysisFilterNullOption']]:
+        return pulumi.get(self, "null_option")
+
+    @null_option.setter
+    def null_option(self, value: Optional[pulumi.Input['AnalysisFilterNullOption']]):
+        pulumi.set(self, "null_option", value)
 
     @property
     @pulumi.getter(name="selectAllOptions")
@@ -36428,11 +36442,13 @@ class DashboardFilterListConfigurationArgs:
     def __init__(__self__, *,
                  match_operator: pulumi.Input['DashboardCategoryFilterMatchOperator'],
                  category_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 null_option: Optional[pulumi.Input['DashboardFilterNullOption']] = None,
                  select_all_options: Optional[pulumi.Input['DashboardCategoryFilterSelectAllOptions']] = None):
         DashboardFilterListConfigurationArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             match_operator=match_operator,
             category_values=category_values,
+            null_option=null_option,
             select_all_options=select_all_options,
         )
     @staticmethod
@@ -36440,11 +36456,14 @@ class DashboardFilterListConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              match_operator: pulumi.Input['DashboardCategoryFilterMatchOperator'],
              category_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             null_option: Optional[pulumi.Input['DashboardFilterNullOption']] = None,
              select_all_options: Optional[pulumi.Input['DashboardCategoryFilterSelectAllOptions']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("match_operator", match_operator)
         if category_values is not None:
             _setter("category_values", category_values)
+        if null_option is not None:
+            _setter("null_option", null_option)
         if select_all_options is not None:
             _setter("select_all_options", select_all_options)
 
@@ -36465,6 +36484,15 @@ class DashboardFilterListConfigurationArgs:
     @category_values.setter
     def category_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "category_values", value)
+
+    @property
+    @pulumi.getter(name="nullOption")
+    def null_option(self) -> Optional[pulumi.Input['DashboardFilterNullOption']]:
+        return pulumi.get(self, "null_option")
+
+    @null_option.setter
+    def null_option(self, value: Optional[pulumi.Input['DashboardFilterNullOption']]):
+        pulumi.set(self, "null_option", value)
 
     @property
     @pulumi.getter(name="selectAllOptions")
@@ -66938,11 +66966,13 @@ class TemplateFilterListConfigurationArgs:
     def __init__(__self__, *,
                  match_operator: pulumi.Input['TemplateCategoryFilterMatchOperator'],
                  category_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 null_option: Optional[pulumi.Input['TemplateFilterNullOption']] = None,
                  select_all_options: Optional[pulumi.Input['TemplateCategoryFilterSelectAllOptions']] = None):
         TemplateFilterListConfigurationArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             match_operator=match_operator,
             category_values=category_values,
+            null_option=null_option,
             select_all_options=select_all_options,
         )
     @staticmethod
@@ -66950,11 +66980,14 @@ class TemplateFilterListConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              match_operator: pulumi.Input['TemplateCategoryFilterMatchOperator'],
              category_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             null_option: Optional[pulumi.Input['TemplateFilterNullOption']] = None,
              select_all_options: Optional[pulumi.Input['TemplateCategoryFilterSelectAllOptions']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("match_operator", match_operator)
         if category_values is not None:
             _setter("category_values", category_values)
+        if null_option is not None:
+            _setter("null_option", null_option)
         if select_all_options is not None:
             _setter("select_all_options", select_all_options)
 
@@ -66975,6 +67008,15 @@ class TemplateFilterListConfigurationArgs:
     @category_values.setter
     def category_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "category_values", value)
+
+    @property
+    @pulumi.getter(name="nullOption")
+    def null_option(self) -> Optional[pulumi.Input['TemplateFilterNullOption']]:
+        return pulumi.get(self, "null_option")
+
+    @null_option.setter
+    def null_option(self, value: Optional[pulumi.Input['TemplateFilterNullOption']]):
+        pulumi.set(self, "null_option", value)
 
     @property
     @pulumi.getter(name="selectAllOptions")
@@ -86560,6 +86602,7 @@ class TopicCalculatedFieldArgs:
                  default_formatting: Optional[pulumi.Input['TopicDefaultFormattingArgs']] = None,
                  is_included_in_topic: Optional[pulumi.Input[bool]] = None,
                  never_aggregate_in_filter: Optional[pulumi.Input[bool]] = None,
+                 non_additive: Optional[pulumi.Input[bool]] = None,
                  not_allowed_aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]] = None,
                  semantic_type: Optional[pulumi.Input['TopicSemanticTypeArgs']] = None,
                  time_granularity: Optional[pulumi.Input['TopicTimeGranularity']] = None):
@@ -86577,6 +86620,7 @@ class TopicCalculatedFieldArgs:
             default_formatting=default_formatting,
             is_included_in_topic=is_included_in_topic,
             never_aggregate_in_filter=never_aggregate_in_filter,
+            non_additive=non_additive,
             not_allowed_aggregations=not_allowed_aggregations,
             semantic_type=semantic_type,
             time_granularity=time_granularity,
@@ -86596,6 +86640,7 @@ class TopicCalculatedFieldArgs:
              default_formatting: Optional[pulumi.Input['TopicDefaultFormattingArgs']] = None,
              is_included_in_topic: Optional[pulumi.Input[bool]] = None,
              never_aggregate_in_filter: Optional[pulumi.Input[bool]] = None,
+             non_additive: Optional[pulumi.Input[bool]] = None,
              not_allowed_aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]] = None,
              semantic_type: Optional[pulumi.Input['TopicSemanticTypeArgs']] = None,
              time_granularity: Optional[pulumi.Input['TopicTimeGranularity']] = None,
@@ -86622,6 +86667,8 @@ class TopicCalculatedFieldArgs:
             _setter("is_included_in_topic", is_included_in_topic)
         if never_aggregate_in_filter is not None:
             _setter("never_aggregate_in_filter", never_aggregate_in_filter)
+        if non_additive is not None:
+            _setter("non_additive", non_additive)
         if not_allowed_aggregations is not None:
             _setter("not_allowed_aggregations", not_allowed_aggregations)
         if semantic_type is not None:
@@ -86736,6 +86783,15 @@ class TopicCalculatedFieldArgs:
     @never_aggregate_in_filter.setter
     def never_aggregate_in_filter(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "never_aggregate_in_filter", value)
+
+    @property
+    @pulumi.getter(name="nonAdditive")
+    def non_additive(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "non_additive")
+
+    @non_additive.setter
+    def non_additive(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "non_additive", value)
 
     @property
     @pulumi.getter(name="notAllowedAggregations")
@@ -86968,6 +87024,7 @@ class TopicColumnArgs:
                  default_formatting: Optional[pulumi.Input['TopicDefaultFormattingArgs']] = None,
                  is_included_in_topic: Optional[pulumi.Input[bool]] = None,
                  never_aggregate_in_filter: Optional[pulumi.Input[bool]] = None,
+                 non_additive: Optional[pulumi.Input[bool]] = None,
                  not_allowed_aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]] = None,
                  semantic_type: Optional[pulumi.Input['TopicSemanticTypeArgs']] = None,
                  time_granularity: Optional[pulumi.Input['TopicTimeGranularity']] = None):
@@ -86985,6 +87042,7 @@ class TopicColumnArgs:
             default_formatting=default_formatting,
             is_included_in_topic=is_included_in_topic,
             never_aggregate_in_filter=never_aggregate_in_filter,
+            non_additive=non_additive,
             not_allowed_aggregations=not_allowed_aggregations,
             semantic_type=semantic_type,
             time_granularity=time_granularity,
@@ -87004,6 +87062,7 @@ class TopicColumnArgs:
              default_formatting: Optional[pulumi.Input['TopicDefaultFormattingArgs']] = None,
              is_included_in_topic: Optional[pulumi.Input[bool]] = None,
              never_aggregate_in_filter: Optional[pulumi.Input[bool]] = None,
+             non_additive: Optional[pulumi.Input[bool]] = None,
              not_allowed_aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]] = None,
              semantic_type: Optional[pulumi.Input['TopicSemanticTypeArgs']] = None,
              time_granularity: Optional[pulumi.Input['TopicTimeGranularity']] = None,
@@ -87031,6 +87090,8 @@ class TopicColumnArgs:
             _setter("is_included_in_topic", is_included_in_topic)
         if never_aggregate_in_filter is not None:
             _setter("never_aggregate_in_filter", never_aggregate_in_filter)
+        if non_additive is not None:
+            _setter("non_additive", non_additive)
         if not_allowed_aggregations is not None:
             _setter("not_allowed_aggregations", not_allowed_aggregations)
         if semantic_type is not None:
@@ -87145,6 +87206,15 @@ class TopicColumnArgs:
     @never_aggregate_in_filter.setter
     def never_aggregate_in_filter(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "never_aggregate_in_filter", value)
+
+    @property
+    @pulumi.getter(name="nonAdditive")
+    def non_additive(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "non_additive")
+
+    @non_additive.setter
+    def non_additive(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "non_additive", value)
 
     @property
     @pulumi.getter(name="notAllowedAggregations")

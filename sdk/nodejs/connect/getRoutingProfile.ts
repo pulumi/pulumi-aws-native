@@ -27,6 +27,10 @@ export interface GetRoutingProfileArgs {
 
 export interface GetRoutingProfileResult {
     /**
+     * Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+     */
+    readonly agentAvailabilityTimer?: enums.connect.RoutingProfileAgentAvailabilityTimer;
+    /**
      * The identifier of the default outbound queue for this routing profile.
      */
     readonly defaultOutboundQueueArn?: string;

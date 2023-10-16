@@ -14,16 +14,23 @@ import (
 )
 
 // Resource Type definition for AWS::Lambda::Version
-//
-// Deprecated: Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Version struct {
 	pulumi.CustomResourceState
 
-	CodeSha256                   pulumi.StringPtrOutput                              `pulumi:"codeSha256"`
-	Description                  pulumi.StringPtrOutput                              `pulumi:"description"`
-	FunctionName                 pulumi.StringOutput                                 `pulumi:"functionName"`
+	// Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
+	CodeSha256 pulumi.StringPtrOutput `pulumi:"codeSha256"`
+	// A description for the version to override the description in the function configuration. Updates are not supported for this property.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ARN of the version.
+	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
+	// The name of the Lambda function.
+	FunctionName pulumi.StringOutput `pulumi:"functionName"`
+	// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
 	ProvisionedConcurrencyConfig VersionProvisionedConcurrencyConfigurationPtrOutput `pulumi:"provisionedConcurrencyConfig"`
-	Version                      pulumi.StringOutput                                 `pulumi:"version"`
+	// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
+	RuntimePolicy VersionRuntimePolicyPtrOutput `pulumi:"runtimePolicy"`
+	// The version number.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewVersion registers a new resource with the given unique name, arguments, and options.
@@ -37,7 +44,11 @@ func NewVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'FunctionName'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"codeSha256",
+		"description",
 		"functionName",
+		"provisionedConcurrencyConfig",
+		"runtimePolicy",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -73,18 +84,30 @@ func (VersionState) ElementType() reflect.Type {
 }
 
 type versionArgs struct {
-	CodeSha256                   *string                                     `pulumi:"codeSha256"`
-	Description                  *string                                     `pulumi:"description"`
-	FunctionName                 string                                      `pulumi:"functionName"`
+	// Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
+	CodeSha256 *string `pulumi:"codeSha256"`
+	// A description for the version to override the description in the function configuration. Updates are not supported for this property.
+	Description *string `pulumi:"description"`
+	// The name of the Lambda function.
+	FunctionName string `pulumi:"functionName"`
+	// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
 	ProvisionedConcurrencyConfig *VersionProvisionedConcurrencyConfiguration `pulumi:"provisionedConcurrencyConfig"`
+	// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
+	RuntimePolicy *VersionRuntimePolicy `pulumi:"runtimePolicy"`
 }
 
 // The set of arguments for constructing a Version resource.
 type VersionArgs struct {
-	CodeSha256                   pulumi.StringPtrInput
-	Description                  pulumi.StringPtrInput
-	FunctionName                 pulumi.StringInput
+	// Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
+	CodeSha256 pulumi.StringPtrInput
+	// A description for the version to override the description in the function configuration. Updates are not supported for this property.
+	Description pulumi.StringPtrInput
+	// The name of the Lambda function.
+	FunctionName pulumi.StringInput
+	// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
 	ProvisionedConcurrencyConfig VersionProvisionedConcurrencyConfigurationPtrInput
+	// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
+	RuntimePolicy VersionRuntimePolicyPtrInput
 }
 
 func (VersionArgs) ElementType() reflect.Type {
@@ -136,24 +159,39 @@ func (o VersionOutput) ToOutput(ctx context.Context) pulumix.Output[*Version] {
 	}
 }
 
+// Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
 func (o VersionOutput) CodeSha256() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Version) pulumi.StringPtrOutput { return v.CodeSha256 }).(pulumi.StringPtrOutput)
 }
 
+// A description for the version to override the description in the function configuration. Updates are not supported for this property.
 func (o VersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Version) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the version.
+func (o VersionOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Version) pulumi.StringOutput { return v.FunctionArn }).(pulumi.StringOutput)
+}
+
+// The name of the Lambda function.
 func (o VersionOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Version) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
+// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
 func (o VersionOutput) ProvisionedConcurrencyConfig() VersionProvisionedConcurrencyConfigurationPtrOutput {
 	return o.ApplyT(func(v *Version) VersionProvisionedConcurrencyConfigurationPtrOutput {
 		return v.ProvisionedConcurrencyConfig
 	}).(VersionProvisionedConcurrencyConfigurationPtrOutput)
 }
 
+// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
+func (o VersionOutput) RuntimePolicy() VersionRuntimePolicyPtrOutput {
+	return o.ApplyT(func(v *Version) VersionRuntimePolicyPtrOutput { return v.RuntimePolicy }).(VersionRuntimePolicyPtrOutput)
+}
+
+// The version number.
 func (o VersionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Version) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

@@ -26,6 +26,7 @@ __all__ = [
     'QueueStatus',
     'QueueType',
     'QuickConnectType',
+    'RoutingProfileAgentAvailabilityTimer',
     'RoutingProfileBehaviorType',
     'RoutingProfileChannel',
     'RulePublishStatus',
@@ -232,6 +233,14 @@ class QuickConnectType(str, Enum):
     PHONE_NUMBER = "PHONE_NUMBER"
     QUEUE = "QUEUE"
     USER = "USER"
+
+
+class RoutingProfileAgentAvailabilityTimer(str, Enum):
+    """
+    Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+    """
+    TIME_SINCE_LAST_ACTIVITY = "TIME_SINCE_LAST_ACTIVITY"
+    TIME_SINCE_LAST_INBOUND = "TIME_SINCE_LAST_INBOUND"
 
 
 class RoutingProfileBehaviorType(str, Enum):

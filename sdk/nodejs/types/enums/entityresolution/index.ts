@@ -5,6 +5,7 @@
 export const MatchingWorkflowResolutionTechniquesResolutionType = {
     RuleMatching: "RULE_MATCHING",
     MlMatching: "ML_MATCHING",
+    Provider: "PROVIDER",
 } as const;
 
 export type MatchingWorkflowResolutionTechniquesResolutionType = (typeof MatchingWorkflowResolutionTechniquesResolutionType)[keyof typeof MatchingWorkflowResolutionTechniquesResolutionType];
@@ -36,6 +37,7 @@ export const SchemaMappingSchemaAttributeType = {
     UniqueId: "UNIQUE_ID",
     Date: "DATE",
     String: "STRING",
+    ProviderId: "PROVIDER_ID",
 } as const;
 
 export type SchemaMappingSchemaAttributeType = (typeof SchemaMappingSchemaAttributeType)[keyof typeof SchemaMappingSchemaAttributeType];

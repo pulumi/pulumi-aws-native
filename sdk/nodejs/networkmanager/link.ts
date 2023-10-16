@@ -42,6 +42,10 @@ export class Link extends pulumi.CustomResource {
      */
     public readonly bandwidth!: pulumi.Output<outputs.networkmanager.LinkBandwidth>;
     /**
+     * The date and time that the device was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
      * The description of the link.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -65,6 +69,10 @@ export class Link extends pulumi.CustomResource {
      * The ID of the site
      */
     public readonly siteId!: pulumi.Output<string>;
+    /**
+     * The state of the link.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * The tags for the link.
      */
@@ -101,16 +109,20 @@ export class Link extends pulumi.CustomResource {
             resourceInputs["siteId"] = args ? args.siteId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["linkArn"] = undefined /*out*/;
             resourceInputs["linkId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["bandwidth"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["globalNetworkId"] = undefined /*out*/;
             resourceInputs["linkArn"] = undefined /*out*/;
             resourceInputs["linkId"] = undefined /*out*/;
             resourceInputs["provider"] = undefined /*out*/;
             resourceInputs["siteId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

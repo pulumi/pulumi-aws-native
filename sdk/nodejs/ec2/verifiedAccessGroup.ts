@@ -62,6 +62,10 @@ export class VerifiedAccessGroup extends pulumi.CustomResource {
      */
     public readonly policyEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    public readonly sseSpecification!: pulumi.Output<outputs.ec2.VerifiedAccessGroupSseSpecification | undefined>;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.ec2.VerifiedAccessGroupTag[] | undefined>;
@@ -95,6 +99,7 @@ export class VerifiedAccessGroup extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["policyEnabled"] = args ? args.policyEnabled : undefined;
+            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["verifiedAccessInstanceId"] = args ? args.verifiedAccessInstanceId : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -109,6 +114,7 @@ export class VerifiedAccessGroup extends pulumi.CustomResource {
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["policyEnabled"] = undefined /*out*/;
+            resourceInputs["sseSpecification"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["verifiedAccessGroupArn"] = undefined /*out*/;
             resourceInputs["verifiedAccessGroupId"] = undefined /*out*/;
@@ -135,6 +141,10 @@ export interface VerifiedAccessGroupArgs {
      * The status of the Verified Access policy.
      */
     policyEnabled?: pulumi.Input<boolean>;
+    /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    sseSpecification?: pulumi.Input<inputs.ec2.VerifiedAccessGroupSseSpecificationArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

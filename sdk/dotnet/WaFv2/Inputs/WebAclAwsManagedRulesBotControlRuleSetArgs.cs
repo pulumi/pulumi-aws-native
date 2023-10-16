@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclAwsManagedRulesBotControlRuleSetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("enableMachineLearning")]
+        public Input<bool>? EnableMachineLearning { get; set; }
+
         [Input("inspectionLevel", required: true)]
         public Input<Pulumi.AwsNative.WaFv2.WebAclAwsManagedRulesBotControlRuleSetInspectionLevel> InspectionLevel { get; set; } = null!;
 

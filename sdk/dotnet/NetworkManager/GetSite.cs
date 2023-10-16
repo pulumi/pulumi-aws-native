@@ -90,6 +90,10 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly string? SiteId;
         /// <summary>
+        /// The state of the site.
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
         /// The tags for the site.
         /// </summary>
         public readonly ImmutableArray<Outputs.SiteTag> Tags;
@@ -106,6 +110,8 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? siteId,
 
+            string? state,
+
             ImmutableArray<Outputs.SiteTag> tags)
         {
             CreatedAt = createdAt;
@@ -113,6 +119,7 @@ namespace Pulumi.AwsNative.NetworkManager
             Location = location;
             SiteArn = siteArn;
             SiteId = siteId;
+            State = state;
             Tags = tags;
         }
     }

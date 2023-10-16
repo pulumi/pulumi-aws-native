@@ -30770,6 +30770,189 @@ func (o SpotFleetVCpuCountRangeRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The configuration options for customer provided KMS encryption.
+type SseSpecificationProperties struct {
+	// Whether to encrypt the policy with the provided key or disable encryption
+	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
+	// KMS Key Arn used to encrypt the group policy
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// SseSpecificationPropertiesInput is an input type that accepts SseSpecificationPropertiesArgs and SseSpecificationPropertiesOutput values.
+// You can construct a concrete instance of `SseSpecificationPropertiesInput` via:
+//
+//	SseSpecificationPropertiesArgs{...}
+type SseSpecificationPropertiesInput interface {
+	pulumi.Input
+
+	ToSseSpecificationPropertiesOutput() SseSpecificationPropertiesOutput
+	ToSseSpecificationPropertiesOutputWithContext(context.Context) SseSpecificationPropertiesOutput
+}
+
+// The configuration options for customer provided KMS encryption.
+type SseSpecificationPropertiesArgs struct {
+	// Whether to encrypt the policy with the provided key or disable encryption
+	CustomerManagedKeyEnabled pulumi.BoolPtrInput `pulumi:"customerManagedKeyEnabled"`
+	// KMS Key Arn used to encrypt the group policy
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (SseSpecificationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SseSpecificationProperties)(nil)).Elem()
+}
+
+func (i SseSpecificationPropertiesArgs) ToSseSpecificationPropertiesOutput() SseSpecificationPropertiesOutput {
+	return i.ToSseSpecificationPropertiesOutputWithContext(context.Background())
+}
+
+func (i SseSpecificationPropertiesArgs) ToSseSpecificationPropertiesOutputWithContext(ctx context.Context) SseSpecificationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SseSpecificationPropertiesOutput)
+}
+
+func (i SseSpecificationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SseSpecificationProperties] {
+	return pulumix.Output[SseSpecificationProperties]{
+		OutputState: i.ToSseSpecificationPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i SseSpecificationPropertiesArgs) ToSseSpecificationPropertiesPtrOutput() SseSpecificationPropertiesPtrOutput {
+	return i.ToSseSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SseSpecificationPropertiesArgs) ToSseSpecificationPropertiesPtrOutputWithContext(ctx context.Context) SseSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SseSpecificationPropertiesOutput).ToSseSpecificationPropertiesPtrOutputWithContext(ctx)
+}
+
+// SseSpecificationPropertiesPtrInput is an input type that accepts SseSpecificationPropertiesArgs, SseSpecificationPropertiesPtr and SseSpecificationPropertiesPtrOutput values.
+// You can construct a concrete instance of `SseSpecificationPropertiesPtrInput` via:
+//
+//	        SseSpecificationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SseSpecificationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSseSpecificationPropertiesPtrOutput() SseSpecificationPropertiesPtrOutput
+	ToSseSpecificationPropertiesPtrOutputWithContext(context.Context) SseSpecificationPropertiesPtrOutput
+}
+
+type sseSpecificationPropertiesPtrType SseSpecificationPropertiesArgs
+
+func SseSpecificationPropertiesPtr(v *SseSpecificationPropertiesArgs) SseSpecificationPropertiesPtrInput {
+	return (*sseSpecificationPropertiesPtrType)(v)
+}
+
+func (*sseSpecificationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SseSpecificationProperties)(nil)).Elem()
+}
+
+func (i *sseSpecificationPropertiesPtrType) ToSseSpecificationPropertiesPtrOutput() SseSpecificationPropertiesPtrOutput {
+	return i.ToSseSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *sseSpecificationPropertiesPtrType) ToSseSpecificationPropertiesPtrOutputWithContext(ctx context.Context) SseSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SseSpecificationPropertiesPtrOutput)
+}
+
+func (i *sseSpecificationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SseSpecificationProperties] {
+	return pulumix.Output[*SseSpecificationProperties]{
+		OutputState: i.ToSseSpecificationPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The configuration options for customer provided KMS encryption.
+type SseSpecificationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SseSpecificationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SseSpecificationProperties)(nil)).Elem()
+}
+
+func (o SseSpecificationPropertiesOutput) ToSseSpecificationPropertiesOutput() SseSpecificationPropertiesOutput {
+	return o
+}
+
+func (o SseSpecificationPropertiesOutput) ToSseSpecificationPropertiesOutputWithContext(ctx context.Context) SseSpecificationPropertiesOutput {
+	return o
+}
+
+func (o SseSpecificationPropertiesOutput) ToSseSpecificationPropertiesPtrOutput() SseSpecificationPropertiesPtrOutput {
+	return o.ToSseSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SseSpecificationPropertiesOutput) ToSseSpecificationPropertiesPtrOutputWithContext(ctx context.Context) SseSpecificationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SseSpecificationProperties) *SseSpecificationProperties {
+		return &v
+	}).(SseSpecificationPropertiesPtrOutput)
+}
+
+func (o SseSpecificationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SseSpecificationProperties] {
+	return pulumix.Output[SseSpecificationProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Whether to encrypt the policy with the provided key or disable encryption
+func (o SseSpecificationPropertiesOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SseSpecificationProperties) *bool { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// KMS Key Arn used to encrypt the group policy
+func (o SseSpecificationPropertiesOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SseSpecificationProperties) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type SseSpecificationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SseSpecificationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SseSpecificationProperties)(nil)).Elem()
+}
+
+func (o SseSpecificationPropertiesPtrOutput) ToSseSpecificationPropertiesPtrOutput() SseSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o SseSpecificationPropertiesPtrOutput) ToSseSpecificationPropertiesPtrOutputWithContext(ctx context.Context) SseSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o SseSpecificationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SseSpecificationProperties] {
+	return pulumix.Output[*SseSpecificationProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SseSpecificationPropertiesPtrOutput) Elem() SseSpecificationPropertiesOutput {
+	return o.ApplyT(func(v *SseSpecificationProperties) SseSpecificationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SseSpecificationProperties
+		return ret
+	}).(SseSpecificationPropertiesOutput)
+}
+
+// Whether to encrypt the policy with the provided key or disable encryption
+func (o SseSpecificationPropertiesPtrOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SseSpecificationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerManagedKeyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// KMS Key Arn used to encrypt the group policy
+func (o SseSpecificationPropertiesPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SseSpecificationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type SubnetTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -33037,6 +33220,189 @@ func (o VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) Protocol() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration options for customer provided KMS encryption.
+type VerifiedAccessEndpointSseSpecification struct {
+	// Whether to encrypt the policy with the provided key or disable encryption
+	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
+	// KMS Key Arn used to encrypt the group policy
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// VerifiedAccessEndpointSseSpecificationInput is an input type that accepts VerifiedAccessEndpointSseSpecificationArgs and VerifiedAccessEndpointSseSpecificationOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointSseSpecificationInput` via:
+//
+//	VerifiedAccessEndpointSseSpecificationArgs{...}
+type VerifiedAccessEndpointSseSpecificationInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointSseSpecificationOutput() VerifiedAccessEndpointSseSpecificationOutput
+	ToVerifiedAccessEndpointSseSpecificationOutputWithContext(context.Context) VerifiedAccessEndpointSseSpecificationOutput
+}
+
+// The configuration options for customer provided KMS encryption.
+type VerifiedAccessEndpointSseSpecificationArgs struct {
+	// Whether to encrypt the policy with the provided key or disable encryption
+	CustomerManagedKeyEnabled pulumi.BoolPtrInput `pulumi:"customerManagedKeyEnabled"`
+	// KMS Key Arn used to encrypt the group policy
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (VerifiedAccessEndpointSseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointSseSpecification)(nil)).Elem()
+}
+
+func (i VerifiedAccessEndpointSseSpecificationArgs) ToVerifiedAccessEndpointSseSpecificationOutput() VerifiedAccessEndpointSseSpecificationOutput {
+	return i.ToVerifiedAccessEndpointSseSpecificationOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointSseSpecificationArgs) ToVerifiedAccessEndpointSseSpecificationOutputWithContext(ctx context.Context) VerifiedAccessEndpointSseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointSseSpecificationOutput)
+}
+
+func (i VerifiedAccessEndpointSseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[VerifiedAccessEndpointSseSpecification] {
+	return pulumix.Output[VerifiedAccessEndpointSseSpecification]{
+		OutputState: i.ToVerifiedAccessEndpointSseSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i VerifiedAccessEndpointSseSpecificationArgs) ToVerifiedAccessEndpointSseSpecificationPtrOutput() VerifiedAccessEndpointSseSpecificationPtrOutput {
+	return i.ToVerifiedAccessEndpointSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointSseSpecificationArgs) ToVerifiedAccessEndpointSseSpecificationPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointSseSpecificationOutput).ToVerifiedAccessEndpointSseSpecificationPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessEndpointSseSpecificationPtrInput is an input type that accepts VerifiedAccessEndpointSseSpecificationArgs, VerifiedAccessEndpointSseSpecificationPtr and VerifiedAccessEndpointSseSpecificationPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointSseSpecificationPtrInput` via:
+//
+//	        VerifiedAccessEndpointSseSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessEndpointSseSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointSseSpecificationPtrOutput() VerifiedAccessEndpointSseSpecificationPtrOutput
+	ToVerifiedAccessEndpointSseSpecificationPtrOutputWithContext(context.Context) VerifiedAccessEndpointSseSpecificationPtrOutput
+}
+
+type verifiedAccessEndpointSseSpecificationPtrType VerifiedAccessEndpointSseSpecificationArgs
+
+func VerifiedAccessEndpointSseSpecificationPtr(v *VerifiedAccessEndpointSseSpecificationArgs) VerifiedAccessEndpointSseSpecificationPtrInput {
+	return (*verifiedAccessEndpointSseSpecificationPtrType)(v)
+}
+
+func (*verifiedAccessEndpointSseSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessEndpointSseSpecification)(nil)).Elem()
+}
+
+func (i *verifiedAccessEndpointSseSpecificationPtrType) ToVerifiedAccessEndpointSseSpecificationPtrOutput() VerifiedAccessEndpointSseSpecificationPtrOutput {
+	return i.ToVerifiedAccessEndpointSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessEndpointSseSpecificationPtrType) ToVerifiedAccessEndpointSseSpecificationPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointSseSpecificationPtrOutput)
+}
+
+func (i *verifiedAccessEndpointSseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessEndpointSseSpecification] {
+	return pulumix.Output[*VerifiedAccessEndpointSseSpecification]{
+		OutputState: i.ToVerifiedAccessEndpointSseSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The configuration options for customer provided KMS encryption.
+type VerifiedAccessEndpointSseSpecificationOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointSseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointSseSpecification)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointSseSpecificationOutput) ToVerifiedAccessEndpointSseSpecificationOutput() VerifiedAccessEndpointSseSpecificationOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointSseSpecificationOutput) ToVerifiedAccessEndpointSseSpecificationOutputWithContext(ctx context.Context) VerifiedAccessEndpointSseSpecificationOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointSseSpecificationOutput) ToVerifiedAccessEndpointSseSpecificationPtrOutput() VerifiedAccessEndpointSseSpecificationPtrOutput {
+	return o.ToVerifiedAccessEndpointSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessEndpointSseSpecificationOutput) ToVerifiedAccessEndpointSseSpecificationPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointSseSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessEndpointSseSpecification) *VerifiedAccessEndpointSseSpecification {
+		return &v
+	}).(VerifiedAccessEndpointSseSpecificationPtrOutput)
+}
+
+func (o VerifiedAccessEndpointSseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[VerifiedAccessEndpointSseSpecification] {
+	return pulumix.Output[VerifiedAccessEndpointSseSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Whether to encrypt the policy with the provided key or disable encryption
+func (o VerifiedAccessEndpointSseSpecificationOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointSseSpecification) *bool { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// KMS Key Arn used to encrypt the group policy
+func (o VerifiedAccessEndpointSseSpecificationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointSseSpecification) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type VerifiedAccessEndpointSseSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointSseSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessEndpointSseSpecification)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointSseSpecificationPtrOutput) ToVerifiedAccessEndpointSseSpecificationPtrOutput() VerifiedAccessEndpointSseSpecificationPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointSseSpecificationPtrOutput) ToVerifiedAccessEndpointSseSpecificationPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointSseSpecificationPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointSseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessEndpointSseSpecification] {
+	return pulumix.Output[*VerifiedAccessEndpointSseSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o VerifiedAccessEndpointSseSpecificationPtrOutput) Elem() VerifiedAccessEndpointSseSpecificationOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointSseSpecification) VerifiedAccessEndpointSseSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessEndpointSseSpecification
+		return ret
+	}).(VerifiedAccessEndpointSseSpecificationOutput)
+}
+
+// Whether to encrypt the policy with the provided key or disable encryption
+func (o VerifiedAccessEndpointSseSpecificationPtrOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointSseSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerManagedKeyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// KMS Key Arn used to encrypt the group policy
+func (o VerifiedAccessEndpointSseSpecificationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointSseSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type VerifiedAccessEndpointTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -33168,6 +33534,189 @@ func (o VerifiedAccessEndpointTagArrayOutput) Index(i pulumi.IntInput) VerifiedA
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VerifiedAccessEndpointTag {
 		return vs[0].([]VerifiedAccessEndpointTag)[vs[1].(int)]
 	}).(VerifiedAccessEndpointTagOutput)
+}
+
+// The configuration options for customer provided KMS encryption.
+type VerifiedAccessGroupSseSpecification struct {
+	// Whether to encrypt the policy with the provided key or disable encryption
+	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
+	// KMS Key Arn used to encrypt the group policy
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// VerifiedAccessGroupSseSpecificationInput is an input type that accepts VerifiedAccessGroupSseSpecificationArgs and VerifiedAccessGroupSseSpecificationOutput values.
+// You can construct a concrete instance of `VerifiedAccessGroupSseSpecificationInput` via:
+//
+//	VerifiedAccessGroupSseSpecificationArgs{...}
+type VerifiedAccessGroupSseSpecificationInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessGroupSseSpecificationOutput() VerifiedAccessGroupSseSpecificationOutput
+	ToVerifiedAccessGroupSseSpecificationOutputWithContext(context.Context) VerifiedAccessGroupSseSpecificationOutput
+}
+
+// The configuration options for customer provided KMS encryption.
+type VerifiedAccessGroupSseSpecificationArgs struct {
+	// Whether to encrypt the policy with the provided key or disable encryption
+	CustomerManagedKeyEnabled pulumi.BoolPtrInput `pulumi:"customerManagedKeyEnabled"`
+	// KMS Key Arn used to encrypt the group policy
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (VerifiedAccessGroupSseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessGroupSseSpecification)(nil)).Elem()
+}
+
+func (i VerifiedAccessGroupSseSpecificationArgs) ToVerifiedAccessGroupSseSpecificationOutput() VerifiedAccessGroupSseSpecificationOutput {
+	return i.ToVerifiedAccessGroupSseSpecificationOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessGroupSseSpecificationArgs) ToVerifiedAccessGroupSseSpecificationOutputWithContext(ctx context.Context) VerifiedAccessGroupSseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessGroupSseSpecificationOutput)
+}
+
+func (i VerifiedAccessGroupSseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[VerifiedAccessGroupSseSpecification] {
+	return pulumix.Output[VerifiedAccessGroupSseSpecification]{
+		OutputState: i.ToVerifiedAccessGroupSseSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i VerifiedAccessGroupSseSpecificationArgs) ToVerifiedAccessGroupSseSpecificationPtrOutput() VerifiedAccessGroupSseSpecificationPtrOutput {
+	return i.ToVerifiedAccessGroupSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessGroupSseSpecificationArgs) ToVerifiedAccessGroupSseSpecificationPtrOutputWithContext(ctx context.Context) VerifiedAccessGroupSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessGroupSseSpecificationOutput).ToVerifiedAccessGroupSseSpecificationPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessGroupSseSpecificationPtrInput is an input type that accepts VerifiedAccessGroupSseSpecificationArgs, VerifiedAccessGroupSseSpecificationPtr and VerifiedAccessGroupSseSpecificationPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessGroupSseSpecificationPtrInput` via:
+//
+//	        VerifiedAccessGroupSseSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessGroupSseSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessGroupSseSpecificationPtrOutput() VerifiedAccessGroupSseSpecificationPtrOutput
+	ToVerifiedAccessGroupSseSpecificationPtrOutputWithContext(context.Context) VerifiedAccessGroupSseSpecificationPtrOutput
+}
+
+type verifiedAccessGroupSseSpecificationPtrType VerifiedAccessGroupSseSpecificationArgs
+
+func VerifiedAccessGroupSseSpecificationPtr(v *VerifiedAccessGroupSseSpecificationArgs) VerifiedAccessGroupSseSpecificationPtrInput {
+	return (*verifiedAccessGroupSseSpecificationPtrType)(v)
+}
+
+func (*verifiedAccessGroupSseSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessGroupSseSpecification)(nil)).Elem()
+}
+
+func (i *verifiedAccessGroupSseSpecificationPtrType) ToVerifiedAccessGroupSseSpecificationPtrOutput() VerifiedAccessGroupSseSpecificationPtrOutput {
+	return i.ToVerifiedAccessGroupSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessGroupSseSpecificationPtrType) ToVerifiedAccessGroupSseSpecificationPtrOutputWithContext(ctx context.Context) VerifiedAccessGroupSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessGroupSseSpecificationPtrOutput)
+}
+
+func (i *verifiedAccessGroupSseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessGroupSseSpecification] {
+	return pulumix.Output[*VerifiedAccessGroupSseSpecification]{
+		OutputState: i.ToVerifiedAccessGroupSseSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The configuration options for customer provided KMS encryption.
+type VerifiedAccessGroupSseSpecificationOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessGroupSseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessGroupSseSpecification)(nil)).Elem()
+}
+
+func (o VerifiedAccessGroupSseSpecificationOutput) ToVerifiedAccessGroupSseSpecificationOutput() VerifiedAccessGroupSseSpecificationOutput {
+	return o
+}
+
+func (o VerifiedAccessGroupSseSpecificationOutput) ToVerifiedAccessGroupSseSpecificationOutputWithContext(ctx context.Context) VerifiedAccessGroupSseSpecificationOutput {
+	return o
+}
+
+func (o VerifiedAccessGroupSseSpecificationOutput) ToVerifiedAccessGroupSseSpecificationPtrOutput() VerifiedAccessGroupSseSpecificationPtrOutput {
+	return o.ToVerifiedAccessGroupSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessGroupSseSpecificationOutput) ToVerifiedAccessGroupSseSpecificationPtrOutputWithContext(ctx context.Context) VerifiedAccessGroupSseSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessGroupSseSpecification) *VerifiedAccessGroupSseSpecification {
+		return &v
+	}).(VerifiedAccessGroupSseSpecificationPtrOutput)
+}
+
+func (o VerifiedAccessGroupSseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[VerifiedAccessGroupSseSpecification] {
+	return pulumix.Output[VerifiedAccessGroupSseSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Whether to encrypt the policy with the provided key or disable encryption
+func (o VerifiedAccessGroupSseSpecificationOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessGroupSseSpecification) *bool { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// KMS Key Arn used to encrypt the group policy
+func (o VerifiedAccessGroupSseSpecificationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessGroupSseSpecification) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type VerifiedAccessGroupSseSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessGroupSseSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessGroupSseSpecification)(nil)).Elem()
+}
+
+func (o VerifiedAccessGroupSseSpecificationPtrOutput) ToVerifiedAccessGroupSseSpecificationPtrOutput() VerifiedAccessGroupSseSpecificationPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessGroupSseSpecificationPtrOutput) ToVerifiedAccessGroupSseSpecificationPtrOutputWithContext(ctx context.Context) VerifiedAccessGroupSseSpecificationPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessGroupSseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessGroupSseSpecification] {
+	return pulumix.Output[*VerifiedAccessGroupSseSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o VerifiedAccessGroupSseSpecificationPtrOutput) Elem() VerifiedAccessGroupSseSpecificationOutput {
+	return o.ApplyT(func(v *VerifiedAccessGroupSseSpecification) VerifiedAccessGroupSseSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessGroupSseSpecification
+		return ret
+	}).(VerifiedAccessGroupSseSpecificationOutput)
+}
+
+// Whether to encrypt the policy with the provided key or disable encryption
+func (o VerifiedAccessGroupSseSpecificationPtrOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessGroupSseSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerManagedKeyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// KMS Key Arn used to encrypt the group policy
+func (o VerifiedAccessGroupSseSpecificationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessGroupSseSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -36112,6 +36661,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTotalLocalStorageGbRequestPtrInput)(nil)).Elem(), SpotFleetTotalLocalStorageGbRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetVCpuCountRangeRequestInput)(nil)).Elem(), SpotFleetVCpuCountRangeRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetVCpuCountRangeRequestPtrInput)(nil)).Elem(), SpotFleetVCpuCountRangeRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SseSpecificationPropertiesInput)(nil)).Elem(), SseSpecificationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SseSpecificationPropertiesPtrInput)(nil)).Elem(), SseSpecificationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetTagInput)(nil)).Elem(), SubnetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetTagArrayInput)(nil)).Elem(), SubnetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagSpecificationInput)(nil)).Elem(), TagSpecificationArgs{})
@@ -36143,8 +36694,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointLoadBalancerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointNetworkInterfaceOptionsInput)(nil)).Elem(), VerifiedAccessEndpointNetworkInterfaceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointNetworkInterfaceOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointNetworkInterfaceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointSseSpecificationInput)(nil)).Elem(), VerifiedAccessEndpointSseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointSseSpecificationPtrInput)(nil)).Elem(), VerifiedAccessEndpointSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointTagInput)(nil)).Elem(), VerifiedAccessEndpointTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointTagArrayInput)(nil)).Elem(), VerifiedAccessEndpointTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessGroupSseSpecificationInput)(nil)).Elem(), VerifiedAccessGroupSseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessGroupSseSpecificationPtrInput)(nil)).Elem(), VerifiedAccessGroupSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessGroupTagInput)(nil)).Elem(), VerifiedAccessGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessGroupTagArrayInput)(nil)).Elem(), VerifiedAccessGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceTagInput)(nil)).Elem(), VerifiedAccessInstanceTagArgs{})
@@ -36552,6 +37107,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetTotalLocalStorageGbRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetVCpuCountRangeRequestOutput{})
 	pulumi.RegisterOutputType(SpotFleetVCpuCountRangeRequestPtrOutput{})
+	pulumi.RegisterOutputType(SseSpecificationPropertiesOutput{})
+	pulumi.RegisterOutputType(SseSpecificationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SubnetTagOutput{})
 	pulumi.RegisterOutputType(SubnetTagArrayOutput{})
 	pulumi.RegisterOutputType(TagSpecificationOutput{})
@@ -36585,8 +37142,12 @@ func init() {
 	pulumi.RegisterOutputType(VerifiedAccessEndpointLoadBalancerOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointNetworkInterfaceOptionsOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointSseSpecificationOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointSseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointTagOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointTagArrayOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessGroupSseSpecificationOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessGroupSseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessGroupTagOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessInstanceTagOutput{})

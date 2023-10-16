@@ -106,6 +106,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration options for customer provided KMS encryption.
+        /// </summary>
+        [Output("sseSpecification")]
+        public Output<Outputs.VerifiedAccessEndpointSseSpecification?> SseSpecification { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint status.
         /// </summary>
         [Output("status")]
@@ -262,6 +268,12 @@ namespace Pulumi.AwsNative.Ec2
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
+
+        /// <summary>
+        /// The configuration options for customer provided KMS encryption.
+        /// </summary>
+        [Input("sseSpecification")]
+        public Input<Inputs.VerifiedAccessEndpointSseSpecificationArgs>? SseSpecification { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.VerifiedAccessEndpointTagArgs>? _tags;

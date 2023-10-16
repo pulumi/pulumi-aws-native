@@ -18,6 +18,14 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
 
+        [Input("headers")]
+        private InputList<Inputs.TopicRuleKafkaActionHeaderArgs>? _headers;
+        public InputList<Inputs.TopicRuleKafkaActionHeaderArgs> Headers
+        {
+            get => _headers ?? (_headers = new InputList<Inputs.TopicRuleKafkaActionHeaderArgs>());
+            set => _headers = value;
+        }
+
         [Input("key")]
         public Input<string>? Key { get; set; }
 

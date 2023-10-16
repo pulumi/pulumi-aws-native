@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> PolicyReferenceName { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration options for customer provided KMS encryption.
+        /// </summary>
+        [Output("sseSpecification")]
+        public Output<Outputs.SseSpecificationProperties?> SseSpecification { get; private set; } = null!;
+
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
@@ -151,6 +157,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("policyReferenceName", required: true)]
         public Input<string> PolicyReferenceName { get; set; } = null!;
+
+        /// <summary>
+        /// The configuration options for customer provided KMS encryption.
+        /// </summary>
+        [Input("sseSpecification")]
+        public Input<Inputs.SseSpecificationPropertiesArgs>? SseSpecification { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.VerifiedAccessTrustProviderTagArgs>? _tags;

@@ -29,6 +29,8 @@ type VerifiedAccessGroup struct {
 	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
 	// The status of the Verified Access policy.
 	PolicyEnabled pulumi.BoolPtrOutput `pulumi:"policyEnabled"`
+	// The configuration options for customer provided KMS encryption.
+	SseSpecification VerifiedAccessGroupSseSpecificationPtrOutput `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	Tags VerifiedAccessGroupTagArrayOutput `pulumi:"tags"`
 	// The ARN of the Verified Access group.
@@ -88,6 +90,8 @@ type verifiedAccessGroupArgs struct {
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// The status of the Verified Access policy.
 	PolicyEnabled *bool `pulumi:"policyEnabled"`
+	// The configuration options for customer provided KMS encryption.
+	SseSpecification *VerifiedAccessGroupSseSpecification `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []VerifiedAccessGroupTag `pulumi:"tags"`
 	// The ID of the AWS Verified Access instance.
@@ -102,6 +106,8 @@ type VerifiedAccessGroupArgs struct {
 	PolicyDocument pulumi.StringPtrInput
 	// The status of the Verified Access policy.
 	PolicyEnabled pulumi.BoolPtrInput
+	// The configuration options for customer provided KMS encryption.
+	SseSpecification VerifiedAccessGroupSseSpecificationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags VerifiedAccessGroupTagArrayInput
 	// The ID of the AWS Verified Access instance.
@@ -185,6 +191,11 @@ func (o VerifiedAccessGroupOutput) PolicyDocument() pulumi.StringPtrOutput {
 // The status of the Verified Access policy.
 func (o VerifiedAccessGroupOutput) PolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VerifiedAccessGroup) pulumi.BoolPtrOutput { return v.PolicyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The configuration options for customer provided KMS encryption.
+func (o VerifiedAccessGroupOutput) SseSpecification() VerifiedAccessGroupSseSpecificationPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessGroup) VerifiedAccessGroupSseSpecificationPtrOutput { return v.SseSpecification }).(VerifiedAccessGroupSseSpecificationPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

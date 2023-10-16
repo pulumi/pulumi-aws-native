@@ -62,8 +62,6 @@ func NewCluster(ctx *pulumi.Context,
 		"kubernetesNetworkConfig",
 		"name",
 		"outpostConfig",
-		"resourcesVpcConfig.securityGroupIds[*]",
-		"resourcesVpcConfig.subnetIds[*]",
 		"roleArn",
 	})
 	opts = append(opts, replaceOnChanges)

@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// </summary>
     public sealed class FunctionVpcConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+        /// </summary>
+        [Input("ipv6AllowedForDualStack")]
+        public Input<bool>? Ipv6AllowedForDualStack { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 

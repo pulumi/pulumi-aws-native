@@ -16,6 +16,7 @@ type MatchingWorkflowResolutionTechniquesResolutionType string
 const (
 	MatchingWorkflowResolutionTechniquesResolutionTypeRuleMatching = MatchingWorkflowResolutionTechniquesResolutionType("RULE_MATCHING")
 	MatchingWorkflowResolutionTechniquesResolutionTypeMlMatching   = MatchingWorkflowResolutionTechniquesResolutionType("ML_MATCHING")
+	MatchingWorkflowResolutionTechniquesResolutionTypeProvider     = MatchingWorkflowResolutionTechniquesResolutionType("PROVIDER")
 )
 
 func (MatchingWorkflowResolutionTechniquesResolutionType) ElementType() reflect.Type {
@@ -397,6 +398,7 @@ const (
 	SchemaMappingSchemaAttributeTypeUniqueId          = SchemaMappingSchemaAttributeType("UNIQUE_ID")
 	SchemaMappingSchemaAttributeTypeDate              = SchemaMappingSchemaAttributeType("DATE")
 	SchemaMappingSchemaAttributeTypeString            = SchemaMappingSchemaAttributeType("STRING")
+	SchemaMappingSchemaAttributeTypeProviderId        = SchemaMappingSchemaAttributeType("PROVIDER_ID")
 )
 
 func (SchemaMappingSchemaAttributeType) ElementType() reflect.Type {

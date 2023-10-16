@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVerifiedAccessGroupResult:
-    def __init__(__self__, creation_time=None, description=None, last_updated_time=None, owner=None, policy_document=None, policy_enabled=None, tags=None, verified_access_group_arn=None, verified_access_group_id=None, verified_access_instance_id=None):
+    def __init__(__self__, creation_time=None, description=None, last_updated_time=None, owner=None, policy_document=None, policy_enabled=None, sse_specification=None, tags=None, verified_access_group_arn=None, verified_access_group_id=None, verified_access_instance_id=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -38,6 +38,9 @@ class GetVerifiedAccessGroupResult:
         if policy_enabled and not isinstance(policy_enabled, bool):
             raise TypeError("Expected argument 'policy_enabled' to be a bool")
         pulumi.set(__self__, "policy_enabled", policy_enabled)
+        if sse_specification and not isinstance(sse_specification, dict):
+            raise TypeError("Expected argument 'sse_specification' to be a dict")
+        pulumi.set(__self__, "sse_specification", sse_specification)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -100,6 +103,14 @@ class GetVerifiedAccessGroupResult:
         return pulumi.get(self, "policy_enabled")
 
     @property
+    @pulumi.getter(name="sseSpecification")
+    def sse_specification(self) -> Optional['outputs.VerifiedAccessGroupSseSpecification']:
+        """
+        The configuration options for customer provided KMS encryption.
+        """
+        return pulumi.get(self, "sse_specification")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.VerifiedAccessGroupTag']]:
         """
@@ -144,6 +155,7 @@ class AwaitableGetVerifiedAccessGroupResult(GetVerifiedAccessGroupResult):
             owner=self.owner,
             policy_document=self.policy_document,
             policy_enabled=self.policy_enabled,
+            sse_specification=self.sse_specification,
             tags=self.tags,
             verified_access_group_arn=self.verified_access_group_arn,
             verified_access_group_id=self.verified_access_group_id,
@@ -170,6 +182,7 @@ def get_verified_access_group(verified_access_group_id: Optional[str] = None,
         owner=pulumi.get(__ret__, 'owner'),
         policy_document=pulumi.get(__ret__, 'policy_document'),
         policy_enabled=pulumi.get(__ret__, 'policy_enabled'),
+        sse_specification=pulumi.get(__ret__, 'sse_specification'),
         tags=pulumi.get(__ret__, 'tags'),
         verified_access_group_arn=pulumi.get(__ret__, 'verified_access_group_arn'),
         verified_access_group_id=pulumi.get(__ret__, 'verified_access_group_id'),

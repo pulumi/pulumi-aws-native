@@ -89,6 +89,7 @@ __all__ = [
     'TopicRuleIotEventsAction',
     'TopicRuleIotSiteWiseAction',
     'TopicRuleKafkaAction',
+    'TopicRuleKafkaActionHeader',
     'TopicRuleKinesisAction',
     'TopicRuleLambdaAction',
     'TopicRuleLocationAction',
@@ -4605,6 +4606,7 @@ class TopicRuleKafkaAction(dict):
                  client_properties: Any,
                  destination_arn: str,
                  topic: str,
+                 headers: Optional[Sequence['outputs.TopicRuleKafkaActionHeader']] = None,
                  key: Optional[str] = None,
                  partition: Optional[str] = None):
         TopicRuleKafkaAction._configure(
@@ -4612,6 +4614,7 @@ class TopicRuleKafkaAction(dict):
             client_properties=client_properties,
             destination_arn=destination_arn,
             topic=topic,
+            headers=headers,
             key=key,
             partition=partition,
         )
@@ -4621,12 +4624,15 @@ class TopicRuleKafkaAction(dict):
              client_properties: Any,
              destination_arn: str,
              topic: str,
+             headers: Optional[Sequence['outputs.TopicRuleKafkaActionHeader']] = None,
              key: Optional[str] = None,
              partition: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("client_properties", client_properties)
         _setter("destination_arn", destination_arn)
         _setter("topic", topic)
+        if headers is not None:
+            _setter("headers", headers)
         if key is not None:
             _setter("key", key)
         if partition is not None:
@@ -4649,6 +4655,11 @@ class TopicRuleKafkaAction(dict):
 
     @property
     @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.TopicRuleKafkaActionHeader']]:
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
     def key(self) -> Optional[str]:
         return pulumi.get(self, "key")
 
@@ -4656,6 +4667,36 @@ class TopicRuleKafkaAction(dict):
     @pulumi.getter
     def partition(self) -> Optional[str]:
         return pulumi.get(self, "partition")
+
+
+@pulumi.output_type
+class TopicRuleKafkaActionHeader(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        TopicRuleKafkaActionHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

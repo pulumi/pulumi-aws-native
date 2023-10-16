@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Lambda::Version
- *
- * @deprecated Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Version extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Version extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Version {
-        pulumi.log.warn("Version is deprecated: Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Version(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,10 +37,33 @@ export class Version extends pulumi.CustomResource {
         return obj['__pulumiType'] === Version.__pulumiType;
     }
 
+    /**
+     * Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
+     */
     public readonly codeSha256!: pulumi.Output<string | undefined>;
+    /**
+     * A description for the version to override the description in the function configuration. Updates are not supported for this property.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the version.
+     */
+    public /*out*/ readonly functionArn!: pulumi.Output<string>;
+    /**
+     * The name of the Lambda function.
+     */
     public readonly functionName!: pulumi.Output<string>;
+    /**
+     * Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
+     */
     public readonly provisionedConcurrencyConfig!: pulumi.Output<outputs.lambda.VersionProvisionedConcurrencyConfiguration | undefined>;
+    /**
+     * Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
+     */
+    public readonly runtimePolicy!: pulumi.Output<outputs.lambda.VersionRuntimePolicy | undefined>;
+    /**
+     * The version number.
+     */
     public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
@@ -53,9 +73,7 @@ export class Version extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VersionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Version is deprecated: Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -66,16 +84,20 @@ export class Version extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["provisionedConcurrencyConfig"] = args ? args.provisionedConcurrencyConfig : undefined;
+            resourceInputs["runtimePolicy"] = args ? args.runtimePolicy : undefined;
+            resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["codeSha256"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
             resourceInputs["provisionedConcurrencyConfig"] = undefined /*out*/;
+            resourceInputs["runtimePolicy"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["functionName"] };
+        const replaceOnChanges = { replaceOnChanges: ["codeSha256", "description", "functionName", "provisionedConcurrencyConfig", "runtimePolicy"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Version.__pulumiType, name, resourceInputs, opts);
     }
@@ -85,8 +107,24 @@ export class Version extends pulumi.CustomResource {
  * The set of arguments for constructing a Version resource.
  */
 export interface VersionArgs {
+    /**
+     * Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
+     */
     codeSha256?: pulumi.Input<string>;
+    /**
+     * A description for the version to override the description in the function configuration. Updates are not supported for this property.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the Lambda function.
+     */
     functionName: pulumi.Input<string>;
+    /**
+     * Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
+     */
     provisionedConcurrencyConfig?: pulumi.Input<inputs.lambda.VersionProvisionedConcurrencyConfigurationArgs>;
+    /**
+     * Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
+     */
+    runtimePolicy?: pulumi.Input<inputs.lambda.VersionRuntimePolicyArgs>;
 }

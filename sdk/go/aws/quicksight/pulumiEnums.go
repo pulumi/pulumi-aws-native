@@ -16613,6 +16613,7 @@ type AnalysisTableTotalsPlacement string
 const (
 	AnalysisTableTotalsPlacementStart = AnalysisTableTotalsPlacement("START")
 	AnalysisTableTotalsPlacementEnd   = AnalysisTableTotalsPlacement("END")
+	AnalysisTableTotalsPlacementAuto  = AnalysisTableTotalsPlacement("AUTO")
 )
 
 func (AnalysisTableTotalsPlacement) ElementType() reflect.Type {
@@ -36781,6 +36782,7 @@ type DashboardTableTotalsPlacement string
 const (
 	DashboardTableTotalsPlacementStart = DashboardTableTotalsPlacement("START")
 	DashboardTableTotalsPlacementEnd   = DashboardTableTotalsPlacement("END")
+	DashboardTableTotalsPlacementAuto  = DashboardTableTotalsPlacement("AUTO")
 )
 
 func (DashboardTableTotalsPlacement) ElementType() reflect.Type {
@@ -59566,6 +59568,7 @@ type TemplateTableTotalsPlacement string
 const (
 	TemplateTableTotalsPlacementStart = TemplateTableTotalsPlacement("START")
 	TemplateTableTotalsPlacementEnd   = TemplateTableTotalsPlacement("END")
+	TemplateTableTotalsPlacementAuto  = TemplateTableTotalsPlacement("AUTO")
 )
 
 func (TemplateTableTotalsPlacement) ElementType() reflect.Type {
@@ -64512,6 +64515,11 @@ const (
 	TopicDefaultAggregationCount         = TopicDefaultAggregation("COUNT")
 	TopicDefaultAggregationDistinctCount = TopicDefaultAggregation("DISTINCT_COUNT")
 	TopicDefaultAggregationAverage       = TopicDefaultAggregation("AVERAGE")
+	TopicDefaultAggregationMedian        = TopicDefaultAggregation("MEDIAN")
+	TopicDefaultAggregationStdev         = TopicDefaultAggregation("STDEV")
+	TopicDefaultAggregationStdevp        = TopicDefaultAggregation("STDEVP")
+	TopicDefaultAggregationVar           = TopicDefaultAggregation("VAR")
+	TopicDefaultAggregationVarp          = TopicDefaultAggregation("VARP")
 )
 
 func (TopicDefaultAggregation) ElementType() reflect.Type {

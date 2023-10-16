@@ -4335,11 +4335,6 @@ export namespace autoscaling {
         min?: number;
     }
 
-    export interface AutoScalingGroupInstanceMaintenancePolicy {
-        maxHealthyPercentage?: number;
-        minHealthyPercentage?: number;
-    }
-
     export interface AutoScalingGroupInstanceRequirements {
         acceleratorCount?: outputs.autoscaling.AutoScalingGroupAcceleratorCountRequest;
         acceleratorManufacturers?: string[];
@@ -7252,8 +7247,8 @@ export namespace codestarnotifications {
 
 export namespace cognito {
     export interface IdentityPoolCognitoIdentityProvider {
-        clientId?: string;
-        providerName?: string;
+        clientId: string;
+        providerName: string;
         serverSideTokenCheck?: boolean;
     }
 
@@ -7266,6 +7261,20 @@ export namespace cognito {
     export interface IdentityPoolPushSync {
         applicationArns?: string[];
         roleArn?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IdentityPoolTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
     export interface LogDeliveryConfigurationCloudWatchLogsConfiguration {
@@ -9316,6 +9325,16 @@ export namespace connect {
 
 export namespace connectcampaigns {
     /**
+     * Agentless Dialer config
+     */
+    export interface CampaignAgentlessDialerConfig {
+        /**
+         * Allocates dialing capacity for this campaign between multiple active campaigns.
+         */
+        dialingCapacity?: number;
+    }
+
+    /**
      * The configuration used for answering machine detection during outbound calls
      */
     export interface CampaignAnswerMachineDetectionConfig {
@@ -9329,6 +9348,7 @@ export namespace connectcampaigns {
      * The possible types of dialer config parameters
      */
     export interface CampaignDialerConfig {
+        agentlessDialerConfig?: outputs.connectcampaigns.CampaignAgentlessDialerConfig;
         predictiveDialerConfig?: outputs.connectcampaigns.CampaignPredictiveDialerConfig;
         progressiveDialerConfig?: outputs.connectcampaigns.CampaignProgressiveDialerConfig;
     }
@@ -9345,7 +9365,7 @@ export namespace connectcampaigns {
         /**
          * The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
          */
-        connectQueueArn: string;
+        connectQueueArn?: string;
         /**
          * The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
          */
@@ -9360,6 +9380,10 @@ export namespace connectcampaigns {
          * The bandwidth allocation of a queue resource.
          */
         bandwidthAllocation: number;
+        /**
+         * Allocates dialing capacity for this campaign between multiple active campaigns.
+         */
+        dialingCapacity?: number;
     }
 
     /**
@@ -9370,6 +9394,10 @@ export namespace connectcampaigns {
          * The bandwidth allocation of a queue resource.
          */
         bandwidthAllocation: number;
+        /**
+         * Allocates dialing capacity for this campaign between multiple active campaigns.
+         */
+        dialingCapacity?: number;
     }
 
     /**
@@ -13606,6 +13634,20 @@ export namespace ec2 {
         min?: number;
     }
 
+    /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    export interface SseSpecificationProperties {
+        /**
+         * Whether to encrypt the policy with the provided key or disable encryption
+         */
+        customerManagedKeyEnabled?: boolean;
+        /**
+         * KMS Key Arn used to encrypt the group policy
+         */
+        kmsKeyArn?: string;
+    }
+
     export interface SubnetTag {
         key: string;
         value: string;
@@ -13763,6 +13805,20 @@ export namespace ec2 {
     }
 
     /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    export interface VerifiedAccessEndpointSseSpecification {
+        /**
+         * Whether to encrypt the policy with the provided key or disable encryption
+         */
+        customerManagedKeyEnabled?: boolean;
+        /**
+         * KMS Key Arn used to encrypt the group policy
+         */
+        kmsKeyArn?: string;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface VerifiedAccessEndpointTag {
@@ -13774,6 +13830,20 @@ export namespace ec2 {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: string;
+    }
+
+    /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    export interface VerifiedAccessGroupSseSpecification {
+        /**
+         * Whether to encrypt the policy with the provided key or disable encryption
+         */
+        customerManagedKeyEnabled?: boolean;
+        /**
+         * KMS Key Arn used to encrypt the group policy
+         */
+        kmsKeyArn?: string;
     }
 
     /**
@@ -16225,6 +16295,13 @@ export namespace entityresolution {
         schemaArn: string;
     }
 
+    export interface MatchingWorkflowIntermediateSourceConfiguration {
+        /**
+         * The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+         */
+        intermediateS3Path: string;
+    }
+
     export interface MatchingWorkflowOutputAttribute {
         hashed?: boolean;
         name: string;
@@ -16240,7 +16317,20 @@ export namespace entityresolution {
         outputS3Path: string;
     }
 
+    export interface MatchingWorkflowProviderProperties {
+        intermediateSourceConfiguration?: outputs.entityresolution.MatchingWorkflowIntermediateSourceConfiguration;
+        /**
+         * Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+         */
+        providerConfiguration?: any;
+        /**
+         * Arn of the Provider service being used.
+         */
+        providerServiceArn: string;
+    }
+
     export interface MatchingWorkflowResolutionTechniques {
+        providerProperties?: outputs.entityresolution.MatchingWorkflowProviderProperties;
         resolutionType?: enums.entityresolution.MatchingWorkflowResolutionTechniquesResolutionType;
         ruleBasedProperties?: outputs.entityresolution.MatchingWorkflowRuleBasedProperties;
     }
@@ -16273,6 +16363,10 @@ export namespace entityresolution {
         fieldName: string;
         groupName?: string;
         matchKey?: string;
+        /**
+         * The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+         */
+        subType?: string;
         type: enums.entityresolution.SchemaMappingSchemaAttributeType;
     }
 
@@ -16451,7 +16545,7 @@ export namespace events {
         database: string;
         dbUser?: string;
         secretManagerArn?: string;
-        sql: string;
+        sql?: string;
         sqls?: string[];
         statementName?: string;
         withEvent?: boolean;
@@ -20718,9 +20812,15 @@ export namespace iot {
     export interface TopicRuleKafkaAction {
         clientProperties: any;
         destinationArn: string;
+        headers?: outputs.iot.TopicRuleKafkaActionHeader[];
         key?: string;
         partition?: string;
         topic: string;
+    }
+
+    export interface TopicRuleKafkaActionHeader {
+        key: string;
+        value: string;
     }
 
     export interface TopicRuleKinesisAction {
@@ -23219,7 +23319,6 @@ export namespace kendra {
         salesforceConfiguration?: outputs.kendra.DataSourceSalesforceConfiguration;
         serviceNowConfiguration?: outputs.kendra.DataSourceServiceNowConfiguration;
         sharePointConfiguration?: outputs.kendra.DataSourceSharePointConfiguration;
-        templateConfiguration?: outputs.kendra.DataSourceTemplateConfiguration;
         webCrawlerConfiguration?: outputs.kendra.DataSourceWebCrawlerConfiguration;
         workDocsConfiguration?: outputs.kendra.DataSourceWorkDocsConfiguration;
     }
@@ -23501,10 +23600,6 @@ export namespace kendra {
          * A string containing the value for the tag
          */
         value: string;
-    }
-
-    export interface DataSourceTemplateConfiguration {
-        template: string;
     }
 
     export interface DataSourceToIndexFieldMapping {
@@ -25375,6 +25470,10 @@ export namespace lambda {
      */
     export interface FunctionVpcConfig {
         /**
+         * A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+         */
+        ipv6AllowedForDualStack?: boolean;
+        /**
          * A list of VPC security groups IDs.
          */
         securityGroupIds?: string[];
@@ -25423,8 +25522,28 @@ export namespace lambda {
         maxAge?: number;
     }
 
+    /**
+     * A provisioned concurrency configuration for a function's version.
+     */
     export interface VersionProvisionedConcurrencyConfiguration {
+        /**
+         * The amount of provisioned concurrency to allocate for the version.
+         */
         provisionedConcurrentExecutions: number;
+    }
+
+    /**
+     * Runtime Management Config of a function.
+     */
+    export interface VersionRuntimePolicy {
+        /**
+         * The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
+         */
+        runtimeVersionArn?: string;
+        /**
+         * The runtime update mode.
+         */
+        updateRuntimeOn: string;
     }
 
 }
@@ -31455,8 +31574,14 @@ export namespace networkmanager {
      * A key-value pair to associate with a global network resource.
      */
     export interface GlobalNetworkTag {
-        key?: string;
-        value?: string;
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
     /**
@@ -31477,8 +31602,14 @@ export namespace networkmanager {
      * A key-value pair to associate with a link resource.
      */
     export interface LinkTag {
-        key?: string;
-        value?: string;
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
     /**
@@ -34736,6 +34867,7 @@ export namespace quicksight {
     export interface AnalysisFilterListConfiguration {
         categoryValues?: string[];
         matchOperator: enums.quicksight.AnalysisCategoryFilterMatchOperator;
+        nullOption?: enums.quicksight.AnalysisFilterNullOption;
         selectAllOptions?: enums.quicksight.AnalysisCategoryFilterSelectAllOptions;
     }
 
@@ -37764,6 +37896,7 @@ export namespace quicksight {
     export interface DashboardFilterListConfiguration {
         categoryValues?: string[];
         matchOperator: enums.quicksight.DashboardCategoryFilterMatchOperator;
+        nullOption?: enums.quicksight.DashboardFilterNullOption;
         selectAllOptions?: enums.quicksight.DashboardCategoryFilterSelectAllOptions;
     }
 
@@ -41619,6 +41752,7 @@ export namespace quicksight {
     export interface TemplateFilterListConfiguration {
         categoryValues?: string[];
         matchOperator: enums.quicksight.TemplateCategoryFilterMatchOperator;
+        nullOption?: enums.quicksight.TemplateFilterNullOption;
         selectAllOptions?: enums.quicksight.TemplateCategoryFilterSelectAllOptions;
     }
 
@@ -43831,6 +43965,7 @@ export namespace quicksight {
         expression: string;
         isIncludedInTopic?: boolean;
         neverAggregateInFilter?: boolean;
+        nonAdditive?: boolean;
         notAllowedAggregations?: enums.quicksight.TopicAuthorSpecifiedAggregation[];
         semanticType?: outputs.quicksight.TopicSemanticType;
         timeGranularity?: enums.quicksight.TopicTimeGranularity;
@@ -43871,6 +44006,7 @@ export namespace quicksight {
         defaultFormatting?: outputs.quicksight.TopicDefaultFormatting;
         isIncludedInTopic?: boolean;
         neverAggregateInFilter?: boolean;
+        nonAdditive?: boolean;
         notAllowedAggregations?: enums.quicksight.TopicAuthorSpecifiedAggregation[];
         semanticType?: outputs.quicksight.TopicSemanticType;
         timeGranularity?: enums.quicksight.TopicTimeGranularity;
@@ -53711,6 +53847,7 @@ export namespace wafv2 {
      * Configures how to use the Bot Control managed rule group in the web ACL
      */
     export interface WebAclAwsManagedRulesBotControlRuleSet {
+        enableMachineLearning?: boolean;
         inspectionLevel: enums.wafv2.WebAclAwsManagedRulesBotControlRuleSetInspectionLevel;
     }
 

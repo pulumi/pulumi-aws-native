@@ -13,15 +13,15 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class IdentityPoolCognitoIdentityProvider
     {
-        public readonly string? ClientId;
-        public readonly string? ProviderName;
+        public readonly string ClientId;
+        public readonly string ProviderName;
         public readonly bool? ServerSideTokenCheck;
 
         [OutputConstructor]
         private IdentityPoolCognitoIdentityProvider(
-            string? clientId,
+            string clientId,
 
-            string? providerName,
+            string providerName,
 
             bool? serverSideTokenCheck)
         {

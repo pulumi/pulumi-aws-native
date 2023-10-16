@@ -31,6 +31,10 @@ export interface GetGlobalNetworkResult {
      */
     readonly arn?: string;
     /**
+     * The date and time that the global network was created.
+     */
+    readonly createdAt?: string;
+    /**
      * The description of the global network.
      */
     readonly description?: string;
@@ -38,6 +42,10 @@ export interface GetGlobalNetworkResult {
      * The ID of the global network.
      */
     readonly id?: string;
+    /**
+     * The state of the global network.
+     */
+    readonly state?: string;
     /**
      * The tags for the global network.
      */

@@ -52,6 +52,10 @@ export interface GetSiteResult {
      */
     readonly siteId?: string;
     /**
+     * The state of the site.
+     */
+    readonly state?: string;
+    /**
      * The tags for the site.
      */
     readonly tags?: outputs.networkmanager.SiteTag[];

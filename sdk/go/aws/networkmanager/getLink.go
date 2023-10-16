@@ -33,6 +33,8 @@ type LookupLinkArgs struct {
 type LookupLinkResult struct {
 	// The Bandwidth for the link.
 	Bandwidth *LinkBandwidth `pulumi:"bandwidth"`
+	// The date and time that the device was created.
+	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the link.
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the link.
@@ -41,6 +43,8 @@ type LookupLinkResult struct {
 	LinkId *string `pulumi:"linkId"`
 	// The provider of the link.
 	Provider *string `pulumi:"provider"`
+	// The state of the link.
+	State *string `pulumi:"state"`
 	// The tags for the link.
 	Tags []LinkTag `pulumi:"tags"`
 	// The type of the link.
@@ -96,6 +100,11 @@ func (o LookupLinkResultOutput) Bandwidth() LinkBandwidthPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *LinkBandwidth { return v.Bandwidth }).(LinkBandwidthPtrOutput)
 }
 
+// The date and time that the device was created.
+func (o LookupLinkResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
 // The description of the link.
 func (o LookupLinkResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -114,6 +123,11 @@ func (o LookupLinkResultOutput) LinkId() pulumi.StringPtrOutput {
 // The provider of the link.
 func (o LookupLinkResultOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *string { return v.Provider }).(pulumi.StringPtrOutput)
+}
+
+// The state of the link.
+func (o LookupLinkResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The tags for the link.

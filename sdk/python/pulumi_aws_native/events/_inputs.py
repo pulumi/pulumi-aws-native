@@ -1343,18 +1343,18 @@ class RulePlacementStrategyArgs:
 class RuleRedshiftDataParametersArgs:
     def __init__(__self__, *,
                  database: pulumi.Input[str],
-                 sql: pulumi.Input[str],
                  db_user: Optional[pulumi.Input[str]] = None,
                  secret_manager_arn: Optional[pulumi.Input[str]] = None,
+                 sql: Optional[pulumi.Input[str]] = None,
                  sqls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
                  with_event: Optional[pulumi.Input[bool]] = None):
         RuleRedshiftDataParametersArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             database=database,
-            sql=sql,
             db_user=db_user,
             secret_manager_arn=secret_manager_arn,
+            sql=sql,
             sqls=sqls,
             statement_name=statement_name,
             with_event=with_event,
@@ -1363,19 +1363,20 @@ class RuleRedshiftDataParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              database: pulumi.Input[str],
-             sql: pulumi.Input[str],
              db_user: Optional[pulumi.Input[str]] = None,
              secret_manager_arn: Optional[pulumi.Input[str]] = None,
+             sql: Optional[pulumi.Input[str]] = None,
              sqls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              statement_name: Optional[pulumi.Input[str]] = None,
              with_event: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("database", database)
-        _setter("sql", sql)
         if db_user is not None:
             _setter("db_user", db_user)
         if secret_manager_arn is not None:
             _setter("secret_manager_arn", secret_manager_arn)
+        if sql is not None:
+            _setter("sql", sql)
         if sqls is not None:
             _setter("sqls", sqls)
         if statement_name is not None:
@@ -1391,15 +1392,6 @@ class RuleRedshiftDataParametersArgs:
     @database.setter
     def database(self, value: pulumi.Input[str]):
         pulumi.set(self, "database", value)
-
-    @property
-    @pulumi.getter
-    def sql(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "sql")
-
-    @sql.setter
-    def sql(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sql", value)
 
     @property
     @pulumi.getter(name="dbUser")
@@ -1418,6 +1410,15 @@ class RuleRedshiftDataParametersArgs:
     @secret_manager_arn.setter
     def secret_manager_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_manager_arn", value)
+
+    @property
+    @pulumi.getter
+    def sql(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sql")
+
+    @sql.setter
+    def sql(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql", value)
 
     @property
     @pulumi.getter

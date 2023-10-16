@@ -37,7 +37,6 @@ type LookupAutoScalingGroupResult struct {
 	DesiredCapacityType              *string                                      `pulumi:"desiredCapacityType"`
 	HealthCheckGracePeriod           *int                                         `pulumi:"healthCheckGracePeriod"`
 	HealthCheckType                  *string                                      `pulumi:"healthCheckType"`
-	InstanceMaintenancePolicy        *AutoScalingGroupInstanceMaintenancePolicy   `pulumi:"instanceMaintenancePolicy"`
 	LaunchConfigurationName          *string                                      `pulumi:"launchConfigurationName"`
 	LaunchTemplate                   *AutoScalingGroupLaunchTemplateSpecification `pulumi:"launchTemplate"`
 	LifecycleHookSpecificationList   []AutoScalingGroupLifecycleHookSpecification `pulumi:"lifecycleHookSpecificationList"`
@@ -133,12 +132,6 @@ func (o LookupAutoScalingGroupResultOutput) HealthCheckGracePeriod() pulumi.IntP
 
 func (o LookupAutoScalingGroupResultOutput) HealthCheckType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.HealthCheckType }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupAutoScalingGroupResultOutput) InstanceMaintenancePolicy() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
-	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupInstanceMaintenancePolicy {
-		return v.InstanceMaintenancePolicy
-	}).(AutoScalingGroupInstanceMaintenancePolicyPtrOutput)
 }
 
 func (o LookupAutoScalingGroupResultOutput) LaunchConfigurationName() pulumi.StringPtrOutput {

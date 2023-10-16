@@ -22,10 +22,22 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The date and time that the global network was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string?> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the global network.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of the global network.
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The tags for the global network.
@@ -79,10 +91,22 @@ namespace Pulumi.AwsNative.NetworkManager
     public sealed class GlobalNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The date and time that the global network was created.
+        /// </summary>
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
+
+        /// <summary>
         /// The description of the global network.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The state of the global network.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.GlobalNetworkTagArgs>? _tags;

@@ -29,6 +29,8 @@ type Site struct {
 	SiteArn pulumi.StringOutput `pulumi:"siteArn"`
 	// The ID of the site.
 	SiteId pulumi.StringOutput `pulumi:"siteId"`
+	// The state of the site.
+	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the site.
 	Tags SiteTagArrayOutput `pulumi:"tags"`
 }
@@ -179,6 +181,11 @@ func (o SiteOutput) SiteArn() pulumi.StringOutput {
 // The ID of the site.
 func (o SiteOutput) SiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Site) pulumi.StringOutput { return v.SiteId }).(pulumi.StringOutput)
+}
+
+// The state of the site.
+func (o SiteOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
 // The tags for the site.

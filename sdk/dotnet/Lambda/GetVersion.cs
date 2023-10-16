@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetVersionArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the version.
+        /// </summary>
+        [Input("functionArn", required: true)]
+        public string FunctionArn { get; set; } = null!;
 
         public GetVersionArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the version.
+        /// </summary>
+        [Input("functionArn", required: true)]
+        public Input<string> FunctionArn { get; set; } = null!;
 
         public GetVersionInvokeArgs()
         {
@@ -51,28 +57,22 @@ namespace Pulumi.AwsNative.Lambda
     [OutputType]
     public sealed class GetVersionResult
     {
-        public readonly string? CodeSha256;
-        public readonly string? Description;
-        public readonly string? Id;
-        public readonly Outputs.VersionProvisionedConcurrencyConfiguration? ProvisionedConcurrencyConfig;
+        /// <summary>
+        /// The ARN of the version.
+        /// </summary>
+        public readonly string? FunctionArn;
+        /// <summary>
+        /// The version number.
+        /// </summary>
         public readonly string? VersionValue;
 
         [OutputConstructor]
         private GetVersionResult(
-            string? codeSha256,
-
-            string? description,
-
-            string? id,
-
-            Outputs.VersionProvisionedConcurrencyConfiguration? provisionedConcurrencyConfig,
+            string? functionArn,
 
             string? version)
         {
-            CodeSha256 = codeSha256;
-            Description = description;
-            Id = id;
-            ProvisionedConcurrencyConfig = provisionedConcurrencyConfig;
+            FunctionArn = functionArn;
             VersionValue = version;
         }
     }

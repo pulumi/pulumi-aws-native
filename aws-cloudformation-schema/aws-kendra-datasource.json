@@ -1193,16 +1193,6 @@
       "additionalProperties" : false,
       "required" : [ "OrganizationId" ]
     },
-    "TemplateConfiguration" : {
-      "type" : "object",
-      "properties" : {
-        "Template" : {
-          "type" : "string"
-        }
-      },
-      "additionalProperties" : false,
-      "required" : [ "Template" ]
-    },
     "DataSourceConfiguration" : {
       "type" : "object",
       "properties" : {
@@ -1235,9 +1225,6 @@
         },
         "WorkDocsConfiguration" : {
           "$ref" : "#/definitions/WorkDocsConfiguration"
-        },
-        "TemplateConfiguration" : {
-          "$ref" : "#/definitions/TemplateConfiguration"
         }
       },
       "additionalProperties" : false,
@@ -1261,8 +1248,6 @@
         "required" : [ "WebCrawlerConfiguration" ]
       }, {
         "required" : [ "WorkDocsConfiguration" ]
-      }, {
-        "required" : [ "TemplateConfiguration" ]
       } ]
     },
     "Name" : {
@@ -1274,7 +1259,7 @@
     "Type" : {
       "description" : "Data source type",
       "type" : "string",
-      "enum" : [ "S3", "SHAREPOINT", "SALESFORCE", "ONEDRIVE", "SERVICENOW", "DATABASE", "CUSTOM", "CONFLUENCE", "GOOGLEDRIVE", "WEBCRAWLER", "WORKDOCS", "TEMPLATE" ]
+      "enum" : [ "S3", "SHAREPOINT", "SALESFORCE", "ONEDRIVE", "SERVICENOW", "DATABASE", "CUSTOM", "CONFLUENCE", "GOOGLEDRIVE", "WEBCRAWLER", "WORKDOCS" ]
     },
     "Description" : {
       "description" : "Description of data source",

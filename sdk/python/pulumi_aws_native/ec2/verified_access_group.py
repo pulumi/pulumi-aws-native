@@ -20,6 +20,7 @@ class VerifiedAccessGroupArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[pulumi.Input[str]] = None,
                  policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 sse_specification: Optional[pulumi.Input['VerifiedAccessGroupSseSpecificationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a VerifiedAccessGroup resource.
@@ -27,6 +28,7 @@ class VerifiedAccessGroupArgs:
         :param pulumi.Input[str] description: A description for the AWS Verified Access group.
         :param pulumi.Input[str] policy_document: The AWS Verified Access policy document.
         :param pulumi.Input[bool] policy_enabled: The status of the Verified Access policy.
+        :param pulumi.Input['VerifiedAccessGroupSseSpecificationArgs'] sse_specification: The configuration options for customer provided KMS encryption.
         :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         VerifiedAccessGroupArgs._configure(
@@ -35,6 +37,7 @@ class VerifiedAccessGroupArgs:
             description=description,
             policy_document=policy_document,
             policy_enabled=policy_enabled,
+            sse_specification=sse_specification,
             tags=tags,
         )
     @staticmethod
@@ -44,6 +47,7 @@ class VerifiedAccessGroupArgs:
              description: Optional[pulumi.Input[str]] = None,
              policy_document: Optional[pulumi.Input[str]] = None,
              policy_enabled: Optional[pulumi.Input[bool]] = None,
+             sse_specification: Optional[pulumi.Input['VerifiedAccessGroupSseSpecificationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessGroupTagArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("verified_access_instance_id", verified_access_instance_id)
@@ -53,6 +57,8 @@ class VerifiedAccessGroupArgs:
             _setter("policy_document", policy_document)
         if policy_enabled is not None:
             _setter("policy_enabled", policy_enabled)
+        if sse_specification is not None:
+            _setter("sse_specification", sse_specification)
         if tags is not None:
             _setter("tags", tags)
 
@@ -105,6 +111,18 @@ class VerifiedAccessGroupArgs:
         pulumi.set(self, "policy_enabled", value)
 
     @property
+    @pulumi.getter(name="sseSpecification")
+    def sse_specification(self) -> Optional[pulumi.Input['VerifiedAccessGroupSseSpecificationArgs']]:
+        """
+        The configuration options for customer provided KMS encryption.
+        """
+        return pulumi.get(self, "sse_specification")
+
+    @sse_specification.setter
+    def sse_specification(self, value: Optional[pulumi.Input['VerifiedAccessGroupSseSpecificationArgs']]):
+        pulumi.set(self, "sse_specification", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessGroupTagArgs']]]]:
         """
@@ -125,6 +143,7 @@ class VerifiedAccessGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[pulumi.Input[str]] = None,
                  policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessGroupSseSpecificationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessGroupTagArgs']]]]] = None,
                  verified_access_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -136,6 +155,7 @@ class VerifiedAccessGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the AWS Verified Access group.
         :param pulumi.Input[str] policy_document: The AWS Verified Access policy document.
         :param pulumi.Input[bool] policy_enabled: The status of the Verified Access policy.
+        :param pulumi.Input[pulumi.InputType['VerifiedAccessGroupSseSpecificationArgs']] sse_specification: The configuration options for customer provided KMS encryption.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] verified_access_instance_id: The ID of the AWS Verified Access instance.
         """
@@ -170,6 +190,7 @@ class VerifiedAccessGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[pulumi.Input[str]] = None,
                  policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessGroupSseSpecificationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessGroupTagArgs']]]]] = None,
                  verified_access_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -184,6 +205,12 @@ class VerifiedAccessGroup(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["policy_enabled"] = policy_enabled
+            if sse_specification is not None and not isinstance(sse_specification, VerifiedAccessGroupSseSpecificationArgs):
+                sse_specification = sse_specification or {}
+                def _setter(key, value):
+                    sse_specification[key] = value
+                VerifiedAccessGroupSseSpecificationArgs._configure(_setter, **sse_specification)
+            __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["tags"] = tags
             if verified_access_instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'verified_access_instance_id'")
@@ -221,6 +248,7 @@ class VerifiedAccessGroup(pulumi.CustomResource):
         __props__.__dict__["owner"] = None
         __props__.__dict__["policy_document"] = None
         __props__.__dict__["policy_enabled"] = None
+        __props__.__dict__["sse_specification"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["verified_access_group_arn"] = None
         __props__.__dict__["verified_access_group_id"] = None
@@ -274,6 +302,14 @@ class VerifiedAccessGroup(pulumi.CustomResource):
         The status of the Verified Access policy.
         """
         return pulumi.get(self, "policy_enabled")
+
+    @property
+    @pulumi.getter(name="sseSpecification")
+    def sse_specification(self) -> pulumi.Output[Optional['outputs.VerifiedAccessGroupSseSpecification']]:
+        """
+        The configuration options for customer provided KMS encryption.
+        """
+        return pulumi.get(self, "sse_specification")
 
     @property
     @pulumi.getter

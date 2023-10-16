@@ -7,18 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Kendra.Outputs
+namespace Pulumi.AwsNative.IoT.Outputs
 {
 
     [OutputType]
-    public sealed class DataSourceTemplateConfiguration
+    public sealed class TopicRuleKafkaActionHeader
     {
-        public readonly string Template;
+        public readonly string Key;
+        public readonly string Value;
 
         [OutputConstructor]
-        private DataSourceTemplateConfiguration(string template)
+        private TopicRuleKafkaActionHeader(
+            string key,
+
+            string value)
         {
-            Template = template;
+            Key = key;
+            Value = value;
         }
     }
 }

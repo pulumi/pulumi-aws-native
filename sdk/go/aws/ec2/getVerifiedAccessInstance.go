@@ -33,6 +33,8 @@ type LookupVerifiedAccessInstanceResult struct {
 	CreationTime *string `pulumi:"creationTime"`
 	// A description for the AWS Verified Access instance.
 	Description *string `pulumi:"description"`
+	// Indicates whether FIPS is enabled
+	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// Time this Verified Access Instance was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// The configuration options for AWS Verified Access instances.
@@ -97,6 +99,11 @@ func (o LookupVerifiedAccessInstanceResultOutput) CreationTime() pulumi.StringPt
 // A description for the AWS Verified Access instance.
 func (o LookupVerifiedAccessInstanceResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVerifiedAccessInstanceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether FIPS is enabled
+func (o LookupVerifiedAccessInstanceResultOutput) FipsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVerifiedAccessInstanceResult) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Time this Verified Access Instance was last updated.

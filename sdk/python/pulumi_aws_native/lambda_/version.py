@@ -19,9 +19,15 @@ class VersionArgs:
                  function_name: pulumi.Input[str],
                  code_sha256: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 provisioned_concurrency_config: Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']] = None):
+                 provisioned_concurrency_config: Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']] = None,
+                 runtime_policy: Optional[pulumi.Input['VersionRuntimePolicyArgs']] = None):
         """
         The set of arguments for constructing a Version resource.
+        :param pulumi.Input[str] function_name: The name of the Lambda function.
+        :param pulumi.Input[str] code_sha256: Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
+        :param pulumi.Input[str] description: A description for the version to override the description in the function configuration. Updates are not supported for this property.
+        :param pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs'] provisioned_concurrency_config: Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
+        :param pulumi.Input['VersionRuntimePolicyArgs'] runtime_policy: Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
         """
         VersionArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -29,6 +35,7 @@ class VersionArgs:
             code_sha256=code_sha256,
             description=description,
             provisioned_concurrency_config=provisioned_concurrency_config,
+            runtime_policy=runtime_policy,
         )
     @staticmethod
     def _configure(
@@ -37,6 +44,7 @@ class VersionArgs:
              code_sha256: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              provisioned_concurrency_config: Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']] = None,
+             runtime_policy: Optional[pulumi.Input['VersionRuntimePolicyArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("function_name", function_name)
         if code_sha256 is not None:
@@ -45,10 +53,15 @@ class VersionArgs:
             _setter("description", description)
         if provisioned_concurrency_config is not None:
             _setter("provisioned_concurrency_config", provisioned_concurrency_config)
+        if runtime_policy is not None:
+            _setter("runtime_policy", runtime_policy)
 
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Lambda function.
+        """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
@@ -58,6 +71,9 @@ class VersionArgs:
     @property
     @pulumi.getter(name="codeSha256")
     def code_sha256(self) -> Optional[pulumi.Input[str]]:
+        """
+        Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
+        """
         return pulumi.get(self, "code_sha256")
 
     @code_sha256.setter
@@ -67,6 +83,9 @@ class VersionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the version to override the description in the function configuration. Updates are not supported for this property.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -76,19 +95,29 @@ class VersionArgs:
     @property
     @pulumi.getter(name="provisionedConcurrencyConfig")
     def provisioned_concurrency_config(self) -> Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']]:
+        """
+        Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
+        """
         return pulumi.get(self, "provisioned_concurrency_config")
 
     @provisioned_concurrency_config.setter
     def provisioned_concurrency_config(self, value: Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']]):
         pulumi.set(self, "provisioned_concurrency_config", value)
 
+    @property
+    @pulumi.getter(name="runtimePolicy")
+    def runtime_policy(self) -> Optional[pulumi.Input['VersionRuntimePolicyArgs']]:
+        """
+        Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
+        """
+        return pulumi.get(self, "runtime_policy")
 
-warnings.warn("""Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    @runtime_policy.setter
+    def runtime_policy(self, value: Optional[pulumi.Input['VersionRuntimePolicyArgs']]):
+        pulumi.set(self, "runtime_policy", value)
 
 
 class Version(pulumi.CustomResource):
-    warnings.warn("""Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -97,12 +126,18 @@ class Version(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  provisioned_concurrency_config: Optional[pulumi.Input[pulumi.InputType['VersionProvisionedConcurrencyConfigurationArgs']]] = None,
+                 runtime_policy: Optional[pulumi.Input[pulumi.InputType['VersionRuntimePolicyArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::Version
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] code_sha256: Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
+        :param pulumi.Input[str] description: A description for the version to override the description in the function configuration. Updates are not supported for this property.
+        :param pulumi.Input[str] function_name: The name of the Lambda function.
+        :param pulumi.Input[pulumi.InputType['VersionProvisionedConcurrencyConfigurationArgs']] provisioned_concurrency_config: Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
+        :param pulumi.Input[pulumi.InputType['VersionRuntimePolicyArgs']] runtime_policy: Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
         """
         ...
     @overload
@@ -136,8 +171,8 @@ class Version(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  provisioned_concurrency_config: Optional[pulumi.Input[pulumi.InputType['VersionProvisionedConcurrencyConfigurationArgs']]] = None,
+                 runtime_policy: Optional[pulumi.Input[pulumi.InputType['VersionRuntimePolicyArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Version is deprecated: Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -157,8 +192,15 @@ class Version(pulumi.CustomResource):
                     provisioned_concurrency_config[key] = value
                 VersionProvisionedConcurrencyConfigurationArgs._configure(_setter, **provisioned_concurrency_config)
             __props__.__dict__["provisioned_concurrency_config"] = provisioned_concurrency_config
+            if runtime_policy is not None and not isinstance(runtime_policy, VersionRuntimePolicyArgs):
+                runtime_policy = runtime_policy or {}
+                def _setter(key, value):
+                    runtime_policy[key] = value
+                VersionRuntimePolicyArgs._configure(_setter, **runtime_policy)
+            __props__.__dict__["runtime_policy"] = runtime_policy
+            __props__.__dict__["function_arn"] = None
             __props__.__dict__["version"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["function_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["code_sha256", "description", "function_name", "provisioned_concurrency_config", "runtime_policy"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Version, __self__).__init__(
             'aws-native:lambda:Version',
@@ -184,33 +226,66 @@ class Version(pulumi.CustomResource):
 
         __props__.__dict__["code_sha256"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["function_arn"] = None
         __props__.__dict__["function_name"] = None
         __props__.__dict__["provisioned_concurrency_config"] = None
+        __props__.__dict__["runtime_policy"] = None
         __props__.__dict__["version"] = None
         return Version(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="codeSha256")
     def code_sha256(self) -> pulumi.Output[Optional[str]]:
+        """
+        Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
+        """
         return pulumi.get(self, "code_sha256")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the version to override the description in the function configuration. Updates are not supported for this property.
+        """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the version.
+        """
+        return pulumi.get(self, "function_arn")
 
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Lambda function.
+        """
         return pulumi.get(self, "function_name")
 
     @property
     @pulumi.getter(name="provisionedConcurrencyConfig")
     def provisioned_concurrency_config(self) -> pulumi.Output[Optional['outputs.VersionProvisionedConcurrencyConfiguration']]:
+        """
+        Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
+        """
         return pulumi.get(self, "provisioned_concurrency_config")
+
+    @property
+    @pulumi.getter(name="runtimePolicy")
+    def runtime_policy(self) -> pulumi.Output[Optional['outputs.VersionRuntimePolicy']]:
+        """
+        Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
+        """
+        return pulumi.get(self, "runtime_policy")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
+        """
+        The version number.
+        """
         return pulumi.get(self, "version")
 

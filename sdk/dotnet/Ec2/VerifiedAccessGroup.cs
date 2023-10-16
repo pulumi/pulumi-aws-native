@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<bool?> PolicyEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration options for customer provided KMS encryption.
+        /// </summary>
+        [Output("sseSpecification")]
+        public Output<Outputs.VerifiedAccessGroupSseSpecification?> SseSpecification { get; private set; } = null!;
+
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
@@ -137,6 +143,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("policyEnabled")]
         public Input<bool>? PolicyEnabled { get; set; }
+
+        /// <summary>
+        /// The configuration options for customer provided KMS encryption.
+        /// </summary>
+        [Input("sseSpecification")]
+        public Input<Inputs.VerifiedAccessGroupSseSpecificationArgs>? SseSpecification { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.VerifiedAccessGroupTagArgs>? _tags;

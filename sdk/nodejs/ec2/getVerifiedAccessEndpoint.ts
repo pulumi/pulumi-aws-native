@@ -63,6 +63,10 @@ export interface GetVerifiedAccessEndpointResult {
      */
     readonly policyEnabled?: boolean;
     /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    readonly sseSpecification?: outputs.ec2.VerifiedAccessEndpointSseSpecification;
+    /**
      * The endpoint status.
      */
     readonly status?: string;

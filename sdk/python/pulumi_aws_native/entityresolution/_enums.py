@@ -14,6 +14,7 @@ __all__ = [
 class MatchingWorkflowResolutionTechniquesResolutionType(str, Enum):
     RULE_MATCHING = "RULE_MATCHING"
     ML_MATCHING = "ML_MATCHING"
+    PROVIDER = "PROVIDER"
 
 
 class MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel(str, Enum):
@@ -41,3 +42,4 @@ class SchemaMappingSchemaAttributeType(str, Enum):
     UNIQUE_ID = "UNIQUE_ID"
     DATE = "DATE"
     STRING = "STRING"
+    PROVIDER_ID = "PROVIDER_ID"

@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Outputs
         /// The bandwidth allocation of a queue resource.
         /// </summary>
         public readonly double BandwidthAllocation;
+        /// <summary>
+        /// Allocates dialing capacity for this campaign between multiple active campaigns.
+        /// </summary>
+        public readonly double? DialingCapacity;
 
         [OutputConstructor]
-        private CampaignProgressiveDialerConfig(double bandwidthAllocation)
+        private CampaignProgressiveDialerConfig(
+            double bandwidthAllocation,
+
+            double? dialingCapacity)
         {
             BandwidthAllocation = bandwidthAllocation;
+            DialingCapacity = dialingCapacity;
         }
     }
 }

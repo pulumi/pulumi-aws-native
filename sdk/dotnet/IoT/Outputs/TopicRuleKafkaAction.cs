@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
     {
         public readonly object ClientProperties;
         public readonly string DestinationArn;
+        public readonly ImmutableArray<Outputs.TopicRuleKafkaActionHeader> Headers;
         public readonly string? Key;
         public readonly string? Partition;
         public readonly string Topic;
@@ -25,6 +26,8 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             string destinationArn,
 
+            ImmutableArray<Outputs.TopicRuleKafkaActionHeader> headers,
+
             string? key,
 
             string? partition,
@@ -33,6 +36,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         {
             ClientProperties = clientProperties;
             DestinationArn = destinationArn;
+            Headers = headers;
             Key = key;
             Partition = partition;
             Topic = topic;

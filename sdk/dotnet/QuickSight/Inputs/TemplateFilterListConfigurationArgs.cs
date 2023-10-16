@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("matchOperator", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateCategoryFilterMatchOperator> MatchOperator { get; set; } = null!;
 
+        [Input("nullOption")]
+        public Input<Pulumi.AwsNative.QuickSight.TemplateFilterNullOption>? NullOption { get; set; }
+
         [Input("selectAllOptions")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateCategoryFilterSelectAllOptions>? SelectAllOptions { get; set; }
 

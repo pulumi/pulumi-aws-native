@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeviceResult:
-    def __init__(__self__, aws_location=None, created_at=None, description=None, device_arn=None, device_id=None, location=None, model=None, serial_number=None, site_id=None, tags=None, type=None, vendor=None):
+    def __init__(__self__, aws_location=None, created_at=None, description=None, device_arn=None, device_id=None, location=None, model=None, serial_number=None, site_id=None, state=None, tags=None, type=None, vendor=None):
         if aws_location and not isinstance(aws_location, dict):
             raise TypeError("Expected argument 'aws_location' to be a dict")
         pulumi.set(__self__, "aws_location", aws_location)
@@ -47,6 +47,9 @@ class GetDeviceResult:
         if site_id and not isinstance(site_id, str):
             raise TypeError("Expected argument 'site_id' to be a str")
         pulumi.set(__self__, "site_id", site_id)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -131,6 +134,14 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of the device.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DeviceTag']]:
         """
         The tags for the device.
@@ -169,6 +180,7 @@ class AwaitableGetDeviceResult(GetDeviceResult):
             model=self.model,
             serial_number=self.serial_number,
             site_id=self.site_id,
+            state=self.state,
             tags=self.tags,
             type=self.type,
             vendor=self.vendor)
@@ -200,6 +212,7 @@ def get_device(device_id: Optional[str] = None,
         model=pulumi.get(__ret__, 'model'),
         serial_number=pulumi.get(__ret__, 'serial_number'),
         site_id=pulumi.get(__ret__, 'site_id'),
+        state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vendor=pulumi.get(__ret__, 'vendor'))

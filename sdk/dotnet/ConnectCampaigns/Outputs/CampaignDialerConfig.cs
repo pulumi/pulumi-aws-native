@@ -16,15 +16,19 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Outputs
     [OutputType]
     public sealed class CampaignDialerConfig
     {
+        public readonly Outputs.CampaignAgentlessDialerConfig? AgentlessDialerConfig;
         public readonly Outputs.CampaignPredictiveDialerConfig? PredictiveDialerConfig;
         public readonly Outputs.CampaignProgressiveDialerConfig? ProgressiveDialerConfig;
 
         [OutputConstructor]
         private CampaignDialerConfig(
+            Outputs.CampaignAgentlessDialerConfig? agentlessDialerConfig,
+
             Outputs.CampaignPredictiveDialerConfig? predictiveDialerConfig,
 
             Outputs.CampaignProgressiveDialerConfig? progressiveDialerConfig)
         {
+            AgentlessDialerConfig = agentlessDialerConfig;
             PredictiveDialerConfig = predictiveDialerConfig;
             ProgressiveDialerConfig = progressiveDialerConfig;
         }

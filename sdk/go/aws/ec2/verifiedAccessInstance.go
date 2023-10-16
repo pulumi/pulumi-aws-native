@@ -20,6 +20,8 @@ type VerifiedAccessInstance struct {
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A description for the AWS Verified Access instance.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Indicates whether FIPS is enabled
+	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
 	// Time this Verified Access Instance was last updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// The configuration options for AWS Verified Access instances.
@@ -76,6 +78,8 @@ func (VerifiedAccessInstanceState) ElementType() reflect.Type {
 type verifiedAccessInstanceArgs struct {
 	// A description for the AWS Verified Access instance.
 	Description *string `pulumi:"description"`
+	// Indicates whether FIPS is enabled
+	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// The configuration options for AWS Verified Access instances.
 	LoggingConfigurations *VerifiedAccessInstanceVerifiedAccessLogs `pulumi:"loggingConfigurations"`
 	// An array of key-value pairs to apply to this resource.
@@ -90,6 +94,8 @@ type verifiedAccessInstanceArgs struct {
 type VerifiedAccessInstanceArgs struct {
 	// A description for the AWS Verified Access instance.
 	Description pulumi.StringPtrInput
+	// Indicates whether FIPS is enabled
+	FipsEnabled pulumi.BoolPtrInput
 	// The configuration options for AWS Verified Access instances.
 	LoggingConfigurations VerifiedAccessInstanceVerifiedAccessLogsPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -157,6 +163,11 @@ func (o VerifiedAccessInstanceOutput) CreationTime() pulumi.StringOutput {
 // A description for the AWS Verified Access instance.
 func (o VerifiedAccessInstanceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VerifiedAccessInstance) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether FIPS is enabled
+func (o VerifiedAccessInstanceOutput) FipsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstance) pulumi.BoolPtrOutput { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Time this Verified Access Instance was last updated.

@@ -5018,11 +5018,6 @@ export namespace autoscaling {
         min?: pulumi.Input<number>;
     }
 
-    export interface AutoScalingGroupInstanceMaintenancePolicyArgs {
-        maxHealthyPercentage?: pulumi.Input<number>;
-        minHealthyPercentage?: pulumi.Input<number>;
-    }
-
     export interface AutoScalingGroupInstanceRequirementsArgs {
         acceleratorCount?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAcceleratorCountRequestArgs>;
         acceleratorManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
@@ -7898,8 +7893,8 @@ export namespace codestarnotifications {
 
 export namespace cognito {
     export interface IdentityPoolCognitoIdentityProviderArgs {
-        clientId?: pulumi.Input<string>;
-        providerName?: pulumi.Input<string>;
+        clientId: pulumi.Input<string>;
+        providerName: pulumi.Input<string>;
         serverSideTokenCheck?: pulumi.Input<boolean>;
     }
 
@@ -7912,6 +7907,20 @@ export namespace cognito {
     export interface IdentityPoolPushSyncArgs {
         applicationArns?: pulumi.Input<pulumi.Input<string>[]>;
         roleArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IdentityPoolTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface LogDeliveryConfigurationCloudWatchLogsConfigurationArgs {
@@ -9254,6 +9263,16 @@ export namespace connect {
 
 export namespace connectcampaigns {
     /**
+     * Agentless Dialer config
+     */
+    export interface CampaignAgentlessDialerConfigArgs {
+        /**
+         * Allocates dialing capacity for this campaign between multiple active campaigns.
+         */
+        dialingCapacity?: pulumi.Input<number>;
+    }
+
+    /**
      * The configuration used for answering machine detection during outbound calls
      */
     export interface CampaignAnswerMachineDetectionConfigArgs {
@@ -9267,6 +9286,7 @@ export namespace connectcampaigns {
      * The possible types of dialer config parameters
      */
     export interface CampaignDialerConfigArgs {
+        agentlessDialerConfig?: pulumi.Input<inputs.connectcampaigns.CampaignAgentlessDialerConfigArgs>;
         predictiveDialerConfig?: pulumi.Input<inputs.connectcampaigns.CampaignPredictiveDialerConfigArgs>;
         progressiveDialerConfig?: pulumi.Input<inputs.connectcampaigns.CampaignProgressiveDialerConfigArgs>;
     }
@@ -9283,7 +9303,7 @@ export namespace connectcampaigns {
         /**
          * The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
          */
-        connectQueueArn: pulumi.Input<string>;
+        connectQueueArn?: pulumi.Input<string>;
         /**
          * The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
          */
@@ -9298,6 +9318,10 @@ export namespace connectcampaigns {
          * The bandwidth allocation of a queue resource.
          */
         bandwidthAllocation: pulumi.Input<number>;
+        /**
+         * Allocates dialing capacity for this campaign between multiple active campaigns.
+         */
+        dialingCapacity?: pulumi.Input<number>;
     }
 
     /**
@@ -9308,6 +9332,10 @@ export namespace connectcampaigns {
          * The bandwidth allocation of a queue resource.
          */
         bandwidthAllocation: pulumi.Input<number>;
+        /**
+         * Allocates dialing capacity for this campaign between multiple active campaigns.
+         */
+        dialingCapacity?: pulumi.Input<number>;
     }
 
     /**
@@ -13363,6 +13391,20 @@ export namespace ec2 {
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    export interface SseSpecificationPropertiesArgs {
+        /**
+         * Whether to encrypt the policy with the provided key or disable encryption
+         */
+        customerManagedKeyEnabled?: pulumi.Input<boolean>;
+        /**
+         * KMS Key Arn used to encrypt the group policy
+         */
+        kmsKeyArn?: pulumi.Input<string>;
+    }
+
     export interface SubnetTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -13509,6 +13551,20 @@ export namespace ec2 {
     }
 
     /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    export interface VerifiedAccessEndpointSseSpecificationArgs {
+        /**
+         * Whether to encrypt the policy with the provided key or disable encryption
+         */
+        customerManagedKeyEnabled?: pulumi.Input<boolean>;
+        /**
+         * KMS Key Arn used to encrypt the group policy
+         */
+        kmsKeyArn?: pulumi.Input<string>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface VerifiedAccessEndpointTagArgs {
@@ -13520,6 +13576,20 @@ export namespace ec2 {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    export interface VerifiedAccessGroupSseSpecificationArgs {
+        /**
+         * Whether to encrypt the policy with the provided key or disable encryption
+         */
+        customerManagedKeyEnabled?: pulumi.Input<boolean>;
+        /**
+         * KMS Key Arn used to encrypt the group policy
+         */
+        kmsKeyArn?: pulumi.Input<string>;
     }
 
     /**
@@ -15958,6 +16028,13 @@ export namespace entityresolution {
         schemaArn: pulumi.Input<string>;
     }
 
+    export interface MatchingWorkflowIntermediateSourceConfigurationArgs {
+        /**
+         * The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+         */
+        intermediateS3Path: pulumi.Input<string>;
+    }
+
     export interface MatchingWorkflowOutputAttributeArgs {
         hashed?: pulumi.Input<boolean>;
         name: pulumi.Input<string>;
@@ -15973,7 +16050,20 @@ export namespace entityresolution {
         outputS3Path: pulumi.Input<string>;
     }
 
+    export interface MatchingWorkflowProviderPropertiesArgs {
+        intermediateSourceConfiguration?: pulumi.Input<inputs.entityresolution.MatchingWorkflowIntermediateSourceConfigurationArgs>;
+        /**
+         * Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+         */
+        providerConfiguration?: any;
+        /**
+         * Arn of the Provider service being used.
+         */
+        providerServiceArn: pulumi.Input<string>;
+    }
+
     export interface MatchingWorkflowResolutionTechniquesArgs {
+        providerProperties?: pulumi.Input<inputs.entityresolution.MatchingWorkflowProviderPropertiesArgs>;
         resolutionType?: pulumi.Input<enums.entityresolution.MatchingWorkflowResolutionTechniquesResolutionType>;
         ruleBasedProperties?: pulumi.Input<inputs.entityresolution.MatchingWorkflowRuleBasedPropertiesArgs>;
     }
@@ -16006,6 +16096,10 @@ export namespace entityresolution {
         fieldName: pulumi.Input<string>;
         groupName?: pulumi.Input<string>;
         matchKey?: pulumi.Input<string>;
+        /**
+         * The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+         */
+        subType?: pulumi.Input<string>;
         type: pulumi.Input<enums.entityresolution.SchemaMappingSchemaAttributeType>;
     }
 
@@ -16183,7 +16277,7 @@ export namespace events {
         database: pulumi.Input<string>;
         dbUser?: pulumi.Input<string>;
         secretManagerArn?: pulumi.Input<string>;
-        sql: pulumi.Input<string>;
+        sql?: pulumi.Input<string>;
         sqls?: pulumi.Input<pulumi.Input<string>[]>;
         statementName?: pulumi.Input<string>;
         withEvent?: pulumi.Input<boolean>;
@@ -20405,9 +20499,15 @@ export namespace iot {
     export interface TopicRuleKafkaActionArgs {
         clientProperties: any;
         destinationArn: pulumi.Input<string>;
+        headers?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKafkaActionHeaderArgs>[]>;
         key?: pulumi.Input<string>;
         partition?: pulumi.Input<string>;
         topic: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleKafkaActionHeaderArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface TopicRuleKinesisActionArgs {
@@ -22867,7 +22967,6 @@ export namespace kendra {
         salesforceConfiguration?: pulumi.Input<inputs.kendra.DataSourceSalesforceConfigurationArgs>;
         serviceNowConfiguration?: pulumi.Input<inputs.kendra.DataSourceServiceNowConfigurationArgs>;
         sharePointConfiguration?: pulumi.Input<inputs.kendra.DataSourceSharePointConfigurationArgs>;
-        templateConfiguration?: pulumi.Input<inputs.kendra.DataSourceTemplateConfigurationArgs>;
         webCrawlerConfiguration?: pulumi.Input<inputs.kendra.DataSourceWebCrawlerConfigurationArgs>;
         workDocsConfiguration?: pulumi.Input<inputs.kendra.DataSourceWorkDocsConfigurationArgs>;
     }
@@ -23149,10 +23248,6 @@ export namespace kendra {
          * A string containing the value for the tag
          */
         value: pulumi.Input<string>;
-    }
-
-    export interface DataSourceTemplateConfigurationArgs {
-        template: pulumi.Input<string>;
     }
 
     export interface DataSourceToIndexFieldMappingArgs {
@@ -25000,6 +25095,10 @@ export namespace lambda {
      */
     export interface FunctionVpcConfigArgs {
         /**
+         * A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+         */
+        ipv6AllowedForDualStack?: pulumi.Input<boolean>;
+        /**
          * A list of VPC security groups IDs.
          */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -25048,8 +25147,28 @@ export namespace lambda {
         maxAge?: pulumi.Input<number>;
     }
 
+    /**
+     * A provisioned concurrency configuration for a function's version.
+     */
     export interface VersionProvisionedConcurrencyConfigurationArgs {
+        /**
+         * The amount of provisioned concurrency to allocate for the version.
+         */
         provisionedConcurrentExecutions: pulumi.Input<number>;
+    }
+
+    /**
+     * Runtime Management Config of a function.
+     */
+    export interface VersionRuntimePolicyArgs {
+        /**
+         * The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
+         */
+        runtimeVersionArn?: pulumi.Input<string>;
+        /**
+         * The runtime update mode.
+         */
+        updateRuntimeOn: pulumi.Input<string>;
     }
 }
 
@@ -30992,8 +31111,14 @@ export namespace networkmanager {
      * A key-value pair to associate with a global network resource.
      */
     export interface GlobalNetworkTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -31014,8 +31139,14 @@ export namespace networkmanager {
      * A key-value pair to associate with a link resource.
      */
     export interface LinkTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -34209,6 +34340,7 @@ export namespace quicksight {
     export interface AnalysisFilterListConfigurationArgs {
         categoryValues?: pulumi.Input<pulumi.Input<string>[]>;
         matchOperator: pulumi.Input<enums.quicksight.AnalysisCategoryFilterMatchOperator>;
+        nullOption?: pulumi.Input<enums.quicksight.AnalysisFilterNullOption>;
         selectAllOptions?: pulumi.Input<enums.quicksight.AnalysisCategoryFilterSelectAllOptions>;
     }
 
@@ -37222,6 +37354,7 @@ export namespace quicksight {
     export interface DashboardFilterListConfigurationArgs {
         categoryValues?: pulumi.Input<pulumi.Input<string>[]>;
         matchOperator: pulumi.Input<enums.quicksight.DashboardCategoryFilterMatchOperator>;
+        nullOption?: pulumi.Input<enums.quicksight.DashboardFilterNullOption>;
         selectAllOptions?: pulumi.Input<enums.quicksight.DashboardCategoryFilterSelectAllOptions>;
     }
 
@@ -41034,6 +41167,7 @@ export namespace quicksight {
     export interface TemplateFilterListConfigurationArgs {
         categoryValues?: pulumi.Input<pulumi.Input<string>[]>;
         matchOperator: pulumi.Input<enums.quicksight.TemplateCategoryFilterMatchOperator>;
+        nullOption?: pulumi.Input<enums.quicksight.TemplateFilterNullOption>;
         selectAllOptions?: pulumi.Input<enums.quicksight.TemplateCategoryFilterSelectAllOptions>;
     }
 
@@ -43213,6 +43347,7 @@ export namespace quicksight {
         expression: pulumi.Input<string>;
         isIncludedInTopic?: pulumi.Input<boolean>;
         neverAggregateInFilter?: pulumi.Input<boolean>;
+        nonAdditive?: pulumi.Input<boolean>;
         notAllowedAggregations?: pulumi.Input<pulumi.Input<enums.quicksight.TopicAuthorSpecifiedAggregation>[]>;
         semanticType?: pulumi.Input<inputs.quicksight.TopicSemanticTypeArgs>;
         timeGranularity?: pulumi.Input<enums.quicksight.TopicTimeGranularity>;
@@ -43253,6 +43388,7 @@ export namespace quicksight {
         defaultFormatting?: pulumi.Input<inputs.quicksight.TopicDefaultFormattingArgs>;
         isIncludedInTopic?: pulumi.Input<boolean>;
         neverAggregateInFilter?: pulumi.Input<boolean>;
+        nonAdditive?: pulumi.Input<boolean>;
         notAllowedAggregations?: pulumi.Input<pulumi.Input<enums.quicksight.TopicAuthorSpecifiedAggregation>[]>;
         semanticType?: pulumi.Input<inputs.quicksight.TopicSemanticTypeArgs>;
         timeGranularity?: pulumi.Input<enums.quicksight.TopicTimeGranularity>;
@@ -52838,6 +52974,7 @@ export namespace wafv2 {
      * Configures how to use the Bot Control managed rule group in the web ACL
      */
     export interface WebAclAwsManagedRulesBotControlRuleSetArgs {
+        enableMachineLearning?: pulumi.Input<boolean>;
         inspectionLevel: pulumi.Input<enums.wafv2.WebAclAwsManagedRulesBotControlRuleSetInspectionLevel>;
     }
 

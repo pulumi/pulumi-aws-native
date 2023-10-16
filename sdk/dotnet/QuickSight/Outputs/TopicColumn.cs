@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.TopicDefaultFormatting? DefaultFormatting;
         public readonly bool? IsIncludedInTopic;
         public readonly bool? NeverAggregateInFilter;
+        public readonly bool? NonAdditive;
         public readonly ImmutableArray<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation> NotAllowedAggregations;
         public readonly Outputs.TopicSemanticType? SemanticType;
         public readonly Pulumi.AwsNative.QuickSight.TopicTimeGranularity? TimeGranularity;
@@ -55,6 +56,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             bool? neverAggregateInFilter,
 
+            bool? nonAdditive,
+
             ImmutableArray<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation> notAllowedAggregations,
 
             Outputs.TopicSemanticType? semanticType,
@@ -73,6 +76,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             DefaultFormatting = defaultFormatting;
             IsIncludedInTopic = isIncludedInTopic;
             NeverAggregateInFilter = neverAggregateInFilter;
+            NonAdditive = nonAdditive;
             NotAllowedAggregations = notAllowedAggregations;
             SemanticType = semanticType;
             TimeGranularity = timeGranularity;

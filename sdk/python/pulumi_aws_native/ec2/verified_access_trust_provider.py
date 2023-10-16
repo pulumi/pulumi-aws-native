@@ -22,6 +22,7 @@ class VerifiedAccessTrustProviderArgs:
                  device_options: Optional[pulumi.Input['VerifiedAccessTrustProviderDeviceOptionsArgs']] = None,
                  device_trust_provider_type: Optional[pulumi.Input[str]] = None,
                  oidc_options: Optional[pulumi.Input['VerifiedAccessTrustProviderOidcOptionsArgs']] = None,
+                 sse_specification: Optional[pulumi.Input['SseSpecificationPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessTrustProviderTagArgs']]]] = None,
                  user_trust_provider_type: Optional[pulumi.Input[str]] = None):
         """
@@ -30,6 +31,7 @@ class VerifiedAccessTrustProviderArgs:
         :param pulumi.Input[str] trust_provider_type: Type of trust provider. Possible values: user|device
         :param pulumi.Input[str] description: A description for the Amazon Web Services Verified Access trust provider.
         :param pulumi.Input[str] device_trust_provider_type: The type of device-based trust provider. Possible values: jamf|crowdstrike
+        :param pulumi.Input['SseSpecificationPropertiesArgs'] sse_specification: The configuration options for customer provided KMS encryption.
         :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessTrustProviderTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] user_trust_provider_type: The type of device-based trust provider. Possible values: oidc|iam-identity-center
         """
@@ -41,6 +43,7 @@ class VerifiedAccessTrustProviderArgs:
             device_options=device_options,
             device_trust_provider_type=device_trust_provider_type,
             oidc_options=oidc_options,
+            sse_specification=sse_specification,
             tags=tags,
             user_trust_provider_type=user_trust_provider_type,
         )
@@ -53,6 +56,7 @@ class VerifiedAccessTrustProviderArgs:
              device_options: Optional[pulumi.Input['VerifiedAccessTrustProviderDeviceOptionsArgs']] = None,
              device_trust_provider_type: Optional[pulumi.Input[str]] = None,
              oidc_options: Optional[pulumi.Input['VerifiedAccessTrustProviderOidcOptionsArgs']] = None,
+             sse_specification: Optional[pulumi.Input['SseSpecificationPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessTrustProviderTagArgs']]]] = None,
              user_trust_provider_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
@@ -66,6 +70,8 @@ class VerifiedAccessTrustProviderArgs:
             _setter("device_trust_provider_type", device_trust_provider_type)
         if oidc_options is not None:
             _setter("oidc_options", oidc_options)
+        if sse_specification is not None:
+            _setter("sse_specification", sse_specification)
         if tags is not None:
             _setter("tags", tags)
         if user_trust_provider_type is not None:
@@ -138,6 +144,18 @@ class VerifiedAccessTrustProviderArgs:
         pulumi.set(self, "oidc_options", value)
 
     @property
+    @pulumi.getter(name="sseSpecification")
+    def sse_specification(self) -> Optional[pulumi.Input['SseSpecificationPropertiesArgs']]:
+        """
+        The configuration options for customer provided KMS encryption.
+        """
+        return pulumi.get(self, "sse_specification")
+
+    @sse_specification.setter
+    def sse_specification(self, value: Optional[pulumi.Input['SseSpecificationPropertiesArgs']]):
+        pulumi.set(self, "sse_specification", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessTrustProviderTagArgs']]]]:
         """
@@ -172,6 +190,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
                  device_trust_provider_type: Optional[pulumi.Input[str]] = None,
                  oidc_options: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessTrustProviderOidcOptionsArgs']]] = None,
                  policy_reference_name: Optional[pulumi.Input[str]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['SseSpecificationPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessTrustProviderTagArgs']]]]] = None,
                  trust_provider_type: Optional[pulumi.Input[str]] = None,
                  user_trust_provider_type: Optional[pulumi.Input[str]] = None,
@@ -184,6 +203,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the Amazon Web Services Verified Access trust provider.
         :param pulumi.Input[str] device_trust_provider_type: The type of device-based trust provider. Possible values: jamf|crowdstrike
         :param pulumi.Input[str] policy_reference_name: The identifier to be used when working with policy rules.
+        :param pulumi.Input[pulumi.InputType['SseSpecificationPropertiesArgs']] sse_specification: The configuration options for customer provided KMS encryption.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessTrustProviderTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] trust_provider_type: Type of trust provider. Possible values: user|device
         :param pulumi.Input[str] user_trust_provider_type: The type of device-based trust provider. Possible values: oidc|iam-identity-center
@@ -221,6 +241,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
                  device_trust_provider_type: Optional[pulumi.Input[str]] = None,
                  oidc_options: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessTrustProviderOidcOptionsArgs']]] = None,
                  policy_reference_name: Optional[pulumi.Input[str]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['SseSpecificationPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessTrustProviderTagArgs']]]]] = None,
                  trust_provider_type: Optional[pulumi.Input[str]] = None,
                  user_trust_provider_type: Optional[pulumi.Input[str]] = None,
@@ -250,6 +271,12 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
             if policy_reference_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_reference_name'")
             __props__.__dict__["policy_reference_name"] = policy_reference_name
+            if sse_specification is not None and not isinstance(sse_specification, SseSpecificationPropertiesArgs):
+                sse_specification = sse_specification or {}
+                def _setter(key, value):
+                    sse_specification[key] = value
+                SseSpecificationPropertiesArgs._configure(_setter, **sse_specification)
+            __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["tags"] = tags
             if trust_provider_type is None and not opts.urn:
                 raise TypeError("Missing required property 'trust_provider_type'")
@@ -289,6 +316,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["oidc_options"] = None
         __props__.__dict__["policy_reference_name"] = None
+        __props__.__dict__["sse_specification"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["trust_provider_type"] = None
         __props__.__dict__["user_trust_provider_type"] = None
@@ -344,6 +372,14 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
         The identifier to be used when working with policy rules.
         """
         return pulumi.get(self, "policy_reference_name")
+
+    @property
+    @pulumi.getter(name="sseSpecification")
+    def sse_specification(self) -> pulumi.Output[Optional['outputs.SseSpecificationProperties']]:
+        """
+        The configuration options for customer provided KMS encryption.
+        """
+        return pulumi.get(self, "sse_specification")
 
     @property
     @pulumi.getter

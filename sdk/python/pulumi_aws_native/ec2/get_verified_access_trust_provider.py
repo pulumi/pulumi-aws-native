@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVerifiedAccessTrustProviderResult:
-    def __init__(__self__, creation_time=None, description=None, last_updated_time=None, oidc_options=None, tags=None, verified_access_trust_provider_id=None):
+    def __init__(__self__, creation_time=None, description=None, last_updated_time=None, oidc_options=None, sse_specification=None, tags=None, verified_access_trust_provider_id=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -32,6 +32,9 @@ class GetVerifiedAccessTrustProviderResult:
         if oidc_options and not isinstance(oidc_options, dict):
             raise TypeError("Expected argument 'oidc_options' to be a dict")
         pulumi.set(__self__, "oidc_options", oidc_options)
+        if sse_specification and not isinstance(sse_specification, dict):
+            raise TypeError("Expected argument 'sse_specification' to be a dict")
+        pulumi.set(__self__, "sse_specification", sse_specification)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -69,6 +72,14 @@ class GetVerifiedAccessTrustProviderResult:
         return pulumi.get(self, "oidc_options")
 
     @property
+    @pulumi.getter(name="sseSpecification")
+    def sse_specification(self) -> Optional['outputs.SseSpecificationProperties']:
+        """
+        The configuration options for customer provided KMS encryption.
+        """
+        return pulumi.get(self, "sse_specification")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.VerifiedAccessTrustProviderTag']]:
         """
@@ -95,6 +106,7 @@ class AwaitableGetVerifiedAccessTrustProviderResult(GetVerifiedAccessTrustProvid
             description=self.description,
             last_updated_time=self.last_updated_time,
             oidc_options=self.oidc_options,
+            sse_specification=self.sse_specification,
             tags=self.tags,
             verified_access_trust_provider_id=self.verified_access_trust_provider_id)
 
@@ -117,6 +129,7 @@ def get_verified_access_trust_provider(verified_access_trust_provider_id: Option
         description=pulumi.get(__ret__, 'description'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         oidc_options=pulumi.get(__ret__, 'oidc_options'),
+        sse_specification=pulumi.get(__ret__, 'sse_specification'),
         tags=pulumi.get(__ret__, 'tags'),
         verified_access_trust_provider_id=pulumi.get(__ret__, 'verified_access_trust_provider_id'))
 

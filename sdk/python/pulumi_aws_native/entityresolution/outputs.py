@@ -13,8 +13,10 @@ from ._enums import *
 
 __all__ = [
     'MatchingWorkflowInputSource',
+    'MatchingWorkflowIntermediateSourceConfiguration',
     'MatchingWorkflowOutputAttribute',
     'MatchingWorkflowOutputSource',
+    'MatchingWorkflowProviderProperties',
     'MatchingWorkflowResolutionTechniques',
     'MatchingWorkflowRule',
     'MatchingWorkflowRuleBasedProperties',
@@ -88,6 +90,50 @@ class MatchingWorkflowInputSource(dict):
     @pulumi.getter(name="applyNormalization")
     def apply_normalization(self) -> Optional[bool]:
         return pulumi.get(self, "apply_normalization")
+
+
+@pulumi.output_type
+class MatchingWorkflowIntermediateSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intermediateS3Path":
+            suggest = "intermediate_s3_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchingWorkflowIntermediateSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchingWorkflowIntermediateSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchingWorkflowIntermediateSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 intermediate_s3_path: str):
+        """
+        :param str intermediate_s3_path: The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+        """
+        MatchingWorkflowIntermediateSourceConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            intermediate_s3_path=intermediate_s3_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             intermediate_s3_path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("intermediate_s3_path", intermediate_s3_path)
+
+    @property
+    @pulumi.getter(name="intermediateS3Path")
+    def intermediate_s3_path(self) -> str:
+        """
+        The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+        """
+        return pulumi.get(self, "intermediate_s3_path")
 
 
 @pulumi.output_type
@@ -199,11 +245,85 @@ class MatchingWorkflowOutputSource(dict):
 
 
 @pulumi.output_type
+class MatchingWorkflowProviderProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerServiceArn":
+            suggest = "provider_service_arn"
+        elif key == "intermediateSourceConfiguration":
+            suggest = "intermediate_source_configuration"
+        elif key == "providerConfiguration":
+            suggest = "provider_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchingWorkflowProviderProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchingWorkflowProviderProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchingWorkflowProviderProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_service_arn: str,
+                 intermediate_source_configuration: Optional['outputs.MatchingWorkflowIntermediateSourceConfiguration'] = None,
+                 provider_configuration: Optional[Any] = None):
+        """
+        :param str provider_service_arn: Arn of the Provider service being used.
+        :param Any provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+        """
+        MatchingWorkflowProviderProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_service_arn=provider_service_arn,
+            intermediate_source_configuration=intermediate_source_configuration,
+            provider_configuration=provider_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_service_arn: str,
+             intermediate_source_configuration: Optional['outputs.MatchingWorkflowIntermediateSourceConfiguration'] = None,
+             provider_configuration: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_service_arn", provider_service_arn)
+        if intermediate_source_configuration is not None:
+            _setter("intermediate_source_configuration", intermediate_source_configuration)
+        if provider_configuration is not None:
+            _setter("provider_configuration", provider_configuration)
+
+    @property
+    @pulumi.getter(name="providerServiceArn")
+    def provider_service_arn(self) -> str:
+        """
+        Arn of the Provider service being used.
+        """
+        return pulumi.get(self, "provider_service_arn")
+
+    @property
+    @pulumi.getter(name="intermediateSourceConfiguration")
+    def intermediate_source_configuration(self) -> Optional['outputs.MatchingWorkflowIntermediateSourceConfiguration']:
+        return pulumi.get(self, "intermediate_source_configuration")
+
+    @property
+    @pulumi.getter(name="providerConfiguration")
+    def provider_configuration(self) -> Optional[Any]:
+        """
+        Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+        """
+        return pulumi.get(self, "provider_configuration")
+
+
+@pulumi.output_type
 class MatchingWorkflowResolutionTechniques(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resolutionType":
+        if key == "providerProperties":
+            suggest = "provider_properties"
+        elif key == "resolutionType":
             suggest = "resolution_type"
         elif key == "ruleBasedProperties":
             suggest = "rule_based_properties"
@@ -220,23 +340,33 @@ class MatchingWorkflowResolutionTechniques(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 provider_properties: Optional['outputs.MatchingWorkflowProviderProperties'] = None,
                  resolution_type: Optional['MatchingWorkflowResolutionTechniquesResolutionType'] = None,
                  rule_based_properties: Optional['outputs.MatchingWorkflowRuleBasedProperties'] = None):
         MatchingWorkflowResolutionTechniques._configure(
             lambda key, value: pulumi.set(__self__, key, value),
+            provider_properties=provider_properties,
             resolution_type=resolution_type,
             rule_based_properties=rule_based_properties,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
+             provider_properties: Optional['outputs.MatchingWorkflowProviderProperties'] = None,
              resolution_type: Optional['MatchingWorkflowResolutionTechniquesResolutionType'] = None,
              rule_based_properties: Optional['outputs.MatchingWorkflowRuleBasedProperties'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
+        if provider_properties is not None:
+            _setter("provider_properties", provider_properties)
         if resolution_type is not None:
             _setter("resolution_type", resolution_type)
         if rule_based_properties is not None:
             _setter("rule_based_properties", rule_based_properties)
+
+    @property
+    @pulumi.getter(name="providerProperties")
+    def provider_properties(self) -> Optional['outputs.MatchingWorkflowProviderProperties']:
+        return pulumi.get(self, "provider_properties")
 
     @property
     @pulumi.getter(name="resolutionType")
@@ -400,6 +530,8 @@ class SchemaMappingSchemaInputAttribute(dict):
             suggest = "group_name"
         elif key == "matchKey":
             suggest = "match_key"
+        elif key == "subType":
+            suggest = "sub_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SchemaMappingSchemaInputAttribute. Access the value via the '{suggest}' property getter instead.")
@@ -416,13 +548,18 @@ class SchemaMappingSchemaInputAttribute(dict):
                  field_name: str,
                  type: 'SchemaMappingSchemaAttributeType',
                  group_name: Optional[str] = None,
-                 match_key: Optional[str] = None):
+                 match_key: Optional[str] = None,
+                 sub_type: Optional[str] = None):
+        """
+        :param str sub_type: The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+        """
         SchemaMappingSchemaInputAttribute._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             field_name=field_name,
             type=type,
             group_name=group_name,
             match_key=match_key,
+            sub_type=sub_type,
         )
     @staticmethod
     def _configure(
@@ -431,6 +568,7 @@ class SchemaMappingSchemaInputAttribute(dict):
              type: 'SchemaMappingSchemaAttributeType',
              group_name: Optional[str] = None,
              match_key: Optional[str] = None,
+             sub_type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("field_name", field_name)
         _setter("type", type)
@@ -438,6 +576,8 @@ class SchemaMappingSchemaInputAttribute(dict):
             _setter("group_name", group_name)
         if match_key is not None:
             _setter("match_key", match_key)
+        if sub_type is not None:
+            _setter("sub_type", sub_type)
 
     @property
     @pulumi.getter(name="fieldName")
@@ -458,6 +598,14 @@ class SchemaMappingSchemaInputAttribute(dict):
     @pulumi.getter(name="matchKey")
     def match_key(self) -> Optional[str]:
         return pulumi.get(self, "match_key")
+
+    @property
+    @pulumi.getter(name="subType")
+    def sub_type(self) -> Optional[str]:
+        """
+        The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+        """
+        return pulumi.get(self, "sub_type")
 
 
 @pulumi.output_type

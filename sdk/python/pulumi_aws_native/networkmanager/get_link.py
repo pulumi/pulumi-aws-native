@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetLinkResult:
-    def __init__(__self__, bandwidth=None, description=None, link_arn=None, link_id=None, provider=None, tags=None, type=None):
+    def __init__(__self__, bandwidth=None, created_at=None, description=None, link_arn=None, link_id=None, provider=None, state=None, tags=None, type=None):
         if bandwidth and not isinstance(bandwidth, dict):
             raise TypeError("Expected argument 'bandwidth' to be a dict")
         pulumi.set(__self__, "bandwidth", bandwidth)
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        pulumi.set(__self__, "created_at", created_at)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -35,6 +38,9 @@ class GetLinkResult:
         if provider and not isinstance(provider, str):
             raise TypeError("Expected argument 'provider' to be a str")
         pulumi.set(__self__, "provider", provider)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -49,6 +55,14 @@ class GetLinkResult:
         The Bandwidth for the link.
         """
         return pulumi.get(self, "bandwidth")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The date and time that the device was created.
+        """
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
@@ -84,6 +98,14 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of the link.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.LinkTag']]:
         """
         The tags for the link.
@@ -106,10 +128,12 @@ class AwaitableGetLinkResult(GetLinkResult):
             yield self
         return GetLinkResult(
             bandwidth=self.bandwidth,
+            created_at=self.created_at,
             description=self.description,
             link_arn=self.link_arn,
             link_id=self.link_id,
             provider=self.provider,
+            state=self.state,
             tags=self.tags,
             type=self.type)
 
@@ -132,10 +156,12 @@ def get_link(global_network_id: Optional[str] = None,
 
     return AwaitableGetLinkResult(
         bandwidth=pulumi.get(__ret__, 'bandwidth'),
+        created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         link_arn=pulumi.get(__ret__, 'link_arn'),
         link_id=pulumi.get(__ret__, 'link_id'),
         provider=pulumi.get(__ret__, 'provider'),
+        state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 

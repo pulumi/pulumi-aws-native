@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -14,19 +11,25 @@ export function getVersion(args: GetVersionArgs, opts?: pulumi.InvokeOptions): P
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getVersion", {
-        "id": args.id,
+        "functionArn": args.functionArn,
     }, opts);
 }
 
 export interface GetVersionArgs {
-    id: string;
+    /**
+     * The ARN of the version.
+     */
+    functionArn: string;
 }
 
 export interface GetVersionResult {
-    readonly codeSha256?: string;
-    readonly description?: string;
-    readonly id?: string;
-    readonly provisionedConcurrencyConfig?: outputs.lambda.VersionProvisionedConcurrencyConfiguration;
+    /**
+     * The ARN of the version.
+     */
+    readonly functionArn?: string;
+    /**
+     * The version number.
+     */
     readonly version?: string;
 }
 /**
@@ -37,5 +40,8 @@ export function getVersionOutput(args: GetVersionOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetVersionOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The ARN of the version.
+     */
+    functionArn: pulumi.Input<string>;
 }

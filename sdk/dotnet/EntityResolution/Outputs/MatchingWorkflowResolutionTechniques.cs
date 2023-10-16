@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     [OutputType]
     public sealed class MatchingWorkflowResolutionTechniques
     {
+        public readonly Outputs.MatchingWorkflowProviderProperties? ProviderProperties;
         public readonly Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionTechniquesResolutionType? ResolutionType;
         public readonly Outputs.MatchingWorkflowRuleBasedProperties? RuleBasedProperties;
 
         [OutputConstructor]
         private MatchingWorkflowResolutionTechniques(
+            Outputs.MatchingWorkflowProviderProperties? providerProperties,
+
             Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionTechniquesResolutionType? resolutionType,
 
             Outputs.MatchingWorkflowRuleBasedProperties? ruleBasedProperties)
         {
+            ProviderProperties = providerProperties;
             ResolutionType = resolutionType;
             RuleBasedProperties = ruleBasedProperties;
         }

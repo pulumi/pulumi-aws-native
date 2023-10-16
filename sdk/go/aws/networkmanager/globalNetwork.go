@@ -18,8 +18,12 @@ type GlobalNetwork struct {
 
 	// The Amazon Resource Name (ARN) of the global network.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The date and time that the global network was created.
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The description of the global network.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The state of the global network.
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The tags for the global network.
 	Tags GlobalNetworkTagArrayOutput `pulumi:"tags"`
 }
@@ -64,16 +68,24 @@ func (GlobalNetworkState) ElementType() reflect.Type {
 }
 
 type globalNetworkArgs struct {
+	// The date and time that the global network was created.
+	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the global network.
 	Description *string `pulumi:"description"`
+	// The state of the global network.
+	State *string `pulumi:"state"`
 	// The tags for the global network.
 	Tags []GlobalNetworkTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GlobalNetwork resource.
 type GlobalNetworkArgs struct {
+	// The date and time that the global network was created.
+	CreatedAt pulumi.StringPtrInput
 	// The description of the global network.
 	Description pulumi.StringPtrInput
+	// The state of the global network.
+	State pulumi.StringPtrInput
 	// The tags for the global network.
 	Tags GlobalNetworkTagArrayInput
 }
@@ -132,9 +144,19 @@ func (o GlobalNetworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The date and time that the global network was created.
+func (o GlobalNetworkOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
 // The description of the global network.
 func (o GlobalNetworkOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The state of the global network.
+func (o GlobalNetworkOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The tags for the global network.

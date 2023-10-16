@@ -60,6 +60,10 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
      */
     public readonly policyReferenceName!: pulumi.Output<string>;
     /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    public readonly sseSpecification!: pulumi.Output<outputs.ec2.SseSpecificationProperties | undefined>;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderTag[] | undefined>;
@@ -98,6 +102,7 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
             resourceInputs["deviceTrustProviderType"] = args ? args.deviceTrustProviderType : undefined;
             resourceInputs["oidcOptions"] = args ? args.oidcOptions : undefined;
             resourceInputs["policyReferenceName"] = args ? args.policyReferenceName : undefined;
+            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustProviderType"] = args ? args.trustProviderType : undefined;
             resourceInputs["userTrustProviderType"] = args ? args.userTrustProviderType : undefined;
@@ -112,6 +117,7 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["oidcOptions"] = undefined /*out*/;
             resourceInputs["policyReferenceName"] = undefined /*out*/;
+            resourceInputs["sseSpecification"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["trustProviderType"] = undefined /*out*/;
             resourceInputs["userTrustProviderType"] = undefined /*out*/;
@@ -142,6 +148,10 @@ export interface VerifiedAccessTrustProviderArgs {
      * The identifier to be used when working with policy rules.
      */
     policyReferenceName: pulumi.Input<string>;
+    /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    sseSpecification?: pulumi.Input<inputs.ec2.SseSpecificationPropertiesArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

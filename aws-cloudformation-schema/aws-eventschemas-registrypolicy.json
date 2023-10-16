@@ -32,5 +32,8 @@
     "read" : {
       "permissions" : [ "schemas:GetResourcePolicy" ]
     }
+  },
+  "tagging" : {
+    "taggable" : false
   }
 }

@@ -71,6 +71,10 @@ namespace Pulumi.AwsNative.Ec2
         public readonly string? LastUpdatedTime;
         public readonly Outputs.VerifiedAccessTrustProviderOidcOptions? OidcOptions;
         /// <summary>
+        /// The configuration options for customer provided KMS encryption.
+        /// </summary>
+        public readonly Outputs.SseSpecificationProperties? SseSpecification;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.VerifiedAccessTrustProviderTag> Tags;
@@ -89,6 +93,8 @@ namespace Pulumi.AwsNative.Ec2
 
             Outputs.VerifiedAccessTrustProviderOidcOptions? oidcOptions,
 
+            Outputs.SseSpecificationProperties? sseSpecification,
+
             ImmutableArray<Outputs.VerifiedAccessTrustProviderTag> tags,
 
             string? verifiedAccessTrustProviderId)
@@ -97,6 +103,7 @@ namespace Pulumi.AwsNative.Ec2
             Description = description;
             LastUpdatedTime = lastUpdatedTime;
             OidcOptions = oidcOptions;
+            SseSpecification = sseSpecification;
             Tags = tags;
             VerifiedAccessTrustProviderId = verifiedAccessTrustProviderId;
         }

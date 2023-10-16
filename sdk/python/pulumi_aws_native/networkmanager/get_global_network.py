@@ -19,16 +19,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalNetworkResult:
-    def __init__(__self__, arn=None, description=None, id=None, tags=None):
+    def __init__(__self__, arn=None, created_at=None, description=None, id=None, state=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        pulumi.set(__self__, "created_at", created_at)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -40,6 +46,14 @@ class GetGlobalNetworkResult:
         The Amazon Resource Name (ARN) of the global network.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The date and time that the global network was created.
+        """
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
@@ -59,6 +73,14 @@ class GetGlobalNetworkResult:
 
     @property
     @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of the global network.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.GlobalNetworkTag']]:
         """
         The tags for the global network.
@@ -73,8 +95,10 @@ class AwaitableGetGlobalNetworkResult(GetGlobalNetworkResult):
             yield self
         return GetGlobalNetworkResult(
             arn=self.arn,
+            created_at=self.created_at,
             description=self.description,
             id=self.id,
+            state=self.state,
             tags=self.tags)
 
 
@@ -93,8 +117,10 @@ def get_global_network(id: Optional[str] = None,
 
     return AwaitableGetGlobalNetworkResult(
         arn=pulumi.get(__ret__, 'arn'),
+        created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

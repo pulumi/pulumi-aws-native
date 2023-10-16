@@ -231,7 +231,7 @@
         },
         "AggregateKeyType" : {
           "type" : "string",
-          "enum" : [ "IP", "FORWARDED_IP", "CUSTOM_KEYS" ]
+          "enum" : [ "CONSTANT", "IP", "FORWARDED_IP", "CUSTOM_KEYS" ]
         },
         "CustomKeys" : {
           "description" : "Specifies the aggregate keys to use in a rate-base rule.",

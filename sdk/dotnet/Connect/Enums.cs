@@ -686,6 +686,37 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+    /// </summary>
+    [EnumType]
+    public readonly struct RoutingProfileAgentAvailabilityTimer : IEquatable<RoutingProfileAgentAvailabilityTimer>
+    {
+        private readonly string _value;
+
+        private RoutingProfileAgentAvailabilityTimer(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoutingProfileAgentAvailabilityTimer TimeSinceLastActivity { get; } = new RoutingProfileAgentAvailabilityTimer("TIME_SINCE_LAST_ACTIVITY");
+        public static RoutingProfileAgentAvailabilityTimer TimeSinceLastInbound { get; } = new RoutingProfileAgentAvailabilityTimer("TIME_SINCE_LAST_INBOUND");
+
+        public static bool operator ==(RoutingProfileAgentAvailabilityTimer left, RoutingProfileAgentAvailabilityTimer right) => left.Equals(right);
+        public static bool operator !=(RoutingProfileAgentAvailabilityTimer left, RoutingProfileAgentAvailabilityTimer right) => !left.Equals(right);
+
+        public static explicit operator string(RoutingProfileAgentAvailabilityTimer value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoutingProfileAgentAvailabilityTimer other && Equals(other);
+        public bool Equals(RoutingProfileAgentAvailabilityTimer other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the other channels that can be routed to an agent handling their current channel.
     /// </summary>
     [EnumType]

@@ -42,9 +42,17 @@ export class GlobalNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The date and time that the global network was created.
+     */
+    public readonly createdAt!: pulumi.Output<string | undefined>;
+    /**
      * The description of the global network.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The state of the global network.
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
     /**
      * The tags for the global network.
      */
@@ -61,12 +69,16 @@ export class GlobalNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -79,9 +91,17 @@ export class GlobalNetwork extends pulumi.CustomResource {
  */
 export interface GlobalNetworkArgs {
     /**
+     * The date and time that the global network was created.
+     */
+    createdAt?: pulumi.Input<string>;
+    /**
      * The description of the global network.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The state of the global network.
+     */
+    state?: pulumi.Input<string>;
     /**
      * The tags for the global network.
      */

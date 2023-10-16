@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string?> SiteId { get; private set; } = null!;
 
         /// <summary>
+        /// The state of the device.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
         /// The tags for the device.
         /// </summary>
         [Output("tags")]

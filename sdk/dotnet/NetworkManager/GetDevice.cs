@@ -106,6 +106,10 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly string? SiteId;
         /// <summary>
+        /// The state of the device.
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
         /// The tags for the device.
         /// </summary>
         public readonly ImmutableArray<Outputs.DeviceTag> Tags;
@@ -138,6 +142,8 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? siteId,
 
+            string? state,
+
             ImmutableArray<Outputs.DeviceTag> tags,
 
             string? type,
@@ -153,6 +159,7 @@ namespace Pulumi.AwsNative.NetworkManager
             Model = model;
             SerialNumber = serialNumber;
             SiteId = siteId;
+            State = state;
             Tags = tags;
             Type = type;
             Vendor = vendor;

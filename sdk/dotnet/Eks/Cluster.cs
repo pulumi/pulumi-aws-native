@@ -119,8 +119,6 @@ namespace Pulumi.AwsNative.Eks
                     "kubernetesNetworkConfig",
                     "name",
                     "outpostConfig",
-                    "resourcesVpcConfig.securityGroupIds[*]",
-                    "resourcesVpcConfig.subnetIds[*]",
                     "roleArn",
                 },
             };

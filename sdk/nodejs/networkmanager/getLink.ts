@@ -36,6 +36,10 @@ export interface GetLinkResult {
      */
     readonly bandwidth?: outputs.networkmanager.LinkBandwidth;
     /**
+     * The date and time that the device was created.
+     */
+    readonly createdAt?: string;
+    /**
      * The description of the link.
      */
     readonly description?: string;
@@ -51,6 +55,10 @@ export interface GetLinkResult {
      * The provider of the link.
      */
     readonly provider?: string;
+    /**
+     * The state of the link.
+     */
+    readonly state?: string;
     /**
      * The tags for the link.
      */

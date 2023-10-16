@@ -484,10 +484,12 @@ class DeviceTagArgs:
 @pulumi.input_type
 class GlobalNetworkTagArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
         """
         A key-value pair to associate with a global network resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         GlobalNetworkTagArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -497,30 +499,34 @@ class GlobalNetworkTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
              opts: Optional[pulumi.ResourceOptions]=None):
-        if key is not None:
-            _setter("key", key)
-        if value is not None:
-            _setter("value", value)
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
+    def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 
@@ -578,10 +584,12 @@ class LinkBandwidthArgs:
 @pulumi.input_type
 class LinkTagArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
         """
         A key-value pair to associate with a link resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         LinkTagArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -591,30 +599,34 @@ class LinkTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
              opts: Optional[pulumi.ResourceOptions]=None):
-        if key is not None:
-            _setter("key", key)
-        if value is not None:
-            _setter("value", value)
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
+    def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 

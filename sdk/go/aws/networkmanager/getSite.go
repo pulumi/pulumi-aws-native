@@ -41,6 +41,8 @@ type LookupSiteResult struct {
 	SiteArn *string `pulumi:"siteArn"`
 	// The ID of the site.
 	SiteId *string `pulumi:"siteId"`
+	// The state of the site.
+	State *string `pulumi:"state"`
 	// The tags for the site.
 	Tags []SiteTag `pulumi:"tags"`
 }
@@ -112,6 +114,11 @@ func (o LookupSiteResultOutput) SiteArn() pulumi.StringPtrOutput {
 // The ID of the site.
 func (o LookupSiteResultOutput) SiteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSiteResult) *string { return v.SiteId }).(pulumi.StringPtrOutput)
+}
+
+// The state of the site.
+func (o LookupSiteResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The tags for the site.

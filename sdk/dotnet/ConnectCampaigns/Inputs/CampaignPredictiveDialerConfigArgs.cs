@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Inputs
         [Input("bandwidthAllocation", required: true)]
         public Input<double> BandwidthAllocation { get; set; } = null!;
 
+        /// <summary>
+        /// Allocates dialing capacity for this campaign between multiple active campaigns.
+        /// </summary>
+        [Input("dialingCapacity")]
+        public Input<double>? DialingCapacity { get; set; }
+
         public CampaignPredictiveDialerConfigArgs()
         {
         }

@@ -185,6 +185,7 @@ __all__ = [
     'SpotFleetTargetGroupArgs',
     'SpotFleetTotalLocalStorageGbRequestArgs',
     'SpotFleetVCpuCountRangeRequestArgs',
+    'SseSpecificationPropertiesArgs',
     'SubnetTagArgs',
     'TagSpecificationArgs',
     'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs',
@@ -201,7 +202,9 @@ __all__ = [
     'TransitGatewayVpcAttachmentTagArgs',
     'VerifiedAccessEndpointLoadBalancerOptionsArgs',
     'VerifiedAccessEndpointNetworkInterfaceOptionsArgs',
+    'VerifiedAccessEndpointSseSpecificationArgs',
     'VerifiedAccessEndpointTagArgs',
+    'VerifiedAccessGroupSseSpecificationArgs',
     'VerifiedAccessGroupTagArgs',
     'VerifiedAccessInstanceTagArgs',
     'VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs',
@@ -11035,6 +11038,57 @@ class SpotFleetVCpuCountRangeRequestArgs:
 
 
 @pulumi.input_type
+class SseSpecificationPropertiesArgs:
+    def __init__(__self__, *,
+                 customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The configuration options for customer provided KMS encryption.
+        :param pulumi.Input[bool] customer_managed_key_enabled: Whether to encrypt the policy with the provided key or disable encryption
+        :param pulumi.Input[str] kms_key_arn: KMS Key Arn used to encrypt the group policy
+        """
+        SseSpecificationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_managed_key_enabled=customer_managed_key_enabled,
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if customer_managed_key_enabled is not None:
+            _setter("customer_managed_key_enabled", customer_managed_key_enabled)
+        if kms_key_arn is not None:
+            _setter("kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEnabled")
+    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to encrypt the policy with the provided key or disable encryption
+        """
+        return pulumi.get(self, "customer_managed_key_enabled")
+
+    @customer_managed_key_enabled.setter
+    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "customer_managed_key_enabled", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Key Arn used to encrypt the group policy
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+@pulumi.input_type
 class SubnetTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -11776,6 +11830,57 @@ class VerifiedAccessEndpointNetworkInterfaceOptionsArgs:
 
 
 @pulumi.input_type
+class VerifiedAccessEndpointSseSpecificationArgs:
+    def __init__(__self__, *,
+                 customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The configuration options for customer provided KMS encryption.
+        :param pulumi.Input[bool] customer_managed_key_enabled: Whether to encrypt the policy with the provided key or disable encryption
+        :param pulumi.Input[str] kms_key_arn: KMS Key Arn used to encrypt the group policy
+        """
+        VerifiedAccessEndpointSseSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_managed_key_enabled=customer_managed_key_enabled,
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if customer_managed_key_enabled is not None:
+            _setter("customer_managed_key_enabled", customer_managed_key_enabled)
+        if kms_key_arn is not None:
+            _setter("kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEnabled")
+    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to encrypt the policy with the provided key or disable encryption
+        """
+        return pulumi.get(self, "customer_managed_key_enabled")
+
+    @customer_managed_key_enabled.setter
+    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "customer_managed_key_enabled", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Key Arn used to encrypt the group policy
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+@pulumi.input_type
 class VerifiedAccessEndpointTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -11822,6 +11927,57 @@ class VerifiedAccessEndpointTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VerifiedAccessGroupSseSpecificationArgs:
+    def __init__(__self__, *,
+                 customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The configuration options for customer provided KMS encryption.
+        :param pulumi.Input[bool] customer_managed_key_enabled: Whether to encrypt the policy with the provided key or disable encryption
+        :param pulumi.Input[str] kms_key_arn: KMS Key Arn used to encrypt the group policy
+        """
+        VerifiedAccessGroupSseSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_managed_key_enabled=customer_managed_key_enabled,
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if customer_managed_key_enabled is not None:
+            _setter("customer_managed_key_enabled", customer_managed_key_enabled)
+        if kms_key_arn is not None:
+            _setter("kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEnabled")
+    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to encrypt the policy with the provided key or disable encryption
+        """
+        return pulumi.get(self, "customer_managed_key_enabled")
+
+    @customer_managed_key_enabled.setter
+    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "customer_managed_key_enabled", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Key Arn used to encrypt the group policy
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 
 @pulumi.input_type

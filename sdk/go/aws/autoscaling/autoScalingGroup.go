@@ -28,7 +28,6 @@ type AutoScalingGroup struct {
 	HealthCheckGracePeriod           pulumi.IntPtrOutput                                   `pulumi:"healthCheckGracePeriod"`
 	HealthCheckType                  pulumi.StringPtrOutput                                `pulumi:"healthCheckType"`
 	InstanceId                       pulumi.StringPtrOutput                                `pulumi:"instanceId"`
-	InstanceMaintenancePolicy        AutoScalingGroupInstanceMaintenancePolicyPtrOutput    `pulumi:"instanceMaintenancePolicy"`
 	LaunchConfigurationName          pulumi.StringPtrOutput                                `pulumi:"launchConfigurationName"`
 	LaunchTemplate                   AutoScalingGroupLaunchTemplateSpecificationPtrOutput  `pulumi:"launchTemplate"`
 	LifecycleHookSpecificationList   AutoScalingGroupLifecycleHookSpecificationArrayOutput `pulumi:"lifecycleHookSpecificationList"`
@@ -111,7 +110,6 @@ type autoScalingGroupArgs struct {
 	HealthCheckGracePeriod           *int                                         `pulumi:"healthCheckGracePeriod"`
 	HealthCheckType                  *string                                      `pulumi:"healthCheckType"`
 	InstanceId                       *string                                      `pulumi:"instanceId"`
-	InstanceMaintenancePolicy        *AutoScalingGroupInstanceMaintenancePolicy   `pulumi:"instanceMaintenancePolicy"`
 	LaunchConfigurationName          *string                                      `pulumi:"launchConfigurationName"`
 	LaunchTemplate                   *AutoScalingGroupLaunchTemplateSpecification `pulumi:"launchTemplate"`
 	LifecycleHookSpecificationList   []AutoScalingGroupLifecycleHookSpecification `pulumi:"lifecycleHookSpecificationList"`
@@ -145,7 +143,6 @@ type AutoScalingGroupArgs struct {
 	HealthCheckGracePeriod           pulumi.IntPtrInput
 	HealthCheckType                  pulumi.StringPtrInput
 	InstanceId                       pulumi.StringPtrInput
-	InstanceMaintenancePolicy        AutoScalingGroupInstanceMaintenancePolicyPtrInput
 	LaunchConfigurationName          pulumi.StringPtrInput
 	LaunchTemplate                   AutoScalingGroupLaunchTemplateSpecificationPtrInput
 	LifecycleHookSpecificationList   AutoScalingGroupLifecycleHookSpecificationArrayInput
@@ -257,12 +254,6 @@ func (o AutoScalingGroupOutput) HealthCheckType() pulumi.StringPtrOutput {
 
 func (o AutoScalingGroupOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
-}
-
-func (o AutoScalingGroupOutput) InstanceMaintenancePolicy() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
-		return v.InstanceMaintenancePolicy
-	}).(AutoScalingGroupInstanceMaintenancePolicyPtrOutput)
 }
 
 func (o AutoScalingGroupOutput) LaunchConfigurationName() pulumi.StringPtrOutput {

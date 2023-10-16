@@ -12883,11 +12883,12 @@ func (o TopicRuleIotSiteWiseActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleKafkaAction struct {
-	ClientProperties interface{} `pulumi:"clientProperties"`
-	DestinationArn   string      `pulumi:"destinationArn"`
-	Key              *string     `pulumi:"key"`
-	Partition        *string     `pulumi:"partition"`
-	Topic            string      `pulumi:"topic"`
+	ClientProperties interface{}                  `pulumi:"clientProperties"`
+	DestinationArn   string                       `pulumi:"destinationArn"`
+	Headers          []TopicRuleKafkaActionHeader `pulumi:"headers"`
+	Key              *string                      `pulumi:"key"`
+	Partition        *string                      `pulumi:"partition"`
+	Topic            string                       `pulumi:"topic"`
 }
 
 // TopicRuleKafkaActionInput is an input type that accepts TopicRuleKafkaActionArgs and TopicRuleKafkaActionOutput values.
@@ -12902,11 +12903,12 @@ type TopicRuleKafkaActionInput interface {
 }
 
 type TopicRuleKafkaActionArgs struct {
-	ClientProperties pulumi.Input          `pulumi:"clientProperties"`
-	DestinationArn   pulumi.StringInput    `pulumi:"destinationArn"`
-	Key              pulumi.StringPtrInput `pulumi:"key"`
-	Partition        pulumi.StringPtrInput `pulumi:"partition"`
-	Topic            pulumi.StringInput    `pulumi:"topic"`
+	ClientProperties pulumi.Input                         `pulumi:"clientProperties"`
+	DestinationArn   pulumi.StringInput                   `pulumi:"destinationArn"`
+	Headers          TopicRuleKafkaActionHeaderArrayInput `pulumi:"headers"`
+	Key              pulumi.StringPtrInput                `pulumi:"key"`
+	Partition        pulumi.StringPtrInput                `pulumi:"partition"`
+	Topic            pulumi.StringInput                   `pulumi:"topic"`
 }
 
 func (TopicRuleKafkaActionArgs) ElementType() reflect.Type {
@@ -13012,6 +13014,10 @@ func (o TopicRuleKafkaActionOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
+func (o TopicRuleKafkaActionOutput) Headers() TopicRuleKafkaActionHeaderArrayOutput {
+	return o.ApplyT(func(v TopicRuleKafkaAction) []TopicRuleKafkaActionHeader { return v.Headers }).(TopicRuleKafkaActionHeaderArrayOutput)
+}
+
 func (o TopicRuleKafkaActionOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -13072,6 +13078,15 @@ func (o TopicRuleKafkaActionPtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o TopicRuleKafkaActionPtrOutput) Headers() TopicRuleKafkaActionHeaderArrayOutput {
+	return o.ApplyT(func(v *TopicRuleKafkaAction) []TopicRuleKafkaActionHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(TopicRuleKafkaActionHeaderArrayOutput)
+}
+
 func (o TopicRuleKafkaActionPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) *string {
 		if v == nil {
@@ -13097,6 +13112,130 @@ func (o TopicRuleKafkaActionPtrOutput) Topic() pulumi.StringPtrOutput {
 		}
 		return &v.Topic
 	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleKafkaActionHeader struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TopicRuleKafkaActionHeaderInput is an input type that accepts TopicRuleKafkaActionHeaderArgs and TopicRuleKafkaActionHeaderOutput values.
+// You can construct a concrete instance of `TopicRuleKafkaActionHeaderInput` via:
+//
+//	TopicRuleKafkaActionHeaderArgs{...}
+type TopicRuleKafkaActionHeaderInput interface {
+	pulumi.Input
+
+	ToTopicRuleKafkaActionHeaderOutput() TopicRuleKafkaActionHeaderOutput
+	ToTopicRuleKafkaActionHeaderOutputWithContext(context.Context) TopicRuleKafkaActionHeaderOutput
+}
+
+type TopicRuleKafkaActionHeaderArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TopicRuleKafkaActionHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleKafkaActionHeader)(nil)).Elem()
+}
+
+func (i TopicRuleKafkaActionHeaderArgs) ToTopicRuleKafkaActionHeaderOutput() TopicRuleKafkaActionHeaderOutput {
+	return i.ToTopicRuleKafkaActionHeaderOutputWithContext(context.Background())
+}
+
+func (i TopicRuleKafkaActionHeaderArgs) ToTopicRuleKafkaActionHeaderOutputWithContext(ctx context.Context) TopicRuleKafkaActionHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKafkaActionHeaderOutput)
+}
+
+func (i TopicRuleKafkaActionHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[TopicRuleKafkaActionHeader] {
+	return pulumix.Output[TopicRuleKafkaActionHeader]{
+		OutputState: i.ToTopicRuleKafkaActionHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TopicRuleKafkaActionHeaderArrayInput is an input type that accepts TopicRuleKafkaActionHeaderArray and TopicRuleKafkaActionHeaderArrayOutput values.
+// You can construct a concrete instance of `TopicRuleKafkaActionHeaderArrayInput` via:
+//
+//	TopicRuleKafkaActionHeaderArray{ TopicRuleKafkaActionHeaderArgs{...} }
+type TopicRuleKafkaActionHeaderArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleKafkaActionHeaderArrayOutput() TopicRuleKafkaActionHeaderArrayOutput
+	ToTopicRuleKafkaActionHeaderArrayOutputWithContext(context.Context) TopicRuleKafkaActionHeaderArrayOutput
+}
+
+type TopicRuleKafkaActionHeaderArray []TopicRuleKafkaActionHeaderInput
+
+func (TopicRuleKafkaActionHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleKafkaActionHeader)(nil)).Elem()
+}
+
+func (i TopicRuleKafkaActionHeaderArray) ToTopicRuleKafkaActionHeaderArrayOutput() TopicRuleKafkaActionHeaderArrayOutput {
+	return i.ToTopicRuleKafkaActionHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleKafkaActionHeaderArray) ToTopicRuleKafkaActionHeaderArrayOutputWithContext(ctx context.Context) TopicRuleKafkaActionHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKafkaActionHeaderArrayOutput)
+}
+
+func (i TopicRuleKafkaActionHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicRuleKafkaActionHeader] {
+	return pulumix.Output[[]TopicRuleKafkaActionHeader]{
+		OutputState: i.ToTopicRuleKafkaActionHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TopicRuleKafkaActionHeaderOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleKafkaActionHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleKafkaActionHeader)(nil)).Elem()
+}
+
+func (o TopicRuleKafkaActionHeaderOutput) ToTopicRuleKafkaActionHeaderOutput() TopicRuleKafkaActionHeaderOutput {
+	return o
+}
+
+func (o TopicRuleKafkaActionHeaderOutput) ToTopicRuleKafkaActionHeaderOutputWithContext(ctx context.Context) TopicRuleKafkaActionHeaderOutput {
+	return o
+}
+
+func (o TopicRuleKafkaActionHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[TopicRuleKafkaActionHeader] {
+	return pulumix.Output[TopicRuleKafkaActionHeader]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicRuleKafkaActionHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleKafkaActionHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleKafkaActionHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleKafkaActionHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleKafkaActionHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleKafkaActionHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleKafkaActionHeader)(nil)).Elem()
+}
+
+func (o TopicRuleKafkaActionHeaderArrayOutput) ToTopicRuleKafkaActionHeaderArrayOutput() TopicRuleKafkaActionHeaderArrayOutput {
+	return o
+}
+
+func (o TopicRuleKafkaActionHeaderArrayOutput) ToTopicRuleKafkaActionHeaderArrayOutputWithContext(ctx context.Context) TopicRuleKafkaActionHeaderArrayOutput {
+	return o
+}
+
+func (o TopicRuleKafkaActionHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicRuleKafkaActionHeader] {
+	return pulumix.Output[[]TopicRuleKafkaActionHeader]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicRuleKafkaActionHeaderArrayOutput) Index(i pulumi.IntInput) TopicRuleKafkaActionHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleKafkaActionHeader {
+		return vs[0].([]TopicRuleKafkaActionHeader)[vs[1].(int)]
+	}).(TopicRuleKafkaActionHeaderOutput)
 }
 
 type TopicRuleKinesisAction struct {
@@ -16833,6 +16972,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleIotSiteWiseActionPtrInput)(nil)).Elem(), TopicRuleIotSiteWiseActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaActionInput)(nil)).Elem(), TopicRuleKafkaActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaActionPtrInput)(nil)).Elem(), TopicRuleKafkaActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaActionHeaderInput)(nil)).Elem(), TopicRuleKafkaActionHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaActionHeaderArrayInput)(nil)).Elem(), TopicRuleKafkaActionHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKinesisActionInput)(nil)).Elem(), TopicRuleKinesisActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKinesisActionPtrInput)(nil)).Elem(), TopicRuleKinesisActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLambdaActionInput)(nil)).Elem(), TopicRuleLambdaActionArgs{})
@@ -17025,6 +17166,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleIotSiteWiseActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleKafkaActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleKafkaActionPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleKafkaActionHeaderOutput{})
+	pulumi.RegisterOutputType(TopicRuleKafkaActionHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleKinesisActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleKinesisActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleLambdaActionOutput{})

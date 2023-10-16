@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Cognito::IdentityPool
- *
- * @deprecated IdentityPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class IdentityPool extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class IdentityPool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IdentityPool {
-        pulumi.log.warn("IdentityPool is deprecated: IdentityPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new IdentityPool(name, undefined as any, { ...opts, id: id });
     }
 
@@ -47,6 +44,10 @@ export class IdentityPool extends pulumi.CustomResource {
     public readonly cognitoStreams!: pulumi.Output<outputs.cognito.IdentityPoolCognitoStreams | undefined>;
     public readonly developerProviderName!: pulumi.Output<string | undefined>;
     public readonly identityPoolName!: pulumi.Output<string | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly identityPoolTags!: pulumi.Output<outputs.cognito.IdentityPoolTag[] | undefined>;
     public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly openIdConnectProviderArns!: pulumi.Output<string[] | undefined>;
     public readonly pushSync!: pulumi.Output<outputs.cognito.IdentityPoolPushSync | undefined>;
@@ -60,9 +61,7 @@ export class IdentityPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated IdentityPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: IdentityPoolArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IdentityPool is deprecated: IdentityPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -76,6 +75,7 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["cognitoStreams"] = args ? args.cognitoStreams : undefined;
             resourceInputs["developerProviderName"] = args ? args.developerProviderName : undefined;
             resourceInputs["identityPoolName"] = args ? args.identityPoolName : undefined;
+            resourceInputs["identityPoolTags"] = args ? args.identityPoolTags : undefined;
             resourceInputs["openIdConnectProviderArns"] = args ? args.openIdConnectProviderArns : undefined;
             resourceInputs["pushSync"] = args ? args.pushSync : undefined;
             resourceInputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
@@ -89,6 +89,7 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["cognitoStreams"] = undefined /*out*/;
             resourceInputs["developerProviderName"] = undefined /*out*/;
             resourceInputs["identityPoolName"] = undefined /*out*/;
+            resourceInputs["identityPoolTags"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["openIdConnectProviderArns"] = undefined /*out*/;
             resourceInputs["pushSync"] = undefined /*out*/;
@@ -111,6 +112,10 @@ export interface IdentityPoolArgs {
     cognitoStreams?: pulumi.Input<inputs.cognito.IdentityPoolCognitoStreamsArgs>;
     developerProviderName?: pulumi.Input<string>;
     identityPoolName?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    identityPoolTags?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolTagArgs>[]>;
     openIdConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
     pushSync?: pulumi.Input<inputs.cognito.IdentityPoolPushSyncArgs>;
     samlProviderArns?: pulumi.Input<pulumi.Input<string>[]>;

@@ -4640,6 +4640,8 @@ func (o FunctionTracingConfigPtrOutput) Mode() FunctionTracingConfigModePtrOutpu
 
 // The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
 type FunctionVpcConfig struct {
+	// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+	Ipv6AllowedForDualStack *bool `pulumi:"ipv6AllowedForDualStack"`
 	// A list of VPC security groups IDs.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of VPC subnet IDs.
@@ -4659,6 +4661,8 @@ type FunctionVpcConfigInput interface {
 
 // The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
 type FunctionVpcConfigArgs struct {
+	// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+	Ipv6AllowedForDualStack pulumi.BoolPtrInput `pulumi:"ipv6AllowedForDualStack"`
 	// A list of VPC security groups IDs.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of VPC subnet IDs.
@@ -4761,6 +4765,11 @@ func (o FunctionVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[Fu
 	}
 }
 
+// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+func (o FunctionVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionVpcConfig) *bool { return v.Ipv6AllowedForDualStack }).(pulumi.BoolPtrOutput)
+}
+
 // A list of VPC security groups IDs.
 func (o FunctionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -4799,6 +4808,16 @@ func (o FunctionVpcConfigPtrOutput) Elem() FunctionVpcConfigOutput {
 		var ret FunctionVpcConfig
 		return ret
 	}).(FunctionVpcConfigOutput)
+}
+
+// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+func (o FunctionVpcConfigPtrOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionVpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv6AllowedForDualStack
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A list of VPC security groups IDs.
@@ -5155,7 +5174,9 @@ func (o UrlCorsPtrOutput) MaxAge() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// A provisioned concurrency configuration for a function's version.
 type VersionProvisionedConcurrencyConfiguration struct {
+	// The amount of provisioned concurrency to allocate for the version.
 	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
 }
 
@@ -5170,7 +5191,9 @@ type VersionProvisionedConcurrencyConfigurationInput interface {
 	ToVersionProvisionedConcurrencyConfigurationOutputWithContext(context.Context) VersionProvisionedConcurrencyConfigurationOutput
 }
 
+// A provisioned concurrency configuration for a function's version.
 type VersionProvisionedConcurrencyConfigurationArgs struct {
+	// The amount of provisioned concurrency to allocate for the version.
 	ProvisionedConcurrentExecutions pulumi.IntInput `pulumi:"provisionedConcurrentExecutions"`
 }
 
@@ -5239,6 +5262,7 @@ func (i *versionProvisionedConcurrencyConfigurationPtrType) ToOutput(ctx context
 	}
 }
 
+// A provisioned concurrency configuration for a function's version.
 type VersionProvisionedConcurrencyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VersionProvisionedConcurrencyConfigurationOutput) ElementType() reflect.Type {
@@ -5269,6 +5293,7 @@ func (o VersionProvisionedConcurrencyConfigurationOutput) ToOutput(ctx context.C
 	}
 }
 
+// The amount of provisioned concurrency to allocate for the version.
 func (o VersionProvisionedConcurrencyConfigurationOutput) ProvisionedConcurrentExecutions() pulumi.IntOutput {
 	return o.ApplyT(func(v VersionProvisionedConcurrencyConfiguration) int { return v.ProvisionedConcurrentExecutions }).(pulumi.IntOutput)
 }
@@ -5303,6 +5328,7 @@ func (o VersionProvisionedConcurrencyConfigurationPtrOutput) Elem() VersionProvi
 	}).(VersionProvisionedConcurrencyConfigurationOutput)
 }
 
+// The amount of provisioned concurrency to allocate for the version.
 func (o VersionProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurrentExecutions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VersionProvisionedConcurrencyConfiguration) *int {
 		if v == nil {
@@ -5310,6 +5336,189 @@ func (o VersionProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurre
 		}
 		return &v.ProvisionedConcurrentExecutions
 	}).(pulumi.IntPtrOutput)
+}
+
+// Runtime Management Config of a function.
+type VersionRuntimePolicy struct {
+	// The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
+	RuntimeVersionArn *string `pulumi:"runtimeVersionArn"`
+	// The runtime update mode.
+	UpdateRuntimeOn string `pulumi:"updateRuntimeOn"`
+}
+
+// VersionRuntimePolicyInput is an input type that accepts VersionRuntimePolicyArgs and VersionRuntimePolicyOutput values.
+// You can construct a concrete instance of `VersionRuntimePolicyInput` via:
+//
+//	VersionRuntimePolicyArgs{...}
+type VersionRuntimePolicyInput interface {
+	pulumi.Input
+
+	ToVersionRuntimePolicyOutput() VersionRuntimePolicyOutput
+	ToVersionRuntimePolicyOutputWithContext(context.Context) VersionRuntimePolicyOutput
+}
+
+// Runtime Management Config of a function.
+type VersionRuntimePolicyArgs struct {
+	// The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
+	RuntimeVersionArn pulumi.StringPtrInput `pulumi:"runtimeVersionArn"`
+	// The runtime update mode.
+	UpdateRuntimeOn pulumi.StringInput `pulumi:"updateRuntimeOn"`
+}
+
+func (VersionRuntimePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VersionRuntimePolicy)(nil)).Elem()
+}
+
+func (i VersionRuntimePolicyArgs) ToVersionRuntimePolicyOutput() VersionRuntimePolicyOutput {
+	return i.ToVersionRuntimePolicyOutputWithContext(context.Background())
+}
+
+func (i VersionRuntimePolicyArgs) ToVersionRuntimePolicyOutputWithContext(ctx context.Context) VersionRuntimePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VersionRuntimePolicyOutput)
+}
+
+func (i VersionRuntimePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[VersionRuntimePolicy] {
+	return pulumix.Output[VersionRuntimePolicy]{
+		OutputState: i.ToVersionRuntimePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i VersionRuntimePolicyArgs) ToVersionRuntimePolicyPtrOutput() VersionRuntimePolicyPtrOutput {
+	return i.ToVersionRuntimePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VersionRuntimePolicyArgs) ToVersionRuntimePolicyPtrOutputWithContext(ctx context.Context) VersionRuntimePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VersionRuntimePolicyOutput).ToVersionRuntimePolicyPtrOutputWithContext(ctx)
+}
+
+// VersionRuntimePolicyPtrInput is an input type that accepts VersionRuntimePolicyArgs, VersionRuntimePolicyPtr and VersionRuntimePolicyPtrOutput values.
+// You can construct a concrete instance of `VersionRuntimePolicyPtrInput` via:
+//
+//	        VersionRuntimePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type VersionRuntimePolicyPtrInput interface {
+	pulumi.Input
+
+	ToVersionRuntimePolicyPtrOutput() VersionRuntimePolicyPtrOutput
+	ToVersionRuntimePolicyPtrOutputWithContext(context.Context) VersionRuntimePolicyPtrOutput
+}
+
+type versionRuntimePolicyPtrType VersionRuntimePolicyArgs
+
+func VersionRuntimePolicyPtr(v *VersionRuntimePolicyArgs) VersionRuntimePolicyPtrInput {
+	return (*versionRuntimePolicyPtrType)(v)
+}
+
+func (*versionRuntimePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VersionRuntimePolicy)(nil)).Elem()
+}
+
+func (i *versionRuntimePolicyPtrType) ToVersionRuntimePolicyPtrOutput() VersionRuntimePolicyPtrOutput {
+	return i.ToVersionRuntimePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *versionRuntimePolicyPtrType) ToVersionRuntimePolicyPtrOutputWithContext(ctx context.Context) VersionRuntimePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VersionRuntimePolicyPtrOutput)
+}
+
+func (i *versionRuntimePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*VersionRuntimePolicy] {
+	return pulumix.Output[*VersionRuntimePolicy]{
+		OutputState: i.ToVersionRuntimePolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Runtime Management Config of a function.
+type VersionRuntimePolicyOutput struct{ *pulumi.OutputState }
+
+func (VersionRuntimePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VersionRuntimePolicy)(nil)).Elem()
+}
+
+func (o VersionRuntimePolicyOutput) ToVersionRuntimePolicyOutput() VersionRuntimePolicyOutput {
+	return o
+}
+
+func (o VersionRuntimePolicyOutput) ToVersionRuntimePolicyOutputWithContext(ctx context.Context) VersionRuntimePolicyOutput {
+	return o
+}
+
+func (o VersionRuntimePolicyOutput) ToVersionRuntimePolicyPtrOutput() VersionRuntimePolicyPtrOutput {
+	return o.ToVersionRuntimePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VersionRuntimePolicyOutput) ToVersionRuntimePolicyPtrOutputWithContext(ctx context.Context) VersionRuntimePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VersionRuntimePolicy) *VersionRuntimePolicy {
+		return &v
+	}).(VersionRuntimePolicyPtrOutput)
+}
+
+func (o VersionRuntimePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[VersionRuntimePolicy] {
+	return pulumix.Output[VersionRuntimePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
+func (o VersionRuntimePolicyOutput) RuntimeVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VersionRuntimePolicy) *string { return v.RuntimeVersionArn }).(pulumi.StringPtrOutput)
+}
+
+// The runtime update mode.
+func (o VersionRuntimePolicyOutput) UpdateRuntimeOn() pulumi.StringOutput {
+	return o.ApplyT(func(v VersionRuntimePolicy) string { return v.UpdateRuntimeOn }).(pulumi.StringOutput)
+}
+
+type VersionRuntimePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VersionRuntimePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VersionRuntimePolicy)(nil)).Elem()
+}
+
+func (o VersionRuntimePolicyPtrOutput) ToVersionRuntimePolicyPtrOutput() VersionRuntimePolicyPtrOutput {
+	return o
+}
+
+func (o VersionRuntimePolicyPtrOutput) ToVersionRuntimePolicyPtrOutputWithContext(ctx context.Context) VersionRuntimePolicyPtrOutput {
+	return o
+}
+
+func (o VersionRuntimePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VersionRuntimePolicy] {
+	return pulumix.Output[*VersionRuntimePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o VersionRuntimePolicyPtrOutput) Elem() VersionRuntimePolicyOutput {
+	return o.ApplyT(func(v *VersionRuntimePolicy) VersionRuntimePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VersionRuntimePolicy
+		return ret
+	}).(VersionRuntimePolicyOutput)
+}
+
+// The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
+func (o VersionRuntimePolicyPtrOutput) RuntimeVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VersionRuntimePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The runtime update mode.
+func (o VersionRuntimePolicyPtrOutput) UpdateRuntimeOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VersionRuntimePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpdateRuntimeOn
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -5376,6 +5585,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlCorsPtrInput)(nil)).Elem(), UrlCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionProvisionedConcurrencyConfigurationInput)(nil)).Elem(), VersionProvisionedConcurrencyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionProvisionedConcurrencyConfigurationPtrInput)(nil)).Elem(), VersionProvisionedConcurrencyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VersionRuntimePolicyInput)(nil)).Elem(), VersionRuntimePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VersionRuntimePolicyPtrInput)(nil)).Elem(), VersionRuntimePolicyArgs{})
 	pulumi.RegisterOutputType(AliasProvisionedConcurrencyConfigurationOutput{})
 	pulumi.RegisterOutputType(AliasProvisionedConcurrencyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AliasRoutingConfigurationOutput{})
@@ -5442,4 +5653,6 @@ func init() {
 	pulumi.RegisterOutputType(UrlCorsPtrOutput{})
 	pulumi.RegisterOutputType(VersionProvisionedConcurrencyConfigurationOutput{})
 	pulumi.RegisterOutputType(VersionProvisionedConcurrencyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VersionRuntimePolicyOutput{})
+	pulumi.RegisterOutputType(VersionRuntimePolicyPtrOutput{})
 }

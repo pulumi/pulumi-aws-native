@@ -40,6 +40,10 @@ export interface GetVerifiedAccessTrustProviderResult {
     readonly lastUpdatedTime?: string;
     readonly oidcOptions?: outputs.ec2.VerifiedAccessTrustProviderOidcOptions;
     /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    readonly sseSpecification?: outputs.ec2.SseSpecificationProperties;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.ec2.VerifiedAccessTrustProviderTag[];

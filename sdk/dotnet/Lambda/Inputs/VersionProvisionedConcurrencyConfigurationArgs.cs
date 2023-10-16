@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// A provisioned concurrency configuration for a function's version.
+    /// </summary>
     public sealed class VersionProvisionedConcurrencyConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The amount of provisioned concurrency to allocate for the version.
+        /// </summary>
         [Input("provisionedConcurrentExecutions", required: true)]
         public Input<int> ProvisionedConcurrentExecutions { get; set; } = null!;
 

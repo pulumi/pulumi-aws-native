@@ -239,8 +239,10 @@ class Link(pulumi.CustomResource):
             __props__.__dict__["site_id"] = site_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
+            __props__.__dict__["created_at"] = None
             __props__.__dict__["link_arn"] = None
             __props__.__dict__["link_id"] = None
+            __props__.__dict__["state"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["global_network_id", "site_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Link, __self__).__init__(
@@ -266,12 +268,14 @@ class Link(pulumi.CustomResource):
         __props__ = LinkArgs.__new__(LinkArgs)
 
         __props__.__dict__["bandwidth"] = None
+        __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["global_network_id"] = None
         __props__.__dict__["link_arn"] = None
         __props__.__dict__["link_id"] = None
         __props__.__dict__["provider"] = None
         __props__.__dict__["site_id"] = None
+        __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Link(resource_name, opts=opts, __props__=__props__)
@@ -283,6 +287,14 @@ class Link(pulumi.CustomResource):
         The Bandwidth for the link.
         """
         return pulumi.get(self, "bandwidth")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[str]:
+        """
+        The date and time that the device was created.
+        """
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
@@ -331,6 +343,14 @@ class Link(pulumi.CustomResource):
         The ID of the site
         """
         return pulumi.get(self, "site_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
+        """
+        The state of the link.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter

@@ -78,6 +78,10 @@ export class Device extends pulumi.CustomResource {
      */
     public readonly siteId!: pulumi.Output<string | undefined>;
     /**
+     * The state of the device.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
      * The tags for the device.
      */
     public readonly tags!: pulumi.Output<outputs.networkmanager.DeviceTag[] | undefined>;
@@ -117,6 +121,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["deviceArn"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["awsLocation"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -128,6 +133,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["model"] = undefined /*out*/;
             resourceInputs["serialNumber"] = undefined /*out*/;
             resourceInputs["siteId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vendor"] = undefined /*out*/;

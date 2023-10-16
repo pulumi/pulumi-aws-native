@@ -35,6 +35,10 @@ export interface GetVerifiedAccessInstanceResult {
      */
     readonly description?: string;
     /**
+     * Indicates whether FIPS is enabled
+     */
+    readonly fipsEnabled?: boolean;
+    /**
      * Time this Verified Access Instance was last updated.
      */
     readonly lastUpdatedTime?: string;

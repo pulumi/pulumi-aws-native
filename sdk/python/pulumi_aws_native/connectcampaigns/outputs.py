@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'CampaignAgentlessDialerConfig',
     'CampaignAnswerMachineDetectionConfig',
     'CampaignDialerConfig',
     'CampaignOutboundCallConfig',
@@ -18,6 +19,55 @@ __all__ = [
     'CampaignProgressiveDialerConfig',
     'CampaignTag',
 ]
+
+@pulumi.output_type
+class CampaignAgentlessDialerConfig(dict):
+    """
+    Agentless Dialer config
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dialingCapacity":
+            suggest = "dialing_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignAgentlessDialerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignAgentlessDialerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignAgentlessDialerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dialing_capacity: Optional[float] = None):
+        """
+        Agentless Dialer config
+        :param float dialing_capacity: Allocates dialing capacity for this campaign between multiple active campaigns.
+        """
+        CampaignAgentlessDialerConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dialing_capacity=dialing_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dialing_capacity: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if dialing_capacity is not None:
+            _setter("dialing_capacity", dialing_capacity)
+
+    @property
+    @pulumi.getter(name="dialingCapacity")
+    def dialing_capacity(self) -> Optional[float]:
+        """
+        Allocates dialing capacity for this campaign between multiple active campaigns.
+        """
+        return pulumi.get(self, "dialing_capacity")
+
 
 @pulumi.output_type
 class CampaignAnswerMachineDetectionConfig(dict):
@@ -75,7 +125,9 @@ class CampaignDialerConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "predictiveDialerConfig":
+        if key == "agentlessDialerConfig":
+            suggest = "agentless_dialer_config"
+        elif key == "predictiveDialerConfig":
             suggest = "predictive_dialer_config"
         elif key == "progressiveDialerConfig":
             suggest = "progressive_dialer_config"
@@ -92,6 +144,7 @@ class CampaignDialerConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 agentless_dialer_config: Optional['outputs.CampaignAgentlessDialerConfig'] = None,
                  predictive_dialer_config: Optional['outputs.CampaignPredictiveDialerConfig'] = None,
                  progressive_dialer_config: Optional['outputs.CampaignProgressiveDialerConfig'] = None):
         """
@@ -99,19 +152,28 @@ class CampaignDialerConfig(dict):
         """
         CampaignDialerConfig._configure(
             lambda key, value: pulumi.set(__self__, key, value),
+            agentless_dialer_config=agentless_dialer_config,
             predictive_dialer_config=predictive_dialer_config,
             progressive_dialer_config=progressive_dialer_config,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
+             agentless_dialer_config: Optional['outputs.CampaignAgentlessDialerConfig'] = None,
              predictive_dialer_config: Optional['outputs.CampaignPredictiveDialerConfig'] = None,
              progressive_dialer_config: Optional['outputs.CampaignProgressiveDialerConfig'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
+        if agentless_dialer_config is not None:
+            _setter("agentless_dialer_config", agentless_dialer_config)
         if predictive_dialer_config is not None:
             _setter("predictive_dialer_config", predictive_dialer_config)
         if progressive_dialer_config is not None:
             _setter("progressive_dialer_config", progressive_dialer_config)
+
+    @property
+    @pulumi.getter(name="agentlessDialerConfig")
+    def agentless_dialer_config(self) -> Optional['outputs.CampaignAgentlessDialerConfig']:
+        return pulumi.get(self, "agentless_dialer_config")
 
     @property
     @pulumi.getter(name="predictiveDialerConfig")
@@ -134,10 +196,10 @@ class CampaignOutboundCallConfig(dict):
         suggest = None
         if key == "connectContactFlowArn":
             suggest = "connect_contact_flow_arn"
-        elif key == "connectQueueArn":
-            suggest = "connect_queue_arn"
         elif key == "answerMachineDetectionConfig":
             suggest = "answer_machine_detection_config"
+        elif key == "connectQueueArn":
+            suggest = "connect_queue_arn"
         elif key == "connectSourcePhoneNumber":
             suggest = "connect_source_phone_number"
 
@@ -154,8 +216,8 @@ class CampaignOutboundCallConfig(dict):
 
     def __init__(__self__, *,
                  connect_contact_flow_arn: str,
-                 connect_queue_arn: str,
                  answer_machine_detection_config: Optional['outputs.CampaignAnswerMachineDetectionConfig'] = None,
+                 connect_queue_arn: Optional[str] = None,
                  connect_source_phone_number: Optional[str] = None):
         """
         The configuration used for outbound calls.
@@ -166,22 +228,23 @@ class CampaignOutboundCallConfig(dict):
         CampaignOutboundCallConfig._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             connect_contact_flow_arn=connect_contact_flow_arn,
-            connect_queue_arn=connect_queue_arn,
             answer_machine_detection_config=answer_machine_detection_config,
+            connect_queue_arn=connect_queue_arn,
             connect_source_phone_number=connect_source_phone_number,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              connect_contact_flow_arn: str,
-             connect_queue_arn: str,
              answer_machine_detection_config: Optional['outputs.CampaignAnswerMachineDetectionConfig'] = None,
+             connect_queue_arn: Optional[str] = None,
              connect_source_phone_number: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("connect_contact_flow_arn", connect_contact_flow_arn)
-        _setter("connect_queue_arn", connect_queue_arn)
         if answer_machine_detection_config is not None:
             _setter("answer_machine_detection_config", answer_machine_detection_config)
+        if connect_queue_arn is not None:
+            _setter("connect_queue_arn", connect_queue_arn)
         if connect_source_phone_number is not None:
             _setter("connect_source_phone_number", connect_source_phone_number)
 
@@ -194,17 +257,17 @@ class CampaignOutboundCallConfig(dict):
         return pulumi.get(self, "connect_contact_flow_arn")
 
     @property
+    @pulumi.getter(name="answerMachineDetectionConfig")
+    def answer_machine_detection_config(self) -> Optional['outputs.CampaignAnswerMachineDetectionConfig']:
+        return pulumi.get(self, "answer_machine_detection_config")
+
+    @property
     @pulumi.getter(name="connectQueueArn")
-    def connect_queue_arn(self) -> str:
+    def connect_queue_arn(self) -> Optional[str]:
         """
         The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
         """
         return pulumi.get(self, "connect_queue_arn")
-
-    @property
-    @pulumi.getter(name="answerMachineDetectionConfig")
-    def answer_machine_detection_config(self) -> Optional['outputs.CampaignAnswerMachineDetectionConfig']:
-        return pulumi.get(self, "answer_machine_detection_config")
 
     @property
     @pulumi.getter(name="connectSourcePhoneNumber")
@@ -225,6 +288,8 @@ class CampaignPredictiveDialerConfig(dict):
         suggest = None
         if key == "bandwidthAllocation":
             suggest = "bandwidth_allocation"
+        elif key == "dialingCapacity":
+            suggest = "dialing_capacity"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CampaignPredictiveDialerConfig. Access the value via the '{suggest}' property getter instead.")
@@ -238,21 +303,27 @@ class CampaignPredictiveDialerConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 bandwidth_allocation: float):
+                 bandwidth_allocation: float,
+                 dialing_capacity: Optional[float] = None):
         """
         Predictive Dialer config
         :param float bandwidth_allocation: The bandwidth allocation of a queue resource.
+        :param float dialing_capacity: Allocates dialing capacity for this campaign between multiple active campaigns.
         """
         CampaignPredictiveDialerConfig._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             bandwidth_allocation=bandwidth_allocation,
+            dialing_capacity=dialing_capacity,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              bandwidth_allocation: float,
+             dialing_capacity: Optional[float] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("bandwidth_allocation", bandwidth_allocation)
+        if dialing_capacity is not None:
+            _setter("dialing_capacity", dialing_capacity)
 
     @property
     @pulumi.getter(name="bandwidthAllocation")
@@ -261,6 +332,14 @@ class CampaignPredictiveDialerConfig(dict):
         The bandwidth allocation of a queue resource.
         """
         return pulumi.get(self, "bandwidth_allocation")
+
+    @property
+    @pulumi.getter(name="dialingCapacity")
+    def dialing_capacity(self) -> Optional[float]:
+        """
+        Allocates dialing capacity for this campaign between multiple active campaigns.
+        """
+        return pulumi.get(self, "dialing_capacity")
 
 
 @pulumi.output_type
@@ -273,6 +352,8 @@ class CampaignProgressiveDialerConfig(dict):
         suggest = None
         if key == "bandwidthAllocation":
             suggest = "bandwidth_allocation"
+        elif key == "dialingCapacity":
+            suggest = "dialing_capacity"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CampaignProgressiveDialerConfig. Access the value via the '{suggest}' property getter instead.")
@@ -286,21 +367,27 @@ class CampaignProgressiveDialerConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 bandwidth_allocation: float):
+                 bandwidth_allocation: float,
+                 dialing_capacity: Optional[float] = None):
         """
         Progressive Dialer config
         :param float bandwidth_allocation: The bandwidth allocation of a queue resource.
+        :param float dialing_capacity: Allocates dialing capacity for this campaign between multiple active campaigns.
         """
         CampaignProgressiveDialerConfig._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             bandwidth_allocation=bandwidth_allocation,
+            dialing_capacity=dialing_capacity,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              bandwidth_allocation: float,
+             dialing_capacity: Optional[float] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("bandwidth_allocation", bandwidth_allocation)
+        if dialing_capacity is not None:
+            _setter("dialing_capacity", dialing_capacity)
 
     @property
     @pulumi.getter(name="bandwidthAllocation")
@@ -309,6 +396,14 @@ class CampaignProgressiveDialerConfig(dict):
         The bandwidth allocation of a queue resource.
         """
         return pulumi.get(self, "bandwidth_allocation")
+
+    @property
+    @pulumi.getter(name="dialingCapacity")
+    def dialing_capacity(self) -> Optional[float]:
+        """
+        Allocates dialing capacity for this campaign between multiple active campaigns.
+        """
+        return pulumi.get(self, "dialing_capacity")
 
 
 @pulumi.output_type

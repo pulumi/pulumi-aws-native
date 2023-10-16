@@ -147,6 +147,167 @@ func (o MatchingWorkflowInputSourceArrayOutput) Index(i pulumi.IntInput) Matchin
 	}).(MatchingWorkflowInputSourceOutput)
 }
 
+type MatchingWorkflowIntermediateSourceConfiguration struct {
+	// The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+	IntermediateS3Path string `pulumi:"intermediateS3Path"`
+}
+
+// MatchingWorkflowIntermediateSourceConfigurationInput is an input type that accepts MatchingWorkflowIntermediateSourceConfigurationArgs and MatchingWorkflowIntermediateSourceConfigurationOutput values.
+// You can construct a concrete instance of `MatchingWorkflowIntermediateSourceConfigurationInput` via:
+//
+//	MatchingWorkflowIntermediateSourceConfigurationArgs{...}
+type MatchingWorkflowIntermediateSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowIntermediateSourceConfigurationOutput() MatchingWorkflowIntermediateSourceConfigurationOutput
+	ToMatchingWorkflowIntermediateSourceConfigurationOutputWithContext(context.Context) MatchingWorkflowIntermediateSourceConfigurationOutput
+}
+
+type MatchingWorkflowIntermediateSourceConfigurationArgs struct {
+	// The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+	IntermediateS3Path pulumi.StringInput `pulumi:"intermediateS3Path"`
+}
+
+func (MatchingWorkflowIntermediateSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowIntermediateSourceConfiguration)(nil)).Elem()
+}
+
+func (i MatchingWorkflowIntermediateSourceConfigurationArgs) ToMatchingWorkflowIntermediateSourceConfigurationOutput() MatchingWorkflowIntermediateSourceConfigurationOutput {
+	return i.ToMatchingWorkflowIntermediateSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowIntermediateSourceConfigurationArgs) ToMatchingWorkflowIntermediateSourceConfigurationOutputWithContext(ctx context.Context) MatchingWorkflowIntermediateSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowIntermediateSourceConfigurationOutput)
+}
+
+func (i MatchingWorkflowIntermediateSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowIntermediateSourceConfiguration] {
+	return pulumix.Output[MatchingWorkflowIntermediateSourceConfiguration]{
+		OutputState: i.ToMatchingWorkflowIntermediateSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i MatchingWorkflowIntermediateSourceConfigurationArgs) ToMatchingWorkflowIntermediateSourceConfigurationPtrOutput() MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
+	return i.ToMatchingWorkflowIntermediateSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowIntermediateSourceConfigurationArgs) ToMatchingWorkflowIntermediateSourceConfigurationPtrOutputWithContext(ctx context.Context) MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowIntermediateSourceConfigurationOutput).ToMatchingWorkflowIntermediateSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// MatchingWorkflowIntermediateSourceConfigurationPtrInput is an input type that accepts MatchingWorkflowIntermediateSourceConfigurationArgs, MatchingWorkflowIntermediateSourceConfigurationPtr and MatchingWorkflowIntermediateSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `MatchingWorkflowIntermediateSourceConfigurationPtrInput` via:
+//
+//	        MatchingWorkflowIntermediateSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MatchingWorkflowIntermediateSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowIntermediateSourceConfigurationPtrOutput() MatchingWorkflowIntermediateSourceConfigurationPtrOutput
+	ToMatchingWorkflowIntermediateSourceConfigurationPtrOutputWithContext(context.Context) MatchingWorkflowIntermediateSourceConfigurationPtrOutput
+}
+
+type matchingWorkflowIntermediateSourceConfigurationPtrType MatchingWorkflowIntermediateSourceConfigurationArgs
+
+func MatchingWorkflowIntermediateSourceConfigurationPtr(v *MatchingWorkflowIntermediateSourceConfigurationArgs) MatchingWorkflowIntermediateSourceConfigurationPtrInput {
+	return (*matchingWorkflowIntermediateSourceConfigurationPtrType)(v)
+}
+
+func (*matchingWorkflowIntermediateSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowIntermediateSourceConfiguration)(nil)).Elem()
+}
+
+func (i *matchingWorkflowIntermediateSourceConfigurationPtrType) ToMatchingWorkflowIntermediateSourceConfigurationPtrOutput() MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
+	return i.ToMatchingWorkflowIntermediateSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *matchingWorkflowIntermediateSourceConfigurationPtrType) ToMatchingWorkflowIntermediateSourceConfigurationPtrOutputWithContext(ctx context.Context) MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowIntermediateSourceConfigurationPtrOutput)
+}
+
+func (i *matchingWorkflowIntermediateSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflowIntermediateSourceConfiguration] {
+	return pulumix.Output[*MatchingWorkflowIntermediateSourceConfiguration]{
+		OutputState: i.ToMatchingWorkflowIntermediateSourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type MatchingWorkflowIntermediateSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowIntermediateSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowIntermediateSourceConfiguration)(nil)).Elem()
+}
+
+func (o MatchingWorkflowIntermediateSourceConfigurationOutput) ToMatchingWorkflowIntermediateSourceConfigurationOutput() MatchingWorkflowIntermediateSourceConfigurationOutput {
+	return o
+}
+
+func (o MatchingWorkflowIntermediateSourceConfigurationOutput) ToMatchingWorkflowIntermediateSourceConfigurationOutputWithContext(ctx context.Context) MatchingWorkflowIntermediateSourceConfigurationOutput {
+	return o
+}
+
+func (o MatchingWorkflowIntermediateSourceConfigurationOutput) ToMatchingWorkflowIntermediateSourceConfigurationPtrOutput() MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
+	return o.ToMatchingWorkflowIntermediateSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MatchingWorkflowIntermediateSourceConfigurationOutput) ToMatchingWorkflowIntermediateSourceConfigurationPtrOutputWithContext(ctx context.Context) MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MatchingWorkflowIntermediateSourceConfiguration) *MatchingWorkflowIntermediateSourceConfiguration {
+		return &v
+	}).(MatchingWorkflowIntermediateSourceConfigurationPtrOutput)
+}
+
+func (o MatchingWorkflowIntermediateSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowIntermediateSourceConfiguration] {
+	return pulumix.Output[MatchingWorkflowIntermediateSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+func (o MatchingWorkflowIntermediateSourceConfigurationOutput) IntermediateS3Path() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchingWorkflowIntermediateSourceConfiguration) string { return v.IntermediateS3Path }).(pulumi.StringOutput)
+}
+
+type MatchingWorkflowIntermediateSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowIntermediateSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowIntermediateSourceConfiguration)(nil)).Elem()
+}
+
+func (o MatchingWorkflowIntermediateSourceConfigurationPtrOutput) ToMatchingWorkflowIntermediateSourceConfigurationPtrOutput() MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowIntermediateSourceConfigurationPtrOutput) ToMatchingWorkflowIntermediateSourceConfigurationPtrOutputWithContext(ctx context.Context) MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowIntermediateSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflowIntermediateSourceConfiguration] {
+	return pulumix.Output[*MatchingWorkflowIntermediateSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MatchingWorkflowIntermediateSourceConfigurationPtrOutput) Elem() MatchingWorkflowIntermediateSourceConfigurationOutput {
+	return o.ApplyT(func(v *MatchingWorkflowIntermediateSourceConfiguration) MatchingWorkflowIntermediateSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MatchingWorkflowIntermediateSourceConfiguration
+		return ret
+	}).(MatchingWorkflowIntermediateSourceConfigurationOutput)
+}
+
+// The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+func (o MatchingWorkflowIntermediateSourceConfigurationPtrOutput) IntermediateS3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowIntermediateSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IntermediateS3Path
+	}).(pulumi.StringPtrOutput)
+}
+
 type MatchingWorkflowOutputAttribute struct {
 	Hashed *bool  `pulumi:"hashed"`
 	Name   string `pulumi:"name"`
@@ -410,7 +571,205 @@ func (o MatchingWorkflowOutputSourceArrayOutput) Index(i pulumi.IntInput) Matchi
 	}).(MatchingWorkflowOutputSourceOutput)
 }
 
+type MatchingWorkflowProviderProperties struct {
+	IntermediateSourceConfiguration *MatchingWorkflowIntermediateSourceConfiguration `pulumi:"intermediateSourceConfiguration"`
+	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+	ProviderConfiguration interface{} `pulumi:"providerConfiguration"`
+	// Arn of the Provider service being used.
+	ProviderServiceArn string `pulumi:"providerServiceArn"`
+}
+
+// MatchingWorkflowProviderPropertiesInput is an input type that accepts MatchingWorkflowProviderPropertiesArgs and MatchingWorkflowProviderPropertiesOutput values.
+// You can construct a concrete instance of `MatchingWorkflowProviderPropertiesInput` via:
+//
+//	MatchingWorkflowProviderPropertiesArgs{...}
+type MatchingWorkflowProviderPropertiesInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowProviderPropertiesOutput() MatchingWorkflowProviderPropertiesOutput
+	ToMatchingWorkflowProviderPropertiesOutputWithContext(context.Context) MatchingWorkflowProviderPropertiesOutput
+}
+
+type MatchingWorkflowProviderPropertiesArgs struct {
+	IntermediateSourceConfiguration MatchingWorkflowIntermediateSourceConfigurationPtrInput `pulumi:"intermediateSourceConfiguration"`
+	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+	ProviderConfiguration pulumi.Input `pulumi:"providerConfiguration"`
+	// Arn of the Provider service being used.
+	ProviderServiceArn pulumi.StringInput `pulumi:"providerServiceArn"`
+}
+
+func (MatchingWorkflowProviderPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowProviderProperties)(nil)).Elem()
+}
+
+func (i MatchingWorkflowProviderPropertiesArgs) ToMatchingWorkflowProviderPropertiesOutput() MatchingWorkflowProviderPropertiesOutput {
+	return i.ToMatchingWorkflowProviderPropertiesOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowProviderPropertiesArgs) ToMatchingWorkflowProviderPropertiesOutputWithContext(ctx context.Context) MatchingWorkflowProviderPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowProviderPropertiesOutput)
+}
+
+func (i MatchingWorkflowProviderPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowProviderProperties] {
+	return pulumix.Output[MatchingWorkflowProviderProperties]{
+		OutputState: i.ToMatchingWorkflowProviderPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i MatchingWorkflowProviderPropertiesArgs) ToMatchingWorkflowProviderPropertiesPtrOutput() MatchingWorkflowProviderPropertiesPtrOutput {
+	return i.ToMatchingWorkflowProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowProviderPropertiesArgs) ToMatchingWorkflowProviderPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowProviderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowProviderPropertiesOutput).ToMatchingWorkflowProviderPropertiesPtrOutputWithContext(ctx)
+}
+
+// MatchingWorkflowProviderPropertiesPtrInput is an input type that accepts MatchingWorkflowProviderPropertiesArgs, MatchingWorkflowProviderPropertiesPtr and MatchingWorkflowProviderPropertiesPtrOutput values.
+// You can construct a concrete instance of `MatchingWorkflowProviderPropertiesPtrInput` via:
+//
+//	        MatchingWorkflowProviderPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MatchingWorkflowProviderPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowProviderPropertiesPtrOutput() MatchingWorkflowProviderPropertiesPtrOutput
+	ToMatchingWorkflowProviderPropertiesPtrOutputWithContext(context.Context) MatchingWorkflowProviderPropertiesPtrOutput
+}
+
+type matchingWorkflowProviderPropertiesPtrType MatchingWorkflowProviderPropertiesArgs
+
+func MatchingWorkflowProviderPropertiesPtr(v *MatchingWorkflowProviderPropertiesArgs) MatchingWorkflowProviderPropertiesPtrInput {
+	return (*matchingWorkflowProviderPropertiesPtrType)(v)
+}
+
+func (*matchingWorkflowProviderPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowProviderProperties)(nil)).Elem()
+}
+
+func (i *matchingWorkflowProviderPropertiesPtrType) ToMatchingWorkflowProviderPropertiesPtrOutput() MatchingWorkflowProviderPropertiesPtrOutput {
+	return i.ToMatchingWorkflowProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *matchingWorkflowProviderPropertiesPtrType) ToMatchingWorkflowProviderPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowProviderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowProviderPropertiesPtrOutput)
+}
+
+func (i *matchingWorkflowProviderPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflowProviderProperties] {
+	return pulumix.Output[*MatchingWorkflowProviderProperties]{
+		OutputState: i.ToMatchingWorkflowProviderPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type MatchingWorkflowProviderPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowProviderPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowProviderProperties)(nil)).Elem()
+}
+
+func (o MatchingWorkflowProviderPropertiesOutput) ToMatchingWorkflowProviderPropertiesOutput() MatchingWorkflowProviderPropertiesOutput {
+	return o
+}
+
+func (o MatchingWorkflowProviderPropertiesOutput) ToMatchingWorkflowProviderPropertiesOutputWithContext(ctx context.Context) MatchingWorkflowProviderPropertiesOutput {
+	return o
+}
+
+func (o MatchingWorkflowProviderPropertiesOutput) ToMatchingWorkflowProviderPropertiesPtrOutput() MatchingWorkflowProviderPropertiesPtrOutput {
+	return o.ToMatchingWorkflowProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MatchingWorkflowProviderPropertiesOutput) ToMatchingWorkflowProviderPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowProviderPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MatchingWorkflowProviderProperties) *MatchingWorkflowProviderProperties {
+		return &v
+	}).(MatchingWorkflowProviderPropertiesPtrOutput)
+}
+
+func (o MatchingWorkflowProviderPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowProviderProperties] {
+	return pulumix.Output[MatchingWorkflowProviderProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MatchingWorkflowProviderPropertiesOutput) IntermediateSourceConfiguration() MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowProviderProperties) *MatchingWorkflowIntermediateSourceConfiguration {
+		return v.IntermediateSourceConfiguration
+	}).(MatchingWorkflowIntermediateSourceConfigurationPtrOutput)
+}
+
+// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+func (o MatchingWorkflowProviderPropertiesOutput) ProviderConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v MatchingWorkflowProviderProperties) interface{} { return v.ProviderConfiguration }).(pulumi.AnyOutput)
+}
+
+// Arn of the Provider service being used.
+func (o MatchingWorkflowProviderPropertiesOutput) ProviderServiceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchingWorkflowProviderProperties) string { return v.ProviderServiceArn }).(pulumi.StringOutput)
+}
+
+type MatchingWorkflowProviderPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowProviderPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowProviderProperties)(nil)).Elem()
+}
+
+func (o MatchingWorkflowProviderPropertiesPtrOutput) ToMatchingWorkflowProviderPropertiesPtrOutput() MatchingWorkflowProviderPropertiesPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowProviderPropertiesPtrOutput) ToMatchingWorkflowProviderPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowProviderPropertiesPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowProviderPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflowProviderProperties] {
+	return pulumix.Output[*MatchingWorkflowProviderProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MatchingWorkflowProviderPropertiesPtrOutput) Elem() MatchingWorkflowProviderPropertiesOutput {
+	return o.ApplyT(func(v *MatchingWorkflowProviderProperties) MatchingWorkflowProviderProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MatchingWorkflowProviderProperties
+		return ret
+	}).(MatchingWorkflowProviderPropertiesOutput)
+}
+
+func (o MatchingWorkflowProviderPropertiesPtrOutput) IntermediateSourceConfiguration() MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowProviderProperties) *MatchingWorkflowIntermediateSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IntermediateSourceConfiguration
+	}).(MatchingWorkflowIntermediateSourceConfigurationPtrOutput)
+}
+
+// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+func (o MatchingWorkflowProviderPropertiesPtrOutput) ProviderConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MatchingWorkflowProviderProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ProviderConfiguration
+	}).(pulumi.AnyOutput)
+}
+
+// Arn of the Provider service being used.
+func (o MatchingWorkflowProviderPropertiesPtrOutput) ProviderServiceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowProviderProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProviderServiceArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type MatchingWorkflowResolutionTechniques struct {
+	ProviderProperties  *MatchingWorkflowProviderProperties                 `pulumi:"providerProperties"`
 	ResolutionType      *MatchingWorkflowResolutionTechniquesResolutionType `pulumi:"resolutionType"`
 	RuleBasedProperties *MatchingWorkflowRuleBasedProperties                `pulumi:"ruleBasedProperties"`
 }
@@ -427,6 +786,7 @@ type MatchingWorkflowResolutionTechniquesInput interface {
 }
 
 type MatchingWorkflowResolutionTechniquesArgs struct {
+	ProviderProperties  MatchingWorkflowProviderPropertiesPtrInput                 `pulumi:"providerProperties"`
 	ResolutionType      MatchingWorkflowResolutionTechniquesResolutionTypePtrInput `pulumi:"resolutionType"`
 	RuleBasedProperties MatchingWorkflowRuleBasedPropertiesPtrInput                `pulumi:"ruleBasedProperties"`
 }
@@ -469,6 +829,12 @@ func (o MatchingWorkflowResolutionTechniquesOutput) ToOutput(ctx context.Context
 	}
 }
 
+func (o MatchingWorkflowResolutionTechniquesOutput) ProviderProperties() MatchingWorkflowProviderPropertiesPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowProviderProperties {
+		return v.ProviderProperties
+	}).(MatchingWorkflowProviderPropertiesPtrOutput)
+}
+
 func (o MatchingWorkflowResolutionTechniquesOutput) ResolutionType() MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowResolutionTechniquesResolutionType {
 		return v.ResolutionType
@@ -509,6 +875,15 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) Elem() MatchingWorkflowRe
 		var ret MatchingWorkflowResolutionTechniques
 		return ret
 	}).(MatchingWorkflowResolutionTechniquesOutput)
+}
+
+func (o MatchingWorkflowResolutionTechniquesPtrOutput) ProviderProperties() MatchingWorkflowProviderPropertiesPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *MatchingWorkflowProviderProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ProviderProperties
+	}).(MatchingWorkflowProviderPropertiesPtrOutput)
 }
 
 func (o MatchingWorkflowResolutionTechniquesPtrOutput) ResolutionType() MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput {
@@ -961,10 +1336,12 @@ func (o MatchingWorkflowTagArrayOutput) Index(i pulumi.IntInput) MatchingWorkflo
 }
 
 type SchemaMappingSchemaInputAttribute struct {
-	FieldName string                           `pulumi:"fieldName"`
-	GroupName *string                          `pulumi:"groupName"`
-	MatchKey  *string                          `pulumi:"matchKey"`
-	Type      SchemaMappingSchemaAttributeType `pulumi:"type"`
+	FieldName string  `pulumi:"fieldName"`
+	GroupName *string `pulumi:"groupName"`
+	MatchKey  *string `pulumi:"matchKey"`
+	// The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+	SubType *string                          `pulumi:"subType"`
+	Type    SchemaMappingSchemaAttributeType `pulumi:"type"`
 }
 
 // SchemaMappingSchemaInputAttributeInput is an input type that accepts SchemaMappingSchemaInputAttributeArgs and SchemaMappingSchemaInputAttributeOutput values.
@@ -979,10 +1356,12 @@ type SchemaMappingSchemaInputAttributeInput interface {
 }
 
 type SchemaMappingSchemaInputAttributeArgs struct {
-	FieldName pulumi.StringInput                    `pulumi:"fieldName"`
-	GroupName pulumi.StringPtrInput                 `pulumi:"groupName"`
-	MatchKey  pulumi.StringPtrInput                 `pulumi:"matchKey"`
-	Type      SchemaMappingSchemaAttributeTypeInput `pulumi:"type"`
+	FieldName pulumi.StringInput    `pulumi:"fieldName"`
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	MatchKey  pulumi.StringPtrInput `pulumi:"matchKey"`
+	// The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+	SubType pulumi.StringPtrInput                 `pulumi:"subType"`
+	Type    SchemaMappingSchemaAttributeTypeInput `pulumi:"type"`
 }
 
 func (SchemaMappingSchemaInputAttributeArgs) ElementType() reflect.Type {
@@ -1064,6 +1443,11 @@ func (o SchemaMappingSchemaInputAttributeOutput) GroupName() pulumi.StringPtrOut
 
 func (o SchemaMappingSchemaInputAttributeOutput) MatchKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaMappingSchemaInputAttribute) *string { return v.MatchKey }).(pulumi.StringPtrOutput)
+}
+
+// The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+func (o SchemaMappingSchemaInputAttributeOutput) SubType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaMappingSchemaInputAttribute) *string { return v.SubType }).(pulumi.StringPtrOutput)
 }
 
 func (o SchemaMappingSchemaInputAttributeOutput) Type() SchemaMappingSchemaAttributeTypeOutput {
@@ -1232,10 +1616,14 @@ func (o SchemaMappingTagArrayOutput) Index(i pulumi.IntInput) SchemaMappingTagOu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceInput)(nil)).Elem(), MatchingWorkflowInputSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceArrayInput)(nil)).Elem(), MatchingWorkflowInputSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIntermediateSourceConfigurationInput)(nil)).Elem(), MatchingWorkflowIntermediateSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIntermediateSourceConfigurationPtrInput)(nil)).Elem(), MatchingWorkflowIntermediateSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowOutputAttributeInput)(nil)).Elem(), MatchingWorkflowOutputAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowOutputAttributeArrayInput)(nil)).Elem(), MatchingWorkflowOutputAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowOutputSourceInput)(nil)).Elem(), MatchingWorkflowOutputSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowOutputSourceArrayInput)(nil)).Elem(), MatchingWorkflowOutputSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowProviderPropertiesInput)(nil)).Elem(), MatchingWorkflowProviderPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowProviderPropertiesPtrInput)(nil)).Elem(), MatchingWorkflowProviderPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowResolutionTechniquesInput)(nil)).Elem(), MatchingWorkflowResolutionTechniquesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleInput)(nil)).Elem(), MatchingWorkflowRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleArrayInput)(nil)).Elem(), MatchingWorkflowRuleArray{})
@@ -1249,10 +1637,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingTagArrayInput)(nil)).Elem(), SchemaMappingTagArray{})
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceArrayOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowIntermediateSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowIntermediateSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowOutputAttributeOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowOutputAttributeArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowOutputSourceOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowOutputSourceArrayOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowProviderPropertiesOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowProviderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowResolutionTechniquesOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowResolutionTechniquesPtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowRuleOutput{})

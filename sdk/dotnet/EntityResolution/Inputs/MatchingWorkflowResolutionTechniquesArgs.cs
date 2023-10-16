@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
     public sealed class MatchingWorkflowResolutionTechniquesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("providerProperties")]
+        public Input<Inputs.MatchingWorkflowProviderPropertiesArgs>? ProviderProperties { get; set; }
+
         [Input("resolutionType")]
         public Input<Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionTechniquesResolutionType>? ResolutionType { get; set; }
 

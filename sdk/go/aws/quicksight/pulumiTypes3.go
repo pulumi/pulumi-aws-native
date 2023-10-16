@@ -27,6 +27,7 @@ type TopicColumn struct {
 	DefaultFormatting      *TopicDefaultFormatting           `pulumi:"defaultFormatting"`
 	IsIncludedInTopic      *bool                             `pulumi:"isIncludedInTopic"`
 	NeverAggregateInFilter *bool                             `pulumi:"neverAggregateInFilter"`
+	NonAdditive            *bool                             `pulumi:"nonAdditive"`
 	NotAllowedAggregations []TopicAuthorSpecifiedAggregation `pulumi:"notAllowedAggregations"`
 	SemanticType           *TopicSemanticType                `pulumi:"semanticType"`
 	TimeGranularity        *TopicTimeGranularity             `pulumi:"timeGranularity"`
@@ -56,6 +57,7 @@ type TopicColumnArgs struct {
 	DefaultFormatting      TopicDefaultFormattingPtrInput            `pulumi:"defaultFormatting"`
 	IsIncludedInTopic      pulumi.BoolPtrInput                       `pulumi:"isIncludedInTopic"`
 	NeverAggregateInFilter pulumi.BoolPtrInput                       `pulumi:"neverAggregateInFilter"`
+	NonAdditive            pulumi.BoolPtrInput                       `pulumi:"nonAdditive"`
 	NotAllowedAggregations TopicAuthorSpecifiedAggregationArrayInput `pulumi:"notAllowedAggregations"`
 	SemanticType           TopicSemanticTypePtrInput                 `pulumi:"semanticType"`
 	TimeGranularity        TopicTimeGranularityPtrInput              `pulumi:"timeGranularity"`
@@ -176,6 +178,10 @@ func (o TopicColumnOutput) IsIncludedInTopic() pulumi.BoolPtrOutput {
 
 func (o TopicColumnOutput) NeverAggregateInFilter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *bool { return v.NeverAggregateInFilter }).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicColumnOutput) NonAdditive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicColumn) *bool { return v.NonAdditive }).(pulumi.BoolPtrOutput)
 }
 
 func (o TopicColumnOutput) NotAllowedAggregations() TopicAuthorSpecifiedAggregationArrayOutput {

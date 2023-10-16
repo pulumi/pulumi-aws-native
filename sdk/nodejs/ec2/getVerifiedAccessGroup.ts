@@ -51,6 +51,10 @@ export interface GetVerifiedAccessGroupResult {
      */
     readonly policyEnabled?: boolean;
     /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    readonly sseSpecification?: outputs.ec2.VerifiedAccessGroupSseSpecification;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.ec2.VerifiedAccessGroupTag[];

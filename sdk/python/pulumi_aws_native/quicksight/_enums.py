@@ -953,6 +953,7 @@ class AnalysisTableOrientation(str, Enum):
 class AnalysisTableTotalsPlacement(str, Enum):
     START = "START"
     END = "END"
+    AUTO = "AUTO"
 
 
 class AnalysisTableTotalsScrollStatus(str, Enum):
@@ -1634,6 +1635,7 @@ class DashboardTableOrientation(str, Enum):
 class DashboardTableTotalsPlacement(str, Enum):
     START = "START"
     END = "END"
+    AUTO = "AUTO"
 
 
 class DashboardTableTotalsScrollStatus(str, Enum):
@@ -2439,6 +2441,7 @@ class TemplateTableOrientation(str, Enum):
 class TemplateTableTotalsPlacement(str, Enum):
     START = "START"
     END = "END"
+    AUTO = "AUTO"
 
 
 class TemplateTableTotalsScrollStatus(str, Enum):
@@ -2612,6 +2615,11 @@ class TopicDefaultAggregation(str, Enum):
     COUNT = "COUNT"
     DISTINCT_COUNT = "DISTINCT_COUNT"
     AVERAGE = "AVERAGE"
+    MEDIAN = "MEDIAN"
+    STDEV = "STDEV"
+    STDEVP = "STDEVP"
+    VAR = "VAR"
+    VARP = "VARP"
 
 
 class TopicDisplayFormat(str, Enum):

@@ -98,6 +98,10 @@ export class VerifiedAccessEndpoint extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    public readonly sseSpecification!: pulumi.Output<outputs.ec2.VerifiedAccessEndpointSseSpecification | undefined>;
+    /**
      * The endpoint status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -158,6 +162,7 @@ export class VerifiedAccessEndpoint extends pulumi.CustomResource {
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["policyEnabled"] = args ? args.policyEnabled : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["verifiedAccessGroupId"] = args ? args.verifiedAccessGroupId : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -183,6 +188,7 @@ export class VerifiedAccessEndpoint extends pulumi.CustomResource {
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["policyEnabled"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["sseSpecification"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["verifiedAccessEndpointId"] = undefined /*out*/;
@@ -244,6 +250,10 @@ export interface VerifiedAccessEndpointArgs {
      * The IDs of the security groups for the endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The configuration options for customer provided KMS encryption.
+     */
+    sseSpecification?: pulumi.Input<inputs.ec2.VerifiedAccessEndpointSseSpecificationArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

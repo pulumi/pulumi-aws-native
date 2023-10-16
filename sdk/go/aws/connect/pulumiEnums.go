@@ -3641,6 +3641,189 @@ func (in *quickConnectTypePtr) ToOutput(ctx context.Context) pulumix.Output[*Qui
 	}
 }
 
+// Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+type RoutingProfileAgentAvailabilityTimer string
+
+const (
+	RoutingProfileAgentAvailabilityTimerTimeSinceLastActivity = RoutingProfileAgentAvailabilityTimer("TIME_SINCE_LAST_ACTIVITY")
+	RoutingProfileAgentAvailabilityTimerTimeSinceLastInbound  = RoutingProfileAgentAvailabilityTimer("TIME_SINCE_LAST_INBOUND")
+)
+
+func (RoutingProfileAgentAvailabilityTimer) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileAgentAvailabilityTimer)(nil)).Elem()
+}
+
+func (e RoutingProfileAgentAvailabilityTimer) ToRoutingProfileAgentAvailabilityTimerOutput() RoutingProfileAgentAvailabilityTimerOutput {
+	return pulumi.ToOutput(e).(RoutingProfileAgentAvailabilityTimerOutput)
+}
+
+func (e RoutingProfileAgentAvailabilityTimer) ToRoutingProfileAgentAvailabilityTimerOutputWithContext(ctx context.Context) RoutingProfileAgentAvailabilityTimerOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RoutingProfileAgentAvailabilityTimerOutput)
+}
+
+func (e RoutingProfileAgentAvailabilityTimer) ToRoutingProfileAgentAvailabilityTimerPtrOutput() RoutingProfileAgentAvailabilityTimerPtrOutput {
+	return e.ToRoutingProfileAgentAvailabilityTimerPtrOutputWithContext(context.Background())
+}
+
+func (e RoutingProfileAgentAvailabilityTimer) ToRoutingProfileAgentAvailabilityTimerPtrOutputWithContext(ctx context.Context) RoutingProfileAgentAvailabilityTimerPtrOutput {
+	return RoutingProfileAgentAvailabilityTimer(e).ToRoutingProfileAgentAvailabilityTimerOutputWithContext(ctx).ToRoutingProfileAgentAvailabilityTimerPtrOutputWithContext(ctx)
+}
+
+func (e RoutingProfileAgentAvailabilityTimer) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RoutingProfileAgentAvailabilityTimer) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RoutingProfileAgentAvailabilityTimer) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RoutingProfileAgentAvailabilityTimer) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RoutingProfileAgentAvailabilityTimerOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileAgentAvailabilityTimerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileAgentAvailabilityTimer)(nil)).Elem()
+}
+
+func (o RoutingProfileAgentAvailabilityTimerOutput) ToRoutingProfileAgentAvailabilityTimerOutput() RoutingProfileAgentAvailabilityTimerOutput {
+	return o
+}
+
+func (o RoutingProfileAgentAvailabilityTimerOutput) ToRoutingProfileAgentAvailabilityTimerOutputWithContext(ctx context.Context) RoutingProfileAgentAvailabilityTimerOutput {
+	return o
+}
+
+func (o RoutingProfileAgentAvailabilityTimerOutput) ToRoutingProfileAgentAvailabilityTimerPtrOutput() RoutingProfileAgentAvailabilityTimerPtrOutput {
+	return o.ToRoutingProfileAgentAvailabilityTimerPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileAgentAvailabilityTimerOutput) ToRoutingProfileAgentAvailabilityTimerPtrOutputWithContext(ctx context.Context) RoutingProfileAgentAvailabilityTimerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingProfileAgentAvailabilityTimer) *RoutingProfileAgentAvailabilityTimer {
+		return &v
+	}).(RoutingProfileAgentAvailabilityTimerPtrOutput)
+}
+
+func (o RoutingProfileAgentAvailabilityTimerOutput) ToOutput(ctx context.Context) pulumix.Output[RoutingProfileAgentAvailabilityTimer] {
+	return pulumix.Output[RoutingProfileAgentAvailabilityTimer]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RoutingProfileAgentAvailabilityTimerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileAgentAvailabilityTimerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RoutingProfileAgentAvailabilityTimer) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RoutingProfileAgentAvailabilityTimerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileAgentAvailabilityTimerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RoutingProfileAgentAvailabilityTimer) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoutingProfileAgentAvailabilityTimerPtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileAgentAvailabilityTimerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingProfileAgentAvailabilityTimer)(nil)).Elem()
+}
+
+func (o RoutingProfileAgentAvailabilityTimerPtrOutput) ToRoutingProfileAgentAvailabilityTimerPtrOutput() RoutingProfileAgentAvailabilityTimerPtrOutput {
+	return o
+}
+
+func (o RoutingProfileAgentAvailabilityTimerPtrOutput) ToRoutingProfileAgentAvailabilityTimerPtrOutputWithContext(ctx context.Context) RoutingProfileAgentAvailabilityTimerPtrOutput {
+	return o
+}
+
+func (o RoutingProfileAgentAvailabilityTimerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfileAgentAvailabilityTimer] {
+	return pulumix.Output[*RoutingProfileAgentAvailabilityTimer]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RoutingProfileAgentAvailabilityTimerPtrOutput) Elem() RoutingProfileAgentAvailabilityTimerOutput {
+	return o.ApplyT(func(v *RoutingProfileAgentAvailabilityTimer) RoutingProfileAgentAvailabilityTimer {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingProfileAgentAvailabilityTimer
+		return ret
+	}).(RoutingProfileAgentAvailabilityTimerOutput)
+}
+
+func (o RoutingProfileAgentAvailabilityTimerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileAgentAvailabilityTimerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RoutingProfileAgentAvailabilityTimer) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RoutingProfileAgentAvailabilityTimerInput is an input type that accepts RoutingProfileAgentAvailabilityTimerArgs and RoutingProfileAgentAvailabilityTimerOutput values.
+// You can construct a concrete instance of `RoutingProfileAgentAvailabilityTimerInput` via:
+//
+//	RoutingProfileAgentAvailabilityTimerArgs{...}
+type RoutingProfileAgentAvailabilityTimerInput interface {
+	pulumi.Input
+
+	ToRoutingProfileAgentAvailabilityTimerOutput() RoutingProfileAgentAvailabilityTimerOutput
+	ToRoutingProfileAgentAvailabilityTimerOutputWithContext(context.Context) RoutingProfileAgentAvailabilityTimerOutput
+}
+
+var routingProfileAgentAvailabilityTimerPtrType = reflect.TypeOf((**RoutingProfileAgentAvailabilityTimer)(nil)).Elem()
+
+type RoutingProfileAgentAvailabilityTimerPtrInput interface {
+	pulumi.Input
+
+	ToRoutingProfileAgentAvailabilityTimerPtrOutput() RoutingProfileAgentAvailabilityTimerPtrOutput
+	ToRoutingProfileAgentAvailabilityTimerPtrOutputWithContext(context.Context) RoutingProfileAgentAvailabilityTimerPtrOutput
+}
+
+type routingProfileAgentAvailabilityTimerPtr string
+
+func RoutingProfileAgentAvailabilityTimerPtr(v string) RoutingProfileAgentAvailabilityTimerPtrInput {
+	return (*routingProfileAgentAvailabilityTimerPtr)(&v)
+}
+
+func (*routingProfileAgentAvailabilityTimerPtr) ElementType() reflect.Type {
+	return routingProfileAgentAvailabilityTimerPtrType
+}
+
+func (in *routingProfileAgentAvailabilityTimerPtr) ToRoutingProfileAgentAvailabilityTimerPtrOutput() RoutingProfileAgentAvailabilityTimerPtrOutput {
+	return pulumi.ToOutput(in).(RoutingProfileAgentAvailabilityTimerPtrOutput)
+}
+
+func (in *routingProfileAgentAvailabilityTimerPtr) ToRoutingProfileAgentAvailabilityTimerPtrOutputWithContext(ctx context.Context) RoutingProfileAgentAvailabilityTimerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RoutingProfileAgentAvailabilityTimerPtrOutput)
+}
+
+func (in *routingProfileAgentAvailabilityTimerPtr) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfileAgentAvailabilityTimer] {
+	return pulumix.Output[*RoutingProfileAgentAvailabilityTimer]{
+		OutputState: in.ToRoutingProfileAgentAvailabilityTimerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies the other channels that can be routed to an agent handling their current channel.
 type RoutingProfileBehaviorType string
 
@@ -5447,6 +5630,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueStatusPtrInput)(nil)).Elem(), QueueStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypeInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypePtrInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileAgentAvailabilityTimerInput)(nil)).Elem(), RoutingProfileAgentAvailabilityTimer("TIME_SINCE_LAST_ACTIVITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileAgentAvailabilityTimerPtrInput)(nil)).Elem(), RoutingProfileAgentAvailabilityTimer("TIME_SINCE_LAST_ACTIVITY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileBehaviorTypeInput)(nil)).Elem(), RoutingProfileBehaviorType("ROUTE_CURRENT_CHANNEL_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileBehaviorTypePtrInput)(nil)).Elem(), RoutingProfileBehaviorType("ROUTE_CURRENT_CHANNEL_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileChannelInput)(nil)).Elem(), RoutingProfileChannel("VOICE"))
@@ -5507,6 +5692,8 @@ func init() {
 	pulumi.RegisterOutputType(QueueTypePtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypeOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypePtrOutput{})
+	pulumi.RegisterOutputType(RoutingProfileAgentAvailabilityTimerOutput{})
+	pulumi.RegisterOutputType(RoutingProfileAgentAvailabilityTimerPtrOutput{})
 	pulumi.RegisterOutputType(RoutingProfileBehaviorTypeOutput{})
 	pulumi.RegisterOutputType(RoutingProfileBehaviorTypePtrOutput{})
 	pulumi.RegisterOutputType(RoutingProfileChannelOutput{})

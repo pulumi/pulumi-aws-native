@@ -3645,20 +3645,25 @@ class WebAclAwsManagedRulesAtpRuleSetArgs:
 @pulumi.input_type
 class WebAclAwsManagedRulesBotControlRuleSetArgs:
     def __init__(__self__, *,
-                 inspection_level: pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel']):
+                 inspection_level: pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel'],
+                 enable_machine_learning: Optional[pulumi.Input[bool]] = None):
         """
         Configures how to use the Bot Control managed rule group in the web ACL
         """
         WebAclAwsManagedRulesBotControlRuleSetArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             inspection_level=inspection_level,
+            enable_machine_learning=enable_machine_learning,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              inspection_level: pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel'],
+             enable_machine_learning: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("inspection_level", inspection_level)
+        if enable_machine_learning is not None:
+            _setter("enable_machine_learning", enable_machine_learning)
 
     @property
     @pulumi.getter(name="inspectionLevel")
@@ -3668,6 +3673,15 @@ class WebAclAwsManagedRulesBotControlRuleSetArgs:
     @inspection_level.setter
     def inspection_level(self, value: pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel']):
         pulumi.set(self, "inspection_level", value)
+
+    @property
+    @pulumi.getter(name="enableMachineLearning")
+    def enable_machine_learning(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_machine_learning")
+
+    @enable_machine_learning.setter
+    def enable_machine_learning(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_machine_learning", value)
 
 
 @pulumi.input_type

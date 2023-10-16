@@ -2682,6 +2682,7 @@ namespace Pulumi.AwsNative.QuickSight
 
         public static AnalysisTableTotalsPlacement Start { get; } = new AnalysisTableTotalsPlacement("START");
         public static AnalysisTableTotalsPlacement End { get; } = new AnalysisTableTotalsPlacement("END");
+        public static AnalysisTableTotalsPlacement Auto { get; } = new AnalysisTableTotalsPlacement("AUTO");
 
         public static bool operator ==(AnalysisTableTotalsPlacement left, AnalysisTableTotalsPlacement right) => left.Equals(right);
         public static bool operator !=(AnalysisTableTotalsPlacement left, AnalysisTableTotalsPlacement right) => !left.Equals(right);
@@ -5916,6 +5917,7 @@ namespace Pulumi.AwsNative.QuickSight
 
         public static DashboardTableTotalsPlacement Start { get; } = new DashboardTableTotalsPlacement("START");
         public static DashboardTableTotalsPlacement End { get; } = new DashboardTableTotalsPlacement("END");
+        public static DashboardTableTotalsPlacement Auto { get; } = new DashboardTableTotalsPlacement("AUTO");
 
         public static bool operator ==(DashboardTableTotalsPlacement left, DashboardTableTotalsPlacement right) => left.Equals(right);
         public static bool operator !=(DashboardTableTotalsPlacement left, DashboardTableTotalsPlacement right) => !left.Equals(right);
@@ -9619,6 +9621,7 @@ namespace Pulumi.AwsNative.QuickSight
 
         public static TemplateTableTotalsPlacement Start { get; } = new TemplateTableTotalsPlacement("START");
         public static TemplateTableTotalsPlacement End { get; } = new TemplateTableTotalsPlacement("END");
+        public static TemplateTableTotalsPlacement Auto { get; } = new TemplateTableTotalsPlacement("AUTO");
 
         public static bool operator ==(TemplateTableTotalsPlacement left, TemplateTableTotalsPlacement right) => left.Equals(right);
         public static bool operator !=(TemplateTableTotalsPlacement left, TemplateTableTotalsPlacement right) => !left.Equals(right);
@@ -10436,6 +10439,11 @@ namespace Pulumi.AwsNative.QuickSight
         public static TopicDefaultAggregation Count { get; } = new TopicDefaultAggregation("COUNT");
         public static TopicDefaultAggregation DistinctCount { get; } = new TopicDefaultAggregation("DISTINCT_COUNT");
         public static TopicDefaultAggregation Average { get; } = new TopicDefaultAggregation("AVERAGE");
+        public static TopicDefaultAggregation Median { get; } = new TopicDefaultAggregation("MEDIAN");
+        public static TopicDefaultAggregation Stdev { get; } = new TopicDefaultAggregation("STDEV");
+        public static TopicDefaultAggregation Stdevp { get; } = new TopicDefaultAggregation("STDEVP");
+        public static TopicDefaultAggregation Var { get; } = new TopicDefaultAggregation("VAR");
+        public static TopicDefaultAggregation Varp { get; } = new TopicDefaultAggregation("VARP");
 
         public static bool operator ==(TopicDefaultAggregation left, TopicDefaultAggregation right) => left.Equals(right);
         public static bool operator !=(TopicDefaultAggregation left, TopicDefaultAggregation right) => !left.Equals(right);

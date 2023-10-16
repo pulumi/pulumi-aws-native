@@ -29,6 +29,8 @@ type VerifiedAccessTrustProvider struct {
 	OidcOptions     VerifiedAccessTrustProviderOidcOptionsPtrOutput `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringOutput `pulumi:"policyReferenceName"`
+	// The configuration options for customer provided KMS encryption.
+	SseSpecification SseSpecificationPropertiesPtrOutput `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	Tags VerifiedAccessTrustProviderTagArrayOutput `pulumi:"tags"`
 	// Type of trust provider. Possible values: user|device
@@ -101,6 +103,8 @@ type verifiedAccessTrustProviderArgs struct {
 	OidcOptions             *VerifiedAccessTrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName string `pulumi:"policyReferenceName"`
+	// The configuration options for customer provided KMS encryption.
+	SseSpecification *SseSpecificationProperties `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []VerifiedAccessTrustProviderTag `pulumi:"tags"`
 	// Type of trust provider. Possible values: user|device
@@ -119,6 +123,8 @@ type VerifiedAccessTrustProviderArgs struct {
 	OidcOptions             VerifiedAccessTrustProviderOidcOptionsPtrInput
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringInput
+	// The configuration options for customer provided KMS encryption.
+	SseSpecification SseSpecificationPropertiesPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags VerifiedAccessTrustProviderTagArrayInput
 	// Type of trust provider. Possible values: user|device
@@ -211,6 +217,11 @@ func (o VerifiedAccessTrustProviderOutput) OidcOptions() VerifiedAccessTrustProv
 // The identifier to be used when working with policy rules.
 func (o VerifiedAccessTrustProviderOutput) PolicyReferenceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VerifiedAccessTrustProvider) pulumi.StringOutput { return v.PolicyReferenceName }).(pulumi.StringOutput)
+}
+
+// The configuration options for customer provided KMS encryption.
+func (o VerifiedAccessTrustProviderOutput) SseSpecification() SseSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProvider) SseSpecificationPropertiesPtrOutput { return v.SseSpecification }).(SseSpecificationPropertiesPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

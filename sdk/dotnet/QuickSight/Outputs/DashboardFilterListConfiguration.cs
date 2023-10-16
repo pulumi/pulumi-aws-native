@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly ImmutableArray<string> CategoryValues;
         public readonly Pulumi.AwsNative.QuickSight.DashboardCategoryFilterMatchOperator MatchOperator;
+        public readonly Pulumi.AwsNative.QuickSight.DashboardFilterNullOption? NullOption;
         public readonly Pulumi.AwsNative.QuickSight.DashboardCategoryFilterSelectAllOptions? SelectAllOptions;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.DashboardCategoryFilterMatchOperator matchOperator,
 
+            Pulumi.AwsNative.QuickSight.DashboardFilterNullOption? nullOption,
+
             Pulumi.AwsNative.QuickSight.DashboardCategoryFilterSelectAllOptions? selectAllOptions)
         {
             CategoryValues = categoryValues;
             MatchOperator = matchOperator;
+            NullOption = nullOption;
             SelectAllOptions = selectAllOptions;
         }
     }

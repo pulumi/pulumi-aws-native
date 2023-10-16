@@ -14,6 +14,7 @@ __all__ = [
     'IdentityPoolCognitoIdentityProvider',
     'IdentityPoolCognitoStreams',
     'IdentityPoolPushSync',
+    'IdentityPoolTag',
     'LogDeliveryConfigurationCloudWatchLogsConfiguration',
     'LogDeliveryConfigurationLogConfiguration',
     'UserPoolAccountRecoverySetting',
@@ -74,8 +75,8 @@ class IdentityPoolCognitoIdentityProvider(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_id: Optional[str] = None,
-                 provider_name: Optional[str] = None,
+                 client_id: str,
+                 provider_name: str,
                  server_side_token_check: Optional[bool] = None):
         IdentityPoolCognitoIdentityProvider._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -86,25 +87,23 @@ class IdentityPoolCognitoIdentityProvider(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: Optional[str] = None,
-             provider_name: Optional[str] = None,
+             client_id: str,
+             provider_name: str,
              server_side_token_check: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
-        if client_id is not None:
-            _setter("client_id", client_id)
-        if provider_name is not None:
-            _setter("provider_name", provider_name)
+        _setter("client_id", client_id)
+        _setter("provider_name", provider_name)
         if server_side_token_check is not None:
             _setter("server_side_token_check", server_side_token_check)
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[str]:
+    def client_id(self) -> str:
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> Optional[str]:
+    def provider_name(self) -> str:
         return pulumi.get(self, "provider_name")
 
     @property
@@ -225,6 +224,50 @@ class IdentityPoolPushSync(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class IdentityPoolTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        IdentityPoolTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -38,6 +38,10 @@ export class RoutingProfile extends pulumi.CustomResource {
     }
 
     /**
+     * Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+     */
+    public readonly agentAvailabilityTimer!: pulumi.Output<enums.connect.RoutingProfileAgentAvailabilityTimer | undefined>;
+    /**
      * The identifier of the default outbound queue for this routing profile.
      */
     public readonly defaultOutboundQueueArn!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class RoutingProfile extends pulumi.CustomResource {
             if ((!args || args.mediaConcurrencies === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mediaConcurrencies'");
             }
+            resourceInputs["agentAvailabilityTimer"] = args ? args.agentAvailabilityTimer : undefined;
             resourceInputs["defaultOutboundQueueArn"] = args ? args.defaultOutboundQueueArn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
@@ -102,6 +107,7 @@ export class RoutingProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["routingProfileArn"] = undefined /*out*/;
         } else {
+            resourceInputs["agentAvailabilityTimer"] = undefined /*out*/;
             resourceInputs["defaultOutboundQueueArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
@@ -120,6 +126,10 @@ export class RoutingProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a RoutingProfile resource.
  */
 export interface RoutingProfileArgs {
+    /**
+     * Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+     */
+    agentAvailabilityTimer?: pulumi.Input<enums.connect.RoutingProfileAgentAvailabilityTimer>;
     /**
      * The identifier of the default outbound queue for this routing profile.
      */

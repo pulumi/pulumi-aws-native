@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether FIPS is enabled
+        /// </summary>
+        [Output("fipsEnabled")]
+        public Output<bool?> FipsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Time this Verified Access Instance was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
@@ -113,6 +119,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Indicates whether FIPS is enabled
+        /// </summary>
+        [Input("fipsEnabled")]
+        public Input<bool>? FipsEnabled { get; set; }
 
         /// <summary>
         /// The configuration options for AWS Verified Access instances.

@@ -185,6 +185,7 @@ export const RuleGroupPositionalConstraint = {
 export type RuleGroupPositionalConstraint = (typeof RuleGroupPositionalConstraint)[keyof typeof RuleGroupPositionalConstraint];
 
 export const RuleGroupRateBasedStatementAggregateKeyType = {
+    Constant: "CONSTANT",
     Ip: "IP",
     ForwardedIp: "FORWARDED_IP",
     CustomKeys: "CUSTOM_KEYS",
@@ -353,6 +354,7 @@ export const WebAclPositionalConstraint = {
 export type WebAclPositionalConstraint = (typeof WebAclPositionalConstraint)[keyof typeof WebAclPositionalConstraint];
 
 export const WebAclRateBasedStatementAggregateKeyType = {
+    Constant: "CONSTANT",
     Ip: "IP",
     ForwardedIp: "FORWARDED_IP",
     CustomKeys: "CUSTOM_KEYS",

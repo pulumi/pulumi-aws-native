@@ -239,6 +239,16 @@ export const QuickConnectType = {
  */
 export type QuickConnectType = (typeof QuickConnectType)[keyof typeof QuickConnectType];
 
+export const RoutingProfileAgentAvailabilityTimer = {
+    TimeSinceLastActivity: "TIME_SINCE_LAST_ACTIVITY",
+    TimeSinceLastInbound: "TIME_SINCE_LAST_INBOUND",
+} as const;
+
+/**
+ * Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+ */
+export type RoutingProfileAgentAvailabilityTimer = (typeof RoutingProfileAgentAvailabilityTimer)[keyof typeof RoutingProfileAgentAvailabilityTimer];
+
 export const RoutingProfileBehaviorType = {
     RouteCurrentChannelOnly: "ROUTE_CURRENT_CHANNEL_ONLY",
     RouteAnyChannel: "ROUTE_ANY_CHANNEL",

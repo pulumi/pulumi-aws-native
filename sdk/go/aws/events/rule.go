@@ -13,8 +13,6 @@ import (
 )
 
 // Resource Type definition for AWS::Events::Rule
-//
-// Deprecated: Rule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Rule struct {
 	pulumi.CustomResourceState
 

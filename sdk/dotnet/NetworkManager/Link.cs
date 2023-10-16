@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<Outputs.LinkBandwidth> Bandwidth { get; private set; } = null!;
 
         /// <summary>
+        /// The date and time that the device was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the link.
         /// </summary>
         [Output("description")]
@@ -56,6 +62,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Output("siteId")]
         public Output<string> SiteId { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of the link.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// The tags for the link.

@@ -14,6 +14,170 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Agentless Dialer config
+type CampaignAgentlessDialerConfig struct {
+	// Allocates dialing capacity for this campaign between multiple active campaigns.
+	DialingCapacity *float64 `pulumi:"dialingCapacity"`
+}
+
+// CampaignAgentlessDialerConfigInput is an input type that accepts CampaignAgentlessDialerConfigArgs and CampaignAgentlessDialerConfigOutput values.
+// You can construct a concrete instance of `CampaignAgentlessDialerConfigInput` via:
+//
+//	CampaignAgentlessDialerConfigArgs{...}
+type CampaignAgentlessDialerConfigInput interface {
+	pulumi.Input
+
+	ToCampaignAgentlessDialerConfigOutput() CampaignAgentlessDialerConfigOutput
+	ToCampaignAgentlessDialerConfigOutputWithContext(context.Context) CampaignAgentlessDialerConfigOutput
+}
+
+// Agentless Dialer config
+type CampaignAgentlessDialerConfigArgs struct {
+	// Allocates dialing capacity for this campaign between multiple active campaigns.
+	DialingCapacity pulumi.Float64PtrInput `pulumi:"dialingCapacity"`
+}
+
+func (CampaignAgentlessDialerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignAgentlessDialerConfig)(nil)).Elem()
+}
+
+func (i CampaignAgentlessDialerConfigArgs) ToCampaignAgentlessDialerConfigOutput() CampaignAgentlessDialerConfigOutput {
+	return i.ToCampaignAgentlessDialerConfigOutputWithContext(context.Background())
+}
+
+func (i CampaignAgentlessDialerConfigArgs) ToCampaignAgentlessDialerConfigOutputWithContext(ctx context.Context) CampaignAgentlessDialerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignAgentlessDialerConfigOutput)
+}
+
+func (i CampaignAgentlessDialerConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignAgentlessDialerConfig] {
+	return pulumix.Output[CampaignAgentlessDialerConfig]{
+		OutputState: i.ToCampaignAgentlessDialerConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i CampaignAgentlessDialerConfigArgs) ToCampaignAgentlessDialerConfigPtrOutput() CampaignAgentlessDialerConfigPtrOutput {
+	return i.ToCampaignAgentlessDialerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignAgentlessDialerConfigArgs) ToCampaignAgentlessDialerConfigPtrOutputWithContext(ctx context.Context) CampaignAgentlessDialerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignAgentlessDialerConfigOutput).ToCampaignAgentlessDialerConfigPtrOutputWithContext(ctx)
+}
+
+// CampaignAgentlessDialerConfigPtrInput is an input type that accepts CampaignAgentlessDialerConfigArgs, CampaignAgentlessDialerConfigPtr and CampaignAgentlessDialerConfigPtrOutput values.
+// You can construct a concrete instance of `CampaignAgentlessDialerConfigPtrInput` via:
+//
+//	        CampaignAgentlessDialerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignAgentlessDialerConfigPtrInput interface {
+	pulumi.Input
+
+	ToCampaignAgentlessDialerConfigPtrOutput() CampaignAgentlessDialerConfigPtrOutput
+	ToCampaignAgentlessDialerConfigPtrOutputWithContext(context.Context) CampaignAgentlessDialerConfigPtrOutput
+}
+
+type campaignAgentlessDialerConfigPtrType CampaignAgentlessDialerConfigArgs
+
+func CampaignAgentlessDialerConfigPtr(v *CampaignAgentlessDialerConfigArgs) CampaignAgentlessDialerConfigPtrInput {
+	return (*campaignAgentlessDialerConfigPtrType)(v)
+}
+
+func (*campaignAgentlessDialerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignAgentlessDialerConfig)(nil)).Elem()
+}
+
+func (i *campaignAgentlessDialerConfigPtrType) ToCampaignAgentlessDialerConfigPtrOutput() CampaignAgentlessDialerConfigPtrOutput {
+	return i.ToCampaignAgentlessDialerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignAgentlessDialerConfigPtrType) ToCampaignAgentlessDialerConfigPtrOutputWithContext(ctx context.Context) CampaignAgentlessDialerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignAgentlessDialerConfigPtrOutput)
+}
+
+func (i *campaignAgentlessDialerConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignAgentlessDialerConfig] {
+	return pulumix.Output[*CampaignAgentlessDialerConfig]{
+		OutputState: i.ToCampaignAgentlessDialerConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Agentless Dialer config
+type CampaignAgentlessDialerConfigOutput struct{ *pulumi.OutputState }
+
+func (CampaignAgentlessDialerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignAgentlessDialerConfig)(nil)).Elem()
+}
+
+func (o CampaignAgentlessDialerConfigOutput) ToCampaignAgentlessDialerConfigOutput() CampaignAgentlessDialerConfigOutput {
+	return o
+}
+
+func (o CampaignAgentlessDialerConfigOutput) ToCampaignAgentlessDialerConfigOutputWithContext(ctx context.Context) CampaignAgentlessDialerConfigOutput {
+	return o
+}
+
+func (o CampaignAgentlessDialerConfigOutput) ToCampaignAgentlessDialerConfigPtrOutput() CampaignAgentlessDialerConfigPtrOutput {
+	return o.ToCampaignAgentlessDialerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignAgentlessDialerConfigOutput) ToCampaignAgentlessDialerConfigPtrOutputWithContext(ctx context.Context) CampaignAgentlessDialerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignAgentlessDialerConfig) *CampaignAgentlessDialerConfig {
+		return &v
+	}).(CampaignAgentlessDialerConfigPtrOutput)
+}
+
+func (o CampaignAgentlessDialerConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignAgentlessDialerConfig] {
+	return pulumix.Output[CampaignAgentlessDialerConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Allocates dialing capacity for this campaign between multiple active campaigns.
+func (o CampaignAgentlessDialerConfigOutput) DialingCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CampaignAgentlessDialerConfig) *float64 { return v.DialingCapacity }).(pulumi.Float64PtrOutput)
+}
+
+type CampaignAgentlessDialerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignAgentlessDialerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignAgentlessDialerConfig)(nil)).Elem()
+}
+
+func (o CampaignAgentlessDialerConfigPtrOutput) ToCampaignAgentlessDialerConfigPtrOutput() CampaignAgentlessDialerConfigPtrOutput {
+	return o
+}
+
+func (o CampaignAgentlessDialerConfigPtrOutput) ToCampaignAgentlessDialerConfigPtrOutputWithContext(ctx context.Context) CampaignAgentlessDialerConfigPtrOutput {
+	return o
+}
+
+func (o CampaignAgentlessDialerConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignAgentlessDialerConfig] {
+	return pulumix.Output[*CampaignAgentlessDialerConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CampaignAgentlessDialerConfigPtrOutput) Elem() CampaignAgentlessDialerConfigOutput {
+	return o.ApplyT(func(v *CampaignAgentlessDialerConfig) CampaignAgentlessDialerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignAgentlessDialerConfig
+		return ret
+	}).(CampaignAgentlessDialerConfigOutput)
+}
+
+// Allocates dialing capacity for this campaign between multiple active campaigns.
+func (o CampaignAgentlessDialerConfigPtrOutput) DialingCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CampaignAgentlessDialerConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DialingCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
 // The configuration used for answering machine detection during outbound calls
 type CampaignAnswerMachineDetectionConfig struct {
 	// Flag to decided whether outbound calls should have answering machine detection enabled or not
@@ -180,6 +344,7 @@ func (o CampaignAnswerMachineDetectionConfigPtrOutput) EnableAnswerMachineDetect
 
 // The possible types of dialer config parameters
 type CampaignDialerConfig struct {
+	AgentlessDialerConfig   *CampaignAgentlessDialerConfig   `pulumi:"agentlessDialerConfig"`
 	PredictiveDialerConfig  *CampaignPredictiveDialerConfig  `pulumi:"predictiveDialerConfig"`
 	ProgressiveDialerConfig *CampaignProgressiveDialerConfig `pulumi:"progressiveDialerConfig"`
 }
@@ -197,6 +362,7 @@ type CampaignDialerConfigInput interface {
 
 // The possible types of dialer config parameters
 type CampaignDialerConfigArgs struct {
+	AgentlessDialerConfig   CampaignAgentlessDialerConfigPtrInput   `pulumi:"agentlessDialerConfig"`
 	PredictiveDialerConfig  CampaignPredictiveDialerConfigPtrInput  `pulumi:"predictiveDialerConfig"`
 	ProgressiveDialerConfig CampaignProgressiveDialerConfigPtrInput `pulumi:"progressiveDialerConfig"`
 }
@@ -240,6 +406,10 @@ func (o CampaignDialerConfigOutput) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
+func (o CampaignDialerConfigOutput) AgentlessDialerConfig() CampaignAgentlessDialerConfigPtrOutput {
+	return o.ApplyT(func(v CampaignDialerConfig) *CampaignAgentlessDialerConfig { return v.AgentlessDialerConfig }).(CampaignAgentlessDialerConfigPtrOutput)
+}
+
 func (o CampaignDialerConfigOutput) PredictiveDialerConfig() CampaignPredictiveDialerConfigPtrOutput {
 	return o.ApplyT(func(v CampaignDialerConfig) *CampaignPredictiveDialerConfig { return v.PredictiveDialerConfig }).(CampaignPredictiveDialerConfigPtrOutput)
 }
@@ -278,6 +448,15 @@ func (o CampaignDialerConfigPtrOutput) Elem() CampaignDialerConfigOutput {
 	}).(CampaignDialerConfigOutput)
 }
 
+func (o CampaignDialerConfigPtrOutput) AgentlessDialerConfig() CampaignAgentlessDialerConfigPtrOutput {
+	return o.ApplyT(func(v *CampaignDialerConfig) *CampaignAgentlessDialerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AgentlessDialerConfig
+	}).(CampaignAgentlessDialerConfigPtrOutput)
+}
+
 func (o CampaignDialerConfigPtrOutput) PredictiveDialerConfig() CampaignPredictiveDialerConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignDialerConfig) *CampaignPredictiveDialerConfig {
 		if v == nil {
@@ -302,7 +481,7 @@ type CampaignOutboundCallConfig struct {
 	// The identifier of the contact flow for the outbound call.
 	ConnectContactFlowArn string `pulumi:"connectContactFlowArn"`
 	// The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
-	ConnectQueueArn string `pulumi:"connectQueueArn"`
+	ConnectQueueArn *string `pulumi:"connectQueueArn"`
 	// The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
 	ConnectSourcePhoneNumber *string `pulumi:"connectSourcePhoneNumber"`
 }
@@ -324,7 +503,7 @@ type CampaignOutboundCallConfigArgs struct {
 	// The identifier of the contact flow for the outbound call.
 	ConnectContactFlowArn pulumi.StringInput `pulumi:"connectContactFlowArn"`
 	// The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
-	ConnectQueueArn pulumi.StringInput `pulumi:"connectQueueArn"`
+	ConnectQueueArn pulumi.StringPtrInput `pulumi:"connectQueueArn"`
 	// The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
 	ConnectSourcePhoneNumber pulumi.StringPtrInput `pulumi:"connectSourcePhoneNumber"`
 }
@@ -380,8 +559,8 @@ func (o CampaignOutboundCallConfigOutput) ConnectContactFlowArn() pulumi.StringO
 }
 
 // The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
-func (o CampaignOutboundCallConfigOutput) ConnectQueueArn() pulumi.StringOutput {
-	return o.ApplyT(func(v CampaignOutboundCallConfig) string { return v.ConnectQueueArn }).(pulumi.StringOutput)
+func (o CampaignOutboundCallConfigOutput) ConnectQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignOutboundCallConfig) *string { return v.ConnectQueueArn }).(pulumi.StringPtrOutput)
 }
 
 // The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
@@ -444,7 +623,7 @@ func (o CampaignOutboundCallConfigPtrOutput) ConnectQueueArn() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return &v.ConnectQueueArn
+		return v.ConnectQueueArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -462,6 +641,8 @@ func (o CampaignOutboundCallConfigPtrOutput) ConnectSourcePhoneNumber() pulumi.S
 type CampaignPredictiveDialerConfig struct {
 	// The bandwidth allocation of a queue resource.
 	BandwidthAllocation float64 `pulumi:"bandwidthAllocation"`
+	// Allocates dialing capacity for this campaign between multiple active campaigns.
+	DialingCapacity *float64 `pulumi:"dialingCapacity"`
 }
 
 // CampaignPredictiveDialerConfigInput is an input type that accepts CampaignPredictiveDialerConfigArgs and CampaignPredictiveDialerConfigOutput values.
@@ -479,6 +660,8 @@ type CampaignPredictiveDialerConfigInput interface {
 type CampaignPredictiveDialerConfigArgs struct {
 	// The bandwidth allocation of a queue resource.
 	BandwidthAllocation pulumi.Float64Input `pulumi:"bandwidthAllocation"`
+	// Allocates dialing capacity for this campaign between multiple active campaigns.
+	DialingCapacity pulumi.Float64PtrInput `pulumi:"dialingCapacity"`
 }
 
 func (CampaignPredictiveDialerConfigArgs) ElementType() reflect.Type {
@@ -582,6 +765,11 @@ func (o CampaignPredictiveDialerConfigOutput) BandwidthAllocation() pulumi.Float
 	return o.ApplyT(func(v CampaignPredictiveDialerConfig) float64 { return v.BandwidthAllocation }).(pulumi.Float64Output)
 }
 
+// Allocates dialing capacity for this campaign between multiple active campaigns.
+func (o CampaignPredictiveDialerConfigOutput) DialingCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CampaignPredictiveDialerConfig) *float64 { return v.DialingCapacity }).(pulumi.Float64PtrOutput)
+}
+
 type CampaignPredictiveDialerConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (CampaignPredictiveDialerConfigPtrOutput) ElementType() reflect.Type {
@@ -622,10 +810,22 @@ func (o CampaignPredictiveDialerConfigPtrOutput) BandwidthAllocation() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Allocates dialing capacity for this campaign between multiple active campaigns.
+func (o CampaignPredictiveDialerConfigPtrOutput) DialingCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CampaignPredictiveDialerConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DialingCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
 // Progressive Dialer config
 type CampaignProgressiveDialerConfig struct {
 	// The bandwidth allocation of a queue resource.
 	BandwidthAllocation float64 `pulumi:"bandwidthAllocation"`
+	// Allocates dialing capacity for this campaign between multiple active campaigns.
+	DialingCapacity *float64 `pulumi:"dialingCapacity"`
 }
 
 // CampaignProgressiveDialerConfigInput is an input type that accepts CampaignProgressiveDialerConfigArgs and CampaignProgressiveDialerConfigOutput values.
@@ -643,6 +843,8 @@ type CampaignProgressiveDialerConfigInput interface {
 type CampaignProgressiveDialerConfigArgs struct {
 	// The bandwidth allocation of a queue resource.
 	BandwidthAllocation pulumi.Float64Input `pulumi:"bandwidthAllocation"`
+	// Allocates dialing capacity for this campaign between multiple active campaigns.
+	DialingCapacity pulumi.Float64PtrInput `pulumi:"dialingCapacity"`
 }
 
 func (CampaignProgressiveDialerConfigArgs) ElementType() reflect.Type {
@@ -746,6 +948,11 @@ func (o CampaignProgressiveDialerConfigOutput) BandwidthAllocation() pulumi.Floa
 	return o.ApplyT(func(v CampaignProgressiveDialerConfig) float64 { return v.BandwidthAllocation }).(pulumi.Float64Output)
 }
 
+// Allocates dialing capacity for this campaign between multiple active campaigns.
+func (o CampaignProgressiveDialerConfigOutput) DialingCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CampaignProgressiveDialerConfig) *float64 { return v.DialingCapacity }).(pulumi.Float64PtrOutput)
+}
+
 type CampaignProgressiveDialerConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (CampaignProgressiveDialerConfigPtrOutput) ElementType() reflect.Type {
@@ -783,6 +990,16 @@ func (o CampaignProgressiveDialerConfigPtrOutput) BandwidthAllocation() pulumi.F
 			return nil
 		}
 		return &v.BandwidthAllocation
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Allocates dialing capacity for this campaign between multiple active campaigns.
+func (o CampaignProgressiveDialerConfigPtrOutput) DialingCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CampaignProgressiveDialerConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DialingCapacity
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -920,6 +1137,8 @@ func (o CampaignTagArrayOutput) Index(i pulumi.IntInput) CampaignTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAgentlessDialerConfigInput)(nil)).Elem(), CampaignAgentlessDialerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAgentlessDialerConfigPtrInput)(nil)).Elem(), CampaignAgentlessDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAnswerMachineDetectionConfigInput)(nil)).Elem(), CampaignAnswerMachineDetectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAnswerMachineDetectionConfigPtrInput)(nil)).Elem(), CampaignAnswerMachineDetectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDialerConfigInput)(nil)).Elem(), CampaignDialerConfigArgs{})
@@ -930,6 +1149,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignProgressiveDialerConfigPtrInput)(nil)).Elem(), CampaignProgressiveDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagInput)(nil)).Elem(), CampaignTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagArrayInput)(nil)).Elem(), CampaignTagArray{})
+	pulumi.RegisterOutputType(CampaignAgentlessDialerConfigOutput{})
+	pulumi.RegisterOutputType(CampaignAgentlessDialerConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignAnswerMachineDetectionConfigOutput{})
 	pulumi.RegisterOutputType(CampaignAnswerMachineDetectionConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignDialerConfigOutput{})

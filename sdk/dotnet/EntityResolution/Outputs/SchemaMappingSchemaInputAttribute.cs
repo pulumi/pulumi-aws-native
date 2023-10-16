@@ -16,6 +16,10 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         public readonly string FieldName;
         public readonly string? GroupName;
         public readonly string? MatchKey;
+        /// <summary>
+        /// The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+        /// </summary>
+        public readonly string? SubType;
         public readonly Pulumi.AwsNative.EntityResolution.SchemaMappingSchemaAttributeType Type;
 
         [OutputConstructor]
@@ -26,11 +30,14 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
 
             string? matchKey,
 
+            string? subType,
+
             Pulumi.AwsNative.EntityResolution.SchemaMappingSchemaAttributeType type)
         {
             FieldName = fieldName;
             GroupName = groupName;
             MatchKey = matchKey;
+            SubType = subType;
             Type = type;
         }
     }

@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
+    /// <summary>
+    /// A provisioned concurrency configuration for a function's version.
+    /// </summary>
     [OutputType]
     public sealed class VersionProvisionedConcurrencyConfiguration
     {
+        /// <summary>
+        /// The amount of provisioned concurrency to allocate for the version.
+        /// </summary>
         public readonly int ProvisionedConcurrentExecutions;
 
         [OutputConstructor]

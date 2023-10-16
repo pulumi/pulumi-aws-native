@@ -13,6 +13,7 @@ __all__ = [
     'IdentityPoolCognitoIdentityProviderArgs',
     'IdentityPoolCognitoStreamsArgs',
     'IdentityPoolPushSyncArgs',
+    'IdentityPoolTagArgs',
     'LogDeliveryConfigurationCloudWatchLogsConfigurationArgs',
     'LogDeliveryConfigurationLogConfigurationArgs',
     'UserPoolAccountRecoverySettingArgs',
@@ -52,8 +53,8 @@ __all__ = [
 @pulumi.input_type
 class IdentityPoolCognitoIdentityProviderArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[str]] = None,
-                 provider_name: Optional[pulumi.Input[str]] = None,
+                 client_id: pulumi.Input[str],
+                 provider_name: pulumi.Input[str],
                  server_side_token_check: Optional[pulumi.Input[bool]] = None):
         IdentityPoolCognitoIdentityProviderArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -64,33 +65,31 @@ class IdentityPoolCognitoIdentityProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: Optional[pulumi.Input[str]] = None,
-             provider_name: Optional[pulumi.Input[str]] = None,
+             client_id: pulumi.Input[str],
+             provider_name: pulumi.Input[str],
              server_side_token_check: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
-        if client_id is not None:
-            _setter("client_id", client_id)
-        if provider_name is not None:
-            _setter("provider_name", provider_name)
+        _setter("client_id", client_id)
+        _setter("provider_name", provider_name)
         if server_side_token_check is not None:
             _setter("server_side_token_check", server_side_token_check)
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[str]]:
+    def client_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[str]]):
+    def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> Optional[pulumi.Input[str]]:
+    def provider_name(self) -> pulumi.Input[str]:
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
-    def provider_name(self, value: Optional[pulumi.Input[str]]):
+    def provider_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "provider_name", value)
 
     @property
@@ -195,6 +194,55 @@ class IdentityPoolPushSyncArgs:
     @role_arn.setter
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class IdentityPoolTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        IdentityPoolTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

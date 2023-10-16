@@ -17,6 +17,8 @@ import (
 type RoutingProfile struct {
 	pulumi.CustomResourceState
 
+	// Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+	AgentAvailabilityTimer RoutingProfileAgentAvailabilityTimerPtrOutput `pulumi:"agentAvailabilityTimer"`
 	// The identifier of the default outbound queue for this routing profile.
 	DefaultOutboundQueueArn pulumi.StringOutput `pulumi:"defaultOutboundQueueArn"`
 	// The description of the routing profile.
@@ -87,6 +89,8 @@ func (RoutingProfileState) ElementType() reflect.Type {
 }
 
 type routingProfileArgs struct {
+	// Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+	AgentAvailabilityTimer *RoutingProfileAgentAvailabilityTimer `pulumi:"agentAvailabilityTimer"`
 	// The identifier of the default outbound queue for this routing profile.
 	DefaultOutboundQueueArn string `pulumi:"defaultOutboundQueueArn"`
 	// The description of the routing profile.
@@ -105,6 +109,8 @@ type routingProfileArgs struct {
 
 // The set of arguments for constructing a RoutingProfile resource.
 type RoutingProfileArgs struct {
+	// Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+	AgentAvailabilityTimer RoutingProfileAgentAvailabilityTimerPtrInput
 	// The identifier of the default outbound queue for this routing profile.
 	DefaultOutboundQueueArn pulumi.StringInput
 	// The description of the routing profile.
@@ -168,6 +174,11 @@ func (o RoutingProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*Rout
 	return pulumix.Output[*RoutingProfile]{
 		OutputState: o.OutputState,
 	}
+}
+
+// Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+func (o RoutingProfileOutput) AgentAvailabilityTimer() RoutingProfileAgentAvailabilityTimerPtrOutput {
+	return o.ApplyT(func(v *RoutingProfile) RoutingProfileAgentAvailabilityTimerPtrOutput { return v.AgentAvailabilityTimer }).(RoutingProfileAgentAvailabilityTimerPtrOutput)
 }
 
 // The identifier of the default outbound queue for this routing profile.

@@ -12,8 +12,10 @@ from ._enums import *
 
 __all__ = [
     'MatchingWorkflowInputSourceArgs',
+    'MatchingWorkflowIntermediateSourceConfigurationArgs',
     'MatchingWorkflowOutputAttributeArgs',
     'MatchingWorkflowOutputSourceArgs',
+    'MatchingWorkflowProviderPropertiesArgs',
     'MatchingWorkflowResolutionTechniquesArgs',
     'MatchingWorkflowRuleBasedPropertiesArgs',
     'MatchingWorkflowRuleArgs',
@@ -78,6 +80,37 @@ class MatchingWorkflowInputSourceArgs:
     @apply_normalization.setter
     def apply_normalization(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "apply_normalization", value)
+
+
+@pulumi.input_type
+class MatchingWorkflowIntermediateSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 intermediate_s3_path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] intermediate_s3_path: The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+        """
+        MatchingWorkflowIntermediateSourceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            intermediate_s3_path=intermediate_s3_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             intermediate_s3_path: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("intermediate_s3_path", intermediate_s3_path)
+
+    @property
+    @pulumi.getter(name="intermediateS3Path")
+    def intermediate_s3_path(self) -> pulumi.Input[str]:
+        """
+        The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+        """
+        return pulumi.get(self, "intermediate_s3_path")
+
+    @intermediate_s3_path.setter
+    def intermediate_s3_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "intermediate_s3_path", value)
 
 
 @pulumi.input_type
@@ -192,25 +225,102 @@ class MatchingWorkflowOutputSourceArgs:
 
 
 @pulumi.input_type
+class MatchingWorkflowProviderPropertiesArgs:
+    def __init__(__self__, *,
+                 provider_service_arn: pulumi.Input[str],
+                 intermediate_source_configuration: Optional[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgs']] = None,
+                 provider_configuration: Optional[Any] = None):
+        """
+        :param pulumi.Input[str] provider_service_arn: Arn of the Provider service being used.
+        :param Any provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+        """
+        MatchingWorkflowProviderPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_service_arn=provider_service_arn,
+            intermediate_source_configuration=intermediate_source_configuration,
+            provider_configuration=provider_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_service_arn: pulumi.Input[str],
+             intermediate_source_configuration: Optional[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgs']] = None,
+             provider_configuration: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_service_arn", provider_service_arn)
+        if intermediate_source_configuration is not None:
+            _setter("intermediate_source_configuration", intermediate_source_configuration)
+        if provider_configuration is not None:
+            _setter("provider_configuration", provider_configuration)
+
+    @property
+    @pulumi.getter(name="providerServiceArn")
+    def provider_service_arn(self) -> pulumi.Input[str]:
+        """
+        Arn of the Provider service being used.
+        """
+        return pulumi.get(self, "provider_service_arn")
+
+    @provider_service_arn.setter
+    def provider_service_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider_service_arn", value)
+
+    @property
+    @pulumi.getter(name="intermediateSourceConfiguration")
+    def intermediate_source_configuration(self) -> Optional[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgs']]:
+        return pulumi.get(self, "intermediate_source_configuration")
+
+    @intermediate_source_configuration.setter
+    def intermediate_source_configuration(self, value: Optional[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgs']]):
+        pulumi.set(self, "intermediate_source_configuration", value)
+
+    @property
+    @pulumi.getter(name="providerConfiguration")
+    def provider_configuration(self) -> Optional[Any]:
+        """
+        Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+        """
+        return pulumi.get(self, "provider_configuration")
+
+    @provider_configuration.setter
+    def provider_configuration(self, value: Optional[Any]):
+        pulumi.set(self, "provider_configuration", value)
+
+
+@pulumi.input_type
 class MatchingWorkflowResolutionTechniquesArgs:
     def __init__(__self__, *,
+                 provider_properties: Optional[pulumi.Input['MatchingWorkflowProviderPropertiesArgs']] = None,
                  resolution_type: Optional[pulumi.Input['MatchingWorkflowResolutionTechniquesResolutionType']] = None,
                  rule_based_properties: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']] = None):
         MatchingWorkflowResolutionTechniquesArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
+            provider_properties=provider_properties,
             resolution_type=resolution_type,
             rule_based_properties=rule_based_properties,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
+             provider_properties: Optional[pulumi.Input['MatchingWorkflowProviderPropertiesArgs']] = None,
              resolution_type: Optional[pulumi.Input['MatchingWorkflowResolutionTechniquesResolutionType']] = None,
              rule_based_properties: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
+        if provider_properties is not None:
+            _setter("provider_properties", provider_properties)
         if resolution_type is not None:
             _setter("resolution_type", resolution_type)
         if rule_based_properties is not None:
             _setter("rule_based_properties", rule_based_properties)
+
+    @property
+    @pulumi.getter(name="providerProperties")
+    def provider_properties(self) -> Optional[pulumi.Input['MatchingWorkflowProviderPropertiesArgs']]:
+        return pulumi.get(self, "provider_properties")
+
+    @provider_properties.setter
+    def provider_properties(self, value: Optional[pulumi.Input['MatchingWorkflowProviderPropertiesArgs']]):
+        pulumi.set(self, "provider_properties", value)
 
     @property
     @pulumi.getter(name="resolutionType")
@@ -362,13 +472,18 @@ class SchemaMappingSchemaInputAttributeArgs:
                  field_name: pulumi.Input[str],
                  type: pulumi.Input['SchemaMappingSchemaAttributeType'],
                  group_name: Optional[pulumi.Input[str]] = None,
-                 match_key: Optional[pulumi.Input[str]] = None):
+                 match_key: Optional[pulumi.Input[str]] = None,
+                 sub_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] sub_type: The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+        """
         SchemaMappingSchemaInputAttributeArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             field_name=field_name,
             type=type,
             group_name=group_name,
             match_key=match_key,
+            sub_type=sub_type,
         )
     @staticmethod
     def _configure(
@@ -377,6 +492,7 @@ class SchemaMappingSchemaInputAttributeArgs:
              type: pulumi.Input['SchemaMappingSchemaAttributeType'],
              group_name: Optional[pulumi.Input[str]] = None,
              match_key: Optional[pulumi.Input[str]] = None,
+             sub_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("field_name", field_name)
         _setter("type", type)
@@ -384,6 +500,8 @@ class SchemaMappingSchemaInputAttributeArgs:
             _setter("group_name", group_name)
         if match_key is not None:
             _setter("match_key", match_key)
+        if sub_type is not None:
+            _setter("sub_type", sub_type)
 
     @property
     @pulumi.getter(name="fieldName")
@@ -420,6 +538,18 @@ class SchemaMappingSchemaInputAttributeArgs:
     @match_key.setter
     def match_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "match_key", value)
+
+    @property
+    @pulumi.getter(name="subType")
+    def sub_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+        """
+        return pulumi.get(self, "sub_type")
+
+    @sub_type.setter
+    def sub_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sub_type", value)
 
 
 @pulumi.input_type

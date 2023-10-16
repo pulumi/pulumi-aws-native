@@ -530,178 +530,6 @@ func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-type AutoScalingGroupInstanceMaintenancePolicy struct {
-	MaxHealthyPercentage *int `pulumi:"maxHealthyPercentage"`
-	MinHealthyPercentage *int `pulumi:"minHealthyPercentage"`
-}
-
-// AutoScalingGroupInstanceMaintenancePolicyInput is an input type that accepts AutoScalingGroupInstanceMaintenancePolicyArgs and AutoScalingGroupInstanceMaintenancePolicyOutput values.
-// You can construct a concrete instance of `AutoScalingGroupInstanceMaintenancePolicyInput` via:
-//
-//	AutoScalingGroupInstanceMaintenancePolicyArgs{...}
-type AutoScalingGroupInstanceMaintenancePolicyInput interface {
-	pulumi.Input
-
-	ToAutoScalingGroupInstanceMaintenancePolicyOutput() AutoScalingGroupInstanceMaintenancePolicyOutput
-	ToAutoScalingGroupInstanceMaintenancePolicyOutputWithContext(context.Context) AutoScalingGroupInstanceMaintenancePolicyOutput
-}
-
-type AutoScalingGroupInstanceMaintenancePolicyArgs struct {
-	MaxHealthyPercentage pulumi.IntPtrInput `pulumi:"maxHealthyPercentage"`
-	MinHealthyPercentage pulumi.IntPtrInput `pulumi:"minHealthyPercentage"`
-}
-
-func (AutoScalingGroupInstanceMaintenancePolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicy)(nil)).Elem()
-}
-
-func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToAutoScalingGroupInstanceMaintenancePolicyOutput() AutoScalingGroupInstanceMaintenancePolicyOutput {
-	return i.ToAutoScalingGroupInstanceMaintenancePolicyOutputWithContext(context.Background())
-}
-
-func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToAutoScalingGroupInstanceMaintenancePolicyOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceMaintenancePolicyOutput)
-}
-
-func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy] {
-	return pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy]{
-		OutputState: i.ToAutoScalingGroupInstanceMaintenancePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
-func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutput() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
-	return i.ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceMaintenancePolicyOutput).ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx)
-}
-
-// AutoScalingGroupInstanceMaintenancePolicyPtrInput is an input type that accepts AutoScalingGroupInstanceMaintenancePolicyArgs, AutoScalingGroupInstanceMaintenancePolicyPtr and AutoScalingGroupInstanceMaintenancePolicyPtrOutput values.
-// You can construct a concrete instance of `AutoScalingGroupInstanceMaintenancePolicyPtrInput` via:
-//
-//	        AutoScalingGroupInstanceMaintenancePolicyArgs{...}
-//
-//	or:
-//
-//	        nil
-type AutoScalingGroupInstanceMaintenancePolicyPtrInput interface {
-	pulumi.Input
-
-	ToAutoScalingGroupInstanceMaintenancePolicyPtrOutput() AutoScalingGroupInstanceMaintenancePolicyPtrOutput
-	ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Context) AutoScalingGroupInstanceMaintenancePolicyPtrOutput
-}
-
-type autoScalingGroupInstanceMaintenancePolicyPtrType AutoScalingGroupInstanceMaintenancePolicyArgs
-
-func AutoScalingGroupInstanceMaintenancePolicyPtr(v *AutoScalingGroupInstanceMaintenancePolicyArgs) AutoScalingGroupInstanceMaintenancePolicyPtrInput {
-	return (*autoScalingGroupInstanceMaintenancePolicyPtrType)(v)
-}
-
-func (*autoScalingGroupInstanceMaintenancePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoScalingGroupInstanceMaintenancePolicy)(nil)).Elem()
-}
-
-func (i *autoScalingGroupInstanceMaintenancePolicyPtrType) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutput() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
-	return i.ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *autoScalingGroupInstanceMaintenancePolicyPtrType) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceMaintenancePolicyPtrOutput)
-}
-
-func (i *autoScalingGroupInstanceMaintenancePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy] {
-	return pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy]{
-		OutputState: i.ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-type AutoScalingGroupInstanceMaintenancePolicyOutput struct{ *pulumi.OutputState }
-
-func (AutoScalingGroupInstanceMaintenancePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicy)(nil)).Elem()
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToAutoScalingGroupInstanceMaintenancePolicyOutput() AutoScalingGroupInstanceMaintenancePolicyOutput {
-	return o
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToAutoScalingGroupInstanceMaintenancePolicyOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyOutput {
-	return o
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutput() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
-	return o.ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupInstanceMaintenancePolicy) *AutoScalingGroupInstanceMaintenancePolicy {
-		return &v
-	}).(AutoScalingGroupInstanceMaintenancePolicyPtrOutput)
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy] {
-	return pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupInstanceMaintenancePolicy) *int { return v.MaxHealthyPercentage }).(pulumi.IntPtrOutput)
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupInstanceMaintenancePolicy) *int { return v.MinHealthyPercentage }).(pulumi.IntPtrOutput)
-}
-
-type AutoScalingGroupInstanceMaintenancePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (AutoScalingGroupInstanceMaintenancePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoScalingGroupInstanceMaintenancePolicy)(nil)).Elem()
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutput() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
-	return o
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
-	return o
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy] {
-	return pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) Elem() AutoScalingGroupInstanceMaintenancePolicyOutput {
-	return o.ApplyT(func(v *AutoScalingGroupInstanceMaintenancePolicy) AutoScalingGroupInstanceMaintenancePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret AutoScalingGroupInstanceMaintenancePolicy
-		return ret
-	}).(AutoScalingGroupInstanceMaintenancePolicyOutput)
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroupInstanceMaintenancePolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxHealthyPercentage
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroupInstanceMaintenancePolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinHealthyPercentage
-	}).(pulumi.IntPtrOutput)
-}
-
 type AutoScalingGroupInstanceRequirements struct {
 	AcceleratorCount                          *AutoScalingGroupAcceleratorCountRequest          `pulumi:"acceleratorCount"`
 	AcceleratorManufacturers                  []string                                          `pulumi:"acceleratorManufacturers"`
@@ -7317,8 +7145,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrInput)(nil)).Elem(), AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupBaselineEbsBandwidthMbpsRequestInput)(nil)).Elem(), AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput)(nil)).Elem(), AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicyInput)(nil)).Elem(), AutoScalingGroupInstanceMaintenancePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicyPtrInput)(nil)).Elem(), AutoScalingGroupInstanceMaintenancePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceRequirementsInput)(nil)).Elem(), AutoScalingGroupInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceRequirementsPtrInput)(nil)).Elem(), AutoScalingGroupInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstancesDistributionInput)(nil)).Elem(), AutoScalingGroupInstancesDistributionArgs{})
@@ -7398,8 +7224,6 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupBaselineEbsBandwidthMbpsRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput{})
-	pulumi.RegisterOutputType(AutoScalingGroupInstanceMaintenancePolicyOutput{})
-	pulumi.RegisterOutputType(AutoScalingGroupInstanceMaintenancePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceRequirementsOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstancesDistributionOutput{})

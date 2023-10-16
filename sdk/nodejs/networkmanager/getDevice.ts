@@ -68,6 +68,10 @@ export interface GetDeviceResult {
      */
     readonly siteId?: string;
     /**
+     * The state of the device.
+     */
+    readonly state?: string;
+    /**
      * The tags for the device.
      */
     readonly tags?: outputs.networkmanager.DeviceTag[];

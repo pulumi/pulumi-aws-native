@@ -21,6 +21,7 @@ class RoutingProfileArgs:
                  description: pulumi.Input[str],
                  instance_arn: pulumi.Input[str],
                  media_concurrencies: pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]],
+                 agent_availability_timer: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileTagArgs']]]] = None):
@@ -30,6 +31,7 @@ class RoutingProfileArgs:
         :param pulumi.Input[str] description: The description of the routing profile.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]] media_concurrencies: The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+        :param pulumi.Input['RoutingProfileAgentAvailabilityTimer'] agent_availability_timer: Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
         :param pulumi.Input[str] name: The name of the routing profile.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]] queue_configs: The queues to associate with this routing profile.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileTagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -40,6 +42,7 @@ class RoutingProfileArgs:
             description=description,
             instance_arn=instance_arn,
             media_concurrencies=media_concurrencies,
+            agent_availability_timer=agent_availability_timer,
             name=name,
             queue_configs=queue_configs,
             tags=tags,
@@ -51,6 +54,7 @@ class RoutingProfileArgs:
              description: pulumi.Input[str],
              instance_arn: pulumi.Input[str],
              media_concurrencies: pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]],
+             agent_availability_timer: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']] = None,
              name: Optional[pulumi.Input[str]] = None,
              queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileTagArgs']]]] = None,
@@ -59,6 +63,8 @@ class RoutingProfileArgs:
         _setter("description", description)
         _setter("instance_arn", instance_arn)
         _setter("media_concurrencies", media_concurrencies)
+        if agent_availability_timer is not None:
+            _setter("agent_availability_timer", agent_availability_timer)
         if name is not None:
             _setter("name", name)
         if queue_configs is not None:
@@ -115,6 +121,18 @@ class RoutingProfileArgs:
         pulumi.set(self, "media_concurrencies", value)
 
     @property
+    @pulumi.getter(name="agentAvailabilityTimer")
+    def agent_availability_timer(self) -> Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']]:
+        """
+        Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+        """
+        return pulumi.get(self, "agent_availability_timer")
+
+    @agent_availability_timer.setter
+    def agent_availability_timer(self, value: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']]):
+        pulumi.set(self, "agent_availability_timer", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -156,6 +174,7 @@ class RoutingProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_availability_timer: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']] = None,
                  default_outbound_queue_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
@@ -169,6 +188,7 @@ class RoutingProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['RoutingProfileAgentAvailabilityTimer'] agent_availability_timer: Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
         :param pulumi.Input[str] default_outbound_queue_arn: The identifier of the default outbound queue for this routing profile.
         :param pulumi.Input[str] description: The description of the routing profile.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
@@ -205,6 +225,7 @@ class RoutingProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_availability_timer: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']] = None,
                  default_outbound_queue_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
@@ -221,6 +242,7 @@ class RoutingProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RoutingProfileArgs.__new__(RoutingProfileArgs)
 
+            __props__.__dict__["agent_availability_timer"] = agent_availability_timer
             if default_outbound_queue_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'default_outbound_queue_arn'")
             __props__.__dict__["default_outbound_queue_arn"] = default_outbound_queue_arn
@@ -259,6 +281,7 @@ class RoutingProfile(pulumi.CustomResource):
 
         __props__ = RoutingProfileArgs.__new__(RoutingProfileArgs)
 
+        __props__.__dict__["agent_availability_timer"] = None
         __props__.__dict__["default_outbound_queue_arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["instance_arn"] = None
@@ -268,6 +291,14 @@ class RoutingProfile(pulumi.CustomResource):
         __props__.__dict__["routing_profile_arn"] = None
         __props__.__dict__["tags"] = None
         return RoutingProfile(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="agentAvailabilityTimer")
+    def agent_availability_timer(self) -> pulumi.Output[Optional['RoutingProfileAgentAvailabilityTimer']]:
+        """
+        Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+        """
+        return pulumi.get(self, "agent_availability_timer")
 
     @property
     @pulumi.getter(name="defaultOutboundQueueArn")

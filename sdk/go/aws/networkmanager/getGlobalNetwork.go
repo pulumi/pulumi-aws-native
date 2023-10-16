@@ -31,10 +31,14 @@ type LookupGlobalNetworkArgs struct {
 type LookupGlobalNetworkResult struct {
 	// The Amazon Resource Name (ARN) of the global network.
 	Arn *string `pulumi:"arn"`
+	// The date and time that the global network was created.
+	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the global network.
 	Description *string `pulumi:"description"`
 	// The ID of the global network.
 	Id *string `pulumi:"id"`
+	// The state of the global network.
+	State *string `pulumi:"state"`
 	// The tags for the global network.
 	Tags []GlobalNetworkTag `pulumi:"tags"`
 }
@@ -86,6 +90,11 @@ func (o LookupGlobalNetworkResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalNetworkResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The date and time that the global network was created.
+func (o LookupGlobalNetworkResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalNetworkResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
 // The description of the global network.
 func (o LookupGlobalNetworkResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalNetworkResult) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -94,6 +103,11 @@ func (o LookupGlobalNetworkResultOutput) Description() pulumi.StringPtrOutput {
 // The ID of the global network.
 func (o LookupGlobalNetworkResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalNetworkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The state of the global network.
+func (o LookupGlobalNetworkResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalNetworkResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The tags for the global network.

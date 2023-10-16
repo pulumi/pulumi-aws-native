@@ -29,6 +29,8 @@ type LookupRoutingProfileArgs struct {
 }
 
 type LookupRoutingProfileResult struct {
+	// Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+	AgentAvailabilityTimer *RoutingProfileAgentAvailabilityTimer `pulumi:"agentAvailabilityTimer"`
 	// The identifier of the default outbound queue for this routing profile.
 	DefaultOutboundQueueArn *string `pulumi:"defaultOutboundQueueArn"`
 	// The description of the routing profile.
@@ -87,6 +89,13 @@ func (o LookupRoutingProfileResultOutput) ToOutput(ctx context.Context) pulumix.
 	return pulumix.Output[LookupRoutingProfileResult]{
 		OutputState: o.OutputState,
 	}
+}
+
+// Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+func (o LookupRoutingProfileResultOutput) AgentAvailabilityTimer() RoutingProfileAgentAvailabilityTimerPtrOutput {
+	return o.ApplyT(func(v LookupRoutingProfileResult) *RoutingProfileAgentAvailabilityTimer {
+		return v.AgentAvailabilityTimer
+	}).(RoutingProfileAgentAvailabilityTimerPtrOutput)
 }
 
 // The identifier of the default outbound queue for this routing profile.

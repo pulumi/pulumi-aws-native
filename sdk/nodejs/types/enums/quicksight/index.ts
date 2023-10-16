@@ -757,6 +757,7 @@ export type AnalysisTableOrientation = (typeof AnalysisTableOrientation)[keyof t
 export const AnalysisTableTotalsPlacement = {
     Start: "START",
     End: "END",
+    Auto: "AUTO",
 } as const;
 
 export type AnalysisTableTotalsPlacement = (typeof AnalysisTableTotalsPlacement)[keyof typeof AnalysisTableTotalsPlacement];
@@ -1660,6 +1661,7 @@ export type DashboardTableOrientation = (typeof DashboardTableOrientation)[keyof
 export const DashboardTableTotalsPlacement = {
     Start: "START",
     End: "END",
+    Auto: "AUTO",
 } as const;
 
 export type DashboardTableTotalsPlacement = (typeof DashboardTableTotalsPlacement)[keyof typeof DashboardTableTotalsPlacement];
@@ -2717,6 +2719,7 @@ export type TemplateTableOrientation = (typeof TemplateTableOrientation)[keyof t
 export const TemplateTableTotalsPlacement = {
     Start: "START",
     End: "END",
+    Auto: "AUTO",
 } as const;
 
 export type TemplateTableTotalsPlacement = (typeof TemplateTableTotalsPlacement)[keyof typeof TemplateTableTotalsPlacement];
@@ -2946,6 +2949,11 @@ export const TopicDefaultAggregation = {
     Count: "COUNT",
     DistinctCount: "DISTINCT_COUNT",
     Average: "AVERAGE",
+    Median: "MEDIAN",
+    Stdev: "STDEV",
+    Stdevp: "STDEVP",
+    Var: "VAR",
+    Varp: "VARP",
 } as const;
 
 export type TopicDefaultAggregation = (typeof TopicDefaultAggregation)[keyof typeof TopicDefaultAggregation];

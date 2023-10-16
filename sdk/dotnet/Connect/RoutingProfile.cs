@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Connect
     public partial class RoutingProfile : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+        /// </summary>
+        [Output("agentAvailabilityTimer")]
+        public Output<Pulumi.AwsNative.Connect.RoutingProfileAgentAvailabilityTimer?> AgentAvailabilityTimer { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the default outbound queue for this routing profile.
         /// </summary>
         [Output("defaultOutboundQueueArn")]
@@ -108,6 +114,12 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class RoutingProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+        /// </summary>
+        [Input("agentAvailabilityTimer")]
+        public Input<Pulumi.AwsNative.Connect.RoutingProfileAgentAvailabilityTimer>? AgentAvailabilityTimer { get; set; }
+
         /// <summary>
         /// The identifier of the default outbound queue for this routing profile.
         /// </summary>

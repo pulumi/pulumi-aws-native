@@ -24,15 +24,15 @@ func LookupVersion(ctx *pulumi.Context, args *LookupVersionArgs, opts ...pulumi.
 }
 
 type LookupVersionArgs struct {
-	Id string `pulumi:"id"`
+	// The ARN of the version.
+	FunctionArn string `pulumi:"functionArn"`
 }
 
 type LookupVersionResult struct {
-	CodeSha256                   *string                                     `pulumi:"codeSha256"`
-	Description                  *string                                     `pulumi:"description"`
-	Id                           *string                                     `pulumi:"id"`
-	ProvisionedConcurrencyConfig *VersionProvisionedConcurrencyConfiguration `pulumi:"provisionedConcurrencyConfig"`
-	Version                      *string                                     `pulumi:"version"`
+	// The ARN of the version.
+	FunctionArn *string `pulumi:"functionArn"`
+	// The version number.
+	Version *string `pulumi:"version"`
 }
 
 func LookupVersionOutput(ctx *pulumi.Context, args LookupVersionOutputArgs, opts ...pulumi.InvokeOption) LookupVersionResultOutput {
@@ -49,7 +49,8 @@ func LookupVersionOutput(ctx *pulumi.Context, args LookupVersionOutputArgs, opts
 }
 
 type LookupVersionOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The ARN of the version.
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 }
 
 func (LookupVersionOutputArgs) ElementType() reflect.Type {
@@ -76,24 +77,12 @@ func (o LookupVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
-func (o LookupVersionResultOutput) CodeSha256() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVersionResult) *string { return v.CodeSha256 }).(pulumi.StringPtrOutput)
+// The ARN of the version.
+func (o LookupVersionResultOutput) FunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVersionResult) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVersionResultOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVersionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupVersionResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVersionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupVersionResultOutput) ProvisionedConcurrencyConfig() VersionProvisionedConcurrencyConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupVersionResult) *VersionProvisionedConcurrencyConfiguration {
-		return v.ProvisionedConcurrencyConfig
-	}).(VersionProvisionedConcurrencyConfigurationPtrOutput)
-}
-
+// The version number.
 func (o LookupVersionResultOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVersionResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }

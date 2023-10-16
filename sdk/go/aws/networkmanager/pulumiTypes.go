@@ -1707,8 +1707,10 @@ func (o DeviceTagArrayOutput) Index(i pulumi.IntInput) DeviceTagOutput {
 
 // A key-value pair to associate with a global network resource.
 type GlobalNetworkTag struct {
-	Key   *string `pulumi:"key"`
-	Value *string `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
 }
 
 // GlobalNetworkTagInput is an input type that accepts GlobalNetworkTagArgs and GlobalNetworkTagOutput values.
@@ -1724,8 +1726,10 @@ type GlobalNetworkTagInput interface {
 
 // A key-value pair to associate with a global network resource.
 type GlobalNetworkTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (GlobalNetworkTagArgs) ElementType() reflect.Type {
@@ -1798,12 +1802,14 @@ func (o GlobalNetworkTagOutput) ToOutput(ctx context.Context) pulumix.Output[Glo
 	}
 }
 
-func (o GlobalNetworkTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GlobalNetworkTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o GlobalNetworkTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalNetworkTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o GlobalNetworkTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GlobalNetworkTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o GlobalNetworkTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalNetworkTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type GlobalNetworkTagArrayOutput struct{ *pulumi.OutputState }
@@ -1960,8 +1966,10 @@ func (o LinkBandwidthPtrOutput) UploadSpeed() pulumi.IntPtrOutput {
 
 // A key-value pair to associate with a link resource.
 type LinkTag struct {
-	Key   *string `pulumi:"key"`
-	Value *string `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
 }
 
 // LinkTagInput is an input type that accepts LinkTagArgs and LinkTagOutput values.
@@ -1977,8 +1985,10 @@ type LinkTagInput interface {
 
 // A key-value pair to associate with a link resource.
 type LinkTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (LinkTagArgs) ElementType() reflect.Type {
@@ -2051,12 +2061,14 @@ func (o LinkTagOutput) ToOutput(ctx context.Context) pulumix.Output[LinkTag] {
 	}
 }
 
-func (o LinkTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o LinkTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o LinkTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o LinkTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type LinkTagArrayOutput struct{ *pulumi.OutputState }

@@ -82,6 +82,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly bool? PolicyEnabled;
         /// <summary>
+        /// The configuration options for customer provided KMS encryption.
+        /// </summary>
+        public readonly Outputs.VerifiedAccessGroupSseSpecification? SseSpecification;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.VerifiedAccessGroupTag> Tags;
@@ -112,6 +116,8 @@ namespace Pulumi.AwsNative.Ec2
 
             bool? policyEnabled,
 
+            Outputs.VerifiedAccessGroupSseSpecification? sseSpecification,
+
             ImmutableArray<Outputs.VerifiedAccessGroupTag> tags,
 
             string? verifiedAccessGroupArn,
@@ -126,6 +132,7 @@ namespace Pulumi.AwsNative.Ec2
             Owner = owner;
             PolicyDocument = policyDocument;
             PolicyEnabled = policyEnabled;
+            SseSpecification = sseSpecification;
             Tags = tags;
             VerifiedAccessGroupArn = verifiedAccessGroupArn;
             VerifiedAccessGroupId = verifiedAccessGroupId;

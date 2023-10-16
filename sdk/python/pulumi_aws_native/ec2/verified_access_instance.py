@@ -17,6 +17,7 @@ __all__ = ['VerifiedAccessInstanceArgs', 'VerifiedAccessInstance']
 class VerifiedAccessInstanceArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  logging_configurations: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceTagArgs']]]] = None,
                  verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -24,6 +25,7 @@ class VerifiedAccessInstanceArgs:
         """
         The set of arguments for constructing a VerifiedAccessInstance resource.
         :param pulumi.Input[str] description: A description for the AWS Verified Access instance.
+        :param pulumi.Input[bool] fips_enabled: Indicates whether FIPS is enabled
         :param pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsArgs'] logging_configurations: The configuration options for AWS Verified Access instances.
         :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] verified_access_trust_provider_ids: The IDs of the AWS Verified Access trust providers.
@@ -32,6 +34,7 @@ class VerifiedAccessInstanceArgs:
         VerifiedAccessInstanceArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             description=description,
+            fips_enabled=fips_enabled,
             logging_configurations=logging_configurations,
             tags=tags,
             verified_access_trust_provider_ids=verified_access_trust_provider_ids,
@@ -41,6 +44,7 @@ class VerifiedAccessInstanceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              description: Optional[pulumi.Input[str]] = None,
+             fips_enabled: Optional[pulumi.Input[bool]] = None,
              logging_configurations: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceTagArgs']]]] = None,
              verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -48,6 +52,8 @@ class VerifiedAccessInstanceArgs:
              opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
             _setter("description", description)
+        if fips_enabled is not None:
+            _setter("fips_enabled", fips_enabled)
         if logging_configurations is not None:
             _setter("logging_configurations", logging_configurations)
         if tags is not None:
@@ -68,6 +74,18 @@ class VerifiedAccessInstanceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether FIPS is enabled
+        """
+        return pulumi.get(self, "fips_enabled")
+
+    @fips_enabled.setter
+    def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fips_enabled", value)
 
     @property
     @pulumi.getter(name="loggingConfigurations")
@@ -124,6 +142,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  logging_configurations: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessLogsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceTagArgs']]]]] = None,
                  verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -135,6 +154,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the AWS Verified Access instance.
+        :param pulumi.Input[bool] fips_enabled: Indicates whether FIPS is enabled
         :param pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessLogsArgs']] logging_configurations: The configuration options for AWS Verified Access instances.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] verified_access_trust_provider_ids: The IDs of the AWS Verified Access trust providers.
@@ -169,6 +189,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  logging_configurations: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessLogsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceTagArgs']]]]] = None,
                  verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -183,6 +204,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
             __props__ = VerifiedAccessInstanceArgs.__new__(VerifiedAccessInstanceArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["fips_enabled"] = fips_enabled
             if logging_configurations is not None and not isinstance(logging_configurations, VerifiedAccessInstanceVerifiedAccessLogsArgs):
                 logging_configurations = logging_configurations or {}
                 def _setter(key, value):
@@ -219,6 +241,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
 
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["fips_enabled"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["logging_configurations"] = None
         __props__.__dict__["tags"] = None
@@ -242,6 +265,14 @@ class VerifiedAccessInstance(pulumi.CustomResource):
         A description for the AWS Verified Access instance.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether FIPS is enabled
+        """
+        return pulumi.get(self, "fips_enabled")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")

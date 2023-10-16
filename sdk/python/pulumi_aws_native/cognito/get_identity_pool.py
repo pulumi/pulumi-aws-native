@@ -19,22 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetIdentityPoolResult:
-    def __init__(__self__, allow_classic_flow=None, allow_unauthenticated_identities=None, cognito_events=None, cognito_identity_providers=None, cognito_streams=None, developer_provider_name=None, id=None, identity_pool_name=None, name=None, open_id_connect_provider_arns=None, push_sync=None, saml_provider_arns=None, supported_login_providers=None):
+    def __init__(__self__, allow_classic_flow=None, allow_unauthenticated_identities=None, cognito_identity_providers=None, developer_provider_name=None, id=None, identity_pool_name=None, identity_pool_tags=None, name=None, open_id_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None):
         if allow_classic_flow and not isinstance(allow_classic_flow, bool):
             raise TypeError("Expected argument 'allow_classic_flow' to be a bool")
         pulumi.set(__self__, "allow_classic_flow", allow_classic_flow)
         if allow_unauthenticated_identities and not isinstance(allow_unauthenticated_identities, bool):
             raise TypeError("Expected argument 'allow_unauthenticated_identities' to be a bool")
         pulumi.set(__self__, "allow_unauthenticated_identities", allow_unauthenticated_identities)
-        if cognito_events and not isinstance(cognito_events, dict):
-            raise TypeError("Expected argument 'cognito_events' to be a dict")
-        pulumi.set(__self__, "cognito_events", cognito_events)
         if cognito_identity_providers and not isinstance(cognito_identity_providers, list):
             raise TypeError("Expected argument 'cognito_identity_providers' to be a list")
         pulumi.set(__self__, "cognito_identity_providers", cognito_identity_providers)
-        if cognito_streams and not isinstance(cognito_streams, dict):
-            raise TypeError("Expected argument 'cognito_streams' to be a dict")
-        pulumi.set(__self__, "cognito_streams", cognito_streams)
         if developer_provider_name and not isinstance(developer_provider_name, str):
             raise TypeError("Expected argument 'developer_provider_name' to be a str")
         pulumi.set(__self__, "developer_provider_name", developer_provider_name)
@@ -44,15 +38,15 @@ class GetIdentityPoolResult:
         if identity_pool_name and not isinstance(identity_pool_name, str):
             raise TypeError("Expected argument 'identity_pool_name' to be a str")
         pulumi.set(__self__, "identity_pool_name", identity_pool_name)
+        if identity_pool_tags and not isinstance(identity_pool_tags, list):
+            raise TypeError("Expected argument 'identity_pool_tags' to be a list")
+        pulumi.set(__self__, "identity_pool_tags", identity_pool_tags)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if open_id_connect_provider_arns and not isinstance(open_id_connect_provider_arns, list):
             raise TypeError("Expected argument 'open_id_connect_provider_arns' to be a list")
         pulumi.set(__self__, "open_id_connect_provider_arns", open_id_connect_provider_arns)
-        if push_sync and not isinstance(push_sync, dict):
-            raise TypeError("Expected argument 'push_sync' to be a dict")
-        pulumi.set(__self__, "push_sync", push_sync)
         if saml_provider_arns and not isinstance(saml_provider_arns, list):
             raise TypeError("Expected argument 'saml_provider_arns' to be a list")
         pulumi.set(__self__, "saml_provider_arns", saml_provider_arns)
@@ -71,19 +65,9 @@ class GetIdentityPoolResult:
         return pulumi.get(self, "allow_unauthenticated_identities")
 
     @property
-    @pulumi.getter(name="cognitoEvents")
-    def cognito_events(self) -> Optional[Any]:
-        return pulumi.get(self, "cognito_events")
-
-    @property
     @pulumi.getter(name="cognitoIdentityProviders")
     def cognito_identity_providers(self) -> Optional[Sequence['outputs.IdentityPoolCognitoIdentityProvider']]:
         return pulumi.get(self, "cognito_identity_providers")
-
-    @property
-    @pulumi.getter(name="cognitoStreams")
-    def cognito_streams(self) -> Optional['outputs.IdentityPoolCognitoStreams']:
-        return pulumi.get(self, "cognito_streams")
 
     @property
     @pulumi.getter(name="developerProviderName")
@@ -101,6 +85,14 @@ class GetIdentityPoolResult:
         return pulumi.get(self, "identity_pool_name")
 
     @property
+    @pulumi.getter(name="identityPoolTags")
+    def identity_pool_tags(self) -> Optional[Sequence['outputs.IdentityPoolTag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "identity_pool_tags")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
@@ -109,11 +101,6 @@ class GetIdentityPoolResult:
     @pulumi.getter(name="openIdConnectProviderArns")
     def open_id_connect_provider_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "open_id_connect_provider_arns")
-
-    @property
-    @pulumi.getter(name="pushSync")
-    def push_sync(self) -> Optional['outputs.IdentityPoolPushSync']:
-        return pulumi.get(self, "push_sync")
 
     @property
     @pulumi.getter(name="samlProviderArns")
@@ -134,15 +121,13 @@ class AwaitableGetIdentityPoolResult(GetIdentityPoolResult):
         return GetIdentityPoolResult(
             allow_classic_flow=self.allow_classic_flow,
             allow_unauthenticated_identities=self.allow_unauthenticated_identities,
-            cognito_events=self.cognito_events,
             cognito_identity_providers=self.cognito_identity_providers,
-            cognito_streams=self.cognito_streams,
             developer_provider_name=self.developer_provider_name,
             id=self.id,
             identity_pool_name=self.identity_pool_name,
+            identity_pool_tags=self.identity_pool_tags,
             name=self.name,
             open_id_connect_provider_arns=self.open_id_connect_provider_arns,
-            push_sync=self.push_sync,
             saml_provider_arns=self.saml_provider_arns,
             supported_login_providers=self.supported_login_providers)
 
@@ -160,15 +145,13 @@ def get_identity_pool(id: Optional[str] = None,
     return AwaitableGetIdentityPoolResult(
         allow_classic_flow=pulumi.get(__ret__, 'allow_classic_flow'),
         allow_unauthenticated_identities=pulumi.get(__ret__, 'allow_unauthenticated_identities'),
-        cognito_events=pulumi.get(__ret__, 'cognito_events'),
         cognito_identity_providers=pulumi.get(__ret__, 'cognito_identity_providers'),
-        cognito_streams=pulumi.get(__ret__, 'cognito_streams'),
         developer_provider_name=pulumi.get(__ret__, 'developer_provider_name'),
         id=pulumi.get(__ret__, 'id'),
         identity_pool_name=pulumi.get(__ret__, 'identity_pool_name'),
+        identity_pool_tags=pulumi.get(__ret__, 'identity_pool_tags'),
         name=pulumi.get(__ret__, 'name'),
         open_id_connect_provider_arns=pulumi.get(__ret__, 'open_id_connect_provider_arns'),
-        push_sync=pulumi.get(__ret__, 'push_sync'),
         saml_provider_arns=pulumi.get(__ret__, 'saml_provider_arns'),
         supported_login_providers=pulumi.get(__ret__, 'supported_login_providers'))
 

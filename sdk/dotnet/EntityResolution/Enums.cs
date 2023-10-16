@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.EntityResolution
 
         public static MatchingWorkflowResolutionTechniquesResolutionType RuleMatching { get; } = new MatchingWorkflowResolutionTechniquesResolutionType("RULE_MATCHING");
         public static MatchingWorkflowResolutionTechniquesResolutionType MlMatching { get; } = new MatchingWorkflowResolutionTechniquesResolutionType("ML_MATCHING");
+        public static MatchingWorkflowResolutionTechniquesResolutionType Provider { get; } = new MatchingWorkflowResolutionTechniquesResolutionType("PROVIDER");
 
         public static bool operator ==(MatchingWorkflowResolutionTechniquesResolutionType left, MatchingWorkflowResolutionTechniquesResolutionType right) => left.Equals(right);
         public static bool operator !=(MatchingWorkflowResolutionTechniquesResolutionType left, MatchingWorkflowResolutionTechniquesResolutionType right) => !left.Equals(right);
@@ -92,6 +93,7 @@ namespace Pulumi.AwsNative.EntityResolution
         public static SchemaMappingSchemaAttributeType UniqueId { get; } = new SchemaMappingSchemaAttributeType("UNIQUE_ID");
         public static SchemaMappingSchemaAttributeType Date { get; } = new SchemaMappingSchemaAttributeType("DATE");
         public static SchemaMappingSchemaAttributeType String { get; } = new SchemaMappingSchemaAttributeType("STRING");
+        public static SchemaMappingSchemaAttributeType ProviderId { get; } = new SchemaMappingSchemaAttributeType("PROVIDER_ID");
 
         public static bool operator ==(SchemaMappingSchemaAttributeType left, SchemaMappingSchemaAttributeType right) => left.Equals(right);
         public static bool operator !=(SchemaMappingSchemaAttributeType left, SchemaMappingSchemaAttributeType right) => !left.Equals(right);

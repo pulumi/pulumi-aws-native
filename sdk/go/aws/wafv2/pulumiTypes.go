@@ -12305,7 +12305,8 @@ func (o WebAclAwsManagedRulesAtpRuleSetPtrOutput) ResponseInspection() WebAclRes
 
 // Configures how to use the Bot Control managed rule group in the web ACL
 type WebAclAwsManagedRulesBotControlRuleSet struct {
-	InspectionLevel WebAclAwsManagedRulesBotControlRuleSetInspectionLevel `pulumi:"inspectionLevel"`
+	EnableMachineLearning *bool                                                 `pulumi:"enableMachineLearning"`
+	InspectionLevel       WebAclAwsManagedRulesBotControlRuleSetInspectionLevel `pulumi:"inspectionLevel"`
 }
 
 // WebAclAwsManagedRulesBotControlRuleSetInput is an input type that accepts WebAclAwsManagedRulesBotControlRuleSetArgs and WebAclAwsManagedRulesBotControlRuleSetOutput values.
@@ -12321,7 +12322,8 @@ type WebAclAwsManagedRulesBotControlRuleSetInput interface {
 
 // Configures how to use the Bot Control managed rule group in the web ACL
 type WebAclAwsManagedRulesBotControlRuleSetArgs struct {
-	InspectionLevel WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput `pulumi:"inspectionLevel"`
+	EnableMachineLearning pulumi.BoolPtrInput                                        `pulumi:"enableMachineLearning"`
+	InspectionLevel       WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput `pulumi:"inspectionLevel"`
 }
 
 func (WebAclAwsManagedRulesBotControlRuleSetArgs) ElementType() reflect.Type {
@@ -12420,6 +12422,10 @@ func (o WebAclAwsManagedRulesBotControlRuleSetOutput) ToOutput(ctx context.Conte
 	}
 }
 
+func (o WebAclAwsManagedRulesBotControlRuleSetOutput) EnableMachineLearning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebAclAwsManagedRulesBotControlRuleSet) *bool { return v.EnableMachineLearning }).(pulumi.BoolPtrOutput)
+}
+
 func (o WebAclAwsManagedRulesBotControlRuleSetOutput) InspectionLevel() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput {
 	return o.ApplyT(func(v WebAclAwsManagedRulesBotControlRuleSet) WebAclAwsManagedRulesBotControlRuleSetInspectionLevel {
 		return v.InspectionLevel
@@ -12454,6 +12460,15 @@ func (o WebAclAwsManagedRulesBotControlRuleSetPtrOutput) Elem() WebAclAwsManaged
 		var ret WebAclAwsManagedRulesBotControlRuleSet
 		return ret
 	}).(WebAclAwsManagedRulesBotControlRuleSetOutput)
+}
+
+func (o WebAclAwsManagedRulesBotControlRuleSetPtrOutput) EnableMachineLearning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAclAwsManagedRulesBotControlRuleSet) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableMachineLearning
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o WebAclAwsManagedRulesBotControlRuleSetPtrOutput) InspectionLevel() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput {

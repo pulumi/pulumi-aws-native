@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The date and time that the global network was created.
+        /// </summary>
+        public readonly string? CreatedAt;
+        /// <summary>
         /// The description of the global network.
         /// </summary>
         public readonly string? Description;
@@ -69,6 +73,10 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The ID of the global network.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The state of the global network.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// The tags for the global network.
         /// </summary>
@@ -78,15 +86,21 @@ namespace Pulumi.AwsNative.NetworkManager
         private GetGlobalNetworkResult(
             string? arn,
 
+            string? createdAt,
+
             string? description,
 
             string? id,
 
+            string? state,
+
             ImmutableArray<Outputs.GlobalNetworkTag> tags)
         {
             Arn = arn;
+            CreatedAt = createdAt;
             Description = description;
             Id = id;
+            State = state;
             Tags = tags;
         }
     }

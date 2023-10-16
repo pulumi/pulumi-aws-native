@@ -41,6 +41,8 @@ type LookupVerifiedAccessGroupResult struct {
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// The status of the Verified Access policy.
 	PolicyEnabled *bool `pulumi:"policyEnabled"`
+	// The configuration options for customer provided KMS encryption.
+	SseSpecification *VerifiedAccessGroupSseSpecification `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []VerifiedAccessGroupTag `pulumi:"tags"`
 	// The ARN of the Verified Access group.
@@ -121,6 +123,13 @@ func (o LookupVerifiedAccessGroupResultOutput) PolicyDocument() pulumi.StringPtr
 // The status of the Verified Access policy.
 func (o LookupVerifiedAccessGroupResultOutput) PolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVerifiedAccessGroupResult) *bool { return v.PolicyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The configuration options for customer provided KMS encryption.
+func (o LookupVerifiedAccessGroupResultOutput) SseSpecification() VerifiedAccessGroupSseSpecificationPtrOutput {
+	return o.ApplyT(func(v LookupVerifiedAccessGroupResult) *VerifiedAccessGroupSseSpecification {
+		return v.SseSpecification
+	}).(VerifiedAccessGroupSseSpecificationPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

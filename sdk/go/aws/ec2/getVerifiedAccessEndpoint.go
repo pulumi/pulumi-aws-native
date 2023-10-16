@@ -47,6 +47,8 @@ type LookupVerifiedAccessEndpointResult struct {
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// The status of the Verified Access policy.
 	PolicyEnabled *bool `pulumi:"policyEnabled"`
+	// The configuration options for customer provided KMS encryption.
+	SseSpecification *VerifiedAccessEndpointSseSpecification `pulumi:"sseSpecification"`
 	// The endpoint status.
 	Status *string `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
@@ -148,6 +150,13 @@ func (o LookupVerifiedAccessEndpointResultOutput) PolicyDocument() pulumi.String
 // The status of the Verified Access policy.
 func (o LookupVerifiedAccessEndpointResultOutput) PolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVerifiedAccessEndpointResult) *bool { return v.PolicyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The configuration options for customer provided KMS encryption.
+func (o LookupVerifiedAccessEndpointResultOutput) SseSpecification() VerifiedAccessEndpointSseSpecificationPtrOutput {
+	return o.ApplyT(func(v LookupVerifiedAccessEndpointResult) *VerifiedAccessEndpointSseSpecification {
+		return v.SseSpecification
+	}).(VerifiedAccessEndpointSseSpecificationPtrOutput)
 }
 
 // The endpoint status.

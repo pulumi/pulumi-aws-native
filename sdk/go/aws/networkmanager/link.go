@@ -19,6 +19,8 @@ type Link struct {
 
 	// The Bandwidth for the link.
 	Bandwidth LinkBandwidthOutput `pulumi:"bandwidth"`
+	// The date and time that the device was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the link.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the global network.
@@ -31,6 +33,8 @@ type Link struct {
 	Provider pulumi.StringPtrOutput `pulumi:"provider"`
 	// The ID of the site
 	SiteId pulumi.StringOutput `pulumi:"siteId"`
+	// The state of the link.
+	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the link.
 	Tags LinkTagArrayOutput `pulumi:"tags"`
 	// The type of the link.
@@ -179,6 +183,11 @@ func (o LinkOutput) Bandwidth() LinkBandwidthOutput {
 	return o.ApplyT(func(v *Link) LinkBandwidthOutput { return v.Bandwidth }).(LinkBandwidthOutput)
 }
 
+// The date and time that the device was created.
+func (o LinkOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
 // The description of the link.
 func (o LinkOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -207,6 +216,11 @@ func (o LinkOutput) Provider() pulumi.StringPtrOutput {
 // The ID of the site
 func (o LinkOutput) SiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SiteId }).(pulumi.StringOutput)
+}
+
+// The state of the link.
+func (o LinkOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
 // The tags for the link.

@@ -46,6 +46,7 @@ __all__ = [
     'LayerVersionContent',
     'UrlCors',
     'VersionProvisionedConcurrencyConfiguration',
+    'VersionRuntimePolicy',
 ]
 
 @pulumi.output_type
@@ -1469,7 +1470,9 @@ class FunctionVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "securityGroupIds":
+        if key == "ipv6AllowedForDualStack":
+            suggest = "ipv6_allowed_for_dual_stack"
+        elif key == "securityGroupIds":
             suggest = "security_group_ids"
         elif key == "subnetIds":
             suggest = "subnet_ids"
@@ -1486,28 +1489,42 @@ class FunctionVpcConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 ipv6_allowed_for_dual_stack: Optional[bool] = None,
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
         """
         The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
+        :param bool ipv6_allowed_for_dual_stack: A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
         :param Sequence[str] security_group_ids: A list of VPC security groups IDs.
         :param Sequence[str] subnet_ids: A list of VPC subnet IDs.
         """
         FunctionVpcConfig._configure(
             lambda key, value: pulumi.set(__self__, key, value),
+            ipv6_allowed_for_dual_stack=ipv6_allowed_for_dual_stack,
             security_group_ids=security_group_ids,
             subnet_ids=subnet_ids,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
+             ipv6_allowed_for_dual_stack: Optional[bool] = None,
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
+        if ipv6_allowed_for_dual_stack is not None:
+            _setter("ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
             _setter("subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="ipv6AllowedForDualStack")
+    def ipv6_allowed_for_dual_stack(self) -> Optional[bool]:
+        """
+        A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+        """
+        return pulumi.get(self, "ipv6_allowed_for_dual_stack")
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -1724,6 +1741,9 @@ class UrlCors(dict):
 
 @pulumi.output_type
 class VersionProvisionedConcurrencyConfiguration(dict):
+    """
+    A provisioned concurrency configuration for a function's version.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1743,6 +1763,10 @@ class VersionProvisionedConcurrencyConfiguration(dict):
 
     def __init__(__self__, *,
                  provisioned_concurrent_executions: int):
+        """
+        A provisioned concurrency configuration for a function's version.
+        :param int provisioned_concurrent_executions: The amount of provisioned concurrency to allocate for the version.
+        """
         VersionProvisionedConcurrencyConfiguration._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             provisioned_concurrent_executions=provisioned_concurrent_executions,
@@ -1757,6 +1781,73 @@ class VersionProvisionedConcurrencyConfiguration(dict):
     @property
     @pulumi.getter(name="provisionedConcurrentExecutions")
     def provisioned_concurrent_executions(self) -> int:
+        """
+        The amount of provisioned concurrency to allocate for the version.
+        """
         return pulumi.get(self, "provisioned_concurrent_executions")
+
+
+@pulumi.output_type
+class VersionRuntimePolicy(dict):
+    """
+    Runtime Management Config of a function.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "updateRuntimeOn":
+            suggest = "update_runtime_on"
+        elif key == "runtimeVersionArn":
+            suggest = "runtime_version_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VersionRuntimePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VersionRuntimePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VersionRuntimePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 update_runtime_on: str,
+                 runtime_version_arn: Optional[str] = None):
+        """
+        Runtime Management Config of a function.
+        :param str update_runtime_on: The runtime update mode.
+        :param str runtime_version_arn: The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
+        """
+        VersionRuntimePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            update_runtime_on=update_runtime_on,
+            runtime_version_arn=runtime_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             update_runtime_on: str,
+             runtime_version_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("update_runtime_on", update_runtime_on)
+        if runtime_version_arn is not None:
+            _setter("runtime_version_arn", runtime_version_arn)
+
+    @property
+    @pulumi.getter(name="updateRuntimeOn")
+    def update_runtime_on(self) -> str:
+        """
+        The runtime update mode.
+        """
+        return pulumi.get(self, "update_runtime_on")
+
+    @property
+    @pulumi.getter(name="runtimeVersionArn")
+    def runtime_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
+        """
+        return pulumi.get(self, "runtime_version_arn")
 
 

@@ -62,6 +62,10 @@ export class Site extends pulumi.CustomResource {
      */
     public /*out*/ readonly siteId!: pulumi.Output<string>;
     /**
+     * The state of the site.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
      * The tags for the site.
      */
     public readonly tags!: pulumi.Output<outputs.networkmanager.SiteTag[] | undefined>;
@@ -87,6 +91,7 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["siteArn"] = undefined /*out*/;
             resourceInputs["siteId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -94,6 +99,7 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["siteArn"] = undefined /*out*/;
             resourceInputs["siteId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

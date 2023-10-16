@@ -52,7 +52,6 @@ __all__ = [
     'DataSourceSharePointConfigurationArgs',
     'DataSourceSqlConfigurationArgs',
     'DataSourceTagArgs',
-    'DataSourceTemplateConfigurationArgs',
     'DataSourceToIndexFieldMappingArgs',
     'DataSourceVpcConfigurationArgs',
     'DataSourceWebCrawlerAuthenticationConfigurationArgs',
@@ -217,7 +216,6 @@ class DataSourceConfigurationArgs:
                  salesforce_configuration: Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']] = None,
                  service_now_configuration: Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']] = None,
                  share_point_configuration: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']] = None,
-                 template_configuration: Optional[pulumi.Input['DataSourceTemplateConfigurationArgs']] = None,
                  web_crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None,
                  work_docs_configuration: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']] = None):
         DataSourceConfigurationArgs._configure(
@@ -230,7 +228,6 @@ class DataSourceConfigurationArgs:
             salesforce_configuration=salesforce_configuration,
             service_now_configuration=service_now_configuration,
             share_point_configuration=share_point_configuration,
-            template_configuration=template_configuration,
             web_crawler_configuration=web_crawler_configuration,
             work_docs_configuration=work_docs_configuration,
         )
@@ -245,7 +242,6 @@ class DataSourceConfigurationArgs:
              salesforce_configuration: Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']] = None,
              service_now_configuration: Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']] = None,
              share_point_configuration: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']] = None,
-             template_configuration: Optional[pulumi.Input['DataSourceTemplateConfigurationArgs']] = None,
              web_crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None,
              work_docs_configuration: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
@@ -265,8 +261,6 @@ class DataSourceConfigurationArgs:
             _setter("service_now_configuration", service_now_configuration)
         if share_point_configuration is not None:
             _setter("share_point_configuration", share_point_configuration)
-        if template_configuration is not None:
-            _setter("template_configuration", template_configuration)
         if web_crawler_configuration is not None:
             _setter("web_crawler_configuration", web_crawler_configuration)
         if work_docs_configuration is not None:
@@ -343,15 +337,6 @@ class DataSourceConfigurationArgs:
     @share_point_configuration.setter
     def share_point_configuration(self, value: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']]):
         pulumi.set(self, "share_point_configuration", value)
-
-    @property
-    @pulumi.getter(name="templateConfiguration")
-    def template_configuration(self) -> Optional[pulumi.Input['DataSourceTemplateConfigurationArgs']]:
-        return pulumi.get(self, "template_configuration")
-
-    @template_configuration.setter
-    def template_configuration(self, value: Optional[pulumi.Input['DataSourceTemplateConfigurationArgs']]):
-        pulumi.set(self, "template_configuration", value)
 
     @property
     @pulumi.getter(name="webCrawlerConfiguration")
@@ -2921,31 +2906,6 @@ class DataSourceTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class DataSourceTemplateConfigurationArgs:
-    def __init__(__self__, *,
-                 template: pulumi.Input[str]):
-        DataSourceTemplateConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            template=template,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             template: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("template", template)
-
-    @property
-    @pulumi.getter
-    def template(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "template")
-
-    @template.setter
-    def template(self, value: pulumi.Input[str]):
-        pulumi.set(self, "template", value)
 
 
 @pulumi.input_type

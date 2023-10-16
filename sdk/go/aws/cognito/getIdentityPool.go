@@ -30,17 +30,16 @@ type LookupIdentityPoolArgs struct {
 type LookupIdentityPoolResult struct {
 	AllowClassicFlow               *bool                                 `pulumi:"allowClassicFlow"`
 	AllowUnauthenticatedIdentities *bool                                 `pulumi:"allowUnauthenticatedIdentities"`
-	CognitoEvents                  interface{}                           `pulumi:"cognitoEvents"`
 	CognitoIdentityProviders       []IdentityPoolCognitoIdentityProvider `pulumi:"cognitoIdentityProviders"`
-	CognitoStreams                 *IdentityPoolCognitoStreams           `pulumi:"cognitoStreams"`
 	DeveloperProviderName          *string                               `pulumi:"developerProviderName"`
 	Id                             *string                               `pulumi:"id"`
 	IdentityPoolName               *string                               `pulumi:"identityPoolName"`
-	Name                           *string                               `pulumi:"name"`
-	OpenIdConnectProviderArns      []string                              `pulumi:"openIdConnectProviderArns"`
-	PushSync                       *IdentityPoolPushSync                 `pulumi:"pushSync"`
-	SamlProviderArns               []string                              `pulumi:"samlProviderArns"`
-	SupportedLoginProviders        interface{}                           `pulumi:"supportedLoginProviders"`
+	// An array of key-value pairs to apply to this resource.
+	IdentityPoolTags          []IdentityPoolTag `pulumi:"identityPoolTags"`
+	Name                      *string           `pulumi:"name"`
+	OpenIdConnectProviderArns []string          `pulumi:"openIdConnectProviderArns"`
+	SamlProviderArns          []string          `pulumi:"samlProviderArns"`
+	SupportedLoginProviders   interface{}       `pulumi:"supportedLoginProviders"`
 }
 
 func LookupIdentityPoolOutput(ctx *pulumi.Context, args LookupIdentityPoolOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityPoolResultOutput {
@@ -92,18 +91,10 @@ func (o LookupIdentityPoolResultOutput) AllowUnauthenticatedIdentities() pulumi.
 	return o.ApplyT(func(v LookupIdentityPoolResult) *bool { return v.AllowUnauthenticatedIdentities }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupIdentityPoolResultOutput) CognitoEvents() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupIdentityPoolResult) interface{} { return v.CognitoEvents }).(pulumi.AnyOutput)
-}
-
 func (o LookupIdentityPoolResultOutput) CognitoIdentityProviders() IdentityPoolCognitoIdentityProviderArrayOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) []IdentityPoolCognitoIdentityProvider {
 		return v.CognitoIdentityProviders
 	}).(IdentityPoolCognitoIdentityProviderArrayOutput)
-}
-
-func (o LookupIdentityPoolResultOutput) CognitoStreams() IdentityPoolCognitoStreamsPtrOutput {
-	return o.ApplyT(func(v LookupIdentityPoolResult) *IdentityPoolCognitoStreams { return v.CognitoStreams }).(IdentityPoolCognitoStreamsPtrOutput)
 }
 
 func (o LookupIdentityPoolResultOutput) DeveloperProviderName() pulumi.StringPtrOutput {
@@ -118,16 +109,17 @@ func (o LookupIdentityPoolResultOutput) IdentityPoolName() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupIdentityPoolResult) *string { return v.IdentityPoolName }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+func (o LookupIdentityPoolResultOutput) IdentityPoolTags() IdentityPoolTagArrayOutput {
+	return o.ApplyT(func(v LookupIdentityPoolResult) []IdentityPoolTag { return v.IdentityPoolTags }).(IdentityPoolTagArrayOutput)
+}
+
 func (o LookupIdentityPoolResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupIdentityPoolResultOutput) OpenIdConnectProviderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) []string { return v.OpenIdConnectProviderArns }).(pulumi.StringArrayOutput)
-}
-
-func (o LookupIdentityPoolResultOutput) PushSync() IdentityPoolPushSyncPtrOutput {
-	return o.ApplyT(func(v LookupIdentityPoolResult) *IdentityPoolPushSync { return v.PushSync }).(IdentityPoolPushSyncPtrOutput)
 }
 
 func (o LookupIdentityPoolResultOutput) SamlProviderArns() pulumi.StringArrayOutput {

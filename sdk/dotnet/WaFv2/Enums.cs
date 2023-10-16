@@ -577,6 +577,7 @@ namespace Pulumi.AwsNative.WaFv2
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static RuleGroupRateBasedStatementAggregateKeyType Constant { get; } = new RuleGroupRateBasedStatementAggregateKeyType("CONSTANT");
         public static RuleGroupRateBasedStatementAggregateKeyType Ip { get; } = new RuleGroupRateBasedStatementAggregateKeyType("IP");
         public static RuleGroupRateBasedStatementAggregateKeyType ForwardedIp { get; } = new RuleGroupRateBasedStatementAggregateKeyType("FORWARDED_IP");
         public static RuleGroupRateBasedStatementAggregateKeyType CustomKeys { get; } = new RuleGroupRateBasedStatementAggregateKeyType("CUSTOM_KEYS");
@@ -1081,6 +1082,7 @@ namespace Pulumi.AwsNative.WaFv2
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static WebAclRateBasedStatementAggregateKeyType Constant { get; } = new WebAclRateBasedStatementAggregateKeyType("CONSTANT");
         public static WebAclRateBasedStatementAggregateKeyType Ip { get; } = new WebAclRateBasedStatementAggregateKeyType("IP");
         public static WebAclRateBasedStatementAggregateKeyType ForwardedIp { get; } = new WebAclRateBasedStatementAggregateKeyType("FORWARDED_IP");
         public static WebAclRateBasedStatementAggregateKeyType CustomKeys { get; } = new WebAclRateBasedStatementAggregateKeyType("CUSTOM_KEYS");

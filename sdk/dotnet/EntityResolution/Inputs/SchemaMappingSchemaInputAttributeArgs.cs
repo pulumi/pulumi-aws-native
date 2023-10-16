@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         [Input("matchKey")]
         public Input<string>? MatchKey { get; set; }
 
+        /// <summary>
+        /// The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+        /// </summary>
+        [Input("subType")]
+        public Input<string>? SubType { get; set; }
+
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.EntityResolution.SchemaMappingSchemaAttributeType> Type { get; set; } = null!;
 

@@ -20,7 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetRoutingProfileResult:
-    def __init__(__self__, default_outbound_queue_arn=None, description=None, instance_arn=None, media_concurrencies=None, name=None, queue_configs=None, routing_profile_arn=None, tags=None):
+    def __init__(__self__, agent_availability_timer=None, default_outbound_queue_arn=None, description=None, instance_arn=None, media_concurrencies=None, name=None, queue_configs=None, routing_profile_arn=None, tags=None):
+        if agent_availability_timer and not isinstance(agent_availability_timer, str):
+            raise TypeError("Expected argument 'agent_availability_timer' to be a str")
+        pulumi.set(__self__, "agent_availability_timer", agent_availability_timer)
         if default_outbound_queue_arn and not isinstance(default_outbound_queue_arn, str):
             raise TypeError("Expected argument 'default_outbound_queue_arn' to be a str")
         pulumi.set(__self__, "default_outbound_queue_arn", default_outbound_queue_arn)
@@ -45,6 +48,14 @@ class GetRoutingProfileResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="agentAvailabilityTimer")
+    def agent_availability_timer(self) -> Optional['RoutingProfileAgentAvailabilityTimer']:
+        """
+        Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+        """
+        return pulumi.get(self, "agent_availability_timer")
 
     @property
     @pulumi.getter(name="defaultOutboundQueueArn")
@@ -117,6 +128,7 @@ class AwaitableGetRoutingProfileResult(GetRoutingProfileResult):
         if False:
             yield self
         return GetRoutingProfileResult(
+            agent_availability_timer=self.agent_availability_timer,
             default_outbound_queue_arn=self.default_outbound_queue_arn,
             description=self.description,
             instance_arn=self.instance_arn,
@@ -141,6 +153,7 @@ def get_routing_profile(routing_profile_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getRoutingProfile', __args__, opts=opts, typ=GetRoutingProfileResult).value
 
     return AwaitableGetRoutingProfileResult(
+        agent_availability_timer=pulumi.get(__ret__, 'agent_availability_timer'),
         default_outbound_queue_arn=pulumi.get(__ret__, 'default_outbound_queue_arn'),
         description=pulumi.get(__ret__, 'description'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),

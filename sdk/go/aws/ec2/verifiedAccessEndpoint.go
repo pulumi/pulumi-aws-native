@@ -47,6 +47,8 @@ type VerifiedAccessEndpoint struct {
 	PolicyEnabled pulumi.BoolPtrOutput `pulumi:"policyEnabled"`
 	// The IDs of the security groups for the endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// The configuration options for customer provided KMS encryption.
+	SseSpecification VerifiedAccessEndpointSseSpecificationPtrOutput `pulumi:"sseSpecification"`
 	// The endpoint status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
@@ -150,6 +152,8 @@ type verifiedAccessEndpointArgs struct {
 	PolicyEnabled *bool `pulumi:"policyEnabled"`
 	// The IDs of the security groups for the endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The configuration options for customer provided KMS encryption.
+	SseSpecification *VerifiedAccessEndpointSseSpecification `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []VerifiedAccessEndpointTag `pulumi:"tags"`
 	// The ID of the AWS Verified Access group.
@@ -180,6 +184,8 @@ type VerifiedAccessEndpointArgs struct {
 	PolicyEnabled pulumi.BoolPtrInput
 	// The IDs of the security groups for the endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
+	// The configuration options for customer provided KMS encryption.
+	SseSpecification VerifiedAccessEndpointSseSpecificationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags VerifiedAccessEndpointTagArrayInput
 	// The ID of the AWS Verified Access group.
@@ -312,6 +318,13 @@ func (o VerifiedAccessEndpointOutput) PolicyEnabled() pulumi.BoolPtrOutput {
 // The IDs of the security groups for the endpoint.
 func (o VerifiedAccessEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VerifiedAccessEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The configuration options for customer provided KMS encryption.
+func (o VerifiedAccessEndpointOutput) SseSpecification() VerifiedAccessEndpointSseSpecificationPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpoint) VerifiedAccessEndpointSseSpecificationPtrOutput {
+		return v.SseSpecification
+	}).(VerifiedAccessEndpointSseSpecificationPtrOutput)
 }
 
 // The endpoint status.

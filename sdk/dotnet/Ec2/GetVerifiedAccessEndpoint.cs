@@ -94,6 +94,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly bool? PolicyEnabled;
         /// <summary>
+        /// The configuration options for customer provided KMS encryption.
+        /// </summary>
+        public readonly Outputs.VerifiedAccessEndpointSseSpecification? SseSpecification;
+        /// <summary>
         /// The endpoint status.
         /// </summary>
         public readonly string? Status;
@@ -134,6 +138,8 @@ namespace Pulumi.AwsNative.Ec2
 
             bool? policyEnabled,
 
+            Outputs.VerifiedAccessEndpointSseSpecification? sseSpecification,
+
             string? status,
 
             ImmutableArray<Outputs.VerifiedAccessEndpointTag> tags,
@@ -153,6 +159,7 @@ namespace Pulumi.AwsNative.Ec2
             NetworkInterfaceOptions = networkInterfaceOptions;
             PolicyDocument = policyDocument;
             PolicyEnabled = policyEnabled;
+            SseSpecification = sseSpecification;
             Status = status;
             Tags = tags;
             VerifiedAccessEndpointId = verifiedAccessEndpointId;

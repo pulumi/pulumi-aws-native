@@ -16,28 +16,52 @@ __all__ = ['GlobalNetworkArgs', 'GlobalNetwork']
 @pulumi.input_type
 class GlobalNetworkArgs:
     def __init__(__self__, *,
+                 created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalNetworkTagArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalNetwork resource.
+        :param pulumi.Input[str] created_at: The date and time that the global network was created.
         :param pulumi.Input[str] description: The description of the global network.
+        :param pulumi.Input[str] state: The state of the global network.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalNetworkTagArgs']]] tags: The tags for the global network.
         """
         GlobalNetworkArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
             description=description,
+            state=state,
             tags=tags,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
+             created_at: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalNetworkTagArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
+        if created_at is not None:
+            _setter("created_at", created_at)
         if description is not None:
             _setter("description", description)
+        if state is not None:
+            _setter("state", state)
         if tags is not None:
             _setter("tags", tags)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time that the global network was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_at", value)
 
     @property
     @pulumi.getter
@@ -50,6 +74,18 @@ class GlobalNetworkArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the global network.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
 
     @property
     @pulumi.getter
@@ -69,7 +105,9 @@ class GlobalNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalNetworkTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -77,7 +115,9 @@ class GlobalNetwork(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] created_at: The date and time that the global network was created.
         :param pulumi.Input[str] description: The description of the global network.
+        :param pulumi.Input[str] state: The state of the global network.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalNetworkTagArgs']]]] tags: The tags for the global network.
         """
         ...
@@ -108,7 +148,9 @@ class GlobalNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalNetworkTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -119,7 +161,9 @@ class GlobalNetwork(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GlobalNetworkArgs.__new__(GlobalNetworkArgs)
 
+            __props__.__dict__["created_at"] = created_at
             __props__.__dict__["description"] = description
+            __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(GlobalNetwork, __self__).__init__(
@@ -145,7 +189,9 @@ class GlobalNetwork(pulumi.CustomResource):
         __props__ = GlobalNetworkArgs.__new__(GlobalNetworkArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         return GlobalNetwork(resource_name, opts=opts, __props__=__props__)
 
@@ -158,12 +204,28 @@ class GlobalNetwork(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[Optional[str]]:
+        """
+        The date and time that the global network was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the global network.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[Optional[str]]:
+        """
+        The state of the global network.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter

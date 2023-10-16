@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetVerifiedAccessInstanceResult:
-    def __init__(__self__, creation_time=None, description=None, last_updated_time=None, logging_configurations=None, tags=None, verified_access_instance_id=None, verified_access_trust_provider_ids=None, verified_access_trust_providers=None):
+    def __init__(__self__, creation_time=None, description=None, fips_enabled=None, last_updated_time=None, logging_configurations=None, tags=None, verified_access_instance_id=None, verified_access_trust_provider_ids=None, verified_access_trust_providers=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if fips_enabled and not isinstance(fips_enabled, bool):
+            raise TypeError("Expected argument 'fips_enabled' to be a bool")
+        pulumi.set(__self__, "fips_enabled", fips_enabled)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -60,6 +63,14 @@ class GetVerifiedAccessInstanceResult:
         A description for the AWS Verified Access instance.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether FIPS is enabled
+        """
+        return pulumi.get(self, "fips_enabled")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -118,6 +129,7 @@ class AwaitableGetVerifiedAccessInstanceResult(GetVerifiedAccessInstanceResult):
         return GetVerifiedAccessInstanceResult(
             creation_time=self.creation_time,
             description=self.description,
+            fips_enabled=self.fips_enabled,
             last_updated_time=self.last_updated_time,
             logging_configurations=self.logging_configurations,
             tags=self.tags,
@@ -142,6 +154,7 @@ def get_verified_access_instance(verified_access_instance_id: Optional[str] = No
     return AwaitableGetVerifiedAccessInstanceResult(
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
+        fips_enabled=pulumi.get(__ret__, 'fips_enabled'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         logging_configurations=pulumi.get(__ret__, 'logging_configurations'),
         tags=pulumi.get(__ret__, 'tags'),

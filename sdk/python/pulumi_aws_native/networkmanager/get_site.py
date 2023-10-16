@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSiteResult:
-    def __init__(__self__, created_at=None, description=None, location=None, site_arn=None, site_id=None, tags=None):
+    def __init__(__self__, created_at=None, description=None, location=None, site_arn=None, site_id=None, state=None, tags=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -35,6 +35,9 @@ class GetSiteResult:
         if site_id and not isinstance(site_id, str):
             raise TypeError("Expected argument 'site_id' to be a str")
         pulumi.set(__self__, "site_id", site_id)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -81,6 +84,14 @@ class GetSiteResult:
 
     @property
     @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of the site.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.SiteTag']]:
         """
         The tags for the site.
@@ -99,6 +110,7 @@ class AwaitableGetSiteResult(GetSiteResult):
             location=self.location,
             site_arn=self.site_arn,
             site_id=self.site_id,
+            state=self.state,
             tags=self.tags)
 
 
@@ -124,6 +136,7 @@ def get_site(global_network_id: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         site_arn=pulumi.get(__ret__, 'site_arn'),
         site_id=pulumi.get(__ret__, 'site_id'),
+        state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

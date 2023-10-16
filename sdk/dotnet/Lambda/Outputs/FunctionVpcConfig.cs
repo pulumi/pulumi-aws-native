@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     public sealed class FunctionVpcConfig
     {
         /// <summary>
+        /// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+        /// </summary>
+        public readonly bool? Ipv6AllowedForDualStack;
+        /// <summary>
         /// A list of VPC security groups IDs.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 
         [OutputConstructor]
         private FunctionVpcConfig(
+            bool? ipv6AllowedForDualStack,
+
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<string> subnetIds)
         {
+            Ipv6AllowedForDualStack = ipv6AllowedForDualStack;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
         }

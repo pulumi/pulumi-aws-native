@@ -37,6 +37,8 @@ type Device struct {
 	SerialNumber pulumi.StringPtrOutput `pulumi:"serialNumber"`
 	// The site ID.
 	SiteId pulumi.StringPtrOutput `pulumi:"siteId"`
+	// The state of the device.
+	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the device.
 	Tags DeviceTagArrayOutput `pulumi:"tags"`
 	// The device type.
@@ -235,6 +237,11 @@ func (o DeviceOutput) SerialNumber() pulumi.StringPtrOutput {
 // The site ID.
 func (o DeviceOutput) SiteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.SiteId }).(pulumi.StringPtrOutput)
+}
+
+// The state of the device.
+func (o DeviceOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
 // The tags for the device.

@@ -66,6 +66,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Indicates whether FIPS is enabled
+        /// </summary>
+        public readonly bool? FipsEnabled;
+        /// <summary>
         /// Time this Verified Access Instance was last updated.
         /// </summary>
         public readonly string? LastUpdatedTime;
@@ -96,6 +100,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? description,
 
+            bool? fipsEnabled,
+
             string? lastUpdatedTime,
 
             Outputs.VerifiedAccessInstanceVerifiedAccessLogs? loggingConfigurations,
@@ -110,6 +116,7 @@ namespace Pulumi.AwsNative.Ec2
         {
             CreationTime = creationTime;
             Description = description;
+            FipsEnabled = fipsEnabled;
             LastUpdatedTime = lastUpdatedTime;
             LoggingConfigurations = loggingConfigurations;
             Tags = tags;

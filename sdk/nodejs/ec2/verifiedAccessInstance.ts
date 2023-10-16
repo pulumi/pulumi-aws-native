@@ -46,6 +46,10 @@ export class VerifiedAccessInstance extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether FIPS is enabled
+     */
+    public readonly fipsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Time this Verified Access Instance was last updated.
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class VerifiedAccessInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
             resourceInputs["loggingConfigurations"] = args ? args.loggingConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["verifiedAccessTrustProviderIds"] = args ? args.verifiedAccessTrustProviderIds : undefined;
@@ -92,6 +97,7 @@ export class VerifiedAccessInstance extends pulumi.CustomResource {
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["fipsEnabled"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["loggingConfigurations"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -112,6 +118,10 @@ export interface VerifiedAccessInstanceArgs {
      * A description for the AWS Verified Access instance.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Indicates whether FIPS is enabled
+     */
+    fipsEnabled?: pulumi.Input<boolean>;
     /**
      * The configuration options for AWS Verified Access instances.
      */

@@ -74,6 +74,10 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly Outputs.LinkBandwidth? Bandwidth;
         /// <summary>
+        /// The date and time that the device was created.
+        /// </summary>
+        public readonly string? CreatedAt;
+        /// <summary>
         /// The description of the link.
         /// </summary>
         public readonly string? Description;
@@ -90,6 +94,10 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly string? Provider;
         /// <summary>
+        /// The state of the link.
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
         /// The tags for the link.
         /// </summary>
         public readonly ImmutableArray<Outputs.LinkTag> Tags;
@@ -102,6 +110,8 @@ namespace Pulumi.AwsNative.NetworkManager
         private GetLinkResult(
             Outputs.LinkBandwidth? bandwidth,
 
+            string? createdAt,
+
             string? description,
 
             string? linkArn,
@@ -110,15 +120,19 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? provider,
 
+            string? state,
+
             ImmutableArray<Outputs.LinkTag> tags,
 
             string? type)
         {
             Bandwidth = bandwidth;
+            CreatedAt = createdAt;
             Description = description;
             LinkArn = linkArn;
             LinkId = linkId;
             Provider = provider;
+            State = state;
             Tags = tags;
             Type = type;
         }
