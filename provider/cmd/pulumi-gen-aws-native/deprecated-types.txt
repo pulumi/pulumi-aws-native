@@ -1,3 +1,5 @@
+AWS::ApiGateway::Method
+AWS::Cognito::IdentityPool
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::Lambda::EventInvokeConfig
