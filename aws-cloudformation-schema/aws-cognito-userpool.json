@@ -1,262 +1,124 @@
 {
   "typeName" : "AWS::Cognito::UserPool",
   "description" : "Resource Type definition for AWS::Cognito::UserPool",
-  "additionalProperties" : false,
-  "properties" : {
-    "UserPoolTags" : {
-      "type" : "object"
-    },
-    "Policies" : {
-      "$ref" : "#/definitions/Policies"
-    },
-    "Schema" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/SchemaAttribute"
-      }
-    },
-    "AdminCreateUserConfig" : {
-      "$ref" : "#/definitions/AdminCreateUserConfig"
-    },
-    "UsernameConfiguration" : {
-      "$ref" : "#/definitions/UsernameConfiguration"
-    },
-    "UserPoolName" : {
-      "type" : "string"
-    },
-    "SmsVerificationMessage" : {
-      "type" : "string"
-    },
-    "UserAttributeUpdateSettings" : {
-      "$ref" : "#/definitions/UserAttributeUpdateSettings"
-    },
-    "EmailConfiguration" : {
-      "$ref" : "#/definitions/EmailConfiguration"
-    },
-    "SmsConfiguration" : {
-      "$ref" : "#/definitions/SmsConfiguration"
-    },
-    "EmailVerificationSubject" : {
-      "type" : "string"
-    },
-    "AccountRecoverySetting" : {
-      "$ref" : "#/definitions/AccountRecoverySetting"
-    },
-    "VerificationMessageTemplate" : {
-      "$ref" : "#/definitions/VerificationMessageTemplate"
-    },
-    "ProviderURL" : {
-      "type" : "string"
-    },
-    "MfaConfiguration" : {
-      "type" : "string"
-    },
-    "DeletionProtection" : {
-      "type" : "string"
-    },
-    "SmsAuthenticationMessage" : {
-      "type" : "string"
-    },
-    "ProviderName" : {
-      "type" : "string"
-    },
-    "UserPoolAddOns" : {
-      "$ref" : "#/definitions/UserPoolAddOns"
-    },
-    "AliasAttributes" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "EnabledMfas" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "LambdaConfig" : {
-      "$ref" : "#/definitions/LambdaConfig"
-    },
-    "Id" : {
-      "type" : "string"
-    },
-    "Arn" : {
-      "type" : "string"
-    },
-    "UsernameAttributes" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "AutoVerifiedAttributes" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "DeviceConfiguration" : {
-      "$ref" : "#/definitions/DeviceConfiguration"
-    },
-    "EmailVerificationMessage" : {
-      "type" : "string"
-    }
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/UserPoolTags"
   },
   "definitions" : {
+    "PasswordPolicy" : {
+      "type" : "object",
+      "properties" : {
+        "MinimumLength" : {
+          "type" : "integer"
+        },
+        "RequireLowercase" : {
+          "type" : "boolean"
+        },
+        "RequireNumbers" : {
+          "type" : "boolean"
+        },
+        "RequireSymbols" : {
+          "type" : "boolean"
+        },
+        "RequireUppercase" : {
+          "type" : "boolean"
+        },
+        "TemporaryPasswordValidityDays" : {
+          "type" : "integer"
+        }
+      },
+      "additionalProperties" : false
+    },
     "Policies" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
         "PasswordPolicy" : {
           "$ref" : "#/definitions/PasswordPolicy"
         }
-      }
-    },
-    "VerificationMessageTemplate" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "EmailMessageByLink" : {
-          "type" : "string"
-        },
-        "EmailMessage" : {
-          "type" : "string"
-        },
-        "SmsMessage" : {
-          "type" : "string"
-        },
-        "EmailSubject" : {
-          "type" : "string"
-        },
-        "DefaultEmailOption" : {
-          "type" : "string"
-        },
-        "EmailSubjectByLink" : {
-          "type" : "string"
-        }
-      }
-    },
-    "NumberAttributeConstraints" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "MinValue" : {
-          "type" : "string"
-        },
-        "MaxValue" : {
-          "type" : "string"
-        }
-      }
+      },
+      "additionalProperties" : false
     },
     "InviteMessageTemplate" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
-        "EmailSubject" : {
+        "EmailMessage" : {
           "type" : "string"
         },
-        "EmailMessage" : {
+        "EmailSubject" : {
           "type" : "string"
         },
         "SMSMessage" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
+    },
+    "RecoveryOption" : {
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "type" : "string"
+        },
+        "Priority" : {
+          "type" : "integer"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "AccountRecoverySetting" : {
+      "type" : "object",
+      "properties" : {
+        "RecoveryMechanisms" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/RecoveryOption"
+          }
+        }
+      },
+      "additionalProperties" : false
     },
     "AdminCreateUserConfig" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
+        "AllowAdminCreateUserOnly" : {
+          "type" : "boolean"
+        },
         "InviteMessageTemplate" : {
           "$ref" : "#/definitions/InviteMessageTemplate"
         },
         "UnusedAccountValidityDays" : {
           "type" : "integer"
-        },
-        "AllowAdminCreateUserOnly" : {
-          "type" : "boolean"
-        }
-      }
-    },
-    "UsernameConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "CaseSensitive" : {
-          "type" : "boolean"
-        }
-      }
-    },
-    "UserPoolAddOns" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "AdvancedSecurityMode" : {
-          "type" : "string"
-        }
-      }
-    },
-    "RecoveryOption" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Priority" : {
-          "type" : "integer"
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      }
-    },
-    "StringAttributeConstraints" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "MaxLength" : {
-          "type" : "string"
-        },
-        "MinLength" : {
-          "type" : "string"
-        }
-      }
-    },
-    "UserAttributeUpdateSettings" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "AttributesRequireVerificationBeforeUpdate" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
         }
       },
-      "required" : [ "AttributesRequireVerificationBeforeUpdate" ]
+      "additionalProperties" : false
     },
-    "CustomSMSSender" : {
+    "DeviceConfiguration" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
-        "LambdaArn" : {
-          "type" : "string"
+        "ChallengeRequiredOnNewDevice" : {
+          "type" : "boolean"
         },
-        "LambdaVersion" : {
-          "type" : "string"
+        "DeviceOnlyRememberedOnUserPrompt" : {
+          "type" : "boolean"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "EmailConfiguration" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
         "ReplyToEmailAddress" : {
+          "type" : "string"
+        },
+        "SourceArn" : {
+          "type" : "string"
+        },
+        "From" : {
           "type" : "string"
         },
         "ConfigurationSet" : {
@@ -264,164 +126,343 @@
         },
         "EmailSendingAccount" : {
           "type" : "string"
-        },
-        "From" : {
-          "type" : "string"
-        },
-        "SourceArn" : {
-          "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
-    "SmsConfiguration" : {
+    "CustomEmailSender" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
-        "SnsCallerArn" : {
+        "LambdaVersion" : {
           "type" : "string"
         },
-        "SnsRegion" : {
-          "type" : "string"
-        },
-        "ExternalId" : {
+        "LambdaArn" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
-    "PasswordPolicy" : {
+    "CustomSMSSender" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
-        "RequireNumbers" : {
-          "type" : "boolean"
+        "LambdaVersion" : {
+          "type" : "string"
         },
-        "MinimumLength" : {
-          "type" : "integer"
-        },
-        "TemporaryPasswordValidityDays" : {
-          "type" : "integer"
-        },
-        "RequireUppercase" : {
-          "type" : "boolean"
-        },
-        "RequireLowercase" : {
-          "type" : "boolean"
-        },
-        "RequireSymbols" : {
-          "type" : "boolean"
+        "LambdaArn" : {
+          "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "LambdaConfig" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
         "CreateAuthChallenge" : {
-          "type" : "string"
-        },
-        "PreSignUp" : {
-          "type" : "string"
-        },
-        "KMSKeyID" : {
-          "type" : "string"
-        },
-        "UserMigration" : {
-          "type" : "string"
-        },
-        "PostAuthentication" : {
-          "type" : "string"
-        },
-        "VerifyAuthChallengeResponse" : {
-          "type" : "string"
-        },
-        "PreAuthentication" : {
-          "type" : "string"
-        },
-        "DefineAuthChallenge" : {
-          "type" : "string"
-        },
-        "PreTokenGeneration" : {
-          "type" : "string"
-        },
-        "CustomSMSSender" : {
-          "$ref" : "#/definitions/CustomSMSSender"
-        },
-        "PostConfirmation" : {
           "type" : "string"
         },
         "CustomMessage" : {
           "type" : "string"
         },
-        "CustomEmailSender" : {
-          "$ref" : "#/definitions/CustomEmailSender"
-        }
-      }
-    },
-    "CustomEmailSender" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "LambdaArn" : {
+        "DefineAuthChallenge" : {
           "type" : "string"
         },
-        "LambdaVersion" : {
+        "PostAuthentication" : {
+          "type" : "string"
+        },
+        "PostConfirmation" : {
+          "type" : "string"
+        },
+        "PreAuthentication" : {
+          "type" : "string"
+        },
+        "PreSignUp" : {
+          "type" : "string"
+        },
+        "VerifyAuthChallengeResponse" : {
+          "type" : "string"
+        },
+        "UserMigration" : {
+          "type" : "string"
+        },
+        "PreTokenGeneration" : {
+          "type" : "string"
+        },
+        "CustomEmailSender" : {
+          "$ref" : "#/definitions/CustomEmailSender"
+        },
+        "CustomSMSSender" : {
+          "$ref" : "#/definitions/CustomSMSSender"
+        },
+        "KMSKeyID" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
+    },
+    "SmsConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "ExternalId" : {
+          "type" : "string"
+        },
+        "SnsCallerArn" : {
+          "type" : "string"
+        },
+        "SnsRegion" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "StringAttributeConstraints" : {
+      "type" : "object",
+      "properties" : {
+        "MaxLength" : {
+          "type" : "string"
+        },
+        "MinLength" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "NumberAttributeConstraints" : {
+      "type" : "object",
+      "properties" : {
+        "MaxValue" : {
+          "type" : "string"
+        },
+        "MinValue" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
     },
     "SchemaAttribute" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
+        "AttributeDataType" : {
+          "type" : "string"
+        },
         "DeveloperOnlyAttribute" : {
           "type" : "boolean"
         },
         "Mutable" : {
           "type" : "boolean"
         },
-        "AttributeDataType" : {
+        "Name" : {
           "type" : "string"
+        },
+        "NumberAttributeConstraints" : {
+          "$ref" : "#/definitions/NumberAttributeConstraints"
         },
         "StringAttributeConstraints" : {
           "$ref" : "#/definitions/StringAttributeConstraints"
         },
         "Required" : {
           "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "UsernameConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "CaseSensitive" : {
+          "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "UserAttributeUpdateSettings" : {
+      "type" : "object",
+      "properties" : {
+        "AttributesRequireVerificationBeforeUpdate" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "AttributesRequireVerificationBeforeUpdate" ],
+      "additionalProperties" : false
+    },
+    "VerificationMessageTemplate" : {
+      "type" : "object",
+      "properties" : {
+        "DefaultEmailOption" : {
+          "type" : "string"
         },
-        "NumberAttributeConstraints" : {
-          "$ref" : "#/definitions/NumberAttributeConstraints"
+        "EmailMessage" : {
+          "type" : "string"
         },
-        "Name" : {
+        "EmailMessageByLink" : {
+          "type" : "string"
+        },
+        "EmailSubject" : {
+          "type" : "string"
+        },
+        "EmailSubjectByLink" : {
+          "type" : "string"
+        },
+        "SmsMessage" : {
           "type" : "string"
         }
+      },
+      "additionalProperties" : false
+    },
+    "UserPoolAddOns" : {
+      "type" : "object",
+      "properties" : {
+        "AdvancedSecurityMode" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    }
+  },
+  "properties" : {
+    "UserPoolName" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 128
+    },
+    "Policies" : {
+      "$ref" : "#/definitions/Policies"
+    },
+    "AccountRecoverySetting" : {
+      "$ref" : "#/definitions/AccountRecoverySetting"
+    },
+    "AdminCreateUserConfig" : {
+      "$ref" : "#/definitions/AdminCreateUserConfig"
+    },
+    "AliasAttributes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "UsernameAttributes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "AutoVerifiedAttributes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
       }
     },
     "DeviceConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "DeviceOnlyRememberedOnUserPrompt" : {
-          "type" : "boolean"
-        },
-        "ChallengeRequiredOnNewDevice" : {
-          "type" : "boolean"
-        }
+      "$ref" : "#/definitions/DeviceConfiguration"
+    },
+    "EmailConfiguration" : {
+      "$ref" : "#/definitions/EmailConfiguration"
+    },
+    "EmailVerificationMessage" : {
+      "type" : "string",
+      "minLength" : 6,
+      "maxLength" : 20000
+    },
+    "EmailVerificationSubject" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 140
+    },
+    "DeletionProtection" : {
+      "type" : "string"
+    },
+    "LambdaConfig" : {
+      "$ref" : "#/definitions/LambdaConfig"
+    },
+    "MfaConfiguration" : {
+      "type" : "string"
+    },
+    "EnabledMfas" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
       }
     },
-    "AccountRecoverySetting" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "RecoveryMechanisms" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "$ref" : "#/definitions/RecoveryOption"
-          }
-        }
+    "SmsAuthenticationMessage" : {
+      "type" : "string",
+      "minLength" : 6,
+      "maxLength" : 140
+    },
+    "SmsConfiguration" : {
+      "$ref" : "#/definitions/SmsConfiguration"
+    },
+    "SmsVerificationMessage" : {
+      "type" : "string",
+      "minLength" : 6,
+      "maxLength" : 140
+    },
+    "Schema" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/SchemaAttribute"
       }
+    },
+    "UsernameConfiguration" : {
+      "$ref" : "#/definitions/UsernameConfiguration"
+    },
+    "UserAttributeUpdateSettings" : {
+      "$ref" : "#/definitions/UserAttributeUpdateSettings"
+    },
+    "UserPoolTags" : {
+      "type" : "object",
+      "patternProperties" : {
+        "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "VerificationMessageTemplate" : {
+      "$ref" : "#/definitions/VerificationMessageTemplate"
+    },
+    "UserPoolAddOns" : {
+      "$ref" : "#/definitions/UserPoolAddOns"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "ProviderURL" : {
+      "type" : "string"
+    },
+    "Arn" : {
+      "type" : "string"
+    },
+    "UserPoolId" : {
+      "type" : "string"
     }
   },
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/ProviderName", "/properties/ProviderURL" ]
+  "additionalProperties" : false,
+  "primaryIdentifier" : [ "/properties/UserPoolId" ],
+  "readOnlyProperties" : [ "/properties/ProviderName", "/properties/UserPoolId", "/properties/ProviderURL", "/properties/Arn" ],
+  "writeOnlyProperties" : [ "/properties/EnabledMfas" ],
+  "propertyTransform" : {
+    "/properties/Schema/*/Name" : "'custom:' & '' & Name"
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "cognito-idp:CreateUserPool", "iam:PassRole", "cognito-idp:SetUserPoolMfaConfig", "cognito-idp:DescribeUserPool", "kms:CreateGrant", "iam:CreateServiceLinkedRole" ],
+      "timeoutInMinutes" : 2
+    },
+    "read" : {
+      "permissions" : [ "cognito-idp:DescribeUserPool" ]
+    },
+    "update" : {
+      "permissions" : [ "cognito-idp:UpdateUserPool", "cognito-idp:ListTagsForResource", "cognito-idp:UntagResource", "cognito-idp:TagResource", "cognito-idp:SetUserPoolMfaConfig", "cognito-idp:AddCustomAttributes", "cognito-idp:DescribeUserPool", "iam:PassRole" ],
+      "timeoutInMinutes" : 2
+    },
+    "delete" : {
+      "permissions" : [ "cognito-idp:DeleteUserPool" ],
+      "timeoutInMinutes" : 2
+    },
+    "list" : {
+      "permissions" : [ "cognito-idp:ListUserPools" ]
+    }
+  }
 }

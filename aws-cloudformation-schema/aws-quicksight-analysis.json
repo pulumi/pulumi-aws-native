@@ -9308,6 +9308,20 @@
       "required" : [ "ComputationId" ],
       "additionalProperties" : false
     },
+    "ValidationStrategy" : {
+      "type" : "object",
+      "properties" : {
+        "Mode" : {
+          "$ref" : "#/definitions/ValidationStrategyMode"
+        }
+      },
+      "required" : [ "Mode" ],
+      "additionalProperties" : false
+    },
+    "ValidationStrategyMode" : {
+      "type" : "string",
+      "enum" : [ "STRICT", "LENIENT" ]
+    },
     "ValueWhenUnsetOption" : {
       "type" : "string",
       "enum" : [ "RECOMMENDED_VALUE", "NULL" ]
@@ -9910,10 +9924,13 @@
     },
     "ThemeArn" : {
       "type" : "string"
+    },
+    "ValidationStrategy" : {
+      "$ref" : "#/definitions/ValidationStrategy"
     }
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/DataSetArns", "/properties/Errors", "/properties/Sheets", "/properties/LastUpdatedTime" ],
-  "writeOnlyProperties" : [ "/properties/Definition", "/properties/Parameters", "/properties/SourceEntity", "/properties/LastUpdatedTime", "/properties/Status", "/properties/Sheets" ],
+  "writeOnlyProperties" : [ "/properties/Definition", "/properties/Parameters", "/properties/SourceEntity", "/properties/LastUpdatedTime", "/properties/Status", "/properties/Sheets", "/properties/ValidationStrategy" ],
   "createOnlyProperties" : [ "/properties/AnalysisId", "/properties/AwsAccountId" ],
   "primaryIdentifier" : [ "/properties/AnalysisId", "/properties/AwsAccountId" ],
   "handlers" : {

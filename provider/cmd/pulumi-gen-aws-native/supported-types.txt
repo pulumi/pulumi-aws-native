@@ -61,6 +61,7 @@ AWS::AppStream::Entitlement
 AWS::AppStream::ImageBuilder
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
+AWS::AppSync::FunctionConfiguration
 AWS::AppSync::SourceApiAssociation
 AWS::ApplicationAutoScaling::ScalableTarget
 AWS::ApplicationInsights::Application
@@ -140,6 +141,8 @@ AWS::CodeStarNotifications::NotificationRule
 AWS::Cognito::IdentityPool
 AWS::Cognito::IdentityPoolPrincipalTag
 AWS::Cognito::LogDeliveryConfiguration
+AWS::Cognito::UserPool
+AWS::Cognito::UserPoolGroup
 AWS::Cognito::UserPoolUser
 AWS::Comprehend::DocumentClassifier
 AWS::Comprehend::Flywheel
@@ -325,6 +328,7 @@ AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
 AWS::ElasticLoadBalancingV2::LoadBalancer
 AWS::ElasticLoadBalancingV2::TargetGroup
+AWS::EntityResolution::IdMappingWorkflow
 AWS::EntityResolution::MatchingWorkflow
 AWS::EntityResolution::SchemaMapping
 AWS::EventSchemas::RegistryPolicy
